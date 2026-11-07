@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\title{Metaplectic Jacquet--Langlands Transfer, Part III\\Revision Log: Draft 8 to Draft 9}
+\author{Prepared by ChatGPT (OpenAI) for David Joyner}
+\date{November 7, 2026 (Eastern Standard Time)}
+\begin{document}
+\maketitle
+\section*{Scope}
+This targeted revision addresses the status and proof of Part III, Corollary 7.8, in response to the inconsistency reported by Claude between Parts I--II (status [P]) and Part III, Draft 8 (status [O]). The paper retains the existing title stem, authors and author order. The corrected manuscript is designated \emph{Draft 9}. Corollary 7.8 retains its number and label, so existing cross-references in Parts I and II continue to point to it.
+\section*{Mathematical revisions}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Cocycle.} Part I, Proposition 2.3(b), identifies the restricted and relabeled ambient cover with the parameter-$c_v$ Kazhdan--Patterson cover. The diagonal cocycle is
+\[
+\sigma_{c_v}(a,b)=\prod_{i<j}(a_i,b_j)_n\,(\det a,\det b)_n^{c_v}.
+\]
+This agrees with Zou's formula (2.1) specialized to one-dimensional blocks. Equality of extension classes, not a preferred equality of all section cocycles, is the needed datum.
+\item \textbf{Scalar section and central characters.} On scalar matrices the cocycle exponent is $e_r=\binom r2+c_vr^2$. Because $2e_r=r(r-1+2rc_v)$ and $n$ is odd with $n\mid r-1+2rc_v$, the standard scalar cocycle is trivial. This proves $\widetilde\omega(s(a^nI_r))=\theta(a)$ and $\theta|_{\mu_n}=1$, as required in Zou's relation (3.1).
+\item \textbf{Star map and torus identification.} For odd $n$, Flicker--Kazhdan's star map is intrinsically the $n$th power of any lift. The map commutes with any extension isomorphism; ambiguity by $\chi\circ\det$ disappears on star images. Part I, Theorem 3.9, gives $\jmath(t_D^*)=(j(t))_{\mathrm{GL}}^*$ and respects the common scalar center.
+\item \textbf{Root sum.} For elliptic regular $x$, each solution of $y^n=x^n$ in $\mathrm{GL}_r(F)$ is $y=\zeta x$ with $\zeta\in\mu_n(F)$. All $n$ contributions to Zou's (3.2) have the same character and discriminant values, with trivial phase. The coefficient is
+\[
+\frac{n}{d_F(n)|n|_F^{r/2}}=|n|_F^{-(r-1)/2}=b_D.
+\]
+At $p\nmid n$, $b_D=1$ and $\Delta(x^n)=\Delta(x)$ by Part III's tame discriminant lemma.
+\item \textbf{Composition.} The revised proof composes the tame division-side irreducible-character correspondence (Part III, Theorem 7.6), classical Jacquet--Langlands, and the corrected local metaplectic correspondence of Flicker--Kazhdan--Zou. It proves the sign $(-1)^{r-1}$ and the full central-equivariant relation on good regular elliptic elements. No $L^2$-unitarity-to-integrality inference is used.
+\end{enumerate}
+\section*{Status and boundary}
+Corollary 7.8 now carries \textbf{[P]} \emph{under the explicitly stated availability of the published square-integrable metaplectic correspondence}. A sufficient range stated in Flicker--Kazhdan is $(n,N_r)=1$, with $N_r$ the least common multiple of the composite integers $\le r$; Zou, Proposition 3.6 and Definition 3.7, supplies the corrected formulation. This is not a claim that the external theorem is established for all $(n,r)$ or that the wild-place character transform is integral. The global spectral trace-formula comparison and its Haar normalizations remain separate open tasks.
+\section*{Editorial changes}
+The abstract was amended, the introduction status table now records the qualified result as [P], and the later prospective composition discussion was aligned with the new theorem. No new numbered theorem was placed before Corollary 7.8, preserving its numbering.
+\section*{Repository consistency}
+Part I, Draft 7, Remark 8.1, and Part II, Draft 7, Section 7(ii), contain stronger shorthand formulations. When updating them, state the external $(n,N_r)=1$ restriction or an explicitly cited broader correspondence theorem. Update bibliographic references from ``Part III, Draft 7'' to ``Part III, Draft 9'' wherever those are present. The compiled PDFs must be regenerated when their LaTeX sources are updated.
+\section*{Verification performed}
+Source checks: the current GitHub copies of Parts I (Draft 7), II (Draft 7), III (Draft 8), the user's attached copy of Part III (Draft 8), and the attached revised Zou paper and Flicker--Kazhdan paper. The new manuscript was compiled with \texttt{pdflatex} and its internal label \texttt{cor:D2tame} verified to resolve to Corollary 7.8. As with any research manuscript, external specialist refereeing of the revised argument is advisable.
+\end{document}
