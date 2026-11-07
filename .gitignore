@@ -1,0 +1,22 @@
+# LaTeX intermediate files
+*.aux
+*.log
+*.toc
+*.out
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.bbl
+*.blg
+*.nav
+*.snm
+
+# macOS files
+.DS_Store
+
+# Python temporary files
+__pycache__/
+*.pyc
+
+# Local build directories
+_build/
