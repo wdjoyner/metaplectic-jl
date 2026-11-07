@@ -1,0 +1,1089 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem,longtable}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\newcommand{\F}{F}
+\newcommand{\K}{K}
+\newcommand{\A}{\mathbb A}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\Nrd}{\operatorname{Nrd}}
+\newcommand{\Nm}{\operatorname{N}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\Gal}{\operatorname{Gal}}
+\newcommand{\Aut}{\operatorname{Aut}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\tH}{\widetilde H}
+\newcommand{\tZ}{\widetilde Z}
+\newcommand{\tT}{\widetilde T}
+\newcommand{\Gb}{\overline G}
+\newcommand{\GDb}{\overline{G_D}}
+\newcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\newcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\newcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\newcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, IV:\\
+Wild local correspondence and global trace formula comparison\\[0.4em]\normalsize Draft 3}
+\author{David Joyner \and ChatGPT (OpenAI) \and Claude (Anthropic)}
+\date{November 7, 2026}
+\emergencystretch=3em
+\begin{document}
+\maketitle
+\begin{abstract}
+We continue Parts I--III for an odd-degree covering of the multiplicative
+inner form of $\GL_r$ with $r$ prime and $(r,n)=1$.  First we reconcile the
+split-diagonal cocycle with the ambient-cover restriction and central
+relabeling in Part I.  The regular good-element criterion for \emph{every}
+maximal torus, including nonsplit tori and wild residue characteristic,
+is already a theorem of Flicker--Kazhdan; we supply its proof with the
+parameters used in this series.  We prove two refinements useful in global
+comparison: an almost-everywhere local-to-global criterion for globally
+good regular classes, and an exact local calculation of the kernel, index,
+and Haar modulus of the $n$th-power map on an arbitrary finite \emph{\'etale}
+torus modulo scalars.  The power-map calculation gives the split-place
+root multiplicities, while a separate regularity example explains why a
+regular root need not have a regular $n$th power.  The genuine character transform of Part III
+is then placed alongside the corrected metaplectic character relation of
+Zou and the older work of Flicker--Kazhdan.  A normalization ledger and explicit Flicker--Kazhdan-compatible
+split-place test-function conditions separate the previously established
+covered-inner-form trace comparison from the additional proposed
+comparison with ordinary $D^\times$.  The wild irreducible-character
+integrality and the latter global comparison are not established here.
+\end{abstract}
+\tableofcontents
+
+\section{Introduction and mathematical status}\label{sec:intro}
+The problem concerns three different local representation theories.
+Write $H_v=D_v^\times$, and let $\GDb_v$ denote its specified $n$-fold
+central cover; the cover $\Gb_v$ of $\GL_r(K_v)$ is defined inside the
+same ambient cover.  An additional \emph{ordinary} group $H_v$ enters
+through the transform $L_{D,v}$ of Part III.  These are not interchangeable.
+In particular, a comparison between $\GDb$ and $\Gb$ has already been
+obtained in Parts I--II under its stated test-function and spectral
+hypotheses.  The new proposed comparison between $H$ and $\GDb$ is a
+different assertion.
+
+\paragraph{Global assumptions.}
+Let $K$ be a totally imaginary number field with $\mu_n\subset K$,
+$n\geq1$ odd.  Let $r\geq2$ be prime, $(r,n)=1$, let $L/K$ be cyclic
+of degree $r$, and let $D$ be a central division $K$-algebra of
+degree $r$ containing $L$.  Put $S=\{v:D_v\text{ is division}\}$.
+Fix integers $r',c$ such that
+\begin{equation}\label{eq:parameters}
+ rr'\equiv1\pmod n,\qquad r-1+2c\equiv0\pmod n,
+ \qquad c_v\equiv r'c\pmod n.
+\end{equation}
+Thus $r-1+2rc_v\equiv0\pmod n$.  In fact $c_v$ is independent
+of $v$ with these choices; the subscript recalls Part I's notation.
+Locally $F=K_v$ is a nonarchimedean field containing $\mu_n$;
+$p$ denotes its residue characteristic.  We call $v$ \emph{wild}
+if $p\mid n$.
+
+\paragraph{Status convention.}
+\textbf{[P]} denotes a proof included here (possibly invoking
+\textbf{[E]} inputs established in cited publications or earlier parts);
+\textbf{[O]} denotes a proof outlined but not fully established, and
+\textbf{[C]} denotes a conjectural goal requiring new mathematical
+input.  When a proved proposition has explicit unresolved hypotheses,
+we mark its formal implication [P] and mark the outstanding hypotheses
+[C] separately, as in Parts I--III.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.49\linewidth}p{0.37\linewidth}p{0.07\linewidth}@{}}
+\toprule
+Assertion & Precise basis & Status\\\midrule
+Diagonal and nonsplit good-element criterion, including wild $p$ & [FK, \S3]; Part I, \S3 & [E]\\
+Compatibility of the Part I cocycle with $\sigma_{c_v}$ & Part I, Prop. 2.3(b); direct calculation & [P]\\
+Power-map kernel, index, and Haar modulus on $T_E(F)/F^\times$ & Section \ref{sec:localpowers} & [P]\\
+Global good-regular class criterion & Section \ref{sec:globalgood}; Part III Hasse principle & [P]\\
+Division-side unitary character transform and tame integral case & Part III, Thms. 4.3, 7.6 & [E]\\
+Wild irreducible-character integrality & Section \ref{sec:wild} & [C]\\
+Covered $D$--covered $\GL$ global simple trace comparison & Parts I--II under their hypotheses & [E]\\
+Covered $D$--ordinary $D$ global comparison & Section \ref{sec:geometric} & [C]\\
+Removal of auxiliary support and packet hypotheses & Section \ref{sec:spectral} & [C]\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The exact cocycle convention and star map}\label{sec:cocycle}
+This section fixes the one place where a parameter mismatch could
+invalidate every subsequent constant.  The ambient construction is
+a restriction of a cocycle over $L_v$, whereas [FK] uses the standard
+$\GL_r(F)$ Kazhdan--Patterson convention.
+
+\subsection{Restriction and relabeling}
+Let $\sigma_F$ be the parameter-zero Kazhdan--Patterson cocycle with
+restriction to the diagonal torus
+\begin{equation}\label{eq:parameterzero}
+\sigma_F(\operatorname{diag}(a_i),\operatorname{diag}(b_i))
+=\prod_{i<j}(a_i,b_j)_{n,F}.
+\end{equation}
+The $\GL$ subgroup of the ambient cover in Part I has, \emph{as an
+extension}, cocycle model
+\begin{equation}\label{eq:before}
+  \sigma_F(g,h)^r\,(\det g,\det h)_{n,F}^{c}
+  \quad\text{before relabeling }\mu_n.
+\end{equation}
+This assertion is Part I, Proposition 2.3(b).  Applying the
+kernel relabeling $\zeta\mapsto\zeta^{r'}$ yields the model
+\begin{equation}\label{eq:after}
+ \sigma_{c_v}(g,h)=\sigma_F(g,h)
+ (\det g,\det h)_{n,F}^{c_v}.
+\end{equation}
+The two parameters $c$ and $c_v$ must be kept separate: $c$
+occurs before relabeling and $c_v=r'c\pmod n$ afterward.
+The isomorphism in \eqref{eq:before} is an isomorphism of extensions,
+not a claim that arbitrary choices of cocycle sections give
+literally equal functions on all of $\GL_r(F)^2$.
+
+\begin{proposition}[\Ptag\ Diagonal commutator audit]\label{prop:diag}
+For $t=\operatorname{diag}(t_1,\ldots,t_r)$ and
+$u=\operatorname{diag}(u_1,\ldots,u_r)$ in $\GL_r(F)$,
+\begin{equation}\label{eq:matrix}
+ [\widetilde t,\widetilde u]
+ =\prod_{i,j}(t_i,u_j)_{n,F}^{A_{ij}},\qquad
+ A=-I_r+(1+2c_v)J_r.
+\end{equation}
+Here $J_r$ is the all-ones matrix.  Its row sums are
+$r-1+2rc_v\equiv0\pmod n$, so scalar lifts commute with the lifted
+split torus.  The radical on $(F^\times/F^{\times n})^r$ consists
+precisely of diagonal classes.
+\end{proposition}
+\begin{proof}
+The commutator is the ratio
+$\sigma_{c_v}(t,u)/\sigma_{c_v}(u,t)$.
+The Hilbert symbol satisfies $(a,b)_n=(b,a)_n^{-1}$; this is
+\emph{antisymmetry}, valid for all $n$.  The determinant twist
+contributes $2c_v$ to each entry of $A$, and the parameter-zero
+factor contributes $1$ off the diagonal.  This gives \eqref{eq:matrix}.
+The Hilbert pairing on $X=F^\times/F^{\times n}$ is perfect.
+As $X$ is killed by $n$ and $(r,n)=1$, the decomposition
+$X^r=\Delta X\oplus\{(x_i):\sum x_i=0\}$ holds by averaging with
+$r^{-1}$ modulo $n$.  On these summands $A$ acts, respectively, by
+$r-1+2rc_v=0$ and $-1$.  Therefore $\ker A=\Delta X$.
+\end{proof}
+
+\begin{remark}
+The assumption $(r,n)=1$ also follows algebraically from
+$n\mid r-1+2rc_v$, because any common divisor of $r$ and $n$ must
+divide $1$.  We retain it because it is a global hypothesis of the
+series.  The oddness of $n$ is used for the ordinary star-map
+convention below, not for Hilbert-symbol antisymmetry.
+\end{remark}
+
+\subsection{Star and central characters}\label{subsec:star}
+For an element $h$ of the ordinary group, choose any lift
+$\widetilde h$ and define $h^*=\widetilde h^{\,n}$.  It is
+independent of the lift because $\mu_n$ is central.  In the present
+scalar-central cover, for $a\in F^\times$,
+\begin{equation}\label{eq:starcentral}
+ (ah)^*=a^*h^*,\qquad a^*=\widetilde a^{\,n}.
+\end{equation}
+If $h_1,h_2$ commute in an ordinary torus, their lifted commutator
+is in $\mu_n$, and the class-two power identity
+\begin{equation}\label{eq:starpower}
+ (\widetilde h_1\widetilde h_2)^n
+ =\widetilde h_1^{\,n}\widetilde h_2^{\,n}
+ [\widetilde h_2,\widetilde h_1]^{n(n-1)/2}
+ =\widetilde h_1^{\,n}\widetilde h_2^{\,n}
+\end{equation}
+uses $n$ odd.  Thus star is multiplicative on the lifted torus.
+This agrees with the convention in [FK, \S4] and [Zou, \S3]:
+Zou writes $x^*=u(x)s(x)^n$, where $u(x)=\pm1$ is the
+correction defined in \cite[\S4]{FK} and \cite[\S3.1]{Zou24}.
+This correction takes values in the central kernel $\mu_n$, so
+for odd $n$ it belongs to $\{\pm1\}\cap\mu_n=\{1\}$.
+Thus $u(x)=1$; this uses the range of the correction, not merely
+the multiplicativity identity in Zou's Lemma~3.5.  For a scalar $\zeta\in\mu_n(F)$,
+$\zeta^*=1$ in the standard diagonal cocycle model: the
+self-symbol $(\zeta,\zeta)_n=1$ for odd $n$, so
+$s(\zeta I_r)^n=s(I_r)=1$.  This last statement is also
+invariant under the extension isomorphisms in Part I.
+For representation characters we first fix a genuine unitary
+character $\widetilde\theta$ of the central preimage $\tZ$ and
+\emph{then} put $\theta(a)=\widetilde\theta(a^*)$.
+The reverse implication is not unique: $\theta$ alone does not
+specify $\widetilde\theta$.  For $\zeta\in\mu_n(F)$ we have
+$\zeta^*=1$, hence $\theta(\zeta)=1$.  Globally the rational
+splitting gives $a^*=\iota(a^n)$ for $a\in K^\times$;
+if $\widetilde\theta$ is automorphic, it is trivial on the rational
+splitting, so $\theta(a)=1$ on $K^\times$.
+Test functions use the inverse central characters
+$\theta^{-1}$ and $\widetilde\theta^{-1}$.
+
+\section{Good elements for every maximal torus}\label{sec:good}
+A regular maximal torus in $\GL_r(F)$ may be nonsplit even at a
+place where $D_v\simeq M_r(F)$.  This is the situation not treated by
+the diagonal matrix alone.  The following calculation is not new:
+it is the proof of [FK, \S3, Proposition] in the notation of this
+series, and also underlies Part I, Proposition 3.5.
+
+\begin{theorem}[\Etag\ Flicker--Kazhdan good-element theorem]\label{thm:FKgood}
+Let $E=\prod_{i=1}^kE_i$ be a finite \emph{\'etale} $F$-algebra
+of dimension $r$, embedded as a regular maximal torus
+$T_E(F)=E^\times$ in $\GL_r(F)$.  Under \eqref{eq:parameters},
+for any $t\in T_E(F)$ and any lift $\widetilde t$,
+\begin{equation}\label{eq:FKtorus}
+ [\widetilde t,\widetilde u]
+ =(\Nm_{E/F}t,\Nm_{E/F}u)_{n,F}^{1+2c_v}
+   \prod_{i=1}^k(t_i,u_i)_{n,E_i}^{-1}.
+\end{equation}
+The radical of this commutator pairing is
+\begin{equation}\label{eq:everygood}
+ \{t\in T_E(F):[\widetilde t,\widetilde u]=1\ \forall u\in T_E(F)\}
+ =F^\times T_E(F)^n.
+\end{equation}
+For regular $t$, this is exactly the criterion that $\widetilde t$
+is good.  Both identities are valid when $p\mid n$.
+\end{theorem}
+\begin{proof}[Proof from the cited formula, included for clarity]
+The commutator formula is [FK, \S3], using [KP, Prop.~0.1.5];
+its restriction to a single field is exactly Part I,
+Proposition 3.1 after relabeling \cite{JoynerI}.  Write $N=\Nm_{E/F}$.
+Norm compatibility of local Hilbert symbols gives
+\[
+ (Nt,Nu)_{n,F}
+ =\prod_i(Nt,u_i)_{n,E_i}.
+\]
+Thus \eqref{eq:FKtorus} equals
+\[
+ \prod_i\bigl((Nt)^{1+2c_v}t_i^{-1},u_i\bigr)_{n,E_i}.
+\]
+The nondegeneracy of the $n$th Hilbert symbol over each $E_i$
+(including wildly ramified $E_i$) implies that the commutator is
+trivial for all $u$ exactly when
+\begin{equation}\label{eq:pointwisegood}
+ t_i\equiv(Nt)^{1+2c_v}\pmod{E_i^{\times n}}
+ \quad (1\leq i\leq k).
+\end{equation}
+This directly says $t\in F^\times E^{\times n}$.  Conversely,
+if $t=ay^n$ for $a\in F^\times$, then
+$Nt=a^r(Ny)^n$; therefore
+$(Nt)^{1+2c_v}\equiv a^{r(1+2c_v)}\equiv a\equiv t_i$
+modulo $E_i^{\times n}$ by scalar centrality.  This proves the
+criterion.  No tameness assumption has been introduced.
+\end{proof}
+
+\begin{example}[The diagonal rank-two check]\label{ex:diag}
+Take $r=2$, $n=3$ and $F=\mathbb Q_3(\zeta_3)$.
+In the notation of Part I, Example 3.7, choose $c=1$, so
+$c_v\equiv2\pmod3$.  Formula \eqref{eq:matrix} becomes
+\[
+ A\equiv\begin{pmatrix}1&-1\\-1&1\end{pmatrix}\pmod3,
+ \qquad
+ [\widetilde t,\widetilde u]
+ =(t_1/t_2,u_1/u_2)_{3,F}.
+\]
+Thus $\operatorname{diag}(t_1,t_2)$, when regular, is good exactly
+when $t_1/t_2\in F^{\times3}$.  If a quadratic field $E/F$ is
+embedded as a nonsplit maximal torus, the same theorem says that
+goodness is equivalent to $t\in F^\times E^{\times3}$; the two
+tests are instances of the same formula, not separate conjectures.
+\end{example}
+
+\begin{remark}[Why goodness is not enough for a regular-root formula]\label{rem:power-singular}
+The power of a regular element in a \emph{split} torus need not be
+regular.  For $n=3$ and $F=\mathbb Q_3(\zeta_3)$, the element
+$\operatorname{diag}(1,\zeta_3)$ is regular but not good:
+$\zeta_3\notin F^{\times3}$, since $F$ does not contain $\zeta_9$.
+Its cube is the identity.  A character or orbital-integral formula with
+$\Delta(t^n)$ in the denominator must restrict to $t^n$ regular
+(as in Zou's equation (3.2)), or use a separately proved germ extension.
+On a degree-$r$ \emph{field} torus, by contrast, if $t$ is regular
+and $t^n\in F$, then Kummer theory gives
+$[F(t):F]\mid n$; since $[F(t):F]=r$ and $(r,n)=1$, this is
+impossible.  Because $r$ is prime, $F(t^n)=F(t)$ and $t^n$ is regular.
+\end{remark}
+
+\section{A new local power-map calculation for \texorpdfstring{\'etale}{etale} tori}\label{sec:localpowers}
+The key local distinction is between a field centralizer (compact
+modulo scalars) and a product of fields (not compact modulo scalars).
+Both occur in the split \emph{group}.  The next proposition gives
+an exact count of the roots and the size of the image at wild and
+tame places, including the factors that a global trace identity
+must account for.
+
+\begin{lemma}[\Ptag\ Kummer injection for a product algebra]\label{lem:Kumprod}
+Let $E=\prod_{i=1}^kE_i$ be finite \emph{\'etale} of dimension $r$
+over $F$, with $\mu_n\subset F$ and $(r,n)=1$.  Then
+\begin{equation}\label{eq:Kummerinj}
+ F^\times/F^{\times n}\longrightarrow
+ E^\times/E^{\times n}
+\end{equation}
+is injective.
+\end{lemma}
+\begin{proof}
+Suppose $a\in F^\times$ is an $n$th power in every $E_i$.
+The Kummer extension $F(a^{1/n})/F$, since $\mu_n\subset F$,
+is cyclic of degree $d\mid n$ and embeds in every $E_i$.
+Therefore $d\mid[E_i:F]$ for every $i$, so also
+$d\mid\sum_i[E_i:F]=r$.  Coprimality gives $d=1$ and
+$a\in F^{\times n}$.
+\end{proof}
+
+\begin{proposition}[\Ptag\ Kernel, index, and Haar modulus]\label{prop:power-etale}
+Under the hypotheses of Lemma \ref{lem:Kumprod}, put
+$A_E=E^\times/F^\times$ and $P_n([t])=[t^n]$.  Then
+\begin{align}
+ \ker(P_n)&\simeq \mu_n(E)/\mu_n(F)
+      \simeq \mu_n^{\,k}/\mu_n,
+ &|\ker(P_n)|&=n^{k-1},\label{eq:kernel}\\
+ [A_E:P_n(A_E)]&=n^{2(k-1)}|n|_F^{-(r-1)}.
+ \label{eq:index}
+\end{align}
+In particular, $P_n(A_E)$ is open and closed.  With \emph{any}
+Haar measure $da$ on $A_E$ and its restriction to $P_n(A_E)$,
+for compactly supported integrable $q$ on that image,
+\begin{equation}\label{eq:haarJac}
+ \int_{A_E}q(a^n)\,da
+ =n^{k-1}|n|_F^{-(r-1)}
+   \int_{P_n(A_E)}q(b)\,db.
+\end{equation}
+\end{proposition}
+\begin{proof}
+If $t^n=a\in F^\times$, then $a$ is an $n$th power in every
+$E_i$; by Lemma \ref{lem:Kumprod}, write $a=b^n$ with $b\in F^\times$.
+Thus each $t_i/b\in\mu_n(E_i)=\mu_n(F)$, giving
+\eqref{eq:kernel}, including its canonical description.
+
+For a local field $M$ containing $\mu_n$ the Kummer quotient has
+\begin{equation}\label{eq:localKumIndex}
+ |M^\times/M^{\times n}|=n^2|n|_M^{-1}.
+\end{equation}
+Indeed the discrete valuation contributes $n$; the finite
+torsion unit factor containing $\mu_n$ contributes $n$; and
+the torsion-free $p$-adic unit factor contributes
+$|n|_M^{-1}$ (multiplication by $n$ on its $\Z_p$-lattice).  Alternatively, \eqref{eq:localKumIndex}
+follows from local duality.
+Since $F^\times/F^{\times n}$ injects into
+$E^\times/E^{\times n}$, the group $A_E/A_E^n$ is its cokernel:
+\[
+ |A_E/A_E^n|
+ =\frac{\prod_i n^2|n|_{E_i}^{-1}}
+             {n^2|n|_F^{-1}}
+ =n^{2(k-1)}|n|_F^{-(r-1)},
+\]
+where $|n|_{E_i}=|n|_F^{[E_i:F]}$ for normalized absolute values
+on local fields.  This proves \eqref{eq:index}.
+
+For the Haar statement, write $K_0=\ker(P_n)$, of order
+$n^{k-1}$.  Choose a sufficiently small compact open subgroup
+$U\subset A_E$ consisting of principal-unit classes and having
+$U\cap K_0=\{1\}$.  The $p$-adic logarithm identifies $U$ with
+a free $\mathbb Z_p$-module of rank
+$(r-1)[F:\mathbb Q_p]$: the factors $E_i^\times$ have combined
+principal-unit rank $r[F:\mathbb Q_p]$, and quotienting by the
+scalar principal units subtracts $[F:\mathbb Q_p]$.
+Multiplication by $n$ maps $U$ injectively into itself, with
+\[
+ [U:U^n]=p^{v_p(n)(r-1)[F:\mathbb Q_p]}
+        =|n|_F^{-(r-1)}.
+\]
+Since $P_n^{-1}(U^n)=K_0U$ and $K_0\cap U=\{1\}$, its
+pushforward of Haar measure gives
+\[
+ \frac{\operatorname{vol}(P_n^{-1}(U^n))}
+      {\operatorname{vol}(U^n)}
+   =\frac{|K_0|\operatorname{vol}(U)}
+          {\operatorname{vol}(U)/[U:U^n]}
+   =n^{k-1}|n|_F^{-(r-1)}.
+\]
+The pushforward is translation-invariant on the open image
+$P_n(A_E)$, so this ratio is its constant density on that image,
+proving \eqref{eq:haarJac}.  Notice that this argument requires
+neither a global quotient-index formula nor a choice of scale for
+Haar measure.
+\end{proof}
+
+\begin{remark}[A measure-theoretic warning]\label{rem:haar}
+For a general open endomorphism $\varphi:A\to A$ of a locally
+compact abelian group with finite kernel, its pushforward Haar density
+need not equal $[A:\varphi A]/|\ker\varphi|$.  For example, on
+$A=\mathbb Z$ with counting measure, $a\mapsto na$ has density
+$1$ on $n\mathbb Z$, not $n$.  The correct local computation here is
+$|\ker P_n|[U:U^n]$, where $U$ is the compact open subgroup in
+the proof.  For this specific $A_E$ it happens to simplify to
+$[A_E:P_nA_E]/|\ker P_n|$; that numerical equality is not a
+general change-of-variables theorem.
+\end{remark}
+
+\begin{example}[Three local torus types]
+If $E/F$ is a field of degree $r$, then $k=1$ and $P_n$ is
+injective, with index and Haar modulus $|n|_F^{-(r-1)}$.
+If $E=F^r$ then $k=r$ and the kernel has order $n^{r-1}$.
+For $r=2,n=3$, $F=\mathbb Q_3(\zeta_3)$ and $|3|_F=1/9$,
+\[
+\begin{array}{c|ccc}
+\text{type}&|\ker P_3|&[A_E:A_E^3]&\text{factor in \eqref{eq:haarJac}}\\\hline
+E/F\text{ quadratic}&1&9&9\\
+E=F\times F&3&81&27
+\end{array}
+\]
+These integers quantify why one cannot use the division-torus
+substitution formula unchanged on the full split group.
+\end{example}
+
+\section{A global classification of good regular classes}\label{sec:globalgood}
+The local theorem now applies to the actual torus at \emph{every}
+place.  Combining it with the Hasse principle of Part III removes
+the local-to-global ambiguity for power classes of a degree-$r$
+field, though not the independent measure and spectral questions.
+
+\begin{proposition}[\Etag\ Almost-everywhere powers modulo scalars]\label{prop:Hasse}
+Let $E/K$ be a field extension of degree $r$ with $(r,n)=1$ and
+$\mu_n\subset K$.  For every finite set $\Sigma$ of places,
+\begin{equation}\label{eq:Hasse}
+ E^\times/(K^\times E^{\times n})\longrightarrow
+ \prod_{v\notin\Sigma}
+ \frac{(E\otimes_K K_v)^\times}
+ {K_v^\times(E\otimes_KK_v)^{\times n}}
+\end{equation}
+is injective.  This is Part III, Proposition 11.3 \cite{JoynerIII}.
+\end{proposition}
+\begin{proof}[Recalled proof]
+Let $t$ be locally scalar times an $n$th power outside $\Sigma$.
+Choose $u,k\in\Z$ with $ru+nk=1$ and put
+$a=N_{E/K}(t)^u\in K^\times$.  If $t=a_v y_v^n$ in the local
+\'etale algebra, taking norms gives the identity
+\[
+ t/a=\bigl(a_v^k y_v/N_{E_v/K_v}(y_v)^u\bigr)^n.
+\]
+Thus $t/a$ is an $n$th power in every completion of $E$ over all
+$v\notin\Sigma$.  If its class in $E^\times/E^{\times n}$ were
+nontrivial, the nontrivial Kummer extension
+$E((t/a)^{1/n})/E$ would, by Chebotarev, admit infinitely many
+unramified places at which $t/a$ is not an $n$th power.
+This contradicts the hypothesis.  Hence $t\in K^\times E^{\times n}$.
+\end{proof}
+
+\begin{theorem}[\Ptag\ Global good-regular criterion]\label{thm:globalgood}
+Assume the covers and rational splittings of Part I.  Let
+$G$ denote $D^\times$ or $\GL_r$, and let $\gamma\in G(K)$ be
+regular elliptic, so $E=K[\gamma]$ is a field of degree $r$.
+The following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+\item the rational lift $\iota(\gamma)$ is good at every place;
+\item it is good at every place outside some finite set $\Sigma$;
+\item $\gamma\in K^\times E^{\times n}$.
+\end{enumerate}
+The map $[s]\mapsto[s^n]$ is a bijection from the noncentral
+classes in $E^\times/K^\times$ onto the globally good regular
+classes belonging to $E$.  Furthermore
+\begin{equation}\label{eq:Wstabilizer}
+ W_{s^n}=W_s,\qquad
+ W_s=\{\sigma\in\Aut(E/K):\sigma(s)\in K^\times s\}.
+\end{equation}
+\end{theorem}
+\begin{proof}
+At each finite $v$, the ordinary centralizer is
+$T_v=(E\otimes_K K_v)^\times$.  If $D_v$ splits, apply
+Theorem \ref{thm:FKgood}, transported through Part I, Proposition~2.6 (the split-place
+isomorphism of the specified covers).  If $D_v$ is division, use Part I,
+Proposition 3.5(a), whose commutator is the same by Part I,
+Proposition 3.1.  At complex places the $n$th-power map on
+$T_v$ is surjective.  Thus at every place the local goodness
+condition is precisely
+$\gamma\in K_v^\times T_v^n$.
+Implications (c)$\Rightarrow$(a)$\Rightarrow$(b) follow,
+while (b)$\Rightarrow$(c) is Proposition \ref{prop:Hasse}.
+
+The power map $E^\times/K^\times\to E^\times/K^\times$
+is injective: if $s^n\in K^\times$, Kummer theory shows
+$[K(s):K]\mid n$, while $[K(s):K]\mid [E:K]=r$.
+Hence $s\in K^\times$.  Because $r$ is prime, every noncentral
+$s\in E$ generates $E$, and the same is true of $s^n$.
+This proves the bijection.  Finally
+$\sigma(s^n)/s^n\in K^\times$ if and only if
+$(\sigma(s)/s)^n\in K^\times$, which is equivalent by injectivity
+to $\sigma(s)/s\in K^\times$.  Equation \eqref{eq:Wstabilizer}
+follows.
+\end{proof}
+
+\begin{remark}[Precise consequence for the geometric side]
+Part I, Proposition 6.1, uses the rational regular classes which
+are good everywhere, with coefficient
+\begin{equation}\label{eq:globalvol}
+ c(\gamma)=\frac{\vol\bigl(\A_K^\times E^\times\backslash
+ \A_E^\times;dt\bigr)}{|W_\gamma|}.
+\end{equation}
+Theorem \ref{thm:globalgood} parametrizes its noncentral
+summation set by global $[s^n]$ and preserves $W_\gamma$.
+It does \emph{not} replace the local root sums in Zou's
+character formula: the global root class may be unique even when
+a localized split torus has $n^{k_v-1}$ roots modulo scalars.
+\end{remark}
+
+\section{The remaining wild local character problem}\label{sec:wild}
+We distinguish character transfer from class-function transfer.
+The latter is a theorem of Part III; the former requires an
+\emph{integral} statement not implied by unitarity.
+
+\subsection{Division-side normalization and discriminants}
+Let $F$ be nonarchimedean, $D/F$ a division algebra of prime
+degree $r$, $H=D^\times$, and $\tH$ its specified cover.
+Set $Z=F^\times$ and $\tZ=p^{-1}(Z)$, equipped with compatible
+Haar measures on $H/Z\simeq\tH/\tZ$.  The Part III transform is
+\begin{equation}\label{eq:LD}
+ (L_D\Phi)(z\,t^*)
+ =b_D\,\widetilde\theta(z)
+  \frac{\Delta(t)}{\Delta(t^n)}\Phi(t),\qquad
+ b_D=|n|_F^{-(r-1)/2},
+\end{equation}
+for regular $t$, $z\in\tZ$; it vanishes at nongood regular lifts.
+Here
+\begin{equation}\label{eq:Delta}
+ \Delta(t)=\left|\det\bigl(1-\operatorname{Ad}(t)
+ \mid\mathfrak h/\mathfrak t\bigr)\right|_F^{1/2}
+ =\prod_{i<j}\left|
+ \frac{(\lambda_i-\lambda_j)^2}{\lambda_i\lambda_j}
+ \right|_F^{1/2}.
+\end{equation}
+This equals Part I's $|D(t)|^{1/2}|\Nrd(t)|_F^{-(r-1)/2}$.
+Since the power map on a field torus modulo scalars has index
+$|n|_F^{-(r-1)}$, Weyl integration gives $b_D^2$
+equal to this index.  The factor $b_D$ is independent of
+\emph{common} rescalings of the two identified quotient Haar
+measures.  The ratio of discriminants extends at central elements
+to $|n|_F^{-r(r-1)/2}$ (Part III, Lemma 3.3), hence
+\begin{equation}\label{eq:cD}
+ (L_D\Theta_\rho)(1)=c_D\dim\rho,\qquad
+ c_D=b_D|n|_F^{-r(r-1)/2}
+ =|n|_F^{-(r^2-1)/2}.
+\end{equation}
+The identity factor is pointwise and does not depend on Haar
+measures.  Part III, Theorem 9.1, separately gives the adjoint
+orbital-integral/test-function transfer.  Test functions transform
+by $\widetilde\theta^{-1}$, not by $\widetilde\theta$.
+
+\subsection{The integral matrix}\label{subsec:integral}
+Choose $\widetilde\theta$ first and put
+$\theta(a)=\widetilde\theta(a^*)$.
+Part III, Theorem 4.3 and Corollary 5.1, show that $L_D$ is a
+unitary \emph{isomorphism} of invariant $L^2$ spaces and that
+\begin{equation}\label{eq:matrixchars}
+ L_D\Theta_\rho=\sum_\tau a_{\rho\tau}\Theta_\tau,
+ \qquad a_{\rho\tau}=\langle L_D\Theta_\rho,
+ \Theta_\tau\rangle,
+\end{equation}
+with each row and column finite.  The characters on either side
+are orthonormal bases in their fixed-central-character spaces.
+
+\begin{proposition}[\Etag\ Integral-lattice criterion, Part III]\label{prop:int}
+The transform $L_D$ permutes the irreducible characters with
+positive signs if and only if every $a_{\rho\tau}$ in
+\eqref{eq:matrixchars} is an integer.
+\end{proposition}
+\begin{proof}
+An integral unit vector in $\ell^2$ is a signed basis vector;
+unitarity gives injectivity and surjectivity because the inverse
+is the adjoint of a unitary map.  The value at identity in
+\eqref{eq:cD} is positive and fixes the sign.
+This is Part III, Corollary 5.2, with its converse.
+\end{proof}
+
+\begin{remark}[The actual obstruction]
+For wild $v$, Part III does not prove
+$a_{\rho\tau}\in\Z$.  The tame Adams argument works with a
+finite quotient $Q$ and a central subgroup $C$, under the
+hypothesis $\gcd(n,|Q/C|)=1$ (Part III, Lemma 7.5).
+At a wild place that hypothesis need not hold.  For the
+simplest illustration take $Q=C_p$, $C=1$, $n=p$: then the
+Adams operation sends every linear character to the trivial
+character.  This does not prove a nonintegral coefficient for
+$L_D$; it only shows why that particular proof method fails.
+\end{remark}
+
+\subsection{A concrete first wild test}\label{subsec:examplewild}
+Consider again $r=2,n=3$, $F=\mathbb Q_3(\zeta_3)$.
+Since $[F:\mathbb Q_3]=2$, one has
+$|3|_F=3^{-2}$ and
+\begin{equation}\label{eq:wildconstants}
+ I_F=9,\qquad b_D=3,\qquad c_D=27.
+\end{equation}
+For the trivial $\rho$ on $D^\times$, compatible with a suitable
+choice of genuine central character, $L_D\Theta_\rho$ is
+\begin{equation}\label{eq:wildexplicit}
+ (L_D1)(z\,t^*)
+ =3\,\widetilde\theta(z)
+ \frac{|\Nrd(t)|_F}
+ {|\operatorname{Trd}(t)^2-\Nrd(t)|_F}
+\end{equation}
+for noncentral $t$ (and zero on nongood regular lifts).
+Indeed for the eigenvalues $\lambda_1,\lambda_2$ one has
+\[
+ \frac{\Delta(t)}{\Delta(t^3)}
+ =\left|\frac{\lambda_1\lambda_2}
+ {\lambda_1^2+\lambda_1\lambda_2+\lambda_2^2}\right|_F
+ =\frac{|\Nrd(t)|_F}{|\operatorname{Trd}(t)^2-\Nrd(t)|_F}.
+\]
+Near a scalar $t=a$, the denominator is $|3a^2|_F$, so
+this ratio is $9$, giving $27$ at identity.
+Thus any genuine irreducible character equal to this function
+must have degree $27$; \emph{every} irreducible genuine character
+would have degree divisible by $27$ if the entire transform were a
+bijection.  Neither the existence of such a $27$-dimensional
+representation nor the absence of smaller genuine representations
+has been established here.
+
+A finite-level test would select a sufficiently small
+conjugation-invariant open subgroup on which the relevant
+representations are trivial (compatible with their central
+character), form the corresponding \emph{twisted} finite quotient
+of $H/Z$, calculate its genuine or projective character table,
+and evaluate the finite inner products \eqref{eq:matrixchars}.
+A plain quotient $\tH/(\tZ U)$ cannot be used by itself as a
+``genuine character table'': dividing out by $\tZ$ destroys the
+prescribed genuine central action.  The central character must be
+retained as a multiplier in the finite twisted group algebra.
+This computation has not been carried out in this draft.
+
+\section{Connection with Zou's corrected character relation}\label{sec:Zou}
+For the Kazhdan--Patterson cover of the \emph{split group},
+Zou \cite[\S3]{Zou24} revisits the Flicker--Kazhdan metaplectic
+correspondence and records a corrected scalar in the character
+relation.  This is an essential input, but its objects are
+$\widetilde{\GL_r(F)}$ and ordinary $\GL_r(F)$, not directly
+$\tH$ and $H$ at a division place.
+
+\begin{proposition}[\Etag\ Zou's root-sum constant in our case]\label{prop:Zouconstant}
+Write $d_F(m)=m|m|_F^{-1/2}$ and
+$d_r=\gcd(n,2rc_v+r-1)$.  Under \eqref{eq:parameters},
+$d_r=n$.  In Zou's equation (3.2), the coefficient preceding
+the root sum in rank $r$ is
+\begin{equation}\label{eq:Zouprefactor}
+ \frac{1}{d_F(d_r)|n|_F^{r/2}}
+ =\frac{1}{n|n|_F^{(r-1)/2}}=\frac{b_D}{n}.
+\end{equation}
+For regular elliptic $x$ with degree-$r$ field centralizer,
+$x^n$ is automatically regular by Remark~\ref{rem:power-singular}.
+The equation $t^n=x^n$ then has exactly $n$ solutions
+$t=\zeta x$, $\zeta\in\mu_n$.  If the linear character
+$\pi$ has central character $\omega_\pi$ trivial on $\mu_n$,
+these summands agree and the effective coefficient is $b_D$.
+This restriction on $\omega_\pi$ is essential: without it, the
+scalar sum is $\sum_{\zeta\in\mu_n}\omega_\pi(\zeta)=0$,
+so equation (3.2) instead forces the covered character to vanish
+at $x^*$.  For a genuine lift pair the compatibility
+$\omega_\pi(a)=\omega_{\widetilde\pi}(a^*)$
+and $\zeta^*=1$ imply $\omega_\pi|_{\mu_n}=1$ automatically.
+\end{proposition}
+\begin{proof}
+The equation $d_r=n$ is immediate from scalar centrality;
+\eqref{eq:Zouprefactor} follows by substitution.  Regularity of
+$x^n$ follows from the field case of Remark~\ref{rem:power-singular}.
+Any solution $t$ centralizes $x^n$, so $t\in F[x]^\times$.  In the field $F[x]$, $(t/x)^n=1$,
+and $\mu_n(F[x])=\mu_n(F)$.  Thus $t=\zeta x$.
+The Weyl discriminant is invariant under central scalar
+multiplication, the ordinary character takes the same value
+because it is trivial on $\mu_n$, and $(\zeta x)^*=x^*$
+by the explicit odd-$n$ scalar star computation in
+Section~\ref{subsec:star}.
+These are precisely the equal terms in Zou's (3.2).
+\end{proof}
+
+\begin{remark}[What is and is not composed]
+At the ramified places one may compare the \emph{desired}
+$\GDb_v\leftrightarrow\Gb_v$ character relation of Parts I--II
+with (a) the classical linear Jacquet--Langlands elliptic
+character identity and (b) Zou's formula.  The common coefficient
+$b_D$ and the familiar sign $(-1)^{r-1}$ are consistent with
+this comparison.  Nevertheless \emph{the existence of an
+irreducible genuine image on the covered division side is the
+missing conclusion}; combining two known formulas cannot be
+used to assume that missing representation exists.
+For non-elliptic split centralizers, retain Zou's entire
+root sum, including the central-character factors.
+\end{remark}
+
+\section{Global geometric comparison: proved input and new obligations}\label{sec:geometric}
+There are two comparisons to keep distinct:
+\begin{equation}\label{eq:twocomparisons}
+ \begin{gathered}
+ \GDb(\A_K)\ \longleftrightarrow\ \Gb(\A_K)
+ \quad\text{(Parts I--II, under their hypotheses)},\\[3pt]
+ D^\times(\A_K)\ \dashrightarrow\ \GDb(\A_K)
+ \quad\text{(proposed additional comparison)}.
+ \end{gathered}
+\end{equation}
+The first has a proved simple trace-formula comparison with
+regular-support or later matching hypotheses (Part I, Theorem 6.6;
+Part II, Theorem 6.2).
+The second is not a formal consequence of the first or of the
+unitarity of $L_D$.
+
+\subsection{Geometric coefficients and the product formula}
+For a regular elliptic rational $\gamma$, with $E=K[\gamma]$,
+Part I identifies the coefficient
+\[
+ c(\gamma)=\frac{\vol(\A_K^\times E^\times\backslash
+ \A_E^\times;dt)}{|W_\gamma|}.
+\]
+The same torus measure $dt$ must be used whenever this term
+is compared with the corresponding linear inner-form orbital integral.
+Part I uses the normalized orbital integral
+$J_v(\gamma,f)=\Delta_v(\gamma)O_v(\gamma,f)$.
+For a rational regular element the product formula implies
+\begin{equation}\label{eq:discprod}
+ \prod_v\Delta_v(\gamma)=1.
+\end{equation}
+This is because each discriminant is the normalized absolute
+value of a nonzero element of $K$ (or its square root), including
+the determinant normalization in \eqref{eq:Delta}.
+The local \emph{ratio} of discriminants
+$\Delta_v(t)/\Delta_v(t^n)$ must be kept until local transfer
+and the global product are both defined.
+
+At $v\in S$ Part III, Theorem 9.1, gives the exact local
+normalized orbital-integral identity
+\begin{equation}\label{eq:localJO}
+ J_{\tH_v}\bigl(z\,t^*,\mathcal O_{D,v}f_v\bigr)
+ =b_{D,v}\,\widetilde\theta_v(z)^{-1}
+ J_{H_v}(t,f_v),
+\end{equation}
+using the same quotient measures on the two copies of $H_v/Z_v$.
+At $v\notin S$, $H_v\cong\GL_r(K_v)$ and the appropriate
+root-sum comparison is not \eqref{eq:localJO}; it must use
+Flicker--Kazhdan--Zou, and it can involve the kernel
+$\mu_n^{k_v}/\mu_n$ of Proposition \ref{prop:power-etale}.
+In particular the local factors $b_{D,v}$ for $v\in S$
+\emph{cannot} simply be cancelled using
+$\prod_v|n|_v=1$ without the split-side contributions.
+
+\subsection{Haar ledger}\label{subsec:ledger}
+For $v\in S$, Part II, Definition 2.1, fixes
+\begin{equation}\label{eq:formaldegree}
+ \vol(D_v^\times/F_v^\times;dg_{D,v})
+ =d(\mathrm{St};dg_{\GL,v})^{-1},
+\end{equation}
+where $d(\mathrm{St};dg_{\GL,v})$ is the formal degree
+relative to the chosen $\GL_r(F_v)/F_v^\times$ measure.
+The probability measure used in Part III is
+$d(\mathrm{St};dg_{\GL,v})\,dg_{D,v}$.
+When \emph{both} sides of \eqref{eq:localJO} are scaled by the
+same measure, $b_{D,v}$ is unchanged.  Different measures on the
+$\GL$ side must still be reconciled with \eqref{eq:formaldegree}.
+
+\begin{center}\small
+\begin{longtable}{@{}p{0.27\linewidth}p{0.53\linewidth}p{0.10\linewidth}@{}}
+\toprule
+Item & Required statement or calculation & Status\\\midrule
+\endhead
+Ambient cocycle and common center & Part I, Lemma 5.1 and Prop. 5.5; restriction \eqref{eq:before} & [E]\\
+Regular rational good locus & Theorem \ref{thm:globalgood} & [P]\\
+Global rational/stable classes & Hilbert 90 and Kottwitz's framework; local embeddability into $D$ & [E]\\
+Global torus coefficient & Same $dt$ in \eqref{eq:globalvol}, including $|W_\gamma|$ & [E]\\
+Local $v\in S$ orbital transfer & Part III, Theorem 9.1, equation \eqref{eq:localJO} & [E]\\
+Split-place $v\notin S$ invariance & Lemma \ref{lem:FKnecessary}; \cite[\S6]{FK} & [P]\\
+Split-place pointwise transfer and $\lambda_v$ & Proposition \ref{prop:conditionalglobal}; unproved existence & [C]\\
+Unramified unit elements & \cite[\S12]{FK} in its range; splitting compatibility must be checked & [E]/[O]\\
+Nonregular powers and singular germs & Remark \ref{rem:power-singular}; germ compatibility or support needed & [C]\\
+Identity and singular terms & Part I, Prop. 6.1; regular support eliminates them, otherwise new comparison required & [E]/[C]\\
+Spectral expansion & Part I--II packet formula with restrictions; new factor matching & [E]/[C]\\
+\bottomrule
+\end{longtable}
+\end{center}
+Here $N_r$ is the least common multiple of the \emph{composite}
+positive integers at most $r$ (the convention in [FK]).  The
+classical unramified matching used in [FK, \S12] is established
+under $(n,N_r)=1$; outside that range one must supply an alternative
+theorem rather than erase the assumption.
+
+\subsection{Split-place invariance and a geometric comparison criterion}
+At a place $v\notin S$ the algebra $D_v$ is split, but a rational
+elliptic field $K[s]$ may decompose locally as a product of fields.
+By Proposition~\ref{prop:power-etale}, its local $n$th-root fibre
+modulo scalars can contain $n^{k_v-1}$ points.  The global class
+$[s]$ supplied by Theorem~\ref{thm:globalgood} is nevertheless
+unique.  Therefore a local sum over \emph{all} roots cannot be substituted
+for the orbital integral of this one rational representative without
+an additional compatibility statement.
+
+\begin{definition}[FK-compatible ordinary functions]\label{def:FKcompatible}
+Fix the local central characters $\theta_v,\widetilde\theta_v$
+with $\theta_v(a)=\widetilde\theta_v(a^*)$.  A normalized
+ordinary test function $f_v$ is called \emph{FK-compatible on the
+regular-power locus} if, whenever $x,x'\in H_v$ have $x^n,x'^n$
+regular and their star images satisfy
+$({x'})^*=z x^*$ for a central lift $z\in\widetilde Z_v$
+(after conjugating representatives), one has
+\begin{equation}\label{eq:FKinvariance}
+ J_{H_v}(x',f_v)
+   =\widetilde\theta_v(z)^{-1}J_{H_v}(x,f_v).
+\end{equation}
+In particular $J_{H_v}(\xi x,f_v)=J_{H_v}(x,f_v)$ whenever
+$\xi\in\mu_n$ and both powers are regular.  Equation
+\eqref{eq:FKinvariance} is the invariant-function condition of
+\cite[\S6]{FK}, expressed with the present inverse central
+transformation convention.
+\end{definition}
+
+\begin{lemma}[\Ptag\ Necessary split-place invariance]
+\label{lem:FKnecessary}
+Suppose a genuine $\widetilde f_v$ and a fixed nonzero constant
+$\lambda_v$ satisfy
+\begin{equation}\label{eq:splitpoint}
+ J_{\widetilde H_v}(x^*,\widetilde f_v)
+      =\lambda_v J_{H_v}(x,f_v)
+\end{equation}
+for all $x$ in a conjugation-invariant region where $x^n$ is regular,
+and suppose the corresponding identity holds also at central
+translates of star images.  Then $f_v$ obeys
+\eqref{eq:FKinvariance} on that region.
+\end{lemma}
+\begin{proof}
+If $({x'})^*=z x^*$, conjugation invariance and the inverse
+central transformation law of the genuine test function imply
+$J_{\widetilde H_v}(({x'})^*,\widetilde f_v)
+=\widetilde\theta_v(z)^{-1}
+J_{\widetilde H_v}(x^*,\widetilde f_v)$.
+Apply \eqref{eq:splitpoint} twice and divide by the fixed
+nonzero $\lambda_v$.  In particular, for $x'=\xi x$ with
+$\xi\in\mu_n$, one has $({x'})^*=x^*$, yielding constancy
+on those scalar-root fibres.  Thus FK-compatibility is a
+\emph{necessary} condition, not an asserted construction of
+$\widetilde f_v$.
+\end{proof}
+
+\paragraph{A regularity and germ obligation.}
+Equation~\eqref{eq:splitpoint} is imposed only where $x^n$ is
+regular.  On a split torus, $x$ can be regular while $x^n$ is
+singular (Remark~\ref{rem:power-singular}); the power map is a
+local analytic isomorphism on the torus, but normalized orbital
+integrals of a function at images approaching a singular element
+may have nonconstant Shalika-germ behavior.  A full transfer
+construction must either arrange support away from these
+root-collision loci or prove the matching germ conditions there.
+No universal vanishing of the germ coefficients is claimed here.
+
+\begin{proposition}[\Ptag\ Conditional geometric comparison with
+explicit split-place data]\label{prop:conditionalglobal}
+Fix the rational splittings and quotient Haar measures as in
+Parts I--III.  Choose factorizable ordinary and genuine test
+functions and a regular elliptic support condition at an auxiliary
+place so that the relevant simple trace formulas have no
+identity/singular contribution.  Suppose:
+\begin{enumerate}[label=(\roman*)]
+\item For each $v\notin S$, the ordinary function $f_v$ is
+FK-compatible in the sense of Definition~\ref{def:FKcompatible},
+and a genuine test function $\widetilde f_v$ satisfies
+\eqref{eq:splitpoint} for every regular rational local component
+$s_v$ of a globally good class $[s^n]$, with a constant
+$\lambda_v\in\mathbb C^\times$ independent of $s_v$.
+The same central-translate identity holds, and
+$\lambda_v=1$ for almost all $v$.  This includes the complex
+archimedean places.
+\item For each $v\in S$, use Part III, Theorem~9.1, with
+$\widetilde f_v=\mathcal O_{D,v}f_v$, the coefficient
+$b_{D,v}=|n|_v^{-(r-1)/2}$ and exactly the same quotient
+measures on $H_v/Z_v$ and $\widetilde H_v/\widetilde Z_v$.
+The test functions have the prescribed reciprocal central
+transformation laws.
+\item The local constants satisfy the \emph{specific} product
+condition
+\begin{equation}\label{eq:lambda-product}
+ \Bigl(\prod_{v\notin S}\lambda_v\Bigr)
+ \Bigl(\prod_{v\in S} b_{D,v}\Bigr)=1.
+\end{equation}
+The same torus Haar measures, rational splittings, normalizer
+orders, and central phases are used on the two sides; the
+simple trace-formula expansions converge in the stated test range.
+\end{enumerate}
+Then the regular elliptic geometric expansions for $D^\times$
+and its specified cover agree, and consequently so do their
+simple spectral trace distributions in that range.
+\end{proposition}
+\begin{proof}
+Theorem~\ref{thm:globalgood} parametrizes the contributing
+globally good noncentral rational classes by $[s^n]$, with a
+unique global root class $[s]$ and the same normalizer orders.
+FK-compatibility removes ambiguity from the multiple \emph{local}
+roots without introducing extraneous rational summands.
+At a place outside $S$, hypothesis (i) supplies
+$\lambda_v J_{H_v}(s_v,f_v)$, with the fixed central phase;
+at a place in $S$, hypothesis (ii) and \eqref{eq:localJO}
+supply $b_{D,v}J_{H_v}(s_v,f_v)$.  The torus coefficients
+\eqref{eq:globalvol} are the same and the product of the Weyl
+discriminants equals $1$ by \eqref{eq:discprod}.
+The scalar left over in each rational geometric term is the
+left side of \eqref{eq:lambda-product}, hence is $1$.
+The support condition eliminates the singular terms, and
+convergence justifies summing.  Equality of the corresponding
+spectral distributions follows from the two trace formulas.
+The \emph{implication} is proved; the existence of the split-place
+functions, the constants and the product identity in (i)--(iii)
+are additional research problems, not consequences of this proposition.
+\end{proof}
+
+\subsection{Why Li, Kottwitz, and DKV do not close the gap}\label{subsec:litroute}
+The linear Jacquet--Langlands theorem of
+Deligne--Kazhdan--Vign\'eras \cite{DKV} controls the ordinary
+$D^\times$--$\GL_r$ relation, including the elliptic character
+sign, but it does not automatically manufacture a genuine
+representation of $\GDb_v$.  Kottwitz's analysis of stable
+conjugacy and relative trace coefficients \cite{Kottwitz84}
+provides the correct arithmetic setting; for the induced tori
+$\operatorname{Res}_{E/K}\mathbb G_m$ one has
+$H^1(K,T)=1$ by Shapiro's lemma and Hilbert 90, and embeddings
+$E\hookrightarrow D$ are controlled by Brauer splitting.
+Wen--Wei Li proves an invariant trace formula for adelic covers
+under an invariant trace Paley--Wiener hypothesis for Levi subgroups
+at \emph{real} archimedean places \cite{Li14}.  Here $K$ is totally
+imaginary, so that real-place hypothesis is vacuous.  At the complex
+places the specified covers split (Part I, Proposition~2.3 and its
+archimedean remark), and the linear invariant Paley--Wiener theorem
+of Clozel--Delorme \cite{ClozelDelorme} supplies the relevant
+archimedean background.  Li also discusses known real metaplectic
+$\GL$ cases, but his general result does not assert the particular
+\emph{equality} of ordinary-$D^\times$ and covered-$D^\times$
+traces required in \eqref{eq:twocomparisons}.  The simpler already-proved trace formulas
+of Parts I--II remain the appropriate initial comparison.
+
+\section{Spectral separation and a research program}\label{sec:spectral}
+\subsection{The actual spectral distribution identity}
+Let $H=D^\times$ and $\widetilde H=\GDb$ globally, with
+compatible central characters $\theta,\widetilde\theta$.
+The quotient $H(K)Z_H(\A_K)\backslash H(\A_K)$ is compact
+because $D$ is a division algebra over $K$; its covered analogue
+is compact modulo the specified central preimage as well.
+Thus the fixed-central-character right regular representations
+have discrete Hilbert decompositions.  For factorizable test
+functions with the inverse central transformation law, define
+\begin{align}
+ I_H(f)&=\sum_{\rho\in\mathcal A(H,\theta)}
+       m_H(\rho)\prod_v\operatorname{tr}\rho_v(f_v),\\
+ I_{\widetilde H}(\widetilde f)
+     &=\sum_{\widetilde\rho\in\mathcal A(\widetilde H,\widetilde\theta)}
+       m_{\widetilde H}(\widetilde\rho)
+       \prod_v\operatorname{tr}\widetilde\rho_v(\widetilde f_v).
+       \label{eq:spectralglobal}
+\end{align}
+Here $\mathcal A$ denotes the relevant automorphic spectrum
+and $m$ is its actual spectral multiplicity, not an assumed $1$.
+The expressions are interpreted on trace-class test functions
+satisfying the simple trace-formula hypotheses; a bare
+unrestricted infinite sum is not justified by notation alone.
+Under the assumptions of Proposition~\ref{prop:conditionalglobal},
+the equality of the geometric expansions supplies
+$I_H(f)=I_{\widetilde H}(\widetilde f)$.  It does not
+identify summands.  This is a conditional identity of
+\emph{distributions}, with both the multiplicities and local
+trace factors retained.
+
+\subsection{Individual local characters and integrality}
+An equality of global spectral sums is a statement about
+\emph{distributions}.  To isolate a single local irreducible at a
+wild place, one needs an argument that the relevant coefficients
+are integers (or multiplicities which can be shown to isolate a
+single constituent).  Linear independence alone can separate
+finite lists of characters; it does not supply the required
+integrality from a unitary Fourier transform.
+
+\begin{remark}[What an integer spectral coefficient would prove]
+If a justified global-to-local argument supplies
+$a_{\rho\tau}\in\mathbb Z$ for every $\tau$ in the row of a fixed
+$\rho$, Proposition~\ref{prop:int} (Part III, Corollary~5.2)
+forces $L_{D,v}\Theta_\rho$ to be one irreducible genuine
+character with positive sign.  If integrality holds for all
+rows, unitarity implies a bijection.  This is an application of
+an already proved lattice criterion, not a second conditional
+theorem; the missing step is precisely the integrality
+hypothesis at a wild place.
+\end{remark}
+
+\paragraph{Separating the remaining tasks.}
+First, the local wild problem can be tested using the explicit
+rank-two example in Section \ref{subsec:examplewild}; it requires
+an actual twisted finite character table and a proof that the
+chosen finite level captures the desired row.  Second, at split
+places the root sum in Zou's (3.2) should be written against the
+kernel and index in Proposition \ref{prop:power-etale}, including
+the chosen Haar measures and central phases.  Third, one needs
+matching unramified test functions under the precise
+$(n,N_r)=1$ or an improved hypothesis, and a complete global
+coefficient identity as in Proposition \ref{prop:conditionalglobal}.
+Finally, one must justify globalization and spectral separation
+for representations of the covered inner form, and remove the
+auxiliary supercuspidal and non-cancellation hypotheses of Parts
+I--II.  These are mathematical work packages, not restatements of
+an already-proved theorem.
+
+\section{Selected glossary}\label{sec:glossary}
+\begin{description}[style=nextline,leftmargin=3.0cm]
+\item[Good element] A regular lift commuting with the full preimage of its ordinary centralizer; genuine invariant characters vanish on the nongood regular locus.
+\item[Scalar-central cover] A cover whose entire inverse image of $F^\times I_r$ is central; here forced by $n\mid r-1+2rc_v$.
+\item[Power-map kernel] $\ker(P_n)$ on $T(F)/F^\times$, distinct from the image index.  The kernel can be nontrivial on product tori even when the corresponding field-torus map is injective.
+\item[Star map] $h^*=\widetilde h^{\,n}$, independent of lift; multiplication on tori uses $n$ odd.
+\item[Weyl discriminant] The factor $\Delta=|\det(1-\operatorname{Ad}(t)|\mathfrak g/\mathfrak t)|^{1/2}$; it is not the unnormalized characteristic-polynomial discriminant.
+\item[Twisted finite quotient] A finite quotient of $H/Z$ with the central character retained as a multiplier, used to compute projective/genuine irreducible characters.
+\item[Packet identity] An identity of traces over collections of automorphic representations; it does not assert a bijection between individual local irreducibles.
+\item[Formal degree] The Plancherel normalization of a square-integrable representation relative to a specified quotient Haar measure.
+\item[Root-sum relation] Zou's equation (3.2), which sums over all $n$th roots satisfying the stated regularity condition rather than choosing one arbitrarily.
+\end{description}
+
+\section*{Acknowledgments}
+This research note was prepared with mathematical and editorial
+assistance from ChatGPT (OpenAI).  Claude (Anthropic) supplied referee reports on Drafts 1 and 2,
+including the correction to the Haar-modulus proof and the
+split-place matching obligations.  Earlier Parts I--III were developed
+with separate assistance acknowledged there.  The author contributions and the referee corrections are documented
+in the separate revision log.  The remaining research problems are
+recorded in the status table and Section~\ref{sec:spectral}.
+
+\begin{thebibliography}{99}
+\bibitem{DKV} P. Deligne, D. Kazhdan and M.-F. Vign\'eras,
+\emph{Repr\'esentations des alg\`ebres centrales simples $p$-adiques},
+in \emph{Repr\'esentations des groupes r\'eductifs sur un corps local},
+Travaux en Cours 8, Hermann, Paris (1984), 33--117.
+\bibitem{FK} Y. Flicker and D. Kazhdan,
+\emph{Metaplectic correspondence}, Publ. Math. IH\'ES \textbf{64}
+(1986), 53--110, especially \S\S2--4, 12, 18, 24--28.
+\url{https://www.numdam.org/articles/10.1007/BF02699192/}.
+\bibitem{Zou24} J. Zou,
+\emph{Local metaplectic correspondence and applications},
+arXiv:2209.05852v3 (19 December 2024), especially
+(2.2), (3.2), Remarks 3.1 and 3.8, and Proposition 3.6.
+\url{https://arxiv.org/abs/2209.05852}.
+\bibitem{KP} D. Kazhdan and S. Patterson,
+\emph{Metaplectic forms}, Publ. Math. IH\'ES \textbf{59}
+(1984), 35--142.
+\bibitem{Kottwitz84} R. E. Kottwitz,
+\emph{Stable trace formula: cuspidal tempered terms}, Duke Math. J.
+\textbf{51} (1984), 611--650.
+\bibitem{ClozelDelorme} L. Clozel and P. Delorme,
+\emph{Le th\'eor\`eme de Paley--Wiener invariant pour les groupes de Lie
+r\'eductifs}, Invent. Math. \textbf{77} (1984), 427--453.
+\bibitem{Li14} W.-W. Li,
+\emph{La formule des traces pour les rev\^etements de groupes
+r\'eductifs connexes. IV. Distributions invariantes},
+Ann. Inst. Fourier \textbf{64} (2014), 2379--2448.
+\url{https://doi.org/10.5802/aif.2915}.
+\bibitem{JoynerI} D. Joyner, Claude (Anthropic), and ChatGPT (OpenAI),
+\emph{A metaplectic Jacquet--Langlands transfer for division algebras
+of prime degree, I: Local matching and a global transfer under
+elliptic-support conditions}, Draft 7 (2026), especially \S\S2--6.
+\bibitem{JoynerII} D. Joyner, Claude (Anthropic), and ChatGPT (OpenAI),
+\emph{A metaplectic Jacquet--Langlands transfer for division algebras
+of prime degree, II: Matching of arbitrary functions and an improved
+global transfer}, Draft 7 (2026), especially \S\S2, 5--7.
+\bibitem{JoynerIII} D. Joyner, ChatGPT (OpenAI), and Claude (Anthropic),
+\emph{A metaplectic Jacquet--Langlands transfer for division algebras
+of prime degree, III: The division-algebra side and its local
+character transform}, Draft 9 (2026), especially Corollary~7.8
+and \S\S3--5, 7--9, 11--12.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem,longtable,xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\title{Revision log for Part IV, Draft 3\\
+\large Response to Claude's referee report on Draft 2}
+\author{Prepared by ChatGPT (OpenAI) for David Joyner\\
+\normalsize Referee: Claude (Anthropic)}
+\date{November 7, 2026 (Eastern Standard Time)}
+\begin{document}
+\maketitle
+\section*{Source and scope}
+This log records changes from \path{mjl_part4_draft2.tex}
+(formatted title-page version) to \path{mjl_part4_draft3.tex}.
+It responds to the attached \path{mjl_part4_draft2_referee_report_claude.tex}.
+The arithmetic, representation-theoretic, and trace-formula claims
+that have not been established remain explicitly conditional or conjectural.
+The numerical references from Part III were checked against its compiled
+\emph{Draft 9} rather than Draft 7: Lemma 3.3, Theorems 4.3, 7.6,
+and 9.1, Corollaries 5.1, 5.2, and 7.8, and Proposition 11.3
+retain their numbering.  Parts I and II were consulted in their
+published-to-GitHub Draft 7 source versions when this edit began.
+This is not an independent referee verification of every theorem in the series.
+
+\section*{Disposition of substantive referee findings}
+\begin{enumerate}[leftmargin=*,itemsep=0.55em]
+\item \textbf{Referee \S1.1: Odd-$n$ star-map correction $u(x)=1$ needs justification.} Explain that $u(x)\in\{\pm1\}\cap\mu_n=\{1\}$, not merely that Zou's multiplicativity identity holds.  State scalar and automorphic central-character consequences.
+\item \textbf{Referee \S1.2: Split regular element may have singular power; field regularity deserves proof.} In Remark 3.3 explain that $\mathrm{diag}(1,\zeta_3)$ is not good over $\mathbb Q_3(\zeta_3)$, and give the coprime-degree/Kummer proof for field tori.
+\item \textbf{Referee \S1.3: General pushforward density formula in Proposition 4.2 is false.} Replace the proof by a compact-open principal-unit calculation. The result remains $n^{k-1}|n|_F^{-(r-1)}$. Include the counterexample $\mathbb Z\xrightarrow{\times n}\mathbb Z$ in Remark 4.3.
+\item \textbf{Referee \S1.4: Name the split-place cover isomorphism.} Cite Part I, Proposition 2.6 explicitly in Theorem 5.2's proof.
+\item \textbf{Referee \S1.5: Explain Zou's central-character hypothesis and remove redundant regularity proviso.} Proposition 7.1 states automatic regularity for a degree-$r$ field torus.  It explains the root sum when $\omega_\pi|_{\mu_n}$ is or is not trivial, and why an actual lift pair forces triviality.
+\item \textbf{Referee \S1.6: Geometric Proposition 8.1 was nearly tautological.} Add the FK-compatible function class (Definition 8.1), prove its necessity (Lemma 8.2), and replace the global criterion with explicit split-place pointwise identities $J_{\widetilde H_v}(x^*,\widetilde f_v)=\lambda_v J_{H_v}(x,f_v)$ and the product condition $\prod_{v\notin S}\lambda_v\prod_{v\in S}b_{D,v}=1$.  State the unproved existence and singular-germ obligations.
+\item \textbf{Referee \S1.7: Real-place statement about Li is misleading.} State that $K$ is totally imaginary and has no real archimedean places.  Note the splitting at complex places and cite Clozel--Delorme for the linear invariant Paley--Wiener theorem.  Li's theorem alone does not compare the two groups under study.
+\item \textbf{Referee \S1.8: Proposition 9.1 only repeated the lattice criterion.} Merge it into a remark applying Proposition 6.1 (Part III, Corollary 5.2).  Do not represent it as a new conditional theorem.
+\item \textbf{Referee \S2: Status labels, authors, citations, and versions inconsistent.} Adopt Parts I--III's [P]/[E]/[O]/[C] convention and update Part III's citation to Draft 9 with the actual full title and authors. Part I and II bibliography entries reflect the GitHub Draft 7 versions that were available at the time.
+\item \textbf{Referee \S3: Editorial drafting history belongs in a log.} Remove the draft-by-draft cross-checking paragraph, the self-reference to Part IV Draft 1, and the phrase ``in the numbering cited by the referee.'' Trim repetitive disclaimers and clarify the abstract.
+\end{enumerate}
+
+\section*{The repaired Haar modulus computation}
+Write $A_E=(\prod_i E_i^\times)/F^\times$, $K_0=\ker(P_n)$,
+and take a small torsion-free compact open subgroup $U\subset A_E$
+that meets $K_0$ trivially.  Its principal-unit logarithm has
+$\mathbb Z_p$-rank $(r-1)[F:\mathbb Q_p]$, so
+\[
+[U:U^n]=|n|_F^{-(r-1)},\qquad
+P_n^{-1}(U^n)=UK_0.
+\]
+Thus the pushforward Haar density on $P_n(A_E)$ equals
+\[
+\frac{\operatorname{vol}(UK_0)}{\operatorname{vol}(U^n)}
+=|K_0|[U:U^n]=n^{k-1}|n|_F^{-(r-1)}.
+\]
+This is a calculation for the particular local group $A_E$,
+not a universal quotient-index identity.  Although this factor
+numerically equals $[A_E:P_n(A_E)]/|K_0|$ here, that expression
+is not generally a Haar Jacobian.
+
+\section*{Precisely what has and has not advanced in Section 8}
+Flicker--Kazhdan \S6 already imposes a regular orbital-integral
+invariance when different ordinary roots yield the same central
+translate of a star image.  Draft 3 proves that a pointwise
+covered-to-ordinary orbital-integral identity \emph{requires}
+this invariance.  It then isolates an explicit set of sufficient
+hypotheses for a geometric trace comparison, including local
+constants $\lambda_v$, a global product identity, rational
+splittings, quotient Haar measures, and support eliminating
+singular classes.  The implication is proved once these inputs
+are granted, but the existence of matching data satisfying them
+is still open.  In particular, a local root sum of Zou's type
+cannot automatically be identified with one rational orbital
+integral, and regular roots with singular powers require separate
+germ or support control.
+
+\section*{Bibliographic checks}
+The updated Part III reference is to: D. Joyner, ChatGPT (OpenAI),
+and Claude (Anthropic), \emph{A metaplectic Jacquet--Langlands transfer
+for division algebras of prime degree, III: The division-algebra side
+and its local character transform}, Draft 9 (November 7, 2026).
+The erroneous, unused Takeda entry from Draft 2 (2017, pp. 415--449)
+has been removed; the verified journal pages are 199--230,
+\url{https://doi.org/10.2140/pjm.2017.290.199}.
+A Clozel--Delorme citation has been added:
+\emph{Le th\'eor\`eme de Paley--Wiener invariant pour les groupes de
+Lie r\'eductifs}, Invent. Math. 77 (1984), 427--453.
+Li's statement is supported by his 2014 article,
+\url{https://doi.org/10.5802/aif.2915}.
+
+\section*{Outstanding mathematical questions}
+\begin{enumerate}[leftmargin=*]
+\item Wild-place integrality of the matrix $(a_{\rho\tau})$ remains
+unproved; the concrete $r=2,n=3$ example should be computed in a
+twisted finite character algebra, with level control.
+\item Split-place transfer requires test functions satisfying the
+FK compatibility and the pointwise $\lambda_v$-identity with the
+chosen measures; the present work provides a necessity criterion,
+not an existence theorem.
+\item The product identity for the $\lambda_v$ and the ramified
+$b_{D,v}$, together with germ behavior and global spectral isolation,
+must be established before an ordinary-versus-covered $D^\times$
+trace formula can be asserted.
+\item Part III Corollary 7.8 is a proved tame character statement only
+in the explicitly available Flicker--Kazhdan range (notably
+$(n,N_r)=1$ as a sufficient published hypothesis); it does not
+settle wild places.
+\end{enumerate}
+
+\section*{Compilation and distribution}
+Draft 3 and this log were compiled using \texttt{pdflatex};
+PDF outputs were inspected. The accompanying archive carries local
+Eastern Standard Time file-entry timestamps (UTC-05:00) and a
+README listing source baselines and limitations.  No GitHub push is
+performed by generating the archive.
+\end{document}
