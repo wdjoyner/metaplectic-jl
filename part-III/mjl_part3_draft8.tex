@@ -1,0 +1,1446 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{enumitem,booktabs,array}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\A}{\mathbb A}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\GL}{\operatorname{GL}}
+\newcommand{\Nrd}{\operatorname{Nrd}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\tH}{\widetilde H}
+\newcommand{\tZ}{\widetilde Z}
+\newcommand{\ttT}{\widetilde T}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\gen}{\mathrm{gen}}
+\newcommand{\JL}{\mathrm{JL}}
+\newcommand{\Sha}{\operatorname{Sha}}
+\newcommand{\Gb}{\overline{G}}\newcommand{\GDb}{\overline{G}_D}\newcommand{\Zb}{\overline{Z}}
+\newcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\newcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\newcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\newcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, III:\\
+The division-algebra side and its local character transform\\[0.4em]\normalsize Draft 8}
+\author{David Joyner \and ChatGPT (OpenAI) \and Claude (Anthropic)}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+Let $D/F$ be a central division algebra of prime degree $r$ and
+$\widetilde{D^\times}$ the $n$-fold cover ($n$ odd) specified in
+Part~I, where $(n,r)=1$. We construct and normalize a unitary
+transform $L_D$ of genuine and ordinary invariant class functions,
+with local coefficient $|n|_F^{-(r-1)/2}$. When the residue characteristic
+is prime to $n$, a unique splitting over the reduced-norm-one group,
+together with an Adams operation, proves that $L_D$ bijects irreducible
+characters and preserves dimensions. At places dividing $n$ we obtain
+a nonsplitting and divisibility obstruction. We give the normalized
+orbital-integral transfer and its trace-pairing identity. Globally we
+prove an almost-everywhere local-to-global principle for $n$th powers
+modulo scalars, and explain the relevant rational-orbit and measure
+considerations from Kottwitz's work. The wild-place character
+correspondence and the adelic trace-formula comparison remain open.
+\end{abstract}
+\tableofcontents
+
+\section{Introduction and results}
+The classical local Jacquet--Langlands correspondence identifies
+irreducible representations of $D^\times$ with essentially
+square-integrable representations of $\GL_r(F)$ in the appropriate
+central-character families \cite{DKV}. It does not produce a
+correspondence between ordinary representations of $D^\times$ and
+genuine representations of its metaplectic cover: pullback from the
+linear group is not genuine. This paper studies the division-algebra
+side directly and provides local results independent of a conjectural
+global trace-formula comparison.
+
+\paragraph{Position within the series.}
+Part~I constructs the specified covers, computes their good elements, and
+proves matching for regular-supported functions; Part~II proves matching of
+arbitrary functions (its Theorem~E), identifies the germs at the center, and
+proves an improved global transfer (its Theorem~C$'$). Here the central object
+is the transform $L_D$ on the compact-mod-center group $D^\times$.
+The principal issues and their status are:
+\begin{center}
+\small
+\begin{tabular}{@{}p{0.23\linewidth}p{0.57\linewidth}p{0.10\linewidth}@{}}
+\toprule
+\textbf{Topic} & \textbf{Assertion} & \textbf{Status}\\
+\midrule
+Covering theory & Scalar centrality and good-locus description from Part~I & [E]\\
+Local harmonic analysis & Unitary $L_D$ and explicit coefficient $b_D$ & [P]\\
+Tame representations & Splitting over $D^1$ and irreducible-character bijection for $p\nmid n$ & [P]\\
+Wild representations & Nonsplitting and necessary divisibility constraints & [P]\\
+ & Integrality of $L_D$ at places dividing $n$ & [C]\\
+Character relation (D2) of Part~I & Tame places, under the explicit cover-compatibility and correspondence hypotheses (Corollary~\ref{cor:D2tame}) & [O]\\
+Test functions & Normalized local orbital-integral transfer and trace adjunction & [P]\\
+Global arithmetic & Local-to-global powers modulo scalars outside any finite set & [P]\\
+Global comparison & Good-element matching, adelic measures, spectral separation & [C]\\
+\bottomrule
+\end{tabular}
+\end{center}
+As in Parts~I and~II, \textbf{[P]} means proved here (possibly using
+results marked \textbf{[E]}), \textbf{[E]} means established elsewhere
+(including Parts~I and~II) and used as a black box, \textbf{[O]} means that
+a proof is outlined but not fully written out or checked, and \textbf{[C]}
+means conjectural: new mathematical input is required.
+These statuses concern the precise stated hypotheses; the local
+claims rely on the specific covering cocycle of Part~I, not on
+an arbitrary central extension.
+
+The two distinct maps in the paper should be kept separate:
+the unitary operator on invariant $L^2$ class functions, and a
+bijection of individual irreducible characters. The first exists at
+all division places, whereas the second is established here only
+when $p\nmid n$. The Adams operation provides the bridge in that case.
+
+After the local results, we review the part of Kottwitz's arithmetic
+framework needed for rational conjugacy and inner forms, then prove
+a Hasse principle for the global power quotient. The final section
+states what remains for an adelic metaplectic Jacquet--Langlands
+comparison. A short glossary records the specialized terminology.
+
+\section{Local setting and good elements}
+We fix the local field, central-character conventions, and the
+covering-theoretic theorem imported from Part~I. The distinction
+between a good element of the cover and an ordinary regular element
+is essential to the definition of the transform.
+Let $F$ be a finite extension of $\mathbb Q_p$ containing $\mu_n$, where $n\ge1$ is odd. Let $r\ge2$ be prime and $(n,r)=1$. Let $D/F$ be a central division algebra of degree $r$, $H=D^\times$, and $Z=F^\times$ its scalar center. We use the normalized local absolute value $|\cdot|_F$ ($|\varpi_F|_F=q_F^{-1}$).
+
+Let
+\begin{equation}\label{eq:extension}
+1\longrightarrow\mu_n\longrightarrow\tH\overset{p}{\longrightarrow}H\longrightarrow1
+\end{equation}
+be a locally compact topological central extension. Throughout we use \emph{the specified cocycle of Part~I}, rather than an arbitrary central extension. In its parameter convention, $n\mid r-1+2rc_v$; under that condition the inverse image $\tZ=p^{-1}(Z)$ is central (Part~I, Lemma~2.2). The cocycle condition is essential; a general $n$-fold extension need not have central scalar preimage. References to Part~I below refer to its stated cocycle conventions.
+
+In the notation of Parts~I and~II, $\tH=\GDb(F)$, $\tZ=\Zb$, and $\Gb_v$ denotes the Kazhdan--Patterson cover of $\GL_r(F)$ with parameter $c_v$; the normalized orbital integral $J=\Delta O$ of \S\ref{sec:orbital} is the function $F=\Delta\Phi$ of Part~I, Definition~4.1, for the measures used here. Fix a unitary character $\widetilde\theta:\tZ\to\C^\times$ whose restriction to $\mu_n$ is faithful. Write $\theta(a)=\widetilde\theta(a^*)$ for $a\in Z$, where the star map is defined next. For invariant functions we impose the central equivariance conventions $f(ah)=\theta(a)f(h)$ and $\widetilde f(zh)=\widetilde\theta(z)\widetilde f(h)$.
+
+\begin{definition}[The star map]\label{def:star}
+For $h\in H$ choose any lift $\widetilde h\in\tH$ and set
+\begin{equation}\label{eq:star}
+h^*=\widetilde h^{\,n}\in\tH.
+\end{equation}
+The definition is independent of the lift. It is conjugation equivariant, and for $a\in Z$ and $h\in H$ one has $(ah)^*=a^*h^*$.
+\end{definition}
+\begin{proof}
+Another lift is $\zeta\widetilde h$ with $\zeta\in\mu_n$, whose $n$th power is $\widetilde h^n$. Conjugation equivariance follows by lifting the conjugating element. Elements of $\tZ$ are central by assumption, hence $(\widetilde a\widetilde h)^n=\widetilde a^n\widetilde h^n$. In particular $a\mapsto a^*$ is a homomorphism from $Z$ to $\tZ$. (For a maximal torus it is also a homomorphism, because $n$ is odd; see below.)
+\end{proof}
+
+Every noncentral $h\in D^\times$ generates a maximal subfield $E=F(h)$, of degree $r$. Set $T=E^\times$; it is its own centralizer in $H$. A regular element of $H$ means a noncentral element. The corresponding Weyl discriminant is
+\begin{equation}\label{eq:disc}
+\Delta(h)=\left|\det\bigl(1-\operatorname{Ad}(h)\mid \mathfrak h/\mathfrak t\bigr)\right|_F^{1/2}
+=\prod_{i<j}\left|\frac{(\lambda_i-\lambda_j)^2}{\lambda_i\lambda_j}\right|_F^{1/2},
+\end{equation}
+where $\lambda_1,\dots,\lambda_r$ are the conjugate eigenvalues in a splitting field, and the product is interpreted with the normalized absolute value.
+
+\begin{definition}[Good regular element]\label{def:good}
+A regular $\widetilde h\in\tH$ is good if it commutes with $p^{-1}(Z_H(p(\widetilde h)))$. The definition is equivalent to the usual statement that the commutator character on the preimage of the regular centralizer is trivial. Every $h^*$ is good, since its commutators are $n$th powers in $\mu_n$.
+\end{definition}
+
+\begin{remark}\label{rem:good-vanish}
+If $\widetilde h$ is regular and not good, every genuine conjugation-invariant function $\widetilde f$ vanishes at $\widetilde h$: some lift $\widetilde t$ centralizing $p(\widetilde h)$ has $\widetilde t\widetilde h\widetilde t^{-1}=\zeta\widetilde h$, with $\zeta\neq1$; invariance and genuine central equivariance then force $\widetilde f(\widetilde h)=0$.
+\end{remark}
+
+\begin{proposition}[\Etag\ Good lifts on the division side (Part~I)]\label{prop:good}
+For each maximal subfield $E/F$ of $D$, the good elements of
+$p^{-1}(E^\times)$ are precisely $z\,t^*$ with $z\in\tZ$ and
+$t\in E^\times$. Equivalently, modulo $\tZ$ the good subset
+corresponds to $(E^\times/F^\times)^n$. These are the good-element
+and commutator results established in Part~I, Lemma~2.2 and
+Proposition~3.5(a); the local index and preservation of regularity
+are treated there in Proposition~3.5(b),(d).
+\end{proposition}
+
+\section{Power maps on elliptic tori}\label{sec:power}
+The local index of the power map and the ratio of Weyl discriminants
+control the normalization of $L_D$. Both calculations use the
+coprimality of $n$ and $r$, including at wild places.
+\begin{lemma}[\Ptag\ No new singular elements]\label{lem:regular}
+If $h\in H$ is noncentral, $h^n$ is noncentral. In particular the image of a regular element under the star map is regular.
+\end{lemma}
+\begin{proof}
+Suppose $h^n\in F^\times$. The field $L=F(h)$ is an intermediate field of a maximal subfield of $D$, hence $[L:F]$ divides $r$. Because $F$ contains $\mu_n$ and $h^n\in F^\times$, Kummer theory shows $[L:F]$ divides $n$. The coprimality $(n,r)=1$ therefore gives $[L:F]=1$, contrary to the assumption that $h$ is noncentral.
+\end{proof}
+
+\begin{lemma}[\Ptag\ Degree of the power map]\label{lem:index}
+For any degree-$r$ extension $E/F$ embedded in $D$, the map
+\[
+P_n:E^\times/F^\times\longrightarrow E^\times/F^\times,\qquad [t]\longmapsto[t^n]
+\]
+is injective and has open image of index
+\begin{equation}\label{eq:index}
+I_F(n,r)=\bigl[E^\times/F^\times:(E^\times/F^\times)^n\bigr]
+=|n|_F^{-(r-1)}.
+\end{equation}
+The index is independent of $E$.
+\end{lemma}
+\begin{proof}
+If $t^n\in F^\times$, Kummer theory over a field containing $\mu_n$ gives $[F(t):F]\mid n$. Since $F(t)\subset E$ and $[E:F]=r$, this degree also divides $r$; hence $t\in F^\times$, proving injectivity.
+
+The quotient $A=E^\times/F^\times$ is a compact abelian $p$-adic Lie group. Its $p$-adic analytic dimension is $d=([E:\mathbb Q_p]-[F:\mathbb Q_p])=(r-1)[F:\mathbb Q_p]$. The structure theorem for compact abelian $p$-adic Lie groups writes $A\simeq \mathbb Z_p^d\times C$ for a finite abelian group $C$. The injectivity already proved implies $A[n]=\{1\}$, so multiplication by $n$ is an automorphism of $C$. On $\mathbb Z_p^d$ it has index $p^{v_p(n)d}$. Since $|n|_F=p^{-[F:\mathbb Q_p]v_p(n)}$, this is exactly $|n|_F^{-(r-1)}$. (The argument also handles $p\mid n$.)
+\end{proof}
+
+\begin{lemma}[\Ptag\ Discriminant ratio]\label{lem:ratio}
+For noncentral $h$, the ratio
+\[
+R(h)=\frac{\Delta(h)}{\Delta(h^n)}
+\]
+is locally constant and nowhere zero. It extends uniquely to a locally constant function on all of $H$, taking the value
+\begin{equation}\label{eq:ratio-at-center}
+R(a)=|n|_F^{-r(r-1)/2}\qquad(a\in F^\times).
+\end{equation}
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:regular}, both discriminants are nonzero at every noncentral element. They are continuous functions with values in the discrete multiplicative group $q_F^{\frac12\mathbb Z}$ and hence locally constant on this open set.
+
+For $h$ sufficiently close to a scalar $a\in F^\times$, all its eigenvalues are close to $a$ in a finite splitting extension. Factoring
+\[
+\lambda_i^n-\lambda_j^n=(\lambda_i-\lambda_j)
+\sum_{k=0}^{n-1}\lambda_i^{n-1-k}\lambda_j^k,
+\]
+the final factor approaches $na^{n-1}$ and thus has constant absolute value $|na^{n-1}|$ for $h$ in a sufficiently small neighborhood. The factors involving $\lambda_i\lambda_j$ in the normalized discriminant cancel the $|a|^{n-1}$ powers. Each of the $r(r-1)/2$ unordered pairs consequently contributes $|n|_F^{-1}$ to $R(h)$. This proves the formula and locally constant extension; uniqueness follows from density of the regular set.
+\end{proof}
+
+\section{The normalized local class-function transform}\label{sec:local}
+We first transfer \emph{invariant functions}; the problem of sending
+individual irreducible characters to irreducible characters is
+addressed separately. The transform is normalized using quotient
+probability measures.
+We equip $H/Z$ with Haar probability measure. Because $\tZ=p^{-1}(Z)$, the quotient $\tH/\tZ$ maps isomorphically to $H/Z$; we transport the probability measure through this isomorphism. Each elliptic torus quotient $T/Z$ likewise has its probability Haar measure. These conventions are the relevant ones for \emph{local unitarity}; matching geometric distributions globally may require additional, separately stated orbital-integral conventions.
+
+Write $\mathcal H_\theta(H)$ for the Hilbert space of $L^2$ conjugation-invariant functions on $H$ with $\theta$-equivariance under $Z$. Similarly, write $\mathcal H_{\widetilde\theta}(\tH)$ for the genuine invariant functions with $\widetilde\theta$-equivariance under $\tZ$. The inner products are taken over $H/Z$ and $\tH/\tZ$, respectively.
+
+\begin{definition}[The division-side transform]\label{def:L}
+Using Proposition~\ref{prop:good}, define on regular elements
+\begin{equation}\label{eq:transfer}
+\boxed{\quad
+(L_D\varphi)(z\,t^*)=
+|n|_F^{-(r-1)/2}\,\widetilde\theta(z)
+\frac{\Delta(t)}{\Delta(t^n)}\,\varphi(t),
+\quad z\in\tZ,
+\ t\in T^{\reg},\quad}
+\end{equation}
+and let $L_D\varphi=0$ at nongood regular elements. The value at singular elements is understood by continuous extension whenever $\varphi$ is smooth.
+\end{definition}
+
+\begin{lemma}[\Ptag\ Well-definedness and smoothness]\label{lem:well-defined}
+The expression \eqref{eq:transfer} is independent of the choice of $z,t$ and of the maximal subfield $E=F(t)$. It sends locally constant invariant functions to locally constant invariant functions.
+\end{lemma}
+\begin{proof}
+For a good regular element, the regular centralizer is uniquely $E^\times$. If $zt^*=z'(t')^*$ then $t'^n$ and $t^n$ differ by a scalar. Since their centralizers are $E$ and $t',t\in E^\times$, the injectivity in Lemma~\ref{lem:index} gives $t'=at$ with $a\in F^\times$. As $(at)^*=a^*t^*$ and $\Delta(at)=\Delta(t)$, the formula changes by the same factor $\theta(a)=\widetilde\theta(a^*)$ on either side. Conjugation equivariance follows from Definition~\ref{def:star}.
+
+On a regular semisimple conjugacy chart, the image of the $n$th-power map on $T/Z$ is an open-and-closed subgroup by Lemma~\ref{lem:index}. Thus the prescribed function is locally constant on both the good and nongood regular loci, using Lemma~\ref{lem:ratio}. A sufficiently small neighborhood of any central element consists of elements represented by $z t^*$: the local $n$th-root map exists by the nonarchimedean inverse function theorem, since $n$ is nonzero in $F$. The same discriminant ratio has the constant value of \eqref{eq:ratio-at-center} there. Hence the function extends locally constantly across the center. Since $r$ is prime there are no other nonregular elements.
+\end{proof}
+
+\begin{theorem}[\Ptag\ Unitarity and explicit constant]\label{thm:unitary}
+For the specified cover of Part~I, $L_D$ extends uniquely to a unitary isomorphism
+\begin{equation}\label{eq:unitary}
+L_D:\mathcal H_\theta(H)\xrightarrow{\ \sim\ }\mathcal H_{\widetilde\theta}(\tH).
+\end{equation}
+The positive coefficient $b_D=|n|_F^{-(r-1)/2}$ in \eqref{eq:transfer} is uniquely determined by unitarity for the quotient probability measures used here.
+\end{theorem}
+\begin{proof}
+The Weyl integration formula, applied to $|\varphi|^2$, reduces the norm on $H/Z$ to a sum over elliptic maximal tori $T/Z$ of weighted integrals
+\[
+\frac{1}{|W(H,T)|}\int_{T/Z}\Delta(t)^2|\varphi(t)|^2\,dt.
+\]
+There is no need for a separate Weyl integration theorem on the covering group: since $\tH/\tZ\simeq H/Z$, the function $|\widetilde f|^2$ is an honest conjugation-invariant function on $H/Z$, and the ordinary Weyl formula applies directly. By Remark~\ref{rem:good-vanish} and Proposition~\ref{prop:good}, a genuine invariant function vanishes off the open-and-closed subset $(T/Z)^n$ of each torus quotient.
+
+The power map $P_n:T/Z\to(T/Z)^n$ is a topological group isomorphism. Since $T/Z$ has probability Haar measure and $(T/Z)^n$ has index $I=|n|_F^{-(r-1)}$ in $T/Z$, for every integrable function $Q$ on this subgroup,
+\begin{equation}\label{eq:changevar}
+\int_{(T/Z)^n}Q(x)\,dx=\frac1I\int_{T/Z}Q(t^n)\,dt.
+\end{equation}
+Consequently, with a provisional coefficient $b>0$, the covered Weyl integral equals
+\[
+\frac{b^2}{I\,|W(H,T)|}\int_{T/Z}\Delta(t)^2|\varphi(t)|^2\,dt.
+\]
+The index is independent of $T$, so the equality of norms for all class functions is equivalent to $b^2=I$. This gives $b=b_D$.
+
+To see surjectivity, start with a smooth genuine invariant function on the cover. It vanishes off the good regular set. By the uniqueness in Lemma~\ref{lem:well-defined}, the formula defining $L_D$ can be inverted on every good regular element. The inverse has the same local smoothness properties, by the inverse of $P_n$ on its open image. This proves surjectivity on a dense subspace and therefore the unitary isomorphism on completions.
+\end{proof}
+
+\begin{remark}[Local versus global normalization; comparison with Zou]\label{rem:normalizations}
+The coefficient $b_D=|n|_F^{-(r-1)/2}$ is determined by the
+power-map Jacobian and the quotient probability measures in
+Theorem~\ref{thm:unitary}. A common compatible rescaling of Haar
+measures does not alter the ratio, but the proposed global trace
+formula requires independent, explicit adelic normalizations.
+
+Zou's corrected local Flicker--Kazhdan character relation
+\cite[(3.2) and Remark~3.3]{Zou} has elliptic coefficient
+\[
+  \frac{n}{d_F(d_r)|n|_F^{r/2}},\qquad
+  d_F(m)=m|m|_F^{-1/2},\qquad
+  d_r=\gcd(n,2rc+r-1).
+\]
+Under Part~I's scalar-centrality congruence one has $d_r=n$, and
+this coefficient simplifies algebraically to $b_D$.
+To identify the \emph{character transforms}, however, one must also
+identify the two cocycles, their star maps, the central-character
+conventions, and the discriminant and orbital-measure normalizations.
+The equality of numerical coefficients alone is not such an
+identification; see Corollary~\ref{cor:D2tame}.
+\end{remark}
+
+\section{Irreducible characters and the integrality obstruction}\label{sec:characters}
+The unitary transform has a matrix relative to irreducible characters,
+but unitarity alone does not force that matrix to be integral.
+We record explicit arithmetic tests that any true character
+correspondence must pass.
+Since $H/Z$ is compact, every smooth irreducible representation with a fixed central character is finite dimensional. Its character is a locally constant invariant function on $H$. The same holds on the cover.
+
+\begin{corollary}[\Ptag\ A unitary character matrix]\label{cor:matrix}
+Let $\rho$ range over $\Irr_\theta(H)$ and $\tau$ over $\Irr_{\widetilde\theta}(\tH)$. For each $\rho$ there is a \emph{finite} expansion
+\begin{equation}\label{eq:matrix}
+L_D\Theta_\rho=\sum_{\tau}a_{\rho\tau}\Theta_\tau.
+\end{equation}
+The matrix $A=(a_{\rho\tau})$ is unitary (in the sense of the associated operator on $\ell^2$), and its rows and columns are finite.
+\end{corollary}
+\begin{proof}
+Schur orthogonality for compact groups modulo the fixed center gives orthonormal bases of irreducible characters for the two invariant $L^2$ spaces. Theorem~\ref{thm:unitary} therefore makes $A$ unitary. Local constancy and compactness modulo center show that each smooth invariant function is invariant under an open normal subgroup of the compact quotient, so it factors through a finite quotient (or through a corresponding finite-dimensional projective quotient with fixed central character). Its irreducible-character expansion is therefore finite. Applying this observation to the inverse transform gives finite columns as well.
+\end{proof}
+
+\begin{corollary}[\Ptag\ What integral coefficients would imply]\label{cor:integrality}
+Suppose the coefficients $a_{\rho\tau}$ in \eqref{eq:matrix} are integers for every $\rho,\tau$. Then $L_D$ maps each irreducible character to a unique irreducible character with positive sign, and it induces a bijection
+\[
+\Irr_\theta(H)\;\xrightarrow{\sim}\;\Irr_{\widetilde\theta}(\tH).
+\]
+More precisely, if $L_D\Theta_\rho=\Theta_\tau$, then
+\begin{equation}\label{eq:dimension}
+\boxed{\qquad\dim\tau=|n|_F^{-(r^2-1)/2}\,\dim\rho.\qquad}
+\end{equation}
+\end{corollary}
+\begin{proof}
+An integral vector of squared $\ell^2$-norm one has exactly one nonzero entry, equal to $+1$ or $-1$. The sign cannot be negative because $\Theta_\rho(1)=\dim\rho>0$ and the continuous value at the identity prescribed by \eqref{eq:transfer} is
+\[
+(L_D\Theta_\rho)(1)
+=b_D\,|n|_F^{-r(r-1)/2}\dim\rho>0.
+\]
+The same argument applied to $L_D^{-1}$ yields bijectivity. Substituting $b_D=|n|_F^{-(r-1)/2}$ gives \eqref{eq:dimension}.
+\end{proof}
+
+\begin{remark}[A concrete wild-place check]
+Take $r=2$, $n=3$, $F=\mathbb Q_3(\zeta_3)$. Then $|3|_F=3^{-2}=1/9$, so $I=9$, $b_D=3$, and formula \eqref{eq:dimension} predicts $\dim\tau=27\dim\rho$ \emph{if} integral irreducible transfer holds. This is a sharp, falsifiable numerical consequence of the proposed correspondence; it is not evidence that the correspondence is already proved.
+\end{remark}
+
+
+\begin{lemma}[\Ptag\ Integral local scaling constants]\label{lem:integral-constants}
+If $p\mid n$ and $\mu_n\subset F$, with $n$ odd as assumed, then
+\[
+b_D=|n|_F^{-(r-1)/2},\qquad
+c_D=|n|_F^{-(r^2-1)/2}
+\]
+are positive integers.
+\end{lemma}
+\begin{proof}
+Write $p^k\Vert n$ and $d=[F:\mathbb Q_p]$. Since
+$\mu_{p^k}\subset F$ and $p$ is odd, $p-1$ divides $d$;
+in particular $d$ is even. For the normalized absolute value,
+$|n|_F^{-1}=p^{kd}$ is a perfect square. Both exponents above
+therefore give integral nonnegative powers of $p$.
+\end{proof}
+
+\begin{remark}[A falsifiable wild-place divisibility test]\label{rem:wild-test}
+Suppose the matrix of Corollary~\ref{cor:matrix} is integral at a
+wild place, so the transform is a bijection on irreducible characters.
+Every genuine $\tau\in\Irr_{\widetilde\theta}(\tH)$ must then satisfy
+$c_D\mid\dim\tau$, since $\dim\tau=c_D\dim\rho$ for its unique
+preimage $\rho$. In the example $(r,n,F)=(2,3,\mathbb Q_3(\zeta_3))$,
+$c_D=27$, while the covered-torus argument of
+Proposition~\ref{prop:wild-obstruction} yields only the weaker
+factor $b_D=3$ in the dimension constraints. A genuine irreducible
+of dimension not divisible by $27$ would disprove \emph{integrality
+of this specific transform} $L_D$, but would not disprove the existence
+of some other wild-place correspondence. The existence of such an
+irreducible is an open computational test, not an asserted example.
+\end{remark}
+
+\begin{remark}[Why unitarity is not integrality]\label{rem:warning}
+A unitary operator need not send an orthonormal basis to itself. Even if its matrix is locally finite, the entries need not be integral. A trace-formula or representation-theoretic positivity argument is needed to show $a_{\rho\tau}\in\mathbb Z$. The remaining genuinely unresolved local step is the integrality statement at \emph{wild places}, where $p\mid n$; see Section~\ref{sec:wild}. It should not be concealed under the phrase ``unitary character transfer.''
+\end{remark}
+
+\section{Adams operations and finite-group characters}\label{sec:adams}
+We recall the $K$-theoretic origin of the Adams operations and
+explain why they preserve irreducibility in certain tame
+finite-group situations.
+\subsection*{Background from $K$-theory and finite-group characters}
+The Adams operations (after J.~F.~Adams) originated in algebraic topology, where complex topological
+$K$-theory studies the Grothendieck group of complex vector bundles. For a finite
+group $Q$, a $Q$-equivariant complex vector bundle over a point is simply a
+finite-dimensional complex representation of $Q$. Consequently
+\[
+K_Q^0(\mathrm{pt})\cong R(Q),
+\]
+the representation (or character) ring \cite{SegalK}. The operations
+$\lambda^j[V]=[\bigwedge^jV]$ give this ring its $\lambda$-ring structure.
+The Adams operations $\psi^k$ are the corresponding Newton-polynomial
+operations; for instance
+\[
+\psi^1(V)=V,\qquad
+\psi^2(V)=V\otimes V-2\bigwedge\nolimits^2V
+\quad\text{in }R(Q).
+\]
+This description connects Adams's topological construction \cite{Adams62}
+with Atiyah's systematic account of power operations \cite{Atiyah66}.
+
+To see the character-theoretic formula, restrict $V$ to the cyclic subgroup
+generated by $g\in Q$. On this subgroup $V$ decomposes as a sum of eigenlines
+with eigenvalues $\alpha_i$; the defining property $\psi^k(L)=L^{\otimes k}$
+on line representations gives
+\begin{equation}\label{eq:adams-def-background}
+\boxed{\quad\chi_{\psi^k(V)}(g)=\sum_i\alpha_i^k
+      =\chi_V(g^k).\quad}
+\end{equation}
+The operation is integral on the Grothendieck ring, but need not preserve the
+positive cone of actual characters. For example, if $V$ is the standard
+two-dimensional irreducible representation of $S_3$, then
+$\psi^2(V)=\mathbf1-\operatorname{sgn}+V$, a virtual character.
+If $\gcd(k,|Q|)=1$, however, raising the root-of-unity eigenvalues to the
+$k$th power is a cyclotomic Galois automorphism; it permutes irreducible
+characters. Section~\ref{sec:tame} exploits a more delicate version of this
+fact with a \emph{fixed central character}, so that a central $n$-primary
+subgroup can be retained even when the full finite quotient has order
+divisible by $n$. This is why the Adams argument establishes integrality at
+tame places but not at wild ones.
+
+For a genuine finite-dimensional representation $\tau$ of $\tH$, let
+\[
+\Psi_n(\Theta_\tau)(h)=\Theta_\tau(h^*)=\operatorname{tr}\tau(\widetilde h^n).
+\]
+The $n$th Adams operation in the complex representation ring of $\tH$ is a virtual character with integer coefficients. Since $\mu_n$ acts on $\tau$ by scalars, its $n$th Adams operation is trivial on $\mu_n$ and descends to a virtual character of $H$. Thus $\Psi_n$ is integral and has central character $\theta$.
+
+\begin{proposition}[\Ptag\ Adams pullback and its weight]\label{prop:adams}
+For $\tau\in\Irr_{\widetilde\theta}(\tH)$, the class function $\Psi_n(\Theta_\tau)$ is a virtual character in the integral representation ring $R_\theta(H)$. On regular $t\in H$,
+\begin{equation}\label{eq:adamsweight}
+\Psi_n(\Theta_\tau)(t)=
+|n|_F^{-(r-1)/2}\,R(t)\,\bigl(L_D^{-1}\Theta_\tau\bigr)(t).
+\end{equation}
+\end{proposition}
+\begin{proof}
+After a suitable unramified twist, a given finite-dimensional smooth representation has finite image, and hence factors through a finite quotient $Q$ of $\tH$. The usual $n$th Adams operation is a virtual character of $Q$. For $\zeta\in\mu_n$ it satisfies $\psi^n\Theta(\zeta g)=\Theta((\zeta g)^n)=\Theta(g^n)$, so linear independence of irreducible characters shows that all its constituents have trivial $\mu_n$-action. Thus it descends to $H$, with the required central character. Undoing the unramified twist preserves this assertion (it changes under the $n$th power in the expected way). The displayed formula is the inverse of \eqref{eq:transfer} at $z=1$.
+\end{proof}
+
+In general the nonconstant weight $R(t)^{-1}$ prevents us from deducing integrality of $L_D$ from integrality of the Adams operation alone. In Section~\ref{sec:tame}, however, we prove $R\equiv1$ when $p\nmid n$, and then obtain a complete tame-case character correspondence. At wild places, the discriminant weight is generally nontrivial.
+
+
+\section{The tame case: splitting and irreducible character integrality}\label{sec:tame}
+In this section assume that the residue characteristic $p$ does not divide $n$.
+We use the special cover of Part~I, including the centrality of $\tZ$ and
+its good-element calculation. Write $H^1=\ker(\Nrd:H\to F^\times)$,
+and put $U_D^1=1+\mathfrak P_D$ for the principal units in the maximal
+order of $D$. The term \emph{tame} here means $p\nmid n$; it does not
+impose a condition on the ramification of a maximal subfield of $D$.
+
+\begin{lemma}[\Ptag\ Prime-to-$n$ finite quotients]\label{lem:prime-to-n}
+All finite continuous quotients of $H^1$ and $H/Z$ have order relatively
+prime to $n$. In particular both groups have continuous cohomology
+$H^i(H^1,\mu_n)=0$ for $i=1,2$, where $H^1$ acts trivially on $\mu_n$.
+\end{lemma}
+\begin{proof}
+Write $q=|\mathcal O_F/\mathfrak p_F|$. The standard residue-field
+quotient of the norm-one group embeds in
+\[
+\ker\bigl(N_{\mathbb F_{q^r}/\mathbb F_q}:
+\mathbb F_{q^r}^\times\longrightarrow\mathbb F_q^\times\bigr),
+\qquad M:=\frac{q^r-1}{q-1};
+\]
+the kernel of reduction is pro-$p$. In fact the displayed finite group
+is the full residue quotient, but divisibility of its order by $M$ is
+all that is needed. Since $\mu_n\subset F$ and $p\nmid n$,
+$q\equiv1\pmod n$, and therefore $M\equiv r\pmod n$.
+Consequently $\gcd(M,n)=1$ by $\gcd(r,n)=1$, and no finite quotient
+of $H^1$ can have order divisible by a prime factor of $n$.
+
+For $H/Z$, the image of $U_D^1$ is pro-$p$, and the residual quotient
+has an extension with one factor of order dividing $M$ and another
+of order $r$ (the valuation modulo scalar valuations). Thus every
+finite quotient of $H/Z$ has order prime to $n$ as well.
+For a profinite group all of whose finite quotients have order
+prime to $n$, continuous cohomology with trivial finite
+$\mu_n$-coefficients vanishes in positive degrees: every cocycle
+factors through a finite quotient, where averaging is available.
+\end{proof}
+
+\begin{proposition}[\Ptag\ Unique splitting over the norm-one group]\label{prop:tame-split}
+The restriction of the cover to $H^1$ admits a unique continuous
+homomorphic splitting $s:H^1\to\tH$. Its image is normal in $\tH$.
+The quotient
+\[
+\mathcal A=\tH/s(H^1)
+\]
+is an abelian locally compact group, fitting into a central extension
+$1\to\mu_n\to\mathcal A\to F^\times\to1$.
+For each prescribed faithful character $\epsilon$ of $\mu_n$ there exists
+\emph{some} continuous unitary character $\nu:\tH\to\mathbb C^\times$
+with $\nu|_{\mu_n}=\epsilon$ and $\nu|_{s(H^1)}=1$.
+\end{proposition}
+\begin{proof}
+Vanishing of $H^2(H^1,\mu_n)$ in Lemma~\ref{lem:prime-to-n}
+provides a continuous splitting, while vanishing of $H^1$
+gives uniqueness. Conjugating a splitting by a lift of an element
+of $H$ produces another splitting of the normal group $H^1$;
+uniqueness therefore proves normality.
+
+The reduced norm identifies $H/H^1$ with $F^\times$.
+The commutator of two elements of $\mathcal A$ gives a continuous
+alternating bicharacter
+$c:F^\times\times F^\times\to\mu_n$.
+The preimage of scalar elements is central in $\tH$, and the
+reduced norm of a scalar $a$ is $a^r$. Hence $c(a^r,b)=1$.
+By bilinearity $c(a,b)^r=1$, while $c(a,b)^n=1$ since its image
+lies in $\mu_n$. Coprimality of $r,n$ implies $c=1$, so
+$\mathcal A$ is abelian. Every continuous unitary character of a
+closed subgroup of a locally compact abelian group extends to
+such a character of the whole group. Apply this to the finite
+closed subgroup $\mu_n\subset\mathcal A$ and compose with
+$\tH\to\mathcal A$.
+\end{proof}
+
+\begin{remark}[Twisting is not the character transfer]\label{rem:tame-twist}
+A choice of $\nu$ produces an elementary dimension-preserving
+bijection between irreducible ordinary representations and genuine
+irreducible representations, via
+$\rho\mapsto\nu\otimes(\rho\circ p)$.
+This statement concerns the \emph{full} genuine dual, with central
+characters adjusted by $\nu$. It is not, by itself, the assertion
+that the canonical transform $L_D$ realizes this particular bijection.
+Moreover a prescribed $\widetilde\theta$ need not equal
+$\nu|_{\tZ}$; keeping track of this difference is necessary.
+\end{remark}
+
+\begin{lemma}[\Ptag\ Tame discriminant identity]\label{lem:tame-R}
+For every $h\in H\setminus Z$ one has
+\[
+\boxed{\;\Delta(h^n)=\Delta(h),\qquad R(h)=1.\;}
+\]
+The locally constant extension of $R$ to the scalar center is also
+identically one.
+\end{lemma}
+\begin{proof}
+The compact profinite group $K=H/Z$ has all finite quotients of
+order prime to $n$ by Lemma~\ref{lem:prime-to-n}. On each finite
+quotient $Q$ the power map $x\mapsto x^n$ is bijective (its inverse
+is $x\mapsto x^m$ for any $m$ with $mn\equiv1\pmod{\exp Q}$).
+Consequently $P_n:K\to K$ is a homeomorphism which preserves
+probability Haar measure: it permutes the cosets of every open
+normal subgroup. It is an analytic local diffeomorphism, since
+its derivative is invertible at regular points by
+Lemma~\ref{lem:regular}, and at scalars it is multiplication by
+$n\ne0$ on the Lie algebra.
+
+At a regular element $h$, write $h\exp(X)$ for a local
+left-trivialized chart. The derivative of the power map on
+$\mathfrak h/\mathfrak z$ is
+\[
+(dP_n)_h=\sum_{k=0}^{n-1}\operatorname{Ad}(h)^{-k}.
+\]
+On the $r-1$ dimensional subspace $\mathfrak t/\mathfrak z$,
+$\operatorname{Ad}(h)$ acts trivially, so these directions contribute
+$|n|_F^{r-1}$ to the absolute determinant. Over a splitting field,
+the complementary root directions have eigenvalues
+$u_{ij}=\lambda_i/\lambda_j$ for $i\ne j$ under
+$\operatorname{Ad}(h)$. The corresponding eigenvalues of the
+derivative are
+\[
+\sum_{k=0}^{n-1}u_{ij}^{-k}
+=\frac{1-u_{ij}^{-n}}{1-u_{ij}^{-1}},
+\]
+which are nonzero by Lemma~\ref{lem:regular}. Taking the product
+over $i\ne j$ (equivalently, the $F$-determinant) yields
+\[
+|\det(dP_n)_h|_F
+=|n|_F^{r-1}\prod_{i\ne j}
+  \left|\frac{1-u_{ij}^{-n}}{1-u_{ij}^{-1}}\right|_F
+=|n|_F^{r-1}\frac{\Delta(h^n)^2}{\Delta(h)^2}.
+\]
+Here the middle product is interpreted with the appropriate
+extension of the normalized absolute value to a splitting field.
+The $p$-adic analytic change-of-variables theorem
+\cite[Proposition~1.2.1]{Loeser} applies to the local analytic
+diffeomorphism $P_n$. The probability Haar measure is associated
+locally to a nonvanishing left-invariant top-degree differential
+form, so preservation of Haar measure implies
+$|\det(dP_n)_h|_F=1$ almost everywhere. The absolute determinant
+is locally constant and nonzero on the regular set, hence is $1$
+at every regular $h$. Since $|n|_F=1$, the discriminant identity
+follows. The value at scalars is $1$ by Lemma~\ref{lem:ratio}.
+\end{proof}
+
+\begin{lemma}[\Ptag\ Adams operations with fixed central character]\label{lem:tame-adams}
+Take $G=D^\times$ and $Z_G=F^\times$, and assume $p\nmid n$.
+For every smooth unitary character $\delta$ of $Z_G$, the
+$n$th Adams operation gives a bijection
+\[
+\psi^n:\Irr_\delta(G)\xrightarrow{\sim}
+\Irr_{\delta^n}(G),\qquad
+\Theta_{\psi^n\sigma}(g)=\Theta_\sigma(g^n),
+\]
+with central characters interpreted on the same scalar center.
+\end{lemma}
+\begin{proof}
+First consider a finite group $Q$ with central subgroup $C$
+and $|Q/C|$ prime to $n$. Let $\pi$ be the set of primes dividing $n$, and let $Q_\pi$
+be the $\pi$-primary subgroup of the finite abelian group $C$.
+Since $|Q/C|$ is prime to $n$, we have
+$|Q:Q_\pi|=|Q/C|\,|C:Q_\pi|$ prime to $n$.
+Thus $Q_\pi$ is a \emph{normal Hall $\pi$-subgroup} of $Q$
+(rather than a single-prime Sylow subgroup);
+it is central because $Q_\pi\subset C$. Schur--Zassenhaus
+provides a complement $Q_{\pi'}$, and centrality gives
+$Q=Q_\pi\times Q_{\pi'}$, with $|Q_{\pi'}|$ prime to $n$.
+Fixing the central character on $C$ fixes the one-dimensional
+representation of $Q_\pi$.
+On $Q_{\pi'}$ the operation $\psi^n$ is the cyclotomic Galois
+automorphism $\zeta\mapsto\zeta^n$ of character values; since
+$n$ is prime to $|Q_{\pi'}|$, it permutes irreducible characters.
+On $Q_\pi$ it raises the fixed central character to its $n$th
+power. Therefore $\psi^n$ bijects irreducibles of central
+character $\delta$ with those of central character $\delta^n$.
+This is a statement \emph{at a fixed $\delta$}: the operation
+need not be injective on a union of different central-character
+fibres, since distinct characters whose quotient has order dividing
+$n$ can have the same $n$th power.
+
+For $G=D^\times$, given $\delta$ choose a unitary unramified
+character $\eta=\xi\circ\Nrd$ of $G$ so that
+$\delta\eta|_Z$ is trivial on a chosen scalar uniformizer
+$\varpi_F$ (choose an $r$th root of the inverse scalar value).
+Then every smooth irreducible with central character $\delta\eta|_Z$
+becomes a smooth representation of the compact profinite group
+$G/\langle\varpi_F\rangle$; it factors through a finite quotient,
+and its image central subgroup has quotient of order prime to
+$n$. For the reverse direction, choose the open normal subgroup
+through which a given representation factors small enough that
+$\delta\eta|_Z$ is trivial on its intersection with the center;
+this is possible because the center modulo $\langle\varpi_F\rangle$
+is a closed subgroup of the compact profinite quotient.
+Then both the specified central character and its $n$th power
+factor through the same finite central subgroup. The preceding
+finite-group argument applies to these representations.
+Undo the twist, observing that
+$\psi^n(\eta\otimes\sigma)=\eta^n\otimes\psi^n\sigma$.
+The same finite-quotient argument applied in reverse proves
+surjectivity. Note that this argument keeps the central
+$\pi$-part of each finite quotient: an unramified twist cannot
+generally remove $n$-torsion coming from the units of $Z$.
+\end{proof}
+
+\begin{theorem}[\Ptag\ Tame irreducible character transfer]\label{thm:tame-transfer}
+Assume $p\nmid n$ and the covering data of Part~I.
+For each unitary genuine central character $\widetilde\theta$
+on $\tZ$, put $\theta(a)=\widetilde\theta(a^*)$.
+Then $L_D$ maps irreducible characters bijectively onto
+genuine irreducible characters,
+\[
+\boxed{\quad
+L_D:\{\Theta_\rho:\rho\in\Irr_\theta(H)\}
+\xrightarrow{\sim}
+\{\Theta_\tau:\tau\in\Irr_{\widetilde\theta}(\tH)\}.
+\quad}
+\]
+Every representation on the right corresponding to $\rho$
+has $\dim\tau=\dim\rho$. In particular the character matrix
+of Corollary~\ref{cor:matrix} is a permutation matrix in the
+tame case.
+\end{theorem}
+\begin{proof}
+Choose the genuine one-dimensional character $\nu$ given by
+Proposition~\ref{prop:tame-split}, with
+$\nu|_{\mu_n}=\widetilde\theta|_{\mu_n}$. Put
+\[
+\chi_\nu(h)=\nu(\widetilde h)^n\quad(h\in H),\qquad
+\delta(a)=\frac{\widetilde\theta(\widetilde a)}
+{\nu(\widetilde a)}\quad(a\in F^\times).
+\]
+These are well-defined ordinary characters; in particular
+$\chi_\nu$ is defined on all of $H$, while $\delta$ is a
+character of $Z$. By the definition of the star map,
+\[
+\theta(a)=\chi_\nu(a)\,\delta(a)^n.
+\]
+For $\rho\in\Irr_\theta(H)$, the representation
+$\chi_\nu^{-1}\otimes\rho$ has central character $\delta^n$.
+By Lemma~\ref{lem:tame-adams} there is a unique
+$\sigma\in\Irr_\delta(H)$ such that
+\[
+\Theta_\rho(t)=\chi_\nu(t)\,\Theta_\sigma(t^n)
+\qquad(t\in H).
+\]
+Define the genuine irreducible representation
+$\tau=\nu\otimes(\sigma\circ p)$.
+It has central character $\widetilde\theta$, and for regular $t$
+\[
+\Theta_\tau(t^*)
+=\nu(t^*)\,\Theta_\sigma(t^n)
+=\chi_\nu(t)\,\Theta_\sigma(t^n)
+=\Theta_\rho(t).
+\]
+By Lemma~\ref{lem:index} the power map is an automorphism of
+each compact torus $E^\times/F^\times$ when $p\nmid n$.
+Thus every regular element of $\tH$ is of the form $z t^*$
+for some $z\in\tZ$ and regular $t$. The same equality holds
+on all regular elements by central equivariance.
+Since $b_D=1$ and $R=1$ by Lemma~\ref{lem:tame-R}, this is
+exactly $L_D\Theta_\rho=\Theta_\tau$.
+The map is bijective by the corresponding bijection for
+$\psi^n$ and by tensoring with $\nu$. Finally tensoring with
+one-dimensional characters and the finite-group Galois
+operation preserve dimension.
+\end{proof}
+
+\begin{remark}[Independence of the auxiliary genuine character]
+Although the construction in the proof chooses a genuine
+one-dimensional character $\nu$, the resulting correspondence is
+independent of that choice. Indeed, $L_D$ was defined solely from
+$\widetilde\theta$, the star map, and the normalized discriminant.
+For each $\rho$, the character $L_D\Theta_\rho$ determines a unique
+irreducible genuine representation of $\tH$; this follows from
+orthogonality (or linear independence) of irreducible characters.
+Consequently any permissible choice of $\nu$ produces the same
+isomorphism class $\tau$. This is a \emph{canonical correspondence
+relative to the fixed covering datum and central characters}, not
+an assertion that $\nu$ itself is canonical.
+\end{remark}
+
+
+
+\begin{corollary}[\Otag\ Tame character relation from the corrected metaplectic correspondence]\label{cor:D2tame}
+Let $F=K_v$ be a place at which $D$ is division and $p\nmid n$.
+Suppose that (i) the Flicker--Kazhdan square-integrable correspondence
+is available in the form used by Zou
+\cite[Proposition~3.6 and Definition~3.7]{Zou}
+(for instance under the auxiliary condition $(n,N_r)=1$ of
+\cite[\S26]{FK86}); (ii) its covering cocycle, star map, scalar center,
+fixed central characters and discriminant normalization are identified
+with those in Part~I; and (iii) the torus identification $\jmath$ of
+Part~I, Theorem~3.9, respects these identifications.
+Then the tame transform of Theorem~\ref{thm:tame-transfer}, classical
+Jacquet--Langlands \cite{DKV}, and the corrected metaplectic
+correspondence yield a bijection between the indicated genuine
+irreducible representations of $\widetilde{D^\times}$ and genuine
+square-integrable representations of $\Gb_v$ satisfying
+\begin{equation}\label{eq:tame-D2}
+  \Theta_{\widetilde\pi_D}(\widetilde\gamma)
+ =(-1)^{r-1}\Theta_{\widetilde\pi}
+     (\jmath(\widetilde\gamma))
+\end{equation}
+on matching regular good elements. This is the anticipated relation
+(D2) of Part~I under the displayed hypotheses.
+\end{corollary}
+\begin{proof}
+Theorem~\ref{thm:tame-transfer} associates to a genuine irreducible
+$\widetilde\pi_D$ a unique ordinary irreducible $\rho$ of $D^\times$
+with $L_D\Theta_\rho=\Theta_{\widetilde\pi_D}$ and matching fixed
+central character. Classical Jacquet--Langlands takes $\rho$ to an
+essentially square-integrable $\pi$ of $\GL_r(F)$, with
+$\Theta_\rho(t)=(-1)^{r-1}\Theta_\pi(jt)$ for regular elliptic
+matching $t$.  Under the stated hypotheses, Zou's corrected
+metaplectic correspondence takes $\pi$ to a genuine
+square-integrable $\widetilde\pi$.  The comparison in
+Remark~\ref{rem:normalizations}, together with $b_D=1$ and
+$\Delta(t)/\Delta(t^n)=1$ at tame places
+(Theorem~\ref{thm:tame-transfer}), identifies both character
+relations at matching star images. The remaining sign is exactly the
+Jacquet--Langlands sign, giving \eqref{eq:tame-D2}.
+\end{proof}
+\begin{remark}[Proof status and wild places]
+The proof is a formal composition of published and local theorems
+\emph{once} (i)--(iii) are established for the chosen cover. In this
+merged draft those cross-paper conventions have not been independently
+checked against the latest Part~I source, so the status remains
+\textbf{[O]} until the convention check is completed, rather than an unconditional \textbf{[P]}.
+The same proposed composition would require a new genuine-character
+integrality theorem at places dividing $n$. We do not assert the
+wild character relation here.
+\end{remark}
+
+\section{Places dividing \texorpdfstring{$n$}{n}: non-splitting and constraints}\label{sec:wild}
+At residue characteristics dividing $n$, the tame splitting
+argument fails. The commutator pairing from Part~I gives a precise
+obstruction, but does not supply an irreducible-character
+correspondence. The numerical test of Remark~\ref{rem:wild-test}
+is an additional constraint on any proposed correspondence.
+
+\begin{proposition}[\Ptag\ Wild-place obstruction to splitting]\label{prop:wild-obstruction}
+Suppose $p\mid n$ and retain the commutator formula and
+nondegeneracy assertion of Part~I, Proposition~3.5(a),(c).
+Then $\tH$ does not split over $H^1$, and it has no genuine
+one-dimensional representations. More precisely, every genuine irreducible
+representation of $\tH$ has dimension divisible by
+\[
+ b_D=|n|_F^{-(r-1)/2}>1.
+\]
+The existence or integrality of the wild-place transform $L_D$
+on irreducible characters is not established by this proposition.
+\end{proposition}
+\begin{proof}
+Put $E^1=\ker(N_{E/F}:E^\times\to F^\times)$ and
+$B=E^\times/(F^\times E^{\times n})$. The group $B$ has
+order $|n|_F^{-(r-1)}>1$ by Lemma~\ref{lem:index}; it is
+$n$-torsion. The map $E^1\to B$ is surjective: for $t\in E^\times$,
+\[
+ s_t=t^r/N_{E/F}(t)\in E^1,
+\qquad [s_t]=[t]^r\in B.
+\]
+Since $\gcd(r,n)=1$, raising to the $r$th power is an
+automorphism of $B$, so these elements generate $B$.
+The commutator pairing on the covered torus, described in
+Part~I, Proposition~3.5(a), has radical
+$F^\times E^{\times n}$; it is therefore nondegenerate on
+$B$. Restricting to $E^1$ preserves a nontrivial pairing
+because $E^1\to B$ is surjective. Consequently the
+inverse image of $E^1\subset H^1$ in $\tH$ is nonabelian,
+so the cover cannot admit a splitting over $H^1$.
+
+Part~I, Proposition~3.5(c), identifies the dimensions of
+genuine irreducible representations of the covered torus
+with $\sqrt{|B|}=b_D$ (for the fixed genuine central
+character). Restricting a finite-dimensional genuine
+representation of $\tH$ to the covered torus and decomposing
+it into these constituents proves the divisibility assertion,
+which excludes genuine one-dimensional representations.
+\end{proof}
+
+\begin{remark}[Global use and the remaining difficulty]\label{rem:global-tame}
+At a finite place $v$ with $p_v\nmid n$, the local
+$D_v^\times$-side integrality problem is now resolved under
+the stated covering assumptions. At places dividing $n$
+it remains a distinct and genuinely nonabelian problem.
+Global division algebras can be chosen to avoid those places
+subject to the Brauer-invariant sum and local-degree
+conditions. This removes the \emph{division-side local
+integrality obstacle} for such a choice, but does not prove
+global trace-formula comparison, spectral multiplicity
+statements, or a metaplectic Jacquet--Langlands theorem
+at the split places.
+\end{remark}
+
+\section{Local orbital-integral transfer on \texorpdfstring{$D^\times$}{D x}}\label{sec:orbital}
+In this section no assumption $p\nmid n$ is imposed. The construction therefore
+applies at both tame and wild places; it uses the good-element description of
+Proposition~\ref{prop:good}. We keep the quotient probability Haar measures from
+Section~\ref{sec:local}. The result is a transfer of test functions and geometric
+distributions; it is not an assertion that the transform of every irreducible
+character is irreducible.
+
+\subsection{Test functions and orbital integrals}
+For a unitary central character $\eta$ of $Z$, let
+\[
+\mathcal C_{\eta^{-1}}(H)
+=\{f:H\to\mathbb C:\ f\text{ is locally constant and }
+                   f(ah)=\eta(a)^{-1}f(h)\text{ for }a\in Z\}.
+\]
+We use analogous notation for $\mathcal C_{\widetilde\eta^{-1}}(\tH)$.
+Since $H/Z$ and $\tH/\tZ$ are compact, all these functions are compactly
+supported modulo the indicated center. These are the test-function central
+characters \emph{inverse} to the central characters of representations:
+$\Theta_\rho(ah)=\theta(a)\Theta_\rho(h)$, whereas
+$f(ah)=\theta(a)^{-1}f(h)$, so that the product is a function on $H/Z$.
+
+Write $dh$ for Haar probability measure on $H/Z$, and define the
+conjugation average
+\begin{equation}\label{eq:avg-H}
+(\mathcal A_Hf)(h)
+=\int_{H/Z}f(x^{-1}hx)\,dx.
+\end{equation}
+For the cover define, using any lift $\widetilde x$ of $x$,
+\begin{equation}\label{eq:avg-cover}
+(\mathcal A_{\tH}\widetilde f)(\widetilde h)
+=\int_{H/Z}\widetilde f(\widetilde x^{-1}\widetilde h\widetilde x)\,dx.
+\end{equation}
+Centrality of $\mu_n$ and $\tZ$ makes the latter integrand independent of
+the chosen lifts and of the representative of $x\in H/Z$. Both averages
+are smooth, conjugation invariant, and central equivariant; they satisfy
+$\mathcal A_H^2=\mathcal A_H$ and
+$\mathcal A_{\tH}^2=\mathcal A_{\tH}$.
+
+For $t\in T^{\reg}$, $T=F(t)^\times$, equip $H/T$ with the quotient
+\emph{probability} measure induced by those on $H/Z$ and $T/Z$. Define
+\begin{equation}\label{eq:ordinary-O}
+O_H(t,f)=\int_{H/T}f(x^{-1}tx)\,d\dot x
+           =(\mathcal A_Hf)(t).
+\end{equation}
+For a good regular $\widetilde t\in p^{-1}(T)$ the corresponding genuine
+orbital integral is
+\begin{equation}\label{eq:covered-O}
+O_{\tH}(\widetilde t,\widetilde f)
+=\int_{H/T}\widetilde f
+  (\widetilde x^{-1}\widetilde t\widetilde x)\,d\dot x
+=(\mathcal A_{\tH}\widetilde f)(\widetilde t).
+\end{equation}
+The first integral is independent of coset representatives precisely because
+$\widetilde t$ is good. If $\widetilde t$ is not good, the full conjugation
+average in \eqref{eq:avg-cover} vanishes: replacing $\widetilde x$ by
+$\widetilde u\widetilde x$, for a lift of an element of $T$ with nontrivial
+commutator against $\widetilde t$, multiplies the averaged value by a
+nontrivial genuine scalar. We use this vanishing rather than attempting to
+define an $H/T$ integral for a nongood element.
+
+For later use put
+\begin{equation}\label{eq:normalized-O}
+J_H(t,f)=\Delta(t)O_H(t,f),\qquad
+J_{\tH}(\widetilde t,\widetilde f)
+=\Delta(p(\widetilde t))O_{\tH}(\widetilde t,\widetilde f)
+\end{equation}
+when $\widetilde t$ is good. The factor $\Delta$ is the \emph{square root}
+of the ordinary Weyl discriminant as in \eqref{eq:disc}.
+
+\subsection{An explicit transfer theorem}
+Let $L_D^{(\widetilde\eta)}$ denote the map in
+Definition~\ref{def:L} for the genuine central character
+$\widetilde\eta$, with its associated ordinary central character
+$\eta(a)=\widetilde\eta(a^*)$. In particular,
+$L_D^{(\widetilde\theta^{-1})}$ acts on invariant test functions
+having the inverse central character.
+
+\begin{theorem}[\Ptag\ Division-side test-function transfer]\label{thm:test-transfer}
+Assume the specified cover of Part~I and Proposition~\ref{prop:good}.
+Fix a genuine central character $\widetilde\theta$ and put
+$\theta(a)=\widetilde\theta(a^*)$. The following maps are well defined:
+\begin{align}
+\mathcal O_{D,\widetilde\theta}:\mathcal C_{\theta^{-1}}(H)
+&\longrightarrow\mathcal C_{\widetilde\theta^{-1}}(\tH),
+& \mathcal O_{D,\widetilde\theta}f
+&=L_D^{(\widetilde\theta^{-1})}(\mathcal A_Hf),
+\label{eq:test-transfer-definition}\\
+\mathcal B_{\widetilde\theta}:\mathcal C_{\widetilde\theta^{-1}}(\tH)
+&\longrightarrow\mathcal C_{\theta^{-1}}(H),
+& \mathcal B_{\widetilde\theta}\widetilde f
+&=(L_D^{(\widetilde\theta^{-1})})^{-1}
+  (\mathcal A_{\tH}\widetilde f).
+\label{eq:back-transfer-definition}
+\end{align}
+Their images consist of conjugation-invariant test functions; and
+\[
+\mathcal B_{\widetilde\theta}\mathcal O_{D,\widetilde\theta}
+=\mathcal A_H,\qquad
+\mathcal O_{D,\widetilde\theta}\mathcal B_{\widetilde\theta}
+=\mathcal A_{\tH}.
+\]
+They therefore induce mutually inverse linear bijections on the
+respective test-function spaces modulo the kernels of their
+conjugation-averaging (equivalently, normalized orbital-integral) maps.
+
+More explicitly, for every regular $t\in T$ and $z\in\tZ$,
+\begin{equation}\label{eq:OI-transfer}
+\boxed{\quad
+O_{\tH}(z\,t^*,\mathcal O_{D,\widetilde\theta}f)
+=b_D\,\widetilde\theta(z)^{-1}
+\frac{\Delta(t)}{\Delta(t^n)}\,O_H(t,f),
+\qquad b_D=|n|_F^{-(r-1)/2}.
+\quad}
+\end{equation}
+Consequently the normalized orbital integrals satisfy
+\begin{equation}\label{eq:JO-transfer}
+\boxed{\quad
+J_{\tH}(z\,t^*,\mathcal O_{D,\widetilde\theta}f)
+=b_D\,\widetilde\theta(z)^{-1}J_H(t,f).
+\quad}
+\end{equation}
+At nongood regular lifts the genuine orbital-integral distribution
+vanishes. Conversely every genuine test function $\widetilde f$ has the
+same regular orbital integrals as
+$\mathcal O_{D,\widetilde\theta}(\mathcal B_{\widetilde\theta}\widetilde f)$.
+\end{theorem}
+\begin{proof}
+Conjugation averaging is a projection onto the invariant locally constant
+functions, and \eqref{eq:ordinary-O}--\eqref{eq:covered-O} identify the
+averages with the stated orbital integrals. The local smoothness and
+invertibility of $L_D$ on invariant test functions follow from
+Lemma~\ref{lem:well-defined} and the proof of
+Theorem~\ref{thm:unitary}: on each regular torus quotient the star map is
+a homeomorphism from $T/Z$ onto the open subgroup $(T/Z)^n$, and near
+scalar elements it is a local analytic isomorphism. Thus both displayed
+maps take smooth test functions to smooth test functions.
+Since the image of $\mathcal A_H$ consists of invariant functions,
+$\mathcal A_{\tH}\mathcal O_{D,\widetilde\theta}f
+=\mathcal O_{D,\widetilde\theta}f$; applying the inverse $L_D$
+gives $\mathcal B_{\widetilde\theta}\mathcal O_{D,\widetilde\theta}f
+=\mathcal A_Hf$. The other composition is identical.
+At a good point $z t^*$, the definition of $L_D$ applied to
+$\mathcal A_Hf$ gives \eqref{eq:OI-transfer}. Multiplying it by
+$\Delta(t^n)$ gives \eqref{eq:JO-transfer}. Remark~\ref{rem:good-vanish}
+proves the vanishing on nongood lifts. The inverse composition identity
+gives the converse statement. No assertion about irreducible-character
+integrality is used.
+\end{proof}
+
+\begin{remark}[Comparison with the root transport of Part~II]\label{rem:root-comparison}
+The orbital-integral operator $\mathcal O_{D,\widetilde\theta}$ is
+\emph{not} the local root-section transport denoted $\mathcal T$
+in Part~II. They have distinct domains, definitions and central
+character conventions.  Near the center, the parameters satisfy
+$t^*=\sigma(t^n)$, with $\sigma$ the root section in Part~II;
+this identity does not equate the operators on arbitrary test
+functions. The orbital transfer here also involves conjugation
+averaging and the factor $b_D\Delta(t)/\Delta(t^n)$.
+\end{remark}
+
+\subsection{The duality with character transfer}
+The inverse central characters in Theorem~\ref{thm:test-transfer} are
+forced by trace pairings, not a cosmetic convention.
+
+\begin{proposition}[\Ptag\ Trace-pairing adjunction]\label{prop:trace-pair}
+For every smooth invariant class function $\Phi$ on $H$ of central
+character $\theta$, and every $f\in\mathcal C_{\theta^{-1}}(H)$,
+\begin{equation}\label{eq:trace-pairing}
+\boxed{\quad
+\int_{\tH/\tZ}
+(L_D^{(\widetilde\theta)}\Phi)(\widetilde h)
+ (\mathcal O_{D,\widetilde\theta}f)(\widetilde h)\,d\widetilde h
+=\int_{H/Z}\Phi(h)f(h)\,dh.
+\quad}
+\end{equation}
+In particular, for $\rho\in\Irr_\theta(H)$, writing the finite
+expansion of Corollary~\ref{cor:matrix} as
+$L_D\Theta_\rho=\sum_\tau a_{\rho\tau}\Theta_\tau$, one has
+\begin{equation}\label{eq:character-matrix-traces}
+\sum_\tau a_{\rho\tau}
+\operatorname{tr}\tau(\mathcal O_{D,\widetilde\theta}f)
+=\operatorname{tr}\rho(f).
+\end{equation}
+If $p\nmid n$, Theorem~\ref{thm:tame-transfer} reduces this equality to
+$\operatorname{tr}\tau_\rho(\mathcal O_{D,\widetilde\theta}f)
+=\operatorname{tr}\rho(f)$ for the corresponding genuine irreducible
+representation $\tau_\rho$. For $p\mid n$, formula
+\eqref{eq:character-matrix-traces} is a distributional identity with
+possibly nonintegral coefficients, \emph{not} a representation
+correspondence.
+\end{proposition}
+\begin{proof}
+Because $\Phi$ is invariant, averaging $f$ does not change the integral
+on the right. For the left side note that
+$L_D^{(\widetilde\theta^{-1})}(\mathcal A_H f)$ is the complex
+conjugate of
+$L_D^{(\widetilde\theta)}(\overline{\mathcal A_H f})$:
+the coefficient $b_D\Delta(t)/\Delta(t^n)$ is positive real, and
+complex conjugation interchanges the two central characters.
+The unitarity identity of Theorem~\ref{thm:unitary}, applied to $\Phi$
+and $\overline{\mathcal A_H f}$, proves
+\eqref{eq:trace-pairing}.
+Equivalently, the Weyl integration formula gives the identity directly:
+on each $T/Z$, the product of the two transforms contributes
+$b_D^2\Delta(t)^2/\Delta(t^n)^2$ and the change of variables
+\eqref{eq:changevar} contributes $I^{-1}$; since $b_D^2=I$, the
+Weyl integrals are equal. Both trace identities follow by integrating
+characters against test functions with inverse central character.
+In particular \eqref{eq:character-matrix-traces} is a reformulation
+of unitarity and surjectivity of $\mathcal O_{D,\widetilde\theta}$,
+not an independent constraint forcing integrality of the matrix
+$(a_{\rho\tau})$.
+\end{proof}
+
+\begin{corollary}[\Ptag\ The identity-element factor]\label{cor:identity-factor}
+With the probability measures and central-character conventions of this
+section, the transferred invariant representative satisfies
+\begin{equation}\label{eq:identity-factor}
+\boxed{\quad(\mathcal O_{D,\widetilde\theta}f)(1)
+=|n|_F^{-(r^2-1)/2}\,f(1).\quad}
+\end{equation}
+The factor equals $1$ at tame places. This is a local pointwise test-function
+normalization; it is \emph{not} a calculation of the global identity term
+in a trace formula with different Haar measures and central quotients.
+\end{corollary}
+\begin{proof}
+The central element $1$ is fixed by conjugation, so
+$(\mathcal A_Hf)(1)=f(1)$. Evaluate the continuous extension of the
+transfer at $1$, using Lemma~\ref{lem:ratio} and
+$b_D=|n|_F^{-(r-1)/2}$.
+\end{proof}
+
+\begin{remark}[The running wild-place example]
+For $r=2$, $n=3$ and $F=\mathbb Q_3(\zeta_3)$,
+$|3|_F=1/9$ and $b_D=3$. Thus
+$J_{\tH}(z t^*,\mathcal O_{D,\widetilde\theta}f)=3\widetilde\theta(z)^{-1}J_H(t,f)$,
+whereas $(\mathcal O_{D,\widetilde\theta}f)(1)=27f(1)$. This realizes the two
+normalizations discussed in Remark~\ref{rem:wild-test}.
+\end{remark}
+
+\begin{remark}[Scope of local transfer]\label{rem:OI-scope}
+The existence of such a transfer is elementary on a group compact
+modulo its center: conjugation averaging identifies orbital integrals
+with invariant function values. The content of the theorem is the
+\emph{specified normalization}, extension across singular central
+elements, and the trace-pairing relation. The local coefficient
+$b_D$ does not determine adelic orbital measures. The distinction from Part~II's root transport is made precise in Remark~\ref{rem:root-comparison}.
+\end{remark}
+
+
+\section{Kottwitz's framework for rational orbits and inner forms}
+\label{sec:kottwitz}
+Kottwitz's \emph{Stable trace formula: cuspidal tempered terms}
+\cite{Kottwitz84} explains how Galois cohomology organizes rational
+conjugacy classes within stable classes (\S\S7.7--7.9), how maximal
+tori are transferred to inner forms (\S9.5), and how Tamagawa
+numbers enter stable trace-formula coefficients (\S\S5,8).
+These are statements about \emph{linear} reductive groups; they
+must not be taken as a metaplectic trace formula. In particular,
+the stabilization of cuspidal tempered terms sketched in his \S12
+is conditional, whereas the cohomological calculations used below
+are independent of that sketch.
+
+\paragraph{Stable and rational classes.}
+For a regular semisimple element $\gamma\in G(K)$ with torus
+centralizer $T=G_\gamma$, the rational conjugacy classes within
+its represented stable class are parametrized by
+\begin{equation}\label{eq:kottwitz-rational}
+\ker\!\left[H^1(K,T)\longrightarrow H^1(K,G)\right]
+\end{equation}
+\cite[\S7.7]{Kottwitz84}. In the present setting,
+$G=\GL_r$ or $G'=\GL_1(D)$ and
+$T=\operatorname{Res}_{E/K}\mathbb G_m$ for a maximal subfield
+$E/K$ of degree $r$. By Shapiro's lemma and Hilbert~90,
+$H^1(K,T)=H^1(E,\mathbb G_m)=1$.
+Thus every \emph{represented} regular stable class comprises
+exactly one rational conjugacy class. This does not decide
+whether the class has a good lift in a covering group.
+
+\paragraph{The inner-form embedding criterion.}
+A degree-$r$ extension $E/K$ embeds in $D$ as a maximal
+subfield if and only if
+\begin{equation}\label{eq:brauer-embedding}
+[D\otimes_K E]=0\quad\text{in }\operatorname{Br}(E).
+\end{equation}
+By Brauer--Hasse--Noether, this condition can be checked at all
+completions. Where $D_v$ is division of degree $r$, the local
+algebra $E\otimes_K K_v$ must be a field of degree $r$.
+Consequently, for these inner forms, local embeddability at every
+place implies global embeddability. Kottwitz's general \S9.5
+formulates an obstruction to torus transfer in a class of
+$H^2(K,T_{\mathrm{sc}})$ (pp.~638--639); the specialized Brauer
+criterion avoids that additional complication here. For linear
+orbital-integral transfer see also \cite{Cohen}.
+
+\paragraph{Tamagawa factors.}
+Kottwitz \S5 identifies the relative Tamagawa number
+$\tau_1(G)=\tau(G)/\tau(G_{\mathrm{sc}})$ as
+\begin{equation}\label{eq:kottwitz-tamagawa}
+\tau_1(G)=
+\frac{|\pi_0(Z(\widehat G)^{\Gamma_K})|}
+{|\ker^1(K,Z(\widehat G))|}.
+\end{equation}
+For $\GL_r$ and $\GL_1(D)$ the dual center is
+$\mathbb C^\times$ with trivial Galois action, so this expression
+is $1$. Kottwitz \S8 uses relative Tamagawa numbers in stable
+trace-formula coefficients. Our local $b_D$ instead uses
+\emph{probability} Haar measures on compact quotients; its
+conversion to a coherent adelic convention remains a separate
+calculation, not a consequence of \eqref{eq:kottwitz-tamagawa}.
+
+\section{Global power classes and a Hasse principle}\label{sec:global-power}
+The scalar-modulo-$n$th-power quotient is typically infinite,
+but its subgroup of classes trivial outside a finite set of places
+vanishes under the hypotheses below. The proof separates the
+norm argument from the Kummer--Chebotarev detection step.
+The following large quotient measures the failure of \emph{global
+surjectivity} of a power map, but its size is not the correct measure
+of failure of a \emph{local-to-global principle}. Let $E/K$ be a maximal subfield
+of $D$, of degree $r$, and consider the multiplicative quotient
+\begin{equation}\label{eq:rational-obstruction}
+\mathcal Q(E/K,n)=E^\times/(K^\times E^{\times n}).
+\end{equation}
+A regular rational class represented by $\gamma\in E^\times$
+can lie in the scalar multiple of the rational $n$th-power image
+only if its class in \eqref{eq:rational-obstruction} is trivial.
+This obstruction must not be confused with the finite local index
+of Lemma~\ref{lem:index}.
+
+\begin{proposition}[\Ptag\ The ambient power quotient is infinite]
+\label{prop:global-cokernel}
+Let $E/K$ be a number-field extension of degree at least two and
+let $n>1$. Then $\mathcal Q(E/K,n)$ is infinite. More precisely,
+for any $m\geq 1$ and any distinct finite places
+$\mathfrak p_1,\dots,\mathfrak p_m$ of $K$ splitting completely in
+$E$, there is a surjective homomorphism
+\[
+\mathcal Q(E/K,n)\longrightarrow (\mathbb Z/n\mathbb Z)^m.
+\]
+In particular, even when $\mu_n\subset K$ and $\gcd(n,r)=1$,
+the map $[t]\mapsto[t^n]$ on $E^\times/K^\times$ cannot be
+surjective.
+\end{proposition}
+\begin{proof}
+For each $i$ choose two distinct primes
+$\mathfrak P_{i,1}$ and $\mathfrak P_{i,2}$ of $E$ above
+$\mathfrak p_i$. Because $\mathfrak p_i$ splits completely,
+for $a\in K^\times$ the normalized discrete valuations satisfy
+$v_{\mathfrak P_{i,1}}(a)=v_{\mathfrak P_{i,2}}(a)$.
+Consequently
+\[
+\partial_i([x])=
+ v_{\mathfrak P_{i,1}}(x)-v_{\mathfrak P_{i,2}}(x)
+ \pmod n
+\]
+is well defined on $\mathcal Q(E/K,n)$: multiplication by
+$K^\times$ changes neither difference, and multiplication by
+an $n$th power changes it by a multiple of $n$.
+The weak approximation theorem for $E$ permits independent
+prescription of the valuations at this finite collection of primes,
+so the product $(\partial_1,\dots,\partial_m)$ is surjective.
+Chebotarev's theorem supplies infinitely many completely split
+primes; thus $m$ is arbitrary and the quotient is infinite.
+\end{proof}
+
+\begin{remark}[Effect on the proposed trace formula]
+The infinitude of $\mathcal Q(E/K,n)$ does \emph{not} show that
+there is an infinite global obstruction among the classes satisfying
+all local power conditions. Indeed, the classes exhibited by valuation
+differences are already nontrivial in the local power quotient at
+the corresponding completely split places. For the split-cover
+commutator these may also be nongood; that additional implication
+must be checked in the particular Flicker--Kazhdan cocycle, not
+inferred merely from the valuation calculation. One must distinguish
+a large ambient quotient from the kernel of the localization map.
+That kernel is controlled by the next proposition.
+\end{remark}
+
+
+\begin{proposition}[\Ptag\ Local-to-global powers modulo scalars]\label{prop:global-power-hasse}
+Let $E/K$ be a separable extension of number fields of degree $r$,
+let $n>1$, and assume $\gcd(n,r)=1$ and $\mu_n\subset K$.
+For \emph{every finite set of places} $\Sigma$ of $K$, the natural map
+\begin{equation}\label{eq:power-local-inj}
+ \mathcal Q(E/K,n)\longrightarrow
+ \prod_{v\notin\Sigma}\frac{(E\otimes_K K_v)^\times}
+ {K_v^\times (E\otimes_K K_v)^{\times n}}
+\end{equation}
+is injective. Thus being a scalar times an $n$th power at
+\emph{almost all places} already implies being so globally.
+\end{proposition}
+\begin{proof}
+Let $t\in E^\times$ map to the trivial class outside a finite set $\Sigma$.
+Choose integers $u,k$ satisfying $ru+nk=1$, and set
+$a=N_{E/K}(t)^u\in K^\times$.
+For each $v\notin\Sigma$, the assumption supplies
+$t=a_v y_v^n$ in $(E\otimes_K K_v)^\times$, for
+$a_v\in K_v^\times$ and $y_v\in(E\otimes_K K_v)^\times$.
+Taking the norm from this degree-$r$ \emph{\'{e}tale algebra}
+produces $N(t)=a_v^r N(y_v)^n$. Consequently
+\[
+\frac{t}{a}=
+\left(a_v^k\frac{y_v}{N(y_v)^u}\right)^n
+\quad\text{in }(E\otimes_K K_v)^\times.
+\]
+Thus $t/a$ is an $n$th power at each completion $E_w$ lying over a place $v\notin\Sigma$.
+Since $\mu_n\subset E$, a nontrivial Kummer extension
+$E((t/a)^{1/n})/E$ would be a nontrivial cyclic Galois
+extension and, by Chebotarev, would possess infinitely many unramified
+places with nontrivial Frobenius. We may choose one lying over
+a place $v\notin\Sigma$. At that completion $t/a$ could not
+be an $n$th power, a contradiction. Hence
+$t/a\in E^{\times n}$ and $[t]=1$ in $\mathcal Q(E/K,n)$.
+\end{proof}
+
+\begin{corollary}[\Ptag\ Vanishing of the associated \texorpdfstring{$\Sha^1$}{Sha-1}]\label{cor:sha-power}
+Under the assumptions of Proposition~\ref{prop:global-power-hasse},
+put $T=\operatorname{Res}_{E/K}\mathbb G_m/\mathbb G_m$ and
+let $T[n]$ be its finite $n$-torsion group scheme. Then for every finite $\Sigma$, the restricted localization kernel
+\[\Sha^1_{\Sigma}(K,T[n]):=\ker\bigl(H^1(K,T[n])\to\prod_{v\notin\Sigma}H^1(K_v,T[n])\bigr)\]
+vanishes. In particular, the usual
+\begin{equation}\label{eq:sha-zero}
+\Sha^1(K,T[n]):=
+\ker\left[H^1(K,T[n])\longrightarrow
+                \prod_v H^1(K_v,T[n])\right]=0.
+\end{equation}
+This is stronger than the general
+finiteness of $\Sha^1$ for a finite Galois module
+\cite[Chapter~I, \S4]{MilneADT}.
+\end{corollary}
+\begin{proof}
+From $1\to\mathbb G_m\to\operatorname{Res}_{E/K}\mathbb G_m
+\to T\to1$, Hilbert~90 gives $T(K)=E^\times/K^\times$.
+The same cohomology sequence gives
+\[
+ H^1(K,T)\cong
+ \ker\bigl(\operatorname{Br}(K)\to\operatorname{Br}(E)\bigr).
+\]
+Restriction followed by corestriction is multiplication by $r$,
+so this group is killed by $r$. Hence, as $\gcd(n,r)=1$,
+$H^1(K,T)[n]=0$. The Kummer exact sequence for multiplication
+by $n$ on $T$ therefore gives
+\[
+ H^1(K,T[n])\cong T(K)/nT(K)=\mathcal Q(E/K,n).
+\]
+At each $K_v$ the same argument applies to the finite \'{e}tale
+algebra $E\otimes_K K_v$ (its total degree is still $r$), yielding
+analogous isomorphisms for $H^1(K_v,T[n])$.
+Under these identifications the localization map is
+\eqref{eq:power-local-inj}, which is injective, even after omitting any finite set of places, by the proposition.
+\end{proof}
+
+\begin{remark}[Scope of the Hasse principle]\label{rem:sha-limits}
+The conclusion uses local power conditions at almost all places,
+not merely at the division places $S$. Moreover, an $n$th-power
+condition in the scalar quotient must not be identified with the
+good-element condition for the cover of a split group without a
+separate commutator calculation. The theorem eliminates this
+particular Kummer obstruction; it does not provide the missing
+metaplectic geometric comparison.
+\end{remark}
+
+
+
+\section{The global comparison: remaining problems}\label{sec:global}
+The following spectral identity is a target rather than a theorem.
+The arithmetic in Section~\ref{sec:global-power} simplifies its
+rational-orbit accounting, but leaves the covering-group good-locus
+and measure comparisons untouched.
+Let $K$ be a number field containing $\mu_n$ (for odd $n>1$ this forces $K$ to be totally imaginary, as in Parts~I and~II), and $D/K$ a central division algebra of prime degree $r$. Denote by $S$ its finite ramification set. We consider the automorphic spectra of $D^\times(\A_K)$ and its chosen metaplectic cover, both modulo their respective centers. The quotient of $D^\times(\A_K)$ by its rational points and adelic center is compact, hence both spectral trace formulas are discrete. \emph{This fact alone does not establish equality of their geometric sides.}
+
+The following proposed identity is the main mathematical target:
+\begin{equation}\label{eq:global-conj}
+\sum_{\widetilde\Pi_D}m(\widetilde\Pi_D)
+\operatorname{tr}\widetilde\Pi_D(\widetilde f)
+\stackrel{?}{=}
+\sum_{\Pi_D}m(\Pi_D)\operatorname{tr}\Pi_D(f),
+\end{equation}
+for appropriately matched factorizable test functions and compatible global central characters. It is \emph{conditional} on a comparison of the geometric sides with all constants correct. Section~\ref{sec:orbital} records a normalized division-side local
+matching operator on test functions, dual to the character-space
+transform. Its existence is automatic from compactness modulo the
+center, while smoothness and the normalization require the stated
+local input. Kottwitz's framework in Section~\ref{sec:kottwitz}
+clarifies the ordinary rational-orbit and measure issues, but neither
+automatically gives a geometric comparison for the cover nor
+settles wild-place character integrality.
+
+\subsection{Four proof obligations}
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{Rational orbit accounting.} Combine the uniqueness of represented regular rational classes from
+Section~\ref{sec:kottwitz} with the local-to-global power result
+of Proposition~\ref{prop:global-power-hasse}. Then determine which
+rational elements are locally \emph{good} for the particular
+cover at split and division places. Vanishing of the Kummer
+localization kernel alone does not identify the surviving cover orbits.
+\item \textbf{Local normalization and compatibility.} At $v\in S$, convert the probability-measure test transfer of Section~\ref{sec:orbital} to the fixed global measures and check the local geometric factor against the exact desired global comparison. At split places, cite the exact usable form of Flicker--Kazhdan \cite{FK86}, taking into account Zou's correction to their Lemma 27.1 \cite{Zou}. Check unramified unit elements and archimedean factors separately.
+\item \textbf{Identity and volume terms.} With the trace-formula quotient measures fixed, calculate the identity terms, orbital-integral Jacobians, and central character factors. The $b_D$ of Theorem~\ref{thm:unitary} is a \emph{local probability-measure normalization} and does not dispose of the global normalization problem.
+\item \textbf{Spectral separation and integrality.} Derive a finite, or otherwise rigorously summable, character identity. Use classical strong multiplicity one for the linear group \cite{Badulescu}, but do not infer integrality merely from $L^2$ unitarity. The proposed Cauchy--Schwarz argument requires an explicit identity, its correct normalization, and control of every other local factor.
+\end{enumerate}
+
+\begin{remark}[Restriction on $n$]\label{rem:N}
+The standard hypotheses under which one invokes the original Flicker--Kazhdan trace formula include $(n,N_r)=1$, where $N_r$ is the least common multiple of the composite integers $\le r$. Our local Theorem~\ref{thm:unitary} uses only $n$ odd, $(n,r)=1$, and the covering result in Proposition~\ref{prop:good}; it does not use $(n,N_r)=1$. The global comparison will provisionally impose the latter condition until the exact later improvements or alternatives are verified.
+\end{remark}
+
+\subsection{Conditional representation-theoretic consequences}
+If \eqref{eq:global-conj} is established in a form that proves character integrality at the remaining \emph{wild} ramified places, while Theorem~\ref{thm:tame-transfer} handles the tame ones, the resulting map $\Psi_D$ from irreducible genuine representations of the cover to $\Irr(D_v^\times)$ can be composed, subject to central-character and normalization checks, with
+\[
+\Irr(D_v^\times)\xrightarrow{\ \JL\ }
+\Irr_{\mathrm{ds}}(\GL_r(F))
+\xleftarrow{\ \mathrm{MC}\ }
+\Irr_{\mathrm{gen,ds}}(\widetilde{\GL}_r(F)),
+\]
+where $\mathrm{MC}$ is Zou's corrected form of the Flicker--Kazhdan correspondence, with the required restriction that the linear central character be trivial on $\mu_n$. At tame places this composition gives the conditional conclusion of Corollary~\ref{cor:D2tame} when its hypotheses are verified.
+This would establish a local metaplectic Jacquet--Langlands correspondence. The fact that local supercuspidals are easier to isolate spectrally does not eliminate the wild-place integrality obstruction for all representations.
+
+Similarly, removing the non-cancellation hypothesis $(H_D')$ of Part~II, Definition~6.4, would require showing that a prescribed packet has only finitely many $S$-types, or some other condition contradicting the cancellation criterion from Part II. The original planning memo's argument through strong multiplicity one is a plausible \emph{conditional} route, but its spectral separation and finiteness arguments have not yet been established.
+
+Removal of the extra cuspidal place $w_0$, or of the converse hypothesis $(H')$ (Part~II, Corollary~6.8), remains a different problem. None of these goals is asserted as a theorem in the present draft.
+
+
+
+\section{Selected terminology and notation}\label{sec:glossary}
+These brief definitions collect the notions used in the character and
+Kottwitz arguments; standard background may be found in
+\cite{Atiyah66,SegalK,Kottwitz84,MilneADT}.
+\begin{description}[style=nextline,leftmargin=2.7cm,labelwidth=2.5cm,font=\normalfont\bfseries]
+\item[Adams operation $\psi^n$]
+The $\lambda$-ring operation on the representation ring satisfying
+$\chi_{\psi^nV}(g)=\chi_V(g^n)$; it can produce a virtual character
+rather than an actual representation.
+\item[Equivariant $K$-theory]
+At a point, $K_Q^0(\mathrm{pt})=R(Q)$, the representation ring
+of a finite group $Q$. Exterior powers give its $\lambda$-operations.
+\item[Virtual character]
+An integral linear combination of irreducible characters.
+\item[Hall $\pi$-subgroup]
+A subgroup whose order involves only primes in $\pi$ and whose
+index is prime to every prime in $\pi$; in the tame proof it
+separates the central $n$-part of a finite quotient.
+\item[Good element]
+A regular lift commuting with the inverse image of its ordinary
+centralizer. Genuine invariant functions vanish on nongood lifts.
+\item[Normalized orbital integral]
+Here $J(t,f)=\Delta(t)O(t,f)$, where $\Delta$ is the square root
+of the Weyl discriminant and quotient Haar measures are specified.
+\item[Transforms $L_D,\mathcal O_D,\mathcal B$]
+Respectively the unitary invariant class-function transform, the
+forward test-function transfer, and its inverse modulo orbital-integral
+kernels; see Definitions~\ref{def:L} and Theorem~\ref{thm:test-transfer}.
+\item[Stable/rational conjugacy]
+Conjugacy over an algebraic closure (with descent) versus conjugacy
+by the rational points $G(K)$; one stable class may contain several
+rational classes for a general reductive group.
+\item[Inner form]
+A twist of a reductive group by inner automorphisms;
+$\GL_1(D)$ is an inner form of $\GL_r$.
+\item[Induced torus]
+In this paper $T=\operatorname{Res}_{E/K}\mathbb G_m$,
+with $T(K)=E^\times$ and $H^1(K,T)=1$ by Hilbert~90.
+\item[Kottwitz torus obstruction]
+A global cohomological obstruction to transferring an admissible
+torus to an inner form despite local embeddings, discussed in
+\cite[\S9.5]{Kottwitz84}.
+\item[Relative Tamagawa number]
+The ratio $\tau_1(G)=\tau(G)/\tau(G_{\mathrm{sc}})$; it is not
+a local probability Haar measure.
+\item[Brauer class]
+The class $[D]\in\operatorname{Br}(K)$ of a central simple algebra;
+$E$ embeds maximally in $D$ exactly when $D\otimes_K E$ splits.
+\item[Scalar power quotient]
+$\mathcal Q(E/K,n)=E^\times/(K^\times E^{\times n})$;
+it measures global scalar-modulo-$n$th-power classes.
+\item[Kummer and $\Sha^1$]
+The exact sequence $1\to T[n]\to T\xrightarrow{n}T\to1$
+relates powers to Galois cohomology. $\Sha^1(K,T[n])$ is the
+kernel of localization of $H^1(K,T[n])$ at every place.
+\end{description}
+
+\section*{Acknowledgments}
+The present draft grew out of collaborative mathematical discussions and
+writing involving David Joyner, ChatGPT (OpenAI), and Claude (Anthropic).
+The tame splitting and Adams-operation arguments were developed and
+checked through those discussions. The separate revision and merge log
+records drafting contributions and referee history. The mathematical
+claims remain subject to independent specialist verification.
+
+\begin{thebibliography}{99}
+\bibitem{Kottwitz84} R. E. Kottwitz, \emph{Stable trace formula: cuspidal tempered terms},
+Duke Math. J. \textbf{51} (1984), no.~3, 611--650.
+\url{https://doi.org/10.1215/S0012-7094-84-05129-9}.
+\bibitem{MilneADT} J. S. Milne, \emph{Arithmetic Duality Theorems}, 2nd ed.,
+BookSurge, 2006, Chapter~I, \S4.
+\url{https://www.jmilne.org/math/Books/ADTnot.pdf}.
+
+\bibitem{Adams62} J. F. Adams, \emph{Vector fields on spheres}, Ann. of Math.
+(2) \textbf{75} (1962), 603--632.
+\url{https://www.math.ens.psl.eu/~benoist/refs/Adams.pdf}.
+\bibitem{Atiyah66} M. F. Atiyah, \emph{Power operations in $K$-theory},
+Quart. J. Math. Oxford (2) \textbf{17} (1966), 165--193.
+\url{https://doi.org/10.1093/qmath/17.1.165}.
+\bibitem{SegalK} G. Segal, \emph{Equivariant $K$-theory},
+Publ. Math. IH\'ES \textbf{34} (1968), 129--151.
+\url{https://doi.org/10.1007/BF02684593}.
+\bibitem{FK86} Y. Z. Flicker and D. A. Kazhdan, \emph{Metaplectic correspondence}, Publ. Math. IH\'ES \textbf{64} (1986), 53--110. \url{https://numdam.org/articles/10.1007/BF02699192/}.
+\bibitem{Zou} J. Zou, \emph{Local metaplectic correspondence and applications}, Math. Z. \textbf{305} (2023), no.~3, Paper No.~43; revised version arXiv:2209.05852v3 (2024), \url{https://arxiv.org/abs/2209.05852}.
+\bibitem{Badulescu} A. I. Badulescu, \emph{Global Jacquet--Langlands correspondence, multiplicity one and classification of automorphic representations}, Invent. Math. \textbf{172} (2008), 383--438. \url{https://arxiv.org/abs/0704.2920}.
+\bibitem{DKV} P. Deligne, D. Kazhdan, and M.-F. Vign\'eras, \emph{Repr\'esentations des alg\`ebres centrales simples $p$-adiques}, in \emph{Representations of Reductive Groups over a Local Field} (1984).
+\bibitem{Cohen} J. Cohen, \emph{Transfer of representations and orbital integrals for inner forms of $\GL_n$}, Canad. J. Math. \textbf{70} (2018), 595--627. \url{https://arxiv.org/abs/1606.02141}.
+\bibitem{Loeser} F. Loeser, \emph{Seattle lectures on motivic integration},
+Proposition~1.2.1 (the $p$-adic change-of-variables formula),
+\url{https://webusers.imj-prg.fr/~francois.loeser/notes_seattle_09_04_2008.pdf}.
+\end{thebibliography}
+\end{document}

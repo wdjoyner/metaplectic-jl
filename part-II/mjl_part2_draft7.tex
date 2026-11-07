@@ -1,0 +1,762 @@
+\documentclass[12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[letterpaper,margin=1.1in]{geometry}
+\usepackage{enumitem,booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+
+% ---------------- notation (as in Part I) ----------------
+\newcommand{\ov}[1]{\overline{#1}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\fp}{\mathfrak{p}}
+\newcommand{\gen}{\mathrm{gen}}
+\newcommand{\reg}{\mathrm{reg}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Nrd}{\operatorname{Nrd}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\Iso}{\operatorname{Iso}}
+\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\supp}{\operatorname{supp}}
+\newcommand{\Cent}{\operatorname{Cent}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\Gb}{\ov{G}}
+\newcommand{\Zb}{\ov{Z}}
+\newcommand{\GDb}{\ov{G}_D}
+\newcommand{\pib}{\ov{\pi}}
+\newcommand{\Eb}{\ov{E}}
+\newcommand{\Tb}{\ov{T}}
+\newcommand{\cG}{\mathcal{G}}
+\newcommand{\cGb}{\ov{\mathcal{G}}}
+\newcommand{\iD}{\iota_D}
+\newcommand{\iG}{\iota_{\GL}}
+\newcommand{\jj}{\jmath}
+\newcommand{\sg}{\sigma}
+\newcommand{\Pv}{\textbf{[P]}}
+\newcommand{\Ev}{\textbf{[E]}}
+\newcommand{\Ov}{\textbf{[O]}}
+\newcommand{\Cv}{\textbf{[C]}}
+
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem*{theoremD}{Theorem D}
+\newtheorem*{theoremE}{Theorem E}
+\newtheorem*{theoremCp}{Theorem C$'$}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, II:\\ matching of arbitrary functions and an improved global transfer\\[0.4em]\normalsize Draft 7}
+\author{David Joyner \and Claude (Anthropic) \and ChatGPT (OpenAI)}
+\date{November 7, 2026}
+
+\emergencystretch=3em
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This is the second part of a study of a metaplectic Jacquet--Langlands transfer between the $n$-fold cover of $D^\times_{\A}$ constructed in [JC] and the Kazhdan--Patterson cover of $\GL(r,\A_K)$, where $D$ is a central division algebra of prime degree $r$ over a totally imaginary number field $K$ containing $\mu_n$, $n$ odd and $(n,r)=1$. Part~I proved matching of test functions supported on the regular set, and a transfer of packets under a non-cancellation hypothesis. Here we remove the regular-support condition. Near the center, an equivariant section of the cover, built from canonical $n$-th roots, identifies genuine functions on either cover with ordinary functions on the underlying linear group, with the same orbital integrals, compatibly with the identification of elliptic tori of Part~I (\emph{Theorem~D}). Combined with Part~I away from the center, this gives matching of arbitrary genuine test functions on the cover of $D_v^\times$, and of all genuine test functions with vanishing non-elliptic orbital integrals on the cover of $\GL(r,K_v)$ (\emph{Theorem~E}). Beyond the results imported from Part~I and the standard structure theory of the covers, the new external inputs concern the linear groups: orbital integrals of the Steinberg pseudo-coefficient and the linear transfer of cuspidal functions, which we derive from results of Flicker--Kazhdan and Badulescu. As an application we prove \emph{Theorem~C$'$}, an improvement of Theorem~C of Part~I: the packet identity holds with arbitrary matching test functions at all but one ramified place, and the non-cancellation hypothesis is replaced by a weaker one.
+\end{abstract}
+
+\tableofcontents
+
+% =====================================================================
+\section{Introduction}\label{sec:intro}
+This section states the main results, explains how they improve the results of Part~I, fixes conventions and labels, and lists what is left after this paper, with what Part~III has since done. References such as ``Part~I, Theorem~4.5'' are to Draft~7 of Part~I, and [JC] refers to the corrected version of [J] (\texttt{metaplectic\_kazhdan\_revised12.tex}).
+
+\subsection{Setting}
+We use the global data of Part~I without change.
+
+The standing assumptions are those of Part~I, Assumption~1.1: $K$ is a totally imaginary number field containing $\mu_n$, with $n$ odd; $L/K$ is cyclic of prime degree $r$ with $(n,r)=1$; $D$ is a central division algebra over $K$ of dimension $r^2$ containing $L$; $S$ is the set of places where $D$ ramifies; and $c_v=r'c$ with $n\mid r-1+2rc_v$. Both the cover $\GDb(\A_K)$ of $D^\times_{\A}$ from [JC, \S6] and the Kazhdan--Patterson cover $\Gb(\A_K)$ of $\GL(r,\A_K)$ with parameter $c_v$ are subgroups of one cover of $\GL(r,\A_L)$ (Part~I, \S\S2 and 5). We use the splitting conventions of Part~I, Lemma~5.1, good elements, the canonical identification $\jj$ of covered elliptic tori on good elements (Part~I, Theorem~3.9 and Corollary~3.12), the normalized orbital integrals $F=\Delta\Phi$ (Part~I, Definition~4.1), and matching with the sign $(-1)^{r-1}$ (Part~I, Definition~4.3).
+
+\subsection{Main results}\label{subsec:main}
+We state the three main results informally, with pointers to the precise statements.
+
+Part~I left open the matching of test functions that do not vanish near the center: by Part~I, Proposition~4.6, the orbital integrals of a genuine function $\tilde f_D$ on $\GDb(K_v)$ near the center are a nonzero constant times $\Delta$, so a matching function on $\Gb_v$ cannot be supported in the regular set. The key new tool is the following.
+
+\begin{theoremD}[Propositions~\ref{prop:section} and~\ref{prop:transport}]
+Let $v$ be a finite place. On a conjugation-invariant open and closed neighborhood $V$ of the unipotent set, the map $g\mapsto\sg(g):=\widetilde{g^{1/n}}^{\,n}$ (canonical $n$-th root, any lift, $n$-th power) is a well-defined continuous section of the cover. It is equivariant under conjugation, consists of good elements at regular points, agrees with the splittings over small open subgroups and over unipotent radicals, and is compatible with $\jj$. Genuine functions supported on $p^{-1}(ZV)$ correspond bijectively to ordinary functions on $G/Z$ supported on $ZV$, with the same orbital integrals, on both covers.
+\end{theoremD}
+
+Combined with Part~I away from the center, Theorem~D gives:
+
+\begin{theoremE}[Theorem~\ref{thm:matching}]
+Let $v\in S$. Every genuine test function on $\GDb(K_v)$ has a matching genuine test function on $\Gb_v$. Every genuine test function on $\Gb_v$ whose orbital integrals vanish at good regular non-elliptic elements has a matching function on $\GDb(K_v)$.
+\end{theoremE}
+
+The matching function in the first part of Theorem~E is explicit: $\tilde f=\tilde f_D(1)\,\tilde f^{\St}+\tilde f_{\reg}$, where $\tilde f^{\St}$ is the transport of the linear Steinberg pseudo-coefficient (\S\ref{subsec:steinberg}) and $\tilde f_{\reg}$ is supported on the good regular elliptic set. We also determine the germ near the center that any matching function must have (Theorem~\ref{thm:germ}).
+
+Three objects should be kept apart: the Steinberg pseudo-coefficient $f_{\St}$ on $\GL(r,F)$; the genuine function $\tilde f^{\St}$ on $\Gb_v$, its transport near the center (cut off to a neighborhood of $\Zb_v$ and rescaled); and pseudo-coefficients of genuine irreducible representations of $\Gb_v$. The second is \emph{not} an instance of the third (Remark~\ref{rem:notpc}); matching needs only its orbital integrals.
+
+\begin{theoremCp}[Theorems~\ref{thm:Cprime} and~\ref{thm:Cprimeconv}]
+Let $\pib_D$ be a genuine automorphic representation of $\GDb(\A_K)$ with a supercuspidal component at a finite place $w_0\notin S$. The packet identity of Part~I holds with arbitrary matching test functions at all places of $S$ except one, $u$, which may be chosen freely. If the $D$-side packet satisfies the non-cancellation hypothesis $(\mathrm H_D')$ (Definition~\ref{def:HDprime}), which is implied by the hypothesis $(\mathrm H_D)$ of Part~I, then there is a genuine cuspidal automorphic representation $\pib$ of $\Gb(\A_K)$ with $\pib_v\cong\pib_{D,v}$ for all $v\notin S$. Conversely, if $\pib$ is the only member of its $\GL$-side packet and its components at the places of $S$ are square-integrable, then $\pib$ transfers to $\GDb(\A_K)$.
+\end{theoremCp}
+
+\subsection{What changes from Part~I}\label{subsec:changes}
+We present every new global result as an improvement of a numbered result of Part~I. The following table is a guide for the reader of both papers; each result in Part~II that improves a result of Part~I ends with a paragraph headed ``What changes from Part~I''.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\textwidth}>{\raggedright\arraybackslash}p{0.31\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}}
+\toprule
+Part~I & Part~II & New input\\
+\midrule
+Thm.~4.5 (Theorem~B: regular-supported matching) & Thm.~\ref{thm:matching} (Theorem~E: arbitrary functions) & Theorem~D; (L1), (L2)\\
+Prop.~4.6 (orbital integrals near $\Zb_v$, $D$ side) & Thm.~\ref{thm:germ} (required germ, $\GL$ side) & Theorem~D; measures\\
+Lemma~A.3 (regular support) & Lemma~\ref{lem:Aext} (arbitrary $\tilde f$) & Lemma~\ref{lem:singular}\\
+Def.~6.5, Thm.~6.6 (comparison) & Def.~\ref{def:uadm}, Thm.~\ref{thm:comparison2} & Theorem~E\\
+Prop.~7.6 (packet identity) & Prop.~\ref{prop:packet2} & Theorem~E\\
+Def.~7.9, Thm.~7.11 (Theorem~C, $(\mathrm H_D)$) & Def.~\ref{def:HDprime}, Thm.~\ref{thm:Cprime} (Theorem~C$'$, $(\mathrm H_D')$) & Prop.~\ref{prop:packet2}\\
+Thm.~7.12, Rem.~7.13 (converse, (H)) & Thm.~\ref{thm:Cprimeconv}, Cor.~\ref{cor:Hprimesq} & Theorem~E(b); pseudo-coefficients\\
+Lemma~7.8 (cancellation) & Prop.~\ref{prop:cancel2} & choice of $u$\\
+\S8, items (D1)--(D4) & \S\ref{sec:partIII} & --\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Logical structure}\label{subsec:deps}
+The dependencies among the main results are as follows; arrows mean ``is used in''.
+\begin{center}
+\begin{tikzpicture}[box/.style={draw,rounded corners,align=center,font=\small,inner sep=4pt,minimum width=3.6cm},>=stealth]
+\node[box] (D) at (-2.6,0) {Theorem D: section $\sg$,\\ transport (\S3)};
+\node[box] (B) at (2.6,0) {Part~I: regular-supported\\ matching, Lemmas~4.4, A.3};
+\node[box] (L1) at (-5.4,-1.7) {(L1), $f_{\St}(1)=d(\St)$\\ (\S5.1)};
+\node[box] (L2) at (5.4,-1.7) {(L2)\\ (Lemma~\ref{lem:L2})};
+\node[box] (Ea) at (-2.6,-3.3) {Theorem E(a)};
+\node[box] (Eb) at (2.6,-3.3) {Theorem E(b)};
+\node[box] (P) at (0,-5.0) {$u$-admissible comparison,\\ packet identity (\S6.1--6.2)};
+\node[box] (PI) at (5.4,-5.0) {Part~I, \S\S5--7};
+\node[box] (C) at (-2.6,-6.7) {Theorem C$'$};
+\node[box] (Cc) at (2.6,-6.7) {Converse, Cor.~\ref{cor:Hprimesq}};
+\draw[->] (D)--(Ea); \draw[->] (D)--(Eb); \draw[->] (B)--(Ea); \draw[->] (B)--(Eb);
+\draw[->] (L1)--(Ea); \draw[->] (L2)--(Eb);
+\draw[->] (Ea)--(P); \draw[->] (Eb)--(P); \draw[->] (PI)--(P); \draw[->] (P)--(C); \draw[->] (P)--(Cc);
+\end{tikzpicture}
+\end{center}
+The germ results (Corollary~\ref{cor:germexp}, Lemma~\ref{lem:cuspnear1}, Corollary~\ref{cor:trivgerm}, Theorem~\ref{thm:germ}(b)) and the cancellation criterion (Proposition~\ref{prop:cancel2}) are not used in the proofs of Theorems~D, E and C$'$.
+
+\subsection{Conventions and labels}\label{subsec:labels}
+We keep the conventions and the labeling scheme of Part~I.
+
+All Hilbert symbols are $n$-th Hilbert symbols, and $\mu_n$ is relabeled once by $\zeta\mapsto\zeta^{r'}$ as in Part~I, \S1.4. Statements are marked by status:
+\begin{itemize}
+\item \Pv\ \emph{Proved here}: a complete argument is included, possibly using results marked \Ev. For global statements, ``proved'' means proved relative to the cited results of Part~I, which are restated in \S\ref{subsec:fromPartI}.
+\item \Ev\ \emph{Established elsewhere}: a precisely cited theorem, used as a black box. Several of these are results of Kazhdan [Kaz] that Flicker and Kazhdan state for covers in [FK]; we cite them in the form stated in [FK].
+\item \Ov\ \emph{Proof outlined}: the steps are identified, but at least one remains to be written out or checked.
+\item \Cv\ \emph{Conjectural}: requires new mathematical input (later parts of the series).
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.55\textwidth}>{\raggedright\arraybackslash}p{0.16\textwidth}>{\raggedright\arraybackslash}p{0.2\textwidth}}
+\toprule
+Statement & Where & Status\\
+\midrule
+Compatible measures at $S$; Part~I unaffected & \S\ref{subsec:measures} & \Pv\\
+$n$-th roots; the section $\sg$; compatibility with $\jj$ (Theorem~D) & \S\S\ref{subsec:roots}--\ref{subsec:section} & \Pv\\
+Transport; regular elements near $\Zb_v$ are good (Theorem~D) & \S\ref{subsec:transport} & \Pv\\
+Germ expansion at central good elements & Cor.~\ref{cor:germexp} & \Pv\ using \Ev\\
+Orbital integrals of arbitrary genuine functions ($r$ prime) & \S\ref{sec:arbitrary} & \Pv\\
+Linear inputs (L1), (L2), $f_{\St}(1)=d(\St)$ & \S\ref{subsec:linear} & \Pv\ using \Ev\\
+The pair $(e_D,\tilde f^{\St})$ & Prop.~\ref{prop:eD} & \Pv\\
+Matching of arbitrary functions (Theorem~E) & Thm.~\ref{thm:matching} & \Pv\\
+Required germ near the center: orbital-integral form & Thm.~\ref{thm:germ}(a) & \Pv\\
+Unipotent orbital integrals of functions cuspidal near $1$; the trivial germ & Lemma~\ref{lem:cuspnear1}, Cor.~\ref{cor:trivgerm} & \Pv\ using \Ev\\
+Required germ: unipotent form (G1), (G2) & Thm.~\ref{thm:germ}(b) & \Pv\\
+Comparison and packet identity with $u$-admissible pairs & \S\S\ref{subsec:uadm}--\ref{subsec:packet2} & \Pv\ relative to Part~I\\
+Theorem~C$'$ and its converse & \S\ref{subsec:Cprime} & \Pv\ relative to Part~I, under $(\mathrm H_D')$, $(\mathrm H')$\\
+Cancellation criterion for $(\mathrm H_D')$; finitely many $S$-types suffice & Prop.~\ref{prop:cancel2}, Cor.~\ref{cor:finiteStypes} & \Pv\\
+Local character relations; unconditional transfer & \S\ref{sec:partIII} & \Cv\ (character relations at tame places: Part~III)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Organization}
+Section~\ref{sec:recall} recalls what we use from Part~I and fixes the Haar measures at the ramified places. Sections~\ref{sec:center}--\ref{sec:matching} contain the local theory: the section $\sg$ and the transport (\S\ref{sec:center}), orbital integrals of arbitrary genuine functions away from the center (\S\ref{sec:arbitrary}), and matching of arbitrary functions (\S\ref{sec:matching}). Section~\ref{sec:CC} proves Theorem~C$'$. Section~\ref{sec:partIII} lists what is left for Part~III, and Section~\ref{sec:lit} discusses the literature.
+
+% =====================================================================
+\section{Recollections from Part~I, and Haar measures}\label{sec:recall}
+This section recalls the notation of Part~I that is used throughout, and fixes the Haar measures at the ramified places once and for all.
+
+\subsection{Local notation}\label{subsec:localnotation}
+We fix the local notation used in \S\S\ref{sec:center}--\ref{sec:matching}.
+
+Throughout \S\S\ref{sec:center}--\ref{sec:matching}, $v$ is a finite place, $F=K_v$, $\fp$ its maximal ideal, $\varpi$ a uniformizer and $p$ the residual characteristic. We write $G$ for either $\GL(r,F)$ (embedded in $\cG_v$ by $\iG$) or $D_v^\times$ (embedded by $\iD$), $\Gb=p^{-1}(G)\subset\cGb_v$, $Z=F^\times$ and $\Zb=p^{-1}(Z)$, which is central and common to both covers (Part~I, Lemma~2.2). For $g\in G$ let $P_g$ be its characteristic polynomial (reduced characteristic polynomial if $G=D_v^\times$), $A_g:=F[g]$ the commutative $F$-algebra it generates, and call the roots of $P_g$ in $\ov F$ the eigenvalues of $g$. For a genuine character $\tilde\theta$ of $\Zb$, $C_c^\infty(\Gb,\tilde\theta)_\gen$ is the space of smooth genuine functions with $\tilde f(z\tilde g)=\tilde\theta(z)^{-1}\tilde f(\tilde g)$ and support compact modulo $\Zb$. Orbital integrals $\Phi$ and $F=\Delta\Phi$ are those of Part~I, Definition~4.1, with $\Delta(\gamma)=|D(\gamma)|^{1/2}|\det\gamma|^{-(r-1)/2}$; as in [FK, \S6], $D(\gamma)$ is formed from the distinct eigenvalues. We also use the variant $\Phi^z(\gamma,f)=\int_{Z\backslash G}f(g^{-1}\gamma g)\,dg$ of [FK, \S6] for regular elliptic $\gamma$; then $\Phi^z(\gamma,f)=\vol(T_\gamma/Z)\,\Phi(\gamma,f)$.
+
+\subsection{Haar measures at the ramified places}\label{subsec:measures}
+We fix compatible Haar measures at the places of $S$. This choice is made once and for all; it simplifies the normalization at the identity and the formal-degree relations of \S\ref{sec:partIII}(ii).
+
+Measures are as in Part~I, \S4.1: $dg$ on $G/Z$, $dt$ on $T/Z$, and $dg/dt$ on $T\backslash G$; at $v\in S$ they are specialized as follows.
+
+\begin{definition}[Compatible measures]\label{def:measures}
+At each $v\in S$, let $dg_v$ be any Haar measure on $\GL(r,F)/F^\times$, and let $d(\St)=d(\St;dg_v)$ be the formal degree, with respect to $dg_v$, of the Steinberg representation of $\GL(r,F)$ (trivial central character). Normalize the Haar measure $dg_{D,v}$ on the compact group $D_v^\times/F^\times$ by
+\[ \vol(D_v^\times/F^\times;\,dg_{D,v})=d(\St;dg_v)^{-1}. \]
+The measures $dt$ on tori are arbitrary, as in Part~I (matching does not depend on them).
+\end{definition}
+
+\begin{remark}\label{rem:measures}
+(1) \Pv\ Part~I, \S5.3, allows arbitrary $dg_v$ and $dg_{D,v}$ at $v\in S$, provided matching and the trace formulas use the same ones. So every result of Part~I, local and global, holds with the measures of Definition~\ref{def:measures}, and we cite Part~I without change.
+
+(2) The formal degree of the trivial representation of $D_v^\times$ is $\vol(D_v^\times/F^\times)^{-1}$, and the trivial representation corresponds to $\St$ under the linear Jacquet--Langlands correspondence [Bad, Theorem~2.2]. So Definition~\ref{def:measures} says that this pair has equal formal degrees. We expect that it agrees with Kottwitz's normalization of measures on inner forms [Kot88], but nothing below uses this.
+
+(3) For arbitrary measures, the constant $\lambda_v:=d(\St)\vol(D_v^\times/F^\times)$ would appear in the normalization at the identity (Theorem~\ref{thm:germ}(c)). Definition~\ref{def:measures} is exactly the condition $\lambda_v=1$.
+\end{remark}
+
+\subsection{Statements used from Part~I}\label{subsec:fromPartI}
+For the reader's convenience, and to make the dependence on Part~I auditable, we restate the results of Part~I that are used, in the form used. Numbers refer to Part~I, Draft~7.
+
+\begin{enumerate}[label=(I\arabic*)]
+\item \emph{Admissible functions} (\S4.3). For $\bullet\in\{D,\GL\}$ and an elliptic torus of type $i$, a function $h$ on the good regular elements $Z(\Eb_{i,\bullet})^{\reg}$ is admissible if it is (i) locally constant, (ii) satisfies $h(z\tilde t)=\tilde\theta_v(z)^{-1}h(\tilde t)$ for $z\in\Zb_v$, (iii) has support compact modulo $\Zb_v$ with closure contained in the regular set, and (iv) is invariant under the normalizer of the torus.
+\item \emph{Lemma~4.4.} (b) $h\mapsto h\circ\jj_i^{-1}$ is a bijection between admissible functions on the two sides. (c) Every admissible $h$ equals $F(\cdot,\tilde f_i)$ on $Z(\Eb_{i,\bullet})^{\reg}$ for some $\tilde f_i\in C_c^\infty$ supported on the good regular elements conjugate into that torus; $F(\tilde\delta,\tilde f_i)=0$ for regular $\tilde\delta$ not conjugate into it.
+\item \emph{Theorem~4.5.} (a) Every $\tilde f_D$ vanishing near $\Zb_v$ has a matching $\tilde f$ supported on the good regular elliptic set. (b) Every $\tilde f$ supported in the regular set with vanishing orbital integrals at good regular non-elliptic elements has a matching $\tilde f_D$ vanishing near $\Zb_v$.
+\item \emph{Proposition~4.6.} For $\tilde f_D$ there are a normal open compact $U\subset D_v^\times$ and a splitting $\kappa_U$ with $F(z\kappa_U(t),\tilde f_D)=\Delta(t)\vol(T\backslash D_v^\times)\tilde f_D(z)$ for $z\in\Zb_v$ and regular $t\in U$.
+\item \emph{Lemma~A.1(b)} (Harish-Chandra). For $C\subset T^{\reg}$ and $\Omega\subset G$ compact modulo $Z$, the set of $\dot x\in T\backslash G$ with $x^{-1}Cx\cap\Omega\ne\emptyset$ is compact. (Stated in Part~I for any such $\Omega$.)
+\item \emph{Lemma~A.3.} For regular-supported $\tilde f$, $F(\cdot,\tilde f)$ on an elliptic torus is admissible. \emph{Lemma~A.5.} Traces of regular-supported functions depend only on their good regular orbital integrals.
+\item \emph{Proposition~6.1.} The $D$-side trace formula: $\sum m(\pib_D)\tr\pib_D(\tilde f_D)=\vol\cdot\tilde f_D(1)+\sum_{[\gamma]}c(\gamma)F(\iota(\gamma),\tilde f_D)$, the sum over rational regular classes modulo the center that are good everywhere; every non-central rational element of $G_D(K)$ is regular since $r$ is prime. No condition on the test function at $S$.
+\item \emph{Proposition~6.2} (variant of [FK, \S18]). For $\tilde f$ with (i) a supercusp form at some finite place $w_0$ and (ii) support in the regular elliptic set at some finite place $u$, and no condition elsewhere: $\sum_{\text{cuspidal}}m(\pib)\tr\pib(\tilde f)=\sum_{[\gamma]}c(\gamma)F(\iota(\gamma),\tilde f)$, the sum over rational regular elliptic classes good everywhere.
+\item \emph{Theorem~5.6 and Corollary~5.7.} If $\tilde f_{D,v}$ and $\tilde f_v$ match at every $v\in S$ (no support condition) and correspond via $\psi_v$ outside $S$, then $F(\iota(\gamma),\tilde f_D)=F(\iota(j\gamma),\tilde f)$, the local signs multiplying to $(-1)^{(r-1)|S|}=1$ (if $r$ is odd, $r-1$ is even; if $r=2$, $|S|$ is even because the local invariants of $D$ sum to $0$ and $K$ has no real places); and classes whose field does not embed in $D$ contribute $0$ whenever (M2) holds at all $v\in S$, since such a class is non-elliptic at some $v\in S$ (Albert--Brauer--Hasse--Noether).
+\item \emph{Lemma~7.2.} For fixed levels at the finite places (with any test functions bi-invariant under them) and fixed $K_\infty$-types and infinitesimal character, only finitely many automorphic representations contribute on either side.
+\item \emph{Lemma~7.8 (proof).} For a level $U_v$ at $v\in S$ (split by $\kappa_v$, with $\tilde\theta_v\circ\kappa_v$ trivial on $U_v\cap K_v^\times$), the corner algebra satisfies $\mathcal H_v\cong\bigoplus_{\tau_v\in\mathcal T_v}\mathrm{End}(\tau_v^{U_v})$, and $\mathrm{ev}_{1,v}=\vol(\GDb(K_v)/\Zb_v)^{-1}\sum_{\tau_v}(\dim\tau_v)\tr\tau_v$ on $\mathcal H_v$; $\mathcal R_v=\ker\mathrm{ev}_{1,v}$.
+\end{enumerate}
+
+% =====================================================================
+\section{Harmonic analysis near the center}\label{sec:center}
+This section proves Theorem~D. We construct a canonical $n$-th root on a conjugation-invariant neighborhood of the unipotent set (\S\ref{subsec:roots}), lift it to an equivariant section $\sg$ of the cover (\S\ref{subsec:section}), and use $\sg$ to transport genuine functions supported near $\Zb$ to ordinary functions on $G/Z$, with the same orbital integrals (\S\ref{subsec:transport}). As a corollary, the germ expansion of genuine orbital integrals at central good elements is the Shalika germ expansion of the linear group (\S\ref{subsec:germexp}). Everything in this section holds at every finite place, including those above $n$, and on both covers.
+
+\subsection{$n$-th roots near the unipotent set}\label{subsec:roots}
+We define a canonical $n$-th root on a conjugation-invariant neighborhood of the unipotent set. The point of using $n$-th roots is that the $n$-th power of a lift does not depend on the lift.
+
+For $M\ge1$ let $\Omega_M$ be the set of monic polynomials of degree $r$ over $F$ that are congruent to $(X-1)^r$ coefficientwise modulo $\fp^M$, and put
+\[ V_M:=\{g\in G:\ P_g\in\Omega_M\}. \]
+\emph{Absolute values.} In this subsection $q=|\cO/\fp|$, $e=v_F(p)$ is the absolute ramification index, and $|x|_F=q^{-v_F(x)}$ is the normalized absolute value of $F$, extended uniquely to $\ov F$; on $\cO$-algebras we use the corresponding sup norm $\|\cdot\|$ on coordinates. (In terms of the $p$-adic absolute value $|\cdot|_p$ with $|p|_p=p^{-1}$, one has $|x|_F=|x|_p^{[F:\mathbb Q_p]}$.) Put
+\[ \delta_n:=\begin{cases}1,&p\nmid n,\\ q^{-e/(p-1)},&p\mid n,\end{cases}\qquad B:=|n|_F^{-1}q^{e/(p-1)}. \]
+
+\begin{lemma}\label{lem:roots}\Pv
+\begin{enumerate}[label=(\alph*)]
+\item $V_M$ is open, closed and stable under conjugation, and so is $ZV_M$. Every eigenvalue $\lambda$ of $g\in V_M$ satisfies $|\lambda-1|_F\le|\varpi|_F^{M/r}$.
+\item If $u\in\ov F$, $u^n=1$ and $|u-1|_F<\delta_n$, then $u=1$.
+\item $|\binom{1/n}{k}|_F\le B^k$ for all $k\ge0$. There is $M_0$ such that for $M\ge M_0$ and $g\in V_M$ the series $g^{1/n}:=\sum_{k\ge0}\binom{1/n}{k}(g-1)^k$ converges in $A_g$. Its sum is the unique $h\in A_g$ with $h^n=g$ whose eigenvalues $\mu$ satisfy $|\mu-1|_F<\delta_n$.
+\item For $M\ge M_0$: $(xgx^{-1})^{1/n}=xg^{1/n}x^{-1}$ for $x\in G$; the map $g\mapsto g^{1/n}$ is continuous on $V_M$; and $(ag)^{1/n}=a^{1/n}g^{1/n}$ whenever $a\in F^\times$ and $a,g,ag\in V_{M_0}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) The map $g\mapsto P_g$ is continuous and $\Omega_M$ is open and closed, so $V_M$ is open and closed; it is conjugation-stable because $P_g$ is. If $\mu=\lambda-1$, then $\mu$ is a root of $P_g(X+1)=X^r+\sum_{i<r}c_iX^i$ with $|c_i|_F\le|\varpi|_F^M$. If $|\mu|_F>1$, then $|\mu|_F^r\le|\varpi|_F^M|\mu|_F^{r-1}$ gives $|\mu|_F<1$, a contradiction; so $|\mu|_F\le1$ and $|\mu|_F^r\le|\varpi|_F^M$. For $ZV_M$: openness is clear. If $a_kg_k\to g$ with $g_k\in V_M$, then $\det g_k\in\cO^\times$ (its reduced norm, when $G=D_v^\times$), so $|a_k|_F^r\to|\det g|_F$ and the $a_k$ lie in a compact subset of $F^\times$; passing to a convergent subsequence $a_k\to a$, we get $g_k\to a^{-1}g\in V_M$, so $g\in ZV_M$.
+
+(b) If $u\ne1$, then $u$ is a root of unity of order $m>1$ dividing $n$. If $p\nmid m$, the reduction of $u$ is a nontrivial root of unity in the residue field, so $|u-1|_F=1$. If $p\mid m$, some power $u^{m/p^a}$ is a primitive $p^a$-th root of unity $\zeta$ with $a\ge1$, and $|u-1|_F\ge|\zeta-1|_F\ge|\zeta_p-1|_F=|p|_F^{1/(p-1)}=q^{-e/(p-1)}$. (The first inequality holds because $u^j-1=(u-1)(u^{j-1}+\dots+1)$ with the second factor integral; the second because $|\zeta-1|_F=|p|_F^{1/(p^{a-1}(p-1))}$ for $\zeta$ of exact order $p^a$.)
+
+(c) Since $\binom{1/n}{k}=n^{-k}\prod_{j<k}(1-jn)/k!$ and $v_p(k!)\le k/(p-1)$, we have $|\binom{1/n}{k}|_F\le|n|_F^{-k}|k!|_F^{-1}\le|n|_F^{-k}q^{ek/(p-1)}=B^k$. Put $y=g-1$. Since $P_g$ has integral coefficients, $y$ is integral over $\cO$, so $\cO[y]\subset A_g$ is a finitely generated, hence complete, $\cO$-module. By Cayley--Hamilton $y^r=-\sum_{i<r}c_iy^i\in\varpi^M\cO[y]$, so $y^{kr+i}\in\varpi^{kM}\cO[y]$. So the series converges in $\cO[y]$ as soon as $|\varpi|_F^MB^r<1$. Then $h^n=g$, by the identity $(\sum_k\binom{1/n}{k}X^k)^n=1+X$ in $\mathbb Q[[X]]$ and absolute convergence. Each $F$-algebra map $\chi:A_g\to\ov F$ is continuous, and $\chi(g)$ runs over the eigenvalues of $g$. Hence the eigenvalues of $h$ are the numbers $b(\lambda-1)$, where $b(x)=\sum_k\binom{1/n}{k}x^k$ and $|\lambda-1|_F\le|\varpi|_F^{M/r}$. Since $|b(x)-1|_F\le\max_{k\ge1}(B|x|_F)^k$, enlarging $M_0$ gives $|b(\lambda-1)-1|_F<\delta_n$. For uniqueness, if $h'$ is another such root, then $u:=h'h^{-1}\in A_g$ satisfies $u^n=1$, and each eigenvalue of $u$ is within $\delta_n$ of $1$ (ultrametric inequality, since the eigenvalues of $h$ are units). By (b) all eigenvalues of $u$ equal $1$. Since $X^n-1$ is separable, $u$ is semisimple, so $u=1$.
+
+(d) Equivariance and multiplicativity follow from the uniqueness in (c): $xg^{1/n}x^{-1}\in A_{xgx^{-1}}$ is an $n$-th root of $xgx^{-1}$ with the right eigenvalues, and $a^{1/n}g^{1/n}\in A_g=A_{ag}$ is an $n$-th root of $ag$ whose eigenvalues are products of numbers within $\delta_n$ of $1$. For continuity, let $g_0\in V_M$. Suppose first that $G=\GL(r,F)$, or $G=D_v^\times$ with $D_v$ split, identified with $\GL(r,F)$ by some $D_v\cong M_r(F)$. Then $\Lambda:=\cO[g_0]\cO^r$ is a $g_0$-stable lattice (finitely generated since $g_0$ is integral), and $g_0^{-1}$ is also integral since $\det g_0\in\cO^\times$; so after conjugation $g_0\in\GL(r,\cO)$. On the open set $V_M\cap\GL(r,\cO)$ we have $y\in M_r(\cO)$ and $\|y^r\|\le|\varpi|_F^M$, so the series converges uniformly there. (Note that $V_M\not\subset\GL(r,\cO)$: for instance $\left(\begin{smallmatrix}1&\varpi^{-N}\\0&1\end{smallmatrix}\right)\in V_M$ for all $M,N$. This is why we conjugate.) If $D_v$ is a division algebra, then $V_M\subset\cO_D^\times$, since an element of $D_v$ with integral reduced characteristic polynomial lies in the maximal order $\cO_D$, and the same estimate holds in $\cO_D$. Conjugation is a homeomorphism, so continuity holds everywhere.
+\end{proof}
+
+
+\subsection{The section $\sg$}\label{subsec:section}
+We now lift the $n$-th root to the cover. The resulting section is equivariant, consists of good elements, and is compatible with every splitting in sight and with the identification $\jj$ of Part~I.
+
+\begin{definition}
+For $M\ge M_0$ and $g\in V_M$ put $\sg(g):=\tilde h^{\,n}$, where $h=g^{1/n}$ and $\tilde h$ is any lift of $h$ to $\Gb$. We write $\sg_D$ and $\sg_{\GL}$ when the group must be specified.
+\end{definition}
+
+Since two lifts of $h$ differ by $\zeta\in\mu_n$ and $\zeta^n=1$, $\sg(g)$ is well defined.
+
+\begin{proposition}\label{prop:section}\Pv
+Let $M\ge M_0$.
+\begin{enumerate}[label=(\alph*)]
+\item $\sg:V_M\to\Gb$ is a continuous section of $p$, and $\sg(xgx^{-1})=\tilde x\,\sg(g)\,\tilde x^{-1}$ for all $x\in G$ and any lift $\tilde x$.
+\item For every $g\in V_M$, $\sg(g)$ commutes with $p^{-1}(\Cent_G(g))$. In particular, $\sg(\gamma)$ is good for every regular $\gamma\in V_M$, and $\sg(t)\in Z(\Tb)$ for every $t\in T\cap V_M$ and every maximal torus $T$.
+\item If $a\in F^\times$ and $a,g,ag\in V_{M_0}$, then $\sg(a)\in\Zb$ and $\sg(ag)=\sg(a)\sg(g)$.
+\item Let $W\subseteq V_{M_0}$ be an open compact subgroup over which $p$ splits by a homomorphism $\kappa$. Then there is an open compact subgroup $U\subseteq W\cap V_M$ with $u^{1/n}\in W$ for all $u\in U$, and $\sg|_U=\kappa|_U$. In particular, the splitting $\kappa_U$ of Part~I, Proposition~4.6, is $\sg_D|_U$ (there $U=U_k$, $W=U_{k'}$, and $\kappa_U(t)=\kappa(s)^n$ with $s=t^{1/n}\in U_{k'}$).
+\item If $u$ is unipotent and lies in the unipotent radical $N$ of a parabolic subgroup of $\GL(r,F)$, then $\sg(u)=s_N(u)$, where $s_N$ is the unique splitting of $p$ over $N$.
+\item \emph{(Compatibility of the two sides.)} For $a\in F^\times\cap V_{M_0}$, $\sg_D(a)=\sg_{\GL}(a)$ in $\Zb$. Let $E\subset D_v$ be a maximal subfield, $j:E\hookrightarrow M_r(F)$ an embedding, and $\jj_{E,j}:Z(\Eb_D)\to Z(\Eb_{\GL})$ the canonical identification of Part~I, Theorem~3.9. Then $\jj_{E,j}(z\,\sg_D(t))=z\,\sg_{\GL}(j(t))$ for $z\in\Zb$ and $t\in E^\times\cap V_M$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) Near any point, $g\mapsto g^{1/n}$ is continuous (Lemma~\ref{lem:roots}(d)) and $p$ has continuous local sections, so $\tilde h$ may be chosen to depend continuously on $g$ locally. Equivariance: $\tilde x\tilde h\tilde x^{-1}$ is a lift of $xhx^{-1}=(xgx^{-1})^{1/n}$, so $\tilde x\tilde h^n\tilde x^{-1}=(\tilde x\tilde h\tilde x^{-1})^n=\sg(xgx^{-1})$.
+
+(b) If $c\in\Cent_G(g)$, then $c$ commutes with $A_g\ni h$, so for a lift $\tilde c$ we have $\tilde c\tilde h\tilde c^{-1}=\zeta\tilde h$ with $\zeta\in\mu_n$, and therefore $\tilde c\tilde h^n\tilde c^{-1}=\zeta^n\tilde h^n=\tilde h^n$.
+
+(c) $a^{1/n}\in F^\times$, so its lifts lie in $\Zb$, which is central. Hence $\sg(ag)=(\widetilde{a^{1/n}}\,\tilde h)^n=\widetilde{a^{1/n}}^{\,n}\tilde h^n=\sg(a)\sg(g)$, using Lemma~\ref{lem:roots}(d).
+
+(d) The root map $u\mapsto u^{1/n}$ is continuous at $1$ and fixes $1$, so some open compact subgroup $U\subseteq W\cap V_M$ satisfies $u^{1/n}\in W$ for $u\in U$. For such $u$, $\kappa(u^{1/n})$ is a lift of $u^{1/n}$, so $\sg(u)=\kappa(u^{1/n})^n=\kappa(u)$, since $\kappa$ is a homomorphism. We do \emph{not} assume $u^{1/n}\in U$: when $p\mid n$ this generally fails for the standard filtration subgroups, since a $p$-th root of an element of $1+\fp^m$ lies only in a larger principal-unit group.
+
+(e) $u^{1/n}=\sum_k\binom{1/n}{k}(u-1)^k$ is a finite sum, and it lies in $N$. Since $s_N$ is a homomorphism, $\sg(u)=s_N(u^{1/n})^n=s_N(u)$.
+
+(f) The first assertion holds because $\iD(a)=\iG(a)$ and $a^{1/n}\in F^\times$, so both sides are the $n$-th power of a lift of the same element of $\cG_v$. For the second, put $s=t^{1/n}\in F[t]\subseteq E$. Then $j(s)=j(t)^{1/n}$, by uniqueness in Lemma~\ref{lem:roots}(c), since $j$ is an $F$-algebra embedding and preserves eigenvalues. Let $\varphi\in\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$. It is a group isomorphism over $\iG j\iD^{-1}$, so $\varphi(\sg_D(t))=\varphi(\tilde s)^n$, and $\varphi(\tilde s)$ is a lift of $j(s)$. Hence $\varphi(\sg_D(t))=\sg_{\GL}(j(t))$. By (b), $\sg_D(t)\in Z(\Eb_D)$, where $\varphi$ restricts to $\jj_{E,j}$; and $\varphi$ is the identity on $\Zb$.
+\end{proof}
+
+\begin{remark}
+(1) Proposition~\ref{prop:section} holds equally for $v\mid n$; only $M_0$ grows. So the distinction between $v\mid n$ and $v\nmid n$, which governs the structure of the covered tori (Part~I, Proposition~3.5), plays no role near the center.
+
+(2) Part~(e) says that $\sg$ extends the canonical lifting of unipotent elements. So the unipotent orbital integrals $\Phi(z\,\sg(u),\tilde f):=\int_{G_u\backslash G}\tilde f(\tilde x^{-1}z\sg(u)\tilde x)\,d\dot x$ are well defined by (b), and they are the unipotent orbital integrals of [FK, \S8], where unipotent elements are lifted by the splitting $s$ of [FK, \S2] (see Remark~\ref{rem:FK8}(1) for the normalization of $F$).
+\end{remark}
+
+
+\subsection{Transport to the linear group}\label{subsec:transport}
+We show that genuine functions supported in $p^{-1}(ZV_M)$ are the same thing as linear functions on $G/Z$ supported in $ZV_M$, with the same orbital integrals. This holds on both sides and is compatible with $\jj$.
+
+\begin{lemma}[Choice of $M$]\label{lem:chooseM}\Pv
+Let $\tilde\theta$ be a genuine character of $\Zb$. There is $M_1\ge M_0$ such that for $M\ge M_1$:
+\begin{enumerate}[label=(\alph*)]
+\item if $a\in F^\times$, $g\in V_M$ and $ag\in V_M$, then $a\in1+\fp^{\lceil M/r\rceil}\subseteq V_{M_0}$;
+\item $\tilde\theta(\sg(a))=1$ for all $a\in1+\fp^{\lceil M/r\rceil}$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) If $\lambda$ is an eigenvalue of $g$, then $a\lambda$ is one of $ag$, and Lemma~\ref{lem:roots}(a) gives $|a-1|_F=|a\lambda-\lambda|_F/|\lambda|_F\le|\varpi|_F^{M/r}$. A scalar $a$ with $|a-1|_F\le|\varpi|_F^m$ has $P_a=(X-a)^r\in\Omega_m$. (b) By Proposition~\ref{prop:section}(c), $a\mapsto\tilde\theta(\sg(a))$ is a continuous character of $1+\fp^{M_0}$, so it is trivial on $1+\fp^m$ for $m$ large.
+\end{proof}
+
+\emph{Measure convention.} For $g\in G$ let $G_g$ be its centralizer. If $g\in V_M$, then $\sg(g)$ commutes with $p^{-1}(G_g)$ (Proposition~\ref{prop:section}(b)), so the genuine orbital integral $\Phi(z\sg(g),\tilde f)=\int\tilde f(\tilde x^{-1}z\sg(g)\tilde x)\,d\dot x$ is an integral over the same quotient space $G_g\backslash G$ as the linear orbital integral at $p(z)g$. Throughout, the two are computed with the \emph{same} quotient measure on $G_g\backslash G$: for regular $g$, the measure $dg/dt$ of Part~I, \S4.1; for unipotent $g$, a fixed $G$-invariant measure on the class of $g$, used both in the Shalika expansion (Corollary~\ref{cor:germexp}) and in the Richardson formula of Lemma~\ref{lem:cuspnear1}. ``Same orbital integrals'' below always means equality for these measures.
+
+Fix $M\ge M_1$, and let $C_c^\infty(\Gb,\tilde\theta)_{\gen,M}$ be the space of $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$ supported in $p^{-1}(ZV_M)$, and $C_c^\infty(G/Z)_M$ the space of $\varphi\in C_c^\infty(G/Z)$ supported in $ZV_M$.
+
+\begin{proposition}[Transport]\label{prop:transport}\Pv
+\begin{enumerate}[label=(\alph*)]
+\item Every element of $p^{-1}(ZV_M)$ is of the form $z\,\sg(g)$ with $z\in\Zb$ and $g\in V_M$. Every regular element of $p^{-1}(ZV_M)$ is good.
+\item The formula $(\mathcal T\tilde f)(p(z)g):=\tilde\theta(z)\,\tilde f(z\,\sg(g))$ ($z\in\Zb$, $g\in V_M$) defines a linear bijection
+\[ \mathcal T:C_c^\infty(\Gb,\tilde\theta)_{\gen,M}\xrightarrow{\ \sim\ }C_c^\infty(G/Z)_M, \]
+with inverse $(\mathcal T^{-1}\varphi)(z\sg(g))=\tilde\theta(z)^{-1}\varphi(p(z)g)$ on $p^{-1}(ZV_M)$ and $0$ elsewhere.
+\item For $z\in\Zb$ and regular $\gamma\in V_M$,
+\[ \Phi(z\,\sg(\gamma),\tilde f)=\tilde\theta(z)^{-1}\,\Phi(p(z)\gamma,\mathcal T\tilde f),\qquad F(z\,\sg(\gamma),\tilde f)=\tilde\theta(z)^{-1}\,F(p(z)\gamma,\mathcal T\tilde f), \]
+where on the right $\Phi$ and $F=\Delta\Phi$ are the linear orbital integrals with the same measures. More generally, the first identity holds for every $\gamma\in V_M$, with $\Phi$ the integral over $G_\gamma\backslash G$ (for instance, for unipotent $\gamma$).
+\item For a function $\beta$ on $G$ that is constant on conjugacy classes and on $Z$-cosets, with $\beta\cdot1_{ZV_M}$ locally constant, $\mathcal T\big((\beta\circ p)\tilde f\big)=\beta\cdot\mathcal T\tilde f$.
+\end{enumerate}
+\end{proposition}
+\begin{proof}
+(a) If $\tilde x\in p^{-1}(ZV_M)$, write $p(\tilde x)=ag$ with $g\in V_M$, and choose a lift $z$ of $a$; then $\tilde x=\zeta z\sg(g)$ for some $\zeta\in\mu_n\subset\Zb$. A regular element $z\sg(\gamma)$ is good by Proposition~\ref{prop:section}(b), since $z$ is central.
+
+(b) \emph{Independence of the lift $z$ of $a=p(z)$:} replacing $z$ by $\zeta z$ multiplies $\tilde\theta(z)$ by $\zeta$ and $\tilde f(z\sg(g))$ by $\zeta^{-1}$. \emph{Independence of the factorization:} if $ag=a'g'$ with $g,g'\in V_M$, then $g'=cg$ with $c=a/a'\in1+\fp^{\lceil M/r\rceil}$ (Lemma~\ref{lem:chooseM}(a)), so $\sg(g')=\sg(c)\sg(g)$ (Proposition~\ref{prop:section}(c)). With $z'$ a lift of $a'$, $z:=z'\sg(c)$ is a lift of $a$, and
+\[ \tilde\theta(z')\tilde f(z'\sg(g'))=\tilde\theta(z')\tilde f(z\sg(g))=\tilde\theta(\sg(c))^{-1}\tilde\theta(z)\tilde f(z\sg(g))=\tilde\theta(z)\tilde f(z\sg(g)), \]
+by Lemma~\ref{lem:chooseM}(b). So $\mathcal T\tilde f$ is a well-defined function on $ZV_M$, extended by $0$. It is $Z$-invariant by construction, locally constant because $\sg$ is continuous and $\tilde f$ is locally constant, and supported in the set $ZV_M$, which is open and closed (Lemma~\ref{lem:roots}(a)); its support is compact modulo $Z$ because that of $\tilde f$ is compact modulo $\Zb$. The inverse is well defined by the same computation, and it is smooth because $p^{-1}(ZV_M)$ is open and closed.
+
+(c) For $x\in G$, $\tilde x^{-1}z\sg(\gamma)\tilde x=z\,\sg(x^{-1}\gamma x)$ by Proposition~\ref{prop:section}(a). Hence $\tilde f(\tilde x^{-1}z\sg(\gamma)\tilde x)=\tilde\theta(z)^{-1}(\mathcal T\tilde f)(x^{-1}p(z)\gamma x)$. Integrate over $T_\gamma\backslash G$, and note that $\Delta(p(z)\gamma)=\Delta(\gamma)$. For non-regular $\gamma\in V_M$ the same computation applies over $G_\gamma\backslash G$, since $\sg(\gamma)$ commutes with $p^{-1}(G_\gamma)$ (Proposition~\ref{prop:section}(b)).
+
+(d) is immediate from the definitions.
+\end{proof}
+
+
+\subsection{The germ expansion at central good elements}\label{subsec:germexp}
+We record what the transport says about germs. This is not needed for the matching theorem, but it identifies the germs of [FK, \S8] and [KP2, \S1] at central elements.
+
+\begin{corollary}[Germ expansion at central good elements]\label{cor:germexp}\Pv\ (using \Ev)
+Let $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$ with $G=\GL(r,F)$, and let $z\in\Zb$. There is a neighborhood $V'$ of $1$ such that for regular $\gamma\in V'$,
+\[ \Phi(z\,\sg(\gamma),\tilde f)=\sum_{\mathcal O}\Gamma_{\mathcal O}(\gamma)\,\Phi(z\,\sg(u_{\mathcal O}),\tilde f), \]
+where $\mathcal O$ runs over the unipotent conjugacy classes of $\GL(r,F)$ (partitions of $r$), $u_{\mathcal O}\in\mathcal O$, and the $\Gamma_{\mathcal O}$ are the Shalika germs of $\GL(r,F)$ for the measures fixed above. On the $D$ side the only unipotent class is $\{1\}$, and the expansion is Part~I, Proposition~4.6.
+\end{corollary}
+\begin{proof}
+Apply Proposition~\ref{prop:transport} to $\tilde f\cdot1_{p^{-1}(ZV_M)}$, and the Shalika germ expansion [Sha72], [HC70] \Ev\ to $\mathcal T(\tilde f\cdot1_{p^{-1}(ZV_M)})$ at $1$. Since that function is $Z$-invariant, its expansion at $p(z)$ is its expansion at $1$. By Proposition~\ref{prop:transport}(c), applied also to the unipotent orbits, the factors $\tilde\theta(z)^{\pm1}$ cancel.
+\end{proof}
+
+
+
+\begin{remark}\label{rem:FK8}
+(1) [FK, \S8, Theorem] and [KP2, Theorem~1.4] (credited there to Shalika, Harish-Chandra, Vign\'eras and Kazhdan--Patterson) give a germ expansion of genuine orbital integrals at every semisimple element, with germs indexed by the good elements above it, and a converse characterizing orbital-integral functions [KP2, Theorem~1.7]. The germs are shown to exist; their structure is not determined there ([KP2, \S1, Remark~2]). Corollary~\ref{cor:germexp} identifies them, at central good elements, with the Shalika germs of $\GL(r,F)$. In comparing normalizations, note that [FK] normalize $F=\Delta\Phi$ with $\Delta$ formed from distinct eigenvalues, so that at $z\,\sg(u)$ with $z$ central $F=|\det z|^{-(r-1)/2}\Phi$.
+
+(2) The principle that orbital integrals on covers near a semisimple element reduce to the Lie algebra of its centralizer is part of W.-W.~Li's semisimple descent [Li2, \S4], and we make no claim of priority for Corollary~\ref{cor:germexp}. What we use is the explicit transport of Proposition~\ref{prop:transport}, which is compatible with \emph{both} covers and with $\jj$ (Proposition~\ref{prop:section}(f)).
+\end{remark}
+
+% =====================================================================
+\section{Orbital integrals of arbitrary genuine functions}\label{sec:arbitrary}
+This section extends the facts about orbital integrals on elliptic tori in Part~I, Appendix~A, from regular-supported functions to arbitrary genuine functions. For $r$ prime, the only singular elements near which the elliptic regular set accumulates are central (Lemma~\ref{lem:singular}), so once the behavior near $\Zb$ is removed, the elliptic orbital integrals of an arbitrary genuine function are admissible in the sense of Part~I, \S4.3 (Lemma~\ref{lem:Aext}).
+
+\begin{lemma}[Singular elements, $r$ prime]\label{lem:singular}\Pv
+Let $G=\GL(r,F)$ with $r$ prime. A non-central singular semisimple element $s$ has a neighborhood containing no regular elliptic element. Hence, for every elliptic maximal torus $T$, every point of $T\smallsetminus Z$ is regular, and $(T\smallsetminus ZV_M)/Z$ is a compact subset of $T^{\reg}/Z$.
+\end{lemma}
+\begin{proof}
+Write $P_s=\prod_iQ_i^{m_i}$ with distinct monic irreducible $Q_i$. If there were only one factor, $P_s=Q^m$ with $m\deg Q=r$, so $m=1$ (then $P_s$ is separable and $s$ is regular) or $m=r$ and $\deg Q=1$ (then the semisimple element $s$ has a single eigenvalue in $F$ and is central). Both are excluded, so $P_s=AB$ with $A,B$ coprime and of positive degree. By Hensel's lemma, every monic polynomial close enough to $P_s$ factors as $A'B'$ with $\deg A'=\deg A$ and $\deg B'=\deg B$. So elements close to $s$ have reducible characteristic polynomials and are not elliptic. The second statement holds because the singular elements of $T$ are central, $T/Z$ is compact, and $T\smallsetminus ZV_M$ is closed.
+\end{proof}
+
+\begin{lemma}[Extension of Part~I, Lemma~A.3]\label{lem:Aext}\Pv\ (using \Ev)
+Let $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$ be arbitrary, $T$ an elliptic maximal torus, and $h=F(\cdot,\tilde f)$ on $\Tb^{g,\reg}$. Then $h$ satisfies conditions (i), (ii) and (iv) of Part~I, \S4.3. If moreover $h=0$ on $p^{-1}(ZV_M)\cap\Tb^{g,\reg}$ for some $M$, then $h$ is admissible.
+\end{lemma}
+\begin{proof}
+The proofs of (ii) and (iv) in Part~I, Lemma~A.3, do not use the support of $\tilde f$. The proof of (i) uses Part~I, Lemma~A.1(b), with $\Omega=p(\supp\tilde f)$; that lemma holds for every $\Omega$ compact modulo $Z$ [HC70] \Ev. For (iii): $\supp h$ is closed in the open and closed subgroup $Z(\Tb)$ and contained in $p^{-1}(T\smallsetminus ZV_M)$, whose image in $T/Z$ is compact and regular by Lemma~\ref{lem:singular}.
+\end{proof}
+
+
+
+\begin{remark}
+Lemma~\ref{lem:singular} is the only place where primality of $r$ enters the local theory of this paper (besides its use in Part~I). For composite $r$ there are non-central singular semisimple elements with elliptic centralizers, of the form $\GL(m,E')$ with $m[E':F]=r$ and $m>1$. Germ expansions there exist by [FK, \S8], but they are not explicit, and the method of \S\ref{sec:center} would have to be extended to covers of $\GL(m,E')$.
+\end{remark}
+
+% =====================================================================
+\section{Matching of arbitrary functions}\label{sec:matching}
+This section proves Theorem~E. We first collect the inputs about the linear groups (\S\ref{subsec:linear}). We then construct the genuine analog of the pair (constant function on $D_v^\times$, Steinberg pseudo-coefficient on $\GL(r,F)$) near the center (\S\ref{subsec:steinberg}), prove matching in both directions (\S\ref{subsec:matchthm}), and determine the germ near the center that every matching function must have (\S\ref{subsec:germ}). Throughout, $v\in S$, $F=K_v$, and $\tilde\theta_v$ is a genuine character of $\Zb_v$, common to both covers.
+
+\subsection{Inputs about the linear groups}\label{subsec:linear}
+We state the two linear inputs (L1) and (L2), prove the value of the Steinberg pseudo-coefficient at the identity, and derive (L2) from statements in [FK] and [Bad].
+
+Let $G=\GL(r,F)$.
+\begin{enumerate}[label=(L\arabic*)]
+\item \Ev\ There is $f_{\St}\in C_c^\infty(G/Z)$, a pseudo-coefficient of the Steinberg representation, with $\tr\St(f_{\St})=1$, $\tr\pi'(f_{\St})=0$ for every irreducible tempered $\pi'\not\cong\St$ with trivial central character, $\Phi(\gamma,f_{\St})=(-1)^{r-1}\vol(T_\gamma/Z)^{-1}$ for regular elliptic $\gamma$, and $\Phi(\gamma,f_{\St})=0$ for regular non-elliptic $\gamma$.
+\item \Pv\ (Lemma~\ref{lem:L2}) Every $\varphi\in C_c^\infty(G/Z)$ with $\Phi(\gamma,\varphi)=0$ for all regular non-elliptic $\gamma$ has a matching $\varphi_D\in C_c^\infty(D_v^\times/Z)$.
+\end{enumerate}
+
+\emph{Source of (L1).} [FK, \S25.1, Theorem], from [Kaz, Theorem~K], is stated for every square-integrable representation of the cover, and so, with $n=1$ (the convention of [FK, \S8, Remark~(3)]), for $\GL(r,F)$. It gives $\Phi^z(\gamma,f_{\St})=\ov{\Theta_{\St}(\gamma)}$ on the regular elliptic set and $\Phi^z=0$ at regular non-elliptic elements, together with the trace properties. Since $\Phi^z=\vol(T_\gamma/Z)\Phi$ and $\Theta_{\St}=(-1)^{r-1}$ on the regular elliptic set, this is (L1). The value of $\Theta_{\St}$ follows from [Bad, Theorem~2.2] with $n=1$, $d=r$, since the trivial representation of $D_v^\times$ corresponds to $\St$.
+
+\begin{remark}\label{rem:centralchar}\Pv
+\emph{From compact support to trivial central character.} The linear statements (L1), (L2) are usually formulated for $C_c^\infty(G)$ with measures on $G$ and $T$. Choose $b\in C_c^\infty(F^\times)$ supported in small neighborhoods of representatives of $F^\times/F^{\times r}$ (a finite group), normalized so that $\int_{F^\times}b(z^ry)\,dz=1$ for all $y$. For $\varphi\in C_c^\infty(G/Z)$, the function $\varphi':=\varphi\cdot(b\circ\det)$ (respectively $b\circ\Nrd$) lies in $C_c^\infty(G)$, satisfies $\int_Z\varphi'(zg)\,dz=\varphi(g)$, and has orbital integrals $b(\det\gamma)$ times those of $\varphi$. In particular $\varphi'$ is cuspidal if $\varphi$ is. Since averaging over $Z$ commutes with matching ($z\gamma\leftrightarrow z\gamma'$, $\Delta(z\gamma)=\Delta(\gamma)$), matching statements for $C_c^\infty$ imply the same statements for $C_c^\infty(\cdot/Z)$.
+\end{remark}
+\begin{lemma}[Value of $f_{\St}$ at the identity]\label{lem:fSt1}\Pv\ (using \Ev)
+With $f_{\St}$ as in (L1), $f_{\St}(1)=d(\St)$, the formal degree of $\St$ with respect to $dg$.
+\end{lemma}
+\begin{proof}
+By Harish-Chandra's Plancherel formula for $G/Z$ with trivial central character [Wal03, Th\'eor\`eme~VIII.1.1, in the form (3) of \S VIII.1] (in explicit form for $\GL(n)$, see [AP]), for $f\in C_c^\infty(G/Z)$,
+\[ f(1)=\sum_{\pi}d(\pi)\tr\pi(f)+\sum_{P\ne G}\int\tr\big(\mathrm{Ind}_P^G\sigma\big)(f)\,d\mu_P(\sigma), \]
+where $\pi$ runs over square-integrable representations with trivial central character, and the second sum runs over proper standard parabolic subgroups $P=MN$, with $\sigma$ running over unitary twists of square-integrable representations of $M$ and $\mu_P$ absolutely continuous Plancherel measures. For $\GL(r,F)$ every $\mathrm{Ind}_P^G\sigma$ here is irreducible and tempered (the segments attached to unitary twists of square-integrable representations are pairwise unlinked, so [Zel80, Theorem~9.7(a)] applies), and it is not square-integrable when $P\ne G$, so it is not $\St$. By [FK, \S25.1, Theorem] with $n=1$, $\tr\pi'(f_{\St})=0$ for every irreducible tempered $\pi'\not\cong\St$, and $\tr\St(f_{\St})=1$. Hence only the term $\pi=\St$ survives, and $f_{\St}(1)=d(\St)$.
+\end{proof}
+
+
+
+
+\begin{lemma}[The linear input (L2)]\label{lem:L2}\Pv\ (using \Ev)
+Let $G=\GL(r,F)$, $r$ prime, and let $\varphi\in C_c^\infty(G/Z)$ satisfy $\Phi(\gamma,\varphi)=0$ for all regular non-elliptic $\gamma$. Then there is $\varphi_D\in C_c^\infty(D_v^\times/Z)$ with $F(t,\varphi_D)=(-1)^{r-1}F(j(t),\varphi)$ for every regular $t\in D_v^\times$ and every embedding $j$ of $F[t]$ in $M_r(F)$.
+\end{lemma}
+\begin{proof}
+\emph{Step 1 (finitely many discrete series).} Let $\varphi$ be bi-invariant under an open compact subgroup $K'$. Then $\tr\pi(\varphi)\ne0$ only if $\pi^{K'}\ne0$. There are only finitely many square-integrable $\pi$ with trivial central character and $\pi^{K'}\ne0$: by Harish-Chandra's finiteness theorem [Wal03, Th\'eor\`eme~VIII.1.2] \Ev\ these form finitely many orbits under twisting by unramified characters $|\det|^s$, and in each orbit only finitely many members have trivial central character (the twist multiplies the central character by $|z|^{rs}$). Let $\Pi$ be this finite set, and for $\pi\in\Pi$ let $f_\pi$ be a pseudo-coefficient as in [FK, \S25.1, Theorem] with $n=1$ \Ev. Put
+\[ \psi:=\varphi-\sum_{\pi\in\Pi}\tr\pi(\varphi)\,f_\pi . \]
+
+\emph{Step 2 ($\psi$ has vanishing tempered traces).} Let $\pi'$ be irreducible and tempered, with trivial central character. If $\pi'$ is square-integrable, then $\tr\pi'(\psi)=\tr\pi'(\varphi)-\tr\pi'(\varphi)=0$ by the defining property of the $f_\pi$ (and $\tr\pi'(\varphi)=0$ if $\pi'\notin\Pi$). Otherwise $\pi'=\mathrm{Ind}_P^G\sigma$ with $P\ne G$ and $\sigma$ a unitary twist of a square-integrable representation of $M$ (the classification of tempered representations of $\GL(r,F)$; [Zel80, \S9]), and $\tr\pi'(f_\pi)=0$ by [FK, \S25.1]. Also $\tr\pi'(\varphi)=0$: by the Weyl integration formula (characters are locally integrable [FK, \S13]), $\tr\pi'(\varphi)$ is a sum over conjugacy classes of maximal tori of integrals of $\Theta_{\pi'}\cdot\Phi(\cdot,\varphi)$. On non-elliptic tori $\Phi(\cdot,\varphi)=0$ by hypothesis, and on elliptic tori $\Theta_{\pi'}=0$, since the character of a representation induced from a proper parabolic subgroup vanishes on the regular elliptic set [vD72] \Ev.
+
+\emph{Step 3 (density).} We use [FK, \S27.3, Proposition] \Ev\ with $n=1$. For $n=1$ the cover is $G$ itself, $x^*=x$, every representation is genuine and relevant, and the correspondence of [FK, \S26] is the identity (the character relation (26.1) becomes $\Theta_{\tilde\pi}=\Theta_\pi$); ``matching'' means equality of $F(x,\cdot)$ at regular $x$. The proposition then reads: \emph{if $f,f'\in C_c^\infty(G/Z)$ satisfy $\tr\pi(f)=\tr\pi(f')$ for every irreducible tempered $\pi$ with trivial central character, then $F(x,f)=F(x,f')$ for every regular $x$.} Apply it with $f=\psi$ and $f'=0$, using Step~2. (For covers in general, the corresponding density of tempered characters is proved in [Li2].) So $\Phi(\gamma,\varphi)=\sum_{\pi\in\Pi}\tr\pi(\varphi)\Phi(\gamma,f_\pi)$ for all regular $\gamma$, and on the regular elliptic set
+\[ \Phi^z(\gamma,\varphi)=\sum_{\pi\in\Pi}c_\pi\ov{\Theta_\pi(\gamma)},\qquad c_\pi:=\tr\pi(\varphi). \]
+
+\emph{Step 4 (transfer).} By [Bad, Theorem~2.2] with $n=1$, $d=r$ \Ev, there is a bijection $\pi\mapsto C(\pi)$ from essentially square-integrable representations of $\GL(r,F)$ to irreducible representations of $D_v^\times$, preserving central characters, with $\Theta_{C(\pi)}(t)=(-1)^{r-1}\Theta_\pi(j(t))$ for regular $t$. For an irreducible representation $\tau$ of $D_v^\times$ with trivial central character, put $f_\tau:=\vol(D_v^\times/Z)^{-1}\,\ov{\Theta_\tau}\in C_c^\infty(D_v^\times/Z)$. Since $f_\tau$ is conjugation invariant, $\Phi^z(t,f_\tau)=\vol(D_v^\times/Z)f_\tau(t)=\ov{\Theta_\tau(t)}$. Put $\varphi_D:=\sum_{\pi\in\Pi}c_\pi f_{C(\pi)}$. Then
+\[ \Phi^z(t,\varphi_D)=\sum_\pi c_\pi\ov{\Theta_{C(\pi)}(t)}=(-1)^{r-1}\sum_\pi c_\pi\ov{\Theta_\pi(j(t))}=(-1)^{r-1}\Phi^z(j(t),\varphi). \]
+Divide by $\vol(T/Z)$, which is the same on both sides because the same $dt$ is used on $T$ and $j(T)$ (Part~I, \S4.1), and multiply by $\Delta(t)=\Delta(j(t))$. The measure $dg_{D,v}$ enters only through $\vol(D_v^\times/Z)$ in $f_\tau$ and in $\Phi^z(t,\cdot)$, and cancels.
+
+\emph{On the complex conjugate.} The identity $\Phi^z(\gamma,f_\pi)=\ov{\Theta_\pi(\gamma)}$ is the normalization compatible with $\tr\pi(f_\pi)=1$: by the Weyl integration formula, for $f$ with vanishing non-elliptic orbital integrals, $\tr\pi'(f)=\sum_T(|W_T|\vol(T/Z))^{-1}\int_{T/Z}\Delta(t)^2\Theta_{\pi'}(t)\Phi^z(t,f)\,dt$, which for $\Phi^z(\cdot,f)=\ov{\Theta_\pi}$ is the elliptic inner product $\langle\Theta_{\pi'},\Theta_\pi\rangle$ of [FK, \S24], equal to $\delta_{\pi\pi'}$ for square-integrable $\pi'$ [FK, \S25]. In any case the argument is insensitive to this convention: replacing $\ov{\Theta}$ by $\Theta$ throughout Steps~3 and~4 changes nothing, because the transfer identity of Step~4 has real coefficients $(-1)^{r-1}$.
+\end{proof}
+
+\begin{remark}
+Lemma~\ref{lem:L2}, combined with Remark~\ref{rem:centralchar}, is the converse half of the linear transfer of functions of [DKV]. We include the proof because [Bad, \S4.6] states only the regular-supported case, and because it uses only results whose statements we have checked in [FK] and [Bad].
+\end{remark}
+
+
+\subsection{The Steinberg-type function}\label{subsec:steinberg}
+We construct the genuine analog, near the center, of the pair (constant function on $D_v^\times$, Steinberg pseudo-coefficient). It exists as a pair of functions with matching orbital integrals; it is not a pair of pseudo-coefficients of single genuine representations.
+
+Fix $M\ge M_1$ (for $\tilde\theta_v$, on both sides) and put
+\begin{gather*} e_D:=\mathcal T_D^{-1}\big(1_{ZV_{D,M}}\big)\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen,\\ \tilde f^{\St}:=d(\St)^{-1}\,\mathcal T^{-1}\big(f_{\St}\cdot1_{ZV_M}\big)\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen, \end{gather*}
+with $f_{\St}$ as in (L1). Here $1_{ZV_{D,M}}\in C_c^\infty(D_v^\times/Z)$ because $D_v^\times/Z$ is compact and $ZV_{D,M}$ is open and closed. Concretely, $e_D(z\sg_D(g))=\tilde\theta_v(z)^{-1}$ for $g\in V_{D,M}$, and $e_D=0$ off $p^{-1}(ZV_{D,M})$. So $e_D(1)=1$.
+
+\begin{proposition}\label{prop:eD}\Pv\ (using (L1))
+The functions $e_D$ and $\tilde f^{\St}$ match. Explicitly, $\tilde f^{\St}(1)=1=e_D(1)$, and at good regular elements
+\[ F(z\sg(\gamma),\tilde f^{\St})=\begin{cases}(-1)^{r-1}\tilde\theta_v(z)^{-1}\Delta(\gamma)\big(d(\St)\vol(T_\gamma/Z)\big)^{-1}&\gamma\in V_M\text{ regular elliptic},\\ 0&\gamma\in V_M\text{ regular non-elliptic},\end{cases} \]
+and $F(\cdot,\tilde f^{\St})=0$ at good regular elements outside $p^{-1}(ZV_M)$.
+\end{proposition}
+\begin{proof}
+By Proposition~\ref{prop:transport}(c),(d), $F(z\sg(\gamma),\tilde f^{\St})=d(\St)^{-1}\tilde\theta_v(z)^{-1}1_{V_M}(\gamma)\Delta(\gamma)\Phi(\gamma,f_{\St})$, and (L1) gives the displayed values. On the $D$ side, $e_D(\tilde x^{-1}z\sg_D(t)\tilde x)=\tilde\theta_v(z)^{-1}1_{V_{D,M}}(t)$, so $F(z\sg_D(t),e_D)=\tilde\theta_v(z)^{-1}1_{V_{D,M}}(t)\Delta(t)\vol(D_v^\times/Z)/\vol(T/Z)$, and $\vol(D_v^\times/Z)=d(\St)^{-1}$ by Definition~\ref{def:measures}. Outside $p^{-1}(ZV_{D,M})$ and $p^{-1}(ZV_M)$ both orbital integrals vanish, and $\jj$ preserves these sets, since it preserves characteristic polynomials and is the identity on $\Zb_v$. Now compare, using Proposition~\ref{prop:section}(f), the equality $1_{V_{D,M}}(t)=1_{V_M}(j(t))$, and the sign $(-1)^{r-1}$ in (M1).
+\end{proof}
+
+\begin{remark}[Not a pseudo-coefficient of one genuine representation]\label{rem:notpc}
+$\tilde f^{\St}$ is defined by orbital integrals, not by representations, and matching needs nothing more. Under the character relations (D2) of Part~I (proved at the places of $S$ prime to $n$; see \S\ref{sec:partIII}(ii)), $\tr\pib(\tilde f^{\St})=\tr\pib_D(e_D)$ for corresponding pairs. Now $\tr\tau(e_D)=\int_{\GDb(K_v)/\Zb_v}e_D\,\Theta_\tau$, which is the integral of $g\mapsto\Theta_\tau(\sg_D(g))$ over $ZV_{D,M}/Z$, is in general nonzero for more than one genuine irreducible $\tau$ (Fourier inversion on the compact group $\GDb(K_v)/\Zb_v$ expresses $e_D$ in terms of the characters of all $\tau$ of level contained in $V_{D,M}$). So $\tilde f^{\St}$ should be a combination of pseudo-coefficients of several genuine square-integrable representations, not the pseudo-coefficient of a single ``genuine Steinberg'' representation. Accordingly, the phrase ``a genuine analog of a Steinberg pseudo-coefficient'' in Part~I, \S4.5, should be read as ``a genuine function with the orbital integrals of a Steinberg pseudo-coefficient near the center''.
+\end{remark}
+
+\begin{remark}[No genuine characters when $v\mid n$]\label{rem:nochar}\Pv
+If $v\mid n$, then $\GDb(K_v)$ has no genuine one-dimensional representation. By Part~I, Proposition~3.5(b), some covered elliptic torus $\Eb_D$ is non-abelian, so there are commuting $x,y\in E^\times$ whose lifts have commutator $\zeta\ne1$. A one-dimensional genuine $\chi$ would give $1=\chi([\tilde x,\tilde y])=\zeta$. So the linear pair (trivial representation of $D^\times$, $\St$) has no direct analog among genuine representations. The pair $(e_D,\tilde f^{\St})$ is its analog among functions.
+\end{remark}
+
+
+\subsection{The matching theorem}\label{subsec:matchthm}
+We now prove Theorem~E. The $D$-side function is split into a multiple of $e_D$ and a function vanishing near the center; the $\GL$-side function is split by a cut-off into a piece near the center and a piece away from it.
+
+\begin{theorem}[Matching of arbitrary functions]\label{thm:matching}\Pv\ (using (L1), (L2))
+Let $v\in S$.
+\begin{enumerate}[label=(\alph*)]
+\item Every $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ has a matching $\tilde f\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$. One may take
+\[ \tilde f=\tilde f_D(1)\,\tilde f^{\St}+\tilde f_{\reg}, \]
+with $\tilde f_{\reg}$ supported on the good regular elliptic set. This uses only (L1).
+\item Every $\tilde f\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ with $F(\tilde\delta,\tilde f)=0$ for all good regular non-elliptic $\tilde\delta$ has a matching $\tilde f_D$. This uses (L2).
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(a) By construction $e_D(z)=\tilde\theta_v(z)^{-1}$ on $\Zb_v$, so $\tilde f_D-\tilde f_D(1)e_D$ vanishes on $\Zb_v$. Being smooth with support compact modulo $\Zb_v$, it is right invariant under some $\kappa(U)$, so it vanishes on the neighborhood $\Zb_v\kappa(U)$ of $\Zb_v$. By Part~I, Theorem~4.5(a), it has a matching $\tilde f_{\reg}$ supported on the good regular elliptic set. By Proposition~\ref{prop:eD}, $e_D$ matches $\tilde f^{\St}$. Matching is linear.
+
+(b) Fix $M\ge M_1$ and write $\tilde f=\tilde f_1+\tilde f_2$ with $\tilde f_1=\tilde f\cdot1_{p^{-1}(ZV_M)}$. Both pieces are smooth (the set is open and closed), and both have vanishing non-elliptic orbital integrals, since the cut-off is constant on conjugacy classes (Proposition~\ref{prop:transport}(d)).
+
+\emph{The piece near the center.} $\varphi:=\mathcal T\tilde f_1\in C_c^\infty(G/Z)_M$ has vanishing regular non-elliptic orbital integrals, by Proposition~\ref{prop:transport}(c) and because orbital integrals of $\varphi$ outside $ZV_M$ vanish. By (L2) and Remark~\ref{rem:centralchar}, there is a matching $\varphi_D\in C_c^\infty(D_v^\times/Z)$. Since the elliptic orbital integrals of $\varphi$ vanish off $ZV_M$, $\varphi_D\cdot1_{ZV_{D,M}}$ still matches $\varphi$, and it lies in $C_c^\infty(D_v^\times/Z)_M$. By Propositions~\ref{prop:transport}(c) and~\ref{prop:section}(f), $\tilde f_{D,1}:=\mathcal T_D^{-1}(\varphi_D1_{ZV_{D,M}})$ matches $\tilde f_1$. (The good regular elements of $p^{-1}(ZV_{D,M})$ correspond under $\jj$ to the good regular elliptic elements of $p^{-1}(ZV_M)$, as in the proof of Theorem~\ref{thm:germ}(a).)
+
+\emph{The piece away from the center.} By Lemma~\ref{lem:Aext}, for each $i$ the function $F(\cdot,\tilde f_2)$ on $Z(\Eb_{i,\GL})^{\reg}$ is admissible, since it vanishes on $p^{-1}(ZV_M)$. Transport by $\jj_i^{-1}$, multiply by $(-1)^{r-1}$, realize on $\GDb(K_v)$ by Part~I, Lemma~4.4(b),(c), and sum over $i$, exactly as in the proof of Part~I, Theorem~4.5(b). This gives $\tilde f_{D,2}$, and (M2) for $\tilde f_2$ is the hypothesis.
+
+Then $\tilde f_D:=\tilde f_{D,1}+\tilde f_{D,2}$ matches $\tilde f$.
+\end{proof}
+
+\begin{remark}
+(1) Theorem~\ref{thm:matching}(b) applies to supercusp forms at $v\in S$, whose regular non-elliptic orbital integrals vanish (Selberg's principle; [FK, \S13(i)]) \Ev. This is item (D1)(b) of Part~I.
+
+(2) An alternative proof of (b), using (L1) and Lemma~\ref{lem:cuspnear1} instead of (L2), is noted after Theorem~\ref{thm:germ}.
+
+(3) Theorem~\ref{thm:matching} does not by itself give $\tr\pib(\tilde f)=\tr\pib_D(\tilde f_D)$ for single representations; that is goal~(ii) (\S\ref{sec:partIII}). It does strengthen the global results of Part~I, since arbitrary test functions may now be used at the places of $S\smallsetminus\{u\}$ (\S\ref{sec:CC}).
+\end{remark}
+
+
+\subsection{The germ near the center}\label{subsec:germ}
+We determine the orbital integrals near $\Zb_v$ that any function matching a given $\tilde f_D$ must have. The point is that $\tilde f_D$ has only one number's worth of germ at the whole center, namely $\tilde f_D(1)$.
+
+Let $v\in S$ and $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$. Since $\tilde f_D(z\tilde g)=\tilde\theta_v(z)^{-1}\tilde f_D(\tilde g)$, we have $\tilde f_D(z)=\tilde\theta_v(z)^{-1}\tilde f_D(1)$ on $\Zb_v$. So Part~I, Proposition~4.6, together with Proposition~\ref{prop:section}(d), reads
+\begin{equation}\label{eq:Dgerm}
+F(z\,\sg_D(t),\tilde f_D)=\tilde\theta_v(z)^{-1}\,\tilde f_D(1)\,\frac{\Delta(t)}{d(\St)\,\vol(T/Z)}\qquad(t\in T\cap V_{D,M}\text{ regular}),
+\end{equation}
+for $M$ large (depending on $\tilde f_D$), every maximal subfield $E$, $T=E^\times$, and $z\in\Zb_v$. We used $\vol(T\backslash D_v^\times)=\vol(D_v^\times/Z)/\vol(T/Z)$ and Definition~\ref{def:measures}. Note that \eqref{eq:Dgerm} is uniform over all types of maximal subfields, cyclic or not.
+
+
+We first prove two facts about the linear group. Let $G=\GL(r,F)$ (here $r\ge2$ need not be prime). Shalika germs $\Gamma_{\mathcal O}$ are normalized so that $\Phi(\gamma,f)=\sum_{\mathcal O}\Gamma_{\mathcal O}(\gamma)\Phi(u_{\mathcal O},f)$ for regular $\gamma$ near $1$, with $\Phi(1,f)=f(1)$, unnormalized orbital integrals $\Phi$, and fixed invariant measures on the unipotent classes [Sha72].
+
+\begin{lemma}[Functions cuspidal near the identity]\label{lem:cuspnear1}\Pv\ (using \Ev)
+Let $\varphi\in C_c^\infty(G/Z)$, and let $\Omega$ be a conjugation-invariant neighborhood of $1$ in $G$. If $\Phi(\gamma,\varphi)=0$ for every regular non-elliptic $\gamma\in\Omega$, then $\Phi(u,\varphi)=0$ for every non-trivial unipotent $u\in G$. Consequently $\Phi(\gamma,\varphi)=\Gamma_{\{1\}}(\gamma)\,\varphi(1)$ for regular $\gamma$ near $1$.
+\end{lemma}
+\begin{proof}
+\emph{Step 1 (compact support).} Choose $\eta\in C_c^\infty(F^\times)$ equal to $1$ near $1$, and put $f(g):=\varphi(g)\eta(\det g)$. Then $f\in C_c^\infty(G)$, since $z\mapsto z^r$ is proper on $F^\times$. The unipotent orbital integrals of $f$ and $\varphi$ agree, because $\det u=1$ on unipotent classes; and the regular orbital integrals agree near $1$, because $\eta\circ\det=1$ on the conjugacy class of $\gamma$ when $\det\gamma$ is near $1$. So we may replace $\varphi$ by $f$ and $\Omega$ by a smaller neighborhood.
+
+\emph{Step 2 (descent).} Let $P=MN$ be a proper standard parabolic subgroup, and $f^P(m)=\delta_P(m)^{1/2}\int_K\int_Nf(k^{-1}mnk)\,dn\,dk$ the constant term, with $K=\GL(r,\cO)$. By [FK, \S7, Proposition] with $n=1$ \Ev, $F(x,f)=F^M(x,f^P)$ for every $x\in M$ that is regular in $G$. Here $F=\Delta\Phi$ and $F^M=\Delta_M\Phi^M$ are normalized orbital integrals, in the conventions of \S\ref{subsec:localnotation}, and [FK] define the constant term with the same factor $\delta_P^{1/2}$ as here. Since $\Delta(x)$ and $\Delta_M(x)$ are nonzero at such $x$, $\Phi(x,f)=0$ if and only if $\Phi^M(x,f^P)=0$. Compare the parabolic descent statement [KT, Proposition~2.39]; its differently normalized descent function differs from ours by factors that do not vanish (discriminants, and $\delta_P(x)=1$ for $x$ near $1$), so it gives the same vanishing assertion. Such $x$ are non-elliptic in $G$, since their centralizer lies in $M$. So $\Phi^M(x,f^P)=0$ for $x\in M\cap\Omega$ regular in $G$. The elements of $M$ that are regular in $G$ are dense in the $M$-regular set near $1$ (scale the blocks by distinct central scalars close to $1$), and $\Phi^M(\cdot,f^P)$ is locally constant on the $M$-regular set. Hence $\Phi^M(x,f^P)=0$ for all $M$-regular $x$ near $1$.
+
+\emph{Step 3 (independence of germs on $M$).} By the Shalika expansion on $M\simeq\prod_i\GL(n_i,F)$ [Sha72] \Ev, $0=\sum_\nu\Gamma^M_\nu(x)\Phi^M(u_\nu,f^P)$ for $M$-regular $x$ near $1$, the sum over unipotent classes $\nu$ of $M$. The germs $\Gamma^M_\nu$ are products of the germs of the factors, and the germs of each $\GL(n_i,F)$ are linearly independent as germs at $1$ on the regular set ([KP2, Proposition~1.6] with $n=1$; [HC78, Lemma~24]) \Ev. Products of linearly independent families on the factors are linearly independent on the product. So every $\Phi^M(u_\nu,f^P)$ vanishes; in particular $f^P(1)=0$.
+
+\emph{Step 4 (Richardson classes).} Let $u$ be a non-trivial unipotent element with Jordan type $\lambda\ne(1^r)$, and let $P_\lambda=M_\lambda N_\lambda$ be the standard parabolic subgroup whose Levi blocks have the sizes of the transposed partition $\lambda^t$. It is proper, and the class of $u$ is the Richardson class of $P_\lambda$, the dense orbit in $N_\lambda$. We claim that $\Phi(u,f)=a_\lambda f^{P_\lambda}(1)$ with $a_\lambda>0$ depending only on the normalizations of measures. On the Lie algebra this is [How74, Proposition~5] \Ev: for $\phi\in C_c^\infty(\mathfrak{gl}_r(F))$ and the nilpotent orbit $\mathcal O_\lambda$, the orbital integral is $\int_{\mathfrak u_\lambda}\int_K\phi(\Ad(k)Y)\,dk\,dY$, where $\mathfrak u_\lambda$ is the nilradical of the parabolic subalgebra stabilizing the flag defined by an element of $\mathcal O_\lambda$ (that is, of $\mathrm{Lie}\,P_\lambda$, up to conjugacy). The map $Y\mapsto\exp Y=\sum_{k<r}Y^k/k!$ is a $G$-equivariant homeomorphism from the nilpotent cone onto the unipotent set, carrying $\mathcal O_\lambda$ onto the class of $u$ and $\mathfrak u_\lambda$ onto $N_\lambda$, with $\exp_*dY=dn$ on $\mathfrak u_\lambda$ (Haar measures on a unipotent group correspond under $\exp$). Choose $\phi\in C_c^\infty(\mathfrak{gl}_r(F))$ with $\phi(Y)=f(\exp Y)$ for nilpotent $Y$ (possible since the nilpotent cone is closed, $\exp$ is a homeomorphism onto the closed unipotent set, and so $f\circ\exp$ is locally constant with compact support on the cone; such functions extend to $C_c^\infty(\mathfrak{gl}_r(F))$). Howe's identity involves $\phi$ only at nilpotent elements. Then both sides of Howe's identity for $\phi$ are the corresponding integrals for $f$, which gives the claim. By Step~3, $\Phi(u,f)=0$.
+
+The last assertion follows from the Shalika expansion of $\varphi$ at $1$.
+\end{proof}
+
+\begin{corollary}[The trivial germ]\label{cor:trivgerm}\Pv\ (using (L1))
+For regular $\gamma$ in a neighborhood of $1$,
+\[ \Gamma_{\{1\}}(\gamma)=\begin{cases}(-1)^{r-1}\big(d(\St)\vol(T_\gamma/Z)\big)^{-1}&\gamma\text{ elliptic},\\ 0&\gamma\text{ non-elliptic}.\end{cases} \]
+\end{corollary}
+\begin{proof}
+By (L1), $f_{\St}$ satisfies the hypothesis of Lemma~\ref{lem:cuspnear1} with $\Omega=G$. Hence $\Phi(\gamma,f_{\St})=\Gamma_{\{1\}}(\gamma)f_{\St}(1)=\Gamma_{\{1\}}(\gamma)d(\St)$ near $1$ (Lemma~\ref{lem:fSt1}). Compare with the values of $\Phi(\gamma,f_{\St})$ in (L1).
+\end{proof}
+
+\begin{remark}
+Corollary~\ref{cor:trivgerm} agrees with Rogawski's theorem on the trivial germ on elliptic tori [Rog81] and with Harish-Chandra's vanishing of the trivial germ on non-elliptic tori [HC78]. Our proof derives it from (L1) and the Plancherel formula instead.
+\end{remark}
+
+\begin{theorem}[The required germ]\label{thm:germ}
+Let $\tilde f\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$, and let $M\ge M_1$ be large enough for \eqref{eq:Dgerm} on both sides.
+\begin{enumerate}[label=(\alph*)]
+\item \Pv\ $\tilde f$ satisfies (M1) and (M2) of Part~I, Definition~4.3, with $\tilde f_D$ at all good regular elements of $p^{-1}(ZV_M)$ if and only if
+\begin{align}
+F(z\,\sg(\gamma),\tilde f)&=(-1)^{r-1}\,\tilde\theta_v(z)^{-1}\,\tilde f_D(1)\,\frac{\Delta(\gamma)}{d(\St)\,\vol(T_\gamma/Z)}&&(\gamma\in V_M\ \text{reg.\ elliptic}),\tag{Ell}\label{eq:Ell}\\
+F(z\,\sg(\gamma),\tilde f)&=0&&(\gamma\in V_M\ \text{reg.\ non-elliptic}),\tag{Non}\label{eq:Non}
+\end{align}
+for all $z\in\Zb_v$. The right side of \eqref{eq:Ell} is the same multiple of $\Delta(\gamma)/\vol(T_\gamma/Z)$ for every elliptic torus.
+\item \Pv\ (Germ form.) There is $M'\ge M$, depending on $\tilde f$, such that \eqref{eq:Ell} and \eqref{eq:Non} hold for all regular $\gamma\in V_{M'}$ if and only if
+\begin{enumerate}[label=(G\arabic*)]
+\item $\Phi(z\,\sg(u),\tilde f)=0$ for every non-trivial unipotent $u$ and every $z\in\Zb_v$, and
+\item $\tilde f(1)=\tilde f_D(1)$.
+\end{enumerate}
+\item \Pv\ For arbitrary Haar measures at $v$, as allowed in Part~I, (G2) would read $\tilde f(1)=\lambda_v\tilde f_D(1)$ with $\lambda_v=d(\St)\vol(D_v^\times/Z)$ (Remark~\ref{rem:measures}(3)).
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(a) Every good regular element of $p^{-1}(ZV_{D,M})\subset\GDb(K_v)$ is conjugate to some $z\sg_D(t)$ with $t\in T\cap V_{D,M}$ regular, for some maximal subfield $E$, $T=E^\times$ (Proposition~\ref{prop:transport}(a)). By Proposition~\ref{prop:section}(f), $\jj$ maps its class to that of $z\sg_{\GL}(j(t))$, and $j(t)\in V_M$ because $P_{j(t)}=P_t$. Conversely, every good regular elliptic element of $p^{-1}(ZV_M)\subset\Gb_v$ arises in this way (Part~I, Corollary~3.12). So (M1) at these elements is \eqref{eq:Ell}, by \eqref{eq:Dgerm} and $\vol(T_{j(t)}/Z)=\vol(T/Z)$ (Part~I, \S4.1). (M2) at these elements is \eqref{eq:Non}.
+
+(b) Put $\varphi=\mathcal T(\tilde f1_{p^{-1}(ZV_M)})$, so that $\varphi(1)=\tilde f(1)$. By Proposition~\ref{prop:transport}(c), extended to non-regular elements, $\Phi(z\sg(u),\tilde f)=\tilde\theta_v(z)^{-1}\Phi(p(z)u,\varphi)=\tilde\theta_v(z)^{-1}\Phi(u,\varphi)$ for unipotent $u$, since $\varphi$ is $Z$-invariant. So (G1) says that $\Phi(u,\varphi)=0$ for all non-trivial unipotent $u$.
+
+\emph{Sufficiency.} By Corollary~\ref{cor:germexp} and (G1), \[ \Phi(z\sg(\gamma),\tilde f)=\Gamma_{\{1\}}(\gamma)\tilde f(z)=\tilde\theta_v(z)^{-1}\Gamma_{\{1\}}(\gamma)\tilde f(1) \]
+for regular $\gamma$ near $1$. Corollary~\ref{cor:trivgerm} and (G2) give \eqref{eq:Ell} and \eqref{eq:Non} after multiplying by $\Delta(\gamma)$, near $\Zb_v$.
+
+\emph{Necessity.} By \eqref{eq:Non} and Proposition~\ref{prop:transport}(c), $\Phi(\gamma,\varphi)=0$ for regular non-elliptic $\gamma\in ZV_M$. Lemma~\ref{lem:cuspnear1} with $\Omega=ZV_M$ gives (G1). Then, as in the sufficiency part, $F(z\sg(\gamma),\tilde f)=\tilde\theta_v(z)^{-1}\Delta(\gamma)\Gamma_{\{1\}}(\gamma)\tilde f(1)$ near $\Zb_v$. Comparing with \eqref{eq:Ell} at regular elliptic $\gamma$ near $1$, where $\Gamma_{\{1\}}(\gamma)\ne0$ by Corollary~\ref{cor:trivgerm}, gives (G2).
+
+(c) Repeat the computation in (b) with $\vol(D_v^\times/Z)$ in place of $d(\St)^{-1}$ in \eqref{eq:Dgerm} and \eqref{eq:Ell}.
+\end{proof}
+
+\begin{remark}
+For matching, only part~(a) of Theorem~\ref{thm:germ} is used. Part~(b) is included because it states the result in terms of the germ expansion of Corollary~\ref{cor:germexp}, and because (G2), with the measures of Definition~\ref{def:measures}, is exactly the familiar linear normalization $f(1)=f_D(1)$. Part~(b) is not used elsewhere. Lemma~\ref{lem:cuspnear1} also gives an alternative proof of Theorem~\ref{thm:matching}(b) near the center, without (L2): subtract $\tilde f(1)\tilde f^{\St}$, after which the orbital integrals vanish near $\Zb_v$ by Lemma~\ref{lem:cuspnear1} and Corollary~\ref{cor:trivgerm}.
+\end{remark}
+
+
+% =====================================================================
+\section{Theorem C$'$: the global transfer improved}\label{sec:CC}
+This section deduces Theorem~C$'$ from Theorem~E. We relax Part~I's notion of an admissible pair of global test functions so that arbitrary matching functions are allowed at all places of $S$ but one (\S\ref{subsec:uadm}), check that the comparison of trace formulas and the packet identity of Part~I still hold (\S\ref{subsec:packet2}), and prove Theorem~C$'$ and its converse (\S\ref{subsec:Cprime}). Finally we describe exactly when the new non-cancellation hypothesis can fail (\S\ref{subsec:cancel2}). Notation is that of Part~I, \S\S5--7.
+
+\subsection{$u$-admissible pairs and the comparison}\label{subsec:uadm}
+We define the class of global test functions used in this section and show that Part~I's comparison of trace formulas applies to it.
+
+\begin{definition}\label{def:uadm}
+Fix a finite place $w_0\notin S$, a place $u\in S$, and a finite set $S_D\supseteq S\cup\{w_0\}$ as in Part~I, \S5.3. A pair $(\tilde f_D,\tilde f)$ of factorizable genuine test functions with central characters $\tilde\theta^{-1}$ is \emph{$u$-admissible} if:
+\begin{enumerate}[label=(\alph*)]
+\item at $u$: $\tilde f_{D,u}$ vanishes near $\Zb_u$, $\tilde f_u$ is supported on the regular elliptic set, and they match;
+\item at $v\in S\smallsetminus\{u\}$: $\tilde f_{D,v}$ and $\tilde f_v$ match (no support condition);
+\item for $v\notin S$: conditions (b) and (c) of Part~I, Definition~6.5.
+\end{enumerate}
+\end{definition}
+
+By Theorem~\ref{thm:matching}(a) and Part~I, Theorem~4.5(a), every family $(\tilde f_{D,v})_{v\in S}$ with $\tilde f_{D,u}$ vanishing near $\Zb_u$ is the $D$-side of a $u$-admissible pair.
+
+\begin{theorem}\label{thm:comparison2}\Pv
+For every $u$-admissible pair,
+\[ \sum_{\pib_D}m(\pib_D)\tr\pib_D(\tilde f_D)=\sum_{\pib\ \mathrm{cuspidal}}m(\pib)\tr\pib(\tilde f), \]
+both sides converging absolutely.
+\end{theorem}
+\begin{proof}
+We check the proof of Part~I, Theorem~6.6, item by item, using the statements (I7)--(I9) of \S\ref{subsec:fromPartI}.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{The $D$ side.} By (I7), with no condition at $S$, the geometric side is $\vol\cdot\tilde f_D(1)$ plus a sum over regular classes; the only non-regular rational elements are central, since $r$ is prime. The term $\tilde f_D(1)=\prod_v\tilde f_{D,v}(1)$ vanishes because $\tilde f_{D,u}$ vanishes near $\Zb_u$.
+\item \emph{The $\GL$ side.} The hypotheses of (I8) are a supercusp form at $w_0$ and regular elliptic support at the single finite place $u$; Definition~\ref{def:uadm}(a),(c) provides both, and (I8) imposes nothing at $S\smallsetminus\{u\}$. So the geometric side is a finite sum over regular elliptic rational classes good everywhere, and the spectral side is the cuspidal one.
+\item \emph{Classes whose field does not embed in $D$.} Such a class is non-elliptic at some $v\in S$ and contributes $0$ by (I9), which uses only (M2) at that $v$; (M2) holds for every matching pair, whatever its support.
+\item \emph{Corresponding classes, signs and measures.} By (I9), which needs only matching at $v\in S$, $F(\iota(\gamma),\tilde f_D)=F(\iota(j\gamma),\tilde f)$; the product of the local signs is $1$. The constants $c(\gamma)$ and the global measures are those of Part~I, \S5.3, which allows any $dg_v$, $dg_{D,v}$ at $v\in S$; in particular Definition~\ref{def:measures} (Remark~\ref{rem:measures}(1)).
+\item \emph{Places outside $S$} are as in Part~I, Definition~6.5(b),(c).
+\end{enumerate}
+Summing gives the identity; absolute convergence is that of (I7) and (I8).
+\end{proof}
+
+\paragraph{What changes from Part~I.} Part~I, Definition~6.5(a), required regular support at every place of $S$. Only the place $u$ is needed, for the simple trace formula and to kill the identity term; at the other places of $S$, Theorem~E supplies matching partners of arbitrary functions.
+
+\subsection{The packet identity}\label{subsec:packet2}
+We extend Part~I's packet identity to $u$-admissible families.
+
+\begin{proposition}\label{prop:packet2}\Pv
+Let $\rho$, $\sigma$, $P_D(\rho)$ and $P(\rho)$ be as in Part~I, Proposition~7.6, and let $u\in S$. Let $(\tilde f_{D,v},\tilde f_v)_{v\in S}$ be matching pairs with $\tilde f_{D,u}$ vanishing near $\Zb_u$ and $\tilde f_u$ supported in the regular set. Then only finitely many terms of each side of
+\begin{equation}\label{eq:packet2}
+\sum_{\pib_D\in P_D(\rho)}m(\pib_D)\prod_{v\in S}\tr\pib_{D,v}(\tilde f_{D,v})=\sum_{\pib\in P(\rho)}m(\pib)\prod_{v\in S}\tr\pib_v(\tilde f_v)
+\end{equation}
+are nonzero, and the identity holds.
+\end{proposition}
+\begin{proof}
+The proof of Part~I, Proposition~7.6, applies with three changes. (1) The reduction to elliptically supported $\tilde f_u$, via Part~I, Lemma~A.5, is made only at $u$, where $\tilde f_u$ is regular-supported. (2) The uniform finiteness step is Part~I, Lemma~7.2 ((I10)), applied at a level $U_S\times U_{w_0}\times U^V$ under which all test functions are bi-invariant. It needs only that every $\tilde f_{D,v}$ and $\tilde f_v$ ($v\in S$) is bi-invariant under some open compact subgroup over which the cover splits; this holds for every smooth function compactly supported modulo the center, regular-supported or not, and Lemma~7.2 makes no other assumption on the test functions at $S$. (3) Theorem~\ref{thm:comparison2} replaces Part~I, Theorem~6.6. The separation by archimedean infinitesimal characters and by corner algebras away from $V=S\cup\{w_0\}$ does not involve the test functions at $S$.
+\end{proof}
+
+\paragraph{What changes from Part~I.} In Part~I, Proposition~7.6, all functions at $S$ were regular-supported. Now only the one at $u$ is. In particular, at $v\in S\smallsetminus\{u\}$ one may use the central-character idempotents $e_{U_v}$, pseudo-coefficients, or supercusp forms (on the $\GL$ side, via Theorem~\ref{thm:matching}(b)).
+
+\subsection{Theorem C$'$ and its converse}\label{subsec:Cprime}
+We state the new non-cancellation hypotheses and prove the transfer in both directions.
+
+\begin{definition}\label{def:HDprime}
+A packet $P_D(\rho)$ satisfies $(\mathrm H_D')$ if there are $u\in S$ and $\tilde f_{D,v}\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ ($v\in S$), with $\tilde f_{D,u}$ vanishing near $\Zb_u$ and the others arbitrary, such that
+\[ \sum_{\pib'_D\in P_D(\rho)}m(\pib'_D)\prod_{v\in S}\tr\pib'_{D,v}(\tilde f_{D,v})\neq0 . \]
+A packet $P(\rho)$ satisfies $(\mathrm H')$ if there are $u\in S$ and $\tilde f_v\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ ($v\in S$), all with vanishing orbital integrals at good regular non-elliptic elements, with $\tilde f_u$ supported in the regular set, such that $\sum_{\pib'\in P(\rho)}m(\pib')\prod_{v\in S}\tr\pib'_v(\tilde f_v)\ne0$.
+\end{definition}
+
+The test functions allowed in Part~I's $(\mathrm H_D)$ (Definition~7.9) and (H) (Theorem~7.12) are among those allowed here, so $(\mathrm H_D)\Rightarrow(\mathrm H_D')$ and $(\mathrm H)\Rightarrow(\mathrm H')$. We do not know whether these implications are strict.
+
+\begin{theorem}[Theorem~C$'$]\label{thm:Cprime}\Pv\ under $(\mathrm H_D')$
+Let $\pib_D$ be an irreducible genuine automorphic representation of $\GDb(\A_K)$ with central character $\tilde\theta$, such that $\pib_{D,w_0}$ is supercuspidal for some finite place $w_0\notin S$. Let $\rho=\pib_D^V\circ(\psi^V)^{-1}$ and $\sigma=\pib_{D,w_0}\circ\psi_{w_0}^{-1}$, and assume that $P_D(\rho)$ satisfies $(\mathrm H_D')$. Then there is a genuine cuspidal automorphic representation $\pib$ of $\Gb(\A_K)$ with central character $\tilde\theta$ such that $\pib_v\cong\pib_{D,v}\circ\psi_v^{-1}$ for every $v\notin S$, and \eqref{eq:packet2} holds for all families as in Proposition~\ref{prop:packet2}.
+\end{theorem}
+\begin{proof}
+Take $u$ and $(\tilde f_{D,v})_{v\in S}$ as in $(\mathrm H_D')$. At $u$, Part~I, Theorem~4.5(a), gives a matching $\tilde f_u$ supported on the good regular elliptic set; at $v\ne u$, Theorem~\ref{thm:matching}(a) gives matching $\tilde f_v$. By Proposition~\ref{prop:packet2} the right side of \eqref{eq:packet2} is nonzero, so $P(\rho)\ne\emptyset$. Any $\pib\in P(\rho)$ is as required.
+\end{proof}
+
+\begin{remark}[Two roles of $u$]
+In Proposition~\ref{prop:packet2} the place $u\in S$ is an arbitrary \emph{chosen} test place: the packet identity holds for every choice of $u$, with the corresponding families. In $(\mathrm H_D')$ the place $u$ is \emph{existential}: it suffices that for at least one $u\in S$ some admissible test family gives a nonzero packet sum. Theorem~C$'$ uses that $u$ in Proposition~\ref{prop:packet2}.
+\end{remark}
+
+\paragraph{What changes from Part~I.} Part~I, Theorem~7.11, assumed $(\mathrm H_D)$, which allows only test functions vanishing near the center at \emph{every} place of $S$. Theorem~C$'$ needs this at one place only. Proposition~\ref{prop:cancel2} describes what a failure of $(\mathrm H_D')$ would require.
+
+\begin{theorem}[Converse]\label{thm:Cprimeconv}\Pv\ under $(\mathrm H')$
+Let $\pib$ be a genuine cuspidal automorphic representation of $\Gb(\A_K)$ with central character $\tilde\theta$, with $\pib_{w_0}$ supercuspidal for some finite $w_0\notin S$, and let $\rho=\pib^V$, $\sigma=\pib_{w_0}$. If $P(\rho)$ satisfies $(\mathrm H')$, there is $\pib_D$ with $\pib_{D,v}\cong\pib_v\circ\psi_v$ for all $v\notin S$.
+\end{theorem}
+\begin{proof}
+Take $u$ and $(\tilde f_v)_{v\in S}$ as in $(\mathrm H')$. At $u$, Part~I, Theorem~4.5(b), gives a matching $\tilde f_{D,u}$ vanishing near $\Zb_u$; at $v\ne u$, Theorem~\ref{thm:matching}(b) gives matching $\tilde f_{D,v}$. Proposition~\ref{prop:packet2} applies, and its right side is nonzero. Hence $P_D(\rho)\ne\emptyset$.
+\end{proof}
+
+\begin{corollary}\label{cor:Hprimesq}\Pv\ (using \Ev)
+Suppose $P(\rho)=\{\pib\}$ (with any multiplicity) and $\pib_v$ is square-integrable for every $v\in S$. Then $(\mathrm H')$ holds, and $\pib$ transfers to $\GDb(\A_K)$ as in Theorem~\ref{thm:Cprimeconv}.
+\end{corollary}
+\begin{proof}
+Fix $u\in S$. For $v\in S\smallsetminus\{u\}$ let $\tilde f_v$ be a pseudo-coefficient of $\pib_v$ [FK, \S25.1, Theorem] \Ev; its orbital integrals vanish at regular non-elliptic elements, and $\tr\pib_v(\tilde f_v)=1$. At $u$, the character $\Theta_{\pib_u}$ is not identically zero on the good regular elliptic set, by the orthonormality of characters of square-integrable genuine representations on the elliptic set [FK, \S25], from [Kaz, Theorem~K] \Ev. As in Part~I, Remark~7.13(1), a bump function $\tilde f_u$ supported near a good regular elliptic point where $\Theta_{\pib_u}\ne0$ has $\tr\pib_u(\tilde f_u)\ne0$ and vanishing non-elliptic orbital integrals. The sum in $(\mathrm H')$ is $m(\pib)\prod_v\tr\pib_v(\tilde f_v)\ne0$.
+\end{proof}
+
+\paragraph{What changes from Part~I.} Part~I, Remark~7.13(1), obtained (H) for a single $\pib$ only when its components at $S$ are supercuspidal (or, at each place, have character not identically zero on the elliptic set, using regular-supported functions everywhere). Now square-integrable components suffice, because pseudo-coefficients, which are not regular-supported, can be used at all places of $S$ but one.
+
+\subsection{When can $(\mathrm H_D')$ fail?}\label{subsec:cancel2}
+We describe the coefficient functions of packets for which $(\mathrm H_D')$ fails. This sharpens Part~I, Lemma~7.8.
+
+For a packet $P_D(\rho)$ let $m(\tau)$ be the total multiplicity of its members whose component at $S$ is $\tau=\otimes_{v\in S}\tau_v$, a genuine irreducible representation of $\prod_{v\in S}\GDb(K_v)$ with central character $\tilde\theta_S$.
+
+\begin{proposition}\label{prop:cancel2}\Pv
+$(\mathrm H_D')$ fails for $P_D(\rho)$ if and only if there is $c\ge0$ with $m(\tau)=c\prod_{v\in S}\dim\tau_v$ for every $\tau$. Here $c=0$ exactly when $P_D(\rho)$ is empty. The constant $c$ need not be an integer.
+\end{proposition}
+\begin{proof}
+\emph{Step 1 (fixed level).} Call a family $U=(U_v)_{v\in S}$ of open compact subgroups a \emph{level} if each $U_v$ is as in Part~I, Lemma~7.8 (split by $\kappa_v$, with $\tilde\theta_v\circ\kappa_v$ trivial on $U_v\cap K_v^\times$). Let $\mathcal H_v$, $\mathcal R_v$, $\mathcal T_v$ be as there. Levels form a directed family (any two contain a common level) that is cofinal among open compact subgroups, and every $\tilde f_{D,v}$ lies in $\mathcal H_v$ for some level, since it is bi-invariant under small enough split subgroups. At a fixed level, $\tr\pib'_{D,v}(\tilde f_{D,v})=0$ unless $\pib'_{D,v}\in\mathcal T_v$. The members of $P_D(\rho)$ with a given component $\tau$ at $S$ have all their components fixed, so their total multiplicity $m(\tau)$ is finite. Hence on $\bigotimes_v\mathcal H_v$ the packet sum of Definition~\ref{def:HDprime} equals
+\[ \Lambda_U\big(\textstyle\bigotimes_v f_v\big)=\sum_{\tau\in\prod_v\mathcal T_v}m(\tau)\prod_{v\in S}\tr\tau_v(f_v), \]
+a finite sum. So $(\mathrm H_D')$ fails if and only if, for every level $U$ and every $u\in S$, $\Lambda_U$ vanishes on $\mathcal R_u\otimes\bigotimes_{v\ne u}\mathcal H_v$.
+
+\emph{Step 2 (coordinates).} By the proof of Part~I, Lemma~7.8, $\mathcal H_v\cong\bigoplus_{\tau_v\in\mathcal T_v}\mathrm{End}(\tau_v^{U_v})$, so the map $\mathcal H_v\to E_v:=\C^{\mathcal T_v}$, $f\mapsto(\tr\tau_v(f))_{\tau_v}$, is surjective; and $\mathrm{ev}_{1,v}=\vol(\GDb(K_v)/\Zb_v)^{-1}\sum_{\tau_v}(\dim\tau_v)\tr\tau_v$ on $\mathcal H_v$, with $\mathcal R_v=\ker\mathrm{ev}_{1,v}$. So the image of $\mathcal R_v$ in $E_v$ is the hyperplane $d_v^\perp$, where $d_v=(\dim\tau_v)_{\tau_v}$ and $\perp$ is taken for the bilinear pairing $\langle x,y\rangle=\sum x_\tau y_\tau$. Write $m_U$ for the restriction of $m$ to $\prod_v\mathcal T_v$, an element of $E:=\bigotimes_vE_v$; then $\Lambda_U(\otimes f_v)=\langle m_U,\otimes_v(\tr\tau_v(f_v))_{\tau_v}\rangle$. Hence $\Lambda_U$ vanishes on $\mathcal R_u\otimes\bigotimes_{v\ne u}\mathcal H_v$ if and only if $m_U\in\C d_u\otimes\bigotimes_{v\ne u}E_v$. If every $\mathcal T_v$ is nonempty, so that $d_v\ne0$, these conditions for all $u\in S$ together say that $m_U\in\C\bigotimes_vd_v$ (use a basis of each $E_v$ whose first vector is $d_v$). That is, $m(\tau)=c_U\prod_v\dim\tau_v$ for $\tau\in\prod_v\mathcal T_v$, and $c_U\ge0$ since $m\ge0$. If some $\mathcal T_v$ is empty, there is no condition at that level.
+
+\emph{Step 3 (independence of the level).} If $U'\subseteq U$ componentwise, then $\mathcal T_v(U)\subseteq\mathcal T_v(U')$, and both identities hold on $\prod_v\mathcal T_v(U)$; since all $\dim\tau_v>0$, $c_{U'}=c_U$ whenever $\prod_v\mathcal T_v(U)$ is nonempty. Any two levels contain a common smaller level, and every $\tau$ has nonzero fixed vectors at some level. So there is one $c\ge0$ with $m(\tau)=c\prod_v\dim\tau_v$ for all $\tau$.
+
+\emph{Step 4 (converse and the constant).} If $m=c\prod_v\dim\tau_v$, then at every level $\Lambda_U(\otimes f_v)=c\prod_v\vol(\GDb(K_v)/\Zb_v)f_v(1)$, which vanishes when $f_u\in\mathcal R_u$; so $(\mathrm H_D')$ fails. If $P_D(\rho)$ is nonempty, some $m(\tau)\ge1$, so $c=m(\tau)/\prod_v\dim\tau_v\in\mathbb Q_{>0}$; if it is empty, $m=0$ and $c=0$.
+\end{proof}
+
+\begin{remark}
+The linear algebra in the proof does not use $|S|\ge2$; when $|S|=1$, $(\mathrm H_D')$ coincides with $(\mathrm H_D)$, and the proposition sharpens Part~I, Lemma~7.8, in that case too. The weights are $\dim\tau_v$, not $\dim\tau_v^{U_v}$: it is the dimension of the whole representation that occurs in Fourier inversion at the identity. A proof of Proposition~\ref{prop:cancel2} along the same lines was written independently by ChatGPT (see the Acknowledgments).
+\end{remark}
+
+Thus a failure of $(\mathrm H_D')$ would mean that the packet contains members with \emph{every} possible component at $S$, with multiplicities proportional to the Plancherel weights. In Part~I, failure of $(\mathrm H_D)$ allowed any coefficient function in the larger space $\sum_{v\in S}d_v\otimes\C^{\prod_{w\ne v}\mathcal T_w}$. Removing this last possibility is goal~(iv) of Part~III. The following consequence reduces it to a finiteness statement.
+
+\begin{corollary}\label{cor:finiteStypes}\Pv
+If $P_D(\rho)$ is nonempty and its members have only finitely many distinct components at $S$, then $(\mathrm H_D')$ holds. The same conclusion holds if the levels at $S$ of the members of $P_D(\rho)$ are bounded, that is, if there is a level $U$ such that every member has nonzero $U_v$-fixed vectors at each $v\in S$.
+\end{corollary}
+\begin{proof}
+For each $v\in S$ the group $\GDb(K_v)/\Zb_v$ is compact and infinite (it contains the infinite profinite group $\cO_{D_v}^\times/\cO_v^\times$). By the Peter--Weyl theorem for the twisted convolution algebra with central character $\tilde\theta_v$, the infinite-dimensional space $L^2(\GDb(K_v),\tilde\theta_v)$ is the Hilbert direct sum of the finite-dimensional spaces $\tau_v\otimes\tau_v^\vee$, so there are infinitely many genuine irreducible $\tau_v$ with central character $\tilde\theta_v$. If $(\mathrm H_D')$ failed, Proposition~\ref{prop:cancel2} with $c>0$ (the packet being nonempty) would give $m(\tau)\ge c\prod_v\dim\tau_v>0$ for every one of the infinitely many $\tau=\otimes_v\tau_v$, so the packet would have infinitely many distinct components at $S$. For the second statement: only finitely many $\tau$ have nonzero $U$-fixed vectors (Part~I, Lemma~7.8: each $\mathcal T_v$ is finite).
+\end{proof}
+
+\begin{remark}
+Positivity alone cannot rule out Plancherel-proportional multiplicities: the regular representation $L^2(H)\simeq\widehat\bigoplus_\tau(\dim\tau)\,\tau$ of a compact group $H$ has exactly this shape. Corollary~\ref{cor:finiteStypes} shows that what is needed is a bound on the levels at $S$ in a fixed near-equivalence class. This observation is due to ChatGPT (see the Acknowledgments).
+\end{remark}
+
+% =====================================================================
+\section{What is left after Part~II}\label{sec:partIII}
+This section lists the goals of Part~I, \S1.3, that are not achieved here, with what we now know about each, including what Part~III (Draft~7) has since proved. Unless stated otherwise, all are \Cv.
+
+\begin{enumerate}[label=(\roman*),start=2]
+\item \emph{Local character relations.} A metaplectic local Jacquet--Langlands correspondence: a bijection $\pib_v\leftrightarrow\pib_{D,v}$ between genuine square-integrable representations of $\Gb_v$ and genuine irreducible representations of $\GDb(K_v)$, with $\Theta_{\pib_{D,v}}=(-1)^{r-1}\Theta_{\pib_v}\circ\jj$ on good regular elements and equal formal degrees for the measures of Definition~\ref{def:measures}. The local inputs are now located: local integrability and character expansions [FK, \S13], [Li2, Th\'eor\`eme~4.3.2]; pseudo-coefficients [FK, \S25.1]; elliptic orthonormality [FK, \S25]; and Theorem~E. The main difficulty is globalization: a pseudo-coefficient isolates a representation only among \emph{tempered} ones, while a global cuspidal spectrum may have non-tempered unitary components at a place of $S$. A restricted correspondence, for example for supercuspidal $\pib_v$, is the natural first target.
+
+\emph{Status after Part~III.} Part~III constructs a unitary transform $L_D$ between ordinary invariant class functions on $D_v^\times$ and genuine ones on $\GDb(K_v)$, with constant $b_D=|n|_{K_v}^{-(r-1)/2}$, and proves that it bijects irreducible characters, preserving dimensions, when the residue characteristic of $v$ is prime to $n$ (Part~III, Theorem~7.6). Zou's constant in the Flicker--Kazhdan relation [Z, (3.2)] equals $b_D$ for the cover with parameter $c_v$, because $\gcd(n,2rc_v+r-1)=n$. Composing $L_D$ with [DKV] and [Z, Proposition~3.6] therefore proves the bijection and the character relation above at every $v\in S$ prime to $n$ \Pv\ (Part~I, Remark~8.1, and Part~III, Corollary~7.8; subject to the hypotheses of [FK, Theorem~26.1], used by Zou). At places dividing $n$ the relation is equivalent to integrality of $L_D$, which is open. The formal-degree statement is consistent with these results. For the measures of Definition~\ref{def:measures}, integrality gives $d(\pib_{D,v})=c_D\,d(\pi_v)$ with $c_D=|n|_{K_v}^{-(r^2-1)/2}$ ($c_D=1$ at tame places). Zou's relation near the identity, together with Corollaries~\ref{cor:germexp} and~\ref{cor:trivgerm}, gives $d(\pib_v)=c_D\,d(\pi_v)$, provided one has the genuine analog of the relation between the leading germ and the formal degree. Here $\pi_v$ is the common linear partner.
+\item \emph{An unconditional global correspondence.} Remove the auxiliary place $w_0$, either with W.-W.~Li's invariant trace formula for covers [Li4] (which assumes an invariant Paley--Wiener theorem at the archimedean places; here these are complex and the covers split there), or by placing a supercusp form at a place of $S$, which Theorem~E(b) now permits on the matching side but which requires (ii) on the spectral side. Then refine the packet identity to individual representations. Multiplicity one and rigidity for $\Gb(\A_K)$ are known only for representations lifting to cuspidal representations of $\GL(r,\A_K)$ with elliptic components at three places [FK, Theorem~28]; the argument should not assume more.
+\item \emph{Removing $(\mathrm H_D')$ and $(\mathrm H')$.} By Proposition~\ref{prop:cancel2}, it suffices to rule out packets whose $S$-multiplicities are proportional to the Plancherel weights, and by Corollary~\ref{cor:finiteStypes} it suffices to bound the level at $S$ of the members of $P_D(\rho)$. One route would be a finite-to-one lifting of $P_D(\rho)$ to automorphic representations of $D^\times_{\A}$, and then to $\GL(r,\A_K)$, where strong multiplicity one gives rigidity; another is to use (ii). \emph{Status:} open.
+\item \emph{Completing [JC, Remark~10.3].} Compose the lifting of [JC] with the transfer, and compare with the Flicker--Kazhdan correspondence, using the corrections of [Z] to [FK, \S26.2] and [FK, Lemma~27.1]. \emph{Status:} open.
+\end{enumerate}
+
+% =====================================================================
+\section{Literature}\label{sec:lit}
+This section places the local results of this paper among related work. It is preliminary.
+
+The local Jacquet--Langlands correspondence for division algebras is due to Deligne--Kazhdan--Vign\'eras [DKV] (see also [Rog83]); Badulescu [Bad02], [Bad] extended the local theory and proved the global correspondence for inner forms of $\GL(n)$. Our linear inputs are taken from [Bad, Theorem~2.2] and from the pseudo-coefficients and density theorem as stated in [FK, \S\S25.1, 27.3], which go back to Kazhdan [Kaz].
+
+For covers of $\GL(r)$, Kazhdan--Patterson [KP2, \S1] and Flicker--Kazhdan [FK, \S8] proved the germ expansion and the characterization of orbital integrals of genuine functions (after Vign\'eras), and [FK] constructed the local metaplectic correspondence for square-integrable representations; Zou [Z] corrected and extended parts of that theory. W.-W.~Li developed the local harmonic analysis needed for the trace formula on covers [Li2], including semisimple descent, the Plancherel formula and the density of tempered characters, and proved the invariant trace formula for covers [Li4].
+
+Our matching theorem uses none of the deeper parts of this theory. Its main tool is the section $\sg$ of \S\ref{sec:center}, which reduces genuine harmonic analysis near the center of either cover to linear harmonic analysis, compatibly with the identification of elliptic tori of Part~I.
+
+% =====================================================================
+\section*{Acknowledgments}
+The three authors are David Joyner, Claude (Anthropic) and ChatGPT (OpenAI). This paper was drafted by David Joyner and Claude. ChatGPT contributed referee reports on the planning memo and the drafts, and independent proofs of Proposition~\ref{prop:cancel2} and of the descent argument in Lemma~\ref{lem:cuspnear1}, written before it consulted our sketches. Those proofs agreed with our sketches and supplied the references [How74], [HC78] and [Rog81]; the arguments given here follow them. ChatGPT also observed Corollary~\ref{cor:finiteStypes}. A separate revision log records the drafting and referee history.
+
+% =====================================================================
+\begin{thebibliography}{Bad02}\small
+\bibitem[AP]{AP} A.-M.~Aubert and R.~Plymen, Plancherel measure for $\GL(n,F)$ and $\GL(m,D)$: explicit formulas and Bernstein decomposition, \emph{J.\ Number Theory} 112 (2005), 26--66.
+\bibitem[Bad]{Bad} A.~I.~Badulescu, Global Jacquet--Langlands correspondence, multiplicity one and classification of automorphic representations, with an appendix by N.~Grbac, \emph{Invent.\ Math.} 172 (2008), 383--438.
+\bibitem[Bad02]{Bad02} A.~I.~Badulescu, Correspondance de Jacquet--Langlands pour les corps locaux de caract\'eristique non nulle, \emph{Ann.\ Sci.\ \'Ec.\ Norm.\ Sup.} 35 (2002), 695--747.
+\bibitem[Ber]{Ber} J.~N.~Bernstein, Le ``centre'' de Bernstein (r\'edig\'e par P.~Deligne), in \emph{Repr\'esentations des groupes r\'eductifs sur un corps local}, Hermann, 1984, 1--32.
+\bibitem[BZ]{BZ} I.~N.~Bernstein and A.~V.~Zelevinsky, Induced representations of reductive $p$-adic groups.\ I, \emph{Ann.\ Sci.\ \'Ec.\ Norm.\ Sup.} 10 (1977), 441--472.
+\bibitem[DKV]{DKV} P.~Deligne, D.~Kazhdan and M.-F.~Vign\'eras, Repr\'esentations des alg\`ebres centrales simples $p$-adiques, in \emph{Repr\'esentations des groupes r\'eductifs sur un corps local}, Hermann, 1984.
+\bibitem[FK]{FK} Y.~Z.~Flicker and D.~A.~Kazhdan, Metaplectic correspondence, \emph{Publ.\ Math.\ IH\'ES} 64 (1986), 53--110.
+\bibitem[HC70]{HC70} Harish-Chandra, \emph{Harmonic Analysis on Reductive $p$-adic Groups} (notes by G.~van Dijk), Lecture Notes in Math.\ 162, Springer, 1970.
+\bibitem[HC78]{HC78} Harish-Chandra, Admissible invariant distributions on reductive $p$-adic groups, \emph{Queen's Papers in Pure and Appl.\ Math.} 48 (1978), 281--347.
+\bibitem[How74]{How74} R.~Howe, The Fourier transform and germs of characters (case of $\GL_n$ over a $p$-adic field), \emph{Math.\ Ann.} 208 (1974), 305--322.
+\bibitem[J]{J} D.~Joyner, On the metaplectic analog of Kazhdan's ``endoscopic'' lifting, \emph{Israel J.\ Math.} 61 (1988), 113--154.
+\bibitem[JC]{JC} D.~Joyner and Claude, On the metaplectic analog of Kazhdan's ``endoscopic'' lifting (original 1988, corrected 2026), \texttt{metaplectic\_kazhdan\_revised12.tex}.
+\bibitem[Kaz]{Kaz} D.~Kazhdan, Cuspidal geometry of $p$-adic groups, \emph{J.\ Analyse Math.} 47 (1986), 1--36.
+\bibitem[KT]{KT} O.~Kivinen and C.-C.~Tsai, Shalika germs for tamely ramified elements in $\GL_n$, arXiv:2209.02509v4 (August 13, 2026). (In an earlier version, parabolic descent was Proposition~2.42.)
+\bibitem[Kot88]{Kot88} R.~E.~Kottwitz, Tamagawa numbers, \emph{Ann.\ of Math.} 127 (1988), 629--646.
+\bibitem[KP2]{KP2} D.~A.~Kazhdan and S.~J.~Patterson, Towards a generalized Shimura correspondence, \emph{Adv.\ in Math.} 60 (1986), 161--234.
+\bibitem[Li2]{Li2} W.-W.~Li, La formule des traces pour les rev\^etements de groupes r\'eductifs connexes.\ II.\ Analyse harmonique locale, \emph{Ann.\ Sci.\ \'Ec.\ Norm.\ Sup.} (4) 45 (2012), 787--859.
+\bibitem[Li4]{Li4} W.-W.~Li, La formule des traces pour les rev\^etements de groupes r\'eductifs connexes.\ IV.\ Distributions invariantes, \emph{Ann.\ Inst.\ Fourier} 64 (2014), 2379--2448.
+\bibitem[P1]{P1} D.~Joyner, Claude and ChatGPT, A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, I, Draft~7, \texttt{mjl\_part1\_draft7.tex} (cited as Part~I).
+\bibitem[P3]{P3} D.~Joyner, ChatGPT and Claude, A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, III, Draft~7, \texttt{mjl\_part3\_draft7.tex} (cited as Part~III).
+\bibitem[Rog83]{Rog83} J.~D.~Rogawski, Representations of $\GL(n)$ and division algebras over a $p$-adic field, \emph{Duke Math.\ J.} 50 (1983), 161--196.
+\bibitem[Rog81]{Rog81} J.~D.~Rogawski, An application of the building to orbital integrals, \emph{Compositio Math.} 42 (1981), 417--423.
+\bibitem[Sha72]{Sha72} J.~A.~Shalika, A theorem on semi-simple $\mathcal P$-adic groups, \emph{Ann.\ of Math.} 95 (1972), 226--242.
+\bibitem[vD72]{vD72} G.~van Dijk, Computation of certain induced characters of $p$-adic groups, \emph{Math.\ Ann.} 199 (1972), 229--240.
+\bibitem[Wal03]{Wal03} J.-L.~Waldspurger, La formule de Plancherel pour les groupes $p$-adiques (d'apr\`es Harish-Chandra), \emph{J.\ Inst.\ Math.\ Jussieu} 2 (2003), 235--333.
+\bibitem[Zel80]{Zel80} A.~V.~Zelevinsky, Induced representations of reductive $p$-adic groups.\ II.\ On irreducible representations of $\GL(n)$, \emph{Ann.\ Sci.\ \'Ec.\ Norm.\ Sup.} 13 (1980), 165--210.
+\bibitem[Z]{Z} J.~Zou, Local metaplectic correspondence and applications, \emph{Math.\ Z.} 305 (2023), no.~3, Paper No.~43; revised version arXiv:2209.05852v3 (2024).
+\end{thebibliography}
+\end{document}
