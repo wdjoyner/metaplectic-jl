@@ -1,0 +1,210 @@
+% =====================================================================
+% On a metaplectic Jacquet--Langlands transfer for division algebras of
+% prime degree -- book, Draft 1.
+%
+% Chapters 4--8 are generated from the frozen papers (Part I Draft 11,
+% Part II Draft 10, Part III Draft 10, Part IV Draft 6, companion paper
+% Draft 8) by booktools/convert.py and booktools/assemble.py; the
+% generated files are in chapters/.  Build with
+%     pdflatex mjl_book_draft1.tex   (three passes)
+% American English spelling throughout.
+% =====================================================================
+\documentclass[11pt,oneside]{book}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{enumitem,booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,calc}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+
+% ---------------- theorem environments (shared by all chapters) -------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{theoremD}{Theorem D}
+\newtheorem*{theoremE}{Theorem E}
+\newtheorem*{theoremCp}{Theorem C$'$}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Standing assumptions}
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{conjecture}{Conjecture}{Conjectures}
+
+% ---------------- macros used outside the generated chapters ----------
+\newcommand{\Pv}{\textbf{[P]}}
+\newcommand{\Ev}{\textbf{[E]}}
+\newcommand{\Cv}{\textbf{[C]}}
+\newcommand{\Ov}{\textbf{[O]}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\newcommand{\Pctag}{\textnormal{\textbf{[P$^{\mathrm c}$]}}}
+\newcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\newcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\newcommand{\Otag}{\textnormal{\textbf{[O]}}}
+% generated chapters redefine their own macros inside a group
+
+\emergencystretch=3em
+\setcounter{tocdepth}{1}
+
+\title{On a metaplectic Jacquet--Langlands transfer\\ for division algebras of prime degree\\[1em]
+\large Draft 1}
+\author{David Joyner \and Claude (Anthropic) \and ChatGPT (OpenAI)}
+\date{November 8, 2026}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+
+\chapter{Preface}
+This book collects a series of research manuscripts on a metaplectic
+Jacquet--Langlands transfer between the $n$-fold cover of the
+multiplicative group of a central division algebra $D$ of prime degree
+$r$ over a number field and the Kazhdan--Patterson cover of
+$\mathrm{GL}(r)$.  It is ongoing research: the text distinguishes
+complete proofs, results established in the literature or in other
+chapters, conditional statements and open problems by the labels of
+\S\ref{gl:labels}, and \textbf{the full metaplectic Jacquet--Langlands
+correspondence is not claimed}.
+
+\paragraph{Sources.}  Chapters~\ref{ch:I}--\ref{ch:W} are the
+following manuscripts, written in November 2026 and frozen when this
+book was assembled; their drafts, revision logs and referee reports
+remain in the project repository
+(\texttt{github.com/wdjoyner/metaplectic-jl}).
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+Chapter & Source & Authors (as on the source)\\\midrule
+\ref{ch:I} & Part~I, Draft~11 & Joyner, Claude, ChatGPT\\
+\ref{ch:II} & Part~II, Draft~10 & Joyner, Claude, ChatGPT\\
+\ref{ch:III} & Part~III, Draft~10 & Joyner, ChatGPT, Claude\\
+\ref{ch:IV} & Part~IV, concluding Draft~6 & Joyner, ChatGPT, Claude\\
+\ref{ch:W} & Companion paper on the rank-two wild place, Draft~8 & Joyner, ChatGPT, Claude\\
+\bottomrule\end{tabular}
+\end{center}
+Chapter~\ref{ch:lit} gathers the literature review of Part~I and the
+related-work sections of the other manuscripts; Chapter~\ref{ch:notation}
+gathers the shared glossary of the series and the notation sections of
+the manuscripts; Chapter~\ref{ch:summary} gathers their summaries of
+results; and the Appendix holds the tables and verification scripts of
+Chapter~\ref{ch:W}.
+
+\paragraph{What changed in the conversion.}  No statement, proof,
+hypothesis or status label was changed.  References between the
+manuscripts, which were typed by hand (``Part~I, Lemma~2.2''), are now
+cross-references to the numbering of this book; references to the
+literature are now citations to one bibliography; the macros of each
+manuscript are kept, local to its chapter.  The source drafts sometimes
+cite other Parts by an older numbering; each such reference was mapped
+through the numbering of the draft it was written against.  Where a
+manuscript names an item with the wrong type (for example
+``Definition'' for what is a lemma), the reference now shows the
+item's actual type; these cases are listed in the revision log.  Each
+chapter still has its own introduction, which repeats some of the
+setting; removing that repetition is left for a later draft.
+
+\paragraph{Contributions.}  The acknowledgments of the manuscripts are
+reproduced below.  ChatGPT (OpenAI) and Claude (Anthropic) drafted and
+refereed parts of the series; the referee reports and the responses to
+them are in the repository.  Independent human review is the next step,
+and the mathematical claims should be assessed independently.
+
+\input{chapters/acknowledgments_generated}
+
+\mainmatter
+\chapter{Introduction}\label{ch:intro}
+\section{The setting}
+Let $K$ be a totally imaginary number field containing the group
+$\mu_n$ of $n$-th roots of unity, with $n$ odd; let $r$ be a prime with
+$(n,r)=1$; and let $D$ be a central division algebra of dimension $r^2$
+over $K$, ramified at the finite set $S$ of places, containing a cyclic
+maximal subfield $L$.  The book compares two $n$-fold covers: the cover
+of $D^\times_{\mathbb A}$ from the author's corrected 1988 paper on the
+metaplectic analog of Kazhdan's ``endoscopic'' lifting \cite{JC}, and
+the Kazhdan--Patterson cover of $\mathrm{GL}(r,\mathbb A_K)$ with twisting
+parameter $c_v$, where $n\mid r-1+2rc_v$.  Both are subgroups of one
+cover of $\mathrm{GL}(r,\mathbb A_L)$ (\cref{I:prop:restriction}).  The
+approach follows the trace-formula proof of the classical
+Jacquet--Langlands correspondence and uses the metaplectic
+correspondence of Flicker and Kazhdan \cite{FK} with the corrections of
+Zou \cite{Z}.  The global data and conventions are fixed in
+\S\S\ref{gl:global}--\ref{gl:cocycle}.
+
+\section{The chapters}
+\begin{itemize}[leftmargin=*]
+\item Chapter~\ref{ch:lit} reviews the literature, and
+Chapter~\ref{ch:notation} collects the notation, the status labels and
+the cocycle normalization.
+\item Chapter~\ref{ch:I} constructs the two covers inside one ambient
+cover, identifies their covered elliptic tori on good elements
+(Theorem~A), proves matching of test functions supported on the regular
+set (Theorem~B), and proves a global transfer under a non-cancellation
+hypothesis (Theorem~C).
+\item Chapter~\ref{ch:II} proves matching of arbitrary genuine test
+functions (Theorems~D and~E) and an improved global transfer
+(Theorem~C$'$).
+\item Chapter~\ref{ch:III} studies the division-algebra side through a
+unitary transform $L_D$ of class functions, proves that it carries
+irreducible characters to irreducible genuine characters at places not
+dividing $n$, obtains the character relation there in the range of the
+corrected Flicker--Kazhdan correspondence, and gives the obstruction at
+places dividing $n$.
+\item Chapter~\ref{ch:IV} reconciles the cocycle conventions, studies
+power maps and good elements for every maximal torus, proves a toral
+positivity criterion at places dividing $n$, and proves a conditional
+global comparison.
+\item Chapter~\ref{ch:W} treats the wild place of the running example
+in degree two: the transform of the trivial character, and of every
+representation trivial on the third congruence subgroup, is a genuine
+irreducible character.
+\item Chapter~\ref{ch:summary} lists the results of
+Chapters~\ref{ch:I}--\ref{ch:W} with their labels.
+\end{itemize}
+
+\section{The running example}
+Every chapter tests its constructions on one case: $K=\mathbb Q(\zeta_3)$,
+$n=3$, $r=2$, and the quaternion algebra $D=(-1,4-\zeta_3)_K$, ramified
+exactly at the prime above $3$ (a wild place, where $b_D=3$ and
+$c_D=27$) and at one prime above $7$ (a tame place).  Each chapter has a
+short subsection on it, and the note
+\texttt{notes/mjl\_running\_example.tex} in the repository works it out
+across the chapters.
+
+\section{Main open problems}
+Integrality of $L_D$ at places dividing $n$ in general; the full global
+comparison of the cover of $D^\times$ with the cover of $\mathrm{GL}(r)$,
+which needs matching at the places where $D$ splits and at the complex
+places; and the removal of the auxiliary support and packet hypotheses
+of Chapters~\ref{ch:I}--\ref{ch:II}.  Chapter~\ref{ch:W},
+\S\ref{W:sec:future}, discusses what a general wild result would need.
+
+\input{chapters/ch2_literature}
+\input{chapters/ch3_notation}
+\input{chapters/ch4_part1}
+\input{chapters/ch5_part2}
+\input{chapters/ch6_part3}
+\input{chapters/ch7_part4}
+\input{chapters/ch8_wild}
+\input{chapters/ch9_summary}
+
+\appendix
+\input{chapters/appA_scripts}
+
+\backmatter
+\input{chapters/bibliography}
+\end{document}

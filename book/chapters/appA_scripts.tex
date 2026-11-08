@@ -1,0 +1,165 @@
+\chapter{Tables and verification scripts for \texorpdfstring{Chapter~\ref{ch:W}}{Chapter 8}}\label{ch:scripts}
+\begingroup
+% macros of the companion paper on the rank-two wild place, Draft~8
+\providecommand{\F}{}\renewcommand{\F}{F}
+\providecommand{\Z}{}\renewcommand{\Z}{\mathbb Z}
+\providecommand{\C}{}\renewcommand{\C}{\mathbb C}
+\providecommand{\Q}{}\renewcommand{\Q}{\mathbb Q}
+\providecommand{\Fq}{}\renewcommand{\Fq}{\mathbb F}
+\providecommand{\Nm}{}\renewcommand{\Nm}{\operatorname N}
+\providecommand{\Nrd}{}\renewcommand{\Nrd}{\operatorname{Nrd}}
+\providecommand{\Trd}{}\renewcommand{\Trd}{\operatorname{Trd}}
+\providecommand{\Tr}{}\renewcommand{\Tr}{\operatorname{Tr}}
+\providecommand{\Irr}{}\renewcommand{\Irr}{\operatorname{Irr}}
+\providecommand{\Ind}{}\renewcommand{\Ind}{\operatorname{Ind}}
+\providecommand{\Ad}{}\renewcommand{\Ad}{\operatorname{Ad}}
+\providecommand{\tH}{}\renewcommand{\tH}{\widetilde H}
+\providecommand{\tZ}{}\renewcommand{\tZ}{\widetilde Z}
+\providecommand{\tU}{}\renewcommand{\tU}{\widetilde U}
+\providecommand{\tV}{}\renewcommand{\tV}{\widetilde V}
+\providecommand{\tth}{}\renewcommand{\tth}{\widetilde\theta}
+\providecommand{\Ocal}{}\renewcommand{\Ocal}{\mathcal O}
+\providecommand{\Pfr}{}\renewcommand{\Pfr}{\mathfrak P}
+\providecommand{\pfr}{}\renewcommand{\pfr}{\mathfrak p}
+\providecommand{\Reg}{}\renewcommand{\Reg}{\operatorname{Reg}}
+\providecommand{\Heis}{}\renewcommand{\Heis}{\mathrm{Heis}}
+\providecommand{\Cubes}{}\renewcommand{\Cubes}{\mathrm{Cubes}}
+\providecommand{\Good}{}\renewcommand{\Good}{\mathrm{Good}}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\providecommand{\Pctag}{}\renewcommand{\Pctag}{\textnormal{\textbf{[P$^{\mathrm c}$]}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\section{Tables}\label{W:app:tables}
+\paragraph{Coordinates.}  $V=Q_3/Q_6\simeq\Fq_3^5$ with basis
+$(A_{\mathrm{re}},A_{\mathrm{im}},C_{\mathrm{im}},B_{\mathrm{re}},B_{\mathrm{im}})$
+as in \eqref{W:eq:Vcoords}; a vector is written as a string of five
+digits.  The generators act by the matrices
+\[
+\Ad(1+j):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\0&1&1&0&0\\0&0&0&1&0\\0&2&1&0&1\end{psmallmatrix},\quad
+\Ad(1+ij):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\2&0&1&0&0\\2&0&2&1&0\\0&0&0&0&1\end{psmallmatrix},\quad
+\Ad(1+i):\begin{psmallmatrix}0&2&0&0&0\\1&0&0&0&0\\0&0&1&0&0\\0&0&0&0&2\\0&0&0&1&0\end{psmallmatrix},\quad
+\Ad(j):\begin{psmallmatrix}1&0&0&0&0\\0&2&0&0&0\\0&0&2&0&0\\0&0&0&1&0\\0&0&0&0&2\end{psmallmatrix}.
+\]
+\paragraph{The $36$ good lines and the defect function $e_*$.}
+Each entry is a representative $v$ followed by $e_*(v)$; $e_*(-v)=-e_*(v)$.
+\begin{center}\small\ttfamily
+\begin{tabular}{llllll}
+01002:0&01012:0&01022:0&01101:0&01111:1&01121:2\\
+01201:0&01211:2&01221:1&10020:0&10021:0&10022:0\\
+10110:0&10111:2&10112:1&10210:0&10211:1&10212:2\\
+11002:0&11011:0&11020:0&11101:1&11110:2&11122:0\\
+11201:2&11210:1&11222:0&12001:0&12012:0&12020:0\\
+12102:2&12110:1&12121:0&12202:1&12210:2&12221:0\\
+\end{tabular}
+\end{center}
+\paragraph{The $27$ covectors $\Lambda=\Lambda_+$} (those $h$ with $N_{e_*}(h)=20$):
+\begin{center}\small\ttfamily
+00000 00100 00200 01001 01121 01211 02002 02112 02222\\
+10010 10111 10212 11022 11110 11201 12021 12102 12210\\
+20020 20122 20221 21012 21101 21220 22011 22120 22202
+\end{center}
+The $\Heis$-cocycle attached to $e_*$ is $\beta_{\Ad(1+j)}=(1,0,0,1,0)$,
+$\beta_{\Ad(1+ij)}=(0,1,0,0,1)$.  The numbers of ordered coplanar
+triples of distinct good lines is $B=720$, all of them defect free.
+\paragraph{The Hilbert pairings.}  On the basis
+$\varpi,\ 1+\varpi,\ 1+\varpi i,\ 1+\varpi^2,\ 1+\varpi^2i,\ 1+\varpi^3$ of
+$E_0^\times/E_0^{\times3}$ (the last five being a basis of
+$U^{(1)}_{E_0}/U^{(1)3}_{E_0}$; recall $1+\varpi^3 i$ is a cube) the cubic
+Hilbert pairing of $E_0$, written as exponents of $\zeta$, is
+antisymmetric with upper-triangular entries
+\[
+ (\varpi,1+\varpi^3)=2,\quad (1+\varpi,1+\varpi i)=1,\quad (1+\varpi,1+\varpi^2)=2,\quad
+ (1+\varpi i,1+\varpi^2 i)=1,
+\]
+and all other upper-triangular entries $0$.  On the basis
+$\varpi,1+\varpi,1+\varpi^2,1+\varpi^3$ of $F^\times/F^{\times3}$ the pairing of $F$
+has $(\varpi,1+\varpi^3)=1$, $(1+\varpi,1+\varpi^2)=1$ and all other
+upper-triangular entries $0$.  Both are nondegenerate, Galois
+invariant, and satisfy $(a,b)_{E_0}=(a,\Nm b)_F$ for $a\in F$; the common
+sign is the choice of the identification $\mu_3\simeq\Z/3$.
+
+\section{Verification scripts}\label{W:app:scripts}
+The scripts are in the directory \texttt{part-IV/scripts/} of the
+repository \texttt{github.com/wdjoyner/metaplectic-jl}; the version used
+for this draft is that of commit \texttt{67e6439} (November~8, 2026), and the README there
+lists, for each script, the statement it supports and whether it is
+load bearing.  Since Draft~7, script~13 certifies the group law of
+$Q_3/Q_7$ deterministically (associativity on all $729^3$ triples,
+identity, inverses) and verifies the character table exactly by checking
+that each rounded character is a common eigenvector of all class-sum
+matrices with the correct norm, which characterizes the irreducible
+characters; script~15 verifies that $\lambda_0$ is a character of
+$\hat H$ on all pairs (generator, element), which suffices by induction
+on word length; and \texttt{verify\_certificate.py} checks the orbit
+certificate independently of script~15 and of the cover (that the
+tables define an action of the Heisenberg group of order $27$, whose
+multiplication table is part of the certificate, that it has no fixed
+points, and that the orbits are as listed).
+All scripts are in pure Python with exact rational or modular
+arithmetic, with two exceptions: script~11 uses floating point only to
+display complex character values, and scripts~13--14 obtain the
+character table of $Q_3/Q_7$ by Burnside's algorithm in floating point
+and then round the values to $\Z[\zeta_3]$ (maximal rounding error
+$2\cdot10^{-13}$) and re-verify all orthogonality relations exactly;
+this is numerical discovery followed by exact verification, and since
+Draft~6 those two scripts are corroboration only
+(Theorem~\ref{W:thm:leveltwo} is proved by hand).  They are kept with the
+paper under \texttt{part-IV/scripts/}.
+\begin{enumerate}[label=\arabic*.]
+\item \texttt{step1\_G3.py}: exact arithmetic in $\Ocal_D$; the $648$
+depth-one classes modulo $K^4U_F^{(1)}$; their cubes in $V$; the $72$
+elements of $\bar G_3$, the $36$ lines, agreement with \eqref{W:eq:G3formula}.
+\item \texttt{step2\_finite.py}: the finite group $Q/Q_7$ ($3^9$
+elements); the cube map; depths of cubes ($3$ or $\ge6$);
+$\Cubes(Q_2)=Q_6$; $Q_6$-invariance of $G_3$.
+\item \texttt{step3\_actions.py}: the actions of $\Ad(1+j),\Ad(1+ij),\Ad(1+i),\Ad(j)$
+on $V$; orders of the groups they generate ($27$, $8$, $216$); orbits on
+$\bar G_3$ and on the lines; $B=720$.
+\item \texttt{step4\_design.py}, \texttt{step6\_orbit.py}: the design
+search (the nine, resp.\ $3^{10}$, candidates), the cocycle extension
+test, the simply transitive orbit, the Fourier identities.
+\item \texttt{step5\_H1.py}: (a) the Lazard form on $K^4/K^8$:
+invariant alternating forms vanishing on torus subspaces are $0$;
+(b) odd functions on $Q_6/Q_8$ with equivariant defects are linear.
+\item \texttt{cover.py}, \texttt{step7\_symbols.py}: Steinberg
+relations and the Hilbert symbols of $F$ and $E_0$; nondegeneracy,
+Galois invariance, norm compatibility; the cocycle identity for
+\eqref{W:eq:kubota} (250 triples); the diagonal formula; triviality on
+scalars; the torus commutator formula of Chapter~\ref{ch:I} (200 pairs).
+\item \texttt{step8\_H1test.py}, \texttt{step9\_H1\_stratified.py},
+\texttt{step12\_H1\_proof\_check.py}: corroboration of
+Proposition~\ref{W:prop:H1}: (H1) through cube roots (Hensel in $F(X)$),
+through \eqref{W:eq:H1identity} ($7600$ stratified instances), and
+through \eqref{W:eq:H1reduced} and \eqref{W:eq:H1identity} on $12{,}000$
+instances covering every case of the proof; script~12 also verifies the
+closed form \eqref{W:eq:ell} against the digit form and the symbol facts
+\eqref{W:eq:level0}.
+\item \texttt{step10\_defects.py}: defects of $3$- and $4$-term
+relations in $\bar G_3$ against $e_*$; $\omega=0$; $\kappa_{1,5}$.
+\item \texttt{step11\_endtoend.py}, \texttt{step11b.py}: the character
+of $\Ind_{\tU_3}^{\tU_1}\lambda_0$ from \eqref{W:eq:lambda0} against
+\eqref{W:eq:Phivalues}.
+\item \texttt{step13\_level2.py}, \texttt{zsolve.py}: the group
+$H=Q_3/Q_7$ (multiplication table, $297$ classes), its character table
+by Burnside's algorithm with exact re-verification, the $\Ad(Q_1)$-orbits
+on $\Irr(H)$, the $219$ good classes and the cube root; the criterion
+of Proposition~\ref{W:prop:criterion} tested by exact integer linear
+algebra (Smith normal form) for the four $D_8$-orbit sums of
+$\Irr(\mathrm{Heis})$.
+\item \texttt{step14\_level2\_restriction.py}: the decomposition of
+$(\chi\circ r)D$ into irreducible characters of $H$ for the orbit sums
+and for $\chi_3,\chi_3'$.
+\item \texttt{step15\_level2\_clifford.py}: $\lambda_0$ on $\hat H$ in
+the cocycle model, the twisted action of $Q_1/Q_3$ on the genuine
+irreducible characters of $\hat H$, an explicit stabilizer check (no
+nontrivial coset representative fixes any genuine character), and the
+orbit table written to \texttt{level2\_orbit\_certificate.txt} (two
+orbits of size $27$ on the degree-three characters; nine of size $27$
+on the linear ones), together with the multiplication table of
+$Q_1/Q_3$ and the indexed character values needed to check it.
+\texttt{verify\_certificate.py} re-reads the certificate and checks it
+without using the cover.  Running time about ten minutes.  Corroborates
+Proposition~\ref{W:prop:free}.
+\end{enumerate}
+\endgroup

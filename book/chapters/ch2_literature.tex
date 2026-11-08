@@ -1,0 +1,259 @@
+\chapter{Literature}\label{ch:lit}
+This chapter reviews the literature on which the book draws. Section~\ref{I:sec:lit} reviews the literature of the whole series; the later sections add what is specific to Chapters~\ref{ch:II}, \ref{ch:III} and~\ref{ch:W}. Chapter~\ref{ch:IV} has no separate related-work section; its sources are discussed in its own text.
+
+\begingroup
+% macros of Part~I, Draft~11
+\providecommand{\ov}{}\renewcommand{\ov}[1]{\overline{#1}}
+\providecommand{\eps}{}\renewcommand{\eps}{\epsilon}
+\providecommand{\A}{}\renewcommand{\A}{\mathbb{A}}
+\providecommand{\C}{}\renewcommand{\C}{\mathbb{C}}
+\providecommand{\Q}{}\renewcommand{\Q}{\mathbb{Q}}
+\providecommand{\Z}{}\renewcommand{\Z}{\mathbb{Z}}
+\providecommand{\cO}{}\renewcommand{\cO}{\mathcal{O}}
+\providecommand{\gen}{}\renewcommand{\gen}{\mathrm{gen}}
+\providecommand{\reg}{}\renewcommand{\reg}{\mathrm{reg}}
+\providecommand{\tr}{}\renewcommand{\tr}{\operatorname{tr}}
+\providecommand{\Gal}{}\renewcommand{\Gal}{\operatorname{Gal}}
+\providecommand{\Aut}{}\renewcommand{\Aut}{\operatorname{Aut}}
+\providecommand{\Nrd}{}\renewcommand{\Nrd}{\operatorname{Nrd}}
+\providecommand{\Ad}{}\renewcommand{\Ad}{\operatorname{Ad}}
+\providecommand{\Hom}{}\renewcommand{\Hom}{\operatorname{Hom}}
+\providecommand{\Iso}{}\renewcommand{\Iso}{\operatorname{Iso}}
+\providecommand{\vol}{}\renewcommand{\vol}{\operatorname{vol}}
+\providecommand{\supp}{}\renewcommand{\supp}{\operatorname{supp}}
+\providecommand{\diag}{}\renewcommand{\diag}{\operatorname{diag}}
+\providecommand{\GL}{}\renewcommand{\GL}{\mathrm{GL}}
+\providecommand{\SL}{}\renewcommand{\SL}{\mathrm{SL}}
+\providecommand{\Gb}{}\renewcommand{\Gb}{\ov{G}}
+\providecommand{\Zb}{}\renewcommand{\Zb}{\ov{Z}}
+\providecommand{\GDb}{}\renewcommand{\GDb}{\ov{G}_D}
+\providecommand{\pib}{}\renewcommand{\pib}{\ov{\pi}}
+\providecommand{\ks}{}\renewcommand{\ks}{\kappa^{*}}
+\providecommand{\Eb}{}\renewcommand{\Eb}{\ov{E}}
+\providecommand{\Tb}{}\renewcommand{\Tb}{\ov{T}}
+\providecommand{\cG}{}\renewcommand{\cG}{\mathcal{G}}
+\providecommand{\cGb}{}\renewcommand{\cGb}{\ov{\mathcal{G}}}
+\providecommand{\iD}{}\renewcommand{\iD}{\iota_D}
+\providecommand{\iG}{}\renewcommand{\iG}{\iota_{\GL}}
+\providecommand{\jj}{}\renewcommand{\jj}{\jmath}
+\providecommand{\Pv}{}\renewcommand{\Pv}{\textbf{[P]}}
+\providecommand{\Ev}{}\renewcommand{\Ev}{\textbf{[E]}}
+\providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{[O]}}
+\providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{[C]}}
+% =====================================================================
+\section{The literature of the series}\label{I:sec:lit}
+This section reviews the literature on which the whole series draws, and places the series within it. Chapters~\ref{ch:II}--\ref{ch:IV} refer to this review and add only what is specific to them. It proves nothing and introduces no notation.
+
+\paragraph{The Jacquet--Langlands correspondence.} Jacquet and Langlands \cite{JL} related automorphic representations of the multiplicative group of a quaternion algebra to those of $\GL(2)$ by comparing trace formulas. For a central division algebra of arbitrary degree the local correspondence is due to Deligne--Kazhdan--Vign\'eras \cite{DKV} and Rogawski \cite{Rog83}, and Badulescu \cite{Bad} proved the global correspondence for all inner forms of $\GL(n)$, with multiplicity one and strong multiplicity one. Flicker and Kazhdan \cite{FK88} gave a simple trace formula for test functions with a single supercuspidal component and used it to extend both the simple-algebras correspondence and the metaplectic correspondence to automorphic forms with one supercuspidal component; Proposition~\ref{I:prop:FKvariant} is a statement of the same kind for the cover $\Gb(\A_K)$, proved here by following \cite[\S18]{FK}, and we cite \cite{FK88} for its approach only. The transfer of orbital integrals between $\GL(n)$ and its inner forms, with explicit matching functions, is studied by Cohen \cite{Coh}; harmonic-analytic background is in Kottwitz \cite{Kot} and Harish-Chandra \cite{HC70}. Our definition of matching and the use of a simple trace formula follow the pattern of these works, with two new features: only good elements carry orbital integrals, and the two covers must first be identified on tori (\S\ref{I:sec:tori}). The sign convention is compared with Badulescu's in \S\ref{I:subsec:defmatch}.
+
+\paragraph{Covering groups.} The $n$-fold covers of $\SL(2)$ and $\GL(2)$ over local and global fields go back to Kubota \cite{Kub67}, \cite{Kub69}. Moore \cite{Moo} and Matsumoto \cite{Mat} classified the topological central extensions of the split simply connected groups by Steinberg symbols (see also Milnor \cite{Mil}); this classification is the main input of Proposition~\ref{I:prop:restriction}. Kazhdan and Patterson \cite{KP1} constructed the $n$-fold covers of $\GL(r)$ with a determinantal twisting parameter, developed their representation theory, including the exceptional representations, and formulated the generalized Shimura correspondence \cite{KP2}. Explicit block-compatible cocycles are in Banks--Levy--Sepanski \cite{BLS}. The modern framework is that of Brylinski and Deligne \cite{BD}, for which Weissman \cite{Wei18} and Gan--Gao \cite{GG18} formulated an $L$-group and a Langlands program; the historical introduction \cite{GGW} surveys the subject. This series uses only the Kazhdan--Patterson covers and their restrictions to subgroups.
+
+\paragraph{Metaplectic correspondences.} For $n=2$ the correspondence goes back to Shimura's work on modular forms of half-integral weight \cite{Shi73}; its representation-theoretic form is due to Gelbart \cite{Gel76} and Waldspurger \cite{Wal80}, \cite{Wal91}, through the Weil representation. Flicker \cite{Fli80} treated the $n$-fold cover of $\GL(2)$ by the trace formula, and Flicker and Kazhdan \cite{FK} established the metaplectic correspondence between genuine representations of the $n$-fold cover of $\GL(r)$ and representations of $\GL(r)$, using a simple trace formula \cite[\S18]{FK}; our $\GL$-side trace formula is theirs. Mezo generalized the local correspondence of \cite{FK} and prepared a comparison of the invariant trace formulas of $\GL(r)$ and its covers \cite{Mez02}, \cite{Mez01}, and constructed metaplectic tensor products for irreducible representations \cite{Mez04}. Zou \cite{Z} revisited the local metaplectic correspondence, restored and generalized parts of the local theory of \cite{FK}, and pointed out an error in \cite[\S26.2]{FK}; Chapter~\ref{ch:III} uses his corrected form. Savin \cite{Sav88} proved a local Shimura correspondence at the level of Iwahori--Hecke algebras. W.-W.~Li developed the Arthur--Selberg trace formula for covers of connected reductive groups \cite{Li1}, \cite{Li2}, \cite{Li4}; it is one of the two routes to removing the auxiliary supercuspidal place (goal~(iii) of \S\ref{I:subsec:partII}). Kazhdan's lifting from tori \cite{Kaz84} has a metaplectic analog \cite{J}, corrected in \cite{JC}, which is the source of the cover of $D^\times_{\A}$ used here. The present paper does not compose with the Flicker--Kazhdan correspondence; that would be the step after (D2).
+
+\paragraph{Central extensions of division algebras.} The topological central extensions of $\SL_1(D)$, and the metaplectic kernel for anisotropic groups, were determined by Prasad--Raghunathan \cite{PRa88} and Prasad--Rapinchuk \cite{PRp96}; see also Rapinchuk \cite{Rap}, \cite{Rap88} and Sury \cite{Sur}. These works concern the extensions themselves rather than automorphic forms on them.
+
+The work closest to ours on the side of the division algebra is that of Klose, in his G\"ottingen dissertation (1983, written under S.~J.~Patterson) and the two papers drawn from it. He studied central extensions by $\mu_n$ of the multiplicative group of a quaternion division algebra. The local paper \cite{Klo86a} concerns a $p$-adic quaternion division algebra; according to its indexing data, its subject is the commutator structure of $D^\times$, the structure of its group of one-units, and the classes in the second cohomology that describe its central extensions, including the metaplectic ones. The global paper \cite{Klo86b} concerns a quaternion division algebra $D$ over a number field. It constructs explicit cocycles, and in the description of Prasad and Rapinchuk \cite[Introduction]{PRp96} it obtains partial results on the topological central extensions of the adele group of $\mathrm{GL}_{1,D}$; their own computation of the metaplectic kernel is more precise. Hill \cite[\S\S2.3, 3.8]{Hil} attributes to Klose the facts on commutators and symmetric cocycles of abelian groups that were used there to determine the metaplectic extensions of $D^\times$; among them is a canonical isomorphism $H^2_{\mathrm{sym}}(\mu_m,\mu_m)\cong\Z/m$. In \cite{J} it is noted that a result of Klose allows one to choose the quaternion algebra $D$ so that the cover of $G_D(\A_K)$ exists without assuming $(n,r)=1$, that is, also for even $n$. In this series $n$ is odd, so for $r=2$ that hypothesis holds automatically, and the cover of $D^\times$ is defined by restriction from the Kazhdan--Patterson cover of $\GL(r)$ over the splitting field $L$ (\cite{JC}, \S\ref{I:sec:covers}). We have not been able to consult \cite{Klo86a}, \cite{Klo86b} or the dissertation. The summary above rests on their indexing data (keywords and subject classification), on the descriptions in \cite{PRp96}, \cite{Hil} and \cite{J}, and on the titles; the theorem statements of Klose's papers are not reproduced here for that reason. We have not compared Klose's extensions with the cover of \cite{JC} for $r=2$. Patel \cite{Pat} shows that the $2$-fold metaplectic cover of $\GL(2,E)$, for a quadratic extension $E/F$, splits over $\GL(2,F)$ and over the multiplicative group of the quaternion division algebra over $F$; this is the same mechanism of restricting a cover over an extension field to a subgroup, and it is the mechanism by which our ambient cover realizes both $\GDb$ and $\Gb$.
+
+\paragraph{The present series.} The present paper supplies the first steps of \cite[Remark~10.3]{JC}. We found no existing metaplectic Jacquet--Langlands correspondence for covers of inner forms of $\GL(r)$. In particular, among the papers that zbMATH lists as citing \cite{FK} (Zbl 0616.10024), only \cite{J} concerns a cover of $D^\times$; those mentioning division or simple algebras treat linear groups. Chapter~\ref{ch:II} proves the matching of arbitrary functions, using germ expansions \cite[\S8]{FK} and results on the linear groups (Shalika germs, Steinberg pseudo-coefficients), and improves Theorem~C. Chapter~\ref{ch:III} studies the division-algebra side through a unitary transform of class functions, using Adams operations at tame places and Kottwitz's framework for rational conjugacy. Chapter~\ref{ch:IV} reconciles the cocycle conventions with \cite{FK} and \cite{Z}, studies power maps and toral positivity at the places dividing $n$, and proves a conditional global comparison. The companion paper studies the remaining wild local problem in degree two, using the Heisenberg--Weil formalism and character theory of compact $p$-adic groups.
+\endgroup
+\begingroup
+% macros of Part~II, Draft~10
+\providecommand{\ov}{}\renewcommand{\ov}[1]{\overline{#1}}
+\providecommand{\A}{}\renewcommand{\A}{\mathbb{A}}
+\providecommand{\C}{}\renewcommand{\C}{\mathbb{C}}
+\providecommand{\Z}{}\renewcommand{\Z}{\mathbb{Z}}
+\providecommand{\cO}{}\renewcommand{\cO}{\mathcal{O}}
+\providecommand{\fp}{}\renewcommand{\fp}{\mathfrak{p}}
+\providecommand{\gen}{}\renewcommand{\gen}{\mathrm{gen}}
+\providecommand{\reg}{}\renewcommand{\reg}{\mathrm{reg}}
+\providecommand{\tr}{}\renewcommand{\tr}{\operatorname{tr}}
+\providecommand{\Nrd}{}\renewcommand{\Nrd}{\operatorname{Nrd}}
+\providecommand{\Ad}{}\renewcommand{\Ad}{\operatorname{Ad}}
+\providecommand{\Iso}{}\renewcommand{\Iso}{\operatorname{Iso}}
+\providecommand{\vol}{}\renewcommand{\vol}{\operatorname{vol}}
+\providecommand{\supp}{}\renewcommand{\supp}{\operatorname{supp}}
+\providecommand{\Cent}{}\renewcommand{\Cent}{\operatorname{Cent}}
+\providecommand{\GL}{}\renewcommand{\GL}{\mathrm{GL}}
+\providecommand{\St}{}\renewcommand{\St}{\mathrm{St}}
+\providecommand{\Gb}{}\renewcommand{\Gb}{\ov{G}}
+\providecommand{\Zb}{}\renewcommand{\Zb}{\ov{Z}}
+\providecommand{\GDb}{}\renewcommand{\GDb}{\ov{G}_D}
+\providecommand{\pib}{}\renewcommand{\pib}{\ov{\pi}}
+\providecommand{\Eb}{}\renewcommand{\Eb}{\ov{E}}
+\providecommand{\Tb}{}\renewcommand{\Tb}{\ov{T}}
+\providecommand{\cG}{}\renewcommand{\cG}{\mathcal{G}}
+\providecommand{\cGb}{}\renewcommand{\cGb}{\ov{\mathcal{G}}}
+\providecommand{\iD}{}\renewcommand{\iD}{\iota_D}
+\providecommand{\iG}{}\renewcommand{\iG}{\iota_{\GL}}
+\providecommand{\jj}{}\renewcommand{\jj}{\jmath}
+\providecommand{\sg}{}\renewcommand{\sg}{\sigma}
+\providecommand{\Pv}{}\renewcommand{\Pv}{\textbf{[P]}}
+\providecommand{\Ev}{}\renewcommand{\Ev}{\textbf{[E]}}
+\providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{[O]}}
+\providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{[C]}}
+% =====================================================================
+\section{Work related to \texorpdfstring{Chapter~\ref{ch:II}}{Chapter 5}}\label{II:sec:lit}
+This section discusses the work related to this Part. The literature of the whole series (the Jacquet--Langlands correspondence, covering groups, metaplectic correspondences, central extensions of division algebras) is reviewed in \S\ref{I:sec:lit}; we add only what is specific to Chapter~\ref{ch:II}. The section proves nothing and introduces no notation.
+
+The local results of Chapter~\ref{ch:II} concern harmonic analysis near the center, and their inputs are of two kinds. For covers of $\GL(r)$, Kazhdan--Patterson \cite[\S1]{KP2} and Flicker--Kazhdan \cite[\S8]{FK} proved the germ expansion and the characterization of orbital integrals of genuine functions (after Vign\'eras), and \cite{FK} constructed the local metaplectic correspondence for square-integrable representations; Zou \cite{Z} corrected and extended parts of that theory. W.-W.~Li developed the local harmonic analysis needed for the trace formula on covers \cite{Li2}, including semisimple descent, the Plancherel formula and the density of tempered characters, and proved the invariant trace formula for covers \cite{Li4}. On the linear side we use the Shalika germ expansion \cite{Sha72}, Howe's work on the Fourier transform and germs of characters for $\GL_n$ \cite{How74}, Harish-Chandra's theory of admissible invariant distributions \cite{HC70}, \cite{HC78}, Rogawski's computation of the trivial germ on elliptic tori via the building \cite{Rog81}, van Dijk's formula for induced characters \cite{vD72}, and, for parabolic descent of germs, Kivinen--Tsai \cite{KT}. Pseudo-coefficients of square-integrable representations and the density theorem are taken in the form stated in \cite[\S\S25.1, 27.3]{FK}, which goes back to Kazhdan \cite{Kaz}; the linear Jacquet--Langlands inputs are from \cite{DKV}, \cite{Rog83}, \cite{Bad02} and \cite[Theorem~2.2]{Bad}. The Plancherel formula and Harish-Chandra's finiteness theorem are used in the form of Waldspurger \cite{Wal03}, with explicit formulas for $\GL(n,F)$ and $\GL(m,D)$ in Aubert--Plymen \cite{AP}; and Kottwitz's normalization of measures on inner forms is in \cite{Kot88}. For the classification of tempered representations of $\GL(r,F)$ we use Zelevinsky \cite{Zel80}; general background on smooth representations is in Bernstein--Zelevinsky \cite{BZ77} and Bernstein \cite{Ber}.
+
+Our matching theorem uses none of the deeper parts of the theory of covers. Its main tool is the section $\sg$ of \S\ref{II:sec:center}, which reduces genuine harmonic analysis near the center of either cover to linear harmonic analysis, compatibly with the identification of elliptic tori of Chapter~\ref{ch:I}. That covers split over small open subgroups is standard \cite[\S2]{FK}; what is used here is the stronger statement that the splitting given by $n$-th powers of $n$-th roots is equivariant and consistent with $\jj$ on a full conjugation-invariant neighborhood of the unipotent set, at every finite place including those dividing $n$.
+
+% =====================================================================
+\endgroup
+\begingroup
+% macros of Part~III, Draft~10
+\providecommand{\A}{}\renewcommand{\A}{\mathbb A}
+\providecommand{\C}{}\renewcommand{\C}{\mathbb C}
+\providecommand{\Z}{}\renewcommand{\Z}{\mathbb Z}
+\providecommand{\GL}{}\renewcommand{\GL}{\operatorname{GL}}
+\providecommand{\Nrd}{}\renewcommand{\Nrd}{\operatorname{Nrd}}
+\providecommand{\Irr}{}\renewcommand{\Irr}{\operatorname{Irr}}
+\providecommand{\vol}{}\renewcommand{\vol}{\operatorname{vol}}
+\providecommand{\tH}{}\renewcommand{\tH}{\widetilde H}
+\providecommand{\tZ}{}\renewcommand{\tZ}{\widetilde Z}
+\providecommand{\ttT}{}\renewcommand{\ttT}{\widetilde T}
+\providecommand{\reg}{}\renewcommand{\reg}{\mathrm{reg}}
+\providecommand{\gen}{}\renewcommand{\gen}{\mathrm{gen}}
+\providecommand{\JL}{}\renewcommand{\JL}{\mathrm{JL}}
+\providecommand{\Sha}{}\renewcommand{\Sha}{\operatorname{Sha}}
+\providecommand{\Gb}{}\renewcommand{\Gb}{\overline{G}}
+\providecommand{\GDb}{}\renewcommand{\GDb}{\overline{G}_D}
+\providecommand{\Zb}{}\renewcommand{\Zb}{\overline{Z}}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\section{Work related to \texorpdfstring{Chapter~\ref{ch:III}}{Chapter 6}}\label{III:sec:related}
+This section discusses the work related to this Part. The literature of the whole series is reviewed in \S\ref{I:sec:lit}; we add only what is specific to Chapter~\ref{ch:III}. The section proves nothing and introduces no notation.
+
+\paragraph{The division-algebra side.} The local Jacquet--Langlands correspondence for $D^\times$ is due to Deligne--Kazhdan--Vign\'eras \cite{DKV}, and Badulescu \cite{Bad} proved the global correspondence for inner forms of $\GL_n$; Cohen \cite{Coh} studies the transfer of representations and of orbital integrals between $\GL_n$ and its inner forms. The norm-one group $H^1=\mathrm{SL}_1(D)$ of a $p$-adic division algebra was studied by Riehm \cite{Rie70}, and its topological central extensions by Prasad and Raghunathan \cite{PRa88}; Klose \cite{Klo86a} studied commutators and the second cohomology of $p$-adic quaternion division algebras, including their metaplectic extensions (see \S\ref{I:sec:lit}). Proposition~\ref{III:prop:tame-split} (unique splitting over $H^1$ when $p\nmid n$) and Proposition~\ref{III:prop:wild-obstruction} (non-splitting when $p\mid n$) are statements of this kind for the particular cover of Chapter~\ref{ch:I}; they are proved here directly, and we cite these works for their subject only.
+
+\paragraph{Power operations.} The Adams operations come from topological $K$-theory \cite{Ada62}; Atiyah's account of power operations \cite{Ati66} and Segal's equivariant $K$-theory \cite{Seg68} give the representation-ring form used in \S\ref{III:sec:adams} and in the tame proof (Lemma~\ref{III:lem:tame-adams}).
+
+\paragraph{Metaplectic correspondences.} The square-integrable metaplectic correspondence for $\GL_r$ is due to Flicker and Kazhdan \cite{FK}; Zou \cite{Z} restored and generalized it and gave the root-sum relation used in Corollary~\ref{III:cor:D2tame}, whose constant is compared with $b_D$ in Remark~\ref{III:rem:normalizations}. The transfer $L_D$ is defined through the $n$-th power map on good elements and the central character, after the model of Kazhdan's lifting and its metaplectic analog (\S\ref{I:sec:lit}).
+
+\paragraph{Arithmetic.} Section~\ref{III:sec:kottwitz} follows Kottwitz \cite{Kot84} on rational and stable conjugacy, transfer of tori to inner forms and Tamagawa factors; the Galois cohomology of $\Sha^1$ is in Milne \cite{MilADT}. Proposition~\ref{III:prop:global-power-hasse} is a statement modulo scalars of the kind given, for $n$-th powers themselves, by the classical local--global principle whose sharp form is the Grunwald--Wang theorem \cite[Ch.~X]{AT}; for odd $n$ the exceptional case of that theorem does not arise. The $p$-adic change-of-variables formula used in \S\ref{III:sec:tame} is quoted from \cite{Loe}.
+\endgroup
+\begingroup
+% macros of the companion paper on the rank-two wild place, Draft~8
+\providecommand{\F}{}\renewcommand{\F}{F}
+\providecommand{\Z}{}\renewcommand{\Z}{\mathbb Z}
+\providecommand{\C}{}\renewcommand{\C}{\mathbb C}
+\providecommand{\Q}{}\renewcommand{\Q}{\mathbb Q}
+\providecommand{\Fq}{}\renewcommand{\Fq}{\mathbb F}
+\providecommand{\Nm}{}\renewcommand{\Nm}{\operatorname N}
+\providecommand{\Nrd}{}\renewcommand{\Nrd}{\operatorname{Nrd}}
+\providecommand{\Trd}{}\renewcommand{\Trd}{\operatorname{Trd}}
+\providecommand{\Tr}{}\renewcommand{\Tr}{\operatorname{Tr}}
+\providecommand{\Irr}{}\renewcommand{\Irr}{\operatorname{Irr}}
+\providecommand{\Ind}{}\renewcommand{\Ind}{\operatorname{Ind}}
+\providecommand{\Ad}{}\renewcommand{\Ad}{\operatorname{Ad}}
+\providecommand{\tH}{}\renewcommand{\tH}{\widetilde H}
+\providecommand{\tZ}{}\renewcommand{\tZ}{\widetilde Z}
+\providecommand{\tU}{}\renewcommand{\tU}{\widetilde U}
+\providecommand{\tV}{}\renewcommand{\tV}{\widetilde V}
+\providecommand{\tth}{}\renewcommand{\tth}{\widetilde\theta}
+\providecommand{\Ocal}{}\renewcommand{\Ocal}{\mathcal O}
+\providecommand{\Pfr}{}\renewcommand{\Pfr}{\mathfrak P}
+\providecommand{\pfr}{}\renewcommand{\pfr}{\mathfrak p}
+\providecommand{\Reg}{}\renewcommand{\Reg}{\operatorname{Reg}}
+\providecommand{\Heis}{}\renewcommand{\Heis}{\mathrm{Heis}}
+\providecommand{\Cubes}{}\renewcommand{\Cubes}{\mathrm{Cubes}}
+\providecommand{\Good}{}\renewcommand{\Good}{\mathrm{Good}}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\providecommand{\Pctag}{}\renewcommand{\Pctag}{\textnormal{\textbf{[P$^{\mathrm c}$]}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\section{Work related to \texorpdfstring{Chapter~\ref{ch:W}}{Chapter 8}}\label{W:sec:literature}
+This section places the paper among the works it draws on or runs
+parallel to.  It is selective; Chapter~\ref{ch:I} of the series has the fuller
+discussion of the metaplectic correspondence itself.
+
+\paragraph{Metaplectic covers.}  The $n$-fold covers of $\mathrm{SL}_2$
+and $\mathrm{GL}_2$ over a local field containing $\mu_n$ go back to
+Kubota \cite{Kub67}; \cite{Kub69}, who gave the explicit cocycle used in
+Section~\ref{W:sec:model}; Moore \cite{Moo} and Matsumoto classified the
+topological central extensions of simply connected groups by Steinberg
+symbols, which is why the Hilbert symbols of $F$ and $E_0$ could be
+pinned down in Lemma~\ref{W:lem:model} as the unique Steinberg symbols.
+Kazhdan and Patterson \cite{KP1} constructed the $n$-fold covers of
+$\mathrm{GL}_r$ with the determinantal twist parameter $c$, developed
+their representation theory (the metaplectic tensor product, the
+exceptional representations), and formulated the generalized Shimura
+correspondence; the parameter $c_v=-1/4\bmod p$ of
+Section~\ref{W:sec:targetC}, forced by scalar centrality, is a point on
+that family.  The modern framework is that of Brylinski--Deligne
+central extensions \cite{BD}, for which Weissman \cite{Wei18} and Gan--Gao
+\cite{GG18} formulated an $L$-group and a Langlands program; a Satake
+isomorphism for covers is in \cite{McN12}; \cite{Gao18}.  The cover of $D^\times$ used
+here is defined by restriction from $\mathrm{GL}_2(E_0)$ (Chapter~\ref{ch:I}); we are
+not aware of an independent literature on $n$-fold covers of division
+algebras beyond \cite{JC} and this series.
+
+\paragraph{Metaplectic correspondences.}  For $n=2$ the Shimura
+correspondence was realized by Waldspurger \cite{Wal80}; \cite{Wal91} through the
+theta correspondence, as recalled in Section~\ref{W:subsec:howe}; Flicker
+\cite{Fli80} treated the $n$-fold cover of $\mathrm{GL}_2$ by the trace
+formula, and Flicker--Kazhdan \cite{FK} established the metaplectic
+correspondence between the $n$-fold cover of $\mathrm{GL}_r$ and
+$\mathrm{GL}_r$ in general, at the cost of a simple trace formula and
+hypotheses at the places dividing $n$.  Kazhdan's lifting \cite{Kaz84} and
+its metaplectic analogue \cite{JC} are the local models for the division-side
+transfer $L_D$ of Chapter~\ref{ch:III}: a transfer of characters defined on good
+elements through the $n$-th power map and the central character.  At
+the level of the Iwahori--Hecke algebra, Savin \cite{Sav88} proved a local
+Shimura correspondence for the tame covers; Zou \cite{Z} revisits the
+local metaplectic correspondence and its applications.  None of these
+works addresses integrality at a place dividing $n$ for a division
+algebra, which is the problem of Targets~A--C; Chapter~\ref{ch:III}'s tame argument
+is an Adams-operation argument in the sense of Section~\ref{W:subsec:howe},
+and the obstruction at $p\mid n$ is the one described in
+Remark~\ref{W:rem:dependencies} and Section~\ref{W:sec:future}.
+
+\paragraph{Representations of division algebras and Jacquet--Langlands.}
+The irreducible representations of $D^\times$ were constructed by Corwin
+\cite{Cor74} and Howe \cite{How77b} in the tame case and by Koch--Zink \cite{KZ80} and
+Corwin in general; the local Jacquet--Langlands correspondence is due to
+Jacquet--Langlands \cite{JL} for $r=2$ and to Deligne--Kazhdan--Vign\'eras
+\cite{DKV} and Rogawski \cite{Rog83} in general, with the global correspondence
+completed by Badulescu \cite{Bad}.  Bushnell and Henniart made the
+correspondence explicit in the essentially tame case \cite{BH11} and treat
+$\mathrm{GL}_2$ and the quaternion algebra in detail in \cite{BH06}, including
+the conductor and depth bookkeeping behind the notion of level in
+Section~\ref{W:subsec:divalg}.  The induced models of
+Sections~\ref{W:sec:maintheorem} and~\ref{W:sec:plan} are of the shape of
+Howe's construction, with a character of a covered congruence subgroup
+in place of a character of a torus.
+
+\paragraph{Heisenberg groups, Weil representations and the Howe
+correspondence.}  Weil \cite{Wei64} introduced the metaplectic
+representation; Howe \cite{How79} formulated the duality conjecture, proved
+by Waldspurger \cite{Wal90} for $p\ne2$ and by Gan--Takeda \cite{GT16} in general;
+\cite{MVW} is the standard reference for the $p$-adic theory.  The finite
+Weil representations and their characters are in G\'erardin \cite{Ger77}.
+We use this circle of ideas only as a guide (Section~\ref{W:subsec:howe}
+and Remark~\ref{W:rem:howe-duality}); the Stone--von Neumann theorem for
+covered tori is used literally (\cref{I:prop:good}).
+
+\paragraph{Characters of compact $p$-adic groups.}  Howe's Kirillov
+theory \cite{How77a} describes the characters of congruence subgroups by
+coadjoint orbits when the group is large relative to $p$; the orbit
+method for uniform pro-$p$ groups with $p$ odd was developed further by
+Jaikin-Zapirain \cite{Jai06} and Boyarchenko--Sabitova \cite{BS08}, and the
+cohomology of uniform groups by Lazard \cite{Laz} (see [DDMS; SW]), which
+enters the alternative route to (H1) in Remark~\ref{W:rem:H1-checks}.  The
+finite-group tools are Brauer's characterization of characters and
+Clifford theory \cite{Isa}.  The Hilbert-symbol facts of
+Section~\ref{W:sec:model} are in Fesenko--Vostokov \cite{FV} and Serre \cite{Ser}.
+
+\paragraph{Computation.}  The exact computations behind the \Pctag\
+labels are small-scale and bespoke (Appendix~\ref{W:app:scripts}); a
+general-purpose system such as GAP or Magma could recompute the
+character tables of Section~\ref{W:sec:plan} directly, and the design
+search of Section~\ref{W:sec:finite} is an enumeration that any system can
+reproduce.  The methodological choice to separate hand proofs,
+exhaustive exact computations and sampled corroboration, and to label
+them, follows the practice of the series.
+\endgroup

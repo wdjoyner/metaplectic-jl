@@ -1,0 +1,148 @@
+{
+ "missing": [],
+ "uncited": [
+  "Hen"
+ ],
+ "merged": {
+  "Bad": [
+   "I:Bad",
+   "II:Bad",
+   "III:Badulescu",
+   "W:Bad08"
+  ],
+  "Ber": [
+   "I:Ber",
+   "II:Ber"
+  ],
+  "Coh": [
+   "I:Coh",
+   "III:Cohen"
+  ],
+  "DKV": [
+   "I:DKV",
+   "II:DKV",
+   "III:DKV",
+   "IV:DKV",
+   "W:DKV"
+  ],
+  "FK": [
+   "I:FK",
+   "II:FK",
+   "III:FK86",
+   "IV:FK",
+   "W:FK"
+  ],
+  "HC70": [
+   "I:HC70",
+   "II:HC70"
+  ],
+  "J": [
+   "I:J",
+   "II:J"
+  ],
+  "JC": [
+   "I:JC",
+   "II:JC",
+   "IV:JC",
+   "W:JC"
+  ],
+  "KP1": [
+   "I:KP1",
+   "IV:KP",
+   "W:KP1"
+  ],
+  "KP2": [
+   "I:KP2",
+   "II:KP2"
+  ],
+  "Li4": [
+   "I:Li4",
+   "II:Li4",
+   "IV:Li14"
+  ],
+  "Moo": [
+   "I:Moo",
+   "W:Moo"
+  ],
+  "Ser": [
+   "I:Ser",
+   "W:Ser"
+  ],
+  "Wei": [
+   "I:W",
+   "W:Wei"
+  ],
+  "BD": [
+   "I:BD",
+   "W:BD01"
+  ],
+  "Fli80": [
+   "I:Fli80",
+   "W:Fli80"
+  ],
+  "GG18": [
+   "I:GG18",
+   "W:GG18"
+  ],
+  "JL": [
+   "I:JL",
+   "W:JL"
+  ],
+  "Kaz84": [
+   "I:Kaz84",
+   "W:Kaz84"
+  ],
+  "Klo86a": [
+   "I:Klo86a",
+   "III:Klose86"
+  ],
+  "Kub67": [
+   "I:Kub67",
+   "W:Kub67"
+  ],
+  "Kub69": [
+   "I:Kub69",
+   "W:Kub"
+  ],
+  "Li2": [
+   "I:Li2",
+   "II:Li2"
+  ],
+  "PRa88": [
+   "I:PRa88",
+   "III:PrasadRaghunathan88"
+  ],
+  "Rog83": [
+   "I:Rog83",
+   "II:Rog83",
+   "W:Rog83"
+  ],
+  "Sav88": [
+   "I:Sav88",
+   "W:Sav88"
+  ],
+  "Wal80": [
+   "I:Wal80",
+   "W:Wal80"
+  ],
+  "Wal91": [
+   "I:Wal91",
+   "W:Wal91"
+  ],
+  "Wei18": [
+   "I:Wei18",
+   "W:Wei18"
+  ],
+  "Z": [
+   "I:Z",
+   "II:Z",
+   "III:Zou",
+   "IV:Zou24",
+   "W:Zou24"
+  ],
+  "Kot84": [
+   "III:Kottwitz84",
+   "IV:Kottwitz84"
+  ]
+ }
+}

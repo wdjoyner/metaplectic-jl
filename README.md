@@ -41,6 +41,18 @@ Jacquet–Langlands correspondence. It uses the metaplectic correspondence
 of Flicker–Kazhdan (Publ. Math. IHÉS 64, 1986), together with the
 corrections of J. Zou (arXiv:2209.05852).
 
+## The book
+
+The series is now combined into one book, which is the working
+document: `book/mjl_book_draftK.tex` (*On a metaplectic
+Jacquet–Langlands transfer for division algebras of prime degree*, by
+David Joyner, Claude and ChatGPT). Chapters 4–8 are Parts I–IV and the
+companion paper; Chapter 2 is the literature review, Chapter 3 the
+notation and glossary, Chapter 9 the summary of results. Build with
+`cd book && pdflatex mjl_book_draft1.tex` (three passes). The book's
+revision logs are `book/mjl_book_revision_log_draftK`. The separate
+papers below are frozen at their last drafts.
+
 ## The manuscripts
 
 | Part | Title | Current draft |

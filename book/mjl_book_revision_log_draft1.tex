@@ -1,0 +1,137 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,enumitem,booktabs}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\title{On a metaplectic Jacquet--Langlands transfer for division algebras of prime degree\\
+(book) --- Revision Log for Draft 1}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Decisions (David Joyner, November 8, 2026)}
+\begin{enumerate}[leftmargin=*]
+\item Combine Parts~I--IV and the companion paper on the rank-two wild
+place into one book, so that cross-references and citations work.
+\item Freeze the separate papers: their current drafts (Part~I
+Draft~11, Part~II Draft~10, Part~III Draft~10, Part~IV Draft~6,
+companion Draft~8) stay in the repository as history, and the book is
+the working document from now on, with its own drafts and logs.
+\item Title: \emph{On a metaplectic Jacquet--Langlands transfer for
+division algebras of prime degree}.  Authors on the title page:
+David Joyner, Claude (Anthropic), ChatGPT (OpenAI); each chapter's
+source and author order are listed in the Preface.
+\end{enumerate}
+
+\section*{Structure}
+\begin{tabular}{@{}ll@{}}\toprule
+Front matter & Preface (sources, conversion, contributions, the five acknowledgments)\\
+1 & Introduction (new; setting, chapters, running example, open problems)\\
+2 & Literature: Part~I's review, then the related-work sections of Part~II,\\
+  & Part~III and the companion paper\\
+3 & Notation and glossary: the shared glossary, then the notation sections\\
+  & of Parts~I, II, III and IV\\
+4--8 & Parts~I, II, III, IV and the companion paper\\
+9 & Summary of results, one section per chapter (Part~IV: its abstract)\\
+Appendix A & Tables and verification scripts of the companion paper\\
+Bibliography & merged, 104 entries\\
+\bottomrule\end{tabular}
+
+\noindent Each chapter opens with the source's abstract (``Overview'')
+and a line naming the source draft.  Numbering is by chapter and
+section (Theorem~4.4.5).  The layout follows David's choices for Part~I:
+literature and notation at the front, summary at the end.
+
+\section*{No mathematical change}
+No statement, proof, hypothesis or status label was changed.  Counting
+environments in the five sources and in the book gives identical
+totals: 26 theorems, 50 lemmas, 40 propositions, 14 corollaries,
+16 definitions, 66 remarks, 5 examples, 128 proofs, 124 equations,
+6 align blocks, 56 enumerations, 7 tables, 4 diagrams.  Text removed:
+the five titles, abstracts (moved to the chapter overviews), the
+\verb|\input| of the glossary in Parts~I--III (the glossary appears once,
+in Chapter~3), the lead-in paragraphs of the three per-Part ``Notation and
+glossary'' sections (replaced by one lead-in for Chapter~3), and the
+five bibliographies (merged).  The acknowledgments moved to the Preface.
+The build has no errors, no undefined references or citations, and no
+multiply defined labels.
+
+\section*{Conversion rules}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Labels.}  Every label of a source is prefixed by its
+chapter tag (\texttt{I:}, \texttt{II:}, \texttt{III:}, \texttt{IV:},
+\texttt{W:}); the shared glossary's labels (\texttt{gl:}) are unchanged.
+Four headings that had no label but are cited from other Parts were
+given one: Part~I \S1.1 and \S1.4, Part~III \S2, Part~IV \S2.1.
+\item \textbf{Cross-Part references.}  Typed references such as
+``Part~I, Lemma~2.2'' were mapped, by number, to labels using the
+compiled label tables of the drafts they were written against: Parts~II
+and~III and the glossary cite Part~I Draft~11; Part~IV, the companion
+paper and the running-example note cite Part~I Draft~8 (= Draft~10)
+numbering; Parts~II--IV have one numbering each.  Theorem-like items are
+rendered with \verb|\cref|, which prints the item's actual type;
+sections with \verb|\S\ref|.  ``Part~X'' without a number became
+``Chapter~\ref{...}''.  43 references typed without a ``Part'' prefix
+(the comparison table, diagram and restatements (I1)--(I11) of Part~II;
+section pointers in Part~III's lead-ins; one in Part~I; five in the
+companion paper's list of dependencies; one ``Appendix~B'' in Part~IV)
+were mapped by hand; each is listed in \texttt{reports/assemble\_fixes.txt}.
+\item \textbf{Name mismatches.}  The companion paper cites ``Part~I,
+Definition~2.2'' twice (in its section on the cover in the Kazhdan--Patterson model,
+now \S8.11, and in the dependency list of its main theorem).  In Part~I's Draft~8 numbering, item~2.2 is Lemma~2.2 (scalar
+centrality); Definition~2.1 defines the local covers and \S2.2 is the
+ambient cover.  The book renders the reference as \verb|\cref| of item~2.2,
+so it now reads ``Lemma~4.2.2''.  David: please check which item was
+meant (probably Definition~2.1, now Definition~4.2.1).
+\item \textbf{Citations.}  Bracketed citations (Parts~I, II and the
+companion paper) were converted to \verb|\cite| only when every key in
+the bracket is a key of that paper's bibliography, so that labels such as
+[P] and commutators such as $[Q,Q]$ were left alone.  Citations of the
+Parts themselves (\texttt{P1}, \texttt{JoynerI}, \ldots,
+\texttt{RankTwo0}) became chapter references.
+\item \textbf{Macros.}  Each chapter keeps its source's macros,
+redefined at the start of the chapter inside a group, so different
+definitions of the same name (for example \verb|\GDb|, \verb|\GL|) do not
+interact.  Theorem environments are defined once.
+\end{enumerate}
+
+\section*{Bibliography}
+One key per work.  31 works appeared under several keys and were merged:
+BD, Bad, Ber, Coh, DKV, FK, Fli80, GG18, HC70, J, JC, JL, KP1, KP2, Kaz84,
+Klo86a, Kot84, Kub67, Kub69, Li2, Li4, Moo, PRa88, Rog83, Sav88, Ser,
+Wal80, Wal91, Wei, Wei18, Z (sources listed in
+\texttt{reports/bib\_report.json}).  Two key collisions were separated:
+[BZ] is Bernstein--Zelevinsky 1976 (Russian Math.\ Surveys) in Part~I but
+1977 (Ann.\ ENS) in Part~II, now [BZ76] and [BZ77]; [Gao] is Gao's
+$\mathrm{Mp}_4$ preprint in Part~I but his 2018 Amer.\ J.\ Math.\ paper in
+the companion paper, now [Gao12] and [Gao18].  Where entries differed,
+Part~I's (checked) entry was used, except DKV (the companion paper's
+entry has pages) and Cohen (Part~III's has the journal data).  Weil's
+\emph{Basic Number Theory} is cited in the 2nd edition by Part~I and the
+3rd by the companion paper; the entry names both.  Moore's IH\'ES paper
+now has the correct pages 5--70 (the companion paper had 157--222).
+Henniart's paper, in Part~I's bibliography but never cited, was dropped.
+
+\section*{Known limitations of Draft 1}
+\begin{enumerate}[leftmargin=*]
+\item Each chapter keeps its own introduction, so the setting, the
+labels and the running example are repeated; prose still says ``this
+paper'' and, in places, ``here cited as Draft~8''.  An editing pass
+should remove the repetition and update the wording.
+\item Parts~IV and the companion paper had not had the exposition pass
+(summary, related work, lead-ins) given to Parts~I--III; their
+existing summary and literature sections were used.
+\item The chapter titles are those of the source papers; Chapter~8's
+title is shortened.
+\end{enumerate}
+
+\section*{Files}
+\texttt{book/mjl\_book\_draft1.tex} and \texttt{.pdf};
+\texttt{book/chapters/*.tex} (generated);
+\texttt{book/tools/} (the scripts that generated them, with a README);
+\texttt{book/reports/} (conversion report, hand fixes, bibliography
+report, source bibliographies); this log.  The frozen papers are
+unchanged.  README updated.
+\end{document}
