@@ -117,18 +117,18 @@ quaternion algebras. Draft 0 set the problem up; Drafts 1-4 (November
   `part-IV/scripts/`, exact arithmetic only); the one previously sampled
   step, hypothesis (H1), has a hand proof since Draft 2.
 - **Part of Target B**: the same holds for every irreducible
-  representation of `D^×` trivial on the second congruence subgroup
-  and all its norm twists; for an arbitrary row there is a reduction to
-  the pro-3 Sylow subgroup and a sufficient criterion in terms of a
-  cube-root transform of the character.
+  representation of `D^×` trivial on the third congruence subgroup
+  and all its norm twists (levels zero, one and two); for an arbitrary
+  row there is a reduction to the pro-3 Sylow subgroup, and a
+  conjectural "cube-root correspondence" that would give all rows.
 - **Part of Target C**: the p-th power identity and the
   multiplicativity of the canonical star section on the 2d-th
   congruence subgroup hold for every odd prime p and every field
   containing the p-th roots of unity.
 
 Each draft has a revision log (`mjl_rank2_wild_revision_log_draftK`);
-ChatGPT's referee reports on Drafts 1-3 are the files
-`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 4.
+ChatGPT's referee reports on Drafts 1-4 are the files
+`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 5.
 
 ### Main open problems
 
@@ -136,7 +136,7 @@ ChatGPT's referee reports on Drafts 1-3 are the files
   `L_D` maps irreducible characters to irreducible genuine characters
   there in general. For the running example (`r = 2`, `n = 3`,
   `F = Q_3(zeta_3)`) the companion paper settles the trivial character and
-  all rows trivial on the second congruence subgroup; rows of higher
+  all rows trivial on the third congruence subgroup; rows of higher
   level, and other `p` and `F`, remain open.
 - **The full comparison of `D^×` with its cover.** The comparison is
   proved only conditionally. What is missing is matching at the places

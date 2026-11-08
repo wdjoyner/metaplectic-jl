@@ -1,0 +1,105 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\title{Metaplectic Jacquet--Langlands Transfer, Companion Paper (Rank Two, Wild Place)\\Revision Log: Draft 4 to Draft 5}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+\section*{Scope}
+Draft 5 (i) incorporates the two clarifications requested in ChatGPT's
+referee report on Draft 4 (recommendation: minor revision), and (ii) adds
+one new theorem: Target B holds for every irreducible representation of
+$D^\times$ trivial on $K^3$.  Everything else is unchanged.
+
+\section*{The two clarifications}
+\begin{enumerate}[leftmargin=*]
+\item Lemma \texttt{lem:centralizers}(a) is now stated for $2$-elements
+$y$ whose image in $D_8$ is nontrivial, with a parenthetical explaining
+that the central $\mu_2\subset T$ of the odd case (whose centralizer is
+all of $\Gamma_0$) is excluded; the Brauer proof of Theorem
+\texttt{thm:reduction-all} only invokes the lemma for such $y$.
+\item Lemma \texttt{lem:H1consequences}(c): the splitting
+$\tilde V\simeq\mu_3\times V$ is now derived from $\tilde V$ being
+abelian \emph{of exponent $3$} (cubes of lifts of $K^3$ are star lifts
+of elements of $K^9$, on which $\psi_6=1$; cubes of central lifts are
+star lifts of cubes, on which $\psi_6=\theta_0^3=1$), with the remark
+that abelianness alone would not suffice ($C_9\to C_3$).
+\end{enumerate}
+
+\section*{Target B at level two (new Section 12.4)}
+For $\rho$ irreducible, trivial on $K^3$, nonscalar on $K^2$:
+$\rho|_{K^1}=\chi_3+\chi_3'$ (the two $3$-dimensional characters of the
+Heisenberg group $Q_1/Q_3$), $\dim\rho=6$, four such $\rho$ per
+normalized central character.  Findings, all by exact computation
+(scripts 13--15, about ten minutes):
+\begin{enumerate}[leftmargin=*]
+\item The sufficient criterion of Proposition \texttt{prop:criterion}
+\emph{fails} for these $\rho$: on the $219$ good classes of $H=Q_3/Q_7$,
+$F_\rho$ is a rational but not integral combination of the
+$\mathrm{Ad}(Q_1)$-invariant virtual characters of $H$ (Smith normal
+form over $\Z$).  For the three orbit sums of linear characters of the
+Heisenberg group it succeeds, consistent with Theorem \texttt{thm:levelone}.
+\item Nevertheless $\Phi_\rho|_{\tilde U_3}$ is a genuine character.
+Since $\Phi_1|_{\tilde U_3}=\lambda_0\cdot D$ with $D=\sum_{h\in\Lambda}\zeta^h$,
+$\Phi_\rho|_{\tilde U_3}=\lambda_0\cdot(\Theta_\rho\circ r)D$, and the
+exact character table of $H$ ($297$ classes, $243$ linear and $54$
+three-dimensional characters) gives
+$((\chi_3+\chi_3')\circ r)\cdot D=\sum\{\chi'\in\mathrm{Irr}(H):\chi'(1)=3\}$,
+each of the $54$ exactly once.
+\item Clifford theory then reduces Target B for $\rho$ to the freeness of
+the $\mathrm{Ad}(Q_1)$-action on the $54$ genuine three-dimensional
+irreducibles $\lambda_0\chi'$ of $\hat H=\tilde U_3/\ell(K^7)\ker\tilde\theta$
+(a size-$9$ orbit would give a non-integral multiplicity $e|O|/27$).
+Computing $\lambda_0$ on $\hat H$ in the cocycle model and the twisted
+action $\mu^t=\lambda_0 c_t(\chi'\circ\mathrm{Ad}\,t)$: exactly two
+orbits, both of size $27$.  Hence
+\[
+ \tau_\rho|_{\tilde U_1}=(\varepsilon_\rho\circ p)\otimes\bigl(\mathrm{Ind}(\lambda_0\otimes\chi_1')\oplus\mathrm{Ind}(\lambda_0\otimes\chi_2')\bigr),
+\]
+two irreducibles of dimension $81$, $\dim\tau_\rho=162$ (Theorem
+\texttt{thm:leveltwo}, [P$^c$]).  Cross-checks: the untwisted action on
+the same $54$ characters has six orbits of size $9$ (so the
+$\lambda_0$-twist is essential), and the $243$ genuine linear characters
+form nine free orbits, recovering Theorem \texttt{thm:levelone}.
+\end{enumerate}
+
+\section*{The cube-root correspondence (new Section 12.5, [O])}
+Both level theorems fit one pattern: to each irreducible $\chi$ of
+$Q_1/Q_{m+1}$ corresponds an irreducible $\chi'$ of $Q_3/Q_{3m+1}$ of the
+same degree with $\Phi_1\cdot(\chi\circ r)=\Theta_{\mathrm{Ind}(\lambda_0\otimes\chi')}$;
+this is formulated as a conjecture implying Target B for all $\rho$,
+and reduced to two statements: (i) $\mathrm{Ad}(Q_1)$ acts freely on the
+genuine irreducibles of $\hat H_m$ (equivalently every
+$\mathrm{Ind}_{\tilde U_3}^{\tilde U_1}\mu$ is irreducible), a statement
+about the cover alone; (ii) $(\chi\circ r)D$ is a virtual character of
+$Q_3/Q_{3m+1}$.  Both hold for $m\le2$.  For $m=3$ the group has order
+$3^{11}$; Burnside's algorithm as implemented will not reach it, but
+Clifford theory relative to $Q_4/Q_{10}$ would.
+
+\section*{Computational notes}
+\texttt{step13\_level2.py} builds $H$ from the Draft 1 model of $Q/Q_7$
+(\texttt{finite.pkl}), computes its character table numerically
+(Burnside) and re-verifies it exactly in $\Z[\zeta_3]$ (all
+orthogonality relations), and solves the criterion over $\Z$ with a
+hand-written Smith normal form (\texttt{zsolve.py}).
+\texttt{step14\_level2\_restriction.py} decomposes $(\chi\circ r)D$.
+\texttt{step15\_level2\_clifford.py} computes $\lambda_0$ on $\hat H$
+(formula \eqref{eq:lambda0} of the paper, as in script 11), the
+conjugation action with the exact cocycle, and the orbits; it also
+checks on $300$ random pairs that $\lambda_0$ descends to a character of
+$\hat H$ (a consistency check, not load bearing).  A scalar-extraction
+bug in a first version of script 15 (wrong coordinate for the
+$F$-component) was caught by that check.
+
+\section*{Status}
+Theorem \texttt{thm:leveltwo} [P$^c$] (new); Theorems
+\texttt{thm:reduction-all}, \texttt{thm:H1-gen} [P] (clarifications
+applied); Section 12.5 [O]; nothing else changed.
+\end{document}

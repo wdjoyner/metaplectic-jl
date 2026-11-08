@@ -7,3 +7,6 @@ Recommended order to verify the cocycle/symbol layer independently:
 Finite design layer: step1_G3.py, step2_finite.py, step3_actions.py, step4_design.py, step6_orbit.py.
 Corroboration: step5_H1.py, step8_H1test.py, step8b.py, step9_H1_stratified.py, step10_defects.py,
                step11_endtoend.py, step11b.py.
+Level two (Draft 5): step13_level2.py (needs finite.pkl from step2_finite.py, included), then
+  step14_level2_restriction.py and step15_level2_clifford.py (needs design_0011020002.pkl from step6, included);
+  zsolve.py is the exact integer solver used by step13. Total about ten minutes.
