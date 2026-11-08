@@ -114,8 +114,10 @@ quaternion algebras. Draft 0 set the problem up; Drafts 1-4 (November
   27, whose restriction to the pro-3 part is induced from an explicit
   character of the covered third congruence subgroup. Label [P^c]: the
   proof uses four exhaustive finite computations (scripts in
-  `part-IV/scripts/`, exact arithmetic only); the one previously sampled
-  step, hypothesis (H1), has a hand proof since Draft 2.
+  `part-IV/scripts/`, exact arithmetic); hypothesis (H1) has a hand
+  proof since Draft 2, and the level-two theorem has hand proofs for
+  both of its steps since Draft 6 (the scripts for it are corroboration
+  and produce an explicit orbit certificate).
 - **Part of Target B**: the same holds for every irreducible
   representation of `D^×` trivial on the third congruence subgroup
   and all its norm twists (levels zero, one and two); for an arbitrary
@@ -152,8 +154,10 @@ part-II/    Part II drafts and revision logs
 part-III/   Part III drafts and revision logs
 part-IV/    Part IV drafts, revision logs, referee reports, the
             rank-two toral positivity note, and the rank-two
-            companion paper (mjl_rank2_wild_draftK) with its
-            verification scripts in part-IV/scripts/
+            companion paper (mjl_rank2_wild_draftK); its
+            verification scripts, data files and the level-two
+            orbit certificate are in part-IV/scripts/ (see the
+            README there for what each script establishes)
 notes/      Supporting notes, including the running example
 software/   Supporting code (MIT License)
 ```
