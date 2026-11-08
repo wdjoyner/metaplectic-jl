@@ -1,0 +1,579 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\A}{\mathbb A}
+\newcommand{\Gb}{\overline G}
+\newcommand{\GDb}{\overline G_D}
+\newcommand{\Zb}{\overline Z}
+\newcommand{\tH}{\widetilde H}
+\newcommand{\tZ}{\widetilde Z}
+\newcommand{\Nrd}{\operatorname{Nrd}}
+\theoremstyle{definition}
+\newtheorem*{prop*}{Proposed Corollary}
+
+\title{Referee report on \texttt{mjl\_part4\_draft1.tex}\\
+\normalsize ``Toward a metaplectic Jacquet--Langlands transfer, IV''}
+\author{Claude (Anthropic), for David Joyner}
+\date{November 7, 2026}
+
+\begin{document}
+\maketitle
+
+\section*{0. Scope and what I read}
+\paragraph{Read in full.} Part~IV, Draft~1 (669 lines), and its log;
+Part~III, Draft~6 (1359 lines); the Part~III log (Entries 0--6); my
+Draft~5 report on Part~III; the Part~II log; and the revision log for
+Part~I Draft~6 and [JC] revised12.
+
+\paragraph{Read in part.}
+\begin{itemize}
+\item \emph{Part~I, Draft~6:} lines 1--949, i.e.\ \S\S1--8 (everything
+except the glossary, literature section and Appendices A, B).
+\item \emph{Part~II, Draft~6:} the introduction and dependency diagram
+(lines 1--140), Definition~2.1 and Remark~2.2 (measures), \S7 (``What is
+left for Part~III''), and the acknowledgments. I did not check
+Part~II's proofs here.
+\item \emph{[FK] (scan) and Zou (arXiv v3):} I extracted the text and read
+only the passages listed in \S3 below.
+\end{itemize}
+
+\paragraph{Not read.} [JC] (\texttt{metaplectic\_kazhdan\_revised12.tex}):
+I compiled it but did not read it, since Part~IV does not cite it.
+
+\paragraph{Compilation.} All of Parts~I--IV compile. In my build the page
+counts are 48, 32, 23 and 11. The theorem numbers I quote below come
+from the compiled \texttt{.aux} files. Part~IV's numbering is as follows (equations are numbered consecutively in all four papers):
+\begin{itemize}
+\item Proposition~2.1 (lattice criterion);
+\item Remark~2.2;
+\item Proposition~2.3 (finite-level test);
+\item Remarks~2.4, 2.5;
+\item Lemma~3.1 (radical);
+\item Theorem~3.2 (split diagonal good elements);
+\item Remarks~3.3, 3.4;
+\item Definition~3.5 (nonsplit-torus problem);
+\item Proposition~4.1 (Hasse principle);
+\item Remark~4.2;
+\item Definition~5.1 (geometric comparison);
+\item Remark~5.2;
+\item Proposition~6.1 (spectral).
+\end{itemize}
+
+\section*{Summary verdict}
+I found no false mathematical identity in Part~IV. Every displayed
+formula I checked is correct. The draft's main problem is that it does
+not take account of what Part~I and [FK] already contain.
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{The split-place theorem and the ``open'' nonsplit problem are
+already in [FK].} Theorem~3.2 is [FK, \S3, Proposition] specialized to
+the diagonal torus. That Proposition treats \emph{every} regular torus
+$\bigoplus_iF_i^\times$, at every finite place, tame or wild. So
+Definition~3.5 is not an open problem. Part~I already uses the
+Proposition: in the proof of Theorem~5.6, and through its commutator
+formula in Proposition~3.1.
+\item \emph{The global-comparison sections ignore Parts~I and~II.}
+\begin{itemize}
+\item Part~I already contains a proved trace-formula comparison:
+Theorem~6.6, with rational-orbit accounting (Theorem~5.6,
+Corollary~5.7), measures (\S5.3), and identity terms (Proposition~6.1).
+Part~II extends it (Theorem~6.2).
+\item Part~IV's introduction, status table, \S4 and \S5 describe all of
+this as open.
+\item Definition~5.1 does not say \emph{which} two groups are being
+compared. Part~I compares $\GDb$ with $\Gb$. The target identity
+(31) of Part~III compares $\GDb$ with $D^\times$.
+\end{itemize}
+\item \emph{The draft misses a new global result that it is close to.}
+With (1), Proposition~4.1 \emph{already} identifies the globally good
+regular elliptic classes. Remark~4.2 says this is not yet possible.
+I propose a short replacement corollary in \S1.4.
+\item \emph{Section~2 adds little to Part~III.} Propositions~2.1, 2.3 and~6.1
+restate Part~III, Corollaries~5.1 and~5.2. The ``inverse'' conditions
+in them are redundant, because Part~III, Theorem~4.3, proves that $L_D$
+is a unitary \emph{isomorphism}.
+\end{enumerate}
+Once these points are dealt with, the paper's genuinely new content is
+small: the corollary in \S1.4, the finite-level wild test, and a precise
+formulation of the $\GDb$--$D^\times$ comparison. I recommend
+restructuring along those lines (\S5) before any further refereeing.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.30\linewidth}p{0.17\linewidth}p{0.45\linewidth}@{}}
+\toprule
+Result & Mark & Main issue\\\midrule
+Prop.~2.1 (lattice criterion) & correct; minor repair & Its hypotheses are Part~III theorems; the inverse clause is redundant; it is Part~III, Cor.~5.2, plus a trivial converse\\
+Rem.~2.2 & misleading & For a unitary $L_D$, the inverse condition is automatic\\
+Prop.~2.3 (finite level) & correct & This is Part~III, Cor.~5.1\\
+Rem.~2.5 (Adams) & correct; minor repair & The relevant condition is $n$ prime to $|Q/C|$, not to $|Q|$\\
+Eq.~(7), Lemma~3.1 & correct; minor repair & $c$ should be $c_v$; ``alternating'' is misnamed; $(r,n)=1$ is automatic\\
+Thm.~3.2 & correct & It is [FK, \S3, Prop.] for the diagonal torus; label \textbf{[E]}\\
+Def.~3.5 \textbf{[O]} & status false & Already solved by [FK, \S3, Prop.] (see \S1.3)\\
+Prop.~4.1 & correct & This is Part~III, Prop.~11.3; cite the number\\
+Rem.~4.2 & incorrect claim & The identification it calls missing is in [FK, \S3]; replace it by the corollary in \S1.4\\
+\S5.1 (three quantities) & minor repair & $b_D$ and $c_D$ do not depend on the choice of measures (\S1.5)\\
+Ledger, Def.~5.1 & serious gap (formulation) & The groups compared are unstated; several rows are settled in Part~I\\
+Prop.~6.1 & correct & This is Part~III, Cor.~5.2 again; the inverse clause is redundant\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{1. Correctness}
+
+\subsection*{1.1 Section 2: the character lattice}
+\paragraph{Proposition~2.1: correct, minor repair.}
+\begin{itemize}
+\item \emph{The hypotheses are not hypotheses.} ``Unitarity, smoothness, and
+finite character expansions'' are proved in Part~III: Theorem~4.3,
+Lemma~4.2 and Corollary~5.1. Assuming them makes the result look
+conditional. (I raised the same point about ``Hypothesis~(G)'' in my
+Draft~5 report on Part~III.)
+\item \emph{The inverse clause is automatic.}
+\begin{itemize}
+\item Since $L_D$ is a unitary isomorphism and both character families
+are orthonormal bases, the coefficient of $\Theta_\rho$ in
+$L_D^{-1}\Theta_\tau$ is $\overline{a_{\rho\tau}}$.
+\item If every $a_{\rho\tau}\in\mathbb Z$, each row is a signed basis
+vector. Distinct rows are orthogonal, so $\rho\mapsto\tau(\rho)$ is
+injective.
+\item Every column has norm~$1$, so every $\tau$ is hit.
+\end{itemize}
+Hence (iii) can be stated as ``every $a_{\rho\tau}$ is an integer''. The
+sentences about the adjoint matrix should then be deleted.
+\item \emph{Remark~2.2 should be rewritten.} As it stands it suggests a real
+issue that unitarity already removes.
+\item \emph{Status.} The implication (iii)$\Rightarrow$(i) is Part~III,
+Corollary~5.2. The converse is trivial. I suggest the label
+\textbf{[E]} (Part~III, Cor.~5.2) with a one-line proof of the converse,
+not a new label \textbf{[R]}.
+\end{itemize}
+The sign argument is correct: $(L_D\Theta_\rho)(1)=c_D\dim\rho>0$ by
+Part~III, Corollary~5.2.
+
+\paragraph{Proposition~2.3 and Remark~2.4: correct.} This answers log
+question~(Q3) affirmatively, and the argument is already the proof of
+Part~III, Corollary~5.1. A smooth $\tilde\theta$-equivariant invariant
+function is right-invariant under an open normal subgroup $N$, because
+$\tH/\tZ$ is compact. Only the finitely many $\tau$ with $\tau^N\ne0$
+and central character $\tilde\theta$ can occur, since $N\tZ$ has finite
+index. I suggest citing Part~III, Corollary~5.1, and keeping only the
+computational remark.
+
+\paragraph{Remark~2.5 (Adams operations): correct, minor repair.} The
+sentence ``when $n$ is prime to $|Q|$ \ldots\ this is the ingredient used
+in the tame case of Part~III'' misdescribes Part~III, Lemma~7.5. That
+lemma allows a central subgroup $C$ of order divisible by $n$, with the
+central character fixed, and needs only $\gcd(n,|Q/C|)=1$. The obstruction
+at a wild place is therefore $p\mid|Q/C|$. This does occur:
+\begin{itemize}
+\item every finite quotient of $H/Z$ maps onto a quotient of
+$E^\times/F^\times E^{\times n}$ for a maximal subfield $E$;
+\item that group has order $|n|_F^{-(r-1)}$ (Part~III, Lemma~3.2).
+\end{itemize}
+The $C_p$ example is right if read with $C=1$. It should say so.
+
+\subsection*{1.2 Section 3: the commutator matrix}
+\paragraph{Equation (7) and Lemma~3.1: correct.} I recomputed
+$\sigma_c(t,u)/\sigma_c(u,t)$ directly from (5). Antisymmetry
+$(a,b)(b,a)=1$ gives
+\[
+\prod_{i,j}(t_i,u_j)^{2c+[i\ne j]},\qquad\text{so}\qquad A=-I+(1+2c)J.
+\]
+This agrees with Part~I, Proposition~3.1. That proposition, following
+[FK, \S3] and [KP1, Prop.~0.1.5], gives
+$[x,y]=(\det x,\det y)^{1+2c_v}\prod_i(x_i,y_i)^{-1}$ on any maximal
+torus. The kernel computation in Lemma~3.1 is correct. Four repairs:
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Notation.} Write $c_v$ for the parameter. In Part~I
+(Assumption~1.1) the letter $c$ denotes the integer with $n\mid r-1+2c$,
+and $c_v=r'c$.
+\begin{itemize}
+\item Part~IV's $c$ in (5)--(6) is Part~I's $c_v$. The example
+$c\equiv2\pmod3$ matches Part~I, Example~3.7, which has $c=1$ and $c_v=2$.
+\item Since $2r$ is invertible modulo $n$, the congruence determines $c_v$
+modulo $n$. Part~I, \S5.1, notes that $c_v$ does not depend on $v$. So
+the ledger row ``dependence on $c_v$'' is vacuous.
+\end{itemize}
+\item \emph{Terminology.} ``Since $n$ is odd, the Hilbert symbol is
+alternating: $(x,y)_n=(y,x)_n^{-1}$.'' The displayed identity is
+antisymmetry, which holds for every $n$. ``Alternating'', meaning
+$(x,x)=1$, is what needs $n$ odd, and it is not used.
+\item \emph{A redundant hypothesis.} If $n\mid r-1+2rc$ then $\gcd(r,n)$ divides
+$1$, so $(r,n)=1$ is automatic.
+\item \emph{Matching Part~I's cocycle.} Log question~(Q1) asks whether
+(5) agrees with Part~I. It does, and literally, not only up to a
+coboundary, in the $\sigma$-model after relabeling. Part~I,
+Proposition~2.3(b) and Step~1 of its proof, show that $\Gb_v$ is the
+extension with cocycle $\sigma^{\,r}(\det,\det)^c$. On the diagonal
+torus this is $\prod_{i<j}(a_i,a'_j)^r(\det,\det)^c$. After the
+relabeling $\zeta\mapsto\zeta^{r'}$ it is exactly (5) with $c=c_v$.
+Before relabeling, every commutator is raised to the power $r$, and the
+radical is unchanged.
+\end{enumerate}
+
+\paragraph{Theorem~3.2: correct, but known.} The statement is
+[FK, \S3, Proposition]: ``$[x,g]=1$ for all $g$ in $T$ if and only if $x$
+lies in $Z_*T^n$.'' I checked this on p.~59 of the attached scan. There
+$Z_*$ is the inverse image of the center of the cover, and $Z_*=Z$ by
+Part~I, Lemma~2.2. The theorem should be labeled \textbf{[E]} and
+attributed. The abstract's ``we compute the commutator radical'' should
+become ``we recall''.
+
+\subsection*{1.3 Definition~3.5 is not open}
+[FK, \S3] states the commutator formula for the torus
+$T=\bigoplus_iF_i^\times$ of an arbitrary regular element:
+$[x,g]=(\det x,\det g)^{1+2c}\prod_i(x_i,g_i)_{F_i}^{-1}$. It deduces
+goodness $\iff x\in Z_*T^n$ for every such torus. The proof is three
+lines, and it is the proof of Part~I, Proposition~3.5(a), word for word.
+\begin{itemize}
+\item Write $E=\prod_iE_i$ and $N=N_{E/F}$.
+\item Norm compatibility gives
+$(\det x,\det g)_F=\prod_i(Nx,g_i)_{E_i}$.
+\item Nondegeneracy of each $(\cdot,\cdot)_{E_i}$ (valid at every finite
+place, since $\mu_n\subset E_i$) gives: $x$ is good $\iff$
+$x_i\equiv(Nx)^{1+2c_v}\bmod E_i^{\times n}$ for all $i$.
+\item The congruence $n\mid r-1+2rc_v$ turns this into
+$x\in F^\times\prod_iE_i^{\times n}$, exactly as in Part~I.
+\end{itemize}
+No new ``restriction and corestriction'' analysis is needed, and the
+answer is uniform in $E$. Places with $p\mid n$ are included. So
+Definition~3.5 should be deleted. The paragraph after it, warning that
+rational points need separate treatment, is moot: the formula is stated
+on $F$-rational points.
+
+\subsection*{1.4 Section 4: what Proposition~4.1 already gives}
+\paragraph{Proposition~4.1: correct.} This is Part~III, Proposition~11.3;
+I rechecked the algebra
+$t/a=(a_v^k y_vN(y_v)^{-u})^n$. Log question~(Q5): the hypotheses used
+are
+\begin{itemize}
+\item $[E:K]=r$ (in the norm trick);
+\item $\gcd(n,r)=1$ (to choose $u,k$);
+\item $\mu_n\subset K$ (Kummer theory over $E$).
+\end{itemize}
+$n$ odd is not used.
+
+\paragraph{Remark~4.2 is wrong in its key claim.} It says the
+proposition ``cannot be invoked from the good-element condition unless
+that condition has first been identified with the local power condition
+for the actual regular centralizer''. By \S1.3 that identification holds
+at every place. I suggest replacing the remark by the following
+statement, which I believe is new in the series and is the rational-orbit
+accounting asked for in Part~III, \S12, obligation~(1).
+
+\begin{prop*}[\textbf{[P]}]
+Assume Part~I, Assumption~1.1. Let $G\in\{G_D,\GL(r)\}$, and let
+$\gamma\in G(K)$ be regular elliptic, with $E=K(\gamma)$ a field of degree
+$r$. The following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+\item $\iota(\gamma)$ is good at every place;
+\item $\iota(\gamma)$ is good at every place outside some finite set
+$\Sigma$;
+\item $\gamma\in K^\times E^{\times n}$.
+\end{enumerate}
+Moreover $s\mapsto s^n$ is a bijection from the regular elements of
+$E^\times/K^\times$ onto the classes of $E^\times/K^\times$ satisfying
+(a)--(c), and $W_{s^n}=W_s$ in the notation of Part~I, \S6.
+\end{prop*}
+
+\noindent\emph{Proof sketch.}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{The local criterion at each place.} At a finite place $v$, the
+centralizer of $\gamma$ is $T_v=(E\otimes_KK_v)^\times$.
+\begin{itemize}
+\item For $v\notin S$, combine Part~I, Proposition~2.6 (on the $D$ side),
+Proposition~2.3(b), Lemma~2.2 and [FK, \S3]: goodness at $v$
+$\iff\gamma\in K_v^\times T_v^n$.
+\item For $v\in S$, the same holds by Part~I, Proposition~3.5(a).
+\item At the complex places everything is split and $T_v^n=T_v$.
+\end{itemize}
+\item \emph{The equivalence.} (c)$\Rightarrow$(a)$\Rightarrow$(b) are
+clear, and (b)$\Rightarrow$(c) is Proposition~4.1.
+\item \emph{Injectivity of $s\mapsto s^n$.} If $s^n\in K^\times$, then
+$[K(s):K]$ divides both $n$ and $r$, so it is $1$.
+\item \emph{Regularity.} If $a s^n$ is regular then $s$ is not central.
+\item \emph{The groups $W$.} For $\sigma\in\operatorname{Aut}(E/K)$,
+$\sigma(s^n)\in K^\times s^n\iff(\sigma(s)/s)^n\in K^\times\iff
+\sigma(s)\in K^\times s$, by the same injectivity. \qed
+\end{enumerate}
+
+So the geometric sides in Part~I, Propositions~6.1 and~6.2, run over
+$\{[s^n]\}$, and the global ``Kummer obstruction'' disappears for the
+comparison of $\GDb$ with $D^\times$.
+
+\paragraph{\S4.1 (Kottwitz): correct.} This is consistent with
+Part~III, \S10.
+
+\subsection*{1.5 Section 5: normalizations}
+\begin{itemize}
+\item \emph{The formulas are right.} The formulas for $b_{D,v}$ and
+$c_{D,v}$ agree with Part~III, Theorem~4.3, Corollary~5.2 and
+Corollary~9.3. Log question~(Q2): yes.
+\item \emph{But $b_D$ and $c_D$ do not depend on the measures.} Part~III
+identifies $\tH/\tZ\cong H/Z$ canonically. The covered orbital integral
+at $zt^*$ is an integral over the same quotient $H/T$ as the linear one
+at $t$. So if the same Haar measure $dg$ is used on $H/Z$ and
+$\tH/\tZ$, and the same $dt$ on $T/Z$:
+\begin{itemize}
+\item both orbital integrals in Part~III, (20), are multiplied by the
+same factor, the ratio of $\mathrm{vol}_{dg}(H/Z)$ to
+$\mathrm{vol}_{dt}(T/Z)$;
+\item both $L^2$ norms in Theorem~4.3 are multiplied by the same constant.
+\end{itemize}
+Thus (20), (21) and unitarity hold with $b_D$ for \emph{every} common choice
+of measures. The value $c_D$ at the identity is pointwise, so it is
+measure-free. The ``third contribution'' in \S5.1 is therefore zero for
+a comparison of $\GDb$ with $D^\times$. Measures matter only in the
+comparison of $\GDb$ with $\Gb$, where Part~II, Definition~2.1, fixes
+$\mathrm{vol}(D_v^\times/F^\times)=d(\mathrm{St})^{-1}$. Under that
+choice the probability measure is $d(\mathrm{St};dg_v)\,dg_{D,v}$.
+\item \emph{The product-formula remark is correct.} Here is a concrete point
+for the ledger. At a place $v\notin S$ where $E\otimes K_v$ has $k_v$
+factors, the map $s\mapsto s^n$ on $T_v/Z_v$ is \emph{not} injective. Its
+kernel is $\mu_n^{k_v}/\mu_n$, of order $n^{k_v-1}$, even when $v\nmid n$.
+\begin{itemize}
+\item Contrast $v\in S$: there the power map is injective (Part~III,
+Lemma~3.2).
+\item This is the reason for the sum over $\{t:t^n=x^n\}$ in Zou's (3.2).
+\end{itemize}
+The local transfer at split places, and the bookkeeping of these kernels
+against the single global $s$ of \S1.4, must be stated explicitly.
+\item \emph{The ledger rows.} Several are already settled.
+\begin{itemize}
+\item ``Global cocycle'': Part~I, Lemma~5.1 and Proposition~5.5
+(reciprocity, rational and compact splittings).
+\item ``Global torus volume'': Part~I, \S5.3, uses one measure on
+$\A_E^\times/\A_K^\times$ on both sides.
+\item ``Local orbit'': \S1.4 above.
+\item ``Singular and identity terms'': Part~I, Proposition~6.1, computes the
+identity term; regular support at one place kills it; Part~II,
+Theorem~5.13, treats the germ at the center.
+\end{itemize}
+\item \emph{Definition~5.1 must name the groups.} If the target is
+Part~III, (31), i.e.\ $\GDb(\A_K)$ against $D^\times(\A_K)$, then:
+\begin{itemize}
+\item the $\GDb$ geometric side is Part~I, Proposition~6.1;
+\item the $D^\times$ side is the classical one;
+\item the orbit bijection is \S1.4;
+\item at $v\in S$ the local identity is Part~III, Theorem~9.1;
+\item what remains is (i) the local transfer at $v\notin S$ between
+$\Gb_v$ and $\GL(r,K_v)$, which is the Flicker--Kazhdan matching, with
+unit elements under $(n,N)=1$ [FK, Corollary of \S12], and (ii) the
+product of all local constants.
+\end{itemize}
+That is a far more precise open problem than the present Definition~5.1.
+\item \emph{Remark~5.2.} Add, as Part~II, \S7(iii) does, that [Li4]
+assumes an invariant Paley--Wiener theorem at the archimedean places.
+\end{itemize}
+
+\subsection*{1.6 Section 6}
+\paragraph{Proposition~6.1: correct.} Given integral $m_\tau$, unitarity
+gives $\sum m_\tau^2=1$, and positivity at $1$ fixes the sign. This is
+Part~III, Corollary~5.2, applied to one row. The hypothesis ``the inverse
+coefficients are integral'' is redundant (\S1.1). The proposition is
+labeled \textbf{[R]}, but no reduction is proved. It is a restatement.
+
+\section*{2. Consistency with Parts~I--III}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Description of the earlier parts.} \S1 says Part~I develops
+``the specific covering cocycles, their centers, and good elements''. In
+fact Part~I proves Theorems~A, B and~C:
+\begin{itemize}
+\item Theorem~3.9;
+\item Theorem~4.5;
+\item the trace-formula comparison, Theorem~6.6;
+\item the packet identity, Proposition~7.6;
+\item Theorem~C itself, Theorem~7.11, under $(\mathrm H_D)$.
+\end{itemize}
+Part~II proves Theorem~E (Theorem~5.8) and Theorem~C$'$ (Theorem~6.5,
+under $(\mathrm H_D')$, Definition~6.4). The status-table row ``Global
+trace-formula coefficients: \textbf{[O]}'' contradicts Part~I,
+Theorem~6.6 \textbf{[P]}. It should refer specifically to the
+$\GDb$--$D^\times$ comparison.
+\item \emph{Cross-references.} Part~IV never cites a numbered result of
+Parts~I--III. Suggested citations:
+\begin{itemize}
+\item $L_D$: Part~III, Def.~4.1 and Thm.~4.3.
+\item Finite expansions: Part~III, Cor.~5.1.
+\item The identity value and $c_D$: Part~III, Cor.~5.2, Lemma~5.4 and
+Cor.~9.3.
+\item The factor $b_D$ in dimensions: Part~III, Prop.~8.1.
+\item The tame case: Part~III, Lemma~7.5 and Thm.~7.6.
+\item The Hasse principle: Part~III, Prop.~11.3.
+\item Scalar centrality: Part~I, Lemma~2.2.
+\item The cocycle: Part~I, Prop.~2.3 and eq.~(1).
+\item The torus commutator: Part~I, Prop.~3.1.
+\item Elliptic good elements: Part~I, Prop.~3.5.
+\end{itemize}
+\item \emph{Central characters.} \S2.1 says ``fix $\theta$ \ldots\ and the
+corresponding genuine $\tilde\theta$''. Part~III goes the other way:
+it fixes $\tilde\theta$ and puts $\theta(a)=\tilde\theta(a^*)$. Since
+$\theta=\tilde\theta^{\,n}$ on lifts, $\theta$ does not determine
+$\tilde\theta$. Fix $\tilde\theta$ first, and write
+$L_D^{(\tilde\theta)}$ where it matters.
+\item \emph{Labels.} Part~I defines \textbf{[O]} as ``proof outlined'' and
+\textbf{[C]} as ``conjectural''. Parts~III and IV use \textbf{[O]} for
+``open problem'' and \textbf{[C]} for ``conditional''. Part~IV adds
+\textbf{[R]}. One convention should be adopted for the series. I would
+drop \textbf{[R]}.
+\item \emph{The sign $(-1)^{r-1}$ and the link to Part~I.} Part~IV works
+only on the division side and never mentions the GL-side character
+relation. Your consistency report says that the equality $d_r=n$ makes
+Zou's constant in (3.2) equal to $b_D$. Then Part~I's
+$\Theta_{\pib_D}=(-1)^{r-1}\Theta_{\pib}\circ\jmath$ (goal (D2); Part~II,
+\S7(ii)) is equivalent to integrality of $L_D$. If so, the
+``wild local correspondence'' of Part~IV, \S2, \emph{is} Part~II's goal~(ii)
+at wild places of $S$, and the paper should say so. I checked two
+ingredients of your report against Zou:
+\begin{itemize}
+\item Zou, (2.2), gives the center as
+$p^{-1}\{\lambda:\lambda^{2rc+r-1}\in F^{\times n}\}$, the same
+convention as ours;
+\item Zou, \S2.3, defines $d_{r_0}=\gcd(n,2r_0c+r_0-1)$.
+\end{itemize}
+So $d_r=n$ under $n\mid r-1+2rc_v$. Note, however, that a later passage
+of Zou (p.~18 of arXiv v3, \S4, just after the proof of Proposition~4.2)
+writes $d_r=\gcd(n,2rc-r+1)$. This appears to be a typo in Zou, but it is
+worth a footnote.
+\item \emph{$(n,N)=1$.} [FK, Introduction and Corollary of \S12] assume
+$(n,N)=1$, with $N$ the least common multiple of the composite integers
+$\le r$. Part~III, Remark~12.1, records this. Part~IV does not mention
+it, although any use of Flicker--Kazhdan matching at split places
+(\S1.5) needs it unless Zou or later work removes it.
+\item \emph{Measures and $\Delta$.} Part~I's
+$\Delta=|D(\gamma)|^{1/2}|\det\gamma|^{-(r-1)/2}$ (Definition~4.1) equals
+Part~III's product (3), since $\prod_{i<j}\lambda_i\lambda_j=\det^{r-1}$.
+This is consistent. For measures, see \S1.5.
+\item \emph{Titles and authors.} The log says the title is ``aligned with the
+rest of the series''. It is aligned with Part~III only. Parts~I and~II are
+titled ``A metaplectic Jacquet--Langlands transfer for division algebras
+of prime degree, I/II''. The author lines also differ:
+\begin{itemize}
+\item Parts~I, II: ``David Joyner and Claude'';
+\item Part~III: Joyner, with assistance from Claude and ChatGPT;
+\item Part~IV: Joyner, with assistance from ChatGPT only.
+\end{itemize}
+This is your decision. The four papers should be made consistent.
+\end{enumerate}
+
+\section*{3. Citations}
+\paragraph{Checked against the attached sources.}
+\begin{itemize}
+\item \emph{[FK86].} Publ.\ Math.\ IH\'ES 64 (1986), pp.~53--110.
+\begin{itemize}
+\item The page range is confirmed by the scan.
+\item \S3, Proposition, with the torus commutator formula credited to
+[KP, Prop.~0.1.5].
+\item \S9, Lemma and Proposition (good elements of the form $x^n$).
+\item The Introduction and the Corollary in \S12 for $(n,N)=1$.
+\end{itemize}
+\item \emph{Zou, arXiv:2209.05852v3 (2024).}
+\begin{itemize}
+\item (2.2) (center);
+\item \S2.3 ($d_r$);
+\item (3.2) and Remarks~3.1 and~3.8 (the corrected scalar);
+\item Proposition~3.6 (built on [FK, Theorem~26.1]);
+\item the standing assumption $\gcd(n,p)=1$ in \S4.
+\end{itemize}
+Part~IV does not cite this paper at all. It should, because the relation
+of $L_D$ to the GL-side correspondence goes through Zou's (3.2) (compare
+Part~III, Remark~4.4).
+\end{itemize}
+
+\paragraph{Not verified by me (sources not attached).}
+\begin{itemize}
+\item \emph{[ZouTypes]} (J.\ Inst.\ Math.\ Jussieu 24 (2025)): the
+bibliographic data, and the claim that it assumes $(p,n)=1$.
+\item \emph{[Takeda]} (Pacific J.\ Math.\ 290 (2017)): the data, and what
+``the scalar-center formula'' refers to.
+\item \emph{[Kottwitz84], \S\S5, 7--9:} the Part~III log reports these
+checked.
+\item \emph{[Li14] = [Li4]:} the Part~II log reports it checked on EuDML.
+I have not checked the DOI.
+\item \emph{[DKV].}
+\end{itemize}
+[Cohen] and [Adams] are in the bibliography but are never cited.
+
+\section*{4. Readability}
+\begin{enumerate}[label=(R\arabic*)]
+\item \emph{Drafting history must go to the log.} Three passages are about
+the drafting process, not the mathematics:
+\begin{itemize}
+\item the end of the ``status labels'' paragraph (``Claude's proposed
+cross-part review is therefore a particularly valuable prerequisite
+\ldots'');
+\item the acknowledgments' ``whom the author plans to consult separately
+\ldots'';
+\item the acknowledgments' ``should be checked against the exact cocycle
+conventions of Part~I before publication''.
+\end{itemize}
+After \S1.2(d) above, the last of these is also resolved.
+\item \emph{Disclaimers.} ``No \ldots\ is claimed'' appears in the
+abstract, \S1, the remarks after Theorem~3.2, \S4, \S5, the ``preferred
+order of work'' paragraph and the acknowledgments. State the status once,
+in the table, as Parts~I and~II do.
+\item \emph{Orienting paragraphs.} These are mostly present. \S2.1, \S3.1 and
+\S4.1 begin abruptly.
+\item \emph{Glossary.} As I said for Part~III: entries such as Hilbert symbol,
+central character, induced torus and Tamagawa measure read as padding in
+a research paper. Keep only a short notation list of terms specific to
+the paper.
+\item \emph{Abstract.} ``We compute the commutator radical \ldots\ and obtain
+an explicit good-element criterion'' should become a citation of [FK, \S3].
+\item \emph{One running example.} The two numerical remarks for
+$(2,3,\mathbb Q_3(\zeta_3))$ should be merged and should cite Part~I,
+Example~3.7, which uses the same data.
+\end{enumerate}
+
+\section*{5. Answers to the log's questions, and recommendations}
+\begin{itemize}
+\item[(Q1)] Yes: \S1.2(d).
+\item[(Q2)] Yes, and the constants do not depend on the measures: \S1.5.
+\item[(Q3)] Yes: \S1.1.
+\item[(Q4)] Part~II's matching relates $\GDb$ to $\Gb$. Part~III's
+pairing relates $D^\times$ to $\GDb$. They are different transfers, so no
+compatibility between them is needed. When the two are composed, use
+Part~II's measures on the $\GL$ side and any common measure on $H/Z$
+(\S1.5).
+\item[(Q5)] Yes: \S1.4.
+\item[(Q6)] Yes: [FK, \S3, Proposition] eliminates the nonsplit-torus
+task entirely (\S1.3).
+\end{itemize}
+
+\paragraph{Suggested Draft~2.}
+\begin{enumerate}[label=\arabic*.]
+\item An introduction that accurately states what Parts~I--III prove.
+\item The wild problem as Part~II, goal~(ii), at wild places, via Zou's
+(3.2) and your consistency report. Proposition~2.1 is reduced to a
+remark citing Part~III, Corollary~5.2.
+\item Good elements:
+\begin{itemize}
+\item [FK, \S3] for all tori, labeled \textbf{[E]};
+\item the corollary of \S1.4, labeled \textbf{[P]}.
+\end{itemize}
+\item A precise statement of the $\GDb$--$D^\times$ comparison:
+\begin{itemize}
+\item the geometric sides, from Part~I, Proposition~6.1;
+\item the local identities required at each place;
+\item the product of local constants, including the kernels
+$\mu_n^{k_v}/\mu_n$ at split places;
+\item $(n,N)=1$.
+\end{itemize}
+Proving this would be a real theorem. Even a complete statement of the
+reduction would be useful.
+\item The explicit test for $(2,3,\mathbb Q_3(\zeta_3))$, carried out.
+\begin{itemize}
+\item Here $c_D=27$. With $\rho$ trivial, $L_D\Theta_\rho$ is
+$3R(t)\tilde\theta(z)$ on $zt^*$ and~$0$ elsewhere.
+\item Computing its coefficients needs a finite quotient
+$\tH/\tZ U_k$ and its genuine character table.
+\item This is a feasible GAP or Sage computation, and it decides the
+first case of the wild problem.
+\end{itemize}
+\end{enumerate}
+
+\end{document}

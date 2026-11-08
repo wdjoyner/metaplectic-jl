@@ -1,0 +1,402 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\Gb}{\overline G}
+\newcommand{\GDb}{\overline{G_D}}
+\title{Referee report on \texttt{mjl\_part4\_draft2.tex}\\
+\normalsize ``A metaplectic Jacquet--Langlands transfer for division
+algebras of prime degree, IV'', Draft~2}
+\author{Claude (Anthropic), for David Joyner}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+
+\section*{0. Scope}
+\paragraph{Read in full.} Draft~2 (966 lines). It compiles to 15 pages
+without errors.
+
+\paragraph{Checked against the attached sources.} Every statement that
+Draft~2 cites from:
+\begin{itemize}
+\item Part~I, Draft~6;
+\item Part~II, Draft~6 (theorem numbers only);
+\item Part~III, Draft~6;
+\item [FK] (\S\S3, 4, 6, and the Introduction, for $(n,N)=1$);
+\item Zou, arXiv v3: (2.2), (3.2), Remark~3.1, Lemma~3.5, and the
+definition of $x^*$ on p.~8.
+\end{itemize}
+For Parts~I--III I relied on my reading for the Draft~1 report and
+rechecked only the cited items.
+
+\paragraph{Version caveat.} Draft~2 says it was checked against Part~I,
+Draft~5, Part~II, Draft~4, and Part~III, Draft~7. I have Part~III only
+in Draft~6. All the Part~III numbers Draft~2 cites agree with Draft~6:
+\begin{itemize}
+\item Lemma~3.3;
+\item Theorems~4.3, 7.6 and~9.1;
+\item Corollaries~5.1 and~5.2;
+\item Lemma~7.5;
+\item Proposition~11.3.
+\end{itemize}
+If Draft~7 renumbered anything, these must be rechecked.
+
+\paragraph{Numbering used below (compiled).}
+\begin{itemize}
+\item Proposition~2.1 (diagonal commutator);
+\item Theorem~3.1 (FK good elements);
+\item Example~3.2 and Remark~3.3;
+\item Lemma~4.1 and Proposition~4.2 (kernel, index, modulus);
+\item Remark~4.3 and Example~4.4;
+\item Proposition~5.1 (Hasse principle) and Theorem~5.2 (global good classes);
+\item Proposition~6.1 (lattice criterion);
+\item Proposition~7.1 (Zou constant);
+\item Proposition~8.1 (conditional comparison);
+\item Proposition~9.1.
+\end{itemize}
+
+\section*{Summary verdict}
+Draft~2 is a large improvement. It deals with every substantive point of
+my Draft~1 report:
+\begin{itemize}
+\item the Flicker--Kazhdan good-element theorem is attributed and labeled
+\textbf{[E]};
+\item the global good-class criterion is now Theorem~5.2;
+\item the two global comparisons are clearly separated;
+\item $b_D$ is shown to be independent of the choice of measures;
+\item $(n,N)=1$ and Zou are cited;
+\item the central characters are fixed in the right order.
+\end{itemize}
+
+\textbf{I found no false mathematical statement.} One proof step is
+wrong as stated: the general Haar-modulus claim in Proposition~4.2. Its
+conclusion is right, but the stated reason is false in general (\S1.3).
+
+The main remaining issues are:
+\begin{enumerate}[label=(\arabic*)]
+\item Proposition~8.1 is close to a tautology. It should be replaced by a
+precise local matching condition at split places, which [FK, \S6]
+already supplies (\S1.6).
+\item The paragraph on Li's trace formula says something false about real
+places and makes an unsupported claim (\S1.7).
+\item Drafting history is still in the body (\S3).
+\end{enumerate}
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.31\linewidth}p{0.17\linewidth}p{0.44\linewidth}@{}}
+\toprule
+Result & Mark & Comment\\\midrule
+Prop.~2.1 & correct & Rechecked; the $c$/$c_v$ issue is resolved\\
+\S2.2 (star map) & correct; minor repair & Say why $u(x)=1$\\
+Thm.~3.1 \textbf{[E]} & correct & Proof verified; attributed\\
+Ex.~3.2, Rem.~3.3 & correct & The regularity remark is valuable\\
+Lemma~4.1 & correct & \\
+Prop.~4.2 & correct; proof repair & The general ``$[A:I]/|K|$'' rule is false; the formula holds for another reason\\
+Prop.~5.1 \textbf{[E]}, Thm.~5.2 & correct & \\
+\S\S6.1, 6.3 (example) & correct & I checked $\Delta(t)/\Delta(t^3)$ and the values 9 and 27\\
+Prop.~6.1 & correct & \\
+Prop.~7.1 & correct; minor repair & ``Provided $x^n$ is regular'' is automatic; justify the central-character hypothesis\\
+Prop.~8.1 \textbf{[C]} & correct but nearly empty & Replace (i)--(ii) by the FK~\S6 matching condition\\
+\S8.4 (Li) & false statement & $K$ has no real places; ``known'' is uncited\\
+Prop.~9.1 & correct & This is Prop.~6.1 again; consider merging\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{1. Correctness}
+
+\subsection*{1.1 Section 2}
+\paragraph{Proposition~2.1.} Correct. It is the computation I verified for
+Draft~1. The distinction between $c$ and $c_v$ is now explicit, and the
+remark on $(r,n)=1$ is right.
+
+\paragraph{Star map (\S2.2).} Correct, with one justification to add.
+\begin{itemize}
+\item \emph{The power identity.} The identity
+$(\tilde h_1\tilde h_2)^n=\tilde h_1^n\tilde h_2^n[\tilde h_2,\tilde h_1]^{n(n-1)/2}$
+for a central commutator, and its vanishing for $n$ odd, are fine.
+\item \emph{Why $\zeta^*=1$.} The products $\sigma(\zeta^kI,\zeta I)$ are
+powers of $(\zeta,\zeta)_n=(\zeta,-1)_n=1$. I checked this.
+\item \emph{Why $u(x)=1$.} ``For odd $n$ the correction $u(x)$ is
+identically~$1$'' is true, but Zou's Lemma~3.5 proves only that the
+\emph{ratio} $u(x)/u(x_1)u(x_2)$ is~$1$ for odd $n$. The real reason is
+on Zou, p.~8: $u(x)=\pm1$ ``as in [FK, \S4]'', and $u(x)$ lies in
+$\mu_n$. For odd $n$, $\{\pm1\}\cap\mu_n=\{1\}$. Say this.
+\end{itemize}
+
+\subsection*{1.2 Section 3}
+\paragraph{Theorem~3.1.} Correct. I checked the proof:
+\begin{itemize}
+\item the projection formula $(a,N_{E_i/F}b)_F=(a,b)_{E_i}$ for
+$a\in F^\times$;
+\item the step $a^{r(1+2c_v)}=a\cdot a^{r-1+2rc_v}$.
+\end{itemize}
+
+\paragraph{Remark~3.3.} Correct and useful. Two small additions:
+\begin{itemize}
+\item In the example, $\mathrm{diag}(1,\zeta_3)$ is regular but not good,
+since $\zeta_3\notin F^{\times3}$ (because $\zeta_9\notin\mathbb Q_3(\zeta_3)$).
+\item The last sentence (field tori preserve regularity) has a one-line
+proof that should be included. If $t^n\in F$, then $[F(t):F]$ divides
+both $n$ and $r$.
+\end{itemize}
+
+\subsection*{1.3 Section 4}
+\paragraph{Lemma~4.1.} Correct.
+
+\paragraph{Proposition~4.2, kernel and index.} Correct. I checked:
+\begin{itemize}
+\item $\ker P_n\cong\mu_n^k/\mu_n$, using $\mu_n(E_i)=\mu_n(F)$;
+\item $|M^\times/M^{\times n}|=n^2|n|_M^{-1}$;
+\item the quotient computation, using Lemma~4.1;
+\item Example~4.4: the values $1,9,9$ and $3,81,27$.
+\end{itemize}
+
+\paragraph{Proposition~4.2, the Haar formula: proof repair.} The formula
+\[
+\int_{A_E}q(a^n)\,da=n^{k-1}|n|_F^{-(r-1)}\int_{P_n(A_E)}q(b)\,db
+\]
+is correct. The stated reason is not. The proof, and Remark~4.3, assert
+that for an open endomorphism $\varphi$ with finite kernel $K$ and image
+$I$ of finite index, the density is $[A:I]/|K|$. This fails already for
+$A=\mathbb Z$ (counting measure) and $\varphi(a)=na$. The pushforward of
+counting measure is counting measure on $n\mathbb Z$, so the density is
+$1$, not $n$.
+
+The correct general statement: take a compact open subgroup $U$ with
+$U\cap K=1$. Then $\varphi^{-1}(\varphi(U))=UK$, and
+\[
+\lambda=\frac{\mathrm{vol}(UK)}{\mathrm{vol}(\varphi U)}
+=|K|\,[U:\varphi(U)].
+\]
+For $A_E$, take $U$ a small torsion-free open subgroup of
+$\mathcal O_E^\times/\mathcal O_F^\times$. This is a $\mathbb Z_p$-module
+of rank $(r-1)[F:\mathbb Q_p]$, so $[U:U^n]=|n|_F^{-(r-1)}$, and
+$\lambda=n^{k-1}|n|_F^{-(r-1)}$.
+
+That this equals $[A_E:I]/|K|$ is a coincidence of this group: the
+valuation lattice has rank $k-1$ and $|K|=n^{k-1}$. Remark~4.3 should
+therefore read: ``the factor is $|\ker P_n|$ times the local index
+$[U:U^n]$, not the index $[A_E:P_nA_E]$''.
+
+\subsection*{1.4 Section 5}
+\paragraph{Proposition~5.1 and Theorem~5.2.} Correct. They agree with the
+corollary I proposed, and the proof is complete. Two remarks:
+\begin{itemize}
+\item The $D$-side case $v\notin S$ goes through Part~I, Proposition~2.6
+(the isomorphism $\GDb(K_v)\cong\Gb_v$). Cite it by number, not as ``the
+exact Part~I cover isomorphism''.
+\item Remark~5.3 reproduces Part~I's $c(\gamma)$ exactly (Part~I,
+\S6.1). Its last sentence is an important point, made correctly.
+\end{itemize}
+
+\subsection*{1.5 Sections 6 and 7}
+\paragraph{\S6.1.} The formula for $L_D$ agrees with Part~III,
+Definition~4.1. The formula for $\Delta$ is correct: the eigenvalues of
+$\mathrm{Ad}(t)$ are $\lambda_i/\lambda_j$. The statement about the
+identity value is correct.
+
+\paragraph{\S6.3, the explicit example.} Correct. I checked:
+\begin{itemize}
+\item $\Delta(t)/\Delta(t^3)=|\lambda_1\lambda_2|/|\lambda_1^2+\lambda_1\lambda_2+\lambda_2^2|$;
+\item $\lambda_1^2+\lambda_1\lambda_2+\lambda_2^2=\mathrm{Trd}^2-\mathrm{Nrd}$;
+\item the limit $9$ at scalars, giving the value $27$.
+\end{itemize}
+The paragraph on twisted finite quotients corrects my own Draft~1
+suggestion, which was sloppy: $\tilde H/\tilde ZU$ loses the genuine
+central character.
+
+\paragraph{Proposition~6.1.} Correct, with the redundancy removed.
+
+\paragraph{Proposition~7.1.} Correct; I checked
+$1/(d_F(n)|n|_F^{r/2})=b_D/n$. Two repairs:
+\begin{itemize}
+\item \emph{A redundant proviso.} ``Provided $x^n$ is regular'' is
+automatic for a field centralizer, by Remark~3.3. State it as a
+consequence.
+\item \emph{The central-character hypothesis.} Zou, Remark~3.1, says Zou
+deliberately removes the central-character restriction. So the
+hypothesis $\omega_\pi|_{\mu_n}=1$ is a genuine restriction, not a
+convention. Note what happens without it:
+\begin{itemize}
+\item if $\omega_\pi|_{\mu_n}\ne1$, the root sum
+$\sum_\zeta\omega_\pi(\zeta)$ vanishes, so (3.2) forces
+$\theta_{\tilde\pi}(x^*)=0$ at elliptic $x$;
+\item for a lift pair, the compatibility
+$\omega_\pi(a)=\omega_{\tilde\pi}(a^*)$, together with $\zeta^*=1$,
+gives $\omega_\pi|_{\mu_n}=1$ automatically.
+\end{itemize}
+Saying this would make the proposition self-contained.
+\end{itemize}
+
+\subsection*{1.6 Section 8: replace Proposition~8.1}
+Proposition~8.1 is correct but carries little content. Hypothesis~(ii)
+is essentially the conclusion. More importantly, it leaves the
+split-place question vague (``after any prescribed local root
+summations''). The question has a definite answer.
+
+\paragraph{Why a root sum cannot be the local identity at split places.}
+The $D^\times$-side sum runs over rational classes $[s]$. The cover side
+runs over $[s^n]$, in bijection with them by Theorem~5.2. At $v\notin S$,
+the local roots $\zeta s$, with $\zeta\in\ker P_n$ (Proposition~4.2), are
+not rational. So a local identity of the root-sum form
+\[
+J(s^n,\tilde f_v)=\lambda_v\sum_\zeta J(\zeta s,f_v)
+\]
+cannot be used term by term. What is needed is
+\[
+J(s^n,\tilde f_v)=\lambda_v\,J(s,f_v)\quad\text{for all regular }s.
+\]
+This forces $J(\cdot,f_v)$ to be constant on cosets of $\ker P_n$.
+
+\paragraph{FK already impose exactly this.} [FK, \S6] state that they
+``deal only with functions $f$ with the property
+$\omega(z)F(x,f)=F(x',f)$ for any $x,x'$ with $zx^*=x'^*$''.
+(I read this in the attached scan.) Proposition~8.1(i)--(ii) should be
+replaced by:
+\begin{enumerate}[label=(\alph*)]
+\item at each $v\notin S$, the ordinary test function satisfies the FK~\S6
+invariance;
+\item a pointwise local identity holds with an explicit constant
+$\lambda_v$;
+\item the product of all the $\lambda_v$, the values $b_{D,v}$ at $v\in S$,
+and the archimedean factors equals~$1$.
+\end{enumerate}
+
+\paragraph{A second constraint, from Remark~3.3.} Take $s$ regular with
+$s^n$ singular (e.g.\ $s=\mathrm{diag}(1,\zeta)$). The map $s\mapsto s^n$
+is a local homeomorphism of the torus. So $J(s^n,\tilde f_v)$, pulled
+back to a neighborhood of $s$, must be locally constant there, because
+$J(\cdot,f_v)$ is locally constant on the regular set. But near a
+central $s^n$, $J(\cdot,\tilde f_v)$ has a non-constant germ expansion.
+So the existence of the matching $f_v$ imposes vanishing conditions on
+germs of $\tilde f_v$. Alternatively it forces a support condition, as in
+Zou's restriction to $x$ with $x^n$ regular.
+
+This should be written into the ledger. It is a precise, checkable
+obligation, and it shows that matching at split places is not merely a
+pullback.
+
+\paragraph{The rest of \S8.} \S8.1--\S8.2 are correct:
+\begin{itemize}
+\item the product formula $\prod_v\Delta_v(\gamma)=1$;
+\item the local identity at $v\in S$ (Part~III, Theorem~9.1);
+\item the formal-degree conversion $d(\mathrm{St})\,dg_{D,v}$.
+\end{itemize}
+The citation ``Part~II, Theorem~6.2'' is right: \texttt{thm:comparison2}
+is 6.2, and Theorem~C$'$ is 6.5. Delete the phrase ``in the numbering
+cited by the referee''.
+
+\subsection*{1.7 \S8.4: Li's trace formula}
+``Under the trace Paley--Wiener hypothesis at real archimedean places
+\ldots\ This hypothesis is known for the cited metaplectic covers of
+$\GL$'' needs correcting:
+\begin{itemize}
+\item $K$ is totally imaginary, so there are no real places.
+\item Li's hypothesis [Li4] concerns the invariant Paley--Wiener theorem at
+the archimedean places.
+\item At complex places the covers split (Part~I), so the hypothesis
+reduces to the linear case. That case is a known theorem, but it needs a
+citation (e.g.\ Clozel--Delorme), which the draft does not give.
+\item ``Known for the cited metaplectic covers'' is unsupported as it
+stands.
+\end{itemize}
+Part~II, \S7(iii), has the right wording.
+
+\subsection*{1.8 Section 9}
+\paragraph{\S9.1.} Correct.
+\begin{itemize}
+\item Note that $\theta(a)=\tilde\theta(a^*)$ is automatically trivial on
+$K^\times$, since $a^*=\iota(a)^n=\iota(a^n)$ and $\tilde\theta$ is
+trivial on $\iota(K^\times)$. Worth one sentence.
+\item Proposition~9.1 restates Proposition~6.1. Its \textbf{[C]} label
+is misleading: the implication itself is proved. Merge it into
+Proposition~6.1 as a remark.
+\end{itemize}
+
+\section*{2. Consistency and citations}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Labels.} \textbf{[R]} is gone. The meanings of
+\textbf{[O]} and \textbf{[C]} still differ from Part~I's (``proof
+outlined'', ``conjectural''). This needs a series-wide decision.
+\item \emph{Titles.} The title now follows Parts~I--II. But the
+bibliography entry [JoynerIII] still gives Part~III's old ``Toward
+\ldots'' title. The author line (Joyner, ChatGPT, Claude) differs from
+Parts~I--II. ``D.~Joyner with collaborators'' in the bibliography should
+give the actual authors.
+\item \emph{Citation style.} Only DKV, Kottwitz, Li and Zou are cited with
+\verb|\cite|. FK, KP and Parts~I--III are typed in by hand. [Takeda] is
+in the bibliography but never cited.
+\item \emph{Unverified.} Not checked by me:
+\begin{itemize}
+\item Takeda's page range: Draft~2 gives 415--449, Draft~1 gave none;
+I could not check it;
+\item KP (Publ.\ Math.\ IH\'ES~59, 35--142), which agrees with the
+standard citation as far as I know;
+\item the DKV page range;
+\item Kottwitz and Li, which I did not have.
+\end{itemize}
+\item \emph{Checked.} The FK and Zou items listed in \S0; Part~I's
+Proposition~2.3(b), Proposition~3.1, Proposition~3.5(a), \S6.1 and
+$c(\gamma)$; Part~II's Definition~2.1 and theorem numbers.
+\end{enumerate}
+
+\section*{3. Readability}
+\begin{enumerate}[label=(R\arabic*)]
+\item \emph{Drafting history is still in the body.} Move these to the log:
+\begin{itemize}
+\item the paragraph ``Scope of direct cross-checking'' (\S1), which
+lists drafts and mentions ``Claude's attached referee report'';
+\item in \S2.1, ``this is exactly the cocycle used in Part~IV, Draft~1;
+its letter $c$ meant \ldots'';
+\item in \S8, ``in the numbering cited by the referee''.
+\end{itemize}
+The acknowledgments may credit the referee report, as Parts~I--II do.
+``Suggested repairs to the chronology of the series'' is unclear and
+should be reworded or cut.
+\item \emph{Disclaimers.} These are reduced, but they still recur:
+\begin{itemize}
+\item the end of the abstract;
+\item the status convention (``No representation-theoretic correspondence
+follows \ldots'');
+\item Remark~7.2;
+\item \S8 (``not a formal consequence'');
+\item the last paragraph of \S9;
+\item the acknowledgments.
+\end{itemize}
+The status table suffices.
+\item \emph{Orienting paragraphs.} These are good throughout.
+\item \emph{Glossary.} It is now short and specific to the paper. That is
+acceptable.
+\item \emph{Abstract.} It is accurate. ``Shows why regularity of a root must
+be distinguished from regularity of its $n$th power'' refers to
+Remark~3.3, not to Proposition~4.2. Reword.
+\end{enumerate}
+
+\section*{4. Recommendation}
+Minor revision for \S\S2--7, after these changes:
+\begin{itemize}
+\item repair the proof of Proposition~4.2 and Remark~4.3;
+\item justify $u(x)=1$;
+\item make the hypothesis of Proposition~7.1 explicit.
+\end{itemize}
+
+For \S8, the most valuable next step is to replace Proposition~8.1 by
+the FK~\S6 matching condition at split places, together with the germ
+constraint of \S1.6. This would turn \S8 into a precise statement of the
+remaining local theorem. Better still, the theorem could be proved:
+\begin{itemize}
+\item for $v\nmid n$, via FK's unit-element and matching results under
+$(n,N)=1$;
+\item at $v\in S$, using Part~III, Theorem~9.1.
+\end{itemize}
+
+The explicit wild test of \S6.3 remains the cleanest way to settle the
+first case of the integrality question. It can be done as a computation
+in a twisted group algebra in GAP or Sage.
+
+\end{document}

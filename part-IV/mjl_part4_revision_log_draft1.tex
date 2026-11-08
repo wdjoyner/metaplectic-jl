@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,array,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue!50!black,linkcolor=blue!50!black]{hyperref}
+\title{Toward a metaplectic Jacquet--Langlands transfer, IV:\\Draft 1 Research and Verification Log}
+\author{Prepared by ChatGPT for David Joyner}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+\section*{Scope and provenance}
+This is the initial log for Part IV. The starting point was
+\texttt{mjl\_part3\_draft6.tex}, its revision log, the Part II planning
+memo, and the Kottwitz paper supplied in the conversation. The
+full final Part I manuscript was \emph{not} available for a fresh,
+line-by-line independent cocycle verification in this drafting pass.
+References to Part I are therefore inputs to be rechecked when the
+cross-part referee report becomes available.
+
+The title is aligned with the rest of the series:
+\emph{Toward a metaplectic Jacquet--Langlands transfer, IV: Wild
+Local Correspondence and Global Trace Formula Comparison}.
+
+\section*{New results and reductions}
+\begin{enumerate}[label=\arabic*.]
+\item \textbf{Integral-character-lattice reduction.}
+For the unitary transform $L_D$ constructed in Part III,
+integrality of coefficients in the irreducible character bases
+is equivalent to permutation of those bases, with a positive sign
+chosen by the identity-value normalization. The proof is elementary
+unitary linear algebra, not a proof of integrality.
+
+\item \textbf{Finite-level computation for a fixed representation.}
+Because the fixed-central-character invariant functions are smooth
+on compact projective quotients, a single coefficient row can in
+principle be tested by a finite character calculation after
+passing to an appropriate sufficiently small level. The reduction
+uses the finite-expansion statement of Part III.
+
+\item \textbf{Split diagonal-torus commutator radical.}
+Under the explicitly stated standard torus cocycle
+\[
+\sigma_c(t,u)=(\det t,\det u)_n^c\prod_{i<j}(t_i,u_j)_n,
+\]
+the commutator matrix is
+\[
+ A=-I_r+(1+2c)J_r.
+\]
+When $n$ is odd, $(n,r)=1$, and $r-1+2rc\equiv0\pmod n$,
+its radical on $(F^\times/F^{\times n})^r$ is the diagonal.
+Consequently a regular split diagonal element is good if and only if
+it belongs to $F^\times T^n$. This statement includes wild places,
+but \emph{not} regular elements with nonsplit centralizers.
+
+\item \textbf{Global arithmetic.}
+The almost-everywhere local-to-global result for
+$E^\times/(K^\times E^{\times n})$ from Part III is recalled with
+proof, but is explicitly separated from the still-open metaplectic
+local good-element and adelic measure questions.
+\end{enumerate}
+
+\section*{Verification performed}
+\begin{itemize}
+\item The diagonal torus commutator was calculated directly as the
+ratio of the two cocycles. The matrix has entries $A_{ii}=2c$ and
+$A_{ij}=1+2c$ for $i\ne j$.
+\item The row sum of $A$ equals $r-1+2rc$, matching the
+scalar-centrality congruence quoted in Part III. On the sum-zero
+summand of $(F^\times/F^{\times n})^r$, $A$ acts as $-I$.
+\item The worked numerical case $(r,n,c)=(2,3,2)$ gives
+$A\equiv\left(\begin{smallmatrix}1&-1\\-1&1\end{smallmatrix}\right)\pmod3$.
+\item Kottwitz (1984), \S\S5, 7--9, is used for the arithmetic
+background only. Li's 2014 article is used only for the existence of
+a general invariant trace formula for certain adelic covers, not for
+an asserted identity in this problem.
+\item Zou's 2025 simple-type paper explicitly assumes
+$(p,n)=1$, so it is not a published solution of the wild-place
+problem in the present draft.
+\end{itemize}
+
+\section*{Explicit unproved steps}
+\begin{center}\small
+\begin{tabular}{@{}p{0.39\linewidth}p{0.53\linewidth}@{}}
+\toprule
+Problem & What is still required\\\midrule
+Part I consistency & Check the exact KP torus cocycle, inverse character conventions, and the star-map normalization\\
+Wild local integrality & Prove integer character coefficients, or exhibit a counterexample to the proposed $L_D$\\
+Nonsplit regular tori & Compute the commutator radical on $T_E(F)$ for every degree-$r$ finite \emph{etale} algebra $E/F$\\
+Global transfer & Verify rational good-locus survival, identity and singular terms, and all Jacobian/measure conversions\\
+Spectral separation & Find an actual global trace identity whose local coefficients are integers and that isolates representations\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Questions for the cross-part referee}
+\begin{enumerate}[label=(Q\arabic*)]
+\item Does the precise Part I torus cocycle restrict, up to a coboundary,
+to the convention displayed above? Does its scalar-center condition
+indeed match $r-1+2rc\equiv0\pmod n$?
+\item Are the local $b_D=|n|_F^{-(r-1)/2}$ and
+$c_D=|n|_F^{-(r^2-1)/2}$ factors correct with precisely the stated
+fixed-central-character, quotient-probability Haar measures?
+\item Does the Part III smoothness proof really imply finite
+irreducible-character expansions in the nontrivial fixed-central-
+character projective setting?
+\item Are the Part II matching normalizations and the Part III trace
+pairing compatible when using inverse central characters for test
+functions and direct central characters for irreducibles?
+\item Does the global $n$th-power theorem use all required hypotheses,
+particularly $\mu_n\subset K$, $[E:K]=r$ and $(n,r)=1$?
+\item Are any regular nonsplit torus good-element formulas in
+Flicker--Kazhdan or Kazhdan--Patterson sufficient to eliminate the
+remaining split-place task?
+\end{enumerate}
+
+\section*{Completion assessment}
+Part IV, Draft 1 is a substantive beginning, not a completed proof of
+metaplectic Jacquet--Langlands. The split diagonal-torus result can
+be finalized after checking cocycle conventions. The wild-place
+integrality problem, general local good-locus theorem, global measure
+comparison, and spectral separation remain independent research
+obstacles. Their difficulty should not be described as merely
+editorial or a fixed number of revisions.
+\end{document}
