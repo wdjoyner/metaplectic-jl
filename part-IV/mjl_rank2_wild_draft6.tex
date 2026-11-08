@@ -158,6 +158,172 @@ Target C: Brauer reduction; finite design & Remark~\ref{rem:uniform} & \Otag/\Ct
 \end{tabular}
 \end{center}
 
+\section{Background}\label{sec:background}
+This section collects standard facts used throughout, with references;
+nothing in it is new.  Readers familiar with division algebras and with
+the Heisenberg--Weil machinery can skip to Section~\ref{sec:transform}
+and return for the heuristic of Section~\ref{subsec:howe}, which explains
+how the results of Sections~\ref{sec:finite}--\ref{sec:plan} should be
+read.
+
+\subsection{Division algebras over local and global fields}\label{subsec:divalg}
+Let $F$ be a nonarchimedean local field.  A central simple algebra over
+$F$ has dimension $r^2$ for an integer $r$ (its degree), and its class in
+the Brauer group is determined by the Hasse invariant
+$\mathrm{inv}:\mathrm{Br}(F)\xrightarrow{\sim}\Q/\Z$ [Ser, Ch.~XIII; Rei,
+\S31].  The algebras of degree $r$ are the $M_m(D)$ with $D$ a division
+algebra of degree $d\mid r$, $md=r$, and $D$ is determined by its
+invariant $a/d\bmod1$ with $(a,d)=1$; in particular there is exactly one
+quaternion division algebra over $F$, with invariant $\tfrac12$.  A
+division algebra $D$ of degree $r$ has the following structure
+[Rei, \S\S12--14; Wei, Ch.~I].  It carries a discrete valuation $v_D$
+extending $v_F$, with $v_D(F^\times)=r\Z$ when normalized by
+$v_D(\Pi)=1$ for a uniformizer $\Pi$; its valuation ring $\Ocal_D$ is the
+unique maximal order, with unique maximal two-sided ideal
+$\Pfr=\Pi\Ocal_D$, and residue field $k_D=\Ocal_D/\Pfr$ the extension of
+$k_F$ of degree $r$.  The unramified extension $E_0/F$ of degree $r$
+embeds in $D$, $\Ocal_D=\Ocal_{E_0}[\Pi]$, and $D$ is the cyclic algebra
+$\bigoplus_{k<r}E_0\Pi^k$ with $\Pi x\Pi^{-1}=\sigma^a(x)$ for a
+generator $\sigma$ of $\mathrm{Gal}(E_0/F)$ and $\Pi^r=\varpi$ up to a
+unit; for the quaternion algebra one may take $\Pi^2=\varpi$ and
+$\Pi x\Pi^{-1}=\sigma(x)$, which is the description
+$D=E_0\oplus E_0j$ used in Example~\ref{ex:ranktwo-data}.  Every field
+extension of $F$ of degree $r$ embeds in $D$ as a maximal subfield, and
+every element of $D\setminus F$ generates a maximal subfield; the
+maximal subfields of the quaternion algebra are the three quadratic
+extensions of $F$ ($p$ odd), one unramified and two ramified, and the
+maximal tori of $D^\times$ are their multiplicative groups.  The reduced
+norm $\Nrd:D^\times\to F^\times$ is surjective, $D^\times/F^\times$ is
+compact, and $D^\times$ has the filtration by the normal subgroups
+$K^m=1+\Pfr^m$ ($m\ge1$) with $K^m/K^{m+1}\simeq k_D$ (additive) and
+$\Ocal_D^\times/K^1\simeq k_D^\times$; the group $D^\times/F^\times K^1$
+is finite, of order $r(q^r-1)/(q-1)$, and $K^1$ is a pro-$p$ group.  For
+the running example ($F=\Q_3(\zeta_3)$, $q=3$, $r=2$) these are the
+groups $Q=K^1F^\times/F^\times$, $Q_m$ and $D^\times/F^\times K^1\simeq D_8$
+of Section~\ref{sec:depth}.  Every irreducible smooth representation of
+$D^\times$ is finite dimensional and trivial on some $K^m$; its
+\emph{level} is the least $m$ with $\rho|_{K^{m+1}}$ trivial.  Howe's
+construction of these representations from characters of maximal
+subfields by induction through congruence subgroups [How77b; Cor74] is
+the model for the inducing data in Sections~\ref{sec:maintheorem}
+and~\ref{sec:plan}.
+
+Over a number field $F$ the Brauer group is described by the
+Albert--Brauer--Hasse--Noether theorem: the sequence
+$0\to\mathrm{Br}(F)\to\bigoplus_v\mathrm{Br}(F_v)\xrightarrow{\ \Sigma\ }\Q/\Z\to0$
+is exact, so a central simple algebra is determined by its local
+invariants, which vanish at all but finitely many places and sum to
+zero; the period of a class equals its index, so a class of order $r$ is
+the class of a division algebra of degree $r$ [Rei, \S32; Wei, Ch.~XIII].
+A quaternion algebra over a number field is ramified at an even number
+of places (where its invariant is $\tfrac12$) and split elsewhere.  The
+local components $D_v=D\otimes F_v$ at ramified $v$ are the local
+division algebras above; the group $D^\times(F)\backslash D^\times(\mathbb A_F)/F^\times(\mathbb A_F)$
+is compact, so the automorphic spectrum of $D^\times$ is discrete, and
+the Jacquet--Langlands correspondence [JL, Ch.~III; DKV; Rog83; Bad08]
+identifies the automorphic representations of $D^\times$ with those of
+$\mathrm{GL}_r$ that are discrete series at the ramified places; its
+local form is a bijection between the irreducible representations of
+$D_v^\times$ and the discrete series of $\mathrm{GL}_r(F_v)$ characterized
+by the character relation $\Theta_\pi(g)=(-1)^{r-1}\Theta_\rho(g')$ on
+matching regular elliptic elements.  Parts~I--IV of this series concern
+the metaplectic analogue of this picture: an $n$-fold cover of
+$D^\times$ and the Kazhdan--Patterson cover of $\mathrm{GL}_r$, related
+by a transfer of characters.  The present paper is purely local and
+concerns one ramified place of the running example.
+
+\subsection{The cover, the star map and good elements}\label{subsec:coverbackground}
+We use the following from Part~I.  Let $\mu_n\subset F$.  The
+$n$-fold scalar-central cover $\tH\to H=D^\times$ is the central
+extension by $\mu_n$ obtained by restricting the Kazhdan--Patterson cover
+of $\mathrm{GL}_r(E_0)$ [KP1] along $D\hookrightarrow M_r(E_0)$; its
+preimage $\tZ$ of the center $F^\times$ is central, and
+$\tZ\simeq\mu_n\times F^\times$ noncanonically (Part~I, Prop.~2.3).  The
+restriction of the cover to a maximal torus $E^\times$ is a Heisenberg
+group: the commutator of lifts is a bimultiplicative pairing
+$E^\times\times E^\times\to\mu_n$ with kernel $F^\times E^{\times n}$ on
+either side (Part~I, Prop.~3.1 and \eqref{eq:ranktwo-comm}), so the
+covered torus has center $C_E$ of index $|n|_F^{-(r-1)}$ in
+$\widetilde{E^\times}$, and every genuine irreducible representation of
+$\widetilde{E^\times}$ has degree $b_D=|n|_F^{-(r-1)/2}$ and is determined
+by its central character (Stone--von Neumann; see
+Section~\ref{subsec:howe}).  The \emph{star map} $x\mapsto x^*=\tilde x^{\,n}$
+is well defined on $H$ (independent of the lift, since $\mu_n$ is
+central) and is a homomorphism on each covered torus, because
+$(\tilde x\tilde y)^n=\tilde x^n\tilde y^n[\tilde y,\tilde x]^{n(n-1)/2}$
+with $[\tilde y,\tilde x]\in\mu_n$ and $n$ odd; an element of $H$ is \emph{good} if it
+lies in $F^\times\cdot\{x^n\}$, and the division-side transform
+\eqref{eq:LD} is supported on the star lifts $\tilde z\,t^*$ of good
+elements.  In the running example $n=3$, $b_D=3$, $c_D=27$.
+
+\subsection{Heisenberg groups, the Weil representation and the Howe correspondence}\label{subsec:howe}
+Let $(W,\langle\ ,\ \rangle)$ be a finite-dimensional symplectic space
+over a local field or a finite field $k$, and $\mathcal H(W)=W\times k$
+the Heisenberg group, $(w,s)(w',s')=(w+w',s+s'+\tfrac12\langle w,w'\rangle)$.
+The Stone--von Neumann theorem says that for each nontrivial character
+$\psi$ of the center $k$ there is a unique irreducible (smooth, for local
+$k$) representation $\rho_\psi$ of $\mathcal H(W)$ with central character
+$\psi$; its character is supported on the center.  It is realized in the
+\emph{Schr\"odinger model}: for a Lagrangian decomposition $W=X\oplus Y$,
+$\rho_\psi=\Ind_{Y\times k}^{\mathcal H(W)}(\mathbf1\otimes\psi)$, acting on
+functions on $X$ [Wei64; MVW, Ch.~2].  The symplectic group $\mathrm{Sp}(W)$
+acts on $\mathcal H(W)$ fixing the center, so by uniqueness it acts
+projectively on $\rho_\psi$; the resulting genuine representation of the
+metaplectic double cover $\mathrm{Mp}(W)$ is the Weil representation
+$\omega_\psi$.  For a \emph{dual pair} $(G,G')$ of mutually
+centralizing reductive subgroups of $\mathrm{Sp}(W)$, Howe's duality
+conjecture [How79], proved by Waldspurger for $p\ne2$ [Wal90] and in
+general by Gan and Takeda [GT16], says that the restriction of
+$\omega_\psi$ to $\tilde G\times\tilde G'$ decomposes as
+$\bigoplus_\pi\pi\otimes\theta(\pi)$ with $\pi\mapsto\theta(\pi)$
+injective on the set of $\pi$ that occur: a bijection between
+representations of the two members of the pair, with multiplicity one,
+whose ``kernel'' is the character of $\omega_\psi$.  The first
+nontrivial instance is Shimura's correspondence: Waldspurger realized
+the correspondence between genuine representations of
+$\widetilde{\mathrm{SL}}_2$ and representations of $\mathrm{PGL}_2$,
+or of $PD^\times$ for the quaternion algebra $D$, through the dual pairs
+$(\widetilde{\mathrm{SL}}_2,O(V_3))$ with $V_3$ a three-dimensional
+quadratic space, split or anisotropic [Wal80; Wal91].  So for $n=2$ the
+link between a metaplectic cover and a quaternion algebra is literally
+a Howe correspondence, with the cover on the split side.  For odd $n$
+no classical dual pair produces an $n$-fold cover, and the metaplectic
+correspondence of Flicker and Kazhdan [FK] is established by the trace
+formula instead; the transform $L_D$ of Part~III is likewise defined
+analytically, by \eqref{eq:LD}, not by a kernel.
+
+Three points of contact with the present paper.  First, the covered
+tori are Heisenberg groups and the degree-$b_D$ representations of
+Section~\ref{sec:fourier} are their Stone--von Neumann representations.
+Second, the finite groups of Sections~\ref{sec:depth}--\ref{sec:finite}
+are Heisenberg groups over $\Fq_3$: $Q_1/Q_3$ is the Heisenberg group of
+order $27$, and $\tU_3/N_6\simeq\mu_3\times V$ with $V\simeq\Fq_3^5$ is
+the setting of a finite Weil representation; the character $\lambda_0$
+of $\tU_3$ and the formula $\tau|_{\tU_1}=\Ind_{\tU_3}^{\tU_1}\lambda_0$
+are a Schr\"odinger model, induction of a character from a
+``Lagrangian'' subgroup of index $27$, and the freeness statement of
+Proposition~\ref{prop:free} is the analogue of the nondegeneracy of the
+symplectic form (every genuine character of the Lagrangian is regular,
+so every such induced representation is irreducible).  Third, and most
+to the point, Target~B is itself a Howe-duality statement about the pair
+$(\tH,H)$: if $L_D\Theta_\rho=\Theta_{\tau_\rho}$ with $\tau_\rho$
+irreducible for every $\rho$, then $\Omega:=\bigoplus_\rho\tau_\rho\otimes\rho^\vee$
+is a representation of $\tH\times H$ in which each $\rho$ is paired
+with exactly one $\tau_\rho$, with multiplicity one, and its character
+is the explicit kernel computed in Remark~\ref{rem:howe-duality}.
+Whether $\Omega$ has an intrinsic construction, as $\omega_\psi$ has,
+is not known to us; the induced models of
+Theorems~\ref{thm:levelone} and~\ref{thm:leveltwo} are what such a
+construction would have to produce level by level.  Finally, the
+obstruction that distinguishes the wild place is the one that limits
+Howe's Kirillov theory for compact $p$-adic groups [How77a]: at a tame
+place the $n$-th root transform of characters is a dilation of coadjoint
+orbits by $1/n$, hence a Galois conjugation of characters (Part~III,
+Lemma~7.5); at $p\mid n$ the dilation is not available on the Lie
+lattice, and Sections~\ref{sec:finite}--\ref{sec:plan} show how the
+corresponding prediction nevertheless survives, with the character
+$\lambda_0$ absorbing the nonlinearity of the cube root.
+
 \section{Division-side character transform and its normalization}\label{sec:transform}
 Let $F$ be nonarchimedean, $D/F$ a division algebra of prime
 degree $r$, $H=D^\times$, and $\tH$ its specified cover.
@@ -2510,6 +2676,45 @@ global comparison could be established in a restricted test range
 without first settling every local irreducible-character row.  These
 projects should be developed in parallel but not conflated.
 
+\begin{remark}[Target B as a Howe duality]\label{rem:howe-duality}
+Fix a character $\theta$ of $F^\times$ trivial on $\mu_3$ and a
+compatible $\tth$, and let $\rho$ run over the irreducible
+representations of $H$ with central character $\theta$.  By
+Lemma~\ref{lem:product} (whose proof does not use
+\eqref{eq:normalized-central}), $L_D\Theta_\rho=\Theta_{\tau_1}\cdot F_\rho$
+with $F_\rho(\zeta\tilde zt^*)=\tth\tth_1^{-1}(\tilde z)\Theta_\rho(t)$ on
+star lifts of good elements and $L_D\Theta_\rho=0$ elsewhere.  Hence
+the class function
+\[
+ K_\theta(x,g):=\sum_\rho L_D\Theta_\rho(x)\,\overline{\Theta_\rho(g)}
+ =\Theta_{\tau_1}(x)\,\tth\tth_1^{-1}(\tilde z)\,\Delta_\theta(t,g),\qquad x=\zeta\tilde zt^*,\ g\in H,
+\]
+where $\Delta_\theta(t,g):=\sum_\rho\Theta_\rho(t)\overline{\Theta_\rho(g)}$
+is the $\theta$-twisted conjugacy delta of $H$ (it vanishes unless $g$
+is conjugate to $zt$ for some $z\in F^\times$, in which case it is
+$\theta(z)$ times the volume of the centralizer, for the normalization
+of Haar measure on $H/Z$ that makes the $\Theta_\rho$ orthonormal): a
+kernel on $\tH\times H$ supported where $g$ is, up to the center, the
+cube root of $p(x)$, and explicit because the trivial row is.  Since the
+$\Theta_\rho$ are orthonormal, the $H$-Fourier coefficients of
+$K_\theta$ are the $L_D\Theta_\rho$; so $K_\theta$ is the character of a
+(locally finite) representation $\Omega_\theta$ of $\tH\times H$ if and
+only if every $L_D\Theta_\rho$ is a character, and in that case
+$\Omega_\theta=\bigoplus_\rho\tau_\rho\otimes\rho^\vee$ with each
+$\tau_\rho$ irreducible and the $\tau_\rho$ pairwise distinct
+(Proposition~\ref{prop:positive} and unitarity).  Target~B for the
+central character $\theta$ is therefore equivalent to the statement
+that $K_\theta$ is the character of a representation of $\tH\times H$,
+and then $\Omega_\theta$ has the multiplicity-one Howe-duality property
+of Section~\ref{subsec:howe}, with $K_\theta$ in the role of the
+character of the Weil representation.  Theorems~\ref{thm:levelone}
+and~\ref{thm:leveltwo} establish this for the part of $K_\theta$ of
+level $\le2$ in $g$, and describe the corresponding summands of
+$\Omega_\theta$ on $\tU_1\times H$ as induced representations.  This is
+a reformulation, not a result: we know no construction of
+$\Omega_\theta$ that does not go through $L_D$.
+\end{remark}
+
 \appendix
 \section{Tables}\label{app:tables}
 \paragraph{Coordinates.}  $V=Q_3/Q_6\simeq\Fq_3^5$ with basis
@@ -2659,6 +2864,26 @@ corrected version (2026), \texttt{metaplectic\_kazhdan\_revised12.tex}.
 \textbf{64} (1986), 53--110.
 \bibitem{KP1} D. Kazhdan and S. J. Patterson, \emph{Metaplectic forms},
 Publ. Math. IH\'ES \textbf{59} (1984), 35--142.
+\bibitem{Bad08} A. I. Badulescu, Global Jacquet--Langlands correspondence,
+multiplicity one and classification of automorphic representations,
+\emph{Invent. Math.} \textbf{172} (2008), 383--438.
+\bibitem{Cor74} L. Corwin, Representations of division algebras over local
+fields, \emph{Adv. Math.} \textbf{13} (1974), 259--267.
+\bibitem{DKV} P. Deligne, D. Kazhdan, and M.-F. Vign\'eras,
+Repr\'esentations des alg\`ebres centrales simples $p$-adiques, in:
+\emph{Repr\'esentations des groupes r\'eductifs sur un corps local},
+Hermann, Paris, 1984, 33--117.
+\bibitem{GT16} W. T. Gan and S. Takeda, A proof of the Howe duality
+conjecture, \emph{J. Amer. Math. Soc.} \textbf{29} (2016), 473--493.
+\bibitem{How77a} R. Howe, Kirillov theory for compact $p$-adic groups,
+\emph{Pacific J. Math.} \textbf{73} (1977), 365--381.
+\bibitem{How77b} R. Howe, Tamely ramified supercuspidal representations
+of $\mathrm{GL}_n$, \emph{Pacific J. Math.} \textbf{73} (1977), 437--460.
+\bibitem{How79} R. Howe, $\theta$-series and invariant theory, in:
+\emph{Automorphic forms, representations and $L$-functions}, Proc.
+Sympos. Pure Math. 33, Part 1, AMS, 1979, 275--285.
+\bibitem{JL} H. Jacquet and R. P. Langlands, \emph{Automorphic forms on
+$\mathrm{GL}(2)$}, Lecture Notes in Math. 114, Springer, 1970.
 \bibitem{Kub67} T. Kubota, Topological covering of $\mathrm{SL}(2)$ over a
 local field, \emph{J. Math. Soc. Japan} \textbf{19} (1967), 114--121.
 \bibitem{Kub} T. Kubota, \emph{On automorphic functions and the
@@ -2675,6 +2900,24 @@ Birkh\"auser, 2000, 349--410.
 Publ. Math. IH\'ES \textbf{26} (1965); see also J. D. Dixon, M. P. F. du
 Sautoy, A. Mann and D. Segal, \emph{Analytic pro-$p$ groups}, 2nd ed.,
 Cambridge Univ. Press (1999), Thm.~5.1.5 and Ch.~4.
+\bibitem{MVW} C. M\oe glin, M.-F. Vign\'eras, and J.-L. Waldspurger,
+\emph{Correspondances de Howe sur un corps $p$-adique}, Lecture Notes
+in Math. 1291, Springer, 1987.
+\bibitem{Rei} I. Reiner, \emph{Maximal orders}, Academic Press, 1975.
+\bibitem{Rog83} J. Rogawski, Representations of $\mathrm{GL}(n)$ and
+division algebras over a $p$-adic field, \emph{Duke Math. J.} \textbf{50}
+(1983), 161--196.
+\bibitem{Wal80} J.-L. Waldspurger, Correspondance de Shimura, \emph{J.
+Math. Pures Appl.} \textbf{59} (1980), 1--132.
+\bibitem{Wal90} J.-L. Waldspurger, D\'emonstration d'une conjecture de
+dualit\'e de Howe dans le cas $p$-adique, $p\ne2$, in: \emph{Festschrift
+in honor of I. I. Piatetski-Shapiro}, Israel Math. Conf. Proc. 2,
+Weizmann, 1990, 267--324.
+\bibitem{Wal91} J.-L. Waldspurger, Correspondances de Shimura et
+quaternions, \emph{Forum Math.} \textbf{3} (1991), 219--307.
+\bibitem{Wei64} A. Weil, Sur certains groupes d'op\'erateurs unitaires,
+\emph{Acta Math.} \textbf{111} (1964), 143--211.
+\bibitem{Wei} A. Weil, \emph{Basic number theory}, 3rd ed., Springer, 1974.
 \bibitem{Moo} C. Moore, \emph{Group extensions of $p$-adic and adelic
 linear groups}, Publ. Math. IH\'ES \textbf{35} (1968), 157--222.
 \bibitem{Isa} I. M. Isaacs, \emph{Character theory of finite groups},
