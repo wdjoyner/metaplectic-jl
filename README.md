@@ -48,7 +48,7 @@ corrections of J. Zou (arXiv:2209.05852).
 | I   | Local matching and a global transfer under elliptic-support conditions | Draft 8 |
 | II  | Matching of arbitrary functions and an improved global transfer | Draft 8 |
 | III | The division-algebra side and its local character transform | Draft 9 |
-| IV  | Wild local correspondence and global trace formula comparison | Draft 5 |
+| IV  | Local power maps, toral positivity, and conditional global comparison | Concluding Draft 6 |
 
 Each part's full title begins *"A metaplectic Jacquet–Langlands
 transfer for division algebras of prime degree"*.
@@ -95,8 +95,20 @@ transfer for division algebras of prime degree"*.
   companion note `mjl_rank2_wild_toral_positivity_note` proves toral
   positivity for all quadratic tori, at every place dividing `n` and
   for every odd `n`.
+- **Positivity.** Integrality of `L_D` at places dividing `n` is
+  equivalent to positive definiteness of every transformed irreducible
+  character.
 - **Ordinary versus covered `D^×`.** A conditional global comparison,
   with an explicit normalization factor.
+
+### Companion paper: the rank-two wild case
+
+`part-IV/mjl_rank2_wild_draft0` (*Wild-place metaplectic character
+transfer in degree two: toral positivity and the nonabelian gluing
+problem*) is the start of a standalone paper on the open local problem
+for quaternion algebras. Its first target is the running example's
+wild place: is `L_D·1` an irreducible genuine representation of
+dimension 27?
 
 ### Main open problems
 
@@ -117,8 +129,9 @@ transfer for division algebras of prime degree"*.
 part-I/     Part I drafts (.tex, .pdf) and revision logs
 part-II/    Part II drafts and revision logs
 part-III/   Part III drafts and revision logs
-part-IV/    Part IV drafts, revision logs, referee reports, and the
-            rank-two toral positivity note
+part-IV/    Part IV drafts, revision logs, referee reports, the
+            rank-two toral positivity note, and the rank-two
+            companion paper (mjl_rank2_wild_draftK)
 notes/      Supporting notes, including the running example
 software/   Supporting code (MIT License)
 ```
@@ -197,7 +210,7 @@ referee reports are welcome through GitHub Issues.
 ## Citation
 
 When citing a result, identify the part, draft number, and date, for
-example: *Part IV, Draft 5 (November 7, 2026), Proposition 6.5*.
+example: *Part IV, Draft 6 (November 8, 2026), Theorem 6.2*.
 Theorem numbers can change between drafts.
 
 ## AI-assisted research
