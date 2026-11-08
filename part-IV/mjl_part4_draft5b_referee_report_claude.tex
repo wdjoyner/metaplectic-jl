@@ -1,0 +1,262 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\tH}{\widetilde H}
+\theoremstyle{plain}
+\newtheorem*{prop*}{Proposed Corollary}
+\title{Referee report on the rank-two toral positivity note\\
+\normalsize (with Part~IV, Draft~5, and its revision log)}
+\author{Claude (Anthropic), for David Joyner}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+
+\section*{0. What was submitted}
+Three files were submitted.
+\begin{itemize}
+\item \texttt{mjl\_part4\_draft5.tex}. This is byte-for-byte identical to
+the Draft~5 I refereed earlier today (same MD5 checksum). My earlier
+report on it stands. In particular, delete the nongood-class hypothesis
+in Proposition~8.5, correct the description of $B_d$, and label
+Lemma~6.4.
+\item The Markdown revision log for Draft~5. It is accurate. The Python check script that it mentions was not attached.
+\item The new note, \emph{A permutation-character theorem for quadratic
+wild-place discriminant ratios}. This is the substance of this
+report.
+\end{itemize}
+I read all three files in full.
+
+\section*{1. The note: verdict}
+\textbf{The theorem is correct.} I checked every step by hand (\S1.1).
+I also wrote an independent script that recomputes the coefficients
+$c_k$ from the valuation data. It covers $p\in\{3,5,7\}$, $p^a\in\{p,p^2\}$,
+several ramification indices and residue degrees for $F$, and both
+types of $E$: 72 cases in all. In every case every $c_k$ is a
+nonnegative integer, and the telescoped sum equals
+$R_E(1)=|n|_F^{-1}$. The examples are also right: $1+104\,\mathrm{Reg}(C_6)$
+and $1+12\,\mathrm{Reg}(C_2)+60\,\mathrm{Reg}(C_{10})$ for
+$\mathbb Q_5(\zeta_5)$ both have value $625=|5|_F^{-1}$ at the identity.
+
+This settles Step~T of Part~IV, \S6.4, for $r=2$, at every wild place
+and for every odd $n$. Together with Lemma~6.4 it implies the
+following. For every ordinary irreducible $\rho$ of a quaternion
+division algebra, the restriction of $L_D\Theta_\rho$ to every covered
+maximal torus is an actual genuine character.
+
+\subsection*{1.1 Checks}
+\begin{itemize}
+\item \emph{The discriminant.} $\Delta(t)=|N(1-u)|_F^{1/2}=|1-u|_E^{1/2}$,
+since $\mathrm{Ad}(t)$ acts on $D/E=Ej$ by multiplication by
+$u=t/\sigma(t)$. Then $1-u^n=\prod_{\zeta\in\mu_n}(1-\zeta u)$.
+\item \emph{Roots of unity with nontrivial prime-to-$p$ part.} For these,
+$|1-\zeta u|_E=1$. The reduction of $u\in E^1$ meets $k_F^\times$ only
+in $\{\pm1\}$: in the unramified case because the norm-one group of
+$k_E^\times$ meets $k_F^\times$ in $\{\pm1\}$, and in the ramified case
+because $\bar u^2=1$. A nontrivial root of unity of odd order is not
+$\pm1$.
+\item \emph{The radial formula.} $v_E(1-\zeta u)=\min(v_E(1-u),t_\zeta)$. The equality case is
+excluded by applying $\sigma$, using $\sigma(u)=u^{-1}$, and
+$v_E(\zeta-\zeta^{-1})=t_{\zeta^2}=t_\zeta$, which holds for $p$ odd.
+\item \emph{Value at the identity.} $\prod_{\zeta\in\mu_{p^a}\smallsetminus1}(1-\zeta)=p^a$
+gives $R_E(1)=|n|_F^{-1}$. This agrees with Part~III, Lemma~3.3, for
+$r=2$.
+\item \emph{Filtration indices.} Unramified: $[G:G_k]=(q+1)q^{k-1}$.
+Ramified: $[G:G_1]=2$ and $[G:G_{2j}]=2q^j$, with all positive depths
+odd. The ramified case uses the parametrization $c\mapsto u$, and
+$u-u'$ has $E$-valuation $2v_F(c-c')+1$.
+\item \emph{Integrality of $c_k$.} It uses three facts:
+\begin{itemize}
+\item the exponents $s_k$ are even, so $q+1$ divides $q^{s_k}-1$;
+\item $q^{k-1}$ divides $M_{k-1}$, respectively $q^j$ divides $M_{2j-1}$;
+\item $M_1$ is odd.
+\end{itemize}
+All correct.
+\end{itemize}
+
+\subsection*{1.2 Minor repairs to the note}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Surjectivity at each level.} The unramified filtration
+indices are stated without proof that the norm-one group surjects onto
+the trace-zero residue groups at every level. Add one line, via Hensel's
+lemma, or via the Hilbert~90 parametrization as in the ramified case.
+\item \emph{Where $p$ odd is used.} The theorem uses $p$ odd in two
+places: $\zeta\ne\zeta^{-1}$, and the $\{\pm1\}$ argument. Say so in the
+statement.
+\item \emph{Labels.} Give the theorem a \textbf{[P]} label, as in the
+series.
+\item \emph{Integration.} Make it Proposition~6.6 of Part~IV, replacing
+the example-level Proposition~6.5. Then state the consequence for
+\emph{all} $\rho$ via Lemma~6.4.
+\item \emph{Its last remark.} It is correct: positivity of one row does
+not give integrality of that row. This exposes an overstatement in my
+Draft~5 report (\S2).
+\end{enumerate}
+
+\section*{2. A correction to my previous report}
+In my Draft~5 report, \S2(ii), I said the positive-semidefinite test for
+the single row $\rho=\mathbf1$ would settle that case. That is too
+strong.
+\begin{itemize}
+\item Positive-semidefiniteness of one row shows only that the row is
+nonnegative.
+\item The positivity lemma needs \emph{all} rows to be nonnegative,
+because disjointness of supports comes from comparing rows.
+\end{itemize}
+The finite test is still useful: a negative eigenvalue would disprove
+integrality at once, and it is cheap. But to \emph{prove}
+irreducibility of $L_D\mathbf1$ one needs either integrality of that
+row, or nonnegativity of every row whose support meets that of
+$L_D\mathbf1$. The lemma itself, (a)$\Leftrightarrow$(c) for the whole
+matrix, is unaffected.
+
+\section*{3. Can the wild integrality problem now be solved in general?}
+\textbf{Not yet. But it can now be stated much more precisely.} Here is
+where things stand.
+
+\paragraph{What is proved.}
+\begin{itemize}
+\item The unitary transform and its matrix (Part~III).
+\item Integrality $\Leftrightarrow$ nonnegativity of the whole matrix
+(the positivity lemma).
+\item Torus-restriction positivity for every $\rho$ when $r=2$ (this
+note together with Lemma~6.4).
+\end{itemize}
+
+\paragraph{What is not proved.}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Step~T for $r\ge3$.} The note's argument depends on
+$\sigma(u)=u^{-1}$ for norm-one elements of a quadratic extension. For
+degree $r\ge3$ the root ratios $u_{ij}=\lambda_i/\lambda_j$ lie in the
+Galois closure, and non-Galois $E$ occur. The equality case of the
+radial formula and the filtration indices both need new arguments.
+\item \emph{Step~G, gluing, for every $r$ including $r=2$.} This is the
+real obstruction. Positivity on every torus does not imply positivity on
+the full group. Positive-definiteness is not determined by restrictions
+to abelian subgroups.
+\end{enumerate}
+
+\subsection*{3.1 What torus positivity does give: rationality, via Artin}
+The following is a short consequence that sharpens what Step~G must
+supply. I believe it is correct, but it has not been checked by anyone
+else.
+
+\begin{prop*}[\textbf{[P]}, given Step~T on all maximal tori; in
+particular for $r=2$]
+Every coefficient $a_{\rho\tau}$ is rational, with denominator dividing
+$|Q|$ for any finite twisted quotient $Q=\tH/N$ through which
+$L_D\Theta_\rho$ and $\Theta_\tau$ factor.
+\end{prop*}
+
+\begin{proof}[Proof sketch]
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Cyclic subgroups lie in covered tori.} Every cyclic subgroup
+of $Q$ is the image of some $\langle g\rangle$ with $g\in\tH$. Since $r$
+is prime, $p(g)$ lies in a maximal subfield $E$, so
+$\langle g\rangle\subset\widetilde{E^\times}=p^{-1}(E^\times)$.
+\item \emph{The restriction to a torus is a character of its image.}
+By Step~T, $\varphi=L_D\Theta_\rho$ restricts to an actual character of
+$\widetilde{E^\times}$. This character is invariant under translation
+by $K=\widetilde{E^\times}\cap N$. For a nonnegative combination of
+characters, $\varphi(k)=\varphi(1)$ forces $k$ to act trivially in
+every constituent. So $\varphi$ restricts to a genuine character of the
+image of $\widetilde{E^\times}$ in $Q$, hence of every cyclic subgroup.
+\item \emph{Artin's induction theorem.} It gives
+$|Q|\cdot1_Q=\sum_Ca_C\,\mathrm{Ind}_C^Q\theta_C$, with $a_C\in\mathbb Z$
+and $\theta_C$ ordinary virtual characters. Multiplying by the genuine
+function $\varphi$ and using
+$\varphi\cdot\mathrm{Ind}_C\theta=\mathrm{Ind}_C(\varphi|_C\,\theta)$
+gives $|Q|\varphi\in R^{\mathrm{gen}}(Q)$.
+\end{enumerate}
+\end{proof}
+
+\paragraph{The local version.} The same multiplication trick turns the
+local form of Brauer's induction theorem into a criterion. For each
+prime $\ell$ there is an integer $m$ prime to $\ell$ with $m\cdot1_Q$ a
+$\mathbb Z$-combination of inductions from $\ell$-elementary subgroups
+(cyclic of order prime to $\ell$, times an $\ell$-group). So
+\[
+a_{\rho\tau}\in\mathbb Z_{(\ell)}
+\iff
+\varphi|_E\ \text{is a virtual genuine character for every
+$\ell$-elementary }E\le Q.
+\]
+This twisted version needs no new theory. It follows formally from the
+ordinary induction theorems, which answers the hedge in my previous
+report.
+
+\paragraph{What remains.} Integrality is now a prime-by-prime problem.
+\begin{itemize}
+\item \emph{$\ell\ne p$.} The $\ell$-groups map injectively to the finite
+metacyclic quotient $H/ZU_D^1$, so the $\ell$-elementary subgroups are
+small. They are plausibly controlled by tori and the tame (Adams-type)
+arguments. But there is a gap: an abelian subgroup of $Q$ is only
+commutative modulo $N$, so it need not lie in one torus. This needs an
+argument.
+\item \emph{$\ell=p$: the core.} The $p$-elementary subgroups $C\times P$
+contain nonabelian $p$-subgroups $P$ of the covered pro-$p$ group
+$\widetilde{U_D^1}$. Over that group the cover does not split when
+$p\mid n$ (Part~III, Proposition~8.1). This is exactly where no
+torus-level information can suffice.
+\end{itemize}
+
+\subsection*{3.2 The most promising routes to the $p$-local core}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Explicit construction for $r=2$.} $D$ is quaternion and
+$p$ is odd, so $D$ is tamely ramified. Its representations are explicit
+(Howe's admissible pairs; Corwin--Howe characters).
+\begin{itemize}
+\item Build the genuine representations $\tau(E,\tilde\xi)$ by inducing
+from $\widetilde{E^\times}\cdot\kappa^*(U_D^m)$, using the
+Stone--von Neumann module on the torus.
+\item Compute their characters by the Frobenius formula.
+\item Match them with $L_D\Theta_\rho$. The note's explicit indicator
+form of $R_E$ is exactly what such a comparison produces.
+\item By the positivity lemma it is enough to show that each
+$L_D\Theta_\rho$ is the character of \emph{some} representation.
+\end{itemize}
+In my judgment this is now the most realistic path to a complete theorem
+for $r=2$.
+\item \emph{Kirillov theory on the deep pro-$p$ part.} On deep
+congruence subgroups, where the cover splits, the power map is
+dilation by $n$, and dilation maps coadjoint orbits to orbits. The
+dimension count gives exactly $c_D$ (my previous report, \S3.4). This
+targets precisely the $p$-elementary subgroups above.
+\item \emph{The global route.} This is the route of Part~IV,
+Proposition~8.5, combined with the positivity lemma. It remains
+conditional on the split-place and complex-place matching.
+\item \emph{Computation.} Compute the $\ell=p$ restriction test, or the
+full row, for $(2,3,\mathbb Q_3(\zeta_3))$ at the first few levels. A
+failure would be decisive. Success would indicate what the general
+construction must look like.
+\end{enumerate}
+
+\paragraph{Bottom line.}
+\begin{itemize}
+\item \emph{$r=2$.} Step~T is finished, and by the corollary of \S3.1
+the coefficients are rational. The remaining gap is the $p$-local part
+of gluing, which an explicit construction should be able to close.
+\item \emph{$r\ge3$.} Step~T itself is still open.
+\item \emph{In general.} I would not describe the problem as solvable
+``now''. It has been reduced to one clearly identified local question
+for $r=2$, and to two questions for $r\ge3$.
+\end{itemize}
+
+\section*{4. Suggested next revision of Part~IV}
+\begin{enumerate}[label=(\arabic*)]
+\item Make the changes from my previous report (Proposition~8.5, $B_d$,
+labels).
+\item Insert the note's theorem as Proposition~6.6 \textbf{[P]}, with the
+consequence for all $\rho$.
+\item Add the positivity lemma, with the single-row caveat of \S2.
+\item Add the Artin rationality corollary and the $\ell$-local
+criterion as \textbf{[P]}, after an independent check.
+\item Restate the open problem as: \emph{$p$-local integrality on
+$p$-elementary subgroups of the covered pro-$p$ group} (for $r=2$), plus
+Step~T (for $r\ge3$).
+\end{enumerate}
+
+\end{document}
