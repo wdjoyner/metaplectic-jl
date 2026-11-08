@@ -1,4 +1,10 @@
-Certificate for Proposition prop:free (Draft 6) / Step 3 of Theorem thm:leveltwo.
+Certificate for Proposition prop:free / Step 3 of Theorem thm:leveltwo (rank-two wild companion paper).
+Produced by step15_level2_clifford.py at git commit 6971fa327f2d64dabda32008c1c01285d3c19ba6.
+  input finite.pkl  md5 4311edf3800958e1fafa382b111b56dd
+  input symbols.pkl  md5 65352e10e6c8fa1d81742555beacd3e7
+  input design_0011020002.pkl  md5 6ab9a1cf04249ed47954c33558c4c538
+Heisenberg group law in the coordinates (m,(a0,a1)) below: (m,a)(m',a') = (m+m'+Im(a*conj(a')), a+a') mod 3,
+  where a = a0 + a1 i in F_9; the action tables must satisfy pi_t o pi_t' = pi_{t t'} (checked by verify_certificate.py).
 Group H = Q_3/Q_7 (729 elements, 297 classes); H^ = central extension by mu_3 with theta_0 = 1.
 Genuine irreducible characters of H^: mu = lambda_0 * chi, chi in Irr(H); listed below by index.
 Coset representatives t_0..t_26 of U_1/U_3 = Q_1/Q_3 are 1 + varpi*(m i) + (a0 + a1 i) j with
@@ -30,6 +36,35 @@ Coset representatives t_0..t_26 of U_1/U_3 = Q_1/Q_3 are 1 + varpi*(m i) + (a0 +
   t_24 = (2, (2, 0))
   t_25 = (2, (2, 1))
   t_26 = (2, (2, 2))
+
+Multiplication table of Heis = Q_1/Q_3 on the indices 0..26 (row a, column b -> index of t_a t_b):
+   0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26
+   1  2  0 13 14 12 25 26 24 10 11  9 22 23 21  7  8  6 19 20 18  4  5  3 16 17 15
+   2  0  1 23 21 22 17 15 16 11  9 10  5  3  4 26 24 25 20 18 19 14 12 13  8  6  7
+   3 22 14  6 25 17  0 19 11 12  4 23 15  7 26  9  1 20 21 13  5 24 16  8 18 10  2
+   4 23 12 16  8 24 19 11  0 13  5 21 25 17  6  1 20  9 22 14  3  7 26 15 10  2 18
+   5 21 13 26 15  7 11  0 19 14  3 22  8 24 16 20  9  1 23 12  4 17  6 25  2 18 10
+   6 16 26  0 10 20  3 13 23 15 25  8  9 19  2 12 22  5 24  7 17 18  1 11 21  4 14
+   7 17 24 10 20  0 22  5 12 16 26  6 19  2  9  4 14 21 25  8 15  1 11 18 13 23  3
+   8 15 25 20  0 10 14 21  4 17 24  7  2  9 19 23  3 13 26  6 16 11 18  1  5 12 22
+   9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26  0  1  2  3  4  5  6  7  8
+  10 11  9 22 23 21  7  8  6 19 20 18  4  5  3 16 17 15  1  2  0 13 14 12 25 26 24
+  11  9 10  5  3  4 26 24 25 20 18 19 14 12 13  8  6  7  2  0  1 23 21 22 17 15 16
+  12  4 23 15  7 26  9  1 20 21 13  5 24 16  8 18 10  2  3 22 14  6 25 17  0 19 11
+  13  5 21 25 17  6  1 20  9 22 14  3  7 26 15 10  2 18  4 23 12 16  8 24 19 11  0
+  14  3 22  8 24 16 20  9  1 23 12  4 17  6 25  2 18 10  5 21 13 26 15  7 11  0 19
+  15 25  8  9 19  2 12 22  5 24  7 17 18  1 11 21  4 14  6 16 26  0 10 20  3 13 23
+  16 26  6 19  2  9  4 14 21 25  8 15  1 11 18 13 23  3  7 17 24 10 20  0 22  5 12
+  17 24  7  2  9 19 23  3 13 26  6 16 11 18  1  5 12 22  8 15 25 20  0 10 14 21  4
+  18 19 20 21 22 23 24 25 26  0  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+  19 20 18  4  5  3 16 17 15  1  2  0 13 14 12 25 26 24 10 11  9 22 23 21  7  8  6
+  20 18 19 14 12 13  8  6  7  2  0  1 23 21 22 17 15 16 11  9 10  5  3  4 26 24 25
+  21 13  5 24 16  8 18 10  2  3 22 14  6 25 17  0 19 11 12  4 23 15  7 26  9  1 20
+  22 14  3  7 26 15 10  2 18  4 23 12 16  8 24 19 11  0 13  5 21 25 17  6  1 20  9
+  23 12  4 17  6 25  2 18 10  5 21 13 26 15  7 11  0 19 14  3 22  8 24 16 20  9  1
+  24  7 17 18  1 11 21  4 14  6 16 26  0 10 20  3 13 23 15 25  8  9 19  2 12 22  5
+  25  8 15  1 11 18 13 23  3  7 17 24 10 20  0 22  5 12 16 26  6 19  2  9  4 14 21
+  26  6 16 11 18  1  5 12 22  8 15 25 20  0 10 14 21  4 17 24  7  2  9 19 23  3 13
 
 Action on the 54 degree-3 genuine characters: row = character index, entry k = index of mu^{t_k}.
  0:  0 31 42 24 37 12 49  8 19  1 32 43 25 38 13 50  6 20  2 30 44 26 36 14 48  7 18

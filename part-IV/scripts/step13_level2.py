@@ -76,11 +76,27 @@ e_id = Hidx[(((0, 0), (0, 0)), ((0, 0), (0, 0)))]
 INV = np.zeros(729, dtype=np.int16)
 for a in range(729):
     INV[a] = int(np.where(MT[a] == e_id)[0][0])
-# sanity: associativity on random triples
-for _ in range(2000):
-    a, b, c = [random.randrange(729) for _ in range(3)]
-    assert MT[MT[a, b], c] == MT[a, MT[b, c]]
-print("H is a group (assoc. sampled), identity index", e_id)
+# deterministic group-law checks: full associativity (729^3 triples, vectorized), identity, inverses
+MTl = MT.astype(np.int64)
+for a in range(729):
+    assert np.array_equal(MTl[MTl[a, :], :], MTl[a, MTl]), "associativity fails"
+assert all(MT[e_id, a] == a and MT[a, e_id] == a for a in range(729))
+assert all(MT[a, INV[a]] == e_id for a in range(729))
+print("H is a group: full associativity (all 729^3 triples), identity and inverses verified; identity index", e_id)
+# a generating set (used by step15 for the deterministic lambda_0 check)
+gens = []; reach = {e_id}
+for a in range(729):
+    if a in reach: continue
+    gens.append(a); fr = list(reach); new = set(reach)
+    while fr:
+        x = fr.pop()
+        for g in gens:
+            for y in (int(MT[g, x]), int(MT[x, g])):
+                if y not in new: new.add(y); fr.append(y)
+    reach = new
+    if len(reach) == 729: break
+assert len(reach) == 729
+print("generating set of H of size", len(gens))
 
 # ---------- conjugacy classes of H ----------
 def conj_class_partition(conj_maps):
@@ -165,7 +181,41 @@ for s in table:
         assert acc == ((729, 0) if s == t else (0, 0)), (s[id_cls], t[id_cls], acc)
 degs = sorted(t[id_cls][0] for t in table)
 from collections import Counter
-print("character table verified exactly; degrees:", dict(Counter(degs)), "; sum of squares:", sum(d*d for d in degs))
+# exact certification that each rounded row is an irreducible character:
+#  omega_chi(K_j) = |C_j| chi(g_j)/chi(1) must be a common eigenvector of the class-sum matrices
+#  (Cmats[j] @ omega = omega_j * omega for all j), and sum_l |C_l||chi(l)|^2 = |H| with chi(1) > 0
+#  (the latter verified above).  A class function with these two properties is the irreducible
+#  character attached to that central character of the class algebra.  Exact in Z[zeta]
+#  (pairs of int64), everything multiplied by chi(1) to stay integral.
+Cint = Cmats.astype(np.int64)
+for t in table:
+    d = t[id_cls][0]
+    wa = np.array([int(sizes[l]) * t[l][0] for l in range(k)], dtype=np.int64)   # d*omega (1-part)
+    wb = np.array([int(sizes[l]) * t[l][1] for l in range(k)], dtype=np.int64)   # d*omega (zeta-part)
+    for j in range(k):
+        lhs_a = d * (Cint[j] @ wa); lhs_b = d * (Cint[j] @ wb)                 # d^2 (C_j omega)
+        oa, ob = int(wa[j]), int(wb[j])                                        # d*omega_j
+        rhs_a = oa * wa - ob * wb; rhs_b = oa * wb + ob * wa - ob * wb         # (d omega_j)(d omega)
+        assert np.array_equal(lhs_a, rhs_a) and np.array_equal(lhs_b, rhs_b)
+print("character table certified exactly (orthonormality + common eigenvectors of all class-sum matrices); degrees:",
+      dict(Counter(degs)), "; sum of squares:", sum(d*d for d in degs))
+# exact certificate of irreducibility: for each row chi, the central character
+#   omega(K_j) = |C_j| chi(g_j) / chi(1)   must be an algebra homomorphism of the class algebra:
+#   omega(K_j) omega(K_i) = sum_l c_{jil} omega(K_l).   Multiply through by chi(1)^2 to stay in Z[zeta].
+# A class function with chi(1)>0, <chi,chi>=1 and omega_chi an algebra homomorphism is an irreducible character.
+Cint = Cmats.astype(np.int64)
+for t in table:
+    d = t[id_cls][0]
+    om = [zz_scal(int(sizes[l]), t[l]) for l in range(k)]          # = chi(1) * omega(K_l)
+    for j in range(k):
+        for i in range(k):
+            lhs = zz_mul(om[j], om[i])                                 # chi(1)^2 omega(K_j) omega(K_i)
+            rhs = (0, 0)
+            for l in np.nonzero(Cint[j, i])[0]:
+                rhs = zz_add(rhs, zz_scal(int(Cint[j, i, l]) * d, om[l]))   # chi(1)^2 sum_l c_{jil} omega(K_l)
+            assert lhs == rhs, "class-algebra homomorphism property fails"
+print("exact certificate: every row satisfies the class-algebra homomorphism identities; with norm 1 and positive")
+print("  degree this certifies that the %d rows are exactly the irreducible characters of H" % k)
 
 # ---------- Ad(Q_1) action on H and on Irr(H) ----------
 # representatives of Q_1/Q_3: canonical elements of Q/Q_7 with (x mod varpi^2, y mod varpi) taking all 27 values

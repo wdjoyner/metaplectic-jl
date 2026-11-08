@@ -129,8 +129,9 @@ quaternion algebras. Draft 0 set the problem up; Drafts 1-4 (November
   containing the p-th roots of unity.
 
 Each draft has a revision log (`mjl_rank2_wild_revision_log_draftK`);
-ChatGPT's referee reports on Drafts 1-5 are the files
-`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 6.
+ChatGPT's referee reports on Drafts 1-6 are the files
+`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 7, which
+stops the research at level two and ends with a Future Directions section.
 
 ### Main open problems
 

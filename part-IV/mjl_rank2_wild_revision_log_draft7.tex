@@ -1,0 +1,116 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\title{Metaplectic Jacquet--Langlands Transfer, Companion Paper (Rank Two, Wild Place)\\Revision Log: Draft 6 to Draft 7}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+\section*{Scope}
+Draft 7 responds to ChatGPT's referee report on Draft 6 (seven
+recommendations, all adopted), adds the material on representation
+levels requested by David Joyner, and, following his decision to stop
+the research at level two, adds a Future Directions section (new
+Section 15) stating what a general result would need.  No new theorem.
+
+\section*{Decision to stop at level two}
+Recorded in Section 15.1.  The reasons: levels are unbounded, so no
+finite list proves Target B; the level-two proof uses three features
+that all fail at level three (class-two group with derived subgroup of
+order $3$; $\Theta_\rho\circ r$ supported on a central subgroup; a
+central subgroup $\hat A$ large enough to detect every $t\notin Q_3$ through
+central characters); and the referee's analysis agrees that the central
+problem is now an inductive mechanism, not a computation.  Target B is
+therefore stated as: proved for every row of level $\le2$, open beyond.
+
+\section*{The referee's seven corrections}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Section 13.5 (now ``Beyond level two'').}  The false
+statement that $Q_4/Q_{3m+1}$ is abelian is removed ($[1+\varpi^2i,1+\varpi^2j]$
+has depth $9$, so $Q_4/Q_{10}$ is nonabelian); the candidate abelian
+normal subgroup is $Q_{\lceil(3m+1)/2\rceil}/Q_{3m+1}$, i.e.\ $Q_5/Q_{10}$
+at $m=3$.  The sentence on linear $\chi$ now refers to $D_8$-invariant
+sums.  The ``single free orbit'' statement is corrected: the $243$
+genuine characters of $\hat H_1=\tilde V$ form nine free orbits, of which
+$\Lambda$ is one.  $H_m$ and $\hat H_m$ are standardized with the cutoff
+$N_m=\max(3m+1,6)$.  The two statements (B1), (B2) are formulated
+separately, as recommended, with the remark that a failure of (B1) would
+be a genuine obstruction while a failure of universal freeness would not.
+The referee's explicit non-integrality example
+($\chi(a+bi)=\zeta^a$, $h=(0,0,0,1,1)$, inner product $1/3$) was
+reproduced from the tables and is quoted.
+\item \textbf{Howe-duality remark (now Remark 16.1).}  The pointwise
+kernel $K_\theta$ diverges ($K_\theta(1,1)=27\sum\dim\rho^2$); the remark
+now works with the finite truncations $K^{(m)}_\theta$ over the
+irreducible representations of $H/K^{m+1}$ with central character
+$\theta$, which are honest class functions on $\tilde H\times H/K^{m+1}$
+with the explicit formula, and Target B is restated as ``$K^{(m)}_\theta$
+is a character for every $m$''.  The Schr\"odinger-model language in
+Section 2.3 is now explicitly an analogy: $\tilde U_3/N_6$ is abelian
+and $\tilde U_1/N_6$ is not a Heisenberg group with nondegenerate
+symplectic quotient; what is used is Clifford theory for an abelian
+normal subgroup.
+\item \textbf{Self-contained level-two theorem.}  New Lemma 13.7 (the
+group $H=Q_3/Q_7$): $H'=Q_6/Q_7$, $Z(H)=Q_4/Q_7$, $243+54$ characters,
+and $3\sum_{\chi'(1)=3}\chi'=\mathrm{Reg}_H-\mathrm{Inf}\,\mathrm{Reg}_{H/H'}$
+together with the $\omega$-isotypic form, proved by hand; Step 2 of the
+theorem now cites it.
+\item \textbf{$\beta\neq0$ made explicit} (Lemma 10.2(b)).  For
+$E=F(j)$: $(1+aj)^3=1+a^3\varpi j+3a^2\varpi+3aj$ with $v_E(3)=4$, so
+cubes of $U_E^{(1)}$ have leading term at $E$-depth $3$ and their
+$E$-depth-$5$ component is determined; hence $E^\times/F^\times E^{\times3}$
+(order $9$) has basis the classes of $1+j$ and $1+\varpi^2j$, the
+commutator pairing is nondegenerate on it, and
+$[\widetilde{1+j},\widetilde{1+\varpi^2j}]=\kappa_{1,5}(1,1)=\zeta^{2\beta}\neq1$.
+The consistency with the top-level Hilbert pairing of $E$ at level $6=pe_E/(p-1)$
+is noted.
+\item \textbf{Proof-status language.}  ``The last two steps are exact
+finite computations'' is replaced by ``all by hand; scripts 13--15
+corroborate''.  Proposition 13.4 and Theorem 13.5 now carry the label
+[P$^c$] and begin ``Assume Theorem 12.1'', making the dependence on
+Target A explicit.
+\item \textbf{Reproducibility.}  Script 13 certifies the group law of
+$Q_3/Q_7$ deterministically (associativity on all $729^3$ triples) and
+certifies the character table exactly (each rounded row is a common
+eigenvector of all class-sum matrices, computed in $\Z[\zeta_3]$ with
+integer arithmetic, and has the right norm); script 15 certifies that
+$\lambda_0$ is a character of $\hat H$ on all (generator, element) pairs,
+and its certificate now includes the multiplication table of $Q_1/Q_3$;
+a new \texttt{verify\_certificate.py} re-reads the certificate and
+checks, without the cover, that the tables define an action of a group
+of order $27$ with no fixed points and the listed orbits.  No sampled
+checks remain in scripts 13--15.  The scripts used for this draft are
+tagged \texttt{draft7-scripts} in the repository, and Appendix B says so.
+\item \textbf{Prime degree.}  ``Every element of $D\setminus F$ generates
+a maximal subfield'' is restricted to prime degree.
+\end{enumerate}
+
+\section*{Material on levels (Section 2.1, new paragraph)}
+Level as the integer form of Moy--Prasad depth ($m/r$ for $D^\times$),
+preservation of depth under Jacquet--Langlands, the finite groups
+$D^\times/F^\times K^{m+1}$ and the count of representations of level
+$\le2$ in the running example ($5+4+4$, dimensions $1,1,1,1,2;4;6$),
+Howe--Corwin admissible pairs in the tame case $p\nmid r$ and the
+relation of level to the conductor of $\chi$, and the remark that levels
+are unbounded.  Bushnell--Henniart added to the bibliography.
+
+\section*{Future directions (new Section 15)}
+Why level two is a natural stopping point; the two statements (B1),
+(B2) per level and which failures would be obstructions; the level-three
+setup ($H_3$ of order $3^{11}$, Clifford theory over $Q_5/Q_{10}$, the
+certificate format); two ideas toward an inductive mechanism (an
+orbit-theoretic description in the spirit of Howe's Kirillov theory;
+inductive freeness via the central subgroups $\hat A_m$, which are
+central in $\hat H_m$ for $m\ge3$ with no hypothesis); what remains for
+Target C; and the duality construction.
+
+\section*{Numbering}
+The new lemma shifts two numbers: the level-two theorem is now 13.8 and
+freeness 13.9; the new sections shift the interface section to 16.
+Labels unchanged; the scripts' README updated.
+\end{document}

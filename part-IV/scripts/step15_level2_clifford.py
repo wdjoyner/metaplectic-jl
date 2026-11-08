@@ -90,16 +90,31 @@ print("computing lambda_0 on the 729 representatives ...")
 t0 = time.time()
 L = [lambda0((Xh[h], 0)) for h in range(729)]
 print("  done in %.0fs; value distribution %s" % (time.time() - t0, Counter(L)))
-# consistency: lambda_0 is a character of H^ : check on random pairs via the cocycle of H^
-import random
-rng = random.Random(5)
-for _ in range(300):
-    a, b = rng.randrange(729), rng.randrange(729)
-    prod = cmul((Xh[a], 0), (Xh[b], 0))
-    h, eps = to_Hhat(prod)
-    assert h == MT[a, b]
-    assert (L[a] + L[b]) % 3 == (eps + L[h]) % 3, "lambda_0 does not descend to H^"
-print("lambda_0 is a character of H^ (300 random pairs)")
+# deterministic consistency check that lambda_0 descends to a character of H^:
+# a function f on a group with f(g_i h) = f(g_i) f(h) for all h and for generators g_i is a homomorphism
+# (induction on word length).  Generators: lifts of a basis of H/Phi(H) = Q_3/Q_6 = V (Phi(H) = Q_6/Q_7).
+def quat_elem(A=(0,0), C=(0,0), B=(0,0)):
+    # 1 + varpi (A + B varpi) j + varpi^2 C  as a quat element X (not normalized)
+    Xq = ((Q.e_mul(Q.e_mul(Q.EW, Q.EW), Q.e_gauss(C))), Q.e_mul(Q.EW, Q.e_add(Q.e_gauss(A), Q.e_mul(Q.EW, Q.e_gauss(B)))))
+    return normalize(reduce_P7(Xq))
+gens = [quat_elem(A=(1,0)), quat_elem(A=(0,1)), quat_elem(C=(0,1)), quat_elem(B=(1,0)), quat_elem(B=(0,1))]
+gidx = [Hidx[g] for g in gens]
+# they generate H: closure
+S0 = {e_id}; fr = [e_id]
+while fr:
+    x = fr.pop()
+    for g in gidx:
+        y = int(MT[g, x])
+        if y not in S0: S0.add(y); fr.append(y)
+assert len(S0) == 729, "generators do not generate H"
+t0 = time.time()
+for g in gidx:
+    for b in range(729):
+        prod = cmul((Xh[g], 0), (Xh[b], 0))
+        h, eps = to_Hhat(prod)
+        assert h == MT[g, b]
+        assert (L[g] + L[b]) % 3 == (eps + L[h]) % 3, "lambda_0 does not descend to H^"
+print("lambda_0 is a character of H^: checked f(g h) = f(g) f(h) for 5 generators g of H and all 729 h (%.0fs)" % (time.time() - t0))
 
 # ---- genuine irreducibles of H^ with central character zeta: mu_chi = lambda_0 * chi, chi in Irr(H) ----
 deg3 = [t for t in table if t[id_cls][0] == 3]
@@ -172,12 +187,25 @@ deg3_idx = {chi: n for n, chi in enumerate(deg3)}
 lin_idx = {chi: n for n, chi in enumerate(lin)}
 tkeys = list(Xt)
 with open('level2_orbit_certificate.txt', 'w') as f:
-    f.write("Certificate for Proposition prop:free (Draft 6) / Step 3 of Theorem thm:leveltwo.\n")
+    import subprocess, hashlib
+    try:
+        commit = subprocess.check_output(['git', 'rev-parse', 'HEAD'], stderr=subprocess.DEVNULL).decode().strip()
+    except Exception:
+        commit = 'unknown'
+    f.write("Certificate for Proposition prop:free / Step 3 of Theorem thm:leveltwo (rank-two wild companion paper).\n")
+    f.write("Produced by step15_level2_clifford.py at git commit %s.\n" % commit)
+    for fn in ('finite.pkl', 'symbols.pkl', 'design_0011020002.pkl'):
+        f.write("  input %s  md5 %s\n" % (fn, hashlib.md5(open(fn, 'rb').read()).hexdigest()))
+    f.write("Heisenberg group law in the coordinates (m,(a0,a1)) below: (m,a)(m',a') = (m+m'+Im(a*conj(a')), a+a') mod 3,\n")
+    f.write("  where a = a0 + a1 i in F_9; the action tables must satisfy pi_t o pi_t' = pi_{t t'} (checked by verify_certificate.py).\n")
     f.write("Group H = Q_3/Q_7 (729 elements, 297 classes); H^ = central extension by mu_3 with theta_0 = 1.\n")
     f.write("Genuine irreducible characters of H^: mu = lambda_0 * chi, chi in Irr(H); listed below by index.\n")
     f.write("Coset representatives t_0..t_26 of U_1/U_3 = Q_1/Q_3 are 1 + varpi*(m i) + (a0 + a1 i) j with\n")
     f.write("  Heis class (m, (a0,a1)) as follows:\n")
     for n, tk in enumerate(tkeys): f.write("  t_%d = %s\n" % (n, str(tk)))
+    f.write("\nMultiplication table of Heis = Q_1/Q_3 on the indices 0..26 (row a, column b -> index of t_a t_b):\n")
+    for a in range(27):
+        f.write("  " + ' '.join('%2d' % tkeys.index(hreps[HM[hidx[tkeys[a]]][hidx[tkeys[b]]]]) for b in range(27)) + "\n")
     f.write("\nAction on the 54 degree-3 genuine characters: row = character index, entry k = index of mu^{t_k}.\n")
     fixed = 0
     for chi in deg3:
