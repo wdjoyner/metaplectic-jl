@@ -1,0 +1,342 @@
+% =====================================================================
+% glossary.tex
+%
+% Shared glossary of notation and conventions for the series
+%   "A metaplectic Jacquet--Langlands transfer for division algebras
+%    of prime degree", Parts I--IV, and the companion paper on the
+%    rank-two wild place.
+%
+% Each Part \input's this file inside its own "Notation and
+% conventions" section, for example
+%
+%   \section{Notation and conventions}\label{sec:glossary}
+%   <two-to-four-sentence lead-in>
+%   \input{../glossary}
+%   \subsection{Notation specific to Part I}  ...
+%
+% The file contains only \subsection's and description lists.  It
+% uses only commands from LaTeX, amsmath and amssymb (no macros of
+% any Part), so it compiles unchanged in every Part.  Labels carry
+% the prefix "gl:" to avoid clashes with the Parts' own labels.
+%
+% Pointers of the form "Part I, Proposition 2.3" refer to Part I,
+% Draft 8, whose numbering Draft 9 keeps; pointers to Parts II, III
+% and IV refer to Drafts 8, 9 and 6.  This file proves nothing.
+%
+% Version: November 8, 2026 (introduced with Part I, Draft 9).
+% American English spelling throughout.
+% =====================================================================
+
+\subsection{Status labels}\label{gl:labels}
+Every statement in the series carries one of the following labels.
+A label is never upgraded without a proof, and every change of label
+is recorded in the revision log of the draft in which it is made.
+\begin{description}
+\item[\textbf{[P]}] \emph{Proved here}: a complete argument is
+included in the Part in which the label appears, possibly using
+results labeled \textbf{[E]}.  A statement proved under an
+explicitly stated hypothesis is labeled \textbf{[P]} together with
+the hypothesis, as in ``\textbf{[P]} under $(\mathrm H_D)$'', and the
+hypothesis itself is listed separately with its own label.
+\item[\textbf{[E]}] \emph{Established elsewhere}: a precisely cited
+theorem from the literature or from an earlier Part, used as a black
+box.  ``\textbf{[P]} (using \textbf{[E]})'' marks a proof that rests
+on such inputs; ``\textbf{[E]}/\textbf{[P]}'' marks a statement that
+is partly cited and partly proved.
+\item[\textbf{[O]}] \emph{Proof outlined}: the steps are identified,
+but at least one of them remains to be written out or checked.
+\item[\textbf{[C]}] \emph{Conjectural}: new mathematical input is
+required.  This includes the goals deferred to later Parts and the
+hypotheses under which conditional statements are proved.
+\item[\textbf{[P$^{\mathrm c}$]}] \emph{Proved modulo an exhaustive
+exact computation}: the proof consists of hand arguments together
+with a computation that is exhaustive over an explicitly described
+finite set and uses exact arithmetic only (no sampling, and no
+floating point without exact re-verification).  Each such script is
+committed to the repository, cited by commit hash, and described in
+an appendix and in the scripts' README.  At present this label is
+used only in the companion paper on the rank-two wild place.
+\end{description}
+
+\subsection{Global data}\label{gl:global}
+\begin{description}
+\item[$K$, $n$, $\mu_n$] $K$ is a totally imaginary number field
+containing the group $\mu_n$ of $n$-th roots of unity, and $n\ge1$ is
+odd.  All archimedean places of $K$ are complex.
+\item[$r$, $D$, $L$, $S$] $r$ is a prime with $(n,r)=1$; $D$ is a
+central division algebra over $K$ of dimension $r^2$; $L\subset D$ is
+a cyclic maximal subfield, so $[L:K]=r$; $S$ is the (finite) set of
+places at which $D$ ramifies.  Since $r$ is prime, every $v\in S$ is
+finite and $D_v$ is a division algebra; $|S|\ge2$, and $|S|$ is even
+if $r=2$ (Part~I, \S1.1).
+\item[$r'$, $c$, $c_v$] Integers with $rr'\equiv1\pmod n$ and
+$n\mid r-1+2c$; then $c_v:=r'c$ satisfies $n\mid r-1+2rc_v$ (Part~I,
+Assumption~1.1).  Despite the subscript, $c_v$ does not depend on the
+place $v$.  The parameter $c$ occurs \emph{before} the relabeling of
+$\mu_n$ described in \S\ref{gl:cocycle}, and $c_v$ \emph{after} it.
+\item[$\mathbb A_K$, $L_v$] $\mathbb A_K$ is the adele ring of $K$
+(written $\mathbb A$ when no confusion is possible), and
+$L_v:=L\otimes_KK_v=\prod_{w\mid v}L_w$.
+\item[$G_D$] The algebraic group $D^\times$ over $K$, so that
+$G_D(K_v)=D_v^\times$.
+\item[Running example] $K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$,
+$D=(-1,4-\zeta_3)_K$, ramified exactly at
+$S=\{\mathfrak p_3,\mathfrak p_7\}$ with $\mathfrak p_3=(1-\zeta_3)$
+and $\mathfrak p_7=(3+\zeta_3)$; $L=K(i)=\mathbb Q(\zeta_{12})$,
+$c=1$, $r'=2$, $c_v=2$.  The place $\mathfrak p_3$ divides $n$ and
+$\mathfrak p_7$ does not.  The note
+\texttt{notes/mjl\_running\_example.tex} works the example out across
+the series.
+\end{description}
+
+\subsection{Local fields and absolute values}\label{gl:local}
+\begin{description}
+\item[$F$, $\mathcal O_F$, $\varpi$, $q_F$, $p$] $F$ is a
+nonarchimedean local field of characteristic zero containing $\mu_n$
+(usually $F=K_v$), with ring of integers $\mathcal O_F$, uniformizer
+$\varpi$, residue field of order $q_F$, and residual characteristic
+$p$.
+\item[$|\cdot|_F$, $|\cdot|_p$] $|\cdot|_F$ is the normalized absolute
+value, $|\varpi|_F=q_F^{-1}$; on $\mathbb Q_p$ it is written
+$|\cdot|_p$, with $|p|_p=p^{-1}$.  In particular $|n|_F=1$ if
+$p\nmid n$, and $|F^\times/F^{\times n}|=n^2|n|_F^{-1}$ (Part~I,
+proof of Proposition~3.5).
+\item[Places dividing $n$; tame and wild places] A place $v$ (or the
+field $F=K_v$) \emph{divides $n$} if $p\mid n$.  The places $v\in S$
+with $p\nmid n$ are called \emph{tame}, and those with $p\mid n$
+\emph{wild}.  In the running example $\mathfrak p_7$ is tame and
+$\mathfrak p_3$ is wild ($|3|_{\mathfrak p_3}=3^{-2}$).
+\end{description}
+
+\subsection{Hilbert symbols}\label{gl:hilbert}
+\begin{description}
+\item[$(a,b)_F$] The $n$-th Hilbert symbol of $F$, with values in
+$\mu_n$; Part~IV and the companion paper also write $(a,b)_{n,F}$ or
+$(a,b)_n$.  It is bimultiplicative, nondegenerate and antisymmetric,
+$(a,b)_F=(b,a)_F^{-1}$.  At complex places it is trivial.
+\item[Norm compatibility] For a finite extension $F'/F$, $a\in
+F^\times$ and $b\in F'^\times$, $(a,b)_{F'}=(a,N_{F'/F}b)_F$; in
+particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$
+[Serre, \emph{Local Fields}, Ch.~XIV].
+\item[$(a,b)_{\mathbb A}$] For a number field $M\supseteq K$,
+$(a,b)_{\mathbb A_M}=\prod_w(a_w,b_w)_{M_w}$.  Hilbert reciprocity:
+$(a,b)_{\mathbb A_M}=1$ for $a,b\in M^\times$.
+\end{description}
+
+\subsection{Covers and the cocycle normalization}\label{gl:cocycle}
+\begin{description}
+\item[Cover, $p$, $\overline{H'}$] An \emph{$n$-fold cover} of a
+locally compact group $H$ is a topological central extension
+$1\to\mu_n\to\overline H\xrightarrow{\ p\ }H\to1$.  For a subgroup
+$H'\subset H$ we write $\overline{H'}:=p^{-1}(H')$.  Parts~I and~II
+write $\overline H$; Parts~III, IV and the companion paper write
+$\widetilde H$, $\widetilde Z$.
+\item[Commutators] For lifts $\tilde x,\tilde y$ of commuting
+elements, $[x,y]:=\tilde x\tilde y\tilde x^{-1}\tilde y^{-1}\in\mu_n$;
+it does not depend on the lifts, and it is bimultiplicative on a
+torus [Flicker--Kazhdan, \S3].
+\item[Kazhdan--Patterson cocycle $\sigma_F$] The cocycle of
+[Kazhdan--Patterson, \S0.1] and [Flicker--Kazhdan, \S2] on
+$\mathrm{GL}(r,F)$ with twisting parameter $0$.  On the diagonal
+torus,
+$\sigma_F(\mathrm{diag}(a_i),\mathrm{diag}(b_i))=\prod_{i<j}(a_i,b_j)_F$.
+\item[Parameter-$c'$ cover $\overline G^{(c')}$] The cover of
+$\mathrm{GL}(r,F)$ with cocycle
+$\sigma_F(g,h)\,(\det g,\det h)_F^{\,c'}$.  The comparison uses
+$c'=c_v$; the parameter is forced (Part~I, Remark~3.3).  On the
+diagonal torus the commutator of $\mathrm{diag}(t_i)$ and
+$\mathrm{diag}(u_j)$ is $\prod_{i,j}(t_i,u_j)_F^{A_{ij}}$ with
+$A=-I_r+(1+2c_v)J_r$, where $J_r$ is the all-ones matrix (Part~IV,
+\S2.1).
+\item[Ambient cover $\overline{\mathcal G}_v$] The cover of
+$\mathcal G_v=\mathrm{GL}(r,L_v)=\prod_{w\mid v}\mathrm{GL}(r,L_w)$
+with cocycle
+$\prod_{w\mid v}\sigma_{L_w}(g_w,h_w)\,(\det g_w,\det h_w)_{L_w}^{\,c_v}$,
+the copies of $\mu_n$ being identified (Part~I, \S2.2 and
+equation~(1)).  Both covers compared in the series are subgroups of
+it, so their common central subgroup $p^{-1}(K_v^\times)$ is literally
+the same subgroup on the two sides.
+\item[Restriction and relabeling] Pulled back along
+$\iota_D:D_v^\times\hookrightarrow\mathcal G_v$, the ambient cocycle
+is the local component of the cocycle
+$\beta=\sigma_L\cdot(\mathrm{Nrd},\mathrm{Nrd})^c$ of the corrected
+1988 paper [JC, equation~(4)].  Pulled back along the diagonal
+embedding of $\mathrm{GL}(r,K_v)$, it is isomorphic, \emph{as an
+extension}, to the extension with cocycle
+$\sigma_F^{\,r}(\det,\det)_F^{\,c}$ (Part~I, Proposition~2.3).  The
+group $\mu_n$ is relabeled \emph{once}, at every place and globally,
+by $\zeta\mapsto\zeta^{r'}$; after relabeling the second extension is
+$\overline G^{(c_v)}$.  Formulas state whether they hold before or
+after relabeling.  The isomorphism is one of extensions, not an
+equality of cocycles, and it is unique up to
+$\tilde g\mapsto\chi(\det p(\tilde g))\,\tilde g$ with
+$\chi:F^\times\to\mu_n$ continuous.  Central characters are therefore
+never transported through it (Part~I, Remark~2.5).
+\item[Scalar centrality] Because $n\mid r-1+2rc_v$, the whole inverse
+image $\overline Z=p^{-1}(F^\times)$ of the scalars is central
+(Part~I, Lemma~2.2).  A cover with this property is called
+\emph{scalar-central}.
+\item[Global normalization] Globally one uses the normalized cocycle
+$\tau_w(g,h)=\sigma_w(g,h)\,\kappa_w(g)\kappa_w(h)\kappa_w(gh)^{-1}$
+of [Flicker--Kazhdan, \S2], where $\kappa_w$ is trivial for $w\mid
+n\infty$.  The compact splitting is $\kappa^*_w(k)=(k,1)_\tau$ on
+$\mathrm{GL}(r,\mathcal O_{L_w})$ for $w\nmid n\infty$, and the
+rational splitting is $\iota(x)=s_\tau(x)\,\kappa_L(x)^{-1}$; in the
+unnormalized models the rational splitting is $x\mapsto(x,1)_\sigma$
+at every place (Part~I, Lemma~5.1).  The global ambient cover
+$\overline{\mathcal G}(\mathbb A_L)$ has cocycle
+$\tau_L\cdot(\det,\det)_{\mathbb A_L}^{\,c_v}$.
+\item[Star map] For $h$ in the base group and any lift $\tilde h$,
+$h^*:=\tilde h^{\,n}$.  It does not depend on the lift, it is
+conjugation equivariant, $(ah)^*=a^*h^*$ for scalars $a$, and it is
+multiplicative on every torus because $n$ is odd (Part~III,
+Definition~2.1; Part~IV, \S2.2).  For $\zeta\in\mu_n(F)$ one has
+$\zeta^*=1$.
+\end{description}
+
+\subsection{Genuine objects, central characters and good elements}\label{gl:genuine}
+\begin{description}
+\item[Genuine representation] A representation of $\overline H$ on
+which $\mu_n$ acts by the tautological character $\zeta\mapsto\zeta$.
+\item[$\tilde\theta$, $\theta$] A genuine character $\tilde\theta$ of
+$\overline Z$ (unitary from Part~I, \S5.1 on; globally, a character of
+$\overline Z(\mathbb A_K)$ trivial on $\iota(K^\times)$).  The same
+$\tilde\theta$ serves both covers, since $\overline Z$ is a common
+subgroup.  The ordinary character attached to it is
+$\theta(a):=\tilde\theta(a^*)$; it is trivial on $\mu_n$, and
+$\theta$ does not determine $\tilde\theta$ (Part~IV, \S2.2).
+Part~III requires only that $\tilde\theta|_{\mu_n}$ be faithful.
+\item[Genuine test functions] $C_c^\infty(\overline H,\tilde\theta)_{\mathrm{gen}}$
+is the space of smooth functions with support compact modulo
+$\overline Z$ and $f(z\tilde h)=\tilde\theta(z)^{-1}f(\tilde h)$ for
+$z\in\overline Z$; in particular $f(\zeta\tilde h)=\zeta^{-1}f(\tilde h)$.
+Characters and invariant class functions of genuine representations
+transform by $\tilde\theta$ itself (Part~III, \S2).
+\item[Regular, elliptic] An element of $\mathrm{GL}(r,F)$ is
+\emph{regular} if its eigenvalues are distinct, and \emph{elliptic
+regular} if moreover its characteristic polynomial is irreducible.
+Since $r$ is prime, the regular elements of $D_v^\times$ are the
+noncentral ones, and they are all elliptic.  An element of a cover is
+regular (elliptic) if its image is.
+\item[Good element] A regular $\tilde\gamma$ is \emph{good} if it
+commutes with $p^{-1}(T_\gamma)$, where $T_\gamma$ is the centralizer
+of $\gamma=p(\tilde\gamma)$; equivalently, $\tilde\gamma$ is central
+in the covered torus $\overline{T_\gamma}$.  Genuine invariant
+functions vanish at regular elements that are not good.  For a
+maximal subfield $E$ of $D_v$ (or an elliptic torus $E^\times$ of
+$\mathrm{GL}(r,F)$), the good elements of $\overline{E^\times}$ are
+$p^{-1}(F^\times E^{\times n})=\overline Z\cdot\{t^*\}$, of index
+$|n|_F^{-(r-1)}$, and every genuine irreducible representation of
+$\overline{E^\times}$ has dimension $|n|_F^{-(r-1)/2}$ (Part~I,
+Proposition~3.5).  Covered elliptic tori are abelian exactly at the
+places not dividing $n$.
+\end{description}
+
+\subsection{Orbital integrals and matching}\label{gl:matching}
+\begin{description}
+\item[$\Delta$] For regular semisimple $\gamma$,
+$\Delta(\gamma)=|D(\gamma)|_F^{1/2}|\det\gamma|_F^{-(r-1)/2}$, where
+$D(\gamma)$ is the discriminant of the (reduced) characteristic
+polynomial and $\det=\mathrm{Nrd}$ on the division-algebra side.
+Thus $\Delta(\gamma)^2$ is the Weyl discriminant
+$|\det(1-\mathrm{Ad}(\gamma^{-1}))|_{\mathfrak g/\mathfrak t}|_F$
+(Part~I, Definition~4.1 and Lemma~A.5).
+\item[$\Phi$, $F=\Delta\Phi$] $\Phi(\tilde\gamma,\tilde f)$ is the
+orbital integral over $T_\gamma\backslash G$ of a genuine test
+function at a good regular $\tilde\gamma$, and
+$F(\tilde\gamma,\tilde f)=\Delta(\gamma)\Phi(\tilde\gamma,\tilde f)$
+is the normalized orbital integral, set to $0$ at regular elements
+that are not good (Part~I, Definition~4.1).  Part~III writes
+$J(t,f)=\Delta(t)\,O(t,f)$ for the same function, with its own
+measure conventions.
+\item[Canonical identification $\jmath$] At $v\in S$ and for a maximal
+subfield $E\subset D_v$ with an embedding $j:E\hookrightarrow
+M_r(F)$, every isomorphism of covered tori that is the identity on
+$\overline Z$ has the same restriction $\jmath_{E,j}$ to the good
+elements; these restrictions induce a bijection $\jmath$ from the good
+regular classes of the cover of $D_v^\times$ to the good regular
+elliptic classes of the cover of $\mathrm{GL}(r,F)$ (Part~I,
+Theorem~3.9 and Corollary~3.12).
+\item[Matching] Genuine test functions $\tilde f_D$ and $\tilde f$
+\emph{match} if (M1)
+$F(\tilde\gamma,\tilde f_D)=(-1)^{r-1}F(\jmath(\tilde\gamma),\tilde f)$
+at every good regular $\tilde\gamma$, and (M2) $F(\tilde\delta,\tilde
+f)=0$ at every good regular non-elliptic $\tilde\delta$ (Part~I,
+Definition~4.3).  The sign sits in the matching of functions, so that
+the expected character relation is
+$\Theta_{\overline\pi_D}=(-1)^{r-1}\Theta_{\overline\pi}\circ\jmath$.
+\item[Supercusp form] A genuine test function on the cover of
+$\mathrm{GL}(r,F)$ whose integrals along the unipotent radicals of
+all proper parabolic subgroups vanish, for example a matrix
+coefficient of a supercuspidal representation [Flicker--Kazhdan,
+\S13].
+\item[Germ] The asymptotic behavior of orbital integrals near a
+singular element, expressed through Shalika germs [Flicker--Kazhdan,
+\S8]; used near the center in Part~II.
+\end{description}
+
+\subsection{Haar measures}\label{gl:measures}
+\begin{description}
+\item[Part~I] At $v\in S$ the Haar measures on $D_v^\times/F^\times$
+and $\mathrm{GL}(r,F)/F^\times$ are arbitrary but fixed, and matching
+is defined with respect to them; torus measures are transported by
+conjugation and do not affect matching.  At $v\notin S$ the measures
+correspond under the identifications $\psi_v$ (Part~I, \S\S4.1, 5.3).
+\item[Part~II] At $v\in S$,
+$\mathrm{vol}(D_v^\times/F^\times)=d(\mathrm{St})^{-1}$, where
+$d(\mathrm{St})$ is the formal degree of the Steinberg representation
+for the chosen measure on $\mathrm{GL}(r,F)/F^\times$ (Part~II,
+Definition~2.1).
+\item[Part~III] For the transform $L_D$, the quotients $H/Z$ and
+$T/Z$ carry their Haar \emph{probability} measures (Part~III, \S4).
+\item[Formal degree] For a representation $\sigma$ that is square
+integrable modulo the center, the constant $d(\sigma)$ in the Schur
+orthogonality relations; it depends on the Haar measure.
+\end{description}
+
+\subsection{The division-side transform}\label{gl:transform}
+\begin{description}
+\item[$H$, $\widetilde H$, $L_D$] For a local division algebra $D$ of
+degree $r$ over $F$, $H=D^\times$ and $\widetilde H$ is its cover from
+Part~I.  The transform $L_D$ sends $\theta$-equivariant invariant
+$L^2$ functions $\varphi$ on $H$ to genuine
+$\tilde\theta$-equivariant invariant functions on $\widetilde H$ by
+$(L_D\varphi)(z\,t^*)=b_D\,\tilde\theta(z)\,\Delta(t)\Delta(t^n)^{-1}\varphi(t)$
+at good regular elements, and $0$ at the others; it is unitary
+(Part~III, Definition~4.1 and Theorem~4.3).
+\item[$b_D$, $c_D$] $b_D=|n|_F^{-(r-1)/2}$ and
+$c_D=|n|_F^{-(r^2-1)/2}$ (Part~III, \S\S4--5).  Both equal $1$ at a
+tame place; in the running example $b_D=3$ and $c_D=27$ at
+$\mathfrak p_3$.
+\item[Integrality of $L_D$] The question whether $L_D$ carries
+irreducible characters to irreducible genuine characters.  It holds at
+tame places (Part~III) and is open in general at wild places
+(Part~IV; companion paper).
+\end{description}
+
+\subsection{Named results and hypotheses}\label{gl:named}
+\begin{description}
+\item[Theorems A, B, C] Part~I: the comparison of covered elliptic
+tori, the matching of regular-supported test functions, and the
+global transfer under $(\mathrm H_D)$ (with its converse under (H)).
+\item[Theorems D, E, C$'$] Part~II: the equivariant section near the
+center and its compatibility with $\jmath$; the matching of arbitrary
+genuine test functions; and the global transfer under the weaker
+hypothesis $(\mathrm H_D')$ (with its converse under $(\mathrm H')$).
+\item[$(\mathrm H_D)$, (H), $(\mathrm H_D')$, $(\mathrm H')$]
+Non-cancellation hypotheses: the character of a near-equivalence
+packet at the places of $S$ is not identically zero on the relevant
+matching test functions (Part~I, Definition~7.9 and
+Theorem~7.12; Part~II, Definition~6.4 and \S6.3).  $(\mathrm H_D)$
+holds when the $D$-side packet is finite (Part~I,
+Proposition~7.10); sufficient conditions for (H) are in Part~I,
+Remark~7.13; and $(\mathrm H_D)\Rightarrow(\mathrm H_D')$,
+$(\mathrm H)\Rightarrow(\mathrm H')$ (Part~II, \S6.3).
+\item[(D1)--(D4)] The steps left open by Part~I: matching of
+arbitrary functions, local character relations, finiteness of
+near-equivalence packets, and composition with [JC] (Part~I, \S8).
+Their status in the later Parts is recorded in Part~I, \S1.3.
+\item[Targets A, B, C] The companion paper's three local problems at
+the wild place of the running example and beyond (companion paper,
+\S1).
+\end{description}

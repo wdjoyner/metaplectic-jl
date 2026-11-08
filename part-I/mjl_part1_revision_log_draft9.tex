@@ -1,0 +1,186 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue,linkcolor=blue]{hyperref}
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, I\\
+Revision Log: Draft 8 to Draft 9 (exposition only)}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Scope}
+This is an expository revision requested by David Joyner, the first of
+four (one per Part).  \textbf{No mathematical change was made}: no
+statement, proof, hypothesis or status label was added, removed or
+altered.  A line-by-line \texttt{diff} of Draft~8 and Draft~9 shows
+changes only in section and subsection lead-ins, in the pointers of
+\S\S1.4--1.6, in the old Sections~10 (Glossary) and~11 (Literature),
+which were replaced, and in the bibliography, which was extended.
+
+\paragraph{Numbering is unchanged.}  Parts~II--IV and the companion
+paper cite Part~I by number (for example ``Part~I, Lemma~2.2'',
+``Proposition~2.3(b)'', ``Proposition~3.5'').  The new material is
+therefore placed so that no number moves: the Summary of results is an
+unnumbered section between \S1 and \S2, the shared glossary replaces
+the old \S10 (Glossary) under the same number, and the full literature
+review replaces the old \S11.  We compiled Drafts~8 and~9 and compared
+the label tables in their \texttt{.aux} files: every section,
+subsection, theorem-like environment, equation and appendix number is
+identical.
+
+\section*{Changes}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{(a) Shared glossary.}  New file \texttt{glossary.tex} at
+the top of the repository, written once for the whole series and the
+companion paper.  It uses only LaTeX, \texttt{amsmath} and
+\texttt{amssymb} (no Part's macros) and labels with the prefix
+\texttt{gl:}.  Subsections: status labels (with the rule that labels
+are never upgraded without proof and that changes are logged; it
+defines \textbf{[P]}, \textbf{[E]}, \textbf{[O]}, \textbf{[C]} with the
+wording of Parts~I--IV, and \textbf{[P$^{\mathrm c}$]} with the wording
+of the companion paper); global data and the running example; local
+fields and the normalization $|p|_p=p^{-1}$; Hilbert symbols; covers
+and the cocycle normalization (Kazhdan--Patterson cocycle, parameter
+$c$ before and $c_v$ after the relabeling $\zeta\mapsto\zeta^{r'}$, the
+ambient cocycle, restriction as an isomorphism of extensions, scalar
+centrality, the global normalization by $\kappa_w$ and the splittings,
+the star map, and the diagonal commutator matrix of Part~IV, \S2.1);
+genuine objects, central characters and good elements; orbital
+integrals and matching (including Part~III's notation $J=\Delta O$);
+the Haar-measure conventions of Parts~I, II and III, which differ and
+are listed side by side; the transform $L_D$ with $b_D$ and $c_D$; and
+the named results and hypotheses (Theorems A--E, C$'$, $(\mathrm H_D)$,
+(H), $(\mathrm H_D')$, $(\mathrm H')$, (D1)--(D4), Targets A--C).
+Every pointer into Parts~II and~III was checked against the label
+tables of their current drafts (Part~II, Draft~8: Definitions~2.1 and
+6.4, \S6.3; Part~III, Draft~9: Definitions~2.1 and~4.1,
+Theorem~4.3).
+
+In Part~I, \S10 is now ``Notation and conventions'': a lead-in,
+\verb|\input{../glossary}|, and \S10.11 ``Notation specific to Part~I''
+(about twenty entries with pointers).  The entries of the old informal
+glossary are all kept: series-wide ones (cover, genuine, ambient
+cover, good element, elliptic regular element, canonical
+identification, normalized orbital integral, matching, supercusp form,
+formal degree, germ) in the shared file, and Part-specific ones
+(near-equivalence packet, corner Hecke algebra, elliptic
+detectability) in \S10.11.  Part~I must now be compiled from
+\texttt{part-I/} so that \texttt{../glossary.tex} is found; the
+repository README was updated accordingly.
+
+\item \textbf{(b) Summary of results.}  New one-page unnumbered section
+after \S1 (it appears in the table of contents).  Seven items with
+labels and pointers: the ambient cover; Theorem~A; Theorem~B and the
+failure near the center; rational lifts and the trace formulas; the
+packet identity; Theorem~C, its converse and Lemma~7.8; and (D1)--(D4)
+with their status in Parts~II--III; plus one line on the running
+example.  The labels are those already in the paper.
+
+\item \textbf{(c) Literature review.}  \S11 was rewritten as a review
+for the whole series, in five paragraphs: the Jacquet--Langlands
+correspondence; covering groups; metaplectic correspondences; central
+extensions of division algebras; and the present series.  Parts~II--IV
+will cite it and add only what is specific to them.  The claims of the
+old \S11 are kept (in particular the zbMATH search over the papers
+citing [FK]).  Twenty-six references were added: BD, FK88, Fli80,
+Gel76, GG18, GGW, JL, Kaz84, Klo86a, Klo86b, Kub67, Kub69, Li1, Li2,
+Mez01, Mez02, Mez04, PRa88, PRp96, Rap88, Rog83, Sav88, Shi73, Wal80,
+Wal91, Wei18.  The new text cites no theorem numbers from them.
+
+\emph{Reference checks (bibliographic data only).}
+\begin{itemize}
+\item Checked this session against numdam/EuDML/publisher pages:
+Moore (Publ.\ IH\'ES 35 (1968), 5--70; Part~I's entry is
+\emph{correct}), Prasad--Rapinchuk (84 (1996), 91--187), Li~II (Ann.\
+ENS 45 (2012), 787--859), Flicker--Kazhdan 1988 (J.\ Analyse 50,
+189--200), Mezo~I (CJM 54 (2002), 92--137), Mezo~II (Represent.\
+Theory 5 (2001), 524--580), Shimura (Ann.\ 97 (1973), 440--481),
+Gelbart (LNM 530, 1976), Gan--Gao and Gan--Gao--Weissman
+(Ast\'erisque 398, 187--275 and 1--31), Klose 1986a (Math.\ Z.\ 191,
+261--282).
+\item Checked only through a citing bibliography (the reference lists of
+Prasad--Rapinchuk, Mezo or Moore on numdam and the publishers' pages): Prasad--Raghunathan 1988,
+Rapinchuk 1988, Kazhdan 1984, Flicker 1980, Kubota 1967.
+\item Klose 1986b: numdam/geodesic gives pages 625--650,
+Prasad--Rapinchuk's list gives 625--649; we used 625--650.
+\item Mezo 2004 (Pacific J.\ Math.\ 215, no.~1): the first page is 85,
+but we could not confirm the last page, so the entry gives no page
+range.
+\item Li~I: we could not confirm the journal; the entry cites
+arXiv:1004.4011.
+\item Weissman (Ast\'erisque 398): first page 33 from the volume's
+table of contents; last page 186 inferred from Gan--Gao starting at
+187.
+\item Taken from the series' existing bibliographies without a new
+check: Brylinski--Deligne, Jacquet--Langlands, Kubota 1969, Rogawski,
+Savin, Waldspurger 1980 and 1991.
+\item Contents: the descriptions of the new references are at the level
+of their titles, abstracts and front matter.  The originals of
+Klose's papers, Savin, and Mezo~II were not available to us.
+\end{itemize}
+
+\item \textbf{(d) Lead-ins.}  Every section (\S\S1--9 and
+Appendices~A, B) now says, in two to four sentences, what it proves,
+what it depends on and what notation it introduces; \S\S10 and~11
+have new lead-ins.  Subsection lead-ins were extended where the
+subsection introduces notation or a hypothesis used later
+(\S\S2.2, 3.4, 3.5, 4.1, 4.3, 5.1, 5.3, 6.3, 7.1).  The existing
+one-sentence lead-ins of the other subsections were kept as they were.
+
+\item \textbf{Introduction.}  The \S1 lead-in points to the Summary and
+to \S10; \S1.4 (Conventions) and \S1.5 (labels) point to the matching
+subsections of \S10; \S1.6 (Organization) describes the new
+\S\S10--11 and the Summary.  The text of \S\S1.4--1.5 is otherwise
+unchanged.
+
+\item Title line: Draft~9, November 8, 2026.  Authors and acknowledgments
+unchanged.
+\end{enumerate}
+
+\section*{Points for David (not acted on)}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Meaning of [O].}  The request describes \textbf{[O]} as
+``open''.  Parts~I--IV, the companion paper and the README all define
+it as ``proof outlined but not fully established'', and in Part~I open
+goals are labeled \textbf{[C]}.  The glossary keeps the papers' wording;
+changing it would relabel statements, so we have not done so.
+\item \textbf{Flicker--Kazhdan, ``A simple trace formula'' (1988).}
+Its abstract says it extends the metaplectic correspondence, as well as
+the simple-algebras correspondence, to automorphic forms with a single
+supercuspidal component.  This may overlap Proposition~6.2 (our
+variant of [FK, \S18] with one supercusp form).  Whether to cite it as
+an alternative source, or to compare the two in a remark, is a
+mathematical decision; the literature review cites it for its approach
+only.
+\item \textbf{Klose's papers.}  Klose (a student of Patterson) studied
+metaplectic extensions of quaternion division algebras (Math.\ Z.\ 191
+and 193, 1986).  This is prior work on covers of $D^\times$.  The
+companion paper's literature section says that we are ``not aware of
+an independent literature on $n$-fold covers of division algebras
+beyond [JC] and this series''; that sentence should be revised when the
+companion paper is next edited.  Whether Klose's covers agree with
+those of [JC] for $r=2$ has not been checked.
+\item \textbf{Companion paper bibliography.}  Its entry for Moore gives
+pages 157--222; the correct range is 5--70.
+\item \textbf{Subsection lead-ins.}  The request asks for subsection
+lead-ins only where notation or a hypothesis is introduced.  Part~I
+already had a one-sentence lead-in for every subsection (an earlier
+request); we kept them.  They can be pruned if you prefer.
+\item \textbf{Placement.}  The Summary is unnumbered and the glossary
+sits at \S10 (not at the front) only to keep Part~I's numbering fixed
+for Parts~II--IV.  If you would rather have the glossary at the front,
+the cross-references in Parts~II--IV would have to be updated in the
+same pass.
+\end{enumerate}
+
+\section*{Files}
+\texttt{glossary.tex} (new, repository root);
+\texttt{part-I/mjl\_part1\_draft9.tex} and \texttt{.pdf};
+this log (\texttt{part-I/mjl\_part1\_revision\_log\_draft9.tex} and
+\texttt{.pdf}); \texttt{README.md} (Part~I draft number, build note,
+labels table).  Draft~8 is kept unchanged.  No scripts were added or
+changed.
+\end{document}

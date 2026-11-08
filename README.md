@@ -45,7 +45,7 @@ corrections of J. Zou (arXiv:2209.05852).
 
 | Part | Title | Current draft |
 |------|-------|---------------|
-| I   | Local matching and a global transfer under elliptic-support conditions | Draft 8 |
+| I   | Local matching and a global transfer under elliptic-support conditions | Draft 9 |
 | II  | Matching of arbitrary functions and an improved global transfer | Draft 8 |
 | III | The division-algebra side and its local character transform | Draft 9 |
 | IV  | Local power maps, toral positivity, and conditional global comparison | Concluding Draft 6 |
@@ -150,6 +150,8 @@ stops the research at level two and ends with a Future Directions section.
 ## Repository layout
 
 ```
+glossary.tex  Shared glossary of notation, conventions and status
+            labels, input by each Part
 part-I/     Part I drafts (.tex, .pdf) and revision logs
 part-II/    Part II drafts and revision logs
 part-III/   Part III drafts and revision logs
@@ -182,10 +184,26 @@ software/   Supporting code (MIT License)
 | **[E]** | Established in the literature or an earlier part |
 | **[O]** | Proof outlined but not fully established |
 | **[C]** | Conjectural, or conditional on stated unproved hypotheses |
+| **[P^c]** | Proved modulo an exhaustive exact computation whose script is in the repository (companion paper only) |
+
+The full definitions, together with the series' notation and the
+cocycle normalization, are in the shared glossary `glossary.tex`
+(Section 10 of Part I).
 
 ## Building
 
-Every manuscript is a single self-contained LaTeX file. To build one:
+Part I from Draft 9 on inputs the shared glossary `glossary.tex` from
+the repository root, so it must be compiled from inside its folder:
+
+```bash
+cd part-I
+pdflatex mjl_part1_draft9.tex
+pdflatex mjl_part1_draft9.tex   # second pass for cross-references
+```
+
+The other manuscripts are single self-contained LaTeX files (Parts II–IV
+will input the glossary in the same way in their next drafts). To build
+one:
 
 ```bash
 cd part-IV
