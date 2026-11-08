@@ -19,11 +19,13 @@
 % any Part), so it compiles unchanged in every Part.  Labels carry
 % the prefix "gl:" to avoid clashes with the Parts' own labels.
 %
-% Pointers of the form "Part I, Proposition 2.3" refer to Part I,
-% Draft 8, whose numbering Draft 9 keeps; pointers to Parts II, III
+% Pointers of the form "Part I, Proposition 4.3" refer to Part I,
+% Draft 11 (Part I was reordered in Draft 11; Drafts 8-10 have the
+% older numbering, tabulated in Part I's Draft 11 revision log); pointers to Parts II, III
 % and IV refer to Drafts 8, 9 and 6.  This file proves nothing.
 %
-% Version: November 8, 2026 (introduced with Part I, Draft 9).
+% Version: November 8, 2026 (introduced with Part I, Draft 9; Part I
+% pointers renumbered for Part I, Draft 11).
 % American English spelling throughout.
 % =====================================================================
 
@@ -100,7 +102,7 @@ $p$.
 value, $|\varpi|_F=q_F^{-1}$; on $\mathbb Q_p$ it is written
 $|\cdot|_p$, with $|p|_p=p^{-1}$.  In particular $|n|_F=1$ if
 $p\nmid n$, and $|F^\times/F^{\times n}|=n^2|n|_F^{-1}$ (Part~I,
-proof of Proposition~3.5).
+proof of Proposition~5.5).
 \item[Places dividing $n$; tame and wild places] A place $v$ (or the
 field $F=K_v$) \emph{divides $n$} if $p\mid n$.  The places $v\in S$
 with $p\nmid n$ are called \emph{tame}, and those with $p\mid n$
@@ -143,7 +145,7 @@ $\sigma_F(\mathrm{diag}(a_i),\mathrm{diag}(b_i))=\prod_{i<j}(a_i,b_j)_F$.
 \item[Parameter-$c'$ cover $\overline G^{(c')}$] The cover of
 $\mathrm{GL}(r,F)$ with cocycle
 $\sigma_F(g,h)\,(\det g,\det h)_F^{\,c'}$.  The comparison uses
-$c'=c_v$; the parameter is forced (Part~I, Remark~3.3).  On the
+$c'=c_v$; the parameter is forced (Part~I, Remark~5.3).  On the
 diagonal torus the commutator of $\mathrm{diag}(t_i)$ and
 $\mathrm{diag}(u_j)$ is $\prod_{i,j}(t_i,u_j)_F^{A_{ij}}$ with
 $A=-I_r+(1+2c_v)J_r$, where $J_r$ is the all-ones matrix (Part~IV,
@@ -152,7 +154,7 @@ $A=-I_r+(1+2c_v)J_r$, where $J_r$ is the all-ones matrix (Part~IV,
 $\mathcal G_v=\mathrm{GL}(r,L_v)=\prod_{w\mid v}\mathrm{GL}(r,L_w)$
 with cocycle
 $\prod_{w\mid v}\sigma_{L_w}(g_w,h_w)\,(\det g_w,\det h_w)_{L_w}^{\,c_v}$,
-the copies of $\mu_n$ being identified (Part~I, \S2.2 and
+the copies of $\mu_n$ being identified (Part~I, \S4.2 and
 equation~(1)).  Both covers compared in the series are subgroups of
 it, so their common central subgroup $p^{-1}(K_v^\times)$ is literally
 the same subgroup on the two sides.
@@ -163,7 +165,7 @@ $\beta=\sigma_L\cdot(\mathrm{Nrd},\mathrm{Nrd})^c$ of the corrected
 1988 paper [JC, equation~(4)].  Pulled back along the diagonal
 embedding of $\mathrm{GL}(r,K_v)$, it is isomorphic, \emph{as an
 extension}, to the extension with cocycle
-$\sigma_F^{\,r}(\det,\det)_F^{\,c}$ (Part~I, Proposition~2.3).  The
+$\sigma_F^{\,r}(\det,\det)_F^{\,c}$ (Part~I, Proposition~4.3).  The
 group $\mu_n$ is relabeled \emph{once}, at every place and globally,
 by $\zeta\mapsto\zeta^{r'}$; after relabeling the second extension is
 $\overline G^{(c_v)}$.  Formulas state whether they hold before or
@@ -171,10 +173,10 @@ after relabeling.  The isomorphism is one of extensions, not an
 equality of cocycles, and it is unique up to
 $\tilde g\mapsto\chi(\det p(\tilde g))\,\tilde g$ with
 $\chi:F^\times\to\mu_n$ continuous.  Central characters are therefore
-never transported through it (Part~I, Remark~2.5).
+never transported through it (Part~I, Remark~4.5).
 \item[Scalar centrality] Because $n\mid r-1+2rc_v$, the whole inverse
 image $\overline Z=p^{-1}(F^\times)$ of the scalars is central
-(Part~I, Lemma~2.2).  A cover with this property is called
+(Part~I, Lemma~4.2).  A cover with this property is called
 \emph{scalar-central}.
 \item[Global normalization] Globally one uses the normalized cocycle
 $\tau_w(g,h)=\sigma_w(g,h)\,\kappa_w(g)\kappa_w(h)\kappa_w(gh)^{-1}$
@@ -183,7 +185,7 @@ n\infty$.  The compact splitting is $\kappa^*_w(k)=(k,1)_\tau$ on
 $\mathrm{GL}(r,\mathcal O_{L_w})$ for $w\nmid n\infty$, and the
 rational splitting is $\iota(x)=s_\tau(x)\,\kappa_L(x)^{-1}$; in the
 unnormalized models the rational splitting is $x\mapsto(x,1)_\sigma$
-at every place (Part~I, Lemma~5.1).  The global ambient cover
+at every place (Part~I, Lemma~7.1).  The global ambient cover
 $\overline{\mathcal G}(\mathbb A_L)$ has cocycle
 $\tau_L\cdot(\det,\det)_{\mathbb A_L}^{\,c_v}$.
 \item[Star map] For $h$ in the base group and any lift $\tilde h$,
@@ -199,7 +201,7 @@ $\zeta^*=1$.
 \item[Genuine representation] A representation of $\overline H$ on
 which $\mu_n$ acts by the tautological character $\zeta\mapsto\zeta$.
 \item[$\tilde\theta$, $\theta$] A genuine character $\tilde\theta$ of
-$\overline Z$ (unitary from Part~I, \S5.1 on; globally, a character of
+$\overline Z$ (unitary from Part~I, \S7.1 on; globally, a character of
 $\overline Z(\mathbb A_K)$ trivial on $\iota(K^\times)$).  The same
 $\tilde\theta$ serves both covers, since $\overline Z$ is a common
 subgroup.  The ordinary character attached to it is
@@ -228,7 +230,7 @@ $\mathrm{GL}(r,F)$), the good elements of $\overline{E^\times}$ are
 $p^{-1}(F^\times E^{\times n})=\overline Z\cdot\{t^*\}$, of index
 $|n|_F^{-(r-1)}$, and every genuine irreducible representation of
 $\overline{E^\times}$ has dimension $|n|_F^{-(r-1)/2}$ (Part~I,
-Proposition~3.5).  Covered elliptic tori are abelian exactly at the
+Proposition~5.5).  Covered elliptic tori are abelian exactly at the
 places not dividing $n$.
 \end{description}
 
@@ -240,13 +242,13 @@ $D(\gamma)$ is the discriminant of the (reduced) characteristic
 polynomial and $\det=\mathrm{Nrd}$ on the division-algebra side.
 Thus $\Delta(\gamma)^2$ is the Weyl discriminant
 $|\det(1-\mathrm{Ad}(\gamma^{-1}))|_{\mathfrak g/\mathfrak t}|_F$
-(Part~I, Definition~4.1 and Lemma~A.5).
+(Part~I, Definition~6.1 and Lemma~6.12).
 \item[$\Phi$, $F=\Delta\Phi$] $\Phi(\tilde\gamma,\tilde f)$ is the
 orbital integral over $T_\gamma\backslash G$ of a genuine test
 function at a good regular $\tilde\gamma$, and
 $F(\tilde\gamma,\tilde f)=\Delta(\gamma)\Phi(\tilde\gamma,\tilde f)$
 is the normalized orbital integral, set to $0$ at regular elements
-that are not good (Part~I, Definition~4.1).  Part~III writes
+that are not good (Part~I, Definition~6.1).  Part~III writes
 $J(t,f)=\Delta(t)\,O(t,f)$ for the same function, with its own
 measure conventions.
 \item[Canonical identification $\jmath$] At $v\in S$ and for a maximal
@@ -256,13 +258,13 @@ $\overline Z$ has the same restriction $\jmath_{E,j}$ to the good
 elements; these restrictions induce a bijection $\jmath$ from the good
 regular classes of the cover of $D_v^\times$ to the good regular
 elliptic classes of the cover of $\mathrm{GL}(r,F)$ (Part~I,
-Theorem~3.9 and Corollary~3.12).
+Theorem~5.9 and Corollary~5.12).
 \item[Matching] Genuine test functions $\tilde f_D$ and $\tilde f$
 \emph{match} if (M1)
 $F(\tilde\gamma,\tilde f_D)=(-1)^{r-1}F(\jmath(\tilde\gamma),\tilde f)$
 at every good regular $\tilde\gamma$, and (M2) $F(\tilde\delta,\tilde
 f)=0$ at every good regular non-elliptic $\tilde\delta$ (Part~I,
-Definition~4.3).  The sign sits in the matching of functions, so that
+Definition~6.3).  The sign sits in the matching of functions, so that
 the expected character relation is
 $\Theta_{\overline\pi_D}=(-1)^{r-1}\Theta_{\overline\pi}\circ\jmath$.
 \item[Supercusp form] A genuine test function on the cover of
@@ -281,7 +283,7 @@ singular element, expressed through Shalika germs [Flicker--Kazhdan,
 and $\mathrm{GL}(r,F)/F^\times$ are arbitrary but fixed, and matching
 is defined with respect to them; torus measures are transported by
 conjugation and do not affect matching.  At $v\notin S$ the measures
-correspond under the identifications $\psi_v$ (Part~I, \S\S4.1, 5.3).
+correspond under the identifications $\psi_v$ (Part~I, \S\S6.1, 7.3).
 \item[Part~II] At $v\in S$,
 $\mathrm{vol}(D_v^\times/F^\times)=d(\mathrm{St})^{-1}$, where
 $d(\mathrm{St})$ is the formal degree of the Steinberg representation
@@ -326,15 +328,15 @@ hypothesis $(\mathrm H_D')$ (with its converse under $(\mathrm H')$).
 \item[$(\mathrm H_D)$, (H), $(\mathrm H_D')$, $(\mathrm H')$]
 Non-cancellation hypotheses: the character of a near-equivalence
 packet at the places of $S$ is not identically zero on the relevant
-matching test functions (Part~I, Definition~7.9 and
-Theorem~7.12; Part~II, Definition~6.4 and \S6.3).  $(\mathrm H_D)$
+matching test functions (Part~I, Definition~9.9 and
+Theorem~9.12; Part~II, Definition~6.4 and \S6.3).  $(\mathrm H_D)$
 holds when the $D$-side packet is finite (Part~I,
-Proposition~7.10); sufficient conditions for (H) are in Part~I,
-Remark~7.13; and $(\mathrm H_D)\Rightarrow(\mathrm H_D')$,
+Proposition~9.10); sufficient conditions for (H) are in Part~I,
+Remark~9.13; and $(\mathrm H_D)\Rightarrow(\mathrm H_D')$,
 $(\mathrm H)\Rightarrow(\mathrm H')$ (Part~II, \S6.3).
 \item[(D1)--(D4)] The steps left open by Part~I: matching of
 arbitrary functions, local character relations, finiteness of
-near-equivalence packets, and composition with [JC] (Part~I, \S8).
+near-equivalence packets, and composition with [JC] (Part~I, \S10).
 Their status in the later Parts is recorded in Part~I, \S1.3.
 \item[Targets A, B, C] The companion paper's three local problems at
 the wild place of the running example and beyond (companion paper,
