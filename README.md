@@ -26,6 +26,16 @@ The series compares two `n`-fold covering groups:
 
 Both covers sit inside one ambient cover, constructed in Part I.
 
+### Running example
+
+The whole series tests its constructions on one concrete case:
+`K = Q(ζ₃)`, `n = 3`, `r = 2`, and the quaternion algebra
+`D = (−1, 4 − ζ₃)` over `K`. This algebra is ramified exactly at the
+prime above 3 (the wild place, where `b_D = 3` and `c_D = 27`) and at
+one prime above 7 (a tame place). Each part has a short "running
+example" subsection, and `notes/mjl_running_example.tex` works the
+case out in detail across all four parts.
+
 The approach follows the classical trace-formula proof of the
 Jacquet–Langlands correspondence. It uses the metaplectic correspondence
 of Flicker–Kazhdan (Publ. Math. IHÉS 64, 1986), together with the
@@ -109,6 +119,7 @@ part-II/    Part II drafts and revision logs
 part-III/   Part III drafts and revision logs
 part-IV/    Part IV drafts, revision logs, referee reports, and the
             rank-two toral positivity note
+notes/      Supporting notes, including the running example
 software/   Supporting code (MIT License)
 ```
 

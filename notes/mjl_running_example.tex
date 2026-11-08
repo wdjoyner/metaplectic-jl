@@ -1,0 +1,238 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem}
+\usepackage{listings}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\lstset{basicstyle=\ttfamily\small,columns=fullflexible,frame=single}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\C}{\mathbb C}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\p}{\mathfrak p}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\Ptag}{\textbf{[P]}}
+\newcommand{\Etag}{\textbf{[E]}}
+\newcommand{\Ctag}{\textbf{[C]}}
+\theoremstyle{definition}
+\newtheorem{fact}{Fact}
+\title{The running example for the metaplectic Jacquet--Langlands series:\\
+\normalsize $K=\Q(\zeta_3)$, $n=3$, $r=2$, $D=(-1,\,4-\zeta_3)_K$}
+\author{David Joyner \and Claude (Anthropic)}
+\date{November 8, 2026 --- draft}
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We fix one concrete case of the standing assumptions of Parts~I--IV and
+[JC], and evaluate in it the main objects of each part. These are the
+cocycle parameters, the commutator pairings, the good elements, the
+constants $b_D$ and $c_D$, the wild toral decompositions, and the global
+normalization ledger. Every statement is either checked here, or quoted
+with its location and status label. The aim is to make the general
+constructions concrete, and to give each part a common place to test its
+formulas.
+\end{abstract}
+
+\paragraph{Theorem numbers.} References to the series are to the drafts
+in the repository: Parts~I and~II, Draft~8; Part~III, Draft~9;
+Part~IV, Draft~5; and the rank-two toral positivity note.
+
+\section{The data}
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Base field & $K=\Q(\zeta_3)$, totally imaginary, $\mu_3\subset K$\\
+Covering degree, rank & $n=3$, \quad $r=2$, \quad $(n,r)=1$\\
+Parameters (Part~I, Assumption~1.1) & $r'=2$, \quad $c=1$, \quad $c_v=r'c=2$\\
+Checks & $3\mid r-1+2c=3$, \quad $3\mid r-1+2rc_v=9$\\
+Division algebra & $D=(-1,\,4-\zeta_3)_K$, \quad $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)$\\
+Ramification & $S=\{\p_3,\p_7\}$, \quad $\p_3=(1-\zeta_3)$, \quad $\p_7=(3+\zeta_3)$\\
+Cyclic subfield (Part~I, [JC]) & $L=K(i)=\Q(\zeta_{12})\subset D$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{fact}[\Ptag\ Ramification]
+$D$ is ramified exactly at $\p_3$ and $\p_7$.
+\end{fact}
+\begin{proof}
+\emph{At $\p_3$ and $\p_7$.} The element $-1$ is a nonsquare in the
+residue fields $\F_3$ and $\F_7$, since $3\equiv7\equiv3\pmod4$. The
+element $4-\zeta_3$ has valuation~$1$ at each of these places. So
+$(-1,4-\zeta_3)=-1$ at both.
+
+\emph{At the other finite odd places.} Both entries are units, so the
+symbol is~$1$. This includes the other prime above~$7$, namely
+$(3+\zeta_3^2)$, since $7$ splits in $K$.
+
+\emph{At~$2$.} The product formula forces the symbol to be~$1$.
+
+\emph{Machine check.} Sage gives:
+\begin{lstlisting}
+K.<z> = CyclotomicField(3); a, b = K(-1), 4 - z
+for p in [2,3,5,7,13]:
+    for P, e in K.ideal(p).factor():
+        print(p, P, K.hilbert_symbol(a, b, P))
+\end{lstlisting}
+This returns $-1$ exactly at $(z-1)$ and at $(-3z-2)$, and $+1$ at
+$(2)$, $(5)$, $(3z+1)$, $(z+4)$ and $(z-3)$. Here $(-3z-2)=(3+z)$,
+since $(-3z-2)/(3+z)=z^2$ is a unit.
+\end{proof}
+
+The hypotheses of Part~I also hold.
+\begin{itemize}
+\item $L=K(i)$ is cyclic of degree $r=2$ and lies in $D$.
+\item At both places of $S$, $L_v$ is a field, because $-1$ is not a
+square in $\F_3$ or $\F_7$.
+\item $|S|=2$ is even, as it must be for $r=2$.
+\end{itemize}
+
+\section{The local fields}
+\begin{center}
+\begin{tabular}{@{}lllll@{}}
+\toprule
+Place & $K_v$ & Type for $n=3$ & $|3|_v$ & $|K_v^\times/K_v^{\times3}|$\\\midrule
+$\p_3\in S$ & $\Q_3(\zeta_3)$ ($e=2$, $q=3$) & wild & $1/9$ & $81$\\
+$\p_7\in S$ & $\Q_7$ (contains $\mu_3$) & tame & $1$ & $9$\\
+$(2)$ & $\Q_2(\zeta_3)$ ($f=2$, $q=4$) & tame, split for $D$ & $1$ & $9$\\
+$(3+\zeta_3^2)$, $(13)=\p\p'$, \ldots & $\Q_\ell$, $\ell\equiv1\ (3)$ & tame, split & $1$ & $9$\\
+complex & $\C$ & cover splits & $9$ & $1$\\
+\bottomrule
+\end{tabular}
+\end{center}
+The last column is $n^2|n|_v^{-1}$ at the finite places (Part~IV,
+Proposition~4.2). Locally at $\p_3$ we have $3+\zeta_3\equiv1\pmod{\p_3}$,
+which is a square. So $D_{\p_3}\cong(-1,\varpi)$ with
+$\varpi=\zeta_3-1$; this is exactly the model $E_0\oplus E_0j$, $j^2=\varpi$,
+of Part~IV, Example~6.3. At $\p_7$, $D_{\p_7}\cong(-1,7)_{\Q_7}$.
+
+\section{Part I: cocycle, commutators, good elements}
+\begin{itemize}
+\item \emph{Diagonal torus} (Part~IV, Proposition~2.1). With $c_v=2$,
+\[
+[\tilde t,\tilde u]=\prod_{i,j}(t_i,u_j)_3^{A_{ij}},\qquad
+A=-I+5J\equiv\begin{pmatrix}1&-1\\-1&1\end{pmatrix}\pmod 3,
+\]
+so $[\tilde t,\tilde u]=(t_1/t_2,u_1/u_2)_3$. A regular
+$\mathrm{diag}(t_1,t_2)$ is good if and only if $t_1/t_2$ is a cube.
+\item \emph{Quadratic tori} (Part~I, Proposition~3.1 and Example~3.7).
+Here $[x,y]=(Nx,Ny)_F^{2}(x,y)_E^{-1}$. The good elements are
+$F^\times E^{\times3}$ (Part~I, Proposition~3.5; Part~IV, Theorem~3.1).
+\item \emph{Index of the good elements in a quadratic torus},
+$|3|_v^{-1}$ (Part~I, Theorem~3.9):
+\begin{itemize}
+\item at $\p_3$ it is $9$: the covered torus is a Heisenberg group, and
+its genuine irreducibles have dimension~$3$;
+\item at $\p_7$ it is $1$: every element is good, and the covered torus
+is abelian.
+\end{itemize}
+\item \emph{Sign.} The matching sign $(-1)^{r-1}$ of Part~I,
+Theorem~4.5, is $-1$.
+\item \emph{A regular-but-not-good element} (Part~IV, Remark~3.3). The
+element $\mathrm{diag}(1,\zeta_3)$ is regular. It is not good at
+$\p_3$, because $\zeta_9\notin\Q_3(\zeta_3)$. Its cube is the identity.
+\end{itemize}
+
+\section{Part III: the transform $L_D$}
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+& $b_D=|3|^{-1/2}$ & $c_D=|3|^{-3/2}$ & $R_E=\Delta(t)/\Delta(t^3)$\\\midrule
+$\p_7$ (tame) & $1$ & $1$ & $\equiv1$ (Part~III, Lemma~7.4)\\
+$\p_3$ (wild) & $3$ & $27$ & $\in\{1,3,9\}$ (below)\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{itemize}
+\item \emph{At $\p_7$.} $L_D$ is a dimension-preserving bijection of
+irreducible characters (Part~III, Theorem~7.6) \Etag.
+\item \emph{At $\p_3$, divisibility.} The cover does not split, and
+every genuine irreducible has dimension divisible by~$3$ (Part~III,
+Proposition~8.1) \Etag.
+\item \emph{At $\p_3$, the prediction.} If $L_D$ maps irreducibles to
+irreducibles, then $\dim\tau=27\dim\rho$. In particular $L_D\mathbf1$
+would be an irreducible of dimension~$27$.
+\end{itemize}
+
+\section{Part IV: the wild place $\p_3$}
+\subsection*{The three quadratic tori}
+$F=\Q_3(\zeta_3)$ has three quadratic extensions. All of them embed in
+$D_{\p_3}$. On $E^1\cong E^\times/F^\times$, Part~IV, \S6.3 and the
+toral note give the following \Ptag.
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+$E/F$ & values of $R_E$ & $R_E$ as a permutation character & coefficients\\\midrule
+unramified $F(i)$ & $9,\ 1$ & $1+2\Reg(C_4)$ & $(3,2,2,2)$\\
+ramified $F(\sqrt{u\varpi})$, either type & $9,\ 3,\ 1$ & $1+\Reg(C_2)+\Reg(C_6)$ & $(3,2,1,1,1,1)$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Both expansions have value $9=|3|_F^{-1}$ at the identity. So the
+restriction of $L_D\mathbf1$ to every covered quadratic torus is an
+actual genuine character of dimension $3\cdot9=27$, consistent with the
+prediction above. In the cyclic algebra model $j^2=\varpi$:
+\begin{center}
+\begin{tabular}{@{}cccc@{}}
+\toprule
+$t$ & $j$ & $1+j$ & $1+\varpi j$\\\midrule
+$R(t)$ & $1$ & $3$ & $9$\\
+$(L_D\mathbf1)(t^*)$ & $3$ & $9$ & $27$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{What is open in the example}
+\Ctag\quad \emph{Is $L_D\mathbf1$ at $\p_3$ the character of an
+irreducible genuine representation of $\widetilde{D_{\p_3}^\times}$, of
+dimension~$27$?}
+\begin{itemize}
+\item By the positivity lemma (Part~IV referee report on Draft~5, \S2),
+it suffices that every $L_D\Theta_\rho$ be positive definite.
+\item Torus positivity is now known.
+\item The missing input is the restriction to the $p$-elementary
+subgroups of the covered pro-$3$ group.
+\end{itemize}
+This is the smallest instance of the wild integrality problem.
+
+\section{Global: good classes and the normalization ledger}
+\begin{itemize}
+\item \emph{Good classes} (Part~IV, Theorem~5.2) \Ptag. A regular
+$\gamma\in D^\times(K)$ with $E=K(\gamma)$ has a rational lift that is
+good everywhere if and only if $\gamma\in K^\times E^{\times3}$. The map
+$[s]\mapsto[s^3]$ is a bijection onto these classes.
+\item \emph{The ledger} (Part~IV, Example~8.8). Take $\lambda_v=1$ at the
+finite split places. Then
+\[
+\Lambda=\lambda_\infty\cdot b_{D,\p_3}\cdot b_{D,\p_7}=3\lambda_\infty,
+\]
+and $\Lambda=1$ forces $\lambda_\infty=1/3=|3|_\infty^{-1/2}$.
+\item \emph{The identity-term heuristic.} It gives the complex factor
+$\lambda_\infty|3|_\infty^{-1}=1/27$, which balances $c_{D,\p_3}=27$ by
+the product formula.
+\item \emph{Unramified places.} FK's unit matching needs $p\nmid n$ and
+$(n,N_2)=(3,1)=1$. Both hold at every finite place outside $S$, since $\p_3\in S$
+is the only place above~$3$.
+\end{itemize}
+
+\section{[JC]}
+In [JC] the lifting runs from genuine automorphic representations of
+an $n$-fold cover of $L_{\A}^\times$, here with $L=\Q(\zeta_{12})$, to
+$\varepsilon$-invariant genuine representations of the cover of
+$D^\times_{\A}$. Part~I, \S1, says this. A section of [JC] evaluated in
+this example would complete the picture.
+
+\section*{Suggested use}
+Each part could contain a short subsection, ``The running example'',
+pointing to the relevant section of this note. Each new formula in a
+draft can then be tested here first. The open question of \S5 is the
+natural first target for the wild integrality problem.
+
+\end{document}
