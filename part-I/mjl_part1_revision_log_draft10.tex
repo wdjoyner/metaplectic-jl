@@ -1,0 +1,110 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, I\\
+Revision Log: Draft 9 to Draft 10 (exposition only)}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Scope}
+A follow-up to the exposition pass of Draft~9, on David Joyner's
+replies to the points raised in the Draft~9 log.  \textbf{No
+mathematical change}: no statement, proof, hypothesis or label was
+changed.  All section, theorem, equation and appendix numbers are the
+same as in Drafts~8 and~9 (checked by comparing the \texttt{.aux}
+label tables).
+
+\section*{Decisions recorded}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{[O] means ``proof outlined''} (David).  This is the
+wording already used in the papers, the README and \texttt{glossary.tex};
+nothing changed.
+\item \textbf{The glossary stays at the back} (\S10) (David).  Nothing
+changed.
+\end{enumerate}
+
+\section*{Changes}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Klose's work summarized in the literature review}
+(\S11, paragraph ``Central extensions of division algebras''), at
+David's request, with emphasis on \emph{Metaplektische Erweiterungen
+von Quaternionenschiefk\"orpern} (Math.\ Z.\ 193).  The new text
+covers: the dissertation (G\"ottingen 1983, advisor S.~J.~Patterson)
+and the two papers drawn from it; the subject of the local paper
+(Math.\ Z.\ 191); the global paper (Math.\ Z.\ 193): explicit cocycles
+and partial results on topological central extensions of the adele
+group of $\mathrm{GL}_{1,D}$ for a quaternion division algebra $D$;
+the facts on commutators and symmetric cocycles attributed to Klose by
+Hill, including $H^2_{\mathrm{sym}}(\mu_m,\mu_m)\cong\mathbb Z/m$; the
+use of Klose's result in [J] to choose a quaternion $D$ for which the
+cover of $G_D(\mathbb A_K)$ exists without $(n,r)=1$; and the
+difference from the construction of the cover in [JC].  The old
+sentence ``we have not compared it with Klose's construction'' is
+replaced by an explicit statement of what was and was not consulted.
+
+\emph{Sources and their limits.}  We could not obtain the text of
+either Klose paper or of the dissertation: the Springer page and the
+G\"ottingen digitization (GDZ) were not reachable from this session.
+The summary therefore rests on:
+\begin{itemize}
+\item the EuDML records: Math.\ Z.\ 193, keywords ``central extensions;
+quaternion algebra; constructions of cocycles'', MSC 20G10, 20G30,
+11R52, 16Kxx; Math.\ Z.\ 191, keywords ``commutators; two-cohomology
+class; central extensions; quaternionic skew field; metaplectic
+extensions; structure of; one-units'', MSC 11S45, 16U60, 16Exx, 16Kxx;
+\item Prasad--Rapinchuk, Publ.\ IH\'ES 84 (1996), Introduction (read on
+numdam), which describes Klose's results as partial results on
+topological central extensions of the adele group associated with
+$\mathrm{GL}_{1,D}$ for $D$ a quaternion division algebra;
+\item R.~Hill, arXiv:0708.0108, \S2.3 (``Commutators and symmetric
+cocycles''), which says its facts were used in its reference [16] to
+determine the metaplectic extensions of $D^\times$ for a quaternion
+algebra over a global field, and \S3.8, which calls the isomorphism
+$H^2_{\mathrm{sym}}(\mu_m,\mu_m)\cong\mathbb Z/m$ ``Klose's
+isomorphism''.  We could not see Hill's bibliography, so the
+identification of his [16] with one particular Klose paper is not
+confirmed; the review attributes the facts to Klose, as Hill does,
+without naming which paper;
+\item David Joyner's 1988 paper [J], \S2.6, as posted on
+yetanothermathblog.com (it cites Klose's dissertation);
+\item Springer's article page (pages 625--649, received October 8,
+1985; it cites [KP1] and Klose's Math.\ Z.\ 191 paper) and the
+Mathematics Genealogy Project (dissertation title and advisor).
+\end{itemize}
+The review says in the text that the summary rests on these and that
+Klose's theorem statements are not reproduced.  If you can obtain the
+Math.\ Z.\ 193 paper (or the dissertation), a closer summary, and a
+comparison with the cover of [JC] for $r=2$, would be worth making.
+
+\item \textbf{Bibliography.}  [Klo86b] pages corrected to 625--649,
+as on the publisher's page (EuDML and GDZ list 625--650;
+Prasad--Rapinchuk also give 625--649).  New entry [Hil] (R.~Hill, arXiv:0708.0108; author and
+title checked on arXiv).
+
+\item Title line: Draft~10.  Date unchanged (November 8, 2026).
+\end{enumerate}
+
+\section*{Still open from the Draft 9 log}
+\begin{enumerate}[leftmargin=*]
+\item Flicker--Kazhdan, ``A simple trace formula'' (1988) versus
+Proposition~6.2: no decision yet.
+\item The companion paper: its literature section's sentence that we
+are ``not aware of an independent literature on $n$-fold covers of
+division algebras beyond [JC]'' should now point to Klose, and its
+Moore entry should read 5--70.  To be done when the companion paper is
+next edited.
+\item Subsection lead-ins: kept as in Draft~9 unless you want them
+pruned.
+\end{enumerate}
+
+\section*{Files}
+\texttt{part-I/mjl\_part1\_draft10.tex} and \texttt{.pdf}; this log
+(\texttt{.tex}, \texttt{.pdf}); \texttt{README.md} (Part~I draft
+number).  Drafts~8 and~9 are kept unchanged; \texttt{glossary.tex} is
+unchanged.
+\end{document}

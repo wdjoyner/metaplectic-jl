@@ -45,7 +45,7 @@ corrections of J. Zou (arXiv:2209.05852).
 
 | Part | Title | Current draft |
 |------|-------|---------------|
-| I   | Local matching and a global transfer under elliptic-support conditions | Draft 9 |
+| I   | Local matching and a global transfer under elliptic-support conditions | Draft 10 |
 | II  | Matching of arbitrary functions and an improved global transfer | Draft 8 |
 | III | The division-algebra side and its local character transform | Draft 9 |
 | IV  | Local power maps, toral positivity, and conditional global comparison | Concluding Draft 6 |
@@ -197,8 +197,8 @@ the repository root, so it must be compiled from inside its folder:
 
 ```bash
 cd part-I
-pdflatex mjl_part1_draft9.tex
-pdflatex mjl_part1_draft9.tex   # second pass for cross-references
+pdflatex mjl_part1_draft10.tex
+pdflatex mjl_part1_draft10.tex   # second pass for cross-references
 ```
 
 The other manuscripts are single self-contained LaTeX files (Parts II–IV
