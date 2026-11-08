@@ -119,16 +119,16 @@ quaternion algebras. Draft 0 set the problem up; Drafts 1-4 (November
 - **Part of Target B**: the same holds for every irreducible
   representation of `D^×` trivial on the third congruence subgroup
   and all its norm twists (levels zero, one and two); for an arbitrary
-  row there is a reduction to the pro-3 Sylow subgroup, and a
-  conjectural "cube-root correspondence" that would give all rows.
+  row there is a reduction to the pro-3 Sylow subgroup; levels three
+  and higher are open.
 - **Part of Target C**: the p-th power identity and the
   multiplicativity of the canonical star section on the 2d-th
   congruence subgroup hold for every odd prime p and every field
   containing the p-th roots of unity.
 
 Each draft has a revision log (`mjl_rank2_wild_revision_log_draftK`);
-ChatGPT's referee reports on Drafts 1-4 are the files
-`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 5.
+ChatGPT's referee reports on Drafts 1-5 are the files
+`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 6.
 
 ### Main open problems
 

@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\title{Metaplectic Jacquet--Langlands Transfer, Companion Paper (Rank Two, Wild Place)\\Revision Log: Draft 5 to Draft 6}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+\section*{Scope}
+Draft 6 responds to ChatGPT's referee report on Draft 5 (five
+recommendations).  The main effect is that Theorem \texttt{thm:leveltwo}
+no longer depends on any new computation: both of its computational
+steps now have hand proofs.  Section 12.5 is rewritten.  Nothing outside
+Section 12, the abstract, Appendix B and one line of Section 1 changed.
+\section*{Changes}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Step 2 by hand} (referee's \S3.1, adopted verbatim in
+substance).  $H=Q_3/Q_7$ has $H'=Q_6/Q_7$ of order $3$ and center
+$Q_4/Q_7$ of index $9$, so it has $243$ linear and $54$ degree-three
+characters, $27$ above each nontrivial $\omega$ of $H'$, and the
+isotypic decomposition of the regular character gives
+$\sum_{\chi'|_{H'}=3\omega}\chi'=81\,\omega\,\mathbf 1_{H'}$.  Since
+$\chi_3$ vanishes off the center of the Heisenberg group, $\chi_3\circ r$
+vanishes on the depth-three good classes, and on $H'$ equals
+$3\,\omega_3\circ r$ with $D=27$; hence
+$(\chi_3\circ r)D=\sum_{\chi'|_{H'}=3\omega_3\circ r}\chi'$, and the
+two halves add up to the sum of all $54$.  Script 14 is now
+corroboration.
+\item \textbf{Step 3 by hand} (new Proposition \texttt{prop:free}).
+$\mathrm{Ad}(Q_1)$ acts freely on \emph{all} genuine irreducible
+characters of $\hat H=\tilde U_3/\ell(K^7)\ker\tilde\theta_1$.  Proof:
+the preimage $\hat A$ of $A=Q_4/Q_7$ is central in $\hat H$ (by
+$\omega=0$, Lemma \texttt{lem:H1consequences}(c)), so a genuine
+irreducible $\mu$ has a central character $\hat\nu=\lambda_0\alpha$ on
+$\hat A$, and $\hat\nu\circ\mathrm{Ad}(t)/\hat\nu=c_t\cdot\omega_\mu([t,\cdot])$
+with $c_t=\lambda_0^t/\lambda_0=\zeta^{h_t}$, $h_t\in\Lambda$ nonzero
+for $t\notin Q_3$.  For $t\in Q_2$, $[t,A]\subset K^7$ and the ratio is
+$c_t|_A$, nontrivial because no nonzero element of $\Lambda$ vanishes on
+the $Q_4/Q_6$-coordinates (table in Appendix A).  For $t$ of depth one
+with leading coefficient $a$, on $y\in Q_5$ with leading coefficient $b$
+the ratio is $\zeta^{2\beta\mathrm{Re}(a\bar b)+2\gamma\mathrm{Im}(a\bar b)}$
+($\beta\neq0$ from Lemma \texttt{lem:H1consequences}(b); the commutator
+class $2i\,\mathrm{Im}(a\bar b)$ was also checked numerically), a nonzero
+functional of $a\bar b$.  Hence no genuine $\mu$ is fixed by any
+$t\notin Q_3$.  Script 15 is now corroboration, and writes the
+certificate the referee asked for (\texttt{level2\_orbit\_certificate.txt}:
+full action tables of the $27$ coset representatives on the $54$
+degree-three and $243$ linear genuine characters, explicit stabilizer
+test with zero fixed pairs, orbit lists).
+\item \textbf{Normalization} (referee's \S3.3).  Section 12 now fixes
+$\theta_1:=\mathbf 1$ throughout (allowed by Remark
+\texttt{rem:theta-independence}; it is the scripts' normalization), so
+$\theta_0=\mathbf 1$ or $\mathrm{sgn}$, and $\lambda_0$, $\hat\Gamma$,
+$\hat H$ are all defined in the same normalization; the parenthetical
+in Step 1 says how $\ker\tilde\theta_1$ and $\varepsilon_\rho$ are used
+when $\theta_\rho=\mathrm{sgn}$.
+\item \textbf{Section 12.5 rewritten} (referee's \S4).  (a) The cube
+root is a surjection from the good classes of $H_m$ onto $Q_1/Q_{m+1}$,
+many-to-one ($219\to27$ for $m=2$), not a bijection.  (b) $\hat H_m$
+is defined with $K^{\max(3m+1,6)}$; for $m=1$ it is $\tilde V$, whose
+$243$ genuine characters form nine free orbits.  (c) The constituent-wise
+``cube-root correspondence'' is withdrawn: the referee's example
+($\chi(a+bi)=\zeta^a$, $w=1+i$, $w^5=-w$) shows $\chi\circ r\neq\chi'\circ\pi_3$
+for every $\chi'$, and $\Phi_1(\chi\circ r)$ is not a virtual character
+for a single additive $\chi\neq1$.  The correct statements are for
+$D_8$-invariant characters (restrictions of characters of $D^\times$),
+which is all Target B needs; at level two the constituent-wise identity
+holds for $\chi_3$ because $\chi_3$ vanishes off the center of the
+Heisenberg group.  The section now states the two ingredients
+(freeness; $(\Theta_\rho\circ r)D$ a character of $H_m$) that gave the
+level theorems, notes that both are open for $m\ge3$, and sketches the
+inductive structure of a possible proof of freeness ($\hat A_m$ central
+in $\hat H_m$ for $m\ge3$ without hypotheses, since $\ell$ is a
+homomorphism on $U_6$).  The term ``cube-root correspondence'' is
+removed from the abstract and table.
+\item \textbf{Provenance} (referee's \S5).  Appendix B now states that
+scripts 13--14 obtain the character table of $Q_3/Q_7$ numerically
+(Burnside) and verify it exactly, that orthogonality is a verification
+and not a certificate of irreducibility, and that since Draft 6 these
+scripts are corroboration only.  The abstract now says ``compatible
+with the cover (central character trivial on $\mu_3$)''.  The
+introduction's draft range is updated.
+\end{enumerate}
+\section*{Status}
+Theorem \texttt{thm:leveltwo}: [P$^c$], now depending on Target A only
+(through $\lambda_0$, $\Lambda$, $e_*$), with no new computational
+input.  Proposition \texttt{prop:free}: [P$^c$] for the same reason.
+Section 12.5: [O].  Nothing else changed.
+\end{document}

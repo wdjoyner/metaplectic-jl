@@ -167,5 +167,40 @@ print("  (untwisted action on the 54 three-dimensional characters of H: orbit si
       sorted(len(o) for o in orbs(deg3, act_untw)), ")")
 lin = [t for t in table if t[id_cls][0] == 1]
 print("Ad(Q_1)-orbits on the 243 genuine linear characters lambda_0*chi:", Counter(len(o) for o in orbs(lin, act)))
+# ---- explicit certificate: action table and stabilizer test ----
+deg3_idx = {chi: n for n, chi in enumerate(deg3)}
+lin_idx = {chi: n for n, chi in enumerate(lin)}
+tkeys = list(Xt)
+with open('level2_orbit_certificate.txt', 'w') as f:
+    f.write("Certificate for Proposition prop:free (Draft 6) / Step 3 of Theorem thm:leveltwo.\n")
+    f.write("Group H = Q_3/Q_7 (729 elements, 297 classes); H^ = central extension by mu_3 with theta_0 = 1.\n")
+    f.write("Genuine irreducible characters of H^: mu = lambda_0 * chi, chi in Irr(H); listed below by index.\n")
+    f.write("Coset representatives t_0..t_26 of U_1/U_3 = Q_1/Q_3 are 1 + varpi*(m i) + (a0 + a1 i) j with\n")
+    f.write("  Heis class (m, (a0,a1)) as follows:\n")
+    for n, tk in enumerate(tkeys): f.write("  t_%d = %s\n" % (n, str(tk)))
+    f.write("\nAction on the 54 degree-3 genuine characters: row = character index, entry k = index of mu^{t_k}.\n")
+    fixed = 0
+    for chi in deg3:
+        row = []
+        for tk in tkeys:
+            im = act(tk, chi); row.append(deg3_idx[im])
+            if tk != (0, (0, 0)) and im == chi: fixed += 1
+        f.write("%2d: %s\n" % (deg3_idx[chi], ' '.join('%2d' % r for r in row)))
+    f.write("\nnumber of pairs (mu, t != 1) with mu^t = mu: %d\n" % fixed)
+    f.write("orbits on the degree-3 characters: %s\n" % [sorted(deg3_idx[c] for c in o) for o in orbits3])
+    f.write("\nAction on the 243 genuine linear characters (same conventions):\n")
+    fixed_l = 0
+    for chi in lin:
+        row = []
+        for tk in tkeys:
+            im = act(tk, chi); row.append(lin_idx[im])
+            if tk != (0, (0, 0)) and im == chi: fixed_l += 1
+        f.write("%3d: %s\n" % (lin_idx[chi], ' '.join('%3d' % r for r in row)))
+    f.write("\nnumber of pairs (mu, t != 1) with mu^t = mu: %d\n" % fixed_l)
+    f.write("\nCharacter values: degree-3 character k on the class representatives (index l, value a+b*zeta):\n")
+    for chi in deg3:
+        f.write("chi_%d: %s\n" % (deg3_idx[chi], ' '.join('%d:(%d,%d)' % (l, chi[l][0], chi[l][1]) for l in range(k) if chi[l] != (0, 0))))
+print("stabilizer test: fixed pairs (deg 3) =", fixed, "; (linear) =", fixed_l)
+assert fixed == 0 and fixed_l == 0
 pickle.dump({'L': L, 'orbits3': [sorted(o) for o in orbits3]}, open('level2_clifford.pkl', 'wb'))
 print("total %.0fs" % (time.time() - t00))
