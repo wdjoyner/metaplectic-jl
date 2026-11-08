@@ -47,7 +47,7 @@ corrections of J. Zou (arXiv:2209.05852).
 |------|-------|---------------|
 | I   | Local matching and a global transfer under elliptic-support conditions | Draft 11 |
 | II  | Matching of arbitrary functions and an improved global transfer | Draft 10 |
-| III | The division-algebra side and its local character transform | Draft 9 |
+| III | The division-algebra side and its local character transform | Draft 10 |
 | IV  | Local power maps, toral positivity, and conditional global comparison | Concluding Draft 6 |
 
 Each part's full title begins *"A metaplectic Jacquet–Langlands
@@ -192,7 +192,7 @@ cocycle normalization, are in the shared glossary `glossary.tex`
 
 ## Building
 
-Part I (from Draft 9) and Part II (from Draft 9) input the shared
+Part I (from Draft 9), Part II (from Draft 9) and Part III (from Draft 10) input the shared
 glossary `glossary.tex` from the repository root, so they must be
 compiled from inside their folders:
 
@@ -203,10 +203,13 @@ pdflatex mjl_part1_draft11.tex   # second pass for cross-references
 cd ../part-II
 pdflatex mjl_part2_draft10.tex
 pdflatex mjl_part2_draft10.tex
+cd ../part-III
+pdflatex mjl_part3_draft10.tex
+pdflatex mjl_part3_draft10.tex
 ```
 
-The other manuscripts are single self-contained LaTeX files (Parts III–IV
-will input the glossary in the same way in their next drafts). To build
+The other manuscripts are single self-contained LaTeX files (Part IV
+would input the glossary in the same way in their next drafts). To build
 one:
 
 ```bash

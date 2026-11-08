@@ -1,0 +1,80 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\newcommand{\tH}{\widetilde H}\newcommand{\tZ}{\widetilde Z}
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, III\\
+Revision Log: Draft 9 to Draft 10 (exposition only)}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Scope}
+The third exposition pass requested by David Joyner, in the layout of
+Part~II (his choice): Summary of results after \S1, notation and
+glossary and related work at the back.  \textbf{No mathematical
+change}: no statement, proof, hypothesis or label was changed.
+Part~III's own numbering in \S\S1--12 is unchanged; the old \S13
+(``Selected terminology and notation''), which no other paper cites,
+becomes \S13 ``Notation and glossary'', and a new \S14 ``Related work''
+follows it.  This is the last separate draft of Part~III: by David's
+decision the four Parts and the companion paper are now being combined
+into one book, and the separate drafts are frozen.
+
+\section*{Changes}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{References to Part~I} renumbered to Part~I, Draft~11
+(the reordered draft): Lemma~2.2 $\to$~4.2, Definition~4.1 $\to$~6.1,
+Proposition~2.3 $\to$~4.3, Proposition~3.5 $\to$~5.5 (six places),
+Theorem~3.9 $\to$~5.9; thirteen occurrences in all, twelve after
+``Part~I'' and one unprefixed (``treated there in Proposition~3.5'').
+References to Part~II (Definition~6.4, Corollary~6.8) are unchanged,
+since Part~II's numbering did not change.  The new \S1 lead-in names
+the drafts cited (Part~I, Draft~11; Part~II, Draft~10).
+\item \textbf{(a) Glossary.}  \S13: lead-in, \verb|\input{../glossary}|,
+and \S13.11 ``Notation and terminology specific to Part~III'', which
+keeps every entry of the old \S13 except ``Good element'' (now in the
+shared glossary) and adds entries for $H$, $Z$, $\tH$, $\tZ$,
+$\widetilde T$, $H^1$, $U_D^1$, tame/wild, the Hilbert spaces of
+\S4, $b_D$, $c_D$ and the character matrix, $\mathcal C_{\eta^{-1}}(H)$
+and $L_D^{(\widetilde\eta)}$, and $\Psi_D$ and the target identity
+(38).
+\item \textbf{(b) Summary of results.}  New unnumbered section after
+\S1: eleven items with labels and pointers, plus the running example.
+\item \textbf{(c) Related work.}  New \S14, referring to Part~I, \S2,
+for the series and adding what is specific to Part~III: the
+division-algebra side (DKV, Badulescu, Cohen; Riehm on
+$\mathrm{SL}_1(D)$; Prasad--Raghunathan on its topological central
+extensions; Klose's local paper), power operations (Adams, Atiyah,
+Segal), metaplectic correspondences (Flicker--Kazhdan, Zou), and
+arithmetic (Kottwitz, Milne, the Grunwald--Wang theorem, Loeser).
+Four references added: Artin--Tate (checked: W.~A.~Benjamin, 1968;
+Chapter~X is ``The Grunwald--Wang theorem'', per the AMS table of
+contents of the 2009 edition); Klose, Math.\ Z.\ 191 (checked on
+EuDML); Prasad--Raghunathan, Invent.\ Math.\ 92 (1988), and Riehm,
+Amer.\ J.\ Math.\ 92 (1970) (bibliographic data checked only through
+Prasad--Rapinchuk's reference list on numdam).  The originals of the
+last three were not consulted; the text cites them for their subject
+only.
+\item \textbf{(d) Lead-ins.}  \S1 has a new lead-in paragraph; the
+lead-ins of \S\S2--5 and 7--12 now say what each section depends on and
+what notation it introduces; \S6 and \S10 are marked as background or
+exposition.  The labels paragraph points to the shared definitions.
+\item Title line: Draft~10, November 8, 2026.
+\end{enumerate}
+
+\section*{Point for David}
+Proposition~7.2 (unique splitting over $H^1$ when $p\nmid n$) and
+Proposition~8.1 (non-splitting when $p\mid n$) concern the same
+objects as Prasad--Raghunathan's work on topological central
+extensions of $\mathrm{SL}_1(D)$ and Klose's local paper.  A comparison
+would be a useful check; it has not been made.
+
+\section*{Files}
+\texttt{part-III/mjl\_part3\_draft10.tex} and \texttt{.pdf}; this log
+(\texttt{.tex}, \texttt{.pdf}); \texttt{README.md}.  Draft~9 is kept
+unchanged.
+\end{document}
