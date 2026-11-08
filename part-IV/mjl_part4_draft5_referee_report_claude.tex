@@ -1,0 +1,388 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\A}{\mathbb A}
+\newcommand{\tH}{\widetilde H}
+\newcommand{\Ad}{\operatorname{Ad}}
+\theoremstyle{plain}
+\newtheorem*{lem*}{Lemma}
+\newtheorem*{obs*}{Observation}
+\title{Referee report on \texttt{mjl\_part4\_draft5.tex}, with suggestions
+for the wild integrality problem}
+\author{Claude (Anthropic), for David Joyner}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+
+\section*{0. Scope}
+\paragraph{Read in full.} Draft~5 (1589 lines; 22 pages; it compiles
+cleanly).
+
+\paragraph{Compiled numbering of the new results.}
+\begin{itemize}
+\item Example~6.3 (data);
+\item Lemma~6.4 (toral Fourier test);
+\item Proposition~6.5 (all quadratic tori);
+\item \S6.4 (Steps~T and~G);
+\item Proposition~8.3 (rank-two spherical unit);
+\item Remark~8.4;
+\item Proposition~8.5 (conditional comparison with $\Lambda$);
+\item Remark~8.7 (identity germs);
+\item Example~8.8 (numerical ledger).
+\end{itemize}
+
+\paragraph{Versions and sources.}
+\begin{itemize}
+\item Draft~5 cites Parts~I and~II as Draft~8 and Part~III as Draft~9. I
+have Draft~6 of each, and of [JC] I have revised12 but did not read it.
+\item I could not verify the following against a source:
+\begin{itemize}
+\item [JC], Proposition~2.4 (Stone--von Neumann);
+\item the exact pointwise form of [FK, \S12, Corollary];
+\item Li's real-place hypothesis.
+\end{itemize}
+\item The literature I suggest in \S3 is cited from memory and should be
+checked.
+\end{itemize}
+
+\section*{Summary verdict}
+\begin{itemize}
+\item \emph{\S\S2--5, 7.} Unchanged from Draft~3 apart from
+the points I raised, all of which are handled. One exception: the
+$u(x)$ paragraph now says ``$u(x)=1$ by definition of the relevant
+convention''. That is acceptable if [FK, \S4] defines it so, but it is
+no longer an argument. Keep the one-line argument from Draft~3 as well.
+\item \emph{The wild rank-two example (\S\S6.3--6.4).} This is a genuine
+and correct new computation. I rechecked every value and every
+decomposition (\S1.1). There is one misstatement in the description of
+$B_d$.
+\item \emph{Proposition~8.5.} It contains a new hypothesis, that
+nongood ordinary classes have no contribution. This hypothesis is
+unnecessary, and it rests on a mismatched pairing of classes (\S1.2).
+It should be deleted. As written it also makes the proposition hard to
+apply with unit elements at almost all places.
+\item \emph{Proposition~8.3, Remark~8.7, Example~8.8.} Correct. One
+citation is unverified (\S1.3).
+\end{itemize}
+
+\paragraph{The main recommendation.} Add the positivity lemma of \S2.
+It is elementary, and it strengthens Proposition~6.1 considerably:
+\emph{for the unitary matrix $(a_{\rho\tau})$, integrality is
+equivalent to nonnegativity}, i.e.\ to every $L_D\Theta_\rho$ being a
+positive-definite function. This changes what has to be proved, and it
+makes several of the routes in \S3 much shorter.
+
+\section*{1. Correctness of the new material}
+
+\subsection*{1.1 The rank-two wild example: correct, one slip}
+I verified the following.
+\begin{itemize}
+\item \emph{The setup.} $F=\mathbb Q_3(\zeta_3)$, $|3|_F=1/9$. $D=E_0\oplus E_0j$ with $j^2=\varpi$ is
+division, since $\varpi$ has odd valuation and is not a norm from the
+unramified $E_0=F(i)$. $E_0$ is unramified because $-1$ is not a square
+in $\mathbb F_3$.
+\item \emph{The unramified torus, $R_{E_0}=|a^2+b^2|/|3a^2-b^2|$.} Both
+values are right. $a^2+b^2$ is a unit because $-1$ is a nonsquare. For
+$b=\varpi u$, $3a^2-b^2=3(a^2+\zeta_3u^2)$ with $a^2+u^2\not\equiv0$.
+So $R\in\{9,1\}$ as stated, and
+$R_{E_0}=1+2\,\mathrm{reg}_{C_4}=3+2\chi_1+2\chi_2+2\chi_3$.
+\item \emph{The ramified tori.} $R_{E_d}=|a^2-db^2|/|3a^2+db^2|$. The
+three valuation cases give $9,3,1$. The decomposition
+$1+\mathrm{reg}_{C_2}+\mathrm{reg}_{C_6}$ has the values $9$, $3$ and
+$1$ on the identity, the even nonidentity elements and the odd elements.
+The Fourier coefficients $(3,2,1,1,1,1)$ are right.
+\item \emph{Lemma~6.4.} Correct.
+\begin{itemize}
+\item $\zeta_{\alpha\chi}$ is well defined, using injectivity of $P_n$ on
+$A_E$ and $\theta(b)=\tilde\theta(b^*)$.
+\item It is multiplicative, using multiplicativity of the star on the
+torus.
+\item Stone--von Neumann characters are $b_D\zeta$ on $C_E$ and $0$
+off it.
+\item The restriction identity follows.
+\end{itemize}
+\emph{Repair:} Lemma~6.4 has no status label; it should be \textbf{[P]}.
+\item \emph{Proposition~6.5.} Correct, including the choice of
+$\tilde\theta$ with $\tilde\theta(a^*)=1$ (the star image meets $\mu_n$
+trivially) and the Galois invariance.
+\end{itemize}
+
+\paragraph{The slip.} In the description of
+$B_d=E_d^\times/F^\times U_1$, the text says that even classes ``modulo
+$F^\times$ are represented by $1+cj_d$ with $c\in\varpi\mathcal O_F$''.
+Those elements lie in $U_1$, so they are trivial in $B_d$. It should say
+$c\in\mathcal O_F$, read modulo $\varpi$. The multiplication law and the
+additivity of $\bar c$ are then right. It would also help to note that
+$U_1=\mathcal O_F^\times(1+\mathfrak p_{E_d}^2)$.
+
+\paragraph{Consistency check.} The torus results are exactly
+positive-definiteness of the restriction of $L_D\mathbf 1$ to each
+covered torus. This is consistent with \S2 below, and it is a necessary
+condition.
+
+\subsection*{1.2 Proposition~8.5: delete the nongood-class hypothesis}
+The proposition assumes that every \emph{nongood} rational noncentral
+ordinary class contributes zero, ``removing the ordinary classes without
+a covered counterpart''. But in the comparison the ordinary class $[s]$
+is paired with the covered class of $s^*=\iota(s)^n$, not with
+$\iota(s)$.
+\begin{itemize}
+\item This is what hypotheses (i)--(ii) say: the local identities
+compare $J(s_v^*,\tilde f_v)$ with $J(s_v,f_v)$.
+\item It is also what the proof itself uses, via $\iota(s^n)=\iota(s)^n$.
+\item The star of any element is good, since
+$[\tilde t^n,\tilde u]=[\tilde t,\tilde u]^n=1$.
+\item Theorem~5.2 gives a bijection from \emph{all} noncentral
+$[s]\in E^\times/K^\times$ onto the good classes.
+\end{itemize}
+So every ordinary class has a counterpart, and no extra support
+condition is needed.
+
+As written, the hypothesis would require the ordinary test function to
+kill every $[s]$ with $s\notin K^\times E^{\times n}$. That is
+incompatible with unit elements at almost all places, unless the
+function is adjusted at some place to vanish on specific classes.
+\emph{Delete the hypothesis} and the corresponding sentence of the proof
+and ledger. ``Nongood ordinary class'' is meaningful only for the
+lift $\iota(\gamma)$, which is not the partner of $\gamma$.
+
+\subsection*{1.3 Other new material}
+\paragraph{Proposition~8.3.} The elementary part is correct:
+\begin{itemize}
+\item $J(\mathrm{diag}(a,b),1_{K_0})=1$ for $a,b$ units;
+\item both sides vanish when the valuations differ;
+\item scalar translates contribute the central character.
+\end{itemize}
+The final sentence relies on [FK, \S12, Corollary] giving a
+\emph{pointwise} identity $J(x^*,\tilde f^0)=J(x,f^0)$. I could not
+verify that form.
+
+For $r\ge3$, Lemma~8.2 shows that such a pointwise identity would force
+$J(\zeta x,1_{K_0})=J(x,1_{K_0})$ on mixed tori. That is a checkable
+consequence. Either it confirms the pointwise form for $r=3$, or it
+shows that FK's identity involves a root sum. Remark~8.4 should mention
+this test rather than assert that FK ``cover'' mixed tori.
+
+\paragraph{Remark~8.7 and Example~8.8.} Correct and well hedged. The
+ledger arithmetic is right: $b=3$, $\Lambda=1$ forces
+$\lambda_\infty=1/3$, and $(1/3)/9=1/27$ balances $27$.
+
+\paragraph{Ledger.} $N_2=N_3=1$ and $N_5=4$ are right.
+
+\section*{2. A positivity lemma (recommended for the paper)}
+\begin{lem*}[\textbf{[P]}; strengthens Proposition~6.1]
+Let $(a_{\rho\tau})$ be the matrix of $L_D$ in the orthonormal character
+bases (Part~III, Theorem~4.3 and Corollary~5.1). The following are
+equivalent:
+\begin{enumerate}[label=(\alph*)]
+\item $L_D$ permutes the irreducible characters;
+\item every $a_{\rho\tau}$ is an integer;
+\item every $a_{\rho\tau}$ is real and $\ge0$;
+\item every $L_D\Theta_\rho$ is a positive-definite function on $\tH$.
+\end{enumerate}
+Moreover, for a single $\rho$, condition (c) for that row (equivalently
+(d) for that $\rho$) already implies that $L_D\Theta_\rho$ is a
+nonnegative combination of characters with norm~$1$.
+\end{lem*}
+
+\begin{proof}
+\emph{(c)$\Rightarrow$(a).} Let $\rho\ne\rho'$. Orthogonality of rows
+gives $\sum_\tau a_{\rho\tau}a_{\rho'\tau}=0$, a sum of nonnegative
+terms. So distinct rows have disjoint supports. Since $L_D$ is unitary,
+each column has norm~$1$. A column meets the support of only one row,
+so its unique nonzero entry is~$1$. Each row has norm~$1$ and its
+nonzero entries are~$1$, so it has exactly one of them.
+
+\emph{(a)$\Rightarrow$(b)$\Rightarrow$(c).} (a)$\Rightarrow$(b) is
+trivial. (b)$\Rightarrow$(c) is Proposition~6.1.
+
+\emph{(c)$\Leftrightarrow$(d).} On a group compact modulo the center,
+with a fixed unitary central character, a continuous class function is
+positive definite if and only if its coefficients in the irreducible
+characters are~$\ge0$ (by Peter--Weyl and GNS).
+\end{proof}
+
+\paragraph{Consequences.}
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Integrality is a positivity problem.} Any construction
+exhibiting $L_D\Theta_\rho$ as the character of an actual, possibly
+reducible, representation proves irreducibility.
+\item \emph{A cheaper finite test.} At a finite level, convolution by
+$L_D\Theta_\rho$ acts on the $\tau$-isotypic part of the twisted group
+algebra by the scalar $a_{\rho\tau}/\dim\tau$, up to the normalization
+of measures. So it suffices to check that the Hermitian matrix
+$\bigl(L_D\Theta_\rho(h^{-1}g)\bigr)_{g,h}$ is positive semidefinite.
+No character table of the cover is needed.
+\item \emph{A global argument needs only positivity.} In the global
+argument of \S3.5, the exact value of $\Lambda$ becomes irrelevant; only
+its positivity matters.
+\end{enumerate}
+
+\section*{3. Suggestions for the wild integrality problem in general}
+These are research suggestions, ordered roughly by how directly they
+address the problem. I mark what I have checked and what is heuristic.
+
+\subsection*{3.1 A clean formula for $R_E$ and a counting identity (checked)}
+Write $u_{ij}=\lambda_i/\lambda_j$, where the $\lambda_i$ are the
+eigenvalues of $t$. For a field torus $|u_{ij}|=1$, so
+$\Delta(t)=\prod_{i<j}|1-u_{ij}|$, with no square roots. Hence
+\[
+R_E(t)=\prod_{i<j}\frac{|1-u_{ij}|}{|1-u_{ij}^n|}
+=\prod_{i<j}\ \prod_{\zeta\in\mu_n\smallsetminus1}|1-\zeta u_{ij}|^{-1},
+\]
+using $1-X^n=\prod_{\zeta}(1-\zeta X)$, which holds because
+$\mu_n\subset F$.
+
+\paragraph{The case $r=2$.} Put $u=t/\sigma(t)$. By Hilbert~90 this
+identifies $A_E$ with $E^1$, and
+\[
+R_E(u)=\prod_{\zeta\ne1}|1-\zeta u|^{-1}.
+\]
+If $\zeta$ has order prime to $p$, then $|1-\zeta u|=1$. Indeed,
+$u\equiv\zeta^{-1}$ would give $N(u)\equiv\zeta^{-2}$, so $\zeta^2=1$.
+Hence only the $p$-power roots of unity in $\mu_n$ contribute.
+
+So for $r=2$, Step~T reduces to comparing $|1-u|$ with $|1-\zeta|$ for
+$\zeta\in\mu_{p^a}$, along the unit filtration of $E^1$. The standard
+behavior of $x\mapsto x^p$ on $U^i$ changes at $i=e/(p-1)$. This should
+allow Step~T to be proved for \emph{all} wild $F$ and all $n$ when
+$r=2$, with $R_E$ written explicitly as a combination of indicators of
+the subgroups $E^1\cap U_E^k$. I recommend doing this next, since it
+turns Proposition~6.5 from an example into a theorem.
+
+\paragraph{A counting identity (any $r$).} Let $\Lambda\subset\mathfrak
+d/\mathfrak e$ be an $\Ad(t)$-stable lattice, and $N\gg0$. Then
+\[
+\Delta(t)^{-2}=\#\mathrm{Fix}\bigl(\Ad t\ \text{on}\ \Lambda/\varpi^N\Lambda\bigr),
+\qquad
+R_E(t)^2=\frac{\#\mathrm{Fix}(\Ad t^n)}{\#\mathrm{Fix}(\Ad t)}.
+\]
+Proof: $|\det(1-\Ad t)|^{-1}=[\Lambda:(1-\Ad t)\Lambda]$, and kernel and
+cokernel have equal order on the finite module. So $R_E^2$ is a ratio
+of permutation-character values. This is the natural form in which to
+compare $R_E$ with the Frobenius formula of \S3.3.
+
+\subsection*{3.2 Gluing via Brauer's characterization (heuristic, but standard in shape)}
+At a finite level, the question is whether a class function on a finite
+twisted group is a virtual character. Brauer's characterization theorem
+says this is detected by restrictions to \emph{elementary} subgroups:
+cyclic $p'$-groups times $p$-groups. By Proposition~6.1, once
+$L_D\Theta_\rho$ is a virtual character it is irreducible, because it
+has norm~$1$ and is positive at~$1$.
+
+So Step~G reduces to elementary subgroups. The $p'$-parts are handled
+by tame (Adams-type) arguments. The core is the restriction to the
+covered pro-$p$ part, $\widetilde{U_D^1}$ together with the $p$-part of
+the covered torus. The twisted version of Brauer's theorem should be
+located in the literature (e.g.\ Karpilovsky's books on projective
+representations) or proved. I have not checked that it exists in the
+form needed.
+
+\subsection*{3.3 Explicit construction: tame types for $D^\times$ and their covers}
+Since $(n,r)=1$, a wild place for $n$ has $p\ne r$. So $D$ is
+\emph{tamely} ramified, and every irreducible representation of
+$D^\times$ comes from Howe's admissible pairs $(E,\xi)$, with $E/F$ of
+degree~$1$ or~$r$. Explicit character formulas are given in Corwin--Howe
+(Pacific J.\ Math.\ 73, 1977), and degrees in Corwin--Moy--Sally.
+
+\paragraph{Proposal.}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Define genuine admissible pairs} $(E,\tilde\xi)$, with
+$\tilde\xi(zt^*)=\tilde\theta(z)\xi(t)$ on the center $C_E$ of
+$\widetilde{E^\times}$.
+\item \emph{Build $\tau(E,\tilde\xi)$} as an induced representation
+$\mathrm{Ind}_{\tilde J}^{\tH}\tilde\Lambda$, as in Howe's construction.
+Use the Stone--von Neumann representation of $\widetilde{E^\times}$ on
+the torus part, and the compact splitting $\kappa^*$ on deep congruence
+subgroups, over which the cover splits.
+\item \emph{Compute $\Theta_\tau$ on elliptic elements by the Frobenius
+formula} and compare with $L_D\Theta_{\rho(E,\xi)}$. The fixed-point
+form of $R_E^2$ in \S3.1 is what such a comparison will produce.
+\end{enumerate}
+This is the route of Bushnell--Henniart's explicit essentially tame
+Jacquet--Langlands correspondence, and of Zou's simple types for covers
+(which assume $p\nmid n$). The division-algebra case is the simplest
+one: no Levi subgroups, and only simple strata. By \S2 it suffices to
+show that each $L_D\Theta_\rho$ is the character of \emph{some}
+representation.
+
+\subsection*{3.4 Kirillov theory for the deep part (heuristic, with a dimension check)}
+On a deep congruence subgroup the cover splits. There, Howe's Kirillov
+theory for compact $p$-adic groups (Pacific J.\ Math.\ 73, 1977), or the
+orbit method for saturable pro-$p$ groups (Gonz\'alez-S\'anchez), writes
+characters as Fourier transforms of coadjoint orbits. In exponential
+coordinates the $n$th-power map is the dilation $X\mapsto nX$. So $L_D$
+should act by \emph{dilating orbits}. Dilation sends orbits to orbits,
+which would give irreducible characters directly, and $R_E$ would be
+the Jacobian correction.
+
+\paragraph{Dimension check.} A generic orbit of $D^\times$ has
+dimension $r(r-1)$. Dilating by $n^{-1}$ multiplies its volume by
+$|n|^{-r(r-1)}$, so it multiplies the degree by $|n|^{-r(r-1)/2}$. The
+Heisenberg factor on the torus contributes $b_D$. Together:
+\[
+b_D\,|n|_F^{-r(r-1)/2}=|n|_F^{-(r^2-1)/2}=c_D,
+\]
+exactly the predicted degree ratio. This makes the orbit method a
+promising mechanism for the pro-$p$ part in Step~G. The applicability
+conditions (saturability, $p$ relative to the dimension) need checking.
+
+\subsection*{3.5 The global route (conditional; needs only positivity)}
+\begin{enumerate}[label=(\arabic*)]
+\item Choose the global $D$ with $S$ containing \emph{every} place above
+$n$, together with the target wild place $w$. Then every finite split
+place is tame.
+\item Take unit elements at the split finite places. This needs [FK,
+\S12] under $(n,N_r)=1$, which is automatic for $r\le5$ with $n$ odd,
+plus transport to the cover of Part~I.
+\item At the tame places of $S$, Part~III, Theorem~7.6, gives
+permutation matrices.
+\item Globalize $\rho$ (as in [FK, \S20]). Take
+$\tilde f_w=e_\tau$ (a projector), so that $f_w=T^{-1}e_\tau$ has
+$\mathrm{tr}\,\rho(f_w)=a_{\rho\tau}$.
+\item Separate by the Hecke algebra at split places, and use strong
+multiplicity one for $D^\times$ (Badulescu). This should give
+\[
+a_{\rho\tau}=(\text{positive constant})\times(\text{nonnegative integer}).
+\]
+\end{enumerate}
+By \S2, this already proves integrality, \emph{whatever the constant is}.
+The remaining inputs are those of Proposition~8.5:
+\begin{itemize}
+\item existence of the split-place and complex-place matching, with
+positive constants;
+\item the germ issue at regular $x$ with $x^n$ singular.
+\end{itemize}
+Note also: with $S\supseteq\{v\mid n\}$, the product formula gives
+$\prod_{v\in S}b_{D,v}=\prod_{v\mid\infty}|n|_v^{(r-1)/2}$. So
+$\Lambda=1$ is equivalent to $\lambda_v=|n|_v^{-(r-1)/2}$ at each
+complex place (compare Example~8.8). But by \S2 this exact value is not
+needed for integrality.
+
+\subsection*{3.6 Order of work}
+\begin{enumerate}[label=(\alph*)]
+\item Add the positivity lemma (\S2), and fix \S1.1 and \S1.2.
+\item Run the finite PSD test of \S2(ii) for
+$(2,3,\mathbb Q_3(\zeta_3))$, $\rho=\mathbf1$. This is cheaper than a
+character table.
+\item Prove Step~T for all $r=2$, using the formula of \S3.1.
+\item Attack Step~G for $r=2$ by \S3.3, the explicit types. This case
+is small: $E$ is quadratic, and the strata are short.
+\end{enumerate}
+
+\section*{4. Editorial}
+\begin{itemize}
+\item Lemma~6.4 needs a status label.
+\item The abstract is now long, about 280 words; trim it.
+\item The acknowledgments sentence ``added in Draft~5 after a separate
+comparison \ldots'' is drafting history. Move it to the log.
+\item Restore the $\{\pm1\}\cap\mu_n$ argument alongside ``by
+convention'' (Summary).
+\end{itemize}
+
+\end{document}

@@ -1,0 +1,145 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype,amsmath,amssymb,amsthm,mathtools,booktabs}
+\usepackage[margin=0.83in]{geometry}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Ocal}{\mathcal O}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\N}{\operatorname{N}}
+\newcommand{\Res}{\operatorname{Res}}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\1}{\mathbf 1}
+\title{A permutation-character theorem for quadratic wild-place discriminant ratios\\\large A research note toward Part IV of the metaplectic Jacquet--Langlands series}
+\author{Prepared by ChatGPT (OpenAI) for David Joyner\\\small Based in part on suggestions in Claude's referee report on Part IV, Draft 5}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+\begin{abstract}
+For a quadratic extension $E/F$ of nonarchimedean local fields with odd residue characteristic, and any odd integer $n$ for which $\mu_n\subset F$, we prove that the ratio of the Weyl discriminants $\Delta(t)/\Delta(t^n)$, viewed as a function on $E^\times/F^\times$, is a finite permutation character. This settles the \emph{toral positivity} step proposed in Part IV, Draft 5, for $r=2$ at every wild place. It does not prove irreducible-character integrality for the full covering group $\widetilde{D^\times}$; the nonabelian gluing problem remains open.
+\end{abstract}
+
+\section{The theorem}
+Let $F$ be a finite extension of $\mathbb Q_p$ with $p$ odd, residue field of cardinality $q$, and let $n\geq1$ be odd with $\mu_n\subset F$. Let $E/F$ be any quadratic field extension, with nontrivial Galois involution $\sigma$. Put
+\[
+ A=E^\times/F^\times,\qquad G=E^1=\ker(N_{E/F}:E^\times\to F^\times).
+\]
+Hilbert's Theorem 90 identifies $A\xrightarrow{\sim}G$ via $t\mapsto u=t/\sigma(t)$. The normalized absolute value on $E$ is $|x|_E=q_E^{-v_E(x)}$, so $|x|_E=|N_{E/F}x|_F$.
+
+For noncentral $t\in E^\times$ let
+\[
+ R_E(t)=\frac{\Delta(t)}{\Delta(t^n)},\qquad
+ \Delta(t)=\bigl|\det(1-\operatorname{Ad}(t)\mid D/E)\bigr|_F^{1/2}.
+\]
+The ratio extends continuously at scalar elements, with value $|n|_F^{-1}$.
+
+\begin{theorem}[Quadratic toral permutation positivity]\label{thm:main}
+For any $E/F,n$ as above, $R_E$ is the character of a finite-dimensional permutation representation of a finite quotient of $A$. In particular,
+\[
+ R_E(t)=\sum_{\chi\in\widehat A}m_\chi\chi(t),\qquad m_\chi\in\Z_{\geq0},
+\]
+where only finitely many $m_\chi$ are nonzero. This includes every wild case $p\mid n$. At the identity $R_E(1)=|n|_F^{-1}$.
+\end{theorem}
+
+\section{Valuation formula}
+Write $n=p^a m$ with $(m,p)=1$, and put
+\[
+ t_\zeta=v_E(1-\zeta),\qquad
+ G_k=\{u\in G:v_E(1-u)\geq k\}\quad(k\geq1),\qquad G_0=G.
+\]
+If $a=0$ then $R_E\equiv1$, so assume $a\geq1$.
+
+\begin{lemma}\label{lem:valuations}
+For $u\in G$ and any $\zeta\in\mu_n$ whose prime-to-$p$ component is nontrivial, $|1-\zeta u|_E=1$. For $\zeta\in\mu_{p^a}\setminus\{1\}$,
+\[
+ v_E(1-\zeta u)=\min\{v_E(1-u),t_\zeta\}.
+\]
+Consequently, with $k=v_E(1-u)\in\Z_{\geq0}\cup\{\infty\}$,
+\begin{equation}\label{eq:radial}
+ R_E(u)=q_E^{\frac12\sum_{\zeta\in\mu_{p^a}\setminus\{1\}}\min(k,t_\zeta)}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The reduction of $u\in E^1$ lies in a norm-one subgroup. In the unramified case its intersection with $k_F^\times$ is $\{\pm1\}$, and in the ramified case the reduction of $u$ is itself in $\{\pm1\}$. A root of unity with nontrivial prime-to-$p$ component has reduction in $k_F^\times\setminus\{\pm1\}$, since $n$ is odd, proving the first assertion.
+
+For a nontrivial $p$-power root $\zeta$, the ultrametric inequality gives the asserted minimum when the two valuations differ. If both equal $t_\zeta$ and $v_E(1-\zeta u)>t_\zeta$, then $u\equiv\zeta^{-1}\pmod{\mathfrak p_E^{t_\zeta+1}}$. Applying $\sigma$ and using $\sigma(u)=u^{-1}$ gives $u^{-1}\equiv\zeta^{-1}$ to the same precision, hence $\zeta\equiv\zeta^{-1}$, a contradiction to $v_E(\zeta-\zeta^{-1})=t_\zeta$ (as $p$ is odd). Thus equality holds.
+
+For $u=t/\sigma(t)$ we have
+$\Delta(t)=|N_{E/F}(1-u)|_F^{1/2}=|1-u|_E^{1/2}$.
+Factor $1-u^n=\prod_{\zeta\in\mu_n}(1-\zeta u)$ and use the two valuation statements. The identity follows for noncentral $t$ and extends continuously to $u=1$. At $u=1$, the cyclotomic product $\prod_{\zeta\in\mu_{p^a}\setminus\{1\}}(1-\zeta)=p^a$ gives $R_E(1)=|p^a|_E^{-1/2}=|n|_F^{-1}$.
+\end{proof}
+
+Define for $k\geq0$
+\[
+ M_k=q_E^{\frac12\sum_{\zeta\in\mu_{p^a}\setminus\{1\}}\min(k,t_\zeta)},\qquad M_0=1,
+\]
+and put $T=\max_{\zeta\ne1}t_\zeta$. All values $M_k$ are positive integers because roots $\zeta,\zeta^{-1}$ occur in pairs of equal valuation. We have $M_k=M_T$ for $k\geq T$.
+
+\section{Unramified quadratic extensions}
+Suppose $E/F$ is unramified. Then $q_E=q^2$ and reduction of the norm-one group has order $q+1$; at every deeper level the trace-zero subgroup of the residue-field additive group has order $q$. Thus the filtration satisfies
+\[
+ [G:G_1]=q+1,\qquad [G:G_k]=(q+1)q^{k-1}\quad(k\geq1).
+\]
+Write $s_k=\#\{\zeta\in\mu_{p^a}\setminus\{1\}:t_\zeta\geq k\}$. Each $s_k$ is even, and $M_k/M_{k-1}=q^{s_k}$.
+Set
+\[
+ c_k=\frac{M_k-M_{k-1}}{(q+1)q^{k-1}}\quad(1\leq k\leq T).
+\]
+For $k=1$, $M_0=1$ and $q+1$ divides $q^{s_1}-1$ because $s_1$ is even. For $k>1$ with $s_k>0$, $M_{k-1}$ is divisible by $q^{k-1}$, since at least two roots contribute at least $k-1$ to its exponent. Again $q+1$ divides $q^{s_k}-1$. Hence $c_k\in\Z_{\geq0}$ (and $c_k=0$ if $s_k=0$).
+
+By telescoping \eqref{eq:radial},
+\begin{equation}\label{eq:unram}
+ \boxed{R_E=\1_G+\sum_{k=1}^T c_k\,[G:G_k]\,\1_{G_k}.}
+\end{equation}
+Here $[G:G_k]\,\1_{G_k}$ is precisely the permutation character of $G$ on $G/G_k$.
+
+\section{Ramified quadratic extensions}
+Suppose $E/F$ is ramified. Then $q_E=q$ and $t_\zeta=2v_F(1-\zeta)$ is even. The norm-one group has filtration
+\[
+ [G:G_1]=2,\qquad G_{2j}=G_{2j+1},\qquad [G:G_{2j}]=2q^j\quad(j\geq1).
+\]
+For completeness, write $E=F(\sqrt d)$ with $v_F(d)=1$. Hilbert 90 gives $u=(a+b\sqrt d)/(a-b\sqrt d)$; normalize $a,b$ to be integral and not both divisible by the uniformizer of $F$. If $a$ is a unit, scale it to $1$ and write $c=b/a\in\Ocal_F$: then the depth of $u-1$ is $1+2v_F(c)$. Moreover, two such parameters $c,c'$ define elements congruent modulo $\mathfrak p_E^{2j}$ precisely when $c\equiv c'\pmod{\mathfrak p_F^j}$, so $[G_1:G_{2j}]=q^j$. If $a$ is not a unit and $b$ is, then $u\equiv-1$ modulo $\mathfrak p_E$. These observations give the displayed indices and the fact that positive depths are odd.
+
+Define
+\[
+ c_1=\frac{M_1-1}{2},\qquad
+ c_{2j}=\frac{M_{2j+1}-M_{2j-1}}{2q^j}\quad(1\leq j\leq T/2).
+\]
+The first coefficient is an integer because $M_1=q^{(p^a-1)/2}$ is odd. For $j\geq1$ write
+\[
+ \frac{M_{2j+1}}{M_{2j-1}}=q^{e_j},\qquad
+ e_j=\frac12\sum_{\zeta\ne1}\bigl(\min(2j+1,t_\zeta)-\min(2j-1,t_\zeta)\bigr)\in\Z_{\geq0}.
+\]
+If $e_j=0$, then $c_{2j}=0$. Otherwise some pair $\{\zeta,\zeta^{-1}\}$ has $t_\zeta\geq2j$, so $M_{2j-1}$ is divisible by $q^{2j-1}$, hence by $q^j$. Moreover $q^{e_j}-1$ is even. Therefore $c_{2j}\in\Z_{\geq0}$.
+
+As all positive depths are odd, telescoping now gives
+\begin{equation}\label{eq:ram}
+\boxed{R_E=\1_G+c_1\,[G:G_1] \1_{G_1}
+ +\sum_{j=1}^{T/2}c_{2j}\,[G:G_{2j}]\,\1_{G_{2j}}.}
+\end{equation}
+Again each summand is the character of a permutation representation. Equations \eqref{eq:unram} and \eqref{eq:ram} prove Theorem~\ref{thm:main}.
+
+\section{Examples and scope}
+For $F=\mathbb Q_3(\zeta_3)$, $n=3$, the unramified case has $q=3,T=1,M_1=9,c_1=2$ and
+\[
+ R_E=1+2\Reg(C_4).
+\]
+For either ramified quadratic extension, $q=3,T=2,M_1=3,M_3=9,c_1=c_2=1$, giving
+\[
+ R_E=1+\Reg(C_2)+\Reg(C_6),
+\]
+recovering Part IV, Draft 5. As a further illustration, for $F=\mathbb Q_5(\zeta_5)$ and $n=5$, the same proof gives $1+104\Reg(C_6)$ in the unramified case, and $1+12\Reg(C_2)+60\Reg(C_{10})$ in the ramified case.
+
+\begin{remark}[What is not proved]
+By the toral Fourier criterion of Part IV, Draft 5, the theorem supplies actual character restrictions for transfers of any ordinary irreducible representation to each maximal covered field torus when $r=2$. However, positivity on every torus need not glue to a positive-definite function on the full nonabelian group. An additional argument, such as nonabelian finite-level positive-semidefiniteness, a Brauer-type virtual-character criterion, or an explicit induced-representation construction, is essential for wild-place irreducible-character integrality.
+\end{remark}
+
+\begin{remark}[Positivity and the unitary character matrix]
+The referee's observation is useful: if $L_D$ is unitary on the irreducible-character Hilbert bases and \emph{every} transferred irreducible character is positive definite, then the matrix of $L_D$ has entrywise nonnegative real coefficients. Distinct rows are orthogonal with disjoint supports; column norm one forces a single entry equal to one in every column. Thus the full matrix is a permutation matrix. Positivity of only one row does not suffice: a unit vector with several positive entries need not be integral.
+\end{remark}
+
+\end{document}

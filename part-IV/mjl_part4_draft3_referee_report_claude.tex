@@ -1,0 +1,310 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\A}{\mathbb A}
+\title{Referee report on \texttt{mjl\_part4\_draft3.tex}\\
+\normalsize ``A metaplectic Jacquet--Langlands transfer for division
+algebras of prime degree, IV'', Draft~3}
+\author{Claude (Anthropic), for David Joyner}
+\date{November 7, 2026}
+\begin{document}
+\maketitle
+
+\section*{0. Scope}
+\paragraph{Read in full.} Draft~3 (1090 lines; 16 pages; it compiles
+cleanly) and its revision log.
+
+\paragraph{Compiled numbering.}
+\begin{itemize}
+\item Proposition~2.1;
+\item Theorem~3.1, Example~3.2, Remark~3.3;
+\item Lemma~4.1, Proposition~4.2, Remark~4.3;
+\item Proposition~5.1, Theorem~5.2;
+\item Proposition~6.1;
+\item Proposition~7.1;
+\item Definition~8.1, Lemma~8.2, Proposition~8.3.
+\end{itemize}
+
+\paragraph{Which versions I could check.} Draft~3 now cites Part~I,
+Draft~7, Part~II, Draft~7, and Part~III, Draft~9. I have only Draft~6
+of each.
+\begin{itemize}
+\item Every cited number agrees with Draft~6:
+\begin{itemize}
+\item Part~I: Propositions~2.3, 2.6, 3.1, 3.5, 5.5 and~6.1; Lemma~5.1;
+Example~3.7; Theorem~6.6;
+\item Part~II: Definition~2.1, Theorem~6.2;
+\item Part~III: Lemma~3.3; Theorems~4.3, 7.6 and~9.1; Corollaries~5.1
+and~5.2; Lemma~7.5; Proposition~11.3.
+\end{itemize}
+\item I could not check Part~III, Corollary~7.8 (new in Draft~9), or the
+new subtitles of Parts~I and~II.
+\item \S8.4 now cites ``Part~I, Proposition~2.3 and its archimedean
+remark''. I could not identify that remark in Draft~6. The
+complex-place splitting is (R4) of Part~I, Appendix~B, according to the
+revision log. I did not read that appendix.
+\end{itemize}
+
+\paragraph{External sources.} The only new external citation is
+Clozel--Delorme. Its bibliographic data agree with the standard
+citation as far as I know; I did not check the paper. I have not checked
+Li's paper, so I cannot confirm that its Paley--Wiener hypothesis is
+stated only at \emph{real} places.
+
+\section*{Summary verdict}
+Every point of my Draft~2 report has been addressed correctly. I
+rechecked each repair:
+\begin{itemize}
+\item the new Haar-modulus proof (Proposition~4.2), which is now correct
+and complete;
+\item the justification of $u(x)=1$;
+\item Remark~3.3 and its field-torus proof;
+\item the central-character discussion in Proposition~7.1;
+\item the Li/Clozel--Delorme paragraph;
+\item the merged spectral remark.
+\end{itemize}
+
+\textbf{Sections~2--7 are now correct and essentially ready.} I have only
+minor editorial points on them (\S3).
+
+\textbf{\S8 is the new part, and it is correct as stated.} I found no
+error in Definition~8.1, Lemma~8.2 or Proposition~8.3. But I have four
+substantive comments (\S1). One affects how Proposition~8.3 should be
+read: its product condition~(iii) is a \emph{normalization}, not an
+existence problem. Another identifies a case that looks provable now:
+$r=2$.
+
+\paragraph{On ``getting closer to the goals''.} Two kinds of progress
+should be kept apart.
+\begin{itemize}
+\item \emph{As a paper,} Draft~3 is close to finished. Its claims are
+correct, correctly labeled and correctly attributed.
+\item \emph{As progress on the series' two open goals,} it has not
+proved either of them:
+\begin{itemize}
+\item integrality of $L_D$ at wild places;
+\item the comparison of $D^\times$ with its cover.
+\end{itemize}
+What it has done, and this is real progress, is reduce the second goal
+to a short list of precise local statements at split places. For $r=2$
+part of that list already appears to hold (\S1.3).
+\end{itemize}
+
+\section*{1. Section 8}
+
+\subsection*{1.1 The product condition in Proposition~8.3 is a normalization}
+Suppose (i) and (ii) hold, with every $\lambda_v$ independent of the
+class. Then the proof of Proposition~8.3 gives, with no further
+hypothesis,
+\[
+I_{\widetilde H}(\widetilde f)=\Lambda\,I_H(f),\qquad
+\Lambda=\prod_{v\notin S}\lambda_v\prod_{v\in S}b_{D,v}.
+\]
+Hypothesis (iii), $\Lambda=1$, can always be arranged by rescaling one
+test function. So it is not a constraint on existence.
+
+What matters is the \emph{value} of $\Lambda$ under canonical
+normalizations: $L_D$ (unitary) at $S$, and the Flicker--Kazhdan unit
+elements and matching at $v\notin S$. Integrality of the global
+multiplicities then constrains the local character coefficients.
+
+I recommend restating the conclusion as $I_{\widetilde H}=\Lambda I_H$,
+with $\Lambda$ written out, and noting that $\Lambda$ is computable
+once the split-place normalization is fixed. The real hypothesis in (i)
+is \emph{uniformity}: $\lambda_v$ must not depend on $s_v$, and in
+particular not on the torus type $k_v$.
+
+\subsection*{1.2 The trace formulas are simpler than Proposition~8.3 assumes}
+Both sides are compact-quotient trace formulas: $D$ is a division
+algebra, and the cover is compact modulo the central preimage. Since
+$r$ is prime, every noncentral element of $D^\times(K)$ is regular
+elliptic. Consequently:
+\begin{itemize}
+\item there are no singular noncentral classes;
+\item there is no continuous spectrum;
+\item absolute convergence holds for every smooth compactly supported
+test function;
+\item the only term the support condition must remove is the identity
+term.
+\end{itemize}
+The convergence clause in (iii) and the talk of ``singular terms'' can
+therefore be dropped.
+
+Better: \emph{keep} the identity term, and use it as an independent
+check on $\Lambda$. The relevant facts:
+\begin{itemize}
+\item the adelic quotients $Z(\A)\backslash\overline{G_D}(\A)$ modulo
+$\iota(D^\times(K))$ and $\A^\times D^\times(K)\backslash
+D^\times(\A)$ are homeomorphic, so they have equal volumes;
+\item at $v\in S$, $\widetilde f_v(1)=c_{D,v}f_v(1)$ (Part~III,
+Corollary~9.3).
+\end{itemize}
+On the regular terms the constant at $v\in S$ is $b_{D,v}$, while on
+the identity term it is $c_{D,v}=b_{D,v}|n|_v^{-r(r-1)/2}$. So the
+identity terms must supply the extra factor
+$\prod_{v\in S}|n|_v^{-r(r-1)/2}$, balanced by the split places.
+
+The ratio $\Delta(t)/\Delta(t^n)$ tends to $|n|_v^{-r(r-1)/2}$ near
+scalars for \emph{every} torus type. The proof of Part~III, Lemma~3.3,
+only uses $(1-u^n)/(1-u)\to n$. This suggests that the split-place
+identity values contribute $|n|_v^{-r(r-1)/2}$ as well. If so, the
+product formula $\prod_v|n|_v=1$ balances the identity terms, provided
+the complex places are included, where $|n|_v=n^2$.
+
+This is heuristic. But it is a concrete consistency test that the
+draft could record, and it uses the identity-term comparison of
+Part~I, Proposition~6.1.
+
+\subsection*{1.3 Definition~8.1 names the wrong ``in particular''}
+The example given, $J(\xi x,f_v)=J(x,f_v)$ for scalar $\xi\in\mu_n$,
+is \emph{automatic}. The ordinary test function has central character
+$\theta^{-1}$, and $\theta(\xi)=\tilde\theta(\xi^*)=1$ (\S2.2). So
+Lemma~8.2's ``in particular'' case has no content.
+
+The real constraint is $x'=\zeta x$ with $\zeta\in\mu_n(E_v)$
+\emph{nonscalar}, i.e.\ $\zeta$ a nontrivial element of
+$\ker P_n\cong\mu_n^{k_v}/\mu_n$ (Proposition~4.2). Then
+$(x')^*=x^*$. One checks this by noting $\zeta^*=1$: every symbol
+$(\zeta_a,\zeta_b)_n$ is a power of $(\zeta_n,\zeta_n)_n=1$. The
+condition is then $J(\zeta x,f_v)=J(x,f_v)$. Please state this case
+explicitly. It exists only for non-field tori ($k_v\ge2$).
+
+\paragraph{The unit element satisfies it on split tori.} Let $t$ be
+regular in $T(\mathcal O_v)$ for the split torus, with $v\nmid n$, and
+use the standard measures. Then
+\[
+O(t,1_{K_v})=\prod_{\alpha>0}|1-\alpha(t)|^{-1}
+\qquad\text{and}\qquad
+\Delta(t)=\prod_{\alpha>0}|1-\alpha(t)|,
+\]
+so the normalized orbital integral is $J(t,1_{K_v})=1$ for all such
+$t$. In particular $J(\zeta t)=J(t)$. Hence:
+\begin{itemize}
+\item \emph{For $r=2$} the only tori are split ($k_v=2$) and fields
+($k_v=1$, where the condition is vacuous). So the unramified unit
+elements are FK-compatible at every unramified split place. This makes
+$r=2$, $v\nmid n$, a realistic first case in which to prove hypothesis
+(i) of Proposition~8.3 outright.
+\item \emph{For $r\ge3$} there are mixed tori $F\times E'$, and
+compatibility of $1_{K_vZ_v}$ there is not clear. Translating by a
+nonscalar root of unity moves an element near the center away from it,
+and the normalized orbital integral of the unit element is not constant
+near the center. This should be checked, or extracted from
+[FK, \S\S11--12], before (i) is asserted with $\lambda_v=1$ at almost
+all places.
+\end{itemize}
+
+\subsection*{1.4 Two small gaps in the proof of Proposition~8.3}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Rational lift versus star.} The proof uses that the
+covered term at the rational class $\iota(s^n)$ is the local star
+$s_v^*$ at every $v$. This holds because the rational splitting $\iota$
+is a homomorphism: $\iota(s^n)=\iota(s)^n$, and $\iota(s)_v$ is a lift
+of $s_v$. Add this sentence.
+\item \emph{Complex places.} Hypothesis~(i) is imposed at the complex
+places, where the cover splits. There, the compatibility and the
+pointwise identity say that $J(x,f_\infty)$ is a pullback of an
+orbital-integral function by $x\mapsto x^n$. So the same
+singular-power issue as in the ``regularity and germ obligation''
+paragraph arises at $x=\mathrm{diag}(1,\zeta,\ldots)$. That paragraph
+should say it applies at the archimedean places too.
+\end{enumerate}
+
+\subsection*{1.5 Lemma~8.2}
+Lemma~8.2 is correct, and its proof is a one-line consequence of the
+central transformation law. One hypothesis is redundant: ``The
+corresponding identity holds also at central translates'' follows if
+the region is required to be stable under $Z_v$, which it should be
+anyway. With \S1.3, the lemma's content is the nonscalar kernel case.
+
+\section*{2. Sections 2--7: rechecks}
+\begin{itemize}
+\item \emph{Proposition~4.2.} The new proof is correct.
+\begin{itemize}
+\item $P_n^{-1}(U^n)=K_0U$ and $\mathrm{vol}(K_0U)=|K_0|\,\mathrm{vol}(U)$.
+\item $[U:U^n]=|n|_F^{-(r-1)}$ from the $\mathbb Z_p$-rank
+$(r-1)[F:\mathbb Q_p]$.
+\end{itemize}
+One point deserves a clause: the image of principal units in
+$E^\times/F^\times$ can contain torsion, e.g.\ $\zeta_p\in E\setminus F$.
+``Sufficiently small'' handles this, because with compatible levels
+$U_E^{(em)}\cap F=U_F^{(m)}$ the quotient lattice is saturated, hence
+torsion-free. Remark~4.3 and its $\mathbb Z$ counterexample are now
+right.
+\item \emph{\S2.2.} The argument $u(x)\in\{\pm1\}\cap\mu_n=\{1\}$ is
+correct. The global statement $\theta|_{K^\times}=1$ is correct.
+\item \emph{Remark~3.3.} Correct, including the reason
+$\zeta_3\notin F^{\times3}$ (no $\zeta_9$ in $\mathbb Q_3(\zeta_3)$),
+and the field-torus proof.
+\item \emph{Proposition~7.1.} Correct. One suggestion: the compatibility
+$\omega_\pi(a)=\omega_{\widetilde\pi}(a^*)$ need not be assumed.
+Replace $x$ by $ax$ in Zou's (3.2), with $a$ central, using
+$(ax)^*=a^*x^*$ and that the roots of $(ax)^n$ are $at$. This gives
+the compatibility whenever $\theta_{\widetilde\pi}$ is not identically
+zero on the elements $x^*$ with $x^n$ regular. One line would make the
+proposition self-contained.
+\item \emph{\S8.4.} The argument is now internally consistent: no real
+places, the covers split at complex places, and Clozel--Delorme covers
+the linear case. See \S0 for what I could not verify.
+\end{itemize}
+
+\section*{3. Editorial points}
+\begin{enumerate}[label=(\arabic*)]
+\item \emph{Undefined symbol.} $I_F$ in the display of wild constants in \S6.3 (source line 616)
+is never defined. Write
+``$[E^\times:F^\times E^{\times3}]=9$'' or drop it.
+\item \emph{``New''.} The title of \S4, ``A \emph{new} local power-map
+calculation'', overstates. The index formula is classical; what is
+useful here is the Haar modulus and the bookkeeping. Drop ``new''.
+\item \emph{Duplicated display.} The display for $c(\gamma)$ appears
+twice, in Remark~5.3 and \S8.1. Keep one.
+\item \emph{Labels.} The status convention now matches Part~I. Its claim
+``as in Parts~I--III'' depends on Part~III, Draft~9, which I have not
+seen. Part~III, Draft~6, used \textbf{[O]} for ``open''. Please
+confirm.
+\item \emph{Wording.} The acknowledgments call the paper a ``research
+note''; elsewhere it is ``Part~IV''. Otherwise the acknowledgments are
+fine, and the drafting history is now out of the body.
+\item \emph{Abstract.} It is accurate. It could add a sentence describing
+Proposition~8.3 as reducing the $D^\times$-versus-cover comparison to
+explicit split-place conditions.
+\end{enumerate}
+
+\section*{4. Recommendation}
+\begin{itemize}
+\item \emph{Sections~2--7:} accept, after the editorial points.
+\item \emph{Section~8:} minor revision:
+\begin{itemize}
+\item restate Proposition~8.3 with the constant $\Lambda$ (\S1.1);
+\item simplify its hypotheses using compactness (\S1.2);
+\item correct the ``in particular'' of Definition~8.1 and Lemma~8.2
+(\S1.3);
+\item add the two sentences of \S1.4.
+\end{itemize}
+\end{itemize}
+
+\paragraph{The most promising next mathematical steps.}
+\begin{enumerate}[label=(\alph*)]
+\item \emph{Prove (i) of Proposition~8.3 for $r=2$ at places
+$v\nmid n$.} The unit element is FK-compatible there (\S1.3), and only
+two torus types occur. A pointwise identity
+$J(x^*,\widetilde f_v)=\lambda_vJ(x,f_v)$ for the unit elements is then
+a fundamental-lemma statement. I expect [FK, \S12] to supply it, since
+$(n,N_2)=(n,1)=1$ holds automatically, but I have not checked that
+FK's statement there has exactly this pointwise form.
+\item \emph{Compute $\Lambda$ in that case,} and test it against the
+identity-term heuristic of \S1.2.
+\item \emph{Carry out the finite computation for
+$(2,3,\mathbb Q_3(\zeta_3))$} (\S6.3). It is still the cleanest way to
+decide the first wild case.
+\end{enumerate}
+Items (a) and (b) would give the first unconditional instance of the
+$D^\times$-versus-cover comparison, with test functions restricted at
+$S$ and at the places dividing~$n$.
+
+\end{document}
