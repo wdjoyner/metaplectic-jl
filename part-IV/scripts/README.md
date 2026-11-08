@@ -1,7 +1,7 @@
 # Verification scripts for the rank-two wild companion paper
 
 Scripts for *Wild-place metaplectic character transfer in degree two* (`part-IV/mjl_rank2_wild_draftK.tex`),
-current draft 7 (scripts tagged `draft7-scripts`). Pure Python 3; exact arithmetic throughout (`fractions.Fraction`, integers mod 3^k),
+current draft 7 (scripts as of commit `67e6439`, November 8, 2026). Pure Python 3; exact arithmetic throughout (`fractions.Fraction`, integers mod 3^k),
 except where stated below. Tested with Python 3.12, numpy 2.5, sympy 1.14 (sympy is used only by
 `step13_level2.py` for a rank computation; the integer solving is done by `zsolve.py`).
 
