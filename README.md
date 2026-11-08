@@ -46,7 +46,7 @@ corrections of J. Zou (arXiv:2209.05852).
 | Part | Title | Current draft |
 |------|-------|---------------|
 | I   | Local matching and a global transfer under elliptic-support conditions | Draft 10 |
-| II  | Matching of arbitrary functions and an improved global transfer | Draft 8 |
+| II  | Matching of arbitrary functions and an improved global transfer | Draft 9 |
 | III | The division-algebra side and its local character transform | Draft 9 |
 | IV  | Local power maps, toral positivity, and conditional global comparison | Concluding Draft 6 |
 
@@ -188,20 +188,24 @@ software/   Supporting code (MIT License)
 
 The full definitions, together with the series' notation and the
 cocycle normalization, are in the shared glossary `glossary.tex`
-(Section 10 of Part I).
+(Section 10 of Part I, Section 8 of Part II).
 
 ## Building
 
-Part I from Draft 9 on inputs the shared glossary `glossary.tex` from
-the repository root, so it must be compiled from inside its folder:
+Part I (from Draft 9) and Part II (from Draft 9) input the shared
+glossary `glossary.tex` from the repository root, so they must be
+compiled from inside their folders:
 
 ```bash
 cd part-I
 pdflatex mjl_part1_draft10.tex
 pdflatex mjl_part1_draft10.tex   # second pass for cross-references
+cd ../part-II
+pdflatex mjl_part2_draft9.tex
+pdflatex mjl_part2_draft9.tex
 ```
 
-The other manuscripts are single self-contained LaTeX files (Parts II–IV
+The other manuscripts are single self-contained LaTeX files (Parts III–IV
 will input the glossary in the same way in their next drafts). To build
 one:
 

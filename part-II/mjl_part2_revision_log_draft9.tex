@@ -1,0 +1,103 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,linkcolor=blue]{hyperref}
+\title{A metaplectic Jacquet--Langlands transfer for division algebras of prime degree, II\\
+Revision Log: Draft 8 to Draft 9 (exposition only)}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Scope}
+The second of the four exposition passes requested by David Joyner
+(Part~I: Drafts~9--10).  \textbf{No mathematical change}: no statement,
+proof, hypothesis or status label was added, removed or altered.  A
+\texttt{diff} of Drafts~8 and~9 shows changes only in the title line,
+in section and subsection lead-ins, in the pointers of \S\S1, 1.5, 1.6
+and 2.3, in the old \S8 (Literature), which was replaced, and in the
+entry [P1].
+
+\paragraph{Numbering.}  Other Parts cite Part~II by number (Part~I and
+the glossary cite Definitions~2.1 and~6.4, Remark~5.6,
+Corollary~6.11, \S6.3 and \S7(iii)); none cites \S8.  The Summary of
+results is therefore an unnumbered section after \S1, and the old \S8
+is replaced by \S8 (Notation and conventions) and \S9 (Related work),
+in the same order as Part~I.  Comparing the \texttt{.aux} label tables
+of Drafts~8 and~9: every number in \S\S1--7, including theorems and
+equations, is unchanged.
+
+\section*{Changes}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{(a) Glossary.}  New \S8: a lead-in,
+\verb|\input{../glossary}| (the shared file, unchanged), and \S8.11
+``Notation specific to Part~II'' (seventeen entries with pointers:
+local notation, $\Phi^z$, $d(\St)$ and $\lambda_v$, (I1)--(I11),
+$\Omega_M$, $V_M$, $\delta_n$, $B$, $M_0$, $M_1$, $g^{1/n}$, $\sg$,
+$\mathcal T$, Shalika germs $\Gamma_{\mathcal O}$, (L1), (L2),
+$f_{\St}$, $e_D$, $\tilde f^{\St}$, $\tilde f_{\reg}$, (Ell), (Non),
+(G1), (G2), $u$-admissible pairs, $(\mathrm H_D')$, $(\mathrm H')$).
+Part~II must now be compiled from \texttt{part-II/}.
+
+\item \textbf{(b) Summary of results.}  New unnumbered section after
+\S1, under one page: ten items with labels and pointers (compatible
+measures; Theorem~D; germs at central good elements; orbital integrals
+of arbitrary functions; linear inputs and the Steinberg-type pair;
+Theorem~E; the required germ; Theorem~C$'$ and its converse; failure
+of $(\mathrm H_D')$; what is left), and one line on the running
+example.  All labels are those already in the paper.
+
+\item \textbf{(c) Related work.}  The old \S8 (``Literature \ldots\ It is
+preliminary'') is replaced by \S9 ``Related work'': it refers to the
+review of the whole series in Part~I, \S11, and adds only what is
+specific to Part~II, in two paragraphs: the inputs on covers (germ
+expansions [KP2], [FK, \S8]; Zou; W.-W.~Li) and on the linear groups
+(Shalika germs, Howe, Harish-Chandra, Rogawski, van Dijk,
+Kivinen--Tsai, pseudo-coefficients after Kazhdan, the linear
+Jacquet--Langlands inputs, Plancherel formula and formal degrees,
+Kottwitz's measures, Zelevinsky's classification); and the role of the
+section $\sg$.  The three sentences of the old \S8 are kept.
+\textbf{No references were added}; every work mentioned was already in
+the bibliography.  The roles assigned to them were checked against
+their uses in the body (for example [Zel80] for the classification of
+tempered representations, [Wal03] for the Plancherel formula and
+Harish-Chandra's finiteness theorem, [KT, Proposition~2.39] for
+parabolic descent).  [BZ], [Ber] and [vD72] are in the bibliography
+but not cited in the body; the new text mentions them as background
+only.  A first version cited [KP1] for splitting over small subgroups;
+since [KP1] is not in Part~II's bibliography, the sentence cites
+[FK, \S2] only.
+
+\item \textbf{(d) Lead-ins.}  Each of \S\S1--7 now says what it
+depends on and what notation it introduces.  Subsection lead-ins were
+extended where notation or a hypothesis used later is introduced:
+\S\S2.2, 2.3, 3.1, 3.2, 3.3, 5.1, 5.2, 5.4, 6.1, 6.3.  The other
+subsection lead-ins are unchanged.
+
+\item \textbf{Part~I references.}  References to Part~I now name
+Draft~10, ``whose numbering is that of Draft~8'' (\S1 lead-in,
+\S2.3, [P1]); no cited number changed, since Part~I's numbering is
+unchanged.
+
+\item Title line: Draft~9, November 8, 2026.  Abstract, authors and
+acknowledgments unchanged.
+\end{enumerate}
+
+\section*{Points for David}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Bibliography items not cited in the body.}  [BZ], [Ber],
+[vD72] appear only in the bibliography (and now in \S9 as background).
+They may have been cited in earlier drafts; you may prefer to drop
+them.
+\item As in Part~I, the existing one-sentence subsection lead-ins were
+kept.
+\end{enumerate}
+
+\section*{Files}
+\texttt{part-II/mjl\_part2\_draft9.tex} and \texttt{.pdf}; this log
+(\texttt{.tex}, \texttt{.pdf}); \texttt{README.md} (Part~II draft
+number, build note).  Draft~8 is kept unchanged; \texttt{glossary.tex}
+is unchanged.
+\end{document}
