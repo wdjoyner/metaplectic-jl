@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\title{Metaplectic Jacquet--Langlands Transfer, Companion Paper (Rank Two, Wild Place)\\Revision Log: Draft 2 to Draft 3}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Scope}
+Draft 3 (i) incorporates the two minor corrections requested in
+ChatGPT's referee report on the (H1) proof of Draft 2, which otherwise
+accepted Proposition \texttt{prop:H1}; and (ii) begins Targets B and C as
+formulated in Draft 0.  Sections 2--11 are otherwise unchanged.  The old
+Section 12 (``Research program'') is replaced by two sections with
+theorems.
+
+\section*{The two corrections}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Scalar uniqueness} (Corollary \texttt{cor:starK6}(b)).
+The commutativity-flavored argument is replaced by the referee's: from
+$\mathrm{Nrd}(X)=z^2\mathrm{Nrd}(v)^3$, two decompositions give
+$(z/z')^2\in F^{\times3}$, hence $z/z'\in F^{\times3}$ because
+$F^\times/F^{\times3}$ has exponent $3$.
+\item \textbf{Dependence on $\theta_0$} (Corollary \texttt{cor:starK6}(c),(d);
+Proposition \texttt{prop:H1}).  The star lift $\ell(X)=(X,\kappa(X))$ is
+now defined without reference to $\theta_0$ (it is $\tilde z\tilde v^3$
+with $\tilde z=(z,0)$), and the formula for $\psi_6$ is stated for a
+general $\theta_0$ with $\theta_0^3=1$:
+\[
+ \psi_6(X,e)=\zeta^{e-\kappa(X)}\,\theta_0(\mathrm{Nrd}\,X)^{-1},
+\]
+with the remark that the extra factor is a character of $K^6$ and so
+affects neither (H1) nor $\ell$.  This is the referee's boxed formula.
+\end{enumerate}
+
+\section*{Target B (new Section 12)}
+Notation: $\phi_\rho=L_D\Theta_\rho$, $\Phi_\rho=\phi_\rho|_{\tilde U_1}$.
+By twisting with $\chi\circ\mathrm{Nrd}$ one normalizes
+$\theta_\rho\in\{\mathbf 1,\mathrm{sgn}\}$ according to $\rho(-1)=\pm1$.
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Reduction for every row} (Theorem \texttt{thm:reduction-all}, [P]).
+$L_D\Theta_\rho$ is an irreducible genuine character iff $\Phi_\rho$ is a
+virtual character of $\tilde U_1$.  New ingredient: the $2$-group step.
+Every $\eta$ in the preimage $\hat P_0$ of $D_8$ is good
+($\eta=\eta^4(\eta^{-1})^3$), and $\phi_\rho$ at the lift
+$x_\eta=\widetilde{\eta^4}(\tilde\eta^{-1})^3$ equals
+$3\theta_0(\eta^4)\Theta_{\rho^\vee}(\eta)$.  For $\rho(-1)=1$ this is a
+character of $D_8$ (twist by $\theta_0^2\circ\mathrm{Nrd}$).  For
+$\rho(-1)=-1$ the relevant finite group is $\hat P_0$ modulo
+$\mu_3\cdot\ker\mathrm{sgn}$, which is the semidihedral group $SD_{16}$
+(because $\mathrm{sgn}(-4)=\mathrm{sgn}(2)=-1$ in $\Q_3(\zeta_3)$), and
+the function $\eta\mapsto\mathrm{sgn}(\eta^4)$ is \emph{not} a character
+of $D_8$; but it swaps the two faithful $2$-dimensional characters of
+$SD_{16}$, so its product with $\Theta_{\rho'}$ (central character sgn) is
+a character.  Checked by hand on the seven classes and by a short
+computation.
+\item \textbf{Cube-root transform} (Lemma \texttt{lem:product}, [P]).
+$\phi_\rho=\phi_1\cdot F_\rho$ on star lifts of good elements, with
+$F_\rho(\tilde zt^*)=\varepsilon_\rho(z)\Theta_\rho(t)$ on $U_3$,
+$\varepsilon_\rho\in\{\mathbf1,\mathrm{sgn}\}$.  This is the wild Adams
+operation $\psi^{1/3}$, which at a tame place is a Galois conjugation
+(the Draft 0 remark) and here is not a virtual character in general.
+\item \textbf{Sufficient criterion} (Proposition \texttt{prop:criterion}, [P]).
+If $F_\rho$ on the good elements of $U_3$ agrees with an
+$\mathrm{Ad}(U_1)$-invariant virtual character $\Psi=\sum n_i\Theta_{\sigma_i}$
+of $U_3$, then Target B holds for $\rho$ and
+$\tau_\rho|_{\tilde U_1}=\sum n_i\,\mathrm{Ind}_{\tilde U_3}^{\tilde U_1}(\lambda_0\otimes\sigma_i\circ p)$.
+Proof: the induced character of $\lambda_0\otimes\sigma$ is
+$\Theta_\sigma\cdot\Theta_{\mathrm{Ind}\lambda_0}$ by invariance, and
+$\Theta_{\mathrm{Ind}\lambda_0}=\Phi_1$ (Target A).
+\item \textbf{All $\rho$ trivial on $K^2$} (Theorem \texttt{thm:levelone}, [P$^c$]
+since it rests on Target A).  For such $\rho$, $F_\rho$ on good $g\in U_3$
+equals $\varepsilon_\rho(z)\Theta_{\rho|K^1}(\pi_3(g))$ with $\pi_3$ the
+depth-three digit: the cube root of a depth-three good element has
+leading digit $w$ with $w^5=\pi_3(g)$, $w^5=\pm w$ in $\F_9$, and
+$\Theta_\rho$ is invariant under $w\mapsto-w$ (conjugation by $i$).  So
+the criterion is met by $\Psi=\varepsilon_\rho\otimes(\rho|_{K^1})\circ\pi_3$,
+and
+\[
+ \tau_\rho|_{\tilde U_1}=\bigoplus_\psi m_\psi\,\mathrm{Ind}_{\tilde U_3}^{\tilde U_1}\bigl(\lambda_0\otimes(\varepsilon_\rho\cdot\psi\circ\pi_3)\circ p\bigr),
+ \qquad \rho|_{K^1}=\bigoplus m_\psi\psi ,
+\]
+with the induced pieces irreducible and distinct (norm computation).
+This covers: the five $D_8$-representations (Corollary
+\texttt{cor:levelzero}), the level-zero representations with $\rho(-1)=-1$
+which that corollary missed, the four $4$-dimensional representations of
+$D^\times/F^\times K^2\simeq\F_9\rtimes D_8$ ($\dim\tau_\rho=108$), and
+all their norm twists.  Draft 1--2 described the level-one family as
+``dimension $9$ or $18$''; that was wrong (the group has order $72$).
+\item \textbf{Level $\ge2$} ([O]).  Reduced to a finite $\Z$-linear
+problem per $\rho$ on the good classes of $Q_3/Q_{3m+1}$ (order $3^6$,
+class two, for $m=2$); on $Q_6/Q_7$ the criterion is automatic by the
+linearity of the inverse Artin--Schreier map, and the difficulty sits on
+$\bar G_3$ where the cube root is not linear.  Not carried out.
+\end{enumerate}
+
+\section*{Target C (new Section 13)}
+Setting: odd prime $p$, $F\supset\mu_p$, $e=e(F/\Q_p)$, $d=pe/(p-1)$,
+$k_0=2e/(p-1)$, $n=p$, $E_0$ unramified, cocycle twist $c\equiv-1/4$ (the
+scalar-centrality condition; $c=2$ for $p=3$).
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Depth facts} (Lemma \texttt{lem:depth-gen}, [P]): $p$-th
+powers $K^k\to K^{k+2e}$ bijective for $k>k_0$; $w^p\in F\Rightarrow w\in F$;
+$K^{2d}=U_F^{(1)}\cdot(K^{k_0})^p$ with $z\equiv\mathrm{Nrd}(X)^{(p+1)/2}$
+(Artin--Schreier argument on the boundary level, uniform in $q$).
+\item \textbf{$p$-th power identity} (Theorem \texttt{thm:pthpower}, [P]):
+$(w,0)^p=(w^p,0)$ for $w\in K^1$.  With $S_k$ the Lucas-type sequence
+$S_{k+1}=TS_k-nS_{k-1}$ (so $w^k=S_kw-nS_{k-1}$), the exponent is
+$\sum_{k=1}^{p-1}(S_{k+1},S_k)+\sum_{k=2}^p(S_k,n)$; the Cassini identity
+$S_{k+1}S_{k-1}-S_k^2=-n^{k-1}$ and Steinberg give
+$2(a_k-a_{k-1})=(k-1)\Delta^2b_k$, and summation by parts kills the sum
+modulo $p$.  The combinatorial step was machine-checked for
+$p\le13$ on random data; the symbol computations themselves were not
+machine-checked for $p>3$ (no $p$-th power symbol implementation).
+\item \textbf{(H1) for every odd $p$} (Theorem \texttt{thm:H1-gen}, [P]):
+the canonical star section is a homomorphism on $F^\times K^{2d}$, with
+$\kappa(X)=-\frac{p+1}{2}(y_X,\mathrm{Nrd}X)_E$.  The proof is the Draft 2
+proof with $U^{(3)}$ replaced by $U^{(d)}$ and $m=-\frac{p+1}{2}$; every
+case closes because $2m+1\equiv0$.
+\item \textbf{Not uniform} (Remark \texttt{rem:uniform}): the Brauer
+reduction is expected to go through but is not written ([O]); the finite
+design (Section 9) is genuinely specific to $(p,e,q)$ ([C]); composite
+$n$ not examined.
+\end{enumerate}
+
+\section*{Status changes}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Item & Draft 2 & Draft 3\\
+\midrule
+Proposition \texttt{prop:H1} & [P], two minor corrections requested & [P], corrected\\
+Reduction theorem, every row & [O] (claimed ``verbatim'') & [P]\\
+Criterion for a row & --- & [P]\\
+Target B, $\rho$ trivial on $K^2$ (all central characters) & partly [P$^c$] & [P$^c$]\\
+Target B, level $\ge2$ & [O] & [O], finite problem stated\\
+$p$-th power identity, general $p$ & --- & [P]\\
+(H1), general $p$ & --- & [P]\\
+Target C, Brauer reduction / design & [C] & [O] / [C]\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section*{Items to referee with particular care}
+(1) The $SD_{16}$ step in Theorem \texttt{thm:reduction-all}: the
+identification of the group (the values $\mathrm{sgn}(-4)=\mathrm{sgn}(2)=-1$)
+and the swap $f\chi_1=\chi_2$.  (2) In Theorem \texttt{thm:levelone}, the
+identification $w=\pm\pi_3(g)$ via Lemma \texttt{lem:cube}(c).  (3) The
+summation by parts in Theorem \texttt{thm:pthpower}, and the claim that
+the Kubota formula with the $p$-th power symbol is the Kazhdan--Patterson
+cocycle for general $p$.  (4) Lemma \texttt{lem:depth-gen}(c) for ramified
+tori is only sketched.
+
+\section*{Editorial}
+Abstract, Section 1 and the status table updated; Section 11 unchanged
+except cross-references; bibliography unchanged.  No new scripts; the two
+small checks ($D_8$ on $\F_9$, the $SD_{16}$ swap, the summation identity)
+were run inline and are described in the text.  American English
+spelling throughout.
+\end{document}

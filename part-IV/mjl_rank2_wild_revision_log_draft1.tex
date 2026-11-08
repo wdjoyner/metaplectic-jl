@@ -1,0 +1,175 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\newcommand{\Z}{\mathbb Z}
+\title{Metaplectic Jacquet--Langlands Transfer, Companion Paper (Rank Two, Wild Place)\\Revision Log: Draft 0 to Draft 1}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+
+\section*{Scope}
+Draft 0 of the companion paper set up the rank-two wild problem and proved
+positivity of the character transform $L_D\mathbf 1$ on all covered quadratic
+tori, leaving Target A (is $L_D\mathbf 1$ an irreducible genuine character of
+the $3$-fold cover of $D^\times$ over $F=\Q_3(\zeta_3)$?) open.  Draft 1
+resolves Target A positively, settles Target B for level-zero
+representations and their norm twists, and records a program for positive
+level.  Sections 2--6 of Draft 0 are retained verbatim; new material is
+Sections 7--12, the interface section, and two appendices.  The status
+labels [P]/[E]/[O]/[C] are kept; one new label [P$^c$] (``proved modulo a
+finite exact computation whose script is supplied'') is introduced and
+explained in the status table.
+
+\section*{Mathematical additions}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Depth structure of $K^1$ (Section 7).}  Cubing
+$K^k\to K^{k+4}$ is bijective for $k\ge3$; the cube map on
+$Q=K^1F^\times/F^\times$ is injective; cubes of depth-one elements have depth
+exactly $3$.  Hence $\mathrm{Good}(Q)=G_3\sqcup Q_6$ with $G_3$ the set of
+cube classes of depth-one elements.  In the coordinates
+$V=Q_3/Q_6\simeq\F_3^5$ the image $\bar G_3$ has $72$ elements lying on
+$36$ lines through $0$ and is given by an explicit formula (Proposition
+\texttt{prop:G3explicit}); $G_3$ is $Q_6$-invariant.  Consequently
+$\Phi=L_D\mathbf 1|_{\tilde U_1}$ equals $27\zeta\tilde\theta$ on star
+lifts over $U_6$, $9\zeta\tilde\theta$ on star lifts over $F^\times G_3$, and
+$0$ elsewhere (Lemma \texttt{lem:Phi}).
+
+\item \textbf{Brauer reduction (Section 8, Theorem \texttt{thm:reduction}).}
+Target A is equivalent to $\Phi$ being a virtual character of $\tilde U_1$,
+and then automatically an irreducible character of the finite quotient
+$\Gamma_0=\tilde U_1/N$.  Ingredients: the finite quotient
+$\Gamma=\tilde H/N$ with $\Gamma/\Gamma_0\simeq D_8$; the $2$-group lemma
+(the star section is the unique complement to $\mu_3$ in
+$\Gamma_{P_0}\simeq\mu_3\times D_8$); the centralizer lemma, proved via the
+$\sigma$-decomposition of pro-$3$ groups with an involution; and
+Weyl-integration computations of
+$\langle\Phi|_{\tilde U_m},\Phi|_{\tilde U_m}\rangle=1,27,27,729$ for
+$m=1,3,4,6$, which give $\langle\Phi,\Phi\rangle=1$.  A remark records that
+the choice of the cube-root character $\theta_0$ is immaterial.
+
+\item \textbf{Hypothesis (H1) and the finite design (Section 9).}
+(H1) states that $\psi_6$ (``$\zeta\tilde\theta(\tilde z)$ on star lifts'')
+is a character of $\tilde U_6$.  Its consequences are worked out: the
+commutator pairing $\kappa_{1,5}(a,b)=\zeta^{\pm\mathrm{Tr}(a\bar b)}$, the
+vanishing of the commutator form $\omega$ on $\tilde V=\tilde U_3/N_6$, and
+the factorization of the star section through $\bar G_3$.  Under (H1) the
+restriction of any candidate $\tau$ to $\tilde V$ is multiplicity free with
+$27$ characters $\Lambda$ permuted simply transitively by the Heisenberg
+group $Q_1/Q_3$.  The resulting combinatorial problem (an odd,
+$D_8$-invariant defect function $e$ on the $36$ lines satisfying Fourier
+conditions $(9,9,9)/(15,6,6)$ and a Heisenberg cocycle identity) has exactly
+two solutions $\pm e_*$, and $e=0$ is excluded by $\kappa_{1,5}(1,1)\neq1$
+(Propositions \texttt{prop:forces}, \texttt{prop:design}).  Since
+$0\in\Lambda$, Theorem \texttt{thm:H1equiv} gives the closed form
+\[
+ \tau|_{\tilde U_1}=\mathrm{Ind}_{\tilde U_3}^{\tilde U_1}\lambda_0,\qquad
+ \lambda_0(y)=\Bigl(\prod_{d\in D_8}\tilde d\,y\,\tilde d^{-1}\Bigr)^{-1},
+\]
+with the product evaluated through $\psi_6$.
+
+\item \textbf{Explicit cover model and proof of (H1) (Section 10).}
+Using $\iota(x+yj)=\bigl(\begin{smallmatrix}x&\varpi y\\ \sigma(y)&\sigma(x)\end{smallmatrix}\bigr)$
+and a Kubota--Kazhdan--Patterson cocycle on $\mathrm{GL}_2(E_0)$ twisted by
+$(\det,\det)^{c_v}_{E_0}$, with the cubic Hilbert symbols of $F$ and $E_0$
+determined as the unique (up to sign) alternating forms killed by the
+Steinberg relations, the cube identity $(w,0)^3=(w^3,0)$ is proved by hand
+for $w=x+yj$, $y\ne0$, $\mathrm{Tr}\,x\ne0$, $(\mathrm{Tr}\,x)^2-\mathrm{Nrd}\,w\ne0$
+(Proposition \texttt{prop:cubeidentity}).  This yields the star section on
+$K^6$ in closed form and reduces (H1) to the identity
+$\kappa(XX')=\kappa(X)+\kappa(X')+\beta(X,X')$ for an explicit
+$\kappa(X)=(z_X,y_X)_{E_0}$ and $\beta(X,X')=-h_E(r,t)-h_E(r,n)$.  Cases
+(i)--(iii) of this identity are proved by hand; the boundary cases
+(iv)--(v) were verified on a stratified exhaustive-by-class set of $7600$
+exact instances (Proposition \texttt{prop:H1}, Remark \texttt{rem:H1-status}).
+A second, independent route (Lazard splitting over the uniform subgroup
+$K^4$; the space of invariant alternating forms on $K^4/K^8$ vanishing on
+torus subspaces is zero, and the equivariant defect on $Q_6/Q_8$ is zero
+modulo linear) is recorded.
+
+\item \textbf{Main theorem and corollary (Section 11).}
+Theorem \texttt{thm:main-targetA}: Target A holds; $L_D\mathbf 1$ is the
+character of a single $27$-dimensional genuine irreducible representation
+$\tau$ of $\tilde H$, with $\tau|_{\tilde U_1}$ as above.  The end-to-end
+check (induced character of $\lambda_0$ agrees with $\Phi$ at every tested
+point, including the phases $9\zeta^m$ on $F^\times G_3$ and the zeros on
+non-good elements) is recorded.  Corollary \texttt{cor:levelzero}: the five
+level-zero $\rho$ (irreducible representations of $D_8$) and their twists
+$\rho\otimes\chi\circ\mathrm{Nrd}$ with $\chi|_{\mu_3}=1$ also have
+$L_D\Theta_\rho$ an irreducible character.
+
+\item \textbf{Targets B and C (Section 12).}  Target B at positive level and
+Target C remain [O]/[C]; the section lists what the present method needs
+(an analogue of the depth lemma and design search for each depth, and the
+Brauer reduction already applies verbatim).
+\end{enumerate}
+
+\section*{Status changes}
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Item & Draft 0 & Draft 1\\
+\midrule
+Positivity on quadratic tori ($r=2$) & [P] & [P]\\
+Brauer reduction to $\tilde U_1$ & --- & [P]\\
+Depth lemma, $G_3$, $\Phi$ formula & --- & [P]\\
+Finite design uniqueness & --- & [P$^c$]\\
+Cube identity, star section on $K^6$ & --- & [P]\\
+(H1) & --- & [P$^c$] (cases (i)--(iii) [P]; (iv)--(v) computational)\\
+Target A & [O] & [P$^c$]\\
+Target B, level zero and norm twists & [O] & [P$^c$]\\
+Target B, positive level & [O] & [O]\\
+Target C & [C] & [C]\\
+\bottomrule
+\end{tabular}
+\end{center}
+The [P$^c$] label is deliberately not collapsed to [P]: the finite
+computations are exact (integer and $\Q(\zeta_{12})$ arithmetic, no
+floating point) and their scripts are supplied, but they have not been
+replaced by a written proof.  The one non-exhaustive step is the boundary
+case verification in Proposition \texttt{prop:H1}; turning it into a proof
+(or an exhaustive enumeration over $Q/Q_9$) is the first item of future
+work.
+
+\section*{Computational record}
+All scripts are in \texttt{part-IV/scripts/} and listed in Appendix B of
+Draft 1.  \texttt{quat.py} implements exact arithmetic in
+$\Z[i][\varpi]$ and $O_D$; \texttt{cover.py} implements the cover model
+over $\Q(\zeta_{12})$ with the Hilbert symbols solved from the Steinberg
+relations.  Steps 1--6 (depth lemma data, $Q/Q_7$, actions on $V$, design
+search, Heisenberg extension), step 7 (symbols), steps 8--10 ((H1) tests,
+defects, $\omega=0$, $\kappa_{1,5}$), and step 11 (end-to-end induced
+character) are each independent and reproducible in minutes.  Appendix A of
+Draft 1 tabulates the action matrices, the $36$ lines with $e_*$, the set
+$\Lambda$, the Heisenberg cocycle data, and the two Hilbert pairings.
+
+\section*{Editorial changes}
+New abstract; status table extended with the [P$^c$] label; introduction
+paragraphs on the method (Brauer reduction, finite design, explicit
+cocycle) and on what remains; interface section recording which Part I
+results are used (Prop.\ 2.3, Prop.\ 3.1, Prop.\ 3.5, Thm.\ 3.9, Remark 8.1)
+and which Draft 0 statements are superseded; bibliography extended with
+Kazhdan--Patterson, Lazard/Dixon--du Sautoy--Mann--Segal, Moore, and
+Isaacs.  American English spelling throughout.  No numbered statement of
+Draft 0 was renumbered.
+
+\section*{Repository consistency}
+Part III, Draft 9, and the running-example note refer to the wild-place
+integrality question as open; when they are next revised they should cite
+Draft 1, Theorem \texttt{thm:main-targetA}, with its [P$^c$] qualification.
+The scripts directory should be committed alongside the TeX source so the
+[P$^c$] claims are checkable.
+
+\section*{Verification performed}
+Draft 1 was compiled twice with \texttt{pdflatex} (25 pages); all internal
+references resolve.  Every numerical claim in Sections 7--11 and Appendix A
+was regenerated from the scripts during drafting.  As with any research
+manuscript, external specialist refereeing is advisable, in particular of
+the centralizer lemma and of the hand-proved cases of Proposition
+\texttt{prop:H1}.
+\end{document}

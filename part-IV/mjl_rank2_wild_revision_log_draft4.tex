@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,booktabs,enumitem}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage[colorlinks=true,urlcolor=blue,citecolor=blue]{hyperref}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\F}{\mathbb F}
+\title{Metaplectic Jacquet--Langlands Transfer, Companion Paper (Rank Two, Wild Place)\\Revision Log: Draft 3 to Draft 4}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 8, 2026}
+\begin{document}
+\maketitle
+\section*{Scope}
+Draft 4 makes exactly the six corrections requested in ChatGPT's referee
+report on Draft 3, with no change of mathematical scope.  All six were
+checked and found correct before being applied.  Sections other than
+8.2 (one lemma statement), 12.1, 13 are unchanged.
+\section*{The six corrections}
+\begin{enumerate}[leftmargin=*]
+\item \textbf{Central character in the two-group step} (Theorem
+\texttt{thm:reduction-all}).  Draft 3 twisted $\rho^\vee$ by
+$\theta_1^2\circ\mathrm{Nrd}$ and called the result trivial on $F^\times$
+(even case) or of central character $\mathrm{sgn}$ (odd case).  Since
+$\mathrm{Nrd}(z)=z^2$, that twist restricts to $\theta_1$ on scalars, so
+both claims were wrong.  Following the referee, the proof is now
+organized around the genuine order-three character $\psi_P$ of
+$\Gamma_{P_0}$ (trivial on a Sylow $2$-subgroup, $\psi_P(z,0)=\theta_1(z)$,
+hence $\psi_P(x_\eta)=\theta_1(\eta^4)$) and the untwisted $\rho^\vee$:
+\[
+ \phi_\rho|_{\Gamma_{P_0}}=\psi_P\otimes\Bigl(3\rho^\vee|_{D_8}+3\dim\rho\sum_{\pi}(\dim\pi)\Theta_\pi\Bigr)
+ \quad\text{resp.}\quad
+ \psi_P\otimes\bigl(3f\,\Theta_{\rho^\vee|_{SD_{16}}}+3\dim\rho\,(2\chi_1+2\chi_2)\bigr).
+\]
+The $SD_{16}$ identification and the swap $f\chi_1=\chi_2$ are unchanged
+(the referee verified them).
+\item \textbf{Brauer case split} (same theorem).  When $T\supset\mu_2$ a
+noncyclic $B_2$ can have cyclic image in $D_8$ (e.g.\ $\langle a^4,b\rangle$),
+and $C_{\Gamma_0}(B_2)$ then contains noncentral elements of the
+$j$-torus, so Draft 3's ``noncyclic $B_2$'' case was wrong.  The split
+is now by the image $\bar B_2\subset D_8$: trivial (hypothesis on
+$\Phi_\rho$), nontrivial cyclic (toral descent, using
+$B_2\subset\langle y\rangle(B_2\cap T)$ and $T\subset T_{E_y}$), noncyclic
+(centralizer lemma, then the two-group computation).  Lemma
+\texttt{lem:centralizers}(b) is restated for $2$-subgroups with
+noncyclic image, which is what its proof always used; for $\rho=\mathbf 1$
+($T=\mu_3$) the two formulations agree, so Theorem
+\texttt{thm:reduction} is unaffected.
+\item \textbf{General-$p$ character formula} (Theorem \texttt{thm:H1-gen}).
+The value of $\psi_{2d}$ at the star lift is $\theta_0(z)$ with
+$z\equiv\mathrm{Nrd}(X)^{(p+1)/2}$, so the formula is
+$\zeta^{e-\kappa(X)}\theta_0(\mathrm{Nrd}X)^{(p+1)/2}$, with $\theta_0^p=1$
+now stated; Draft 3's exponent $-1$ is correct only for $p=3$.  The
+multiplicativity proof is unchanged.
+\item \textbf{Depth lemma} (Lemma \texttt{lem:depth-gen}(c)).  Both cases
+are now written out: ramified via the isomorphism
+$U_F^{(d)}/U_F^{(d+1)}\to U_E^{(2d)}/U_E^{(2d+1)}$ and bijectivity of the
+$p$-th power map $U_E^{(k_0+1)}\to U_E^{(2d+1)}$; unramified via the
+boundary map $\bar a\mapsto\bar a_0^{\,p}\wp(\bar a/\bar a_0)$ (with
+$p/\varpi^e\equiv-\bar a_0^{\,p-1}$ from $\zeta_p^p=1$), whose image is
+$\bar a_0^{\,p}\ker\mathrm{Tr}_{k_E/\F_p}$ and misses $k_F$ because
+$\mathrm{Tr}_{k_E/\F_p}=2\,\mathrm{Tr}_{k_F/\F_p}$ on $k_F$ and $p$ is odd.
+\item \textbf{Typo} in Theorem \texttt{thm:levelone}: $w^4=\mathrm{Nm}(w)$,
+not $\mathrm{Nm}(w)^2$.
+\item \textbf{Citation and summation by parts.}  Lemma \texttt{lem:model}(a)
+now cites Kubota's 1967 paper for $\mathrm{SL}_2$ and identifies the
+$\mathrm{GL}_2$ formula as the $r=2$, $c=0$ Kazhdan--Patterson cocycle
+with the $n$-th power symbol (added \texttt{[Kub67]} to the
+bibliography).  The summation by parts in Theorem \texttt{thm:pthpower}
+is written out: $c_{j-1}-2c_j+c_{j+1}=-1$, $c_1=c_p=0$,
+$c_0=c_{p+1}=-p/2\equiv0$, and the four boundary terms are displayed.
+\end{enumerate}
+\section*{Status}
+Theorem \texttt{thm:reduction-all} [P] (repaired); Theorem
+\texttt{thm:H1-gen} [P] (formula corrected, lemma completed);
+Theorem \texttt{thm:pthpower} [P] (accepted by the referee); Theorem
+\texttt{thm:levelone} [P$^c$] (conditional on Target A, as before).
+Nothing else changed status.
+\end{document}

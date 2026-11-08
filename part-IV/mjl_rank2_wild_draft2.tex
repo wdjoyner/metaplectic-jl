@@ -1,0 +1,1888 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern,microtype}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{booktabs,array,enumitem,longtable}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black]{hyperref}
+\newcommand{\F}{F}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\C}{\mathbb C}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\Fq}{\mathbb F}
+\newcommand{\Nm}{\operatorname N}
+\newcommand{\Nrd}{\operatorname{Nrd}}
+\newcommand{\Trd}{\operatorname{Trd}}
+\newcommand{\Tr}{\operatorname{Tr}}
+\newcommand{\Irr}{\operatorname{Irr}}
+\newcommand{\Ind}{\operatorname{Ind}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\tH}{\widetilde H}
+\newcommand{\tZ}{\widetilde Z}
+\newcommand{\tU}{\widetilde U}
+\newcommand{\tV}{\widetilde V}
+\newcommand{\tth}{\widetilde\theta}
+\newcommand{\Ocal}{\mathcal O}
+\newcommand{\Pfr}{\mathfrak P}
+\newcommand{\pfr}{\mathfrak p}
+\newcommand{\Reg}{\operatorname{Reg}}
+\newcommand{\Heis}{\mathrm{Heis}}
+\newcommand{\Cubes}{\mathrm{Cubes}}
+\newcommand{\Good}{\mathrm{Good}}
+\newcommand{\Ptag}{\textnormal{\textbf{[P]}}}
+\newcommand{\Pctag}{\textnormal{\textbf{[P$^{\mathrm c}$]}}}
+\newcommand{\Etag}{\textnormal{\textbf{[E]}}}
+\newcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\newcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[theorem]{Definition}
+\title{Wild-place metaplectic character transfer in degree two:\\
+Toral positivity and the nonabelian gluing problem\\[0.4em]
+\normalsize Draft 2 --- standalone companion to Part IV}
+\author{David Joyner \and ChatGPT (OpenAI) \and Claude (Anthropic)}
+\date{November 8, 2026}
+\emergencystretch=3em
+\begin{document}
+\maketitle
+\begin{abstract}
+We study irreducible-character integrality for the scalar-central
+odd-degree metaplectic cover of a quaternion division algebra at a
+wild place.  The general result is a uniform quadratic toral
+permutation-character theorem: for every quadratic $E/F$ in odd
+residue characteristic and every odd $n$ with $\mu_n\subset F$, the
+discriminant ratio $\Delta(t)/\Delta(t^n)$ is a finite permutation
+character of $E^\times/F^\times$.  The main new result concerns the
+running example $F=\Q_3(\zeta_3)$, $n=3$, $D$ quaternion.  We prove
+that the division-side transform $L_D$ of Part~III carries the
+trivial character of $D^\times$ to the character of a single genuine
+irreducible representation $\tau$ of the cover, of dimension $27$
+(Target~A of Draft~0), and we describe $\tau$: its restriction to the
+pro-$3$ part of the cover is induced from a canonical genuine
+character of the covered third congruence subgroup.  The proof has
+three layers: a reduction, via Brauer's characterization and the
+toral theorem, to the pro-$3$ Sylow subgroup; a structural analysis
+of the good elements of the congruence filtration which turns the
+question into a finite combinatorial problem about $72$ vectors in
+$\Fq_3^5$ that has exactly two mirror-image solutions; and an
+explicit cocycle model of the cover, in which the one remaining
+identity (multiplicativity of the canonical star section on the sixth
+congruence subgroup) is proved by a short computation with cubic
+Hilbert symbols.  As a corollary, the same
+holds for the five level-zero irreducible representations of
+$D^\times$ and all their twists by characters of the reduced norm.
+The all-row statement (Target~B) and the uniform rank-two statement
+(Target~C) remain open; the reduction theorem applies to them
+verbatim and is recorded.
+\end{abstract}
+\tableofcontents
+
+\section{Purpose, scope, and status}\label{sec:intro}
+This paper separates the wild division-side character problem from the
+conditional global trace comparison in Part~IV of the larger series.
+Draft~0 proved the general toral theorem (Section~\ref{sec:general-toral}),
+worked out the three quadratic tori of the running example
+(Section~\ref{sec:examplewild}), proved the positivity--integrality
+criterion (Section~\ref{sec:positive}), and formulated three targets:
+\begin{description}[style=nextline]
+\item[Target A] For $F=\Q_3(\zeta_3)$, $D$ quaternion and $n=3$, decide
+whether $L_D\mathbf1$ is the character of a single $27$-dimensional
+genuine irreducible representation of $\tH$ with the prescribed central
+character.
+\item[Target B] For every ordinary irreducible $\rho$ with a fixed
+compatible central character, prove that all coefficients $a_{\rho\tau}$
+are integral, or exhibit a nonintegral one.
+\item[Target C] Extend Target~B to all odd $n$, all $F$ of odd residual
+characteristic with $\mu_n\subset F$, and quaternion $D/F$.
+\end{description}
+Drafts~1--2 settle Target~A affirmatively (Theorem~\ref{thm:main-targetA}),
+settle Target~B for the level-zero representations and their twists
+(Corollary~\ref{cor:levelzero}), and record the reduction theorem that
+applies to the remaining rows (Theorem~\ref{thm:reduction}).  The
+dependencies of the main theorem are listed in
+Remark~\ref{rem:dependencies}.
+
+\paragraph{Labels.}
+\Ptag\ proved here; \Etag\ established elsewhere and used as a black
+box; \Otag\ outlined; \Ctag\ conjectural.  The new label \Pctag\ marks
+a statement whose proof uses, besides hand arguments, an exact finite
+computation (linear algebra over $\Fq_3$, or exact arithmetic in a
+number field) that is \emph{exhaustive} over an explicitly described
+finite set.  Every such computation is described in the text, and the
+scripts are listed in Appendix~\ref{app:scripts}.  No statement
+labeled \Pctag\ depends on floating-point arithmetic or on sampling.
+Sampled computations occur in the paper only as corroboration of
+statements that are proved by hand, and are identified as such where
+they are mentioned.
+
+\begin{center}\small
+\begin{tabular}{@{}p{0.60\linewidth}p{0.26\linewidth}p{0.08\linewidth}@{}}
+\toprule
+Statement & Source & Status\\\midrule
+Unitary local $L_D$ and identity factor & Part III, Draft 9 & \Etag\\
+Heisenberg commutator and degree on maximal tori & Part I, Draft 8 & \Etag\\
+Quadratic toral permutation-character theorem & Theorem~\ref{thm:main} & \Ptag\\
+Three exact cubic wild field-torus calculations & Section~\ref{sec:examplewild} & \Ptag\\
+All-row positivity--integrality equivalence & Proposition~\ref{prop:positive} & \Ptag\\
+Structure of good elements in the congruence filtration & Section~\ref{sec:depth} & \Ptag\\
+Reduction of Target A to the pro-$3$ Sylow subgroup & Theorem~\ref{thm:reduction} & \Ptag\\
+Finite model; the defect function; uniqueness of the design & Section~\ref{sec:finite} & \Pctag\\
+Explicit cocycle model (Kubota--Kazhdan--Patterson) & Lemma~\ref{lem:model} & \Etag/\Ptag\\
+Cube identity; star section on $K^6$; proof of (H1) & Section~\ref{sec:model} & \Ptag\\
+$L_D\mathbf1$ is a genuine irreducible character (Target A) & Theorem~\ref{thm:main-targetA} & \Pctag\\
+Level-zero rows and their norm twists (part of Target B) & Corollary~\ref{cor:levelzero} & \Pctag\\
+Target B for positive-level $\rho$; Target C & Section~\ref{sec:plan} & \Otag/\Ctag\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Division-side character transform and its normalization}\label{sec:transform}
+Let $F$ be nonarchimedean, $D/F$ a division algebra of prime
+degree $r$, $H=D^\times$, and $\tH$ its specified cover.
+Set $Z=F^\times$ and $\tZ=p^{-1}(Z)$, equipped with compatible
+Haar measures on $H/Z\simeq\tH/\tZ$.  The Part III transform is
+\begin{equation}\label{eq:LD}
+ (L_D\Phi)(z\,t^*)
+ =b_D\,\tth(z)
+  \frac{\Delta(t)}{\Delta(t^n)}\Phi(t),\qquad
+ b_D=|n|_F^{-(r-1)/2},
+\end{equation}
+for regular $t$, $z\in\tZ$; it vanishes at nongood regular lifts.
+Here $t^*=\tilde t^{\,n}$ is the star of any lift $\tilde t$ of $t$, and
+\begin{equation}\label{eq:Delta}
+ \Delta(t)=\left|\det\bigl(1-\operatorname{Ad}(t)
+ \mid\mathfrak h/\mathfrak t\bigr)\right|_F^{1/2}
+ =\prod_{i<j}\left|
+ \frac{(\lambda_i-\lambda_j)^2}{\lambda_i\lambda_j}
+ \right|_F^{1/2}.
+\end{equation}
+This equals Part I's $|D(t)|^{1/2}|\Nrd(t)|_F^{-(r-1)/2}$.
+Since the power map on a field torus modulo scalars has index
+$|n|_F^{-(r-1)}$, Weyl integration gives $b_D^2$
+equal to this index.  The factor $b_D$ is independent of
+\emph{common} rescalings of the two identified quotient Haar
+measures.  The ratio of discriminants extends at central elements
+to $|n|_F^{-r(r-1)/2}$ (Part III, Lemma 3.3), hence
+\begin{equation}\label{eq:cD}
+ (L_D\Theta_\rho)(1)=c_D\dim\rho,\qquad
+ c_D=b_D|n|_F^{-r(r-1)/2}
+ =|n|_F^{-(r^2-1)/2}.
+\end{equation}
+The identity factor is pointwise and does not depend on Haar
+measures.  Part III, Theorem 9.1, separately gives the adjoint
+orbital-integral/test-function transfer.  Test functions transform
+by $\tth^{-1}$, not by $\tth$.
+
+\subsection{Integral-matrix criterion}\label{subsec:integral}
+Choose $\tth$ first and put
+$\theta(a)=\tth(a^*)$.
+Part III, Theorem 4.3 and Corollary 5.1, show that $L_D$ is a
+unitary \emph{isomorphism} of invariant $L^2$ spaces and that
+\begin{equation}\label{eq:matrixchars}
+ L_D\Theta_\rho=\sum_\tau a_{\rho\tau}\Theta_\tau,
+ \qquad a_{\rho\tau}=\langle L_D\Theta_\rho,
+ \Theta_\tau\rangle,
+\end{equation}
+with each row and column finite.  The characters on either side
+are orthonormal bases in their fixed-central-character spaces.
+
+\begin{proposition}[\Etag\ Integral-lattice criterion, Part III]\label{prop:int}
+The transform $L_D$ permutes the irreducible characters with
+positive signs if and only if every $a_{\rho\tau}$ in
+\eqref{eq:matrixchars} is an integer.
+\end{proposition}
+\begin{proof}
+An integral unit vector in $\ell^2$ is a signed basis vector;
+unitarity gives injectivity and surjectivity because the inverse
+is the adjoint of a unitary map.  The value at identity in
+\eqref{eq:cD} is positive and fixes the sign.
+This is Part III, Corollary 5.2, with its converse.
+\end{proof}
+
+\begin{remark}[The actual obstruction]
+For wild $v$, Part III does not prove
+$a_{\rho\tau}\in\Z$.  The tame Adams argument works with a
+finite quotient $Q$ and a central subgroup $C$, under the
+hypothesis $\gcd(n,|Q/C|)=1$ (Part III, Lemma 7.5).
+At a wild place that hypothesis need not hold.  For the
+simplest illustration take $Q=C_p$, $C=1$, $n=p$: then the
+Adams operation sends every linear character to the trivial
+character.  This does not prove a nonintegral coefficient for
+$L_D$; it only shows why that particular proof method fails.
+The present paper replaces the Adams argument, in the running
+example, by Brauer's characterization of characters and an
+explicit analysis of the pro-$3$ part of the cover.
+\end{remark}
+
+\section{A useful global criterion: positivity of every row}\label{sec:positive}
+\begin{proposition}[\Ptag\ Positivity versus integrality]\label{prop:positive}
+With the unitary character matrix $(a_{\rho\tau})$ of
+\eqref{eq:matrixchars}, the following are equivalent:
+\begin{enumerate}[label=(\alph*)]
+\item $L_D$ permutes irreducible characters with positive signs;
+\item every $a_{\rho\tau}$ is an integer;
+\item every $a_{\rho\tau}$ is a nonnegative real number;
+\item every $L_D\Theta_\rho$ is positive definite on $\tH$.
+\end{enumerate}
+The implication from positive definiteness to integrality
+requires \emph{every} row; positivity of a single row does not
+force integrality or irreducibility for that row.
+\end{proposition}
+\begin{proof}
+By Part~III, each row and column of $A$ has $\ell^2$ norm one.
+An integer row is a signed basis vector, and its sign is positive
+by the identity value \eqref{eq:cD}.  If all entries are
+nonnegative, orthogonal rows have disjoint supports.  Every
+column meets exactly one row, and since its norm is one its
+nonzero entry is one; row norms then imply the permutation
+property.  The equivalence of nonnegative character coefficients
+and positive definiteness follows from Peter--Weyl/GNS for a
+compact-mod-center group with fixed unitary central character.
+One row could instead be $(2^{-1/2},2^{-1/2},0,\ldots)$.
+\end{proof}
+\begin{remark}\label{rem:onerow}
+For a \emph{single} row the usable criterion is different and is
+the one we shall apply: a class function of $\ell^2$ norm one with
+positive value at the identity is an irreducible character as soon
+as it is a \emph{virtual} character (an integral combination of
+irreducible characters).  Brauer's theorem reduces the virtual-character
+property to restrictions to elementary subgroups; Section~\ref{sec:reduction}
+carries this out.
+\end{remark}
+
+\section{A general quadratic theorem}\label{sec:general-toral}
+Let $F$ be a finite extension of $\Q_p$ with $p$ odd, residue field of cardinality $q$, and let $n\geq1$ be odd with $\mu_n\subset F$. Let $E/F$ be any quadratic field extension, with nontrivial Galois involution $\sigma$. Put
+\[
+ A=E^\times/F^\times,\qquad G=E^1=\ker(N_{E/F}:E^\times\to F^\times).
+\]
+Hilbert's Theorem 90 identifies $A\xrightarrow{\sim}G$ via $t\mapsto u=t/\sigma(t)$. The normalized absolute value on $E$ is $|x|_E=q_E^{-v_E(x)}$, so $|x|_E=|N_{E/F}x|_F$.
+
+For noncentral $t\in E^\times$ let
+\[
+ R_E(t)=\frac{\Delta(t)}{\Delta(t^n)},\qquad
+ \Delta(t)=\bigl|\det(1-\operatorname{Ad}(t)\mid D/E)\bigr|_F^{1/2}.
+\]
+The ratio extends continuously at scalar elements, with value $|n|_F^{-1}$.
+
+\begin{theorem}[\Ptag\ Quadratic toral permutation positivity]\label{thm:main}
+For any $E/F,n$ as above, $R_E$ is the character of a finite-dimensional permutation representation of a finite quotient of $A$. In particular,
+\[
+ R_E(t)=\sum_{\chi\in\widehat A}m_\chi\chi(t),\qquad m_\chi\in\mathbb Z_{\geq0},
+\]
+where only finitely many $m_\chi$ are nonzero. This includes every wild case $p\mid n$. At the identity $R_E(1)=|n|_F^{-1}$.
+\end{theorem}
+
+\subsection{A radial valuation formula}
+Write $n=p^a m$ with $(m,p)=1$, and put
+\[
+ t_\zeta=v_E(1-\zeta),\qquad
+ G_k=\{u\in G:v_E(1-u)\geq k\}\quad(k\geq1),\qquad G_0=G.
+\]
+If $a=0$ then $R_E\equiv1$, so assume $a\geq1$.
+
+\begin{lemma}\label{lem:valuations}
+For $u\in G$ and any $\zeta\in\mu_n$ whose prime-to-$p$ component is nontrivial, $|1-\zeta u|_E=1$. For $\zeta\in\mu_{p^a}\setminus\{1\}$,
+\[
+ v_E(1-\zeta u)=\min\{v_E(1-u),t_\zeta\}.
+\]
+Consequently, with $k=v_E(1-u)\in\mathbb Z_{\geq0}\cup\{\infty\}$,
+\begin{equation}\label{eq:radial}
+ R_E(u)=q_E^{\frac12\sum_{\zeta\in\mu_{p^a}\setminus\{1\}}\min(k,t_\zeta)}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+The reduction of $u\in E^1$ lies in a norm-one subgroup. In the unramified case its intersection with $k_F^\times$ is $\{\pm1\}$, and in the ramified case the reduction of $u$ is itself in $\{\pm1\}$. A root of unity with nontrivial prime-to-$p$ component has reduction in $k_F^\times\setminus\{\pm1\}$, since $n$ is odd, proving the first assertion.
+
+For a nontrivial $p$-power root $\zeta$, the ultrametric inequality gives the asserted minimum when the two valuations differ. If both equal $t_\zeta$ and $v_E(1-\zeta u)>t_\zeta$, then $u\equiv\zeta^{-1}\pmod{\mathfrak p_E^{t_\zeta+1}}$. Applying $\sigma$ and using $\sigma(u)=u^{-1}$ gives $u^{-1}\equiv\zeta^{-1}$ to the same precision, hence $\zeta\equiv\zeta^{-1}$, a contradiction to $v_E(\zeta-\zeta^{-1})=t_\zeta$ (as $p$ is odd). Thus equality holds.
+
+For $u=t/\sigma(t)$ we have
+$\Delta(t)=|N_{E/F}(1-u)|_F^{1/2}=|1-u|_E^{1/2}$.
+Factor $1-u^n=\prod_{\zeta\in\mu_n}(1-\zeta u)$ and use the two valuation statements. The identity follows for noncentral $t$ and extends continuously to $u=1$. At $u=1$, the cyclotomic product $\prod_{\zeta\in\mu_{p^a}\setminus\{1\}}(1-\zeta)=p^a$ gives $R_E(1)=|p^a|_E^{-1/2}=|n|_F^{-1}$.
+\end{proof}
+
+Define for $k\geq0$
+\[
+ M_k=q_E^{\frac12\sum_{\zeta\in\mu_{p^a}\setminus\{1\}}\min(k,t_\zeta)},\qquad M_0=1,
+\]
+and put $T=\max_{\zeta\ne1}t_\zeta$. All values $M_k$ are positive integers because roots $\zeta,\zeta^{-1}$ occur in pairs of equal valuation. We have $M_k=M_T$ for $k\geq T$.
+
+\subsection{The unramified filtration}
+Suppose $E/F$ is unramified. Then $q_E=q^2$ and reduction of the norm-one group has order $q+1$; at every deeper level the trace-zero subgroup of the residue-field additive group has order $q$. Thus the filtration satisfies
+\[
+ [G:G_1]=q+1,\qquad [G:G_k]=(q+1)q^{k-1}\quad(k\geq1).
+\]
+Write $s_k=\#\{\zeta\in\mu_{p^a}\setminus\{1\}:t_\zeta\geq k\}$. Each $s_k$ is even, and $M_k/M_{k-1}=q^{s_k}$.
+Set
+\[
+ c_k=\frac{M_k-M_{k-1}}{(q+1)q^{k-1}}\quad(1\leq k\leq T).
+\]
+For $k=1$, $M_0=1$ and $q+1$ divides $q^{s_1}-1$ because $s_1$ is even. For $k>1$ with $s_k>0$, $M_{k-1}$ is divisible by $q^{k-1}$, since at least two roots contribute at least $k-1$ to its exponent. Again $q+1$ divides $q^{s_k}-1$. Hence $c_k\in\mathbb Z_{\geq0}$ (and $c_k=0$ if $s_k=0$).
+
+By telescoping \eqref{eq:radial},
+\begin{equation}\label{eq:unram}
+ \boxed{R_E=\mathbf1_G+\sum_{k=1}^T c_k\,[G:G_k]\,\mathbf1_{G_k}.}
+\end{equation}
+Here $[G:G_k]\,\mathbf1_{G_k}$ is precisely the permutation character of $G$ on $G/G_k$.
+
+\subsection{The ramified filtration}
+Suppose $E/F$ is ramified. Then $q_E=q$ and $t_\zeta=2v_F(1-\zeta)$ is even. The norm-one group has filtration
+\[
+ [G:G_1]=2,\qquad G_{2j}=G_{2j+1},\qquad [G:G_{2j}]=2q^j\quad(j\geq1).
+\]
+For completeness, write $E=F(\sqrt d)$ with $v_F(d)=1$. Hilbert 90 gives $u=(a+b\sqrt d)/(a-b\sqrt d)$; normalize $a,b$ to be integral and not both divisible by the uniformizer of $F$. If $a$ is a unit, scale it to $1$ and write $c=b/a\in\mathcal O_F$: then the depth of $u-1$ is $1+2v_F(c)$. Moreover, two such parameters $c,c'$ define elements congruent modulo $\mathfrak p_E^{2j}$ precisely when $c\equiv c'\pmod{\mathfrak p_F^j}$, so $[G_1:G_{2j}]=q^j$. If $a$ is not a unit and $b$ is, then $u\equiv-1$ modulo $\mathfrak p_E$. These observations give the displayed indices and the fact that positive depths are odd.
+
+Define
+\[
+ c_1=\frac{M_1-1}{2},\qquad
+ c_{2j}=\frac{M_{2j+1}-M_{2j-1}}{2q^j}\quad(1\leq j\leq T/2).
+\]
+The first coefficient is an integer because $M_1=q^{(p^a-1)/2}$ is odd. For $j\geq1$ write
+\[
+ \frac{M_{2j+1}}{M_{2j-1}}=q^{e_j},\qquad
+ e_j=\frac12\sum_{\zeta\ne1}\bigl(\min(2j+1,t_\zeta)-\min(2j-1,t_\zeta)\bigr)\in\mathbb Z_{\geq0}.
+\]
+If $e_j=0$, then $c_{2j}=0$. Otherwise some pair $\{\zeta,\zeta^{-1}\}$ has $t_\zeta\geq2j$, so $M_{2j-1}$ is divisible by $q^{2j-1}$, hence by $q^j$. Moreover $q^{e_j}-1$ is even. Therefore $c_{2j}\in\mathbb Z_{\geq0}$.
+
+As all positive depths are odd, telescoping now gives
+\begin{equation}\label{eq:ram}
+\boxed{R_E=\mathbf1_G+c_1\,[G:G_1] \mathbf1_{G_1}
+ +\sum_{j=1}^{T/2}c_{2j}\,[G:G_{2j}]\,\mathbf1_{G_{2j}}.}
+\end{equation}
+Again each summand is the character of a permutation representation. Equations \eqref{eq:unram} and \eqref{eq:ram} prove Theorem~\ref{thm:main}.
+
+\section{From Fourier coefficients to covered-torus restrictions}\label{sec:fourier}
+\begin{lemma}[\Ptag\ Fourier test for restrictions to covered field tori]\label{lem:toral-Fourier}
+Let $E/F$ be any maximal field in $D$, with $r$ prime and
+$(r,n)=1$, and put $A_E=E^\times/F^\times$.  The function
+\[
+ R_E(t)=\frac{\Delta(t)}{\Delta(t^n)}
+\]
+extends continuously at scalars, is a locally constant function
+on the compact abelian group $A_E$, and has a finite Fourier expansion
+\begin{equation}\label{eq:R-Fourier}
+ R_E(t)=\sum_{\chi\in\widehat{A_E}}m_\chi\chi(t),
+ \qquad
+ m_\chi=\int_{A_E}R_E(t)\overline{\chi(t)}\,dt.
+\end{equation}
+Here the Haar measure of $A_E$ has mass $1$.
+Choose a compatible genuine central character
+$\tth$ of $\widetilde Z$ and set
+$\theta(a)=\tth(a^*)$.  For any smooth character
+$\alpha:E^\times\to\mathbb C^\times$ with
+$\alpha|_{F^\times}=\theta$, and for each $\chi\in\widehat{A_E}$,
+let $\eta_{\alpha\chi}$ be the unique genuine irreducible
+representation of $\widetilde{E^\times}$ whose central character
+satisfies
+\[
+ \zeta_{\alpha\chi}(z\,t^*)=
+ \tth(z)\alpha(t)\chi(t)
+ \qquad(z\in\widetilde Z,\ t\in E^\times).
+\]
+Define a torus-level class function $\mathcal L_E\alpha$ to equal
+$b_D\tth(z)R_E(t)\alpha(t)$ on $z t^*\in C_E$
+and to vanish outside $C_E$.  Then, as a genuine class function
+on the \emph{covered torus},
+\begin{equation}\label{eq:toral-branch}
+ \mathcal L_E\alpha
+ =\sum_\chi m_\chi\,\Theta_{\eta_{\alpha\chi}}.
+\end{equation}
+For an ordinary character $\Theta_\rho$ of $D^\times$,
+its actual $L_D$ transform restricts to the sum of these
+$\mathcal L_E\alpha$ with the multiplicities in
+$\Theta_\rho|_{E^\times}$.
+Consequently $m_\chi\in\mathbb Z_{\geq0}$ for every $\chi$
+is sufficient for the restriction of every transferred ordinary
+irreducible character to this covered torus to be a genuine
+representation character.  It is not sufficient for the full
+$\widetilde{D^\times}$ character to be a representation character.
+\end{lemma}
+\begin{proof}
+The extension of $R_E$ at scalars follows from Part~III,
+Lemma~3.3.  Since $E/F$ is a degree-$r$ field extension with
+$(r,n)=1$, the $n$th power of a noncentral $t$ stays noncentral.
+The compactness of $A_E$ and local constancy imply that $R_E$
+factors through a finite quotient, giving \eqref{eq:R-Fourier}.
+
+By Part~I the center of the covered torus is
+$C_E=\widetilde Z\cdot\{t^*:t\in E^\times\}$.  The displayed
+formula for $\zeta_{\alpha\chi}$ is well-defined: the
+power map on $A_E$ is injective, and on scalar overlaps the
+compatibility $\alpha(a)=\tth(a^*)$ is precisely
+what is required.  Such genuine central characters extend over
+$C_E$, and Stone--von Neumann gives a unique $\eta_{\alpha\chi}$.
+Its character vanishes off $C_E$, while on $C_E$ it equals
+$b_D\zeta_{\alpha\chi}$ because its degree is $b_D$.
+The defining formula \eqref{eq:LD} for $L_D$ has the identical
+vanishing and equals $b_D\tth(z)R_E(t)\alpha(t)$
+on $z t^*$.  Comparing with \eqref{eq:R-Fourier} proves
+\eqref{eq:toral-branch}.  Finally, restricting a finite-dimensional
+ordinary representation to $E^\times$ decomposes it into
+one-dimensional characters, all restricting to $\theta$ on
+$F^\times$; summing the displayed formula proves the last claim.
+\end{proof}
+
+\section{The explicit cubic wild example}\label{sec:examplewild}
+The following calculation verifies a \emph{necessary representation-ring
+integrality test on every maximal torus}, including the two ramified
+quadratic field types.  Sections~\ref{sec:depth}--\ref{sec:maintheorem}
+then settle the full-group statement.
+
+\begin{example}[The field, algebra, and cover]\label{ex:ranktwo-data}
+Take
+\[
+ F=\Q_3(\zeta_3),\qquad \varpi=\zeta_3-1,\qquad
+ 3=-\zeta_3^{-1}\varpi^2,\qquad q_F=3.
+\]
+Thus $v_F(3)=2$ and $|3|_F=3^{-2}=1/9$.  The compatible
+covering parameters in [JC] and Part~I are respectively
+$c=1$ and $c_v=2\pmod3$.  Let $D/F$ be the unique quaternion
+division algebra.  With $E_0=F(i)$, $i^2=-1$, its unramified
+quadratic maximal subfield, we may write
+\[
+ D=E_0\oplus E_0j,\qquad j^2=\varpi,\qquad
+ jx=\sigma(x)j\quad(x\in E_0),
+\]
+where $\sigma$ is the nontrivial automorphism of $E_0/F$.
+Part~I, Proposition~3.1, gives, for every quadratic maximal
+subfield $E/F$, the covered-torus commutator
+\begin{equation}\label{eq:ranktwo-comm}
+ [x,y]_{\widetilde{E^\times}}=
+ (N_{E/F}x,N_{E/F}y)_{F,3}^{\,2}
+ (x,y)_{E,3}^{-1}.
+\end{equation}
+The center $C_E$ of $\widetilde{E^\times}$ is the preimage of
+$F^\times E^{\times3}$ (Part~I, Proposition~3.5), and
+\[
+ [E^\times:F^\times E^{\times3}]=9,
+ \qquad b_D=3,\qquad c_D=27.
+\]
+By the Heisenberg-type Stone--von Neumann theorem
+([JC], Proposition~2.4; Part~I, Proposition~3.5), every genuine
+irreducible representation of $\widetilde{E^\times}$ has degree $3$.
+This is \emph{not} a degree calculation for representations of
+$\widetilde{D^\times}$.
+\end{example}
+
+\subsection{The unramified quadratic torus}
+Put $E_0=F(i)$ as above.  Since $X^2+1$ is irreducible over
+$\mathbb F_3$, $E_0/F$ is unramified and its residue field is
+$\mathbb F_9$.  For $t=a+bi$ with $a,b\in F$ the reduced norm
+and trace give the elementary identity
+\begin{equation}\label{eq:quadratic-R}
+ R_{E_0}(a+bi)=
+ \frac{|a^2+b^2|_F}{|3a^2-b^2|_F}.
+\end{equation}
+Multiplying $t$ by an element of $F^\times$, suppose
+$a,b\in\mathcal O_F$ and at least one is a unit.
+Then $a^2+b^2$ is always a unit.  If $b$ is a unit, so is
+$3a^2-b^2$.  If $b=\varpi u$, then
+\[
+ 3a^2-b^2=3(a^2+\zeta_3u^2),
+\]
+and $a$ is a unit; the reduction of $a^2+\zeta_3u^2$ modulo
+$\varpi$ is either $1$ or $2$, never $0$.  Hence
+\begin{equation}\label{eq:unram-values}
+ R_{E_0}(a+bi)=
+ \begin{cases}
+ 9,&b\in\varpi\mathcal O_F,\\
+ 1,&b\in\mathcal O_F^\times.
+ \end{cases}
+\end{equation}
+The finite residue quotient is
+\[
+ B_0=k_{E_0}^\times/k_F^\times
+ \simeq C_4.
+\]
+The condition $b\in\varpi\mathcal O_F$ says exactly that the
+image of $t$ in $B_0$ is the identity.  Denote its four characters
+by $\chi_0=1,\chi_1,\chi_2,\chi_3$.  The regular character of
+$C_4$ equals $4$ at the identity and $0$ elsewhere. Thus
+\begin{equation}\label{eq:unram-fourier}
+ \boxed{\quad
+ R_{E_0}=1+2\,\mathrm{reg}_{C_4}
+ =3\chi_0+2\chi_1+2\chi_2+2\chi_3.
+ \quad}
+\end{equation}
+This is a positive integral Fourier decomposition of degree
+$3+2+2+2=9$; it is stronger than merely checking that
+$R_{E_0}$ takes integer values.
+
+\subsection{Both ramified quadratic tori}
+Every ramified quadratic extension of $F$ can be written
+$E_d=F(j_d)$, $j_d^2=d=u\varpi$ with $u\in\mathcal O_F^\times$.
+There are two isomorphism classes, distinguished by the square
+class of $u$.  For $t=a+bj_d$,
+\begin{equation}\label{eq:ramified-R}
+ R_{E_d}(a+bj_d)
+ =\frac{|a^2-db^2|_F}{|3a^2+db^2|_F}.
+\end{equation}
+Again normalize $a,b$ to be integral and not both divisible
+by $\varpi$.  The terms $3a^2$ and $db^2$ have different
+valuations whenever both $a$ and $b$ are units.  A direct
+valuation calculation therefore gives
+\begin{equation}\label{eq:ramified-values}
+ R_{E_d}(a+bj_d)=
+ \begin{cases}
+ 9,& a\in\mathcal O_F^\times,
+       \quad b\in\varpi\mathcal O_F,\\
+ 3,& a,b\in\mathcal O_F^\times,\\
+ 1,& a\in\varpi\mathcal O_F,
+       \quad b\in\mathcal O_F^\times.
+ \end{cases}
+\end{equation}
+For example, in the original cyclic algebra $d=\varpi$,
+\[
+ \begin{array}{c|ccc}
+ t&j&1+j&1+\varpi j\\\hline
+ R(t)&1&3&9\\
+ (L_D1)(t^*)&3&9&27
+ \end{array}
+\]
+for the central-character normalization of Example~\ref{ex:ranktwo-data}.
+The three values illustrate why the unramified torus alone is not
+an adequate test.
+
+There is a natural finite quotient
+\[
+ B_d=E_d^\times/(F^\times U_1)\simeq C_2\times C_3,
+\]
+where $U_1\subset\mathcal O_{E_d}^\times$ consists of
+$a+bj_d$ with $a\in\mathcal O_F^\times$ and
+$b\in\varpi\mathcal O_F$; equivalently
+$U_1=\mathcal O_F^\times(1+\mathfrak p_{E_d}^2)$.  The $C_2$ coordinate
+records the parity of the $E_d$-valuation, and on even elements
+the $C_3$ coordinate is $\bar c\in\mathbb F_3$ for
+$1+cj_d$ with $c\in\mathcal O_F$ read modulo $\varpi$.  The multiplication law
+\[
+ (1+cj_d)(1+c'j_d)
+ =(1+dcc')\left(1+\frac{c+c'}{1+dcc'}j_d\right)
+\]
+shows that $\bar c$ is additive, and $j_d^2=d\in F^\times$
+provides the order-two factor.
+
+Write $\epsilon$ for the nontrivial character of $C_2$
+and $\xi$ for a character of order $3$ of $C_3$.
+The identity \eqref{eq:ramified-values} says that $R_{E_d}$
+has values $9$ at the identity of $B_d$, $3$ at its two
+nonidentity elements in $C_3$, and $1$ on its three odd elements.
+Consequently
+\begin{equation}\label{eq:ram-fourier}
+ \boxed{\quad
+ \begin{aligned}
+ R_{E_d}
+ &=1+\mathrm{reg}_{C_2}+\mathrm{reg}_{C_2\times C_3}\\
+ &=3\cdot1+2\epsilon
+   +\xi+\xi^2+\epsilon\xi+\epsilon\xi^2.
+ \end{aligned}\quad}
+\end{equation}
+Here the regular representations are inflated from the indicated
+quotients.  All coefficients are nonnegative integers and sum
+to $3+2+1+1+1+1=9$.  This applies to \emph{both} ramified
+quadratic isomorphism classes, independently of $u$.
+
+\begin{proposition}[\Ptag\ All quadratic torus restrictions pass
+an integral-character test]\label{prop:all-three-tori}
+In the wild example $F=\Q_3(\zeta_3)$, $r=2$, $n=3$,
+let $D/F$ be the quaternion division algebra.  The function
+$R_E$ is the character of a nine-dimensional permutation
+representation of a finite quotient of $E^\times/F^\times$,
+for every quadratic maximal subfield $E\subset D$.
+More precisely, for unramified $E$ it is
+$1\oplus 2\,\mathbb C[C_4]$, and for either ramified $E$
+it is $1\oplus\mathbb C[C_2]\oplus\mathbb C[C_2\times C_3]$.
+For a suitable genuine central character inducing the trivial
+ordinary central character, the restriction of $L_D\mathbf1$
+to $\widetilde{E^\times}$ is therefore an \emph{actual genuine
+representation character} of total dimension $27$, namely
+\[
+ \begin{array}{c|c}
+ E/F&\text{multiplicities of three-dimensional genuine torus irreducibles}\\\hline
+ \text{unramified}&(3,2,2,2)\\
+ \text{ramified, either type}&(3,2,1,1,1,1).
+ \end{array}
+\]
+These multiplicities are invariant under the nontrivial
+$F$-automorphism of each $E$.
+\end{proposition}
+\begin{proof}
+A $p$-adic field of odd residue characteristic has four
+square classes; hence $F$ has exactly three quadratic field
+extensions, one unramified and two ramified.  Every quadratic
+field extension embeds in the quaternion division algebra.
+Equations \eqref{eq:unram-fourier} and \eqref{eq:ram-fourier}
+prove the first assertion.  Lemma~\ref{lem:toral-Fourier},
+together with the degree-three torus Stone--von Neumann theorem,
+converts those Fourier coefficients into the displayed
+multiplicities; their weighted dimensions are $3\cdot9=27$.
+For the trivial ordinary character one can choose
+$\tth$ with $\tth(a^*)=1$:
+the odd-$n$ scalar star kills $\mu_3\subset F^\times$
+(Part~I, Section~3), and a faithful character of
+$\mu_3$ extends across the abelian scalar central group
+modulo the star image.  The nontrivial Galois automorphism
+acts by inversion on the respective finite quotients' character
+parameters (with the $C_2$ factor fixed), so the displayed
+multiplicities are invariant.
+\end{proof}
+
+\begin{remark}[Standing conventions for the rest of the paper]\label{rem:conventions}
+From here on $F=\Q_3(\zeta_3)$, $n=3$, $D$ is the quaternion division
+algebra, $E_0=F(i)$, and $j$, $\varpi$ are as in
+Example~\ref{ex:ranktwo-data}.  We write $\Ocal_D$ for the maximal
+order, $\Pfr=\Pfr_D=j\Ocal_D$ for its maximal ideal, $v_D$ for the
+valuation with $v_D(j)=1$ (so $v_D(\varpi)=2$ and $v_D(3)=4$), and
+\[
+ K^m=1+\Pfr^m,\qquad U_m=F^\times K^m,\qquad \tU_m=p^{-1}(U_m)\subset\tH
+ \qquad(m\ge1).
+\]
+Part III's log records that the standard scalar cocycle is trivial;
+accordingly $\tZ\simeq\mu_3\times F^\times$ and a genuine central
+character has the form $\tth(\zeta,a)=\zeta\theta_0(a)$.  For
+$\rho=\mathbf1$ the compatibility $\tth(a^*)=1$ forces
+$\theta_0^3=1$; we fix one such $\theta_0$ (there are $81$; by
+Remark~\ref{rem:theta-independence} the choice is immaterial) and
+note that $\tth(\tZ)=\mu_3$.  The central character $\theta_\rho$
+of any $\rho$ to which $L_D$ applies is trivial on $\mu_3$, since
+$\theta_\rho(\zeta)=\tth(\zeta^*)=\tth(1)=1$.
+\end{remark}
+
+\section{The pro-3 structure of $K^1$ and the cube map}\label{sec:depth}
+The whole wild phenomenon lives on the pro-$3$ group
+\[
+ Q:=K^1F^\times/F^\times\;\simeq\;K^1/U_F^{(1)},\qquad
+ Q_m:=\text{image of }K^m\quad(m\ge1),
+\]
+where $U_F^{(k)}=1+\pfr_F^k$ and $K^1\cap F^\times=U_F^{(1)}$.
+Since $U_F^{(k)}=F\cap K^{2k}$, the successive quotients are
+\begin{equation}\label{eq:Qgraded}
+ Q_m/Q_{m+1}\simeq\begin{cases}\Fq_9,&m\text{ odd},\\ \Fq_9/\Fq_3,&m\text{ even},\end{cases}
+ \qquad [Q:Q_6]=3^8,\quad [Q:Q_3]=27,\quad [Q_3:Q_6]=3^5 .
+\end{equation}
+Every element of $D^\times\setminus F^\times$ is regular and lies in a
+unique maximal subfield; in particular, $Q$ is torsion-free, because
+$E^\times/F^\times$ has no $3$-torsion for quadratic $E$ (Part~I,
+Lemma~3.4) and no $2$-torsion inside a pro-$3$ group.
+The group $D^\times/F^\times K^1$ has order $8$; the subgroup
+\begin{equation}\label{eq:P0}
+ P_0:=\langle 1+i,\ j\rangle F^\times/F^\times\simeq D_8
+\end{equation}
+is a complement to $Q$ in $D^\times/F^\times$ (indeed $(1+i)^4=-4$,
+$j^2=\varpi$ and $j(1+i)j^{-1}=2(1+i)^{-1}$ in $D^\times$), and every
+finite $2$-subgroup of $D^\times/F^\times$ is conjugate into $P_0$
+(Schur--Zassenhaus).
+
+\subsection{The cube map}
+\begin{lemma}[\Ptag]\label{lem:cube}
+\begin{enumerate}[label=(\alph*)]
+\item For $k\ge3$ the cube map $K^k\to K^{k+4}$ is bijective.
+\item The cube map $Q\to Q$ is injective.
+\item Let $t\in Q_1\setminus Q_2$ have leading coefficient
+$\bar w\in\Fq_9^\times$ (that is, $t=1+w\pi+\cdots$ with $\pi=j$).
+Then $t^3\in Q_3\setminus Q_4$ with leading coefficient $\bar w^{5}$;
+in particular every nonzero leading coefficient occurs.
+\item $\Cubes(Q_2)=Q_6$.
+\item The set $\Good(Q)$ of images of good elements is the set of cubes,
+and
+\[
+ \Good(Q)=G_3\sqcup Q_6,\qquad G_3:=\Cubes(Q_1\setminus Q_2)\subset Q_3\setminus Q_4 .
+\]
+Thus a good element of $Q$ has depth exactly $3$ or depth at least $6$.
+\item $G_3$ is stable under multiplication by $Q_6$.
+\item $V:=Q_3/Q_6$ is an elementary abelian group of order $3^5$, and
+the image $\bar G_3$ of $G_3$ in $V$ has exactly $72$ elements, with
+$\bar G_3=-\bar G_3$; it spans $V$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) For $u\in\Pfr^k$, $(1+u)^3=1+3u+3u^2+u^3$ with $3u\in\Pfr^{k+4}$,
+$3u^2\in\Pfr^{2k+4}$, $u^3\in\Pfr^{3k}$; for $k\ge3$ both error terms
+lie in $\Pfr^{k+5}$, and $u\mapsto3u$ is a bijection
+$\Pfr^k/\Pfr^{k+1}\to\Pfr^{k+4}/\Pfr^{k+5}$.  Successive approximation
+gives surjectivity; injectivity follows from (b) and
+$\mu_3\cap K^3=1$.
+
+(b) If $t^3=t'^3$ in $Q$ with $t\ne1$, both $t,t'$ lie in the torus
+of the regular element $t^3$ and $(t'/t)^3\in F^\times$, hence
+$t'/t\in F^\times$ by Part~I, Lemma~3.4.
+
+(c) With $t=1+u$, $u=w\pi+\cdots$: $3u\in\Pfr^5$, $3u^2\in\Pfr^6$ and
+$u^3\equiv w\sigma(w)w\pi^3=\Nm(\bar w)\bar w\,\pi^3 \pmod{\Pfr^4}$,
+since $\pi a=\sigma(a)\pi$ for $a\in E_0$; and
+$\Nm(\bar w)\bar w=\bar w^{5}$, with $5$ prime to $8$.
+
+(d) Cubes of $K^2$ lie in $K^6$.  Conversely every element of $Q_6$ is
+regular or trivial and lies in some torus $A=E^\times\cap F^\times K^1/F^\times$.
+For $E=E_0$ (so $E_0\cap K^6=U^{(3)}_{E_0}$): $U^{(4)}_{E_0}$ consists of
+cubes of $U^{(2)}_{E_0}$ (cubing $U^{(k)}_{E_0}\to U^{(k+2)}_{E_0}$ is bijective
+for $k\ge2$, as $e(E_0/\Q_3)=2$), and $U^{(3)}_{E_0}/U^{(4)}_{E_0}\simeq\Fq_9$ is
+covered by $U_F^{(3)}$ (the $\Fq_3$-part) together with the cubes
+$(1+\varpi w)^3\equiv1+\varpi^3(w^3-w)$, whose leading coefficients
+fill the Artin--Schreier image $\Fq_3 i$.  For ramified $E$
+(so $E\cap K^6=U^{(6)}_E$, $e(E/\Q_3)=4$): $U^{(7)}_E$ consists of cubes of
+$U^{(3)}_E$, and $U^{(6)}_E/U^{(7)}_E\simeq\Fq_3$ is covered by $U_F^{(3)}$.
+In both cases the cube root lies in $E\cap K^2$.
+
+(e) The good elements of $H$ are $F^\times\cdot\{\text{cubes}\}$
+(Part~I, Proposition~3.5(a), applied in each torus), so
+$\Good(Q)=\Cubes(Q)$.  By (c), cubes of depth-one elements have depth
+exactly $3$; by (d), cubes of $Q_2$ exhaust $Q_6$.
+
+(f) Fix $t\in Q_1\setminus Q_2$ with leading coefficient $a$ and put
+$\tau=t-1$.  For $u\in\Pfr^k$ one has
+$(t(1+u))^3=t^3\bigl(1+L(u)+O(\Pfr^{2k})\bigr)$ with
+$L=1+\Ad(t^{-1})+\Ad(t^{-2})$, and
+$L(u)\equiv(\Ad(t^{-1})-1)^2u\equiv[[u,\tau],\tau]\pmod{\Pfr^{k+3}}$
+(ring commutators), because $3u\in\Pfr^{k+4}$.  For $u=b\pi^3$ the
+double commutator is $-aD\pi^5$ with $D=b\sigma(a)-a\sigma(b)$, which
+vanishes iff $b\in\Fq_3a$.  Hence cubing maps
+$W:=t\cdot(1+\Fq_3a\pi^3+\Pfr^4)$ into $t^3Q_6$.  Cubing is a local
+homeomorphism near regular elements (its differential $L$ is
+invertible, its determinant on $\mathfrak d/\mathfrak f$ having absolute
+value $|3|_F\,R(t)^{-2}=3^{-4}$ for depth-one $t$), so the image of
+$W$ is open in $t^3Q_6$, and its measure is
+$\mu(W)\cdot3^{-4}=3^{-4}\cdot3^{-4}=3^{-8}=\mu(Q_6)$.  Therefore
+cubing maps $W$ onto $t^3Q_6$, i.e.\ $t^3Q_6\subset G_3$.
+(The finite verification in Appendix~\ref{app:scripts}, script~2,
+confirms this statement in $Q/Q_7$.)
+
+(g) $[K^3,K^3]\subset K^6$ and $(K^3)^3\subset K^7$, so $V$ is
+elementary abelian of order $[Q_3:Q_6]=3^5$.  By (f) and the
+Jacobian computed in (f), $\mu(G_3)=\tfrac89\cdot3^{-4}$, which is
+one third of $\mu(Q_3\setminus Q_4)$; hence $|\bar G_3|=\tfrac13\cdot216=72$.
+The explicit description is in Proposition~\ref{prop:G3explicit};
+spanning and the symmetry $\bar G_3=-\bar G_3$ are read off from it.
+\end{proof}
+
+\subsection{Coordinates on $V$ and the set $\bar G_3$}
+Write $\Pfr^3=\varpi\Ocal_{E_0}j\oplus\varpi^2\Ocal_{E_0}$ and
+$\Pfr^6=\varpi^3\Ocal_D$.  Since $(1+X)(1+Y)\equiv1+X+Y$ modulo
+$\Pfr^6$ for $X,Y\in\Pfr^3$, the map $1+X\mapsto X$ identifies
+$K^3/K^6$ with the additive group $\Pfr^3/\Pfr^6$, and writing
+\[
+ X\equiv\varpi(A+B\varpi)j+\varpi^2C,\qquad A,B,C\in\Z_9=W(\Fq_9),
+\]
+gives coordinates $(\bar A,\bar B,\bar C)\in\Fq_9^3$ (levels $3,5,4$
+respectively).  The scalars $U_F^{(2)}$ contribute exactly the
+$\Fq_3$-line in the $C$-coordinate.  Hence
+\begin{equation}\label{eq:Vcoords}
+ V=Q_3/Q_6\simeq\Fq_9\oplus(\Fq_9/\Fq_3)\oplus\Fq_9\ni(\bar A,\ \bar C\bmod\Fq_3,\ \bar B),
+\end{equation}
+and we use the $\Fq_3$-basis $(A_{\mathrm{re}},A_{\mathrm{im}},C_{\mathrm{im}},B_{\mathrm{re}},B_{\mathrm{im}})$
+in the tables.
+
+\begin{proposition}[\Pctag\ The good depth-three classes]\label{prop:G3explicit}
+With $\Nm(a)=a\bar a$ and $\Tr(a)=a+\bar a$ on $\Fq_9$,
+\begin{equation}\label{eq:G3formula}
+ \bar G_3=\Bigl\{\bigl(a,\ x_4,\ y+\Nm(a)\bigl(\Tr(a\bar y)+x_4^2-1\bigr)a\bigr)
+ \ :\ a\in\Fq_9^\times,\ x_4\in\Fq_3 i,\ y\in\Fq_9\Bigr\},
+\end{equation}
+a set of $72$ elements forming $36$ lines through $0$ (each line is
+$\bar G_3\cap\bar A_E$ for the ramified tori $E$ whose image in $V$ is
+a fixed plane).  Explicitly, for $a\in\Fq_9^\times$ and $z\in\Fq_3\,i\bar a^{-1}$,
+\[
+ \bar G_3=\{(a,0,z-\Nm(a)a)\}\cup\{(a,\pm i,z+\Nm(a)a)\}.
+\]
+\end{proposition}
+\begin{proof}
+For a ramified torus $E=F(j')$ with $j'=c\pi+c_2\pi^2+c_3\pi^3+\cdots$
+pure (so $\Tr(c_2)=0$, $j'^2=u'\varpi$ with $\bar u'=\Nm(c)$), the cubes
+of depth-one elements $1+j'w$, $w\in\Ocal_E^\times$, are
+$\equiv1+(d'w_0^3-\varpi^2w_0)j'$ modulo $\Pfr^6$ and scalars, where
+$w\equiv w_0\in\Ocal_F^\times$.  Reading off coordinates gives the
+vectors $\pm(\Nm(c)c,\Nm(c)c_2,\Nm(c)c_3+(\bar u_1'-1)c)$ with
+$\bar u_1'=\Tr(c\bar c_3)+c_2^2$, which after the substitution
+$a=\Nm(c)c$, $y=\Nm(c)c_3$ is \eqref{eq:G3formula}.  The map
+$y\mapsto y+\Nm(a)\Tr(a\bar y)a$ has kernel $\Fq_3a$ and image
+$\Fq_3\,i\bar a^{-1}$, giving the second description and the count
+$8\cdot3\cdot3=72$.  The formula was verified by exact enumeration
+of the $648$ depth-one classes modulo $K^4U_F^{(1)}$
+(Appendix~\ref{app:scripts}, script~1).
+\end{proof}
+
+\subsection{The transferred trivial character on $\tU_1$}
+\begin{lemma}[\Ptag]\label{lem:Phi}
+Put $\Phi:=L_D\mathbf1|_{\tU_1}$ and, for a good $g\in U_1$, write
+$g=zt^3$ with $z\in F^\times$ and $t\in K^1$ ($t=1$ if $g$ is central);
+its \emph{star lifts} are the three elements $\zeta\tilde z\,t^*$,
+$\zeta\in\mu_3$.  Then
+\begin{equation}\label{eq:Phivalues}
+ \Phi(\zeta\tilde z\,t^*)=\begin{cases}
+ 27\,\zeta\,\tth(\tilde z),& t\in F^\times K^2\ (\text{i.e. } g\in U_6),\\
+ 9\,\zeta\,\tth(\tilde z),& t\in F^\times K^1\setminus F^\times K^2\ (\text{i.e. } g\in F^\times G_3),
+ \end{cases}
+\end{equation}
+and $\Phi$ vanishes at all lifts of non-good elements.  In particular
+$\Phi$ is supported on $\tU_3$.
+\end{lemma}
+\begin{proof}
+By \eqref{eq:LD}, $\Phi(\tilde z\,t^*)=3\tth(\tilde z)R_E(t)$ with
+$E=F(t)$.  If $t\in F^\times K^2$ and $E=E_0$, then $t\in F^\times U^{(1)}_{E_0}$
+and $R=9$ by \eqref{eq:unram-values}; if $E$ is ramified, $t\in F^\times U^{(2)}_E$,
+which is the case $a\in\Ocal_F^\times$, $b\in\varpi\Ocal_F$ of
+\eqref{eq:ramified-values}, so $R=9$.  If $t\in F^\times K^1\setminus F^\times K^2$,
+then $E$ is ramified ($E_0\cap K^1\subset K^2$) and $t\in F^\times(U^{(1)}_E\setminus U^{(2)}_E)$,
+the case $a,b$ units, so $R=3$.  Good elements of $U_1$ are
+$F^\times\cdot\Cubes(K^1)$, whose images in $Q$ are $G_3\sqcup Q_6$ by
+Lemma~\ref{lem:cube}(e).
+\end{proof}
+
+\section{Reduction to the pro-3 Sylow subgroup}\label{sec:reduction}
+\subsection{A finite quotient}
+Let $\phi:=L_D\mathbf1$.  By Part~III the row of $\phi$ in
+\eqref{eq:matrixchars} is finite: $\phi=\sum_{\tau\in S}a_\tau\Theta_\tau$
+with $S$ finite.  Each $\tau\in S$ is a finite-dimensional smooth
+representation with central character $\tth$, so $\ker\tau$ is an open
+normal subgroup of $\tH$ with $\ker\tau\cap\tZ=\ker\tth$.  Put
+\begin{equation}\label{eq:N}
+ N:=\tU_1\cap\bigcap_{\tau\in S}\ker\tau\cap N_6 ,
+\end{equation}
+where $N_6\subset\tU_6$ is the open normal subgroup introduced in
+Definition~\ref{def:psi6} below (for the present section one may take
+$N_6=\tU_m$ for any large $m$).  Then $N$ is open and normal in $\tH$,
+$N\cap\tZ=\ker\tth$, and
+\[
+ \Gamma:=\tH/N\quad\text{is finite},\qquad
+ T:=\tZ N/N\simeq\tZ/\ker\tth=\mu_3\ \text{is central},\qquad
+ \Gamma_0:=\tU_1/N .
+\]
+$\Gamma_0$ is a normal $3$-subgroup of index $8$ with $\Gamma/\Gamma_0\simeq D_8$,
+hence the unique Sylow $3$-subgroup; $\phi$ and $\Phi=\phi|_{\tU_1}$ are
+class functions on $\Gamma$ and $\Gamma_0$.  For a maximal subfield
+$E$ write $T_E:=\widetilde{E^\times}N/N\subset\Gamma$.
+
+\begin{lemma}[\Ptag\ Toral restrictions descend]\label{lem:toral-descent}
+For every maximal subfield $E$, $\phi|_{T_E}$ is the character of a
+representation of $T_E$.
+\end{lemma}
+\begin{proof}
+By Proposition~\ref{prop:all-three-tori}, $\phi|_{\widetilde{E^\times}}$ is
+the character of a (finite-dimensional, genuine) representation $W$.
+Since $\phi(gm)=\phi(g)$ for $m\in N\cap\widetilde{E^\times}$, in
+particular $\Theta_W(m)=\Theta_W(1)=\dim W$, so $m$ acts trivially on $W$.
+\end{proof}
+
+\subsection{Two-groups}
+\begin{lemma}[\Ptag\ The star section on $2$-groups]\label{lem:2groups}
+Let $\hat P_0\subset\tH$ be the preimage of $P_0F^\times$ and
+$\Gamma_{P_0}:=\hat P_0N/N$.  Then $\Gamma_{P_0}\simeq\mu_3\times D_8$,
+the elements of $2$-power order form the unique complement
+$\tilde P_0\simeq D_8$ to $\mu_3$, and the map
+$u\mapsto\sigma(u):=(u^{1/3})^*$ ($u^{1/3}$ the cube root in the
+group $P_0$ of order $8$) is the inverse of the projection
+$\tilde P_0\to P_0$.  Consequently
+\begin{equation}\label{eq:phiP0}
+ \phi|_{\Gamma_{P_0}}=3\,\psi_{P}+3\sum_{\pi}(\dim\pi)\,\Theta_\pi ,
+\end{equation}
+where $\psi_P$ is the genuine linear character trivial on $\tilde P_0$ and
+$\pi$ runs over the genuine irreducible representations of $\Gamma_{P_0}$;
+in particular $\phi|_{\Gamma_{P_0}}$ is a character.
+\end{lemma}
+\begin{proof}
+$\hat P_0\cap\tU_1=\tZ$ because $P_0\cap Q=1$, so $\hat P_0\cap N=\ker\tth$
+and $\Gamma_{P_0}$ is a central extension of $D_8$ by $T=\mu_3$.
+Since $|D_8|$ is prime to $3$, $H^2(D_8,\mu_3)=H^1(D_8,\mu_3)=0$: the
+extension splits and the complement is unique; it consists of the
+elements of $2$-power order.  On each cyclic subgroup of $P_0$ the star
+map is a homomorphism (it is a homomorphism on every covered torus, as
+$(\tilde x\tilde y)^3=\tilde x^3\tilde y^3[\tilde y,\tilde x]^3$ with
+$[\tilde y,\tilde x]\in\mu_3$), so $\sigma(u)^8=1$ and $\sigma(u)\in\tilde P_0$
+is the unique element of the complement over $u$.  Every nontrivial
+$u\in P_0$ is of order $2$ or $4$ in a quadratic torus and has
+$R_E(u)=1$ by \eqref{eq:unram-values}--\eqref{eq:ramified-values}
+(the cases $b$ a unit, resp.\ $a\in\varpi\Ocal_F$), so by \eqref{eq:LD}
+$\phi(\zeta\tilde z\sigma(u))=3\zeta\tth(\tilde z)$ for $u\ne1$ and
+$=27\zeta\tth(\tilde z)$ for $u=1$.  That is $3\psi_P+24\delta$, with
+$\delta$ the genuine delta function at $\mu_3$, and
+$8\delta=\sum_\pi(\dim\pi)\Theta_\pi$.
+\end{proof}
+
+\begin{lemma}[\Ptag\ Centralizers of $2$-elements]\label{lem:centralizers}
+Let $y\in\Gamma$ be a nontrivial element of $2$-power order, $\eta\in D^\times$
+a representative of its image in $D^\times/F^\times$ and $E_y=F(\eta)$.
+\begin{enumerate}[label=(\alph*)]
+\item $C_{\Gamma_0}(y)\subset T_{E_y}$.
+\item If $B_2\subset\Gamma$ is a noncyclic $2$-subgroup, then
+$C_{\Gamma_0}(B_2)=T$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) Replacing $y$ by $y^2$ if necessary (which does not change $E_y$ and
+enlarges the centralizer) we may assume $\eta$ has order $2$ modulo
+$F^\times$, so $s:=\Ad(\eta)$ is an involutive automorphism of the
+pro-$3$ group $Q$.  For $x\in Q$ put $b:=(x^{-1}s(x))^{-1/2}$ (square
+roots are unique in a pro-$3$ group) and $a:=xb^{-1}$; one checks
+$s(a)=a$, $s(b)=b^{-1}$ and $x^{-1}s(x)=b^{-2}$.  If
+$[y,x]\in N$ then $b^{-2}\in\bar N$ (the image of $N$ in $Q$, an
+$s$-stable closed normal subgroup), hence $b\in\bar N$ and
+$x\in Q^s\bar N$.  Finally $Q^s=\{x:\eta x\eta^{-1}\in\pm xF^\times\}$;
+the sign $-$ would give a nontrivial $2$-torsion element of $Q$, so
+$Q^s=(E_y^\times\cap F^\times K^1)/F^\times$, and $x$ lifts into
+$\widetilde{E_y^\times}N\tZ$.
+
+(b) A noncyclic subgroup of $D_8$ contains the central involution
+$\bar a^2$ (the class of $i$) and a reflection.  By (a) applied to the
+class of $i$, an element $b\in C_{\Gamma_0}(B_2)$ is the image of
+$\tilde zu$ with $u$ a lift of $u_0\in U^{(1)}_{E_0}$.  A reflection $\eta_2$
+acts on $E_0$ by $\sigma$ and commutes with $b$ in $\Gamma$, so
+$\sigma(u_0)u_0^{-1}\in\bar N$, i.e.\ $u_0^{-2}\in\bar N F^\times$,
+hence $u_0\in\bar N$ and $b\in T$.
+\end{proof}
+
+\subsection{The norm of $\Phi$}
+\begin{lemma}[\Ptag]\label{lem:norm}
+With respect to the probability Haar measures,
+$\langle\phi,\phi\rangle_{\tH}=1$ and, for $m\ge1$,
+\[
+ \langle\Phi|_{\tU_m},\Phi|_{\tU_m}\rangle_{\tU_m}=[Q_{m'}:Q_m],\qquad
+ m'=\begin{cases}1,&m\le3,\\2,&4\le m\le6,\\m-4,&m\ge7.\end{cases}
+\]
+In particular the norms for $m=1,3,4,6$ are $1,\,27,\,27,\,729$.
+\end{lemma}
+\begin{proof}
+Weyl integration on the compact group $H/Z$ reads
+$\int_{H/Z}f\,d\mu=\sum_E\tfrac{c_E}{2}\int_{E^\times/F^\times}\Delta(t)^2f(t)\,dt$
+for class functions $f$, with constants $c_E$ fixed by $f\equiv1$.
+On each torus the cube map $s\mapsto s^3$ is an injective endomorphism
+of $E^\times/F^\times$ with image the good elements, of index $9$; it
+pushes Haar measure forward to $\tfrac19$ of Haar measure on the image.
+Substituting $t=s^3$ and using $|\phi|^2(s^3)=9R(s)^2$ and
+$R(s)=\Delta(s)/\Delta(s^3)$ gives
+$\int_{E^\times/F^\times}\Delta(t)^2|\phi|^2(t)\mathbf 1_{U}(t)\,dt
+ =\int\Delta(s)^2\mathbf 1_{U}(s^3)\,ds$.
+For $U=H$ this is unitarity of the row.  For $U=U_m$, note that
+$s^3\in U_m$ iff $s\in U_{m'}$ by Lemma~\ref{lem:cube}(c)--(e) and (a),
+so $\int_{U_m/Z}|\phi|^2d\mu=\mu(U_{m'}/Z)$, and the normalized inner
+product on $\tU_m$ is $\mu(U_{m'})/\mu(U_m)=[Q_{m'}:Q_m]$.
+\end{proof}
+
+\subsection{The reduction theorem}
+\begin{theorem}[\Ptag\ Reduction to the Sylow $3$-subgroup]\label{thm:reduction}
+The following are equivalent.
+\begin{enumerate}[label=(\roman*)]
+\item (Target A) $L_D\mathbf1$ is the character of a genuine irreducible
+representation of $\tH$ with central character $\tth$.
+\item $L_D\mathbf1$ is a virtual character of $\tH$.
+\item $\Phi=L_D\mathbf1|_{\tU_1}$ is a virtual character of $\tU_1$.
+\item $\Phi$ is the character of an irreducible representation of
+$\Gamma_0=\tU_1/N$, necessarily of dimension $27$.
+\end{enumerate}
+Moreover, in that case the representation in (i) has dimension $27$,
+its restriction to $\tU_1$ is irreducible, and it is unique.
+\end{theorem}
+\begin{proof}
+(i)$\Rightarrow$(ii)$\Rightarrow$(iii) are clear, and (iii)$\Leftrightarrow$(iv)
+by Lemma~\ref{lem:norm} ($\langle\Phi,\Phi\rangle=1$, $\Phi(1)=27>0$).
+Assume (iii).  By Brauer's characterization of characters it suffices
+to show that $\phi|_B$ is a virtual character for every elementary
+subgroup $B=B_2\times B_3\subset\Gamma$ ($B_\ell$ an $\ell$-group, one
+of them cyclic).  If $B_2=1$, then $B\subset\Gamma_0$ and $\phi|_B=\Phi|_B$.
+If $B_2=\langle y\rangle$ is cyclic and nontrivial, then $y\in T_{E_y}$
+and $B_3\subset C_{\Gamma_0}(y)\subset T_{E_y}$ by Lemma~\ref{lem:centralizers}(a),
+so $B\subset T_{E_y}$ and Lemma~\ref{lem:toral-descent} applies.  If
+$B_2$ is noncyclic, then $B_3\subset T$ by Lemma~\ref{lem:centralizers}(b),
+so after conjugation $B\subset\Gamma_{P_0}$ and Lemma~\ref{lem:2groups}
+applies.  Hence $\phi$ is a virtual character of $\Gamma$; by unitarity
+(Lemma~\ref{lem:norm}) and $\phi(1)=27>0$ it is an irreducible
+character, which is (i).  The restriction of that representation to
+$\tU_1$ has character $\Phi$, of norm one, hence is irreducible; a
+character determines the representation.
+\end{proof}
+
+\begin{remark}[Independence of the choice of $\tth$]\label{rem:theta-independence}
+Two compatible choices $\tth,\tth'$ for $\rho=\mathbf1$ differ by a
+character $\theta_0$ of $F^\times/F^{\times3}$.  Twisting a
+representation of $\tH$ by $(\theta_0\circ\Nrd\circ p)^{-1}$ changes
+its central character by $\theta_0(z)^{-2}=\theta_0(z)$ and multiplies
+its character at $\tilde zt^*$ by $\theta_0(\Nrd(zt^3))^{-1}=\theta_0(z)$;
+this is exactly the relation between $L_D\mathbf1$ computed with
+$\tth$ and with $\tth\theta_0$.  So Target~A does not depend on the
+choice.
+\end{remark}
+
+\section{The finite model and the defect function}\label{sec:finite}
+Throughout this section we assume the following hypothesis, which is
+necessary for Target~A (Lemma~\ref{lem:H1necessary}) and will be
+proved in Section~\ref{sec:model}.
+
+\begin{definition}\label{def:psi6}
+Let $\psi_6:\tU_6\to\mu_3$ be the function
+$\psi_6(\zeta\tilde z\,t^*):=\zeta\tth(\tilde z)$ on star lifts (all
+elements of $\tU_6$ are star lifts, Lemma~\ref{lem:cube}(d)).
+\textbf{Hypothesis (H1)}: $\psi_6$ is a (continuous) character of
+$\tU_6$.  Under (H1) put $N_6:=\ker\psi_6$, an open subgroup of
+$\tU_6$, normal in $\tH$ because the star section is conjugation
+equivariant and $\tth$ is central.
+\end{definition}
+
+\begin{lemma}[\Ptag]\label{lem:H1necessary}
+If $L_D\mathbf1=\Theta_\tau$ with $\tau$ irreducible, then $\tau|_{\tU_6}=27\,\psi_6$;
+in particular (H1) holds.
+\end{lemma}
+\begin{proof}
+By Lemma~\ref{lem:Phi}, $|\Theta_\tau|=27=\dim\tau$ on $\tU_6$, so $\tU_6$
+acts by scalars, by $\psi_6$.
+\end{proof}
+
+Under (H1) define
+\[
+ \bar\Gamma:=\tU_1/N_6\ (\text{order }3^9),\qquad
+ \tV:=\tU_3/N_6,\qquad
+ \mu_3\simeq\tU_6/N_6\subset\tV\to V=Q_3/Q_6\to0 .
+\]
+$\tV$ is a central extension of the elementary abelian group $V$ by
+$\mu_3$; let $\omega:V\times V\to\mu_3$ be its commutator form.  By
+Lemma~\ref{lem:Phi}, $\Phi$ factors through $\bar\Gamma$, with
+$\bar\Gamma_6:=\tU_6/N_6=\mu_3$ carrying $\Phi=27\,\mathrm{id}$.  The
+elements $\bar\sigma(g)$ ($g\in G_3$) are the images of the star lifts;
+by Lemma~\ref{lem:cube}(f) and the next lemma they depend only on the
+class of $g$ in $\bar G_3\subset V$.
+
+\begin{lemma}[\Ptag\ Three consequences of (H1)]\label{lem:H1consequences}
+Assume (H1).
+\begin{enumerate}[label=(\alph*)]
+\item For $a\in H$ and $b\in U_6$, $\psi_6([\tilde a,\tilde b])=1$.  Hence for
+$i+j\ge6$ the map $\kappa_{i,j}(a,b):=\psi_6([\tilde a,\tilde b])$ on
+$K^i\times K^j$ is bimultiplicative, alternating, conjugation
+invariant, and trivial if $a$ or $b$ lies in $U_6$; $\kappa_{1,5}$
+factors through $(Q_1/Q_2)\times(Q_5/Q_6)\simeq\Fq_9\times\Fq_9$.
+\item $\kappa_{1,5}(a,b)=\zeta^{\beta\Tr(a\bar b)}$ for a fixed sign
+$\beta\in\{\pm1\}$.
+\item (H3) $\omega=0$: $\tV$ is abelian, hence $\tV\simeq\mu_3\times V$.
+\item (H2) For $g\in G_3$ and $u\in Q_6$, $\bar\sigma(gu)=\bar\sigma(g)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) $\ker\psi_6$ is normal in $\tH$ and $\tU_6/\ker\psi_6$ is central
+in $\tH/\ker\psi_6$ (as $\psi_6$ is conjugation invariant), so
+$[\tilde a,\tilde b]\in\ker\psi_6$ for $b\in U_6$.  Bimultiplicativity
+follows from $[xy,z]=x[y,z]x^{-1}[x,z]$.  A character of $Q$ trivial on
+cubes and commutators factors through $Q/Q_2$, since
+$[Q,Q]Q^3\supseteq Q_2$ (level by level: at even levels the commutators
+$[1+a\pi,1+b\pi^{k-1}]$ produce the trace-zero line and $U_F$ the rest;
+at odd levels they produce all of $\Fq_9$).
+
+(b) Write $\kappa_{1,5}(a,b)=\zeta^{\Tr(\alpha ab)+\Tr(\beta a\bar b)}$ with
+$\alpha,\beta\in\Fq_9$ (these span the bilinear forms).  Conjugation
+by $\xi\in\Ocal_{E_0}^\times$ multiplies both $a$ and $b$ by
+$\lambda=\xi/\bar\xi\in\mu_4$, forcing $\alpha=0$; conjugation by $j$
+applies Frobenius to both, forcing $\beta\in\Fq_3$.  Finally, in a
+ramified torus the depth-one and depth-five classes span the
+two-dimensional quotient $A_E/A_E^3$ on which the covered-torus pairing
+\eqref{eq:ranktwo-comm} is nondegenerate (Part~I, Proposition~3.5),
+while the leading coefficients of a depth-one and a depth-five element
+of the same torus are $\Fq_3^\times$-proportional; hence
+$\kappa_{1,5}(a,ra)\ne1$ for $a\ne0$, $r\in\Fq_3^\times$, i.e.\ $\beta\ne0$.
+
+(c) Let $t$ have depth one and $y\in K^4$, $c:=[\tilde t,\tilde y]\in\tilde K^5$,
+$d:=[c^{-1},\tilde t]\in\tilde K^6$, $e:=[d^{-1},\tilde t]$.  Then
+$[\tilde t^3,\tilde y]=c^{t^2}c^{t}c$ and, expanding with $c^t=cd$,
+$c^{t^2}=cd^2e$, one gets $[\tilde t^3,\tilde y]=c^3\cdot Y$ with $Y$ a
+product of $d^3$, $e$ and commutators each involving $d$ or $e$.  As
+$c^3$ is a star lift, $d,e\in\tU_6$ and (a) holds, $\psi_6([\tilde t^3,\tilde y])=1$.
+Thus $\omega(\bar G_3,V_4)=0$ with $V_4=Q_4/Q_6$, hence $\omega(V,V_4)=0$
+since $\bar G_3$ spans $V$ (Lemma~\ref{lem:cube}(g)).  So $\omega$ is
+induced from an alternating form on $V/V_4=Q_3/Q_4\simeq\Fq_9$, a
+two-dimensional $\Fq_3$-space, on which conjugation by $j$ acts by
+Frobenius, of determinant $-1$; invariance forces $\omega=0$.
+Existence of genuine characters of the abelian $\tV$ gives the splitting.
+
+(d) Let $g=t^3$, $t$ of depth one with leading coefficient $a$, and
+$gu=t'^3$ with $t'=t(1+w)$, $w\in\Fq_3a\pi^3+\Pfr^4$
+(proof of Lemma~\ref{lem:cube}(f)).  In $\bar\Gamma$ put $x=\tilde t$,
+$y=\widetilde{1+w}$, $c=[y,x]_L=yxy^{-1}x^{-1}$.  The ring computation
+in Lemma~\ref{lem:cube}(f) shows $[1+w,t]\in K^5$ with level-five
+coefficient in $\Fq_3\,ia$, so $c\in\bar\Gamma_5$.  Since $\bar\Gamma_2$
+has exponent $3$ (cubes of $\tU_2$ are star lifts), $c^3=1$;
+$[c,y]\in\bar\Gamma_8=\mu_3$ equals $\omega$-type pairing $\kappa_{5,3}$,
+trivial by (c); and $d:=c^{-1}xcx^{-1}\in\bar\Gamma_6=\mu_3$ is central.
+A direct expansion then gives $(xy)^3=d^{-1}x^3y^3$, and $y^3=1$ in
+$\bar\Gamma$ because $(1+w)^3\in Q_9$.  Hence
+$\bar\sigma(gu)\bar\sigma(g)^{-1}=d^{-1}=\kappa_{1,5}(a,\,s\,ia)^{\pm1}$
+for some $s\in\Fq_3$, and $\Tr(a\,\overline{s\,i\,a})=-s\Nm(a)\Tr(i)=0$.
+\end{proof}
+
+\subsection{The $27$ characters and the defect function}
+Assume (H1).  Fix a complement $V_0$ to $\mu_3$ in $\tV$; genuine
+characters of $\tV$ are then $\mu_h(\zeta,v)=\zeta\cdot\zeta^{h(v)}$,
+$h\in V^\vee$.  The star section gives a canonical lift
+$\bar\sigma(v)\in\tV$ for each $v\in\bar G_3$, and we define the
+\emph{defect function} $e:\bar G_3\to\Fq_3$ by
+$\bar\sigma(v)=(\zeta^{e(v)},v)$; it satisfies $e(-v)=-e(v)$
+(star is a homomorphism on each torus line).  The group
+$\Heis:=Q_1/Q_3$ (extraspecial of order $27$ and exponent $3$) acts on
+$\tV$ by conjugation, fixing $\mu_3$; relative to $V_0$ the action is
+$(\zeta,v)\mapsto(\zeta\zeta^{\beta_s(v)},sv)$ with $\beta_s\in V^\vee$,
+and equivariance of the star section gives
+\begin{equation}\label{eq:cocycle}
+ e(sv)-e(v)=\beta_s(v)\qquad(v\in\bar G_3,\ s\in\Heis).
+\end{equation}
+
+\begin{proposition}[\Ptag\ What Target A forces]\label{prop:forces}
+Suppose $L_D\mathbf1=\Theta_\tau$.  Then, with $\Lambda\subset V^\vee$ the
+set of $h$ with $\mu_h$ a constituent of $\tau|_{\tV}$:
+\begin{enumerate}[label=(\alph*)]
+\item $\tau|_{\tV}$ is multiplicity free, $|\Lambda|=27$, and $\Heis$ acts
+simply transitively on $\Lambda$ (by $h\mapsto(h-\beta_s)\circ s^{-1}$);
+\item for $v\in V\setminus(\bar G_3\cup\{0\})$ the values $h(v)$, $h\in\Lambda$,
+are equidistributed in $\Fq_3$;
+\item for $v\in\bar G_3$ the value $-e(v)$ is taken $15$ times and the
+other two values $6$ times each;
+\item equivalently, for every $h\in V^\vee$ the number
+$N_e(h):=\#\{\text{lines }\ell\subset\bar G_3\cup\{0\}:\ h|_\ell=-e|_\ell\}$
+is $20$ if $h\in\Lambda$ and $11$ otherwise.
+\end{enumerate}
+Conversely, if (H1) holds and $e$ satisfies (d) for some $27$-set
+$\Lambda$ on which $\Heis$ acts simply transitively, then
+$\tau_1:=\Ind_{\tU_3}^{\tU_1}\lambda$, $\lambda=\mu_h$ for any $h\in\Lambda$,
+is irreducible with character $\Phi$, and Target~A holds by
+Theorem~\ref{thm:reduction}.
+\end{proposition}
+\begin{proof}
+By Lemma~\ref{lem:norm}, $\langle\Phi|_{\tU_3},\Phi|_{\tU_3}\rangle=27=\Phi(1)$,
+which forces multiplicity one with $27$ constituents; Clifford theory
+for the normal subgroup $\tU_3$ of $\tU_1$, with $[\tU_1:\tU_3]=27$,
+gives (a).  Evaluating $\sum_{h\in\Lambda}\mu_h=\Phi|_{\tV}$ at
+$(1,v)$ and at $\bar\sigma(v)$ gives (b) and (c), using
+\eqref{eq:Phivalues} and (H2); (d) is the Fourier dual statement
+(each line $\{v,-v\}$ contributes $2$ or $-1$ to
+$\sum_{v\in\bar G_3}\zeta^{h(v)+e(v)}=3N_e(h)-36\in\{24,-3\}$).  The
+converse is Mackey irreducibility and the Frobenius character formula,
+whose Fourier transform is (b)--(c), together with the vanishing of
+$\Phi$ and of the induced character off $\tU_3$.
+\end{proof}
+
+\subsection{Symmetry pins down the defect function}
+The group $D^\times$ acts on everything by conjugation through
+$G_{\mathrm{sym}}:=D^\times/F^\times K^3$, of order $216$, an extension of
+$D_8=\langle\Ad(1+i),\Ad(j)\rangle$ by $\Heis$.  Its action on $V$ is
+recorded in Appendix~\ref{app:tables}; one checks $V^{D_8}=0$ and
+$(V^\vee)^{D_8}=0$.  Since $|D_8|$ is prime to $3$, there is a
+$D_8$-stable complement $V_0$, and it is unique.  With respect to it,
+$e$ is $D_8$-invariant.  The $D_8$-orbits on $\bar G_3$ have sizes
+$4,4,8,8,8,8,8,8,8,8$; six of them contain $-v$ together with $v$,
+forcing $e=0$ there, and the other four form two pairs $\{O,-O\}$.
+Hence $e$ is determined by two parameters in $\Fq_3$.
+
+\begin{proposition}[\Pctag\ Uniqueness of the design]\label{prop:design}
+Among the $3^{10}$ $D_8$-invariant functions $e$ on $\bar G_3$,
+exactly two are odd and satisfy condition (d) of
+Proposition~\ref{prop:forces}, namely $e_*$ and $-e_*$, where $e_*$ is
+tabulated in Appendix~\ref{app:tables}; it vanishes on $20$ of the $36$
+lines and takes the values $1$ and $2$ on $8$ lines each.  Among the
+nine odd $D_8$-invariant $e$, exactly three admit linear
+$\beta_s$ as in \eqref{eq:cocycle} for the generators
+$s=\Ad(1+j),\Ad(1+ij)$ of $\Heis$: $e=0$ and $e=\pm e_*$.  For
+$e=\pm e_*$ the resulting $\Heis$-action on $V^\vee$ is simply
+transitive on $\Lambda_{\pm}:=\{h:N_{\pm e_*}(h)=20\}$, $0\in\Lambda_\pm$,
+and (b)--(c) hold.  For $e=0$ one has $\beta_s=0$ for all $s$.
+\end{proposition}
+\begin{proof}
+Exact enumeration over $\Fq_3$ (Appendix~\ref{app:scripts}, scripts
+3, 4, 6): the $D_8$-orbits, the counts $N_e(h)$ for all $243$ covectors
+and all candidates, the linear extension problem \eqref{eq:cocycle},
+the orbit of $0$ under the affine action, and the Fourier identities.
+The distribution of $N_0(h)$ is $\{9^{80},12^{90},15^{72},36^{1}\}$,
+that of $N_{\pm e_*}(h)$ is $\{11^{216},20^{27}\}$.
+\end{proof}
+
+\begin{theorem}[\Pctag\ Target A is equivalent to (H1)]\label{thm:H1equiv}
+$L_D\mathbf1$ is a genuine irreducible character if and only if (H1)
+holds.  In that case the defect function is $\pm e_*$, and
+$\tau|_{\tU_1}\simeq\Ind_{\tU_3}^{\tU_1}\lambda_0$ where $\lambda_0$ is the
+genuine character of $\tU_3$ trivial on $N_6$ and on the unique
+$D_8$-stable complement $V_0$; explicitly
+\begin{equation}\label{eq:lambda0}
+ \lambda_0(y)=\Bigl(\prod_{d\in D_8}\tilde d\,y\,\tilde d^{-1}\Bigr)^{-1}
+ \in\mu_3\qquad(y\in\tU_3),
+\end{equation}
+the product taken in the abelian group $\tV$ (it lies in $\tV^{D_8}=\mu_3$).
+\end{theorem}
+\begin{proof}
+Necessity is Lemma~\ref{lem:H1necessary}.  Assume (H1).  By
+Lemma~\ref{lem:H1consequences}, (H2) and (H3) hold, so the defect
+function $e$ is defined, is odd and $D_8$-invariant for the
+$D_8$-stable complement, and satisfies \eqref{eq:cocycle}; by
+Proposition~\ref{prop:design}, $e\in\{0,e_*,-e_*\}$.  If $e=0$, then
+$\beta_s=0$ for $s=\Ad(1+j)$; but for the depth-five vector
+$v=e_{B_{\mathrm{re}}}$ of the torus $F(j)$, fixed by $s$,
+$\zeta^{\beta_s(v)}$ is the commutator of lifts, i.e.\
+$\kappa_{1,5}(1,1)=\zeta^{2\beta}\ne1$ by Lemma~\ref{lem:H1consequences}(b).
+Hence $e=\pm e_*$, and the converse part of Proposition~\ref{prop:forces}
+applies with $\Lambda=\Lambda_\pm\ni0$; the character $\mu_0$ is
+$\lambda_0$, and \eqref{eq:lambda0} is the formula for the projection
+$\tV=\mu_3\times V_0\to\mu_3$, since $\prod_{d}d\cdot x=\lambda_0(x)^8=\lambda_0(x)^{-1}$
+for $x\in\tV$.  Uniqueness of $V_0$: complements form a torsor under
+$V^\vee$, and $(V^\vee)^{D_8}=0$.
+\end{proof}
+
+\begin{remark}
+The two signs correspond to the two identifications of $\mu_3$ with
+$\Z/3$ (equivalently, to replacing the cover by its opposite); the
+statement of Theorem~\ref{thm:H1equiv} is symmetric.  The
+$\Heis$-cocycle $\beta$ attached to $e_*$ restricted to
+$V_5=Q_5/Q_6$ reproduces $\kappa_{1,5}$ with $\beta=-1$, an independent
+consistency check between the design computation and the torus data.
+\end{remark}
+
+\section{The cover in the Kazhdan--Patterson model}\label{sec:model}
+It remains to prove (H1).  We do this in an explicit model of the
+cover.  By Part~I, Definition~2.2 and Proposition~2.3(a), the cover of
+$D^\times$ is the restriction, along
+\begin{equation}\label{eq:iota}
+ \iota:D^\times\hookrightarrow\mathrm{GL}_2(E_0),\qquad
+ x+yj\longmapsto\begin{pmatrix}x&\varpi y\\\sigma(y)&\sigma(x)\end{pmatrix},
+\end{equation}
+of the parameter-$c_v$ Kazhdan--Patterson cover of $\mathrm{GL}_2(E_0)$,
+whose cocycle is $\sigma_{E_0}(g,h)\,(\det g,\det h)_{E_0}^{c_v}$ with
+$\sigma_{E_0}$ the parameter-$0$ cocycle.  We use the Kubota-type
+representative
+\begin{equation}\label{eq:kubota}
+ \sigma_{E_0}(g,h)=\Bigl(\frac{x(gh)}{x(g)},\ \frac{x(gh)}{x(h)\det g}\Bigr)_{E_0},
+ \qquad x\begin{pmatrix}a&b\\c&d\end{pmatrix}=\begin{cases}c,&c\ne0,\\ d,&c=0,\end{cases}
+\end{equation}
+and write $\beta(g,h)\in\Z/3$ for the exponent of
+$\sigma_{E_0}(g,h)(\det g,\det h)_{E_0}^{2}$ (before the relabeling
+$\zeta\mapsto\zeta^{r'}$, which multiplies all exponents by $2$ and is
+irrelevant for everything below).  Elements of the cover are pairs
+$(g,e)$ with $(g,e)(h,f)=(gh,e+f+\beta(g,h))$.
+
+\begin{lemma}[\Etag/\Ptag\ The model is the cover]\label{lem:model}
+\begin{enumerate}[label=(\alph*)]
+\item \eqref{eq:kubota} is a $2$-cocycle on $\mathrm{GL}_2(E_0)$ whose
+restriction to the diagonal torus is $(a_1,b_2)_{E_0}$.
+\item On scalars the twisted cocycle is trivial, so $z\mapsto(z,0)$ is a
+homomorphic section over $F^\times$; and for $z\in F^\times$, $g\in\mathrm{GL}_2(E_0)$,
+$\beta(z,g)=(z,\,x(g)\det g)_{E_0}$.
+\item For $x,y\in E_0^\times$, the commutator of $(\iota x,0)$ and
+$(\iota y,0)$ has exponent $(\Nm x,\Nm y)_F+(x,y)_{E_0}$, in accordance
+with Part~I, Proposition~3.1 (before relabeling, $c=1$).
+\item The extension so defined is isomorphic, as a central extension of
+$D^\times$ by $\mu_3$, to the cover of Part~I; any two such isomorphisms
+differ by $\chi\circ\Nrd$ for a character $\chi$ of $F^\times$ with
+values in $\mu_3$, which does not affect star lifts, good elements, or
+$L_D\mathbf1$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(a) is Kubota's cocycle for $\mathrm{GL}_2$ [Kub, Ch.~1], the case
+$r=2$, $c=0$ of [KP1, \S0.1]; it is the one external input of this
+section and is labeled \Etag.  (The twist $(\det g,\det h)^{c}$ is
+bimultiplicative, hence a cocycle, so the twisted formula is a cocycle
+as well.)  As a safeguard against transcription errors, the cocycle
+identity was also checked on $250$ random triples and the diagonal
+restriction on $100$ random pairs by exact computation (script~7); this
+check is corroboration, not part of the proof.  (b) With $x(zI)=z$, $x(zg)=zx(g)$, $\det(zI)=z^2$ one gets
+$\sigma(zI,g)=(x(g),z^{-1})=(z,x(g))$ and the twist contributes
+$(z^2,\det g)^2=(z,\det g)$; for $g=wI$ the two terms cancel, since
+$(z,w)_{E_0}=(z,w)_F^2$.  (c) is a direct evaluation; it was also
+checked on $200$ random pairs.  (d) Steps~1--3 of the proof of Part~I,
+Proposition~2.3(b), apply verbatim to two cocycles on $\mathrm{GL}_2(E_0)$
+with the same diagonal restriction; the last assertion is Part~I,
+Remark~8.1 (the star map $x^*=\tilde x^{\,3}$ absorbs $\chi\circ\det$).
+\end{proof}
+
+\paragraph{The Hilbert symbols.}
+The cubic Hilbert symbols of $F$ and of $E_0$ enter only through their
+classes.  By Moore's theorem (cited in Part~I, Proposition~2.3), a
+continuous Steinberg symbol $F^\times\times F^\times\to\mu_3$ is a power of
+the Hilbert symbol.  We therefore computed the alternating bilinear
+forms on $F^\times/F^{\times3}\simeq\Fq_3^4$ and $E_0^\times/E_0^{\times3}\simeq\Fq_3^6$
+annihilated by all Steinberg relations $(a,1-a)=1$ (exact linear
+algebra over $\Fq_3$ on several thousand relations, script~7); in both
+cases the solution space is one-dimensional and nondegenerate, so each
+symbol is determined up to the common sign, and the relative sign is
+fixed by norm compatibility $(a,b)_{E_0}=(a,\Nm b)_F$, which the
+computed forms satisfy.  Classes modulo cubes are computed from the
+filtrations $U^{(k)}$ by explicit discrete logarithms.  The hand
+arguments below use only the following standard facts about the cubic
+symbol of $E_0$, for which $e(E_0/\Q_3)=2$ and $pe/(p-1)=3$:
+bimultiplicativity and antisymmetry; the Steinberg relation
+$(u,1-u)=1$; Galois invariance $(\sigma u,\sigma v)=(u,v)$; triviality
+on cubes, in particular on $-1$, on $\mu_8$ and on
+$U^{(4)}_{E_0}\subset E_0^{\times3}$; and the depth bound
+$(U^{(i)}_{E_0},U^{(j)}_{E_0})=1$ for $i+j\ge4$ (see [FV, Ch.~IV] or
+[Ser, Ch.~XIV]).  A consequence used repeatedly: for $m\in U^{(3)}_{E_0}$
+and any $u\in E_0^\times$,
+\begin{equation}\label{eq:level0}
+ (u,m)_{E_0}=(\varpi,m)_{E_0}^{\,v_{E_0}(u)},
+\end{equation}
+because $u=\varpi^{v(u)}\xi u_1$ with $\xi\in\mu_8$ and $u_1\in U^{(1)}_{E_0}$.
+The computed tables are consistent with these facts (for instance
+$(1+\varpi,1+\varpi^3)=(1+\varpi^2,1+\varpi^2i)=1$ while
+$(1+\varpi,1+\varpi^2)\ne1$).  With
+$\varpi,\ 1+\varpi,\ 1+\varpi^2,\ 1+\varpi^3$ as basis of $F^\times/F^{\times3}$ the
+form is $(\varpi,1+\varpi^3)=(1+\varpi,1+\varpi^2)=\zeta$ and all other basis
+pairings trivial; the $6\times6$ matrix for $E_0$ is in
+Appendix~\ref{app:tables}.
+
+\subsection{The cube identity and the star section on $K^6$}
+\begin{proposition}[\Ptag\ Cubes of the standard section]\label{prop:cubeidentity}
+Let $w=x+yj\in D^\times$ with $y\ne0$, $T:=\Tr_{E_0/F}(x)\ne0$ and
+$A:=x^2+x\sigma(x)+\sigma(x)^2+\varpi\Nm(y)\ne0$.  Then
+$(w,0)^3=(w^3,0)$ in the cover.  The hypotheses hold for every
+$w\in K^1\setminus E_0$; for $w\in E_0^\times$ the conclusion holds as well.
+\end{proposition}
+\begin{proof}
+Put $n=\Nrd(w)=\Nm(x)-\varpi\Nm(y)$.  From $w^2=(x^2+\varpi\Nm y)+yTj$ and
+$w^3=\cdots+yA\,j$ one reads off $x(\iota w)=\sigma(y)$,
+$x(\iota w^2)=\sigma(y)T$, $x(\iota w^3)=\sigma(y)A$, with $T,A\in F$.
+Writing $h_E,h_F$ for the exponents of the symbols and using
+$h_E(a,b)=2h_F(a,b)$ for $a,b\in F$:
+\[
+ \beta(w,w)=h_E(T,T/n)=h_F(T,n),\qquad
+ \beta(w^2,w)=h_E(A/T,A/n^2)=h_F(nT,A)+h_F(T,n),
+\]
+the twists vanishing because $h_E(n,n)=h_E(n^2,n)=0$.  Hence the exponent
+of $(w,0)^3$ is $h_F(n,T)+h_F(nT,A)$.  Now $A=T^2-n$; with $u:=n/T^2$,
+\[
+ h_F(nT,T^2-n)=h_F(nT,T^2)+h_F(nT,1-u)=2h_F(n,T)+h_F(uT^3,1-u)=2h_F(n,T),
+\]
+by the Steinberg relation $h_F(u,1-u)=0$.  So the exponent is
+$3h_F(n,T)=0$.  For $w\in K^1$, $x\equiv1\bmod\varpi$ gives $T\equiv2$ and
+$v_F(x^2+x\sigma x+\sigma x^2)=2$ exactly, so $A\ne0$.  For $w=x\in E_0^\times$,
+$x(\iota w^k)=\sigma(x)^k$ and $\det=\Nm(x)^k$, and the same bookkeeping
+gives $\sigma(w,w)+\sigma(w^2,w)=-h_E(\sigma x,x)+h_E(\sigma x,x)=0$.
+\end{proof}
+
+\begin{corollary}[\Ptag\ The star section on $K^6$]\label{cor:starK6}
+\begin{enumerate}[label=(\alph*)]
+\item For every cube $g=t^3$ with $t\in K^1$, the star lift is
+$\sigma(g)=(g,0)$.
+\item Every $X\in K^6$ can be written $X=zv^3$ with $z\in U_F^{(1)}$ and
+$v\in K^2$ (Lemma~\ref{lem:cube}(d)); $z$ is determined modulo $F^{\times3}$,
+and $z\equiv\Nrd(X)^{-1}\pmod{F^{\times3}}$.
+\item With $\theta_0=1$, the $\tth$-normalized star lift of $X=x_X+y_Xj\in K^6$ is
+\begin{equation}\label{eq:ell}
+ \ell(X)=(X,\kappa(X)),\qquad
+ \kappa(X)=\begin{cases}h_E(y_X,\Nrd X),& y_X\ne0,\\ 0,& y_X=0.\end{cases}
+\end{equation}
+Equivalently, $\kappa(X)=c(X)\,v_{E_0}(y_X)$, where $c(X)\in\Fq_3$ is the
+real part of the level-six digit of $X$ (the digit of $(x_X-1)/\varpi^3$).
+\item (H1) is equivalent to the identity
+\begin{equation}\label{eq:H1identity}
+ \kappa(XX')=\kappa(X)+\kappa(X')+\beta(X,X')\qquad(X,X'\in K^6).
+\end{equation}
+\end{enumerate}
+\end{corollary}
+\begin{proof}
+(a) is Proposition~\ref{prop:cubeidentity}.  (b) Existence is
+Lemma~\ref{lem:cube}(d) ($\Cubes(Q_2)=Q_6$); if $zv^3=z'v'^3$ then
+$(v'/v)^3\in F^\times$, so $v'/v\in F^\times$ by Part~I, Lemma~3.4, and
+$z'\in zF^{\times3}$.  Taking reduced norms, $\Nrd(X)=z^2\Nrd(v)^3$, so
+$z^2\equiv\Nrd X$ and $z\equiv z^4\equiv\Nrd(X)^2\equiv\Nrd(X)^{-1}$
+modulo cubes.  (c) $\ell(X)=(z,0)(v,0)^3=(z,0)(v^3,0)=(X,\beta(z,v^3))$
+by (a), and $\beta(z,v^3)=h_E(z,x(\iota v^3)\det\iota v^3)$ by
+Lemma~\ref{lem:model}(b).  If $y_X\ne0$ then $x(\iota v^3)=\sigma(y_X/z)$
+and $\det\iota v^3=\Nrd(v)^3$, so
+$\beta(z,v^3)=h_E(z,\sigma(y_X))-h_E(z,z)=h_E(z,y_X)$ by Galois
+invariance and $h_E(z,z)=h_E(z,-1)=0$; by (b) this is
+$-h_E(\Nrd X,y_X)=h_E(y_X,\Nrd X)$, which does not depend on the choice
+of $z$ because $h_E(F^{\times3},\cdot)=0$.  If $y_X=0$ then
+$x(\iota v^3)=\sigma(x_X/z)$, $\beta(z,v^3)=h_E(z,x_X)=h_E(x_X,\Nrd X)=h_E(x_X,x_X\sigma x_X)=h_E(x_X,\sigma x_X)=0$,
+since $x_X\in U^{(3)}_{E_0}$ and $3+3\ge4$.  The digit formula follows
+from \eqref{eq:level0}, from $h_E(\varpi,\Nrd X)=h_E(\varpi,\Nm x_X)=2h_E(\varpi,x_X)=-h_E(\varpi,x_X)$
+(as $\Nrd X\equiv\Nm x_X$ modulo $U^{(7)}_F\subset F^{\times3}$ and
+$h_E(\varpi,\sigma x_X)=h_E(\varpi,x_X)$), and from $h_E(1+\varpi^3,\varpi)=1$,
+$h_E(1+\varpi^3i,\varpi)=0$ (Appendix~\ref{app:tables}); it is recorded
+because the tables and scripts use it.  (d)
+$\ell(X)\ell(X')=(XX',\kappa(X)+\kappa(X')+\beta(X,X'))$, so
+\eqref{eq:H1identity} says exactly that $\ell$ is a homomorphism on
+$K^6$.  If it is, then $\ell$ is a homomorphism on $U_6=F^\times K^6$,
+because $\ell(zX)=(z,0)\ell(X)$ with $(z,0)$ central and $z\mapsto(z,0)$
+a homomorphism (Lemma~\ref{lem:model}(b)); and then
+$\tU_6=\mu_3\times\ell(U_6)$ and $\psi_6$ is the character which is
+$\zeta\mapsto\zeta$ on $\mu_3$ and $zv^3\mapsto\theta_0(z)$ on
+$\ell(U_6)$.  The latter is well defined and multiplicative on $U_6$:
+if $zv^3\cdot z'v'^3=z''v''^3$ then $z''\in zz'F^{\times3}$ by the norm
+argument of (b), and $\theta_0^3=1$.  Conversely (H1) implies
+\eqref{eq:H1identity}, since $\psi_6$ is then a character whose kernel
+meets each fiber of $\tU_6\to U_6$ in exactly one point, namely
+$\ell(u)$.
+\end{proof}
+
+\begin{proposition}[\Ptag\ (H1) holds]\label{prop:H1}
+The identity \eqref{eq:H1identity} holds for all $X,X'\in K^6$.
+Consequently $\psi_6$ is a character of $\tU_6$, given on
+$\tilde K^6$ by $(X,e)\mapsto\zeta^{\,e-\kappa(X)}$.
+\end{proposition}
+\begin{proof}
+Write $X=a+bj$, $X'=a'+b'j$ with $a,a'\in U^{(3)}_{E_0}$, $b,b'\in\varpi^3\Ocal_{E_0}$,
+and $n=\Nrd X$, $n'=\Nrd X'$, so that $n,n'\in U_F^{(3)}$ and
+$XX'=(aa'+\varpi b\sigma(b'))+(ab'+b\sigma(a'))j$.  Three preliminary
+remarks.  First, $n=\Nm(a)-\varpi\Nm(b)\equiv\Nm(a)$ modulo
+$U^{(7)}_F\subset E_0^{\times3}$, and likewise $n'\equiv\Nm(a')$, so in
+every symbol $n$ and $n'$ may be replaced by $\Nm a$ and $\Nm a'$.
+Second, by \eqref{eq:level0} and Galois invariance, for every
+$u\in E_0^\times$,
+\begin{equation}\label{eq:lambda}
+ h_E(u,\Nm a)=v(u)\,\lambda(a),\qquad \lambda(a):=h_E(\varpi,\Nm a)=2h_E(\varpi,a)=h_E(a,\varpi),
+\end{equation}
+and similarly for $a'$.  Third, all symbols between two of
+$a,\sigma a,a',\sigma a',n,n'$ vanish ($3+3\ge4$), and the twist
+$2h_E(n,n')$ vanishes.  We write $v$ for $v_{E_0}$.
+
+\emph{Main case: $b\ne0$, $b'\ne0$, $R\ne0$}, where
+\[
+ \tau:=\sigma(b'/b),\qquad R:=a'+\sigma(a)\tau,
+\]
+so that $x(\iota X)=\sigma(b)$, $x(\iota X')=\sigma(b')$ and
+$x(\iota XX')=\sigma(ab'+b\sigma(a'))=\sigma(b)R$.  Inserting into
+\eqref{eq:kubota} and using $h_E(R,R)=h_E(R,-1)=0$,
+\begin{equation}\label{eq:betaK6}
+ \beta(X,X')=h_E\Bigl(R,\frac{R}{\tau n}\Bigr)+2h_E(n,n')=-h_E(R,\tau)-h_E(R,n).
+\end{equation}
+On the other side, $y_{XX'}=ab'+b\sigma(a')=b\,\sigma(R)$, so by
+\eqref{eq:ell}, Galois invariance and the first remark,
+\[
+ \kappa(XX')=h_E(b\sigma(R),nn')=h_E(b,n)+h_E(b,n')+h_E(R,n)+h_E(R,n').
+\]
+Hence \eqref{eq:H1identity} is equivalent to
+$h_E(b,n')+h_E(R,n)+h_E(R,n')=h_E(b',n')-h_E(R,\tau)-h_E(R,n)$, i.e.\ (using $h_E(b'/b,n')=h_E(\sigma\tau,n')=h_E(\tau,n')$) to
+\begin{equation}\label{eq:H1reduced}
+ h_E(R,\tau)=h_E(\tau,n')-h_E(R,n')+h_E(R,n)=v(\tau)\lambda(a')-v(R)\bigl(\lambda(a')-\lambda(a)\bigr),
+\end{equation}
+the second equality by \eqref{eq:lambda}.  To prove
+\eqref{eq:H1reduced}, factor $R=a'(1+\tau_2)$ with
+$\tau_2:=\sigma(a)\tau/a'$; then $\tau_2\ne0,-1$ and
+$\tau=\tau_2\cdot a'/\sigma(a)$, so
+\[
+ h_E(R,\tau)=h_E(a',\tau)+h_E(1+\tau_2,\tau_2)+h_E\bigl(1+\tau_2,\,a'/\sigma(a)\bigr).
+\]
+The first term is $v(\tau)\lambda(a')$ by \eqref{eq:level0} and
+\eqref{eq:lambda}.  The second vanishes by the Steinberg relation
+($h_E(1+\tau_2,\tau_2)=h_E(1-(-\tau_2),-\tau_2)+h_E(1+\tau_2,-1)=0$).
+For the third, $a'/\sigma(a)\in U^{(3)}_{E_0}$ and $v(1+\tau_2)=v(R)$, so
+by \eqref{eq:level0} it equals
+$v(R)\bigl(h_E(\varpi,a')-h_E(\varpi,\sigma a)\bigr)=v(R)\bigl(h_E(\varpi,a')-h_E(\varpi,a)\bigr)=-v(R)\bigl(\lambda(a')-\lambda(a)\bigr)$.
+This is \eqref{eq:H1reduced}.  Note that no case distinction on
+$v(\tau)$ or on $v(1+\tau)$ was needed.
+
+\emph{Case $b=0$, $b'\ne0$.}  Then $x(\iota X)=\sigma(a)$,
+$x(\iota XX')=\sigma(a)\sigma(b')$, and \eqref{eq:kubota} gives
+$\beta=h_E(\sigma b',\sigma a/n)=h_E(\sigma b',1/a)=-h_E(b',\sigma a)$.  Also
+$\kappa(X)=0$, $\kappa(X')=h_E(b',n')$ and
+$\kappa(XX')=h_E(ab',nn')=h_E(a,n)+h_E(a,n')+h_E(b',n)+h_E(b',n')$, with
+$h_E(a,n)=h_E(a,\sigma a)=0$ and $h_E(a,n')=0$ by the third remark.  So
+\eqref{eq:H1identity} reduces to $h_E(b',n)+h_E(b',\sigma a)=0$; by the
+first remark $n\sigma(a)\equiv a\sigma(a)^2$, so the left side is
+$h_E(b',a/\sigma a)+3h_E(b',\sigma a)=v(b')\bigl(h_E(\varpi,a)-h_E(\varpi,\sigma a)\bigr)=0$.
+
+\emph{Case $b\ne0$, $b'=0$.}  Then $x(\iota X')=\sigma(a')$,
+$x(\iota XX')=\sigma(b)a'$, and
+$\beta=h_E\bigl(a',\sigma(b)a'/(\sigma(a')n)\bigr)=h_E(a',\sigma b)=v(b)\lambda(a')$,
+the other three symbols vanishing by the third remark.  Also
+$\kappa(X')=0$ and $\kappa(XX')=h_E(b\sigma(a'),nn')=h_E(b,n)+h_E(b,n')=\kappa(X)+v(b)\lambda(a')$.
+Both sides of \eqref{eq:H1identity} equal $\kappa(X)+v(b)\lambda(a')$.
+
+\emph{Case $b=b'=0$.}  All three $\kappa$ vanish and
+$\beta=h_E(a,\sigma a')=0$.
+
+\emph{Case $b,b'\ne0$, $R=0$.}  Then $XX'\in E_0$, so $\kappa(XX')=0$,
+and $\tau=-a'/\sigma(a)$, $b'=\sigma(\tau)b=-b\,\sigma(a')/a$.  Now
+$x(\iota XX')=\sigma(aa'+\varpi b\sigma b')$ and
+$aa'+\varpi b\sigma(b')=aa'+\varpi\Nm(b)\tau=(a'/\sigma a)\,n$, so
+$x(\iota XX')=\sigma(a')n/a$ and
+\[
+ \beta=h_E\Bigl(\frac{\sigma(a')n}{a\,\sigma(b)},\ \frac{\sigma(a')}{a\,\sigma(b')}\Bigr)+2h_E(n,n').
+\]
+Expanding bimultiplicatively, discarding the symbols that vanish by the
+third remark, and using Galois invariance, \eqref{eq:level0} and
+$v(b')=v(b)$:
+\begin{align*}
+ \beta&=-h_E(\sigma a',\sigma b')-h_E(n,\sigma b')+h_E(a,\sigma b')-h_E(\sigma b,\sigma a')+h_E(\sigma b,a)+h_E(\sigma b,\sigma b')\\
+ &=v(b)\bigl[h_E(\varpi,a')+2h_E(\varpi,a)-h_E(\varpi,a)-h_E(\varpi,a')+h_E(\varpi,a)\bigr]+h_E(b,b'),
+\end{align*}
+and $h_E(b,b')=h_E(b,-b\sigma(a')/a)=h_E(b,\sigma a')-h_E(b,a)=v(b)\bigl[h_E(\varpi,a')-h_E(\varpi,a)\bigr]$.
+Altogether $\beta=v(b)\bigl[h_E(\varpi,a)+h_E(\varpi,a')\bigr]$, while
+$\kappa(X)+\kappa(X')=h_E(b,n)+h_E(b',n')=v(b)\bigl[2h_E(\varpi,a)+2h_E(\varpi,a')\bigr]$.
+The sum $\kappa(X)+\kappa(X')+\beta=3v(b)[\cdots]=0=\kappa(XX')$.
+
+This exhausts all cases, since $x(\iota XX')$ is $\sigma(b)R$ when
+$b,b'\ne0$ and the entries used in each case are the ones prescribed by
+\eqref{eq:kubota}.  The last assertion is Corollary~\ref{cor:starK6}(d).
+\end{proof}
+
+\begin{remark}[Checks and a second route]\label{rem:H1-checks}
+(a) Script~12 evaluates \eqref{eq:H1reduced} and \eqref{eq:H1identity}
+in the explicit model on $12{,}000$ structured instances covering all
+five cases of the proof (including $v(1+\tau)\in\{1,\dots,5\}$ and
+$X'\in K^8,\dots,K^{12}$); all pass, and $\beta(X,X')\ne0$ in about
+$44\%$ of them, so the identity is not vacuous.  Scripts~8 and~9 are
+earlier checks of the same identity through cube roots computed by
+Hensel's lemma and on a stratified sample.  None of these is part of
+the proof.
+(b) A second, independent argument reduces (H1) to a finite problem.
+The subgroup $K^4$ is a uniform pro-$3$ group of dimension $8$, so
+central $\mu_3$-extensions of $K^4$ are classified by alternating forms
+on $K^4/K^8$ [Laz, Ch.~V; SW, \S5]; the form of the cover is
+$\Ad(D^\times)$-invariant and vanishes on pairs of commuting elements by
+Part~I, Proposition~3.1 and the depth bounds for the symbols of
+$E_0$ and of the ramified quadratic extensions of $F$; script~5a finds
+that the space of such forms is zero, so the cover splits over $K^4$
+and the star section is a homomorphism on $K^8$.  Script~5b then shows
+that every odd function on $Q_6/Q_8$ whose non-additivity is
+$D^\times$-equivariant is linear.  Together these reduce (H1) to
+multiplicativity of $\ell$ on $K^6\times K^8$, which is a special case
+of Proposition~\ref{prop:H1}.  We record this route because the
+Lazard-form computation is of independent interest for Target~B.
+\end{remark}
+
+\section{The main theorem}\label{sec:maintheorem}
+\begin{theorem}[\Pctag\ Target A]\label{thm:main-targetA}
+Let $F=\Q_3(\zeta_3)$, $n=3$, $D$ the quaternion division algebra over
+$F$, $\tH$ its scalar-central $3$-fold cover, and $\tth$ a genuine
+central character compatible with the trivial character of $F^\times$.
+Then $L_D\mathbf1=\Theta_\tau$ for a unique genuine irreducible
+representation $\tau$ of $\tH$, of dimension $27$ and central character
+$\tth$.  Moreover:
+\begin{enumerate}[label=(\alph*)]
+\item $\tau|_{\tU_1}$ is irreducible and equals
+$\Ind_{\tU_3}^{\tU_1}\lambda_0$, with $\lambda_0$ as in \eqref{eq:lambda0};
+$\tau|_{\tU_6}=27\,\psi_6$, and $\tau|_{\tU_3}$ is the sum of the $27$
+distinct genuine characters of $\tU_3/N_6$ whose restriction to
+$\tU_4/N_6$ exhausts the genuine characters of that group.
+\item On the covered quadratic tori, $\tau$ restricts as in
+Proposition~\ref{prop:all-three-tori}: $(3,2,2,2)$ on the unramified
+torus and $(3,2,1,1,1,1)$ on each ramified torus.
+\item $\Theta_\tau$ is supported on the star lifts of good elements and
+of the center; its values are $27\zeta\tth(\tilde z)$ at
+$\zeta\tilde zt^*$ with $t\in F^\times K^2$, $9\zeta\tth(\tilde z)$ for
+$t\in F^\times K^1\setminus F^\times K^2$, and $3\zeta\tth(\tilde z)$ for
+$t\notin F^\times K^1$.
+\item $\tau$ is the unique extension to $\tH$ of $\tau|_{\tU_1}$ with
+character values $3\zeta\tth(\tilde z)$ at the star lifts of the elements
+of $2$-power order modulo the center.
+\end{enumerate}
+\end{theorem}
+\begin{proof}
+(H1) holds by Proposition~\ref{prop:H1}; Theorem~\ref{thm:H1equiv}
+gives Target~A together with (a), and Theorem~\ref{thm:reduction} gives
+uniqueness and irreducibility of the restriction.  The dependencies of
+this chain are itemized in Remark~\ref{rem:dependencies}.  (b) is
+Proposition~\ref{prop:all-three-tori}; (c) collects
+\eqref{eq:Phivalues} and the proof of Lemma~\ref{lem:2groups}; (d)
+follows from (c) since the four extensions of an $\tH$-stable
+irreducible of $\tU_1$ differ by the linear characters of $D_8$, which
+are distinguished by their values on $P_0$.
+\end{proof}
+
+\begin{remark}[Dependencies of Theorem~\ref{thm:main-targetA}]\label{rem:dependencies}
+The proof uses the following inputs and nothing else.
+\begin{enumerate}[label=(D\arabic*),leftmargin=*]
+\item \Etag\ From Part~I: the cover of $D^\times$ is the restriction
+along $\iota$ of the parameter-$c_v$ Kazhdan--Patterson cover of
+$\mathrm{GL}_2(E_0)$ (Definition~2.2, Proposition~2.3); the commutator
+formula on covered tori (Proposition~3.1); good elements are
+$F^\times\cdot\{\text{cubes}\}$ in each torus (Proposition~3.5(a));
+$E^\times/F^\times$ has no $3$-torsion (Lemma~3.4); the star map
+(Theorem~3.9, Remark~8.1).  From Part~III: the normalization
+\eqref{eq:LD} of $L_D$ with $b_D=3$, $c_D=27$, and the value $R=1$ at
+elements of $2$-power order.
+\item \Etag\ Kubota's cocycle on $\mathrm{GL}_2(E_0)$
+(Lemma~\ref{lem:model}(a)), and the standard properties of the cubic
+Hilbert symbols of $F$ and $E_0$ listed after Lemma~\ref{lem:model}.
+\item \Pctag\ The explicit values of the two symbols
+(Appendix~\ref{app:tables}), obtained as the unique Steinberg symbols
+by exact linear algebra (script~7).  They enter the hand arguments only
+through $h_E(1+\varpi^3,\varpi)\ne0$ (used to exclude $e=0$ in
+Proposition~\ref{prop:design} via $\kappa_{1,5}(1,1)\ne1$) and through
+the digit form of $\kappa$ used by the scripts; the proof of
+Proposition~\ref{prop:H1} does not use them.
+\item \Pctag\ Four exhaustive finite computations: the $72$ elements of
+$\bar G_3$ from the $648$ depth-one classes (script~1, also proved by
+hand in Proposition~\ref{prop:G3explicit}); the cube map on $Q/Q_7$
+(script~2, corroborating Lemma~\ref{lem:cube}); the actions on $V$ and
+their orbits (script~3); and the design search over all odd
+$D_8$-invariant functions on the $36$ lines together with the
+Heisenberg cocycle extension and the Fourier identities (scripts~4
+and~6).  Each is an enumeration of an explicitly described finite set.
+\item \Ptag\ Everything else is proved by hand: the toral theorem and
+the three torus calculations, the positivity criterion, the depth
+lemma, the Brauer reduction (Theorem~\ref{thm:reduction}), the
+consequences of (H1) and the uniqueness of the design given the finite
+data (Section~\ref{sec:finite}), the cube identity, and (H1) itself.
+\end{enumerate}
+No sampled computation is load bearing.  Scripts~5, 8--12 are
+corroboration (Remarks~\ref{rem:H1-checks} and the next remark).
+\end{remark}
+
+\begin{remark}[End-to-end verification]
+Independently of the chain of reductions, the character of
+$\Ind_{\tU_3}^{\tU_1}\lambda_0$ was computed in the explicit model of
+Section~\ref{sec:model} from formula~\eqref{eq:lambda0} (products of the
+eight $D_8$-conjugates, $27$ coset representatives of $\tU_1/\tU_3$) and
+compared with \eqref{eq:Phivalues} at star lifts of cubes of depth-one
+elements, at elements of $\tU_6$ with all three values of $\psi_6$, at
+products $\sigma(g)\ell(k)\tilde z\zeta^m$, and at non-good elements of
+depths $3,4,5$; all values agree, including phases (scripts~11, 11b).
+Script~10 checks, again in the explicit model, that all $124$ sampled
+coplanar triples of good lines have trivial defect and that all $186$
+sampled four-term relations $\sum v_i=0$ in $\bar G_3$ have defect
+$\sum e_*(v_i)$; that $\omega=0$ on $300$ pairs; and that
+$\kappa_{1,5}(a,b)=\zeta^{-\Tr(a\bar b)}$ on $300$ pairs.
+\end{remark}
+
+\begin{corollary}[\Pctag\ Level-zero rows and their norm twists]\label{cor:levelzero}
+Let $\rho$ be one of the five irreducible representations of $D^\times$
+trivial on $K^1$ (inflated from $D^\times/F^\times K^1\simeq D_8$), and let
+$\chi$ be a character of $F^\times$ trivial on $\mu_3$.  Then
+$L_D\Theta_{\rho\otimes(\chi\circ\Nrd)}$, computed with any compatible
+genuine central character, is the character of a genuine irreducible
+representation of $\tH$, of dimension $27\dim\rho$.
+\end{corollary}
+\begin{proof}
+First let $\chi=1$.  On $\tU_1$, $\Theta_\rho\circ p=\dim\rho$, so
+$L_D\Theta_\rho|_{\tU_1}=(\dim\rho)\Phi$ is a character by
+Theorem~\ref{thm:main-targetA}; on $\Gamma_{P_0}$ it is
+$3\,\psi_P\otimes\rho+3\dim\rho\sum_\pi(\dim\pi)\Theta_\pi$; and its
+restrictions to covered tori are characters by
+Lemma~\ref{lem:toral-Fourier}.  The proof of Theorem~\ref{thm:reduction}
+applies verbatim (Lemma~\ref{lem:norm} holds for every row by
+Part~III), giving an irreducible character.  For general $\chi$, write
+$\chi=\chi_1^3$: this is possible because $\chi$ is trivial on $\mu_3$,
+so that its restriction to $U_F^{(1)}\simeq\mu_3\times\Z_3^2$ factors
+through $\Z_3^2$, whose character group is $3$-divisible, while on
+$\varpi^{\Z}\times\mu_2$ cube roots exist trivially.  Twisting the
+representation $\tau_\rho$ just obtained by $\chi_1\circ\Nrd\circ p$
+multiplies its character at $\tilde zt^*$ by $\chi_1(z)^2\chi(\Nrd t)$
+and changes its central character to
+$\tth':=\tth\cdot(\chi_1^2\circ p)$, which is compatible with
+$\theta_\rho\chi^2=\theta_{\rho\otimes\chi\circ\Nrd}$ because
+$\tth'(a^*)=\theta_\rho(a)\chi_1(a^3)^2$.  The result is
+$L_D\Theta_{\rho\otimes\chi\circ\Nrd}$ computed with $\tth'$; by
+Remark~\ref{rem:theta-independence} any other compatible choice is
+obtained by a further twist.
+\end{proof}
+
+\section{Research program: Targets B and C}\label{sec:plan}
+\subsection{What carries over}
+The reduction theorem is not special to $\rho=\mathbf1$.  For every
+ordinary irreducible $\rho$ with $\theta_\rho|_{\mu_3}=1$, the
+argument of Theorem~\ref{thm:reduction} shows:
+\begin{itemize}
+\item \Ptag\ $L_D\Theta_\rho$ is an irreducible character if and only if its
+restriction $\Phi_\rho$ to $\tU_1$ is a virtual character of $\tU_1$
+and its restriction to $\Gamma_{P_0}$ is a virtual character.  (The
+toral restrictions are characters for every $\rho$ by
+Lemma~\ref{lem:toral-Fourier}; the centralizer lemma and Brauer's
+theorem are unchanged.)  For $\rho$ with central character of $3$-power
+order the $\Gamma_{P_0}$ condition is automatic, as in
+Lemma~\ref{lem:2groups}; in general it is a finite check on a group of
+order $8|T|$.
+\item \Ptag\ On $\tU_1$ one has $\Phi_\rho(\zeta\tilde zt^*)=3\zeta\tth_\rho(\tilde z)R(t)\Theta_\rho(t)$,
+with $R(t)\in\{9,3\}$ according to Lemma~\ref{lem:Phi}; only the values
+of $\Theta_\rho$ at elements of $F^\times K^1$ enter.
+\item \Ptag\ The star lifts of cubes of $K^1$ are the standard-section
+elements $(g,0)$ (Proposition~\ref{prop:cubeidentity}), and $\psi_6$ is
+an explicit character; the finite groups $\bar\Gamma$, $\tV$ and the
+cocycle $\beta$ on $K^1$ are available in closed form.  Each row is
+therefore a finite problem.
+\end{itemize}
+\subsection{Target B: positive level}\label{subsec:targetB}
+\Otag\ For $\rho$ of level $m\ge1$ (trivial on $K^{m+1}$, not on $K^m$),
+$\Theta_\rho$ on $F^\times K^1$ is a class function of $K^1/K^{m+1}$, and
+$\Phi_\rho$ is a sum of $\Phi$-like functions weighted by
+$\Theta_\rho$ on the good set $G_3\sqcup Q_6$.  The steps that need
+new work are: (1) a replacement for the multiplicity-one argument
+(Lemma~\ref{lem:norm} gives $\langle\Phi_\rho|_{\tU_3},\Phi_\rho|_{\tU_3}\rangle$,
+but it need not be $27\dim\rho$); (2) the candidate representation,
+presumably $\Ind$ from a subgroup of the form
+(covered torus)$\cdot\tU_m$ with a character twisted by the data of
+$\rho$, in the spirit of Howe's construction; (3) a uniform argument
+in $\rho$.  With the explicit model, the first nontrivial family
+($\rho$ of level one, dimension $9$ or $18$) can be settled by a finite
+computation; we recommend this as the next step, and we expect
+$\tau_\rho|_{\tU_1}$ to be induced from $\tU_3$ with $\lambda_0$ replaced by
+$\lambda_0\otimes(\text{character of }\rho|_{K^3})$ when $\rho|_{K^3}$ is
+abelian.
+\subsection{Target C: uniform rank two}\label{subsec:targetC}
+\Ctag\ Lemma~\ref{lem:cube}, Lemma~\ref{lem:Phi}, the reduction theorem
+and the Lazard splitting argument are formulated so as to generalize
+to any $F\supset\mu_n$ of odd residual characteristic with $n=p$;
+the specific inputs are the depth at which cubes of depth-one
+elements land ($n$th powers land at depth $n$), the index
+$|n|_F^{-1}$ of good elements in tori, and the design problem on
+$V=Q_n/Q_{2n}$.  We expect the pattern ``defect function determined by
+$D_{2(q+1)}$-symmetry and the torus pairing, unique admissible design''
+to persist, but we have no proof; the case $n=3$, $F$ of degree $2$
+over $\Q_3$ with $e=1$ (i.e.\ $F=\Q_9$) does not contain $\mu_3$, so the
+next test case is $F=\Q_3(\zeta_3,\sqrt{3})$ or $n=5$, $F=\Q_5(\zeta_5)$.
+\subsection{Proof checkpoints retained from Draft 0}
+A positive solution for a row must still supply (i) an explicit
+cocycle/central-character normalization (now available), (ii) a
+finite-level factorization or an induced construction (now: $\Ind$
+from $\tU_3$), (iii) exact full-group character coefficients (now: the
+Fourier identities of Proposition~\ref{prop:forces}), and (iv) a
+uniform all-$\rho$ argument (open).
+
+\section{Interface with the larger Jacquet--Langlands program}
+The companion problem is local.  Theorem~\ref{thm:main-targetA} and
+Corollary~\ref{cor:levelzero} remove, for the rows they cover, the
+``$L^2$-unitarity-to-integrality'' gap recorded in Part~III, Draft~9,
+at the wild place $\pfr_3$ of the running example; in particular the
+character relation (D2) of Part~I now has, at $\pfr_3$, a proved
+instance for $\rho=\mathbf1$ and the level-zero rows.  Even full
+success on Target~B would not on its own prove the additional global
+comparison of ordinary $D^\times$ and the covered group: that comparison
+remains conditional on matching functions at exceptional split places,
+complex-place normalization, a global orbital-coefficient identity,
+and the support/germ hypotheses stated in Part~IV.  Conversely, the
+global comparison could be established in a restricted test range
+without first settling every local irreducible-character row.  These
+projects should be developed in parallel but not conflated.
+
+\appendix
+\section{Tables}\label{app:tables}
+\paragraph{Coordinates.}  $V=Q_3/Q_6\simeq\Fq_3^5$ with basis
+$(A_{\mathrm{re}},A_{\mathrm{im}},C_{\mathrm{im}},B_{\mathrm{re}},B_{\mathrm{im}})$
+as in \eqref{eq:Vcoords}; a vector is written as a string of five
+digits.  The generators act by the matrices
+\[
+\Ad(1+j):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\0&1&1&0&0\\0&0&0&1&0\\0&2&1&0&1\end{psmallmatrix},\quad
+\Ad(1+ij):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\2&0&1&0&0\\2&0&2&1&0\\0&0&0&0&1\end{psmallmatrix},\quad
+\Ad(1+i):\begin{psmallmatrix}0&2&0&0&0\\1&0&0&0&0\\0&0&1&0&0\\0&0&0&0&2\\0&0&0&1&0\end{psmallmatrix},\quad
+\Ad(j):\begin{psmallmatrix}1&0&0&0&0\\0&2&0&0&0\\0&0&2&0&0\\0&0&0&1&0\\0&0&0&0&2\end{psmallmatrix}.
+\]
+\paragraph{The $36$ good lines and the defect function $e_*$.}
+Each entry is a representative $v$ followed by $e_*(v)$; $e_*(-v)=-e_*(v)$.
+\begin{center}\small\ttfamily
+\begin{tabular}{llllll}
+01002:0&01012:0&01022:0&01101:0&01111:1&01121:2\\
+01201:0&01211:2&01221:1&10020:0&10021:0&10022:0\\
+10110:0&10111:2&10112:1&10210:0&10211:1&10212:2\\
+11002:0&11011:0&11020:0&11101:1&11110:2&11122:0\\
+11201:2&11210:1&11222:0&12001:0&12012:0&12020:0\\
+12102:2&12110:1&12121:0&12202:1&12210:2&12221:0\\
+\end{tabular}
+\end{center}
+\paragraph{The $27$ covectors $\Lambda=\Lambda_+$} (those $h$ with $N_{e_*}(h)=20$):
+\begin{center}\small\ttfamily
+00000 00100 00200 01001 01121 01211 02002 02112 02222\\
+10010 10111 10212 11022 11110 11201 12021 12102 12210\\
+20020 20122 20221 21012 21101 21220 22011 22120 22202
+\end{center}
+The $\Heis$-cocycle attached to $e_*$ is $\beta_{\Ad(1+j)}=(1,0,0,1,0)$,
+$\beta_{\Ad(1+ij)}=(0,1,0,0,1)$.  The numbers of ordered coplanar
+triples of distinct good lines is $B=720$, all of them defect free.
+\paragraph{The Hilbert pairings.}  On the basis
+$\varpi,\ 1+\varpi,\ 1+\varpi i,\ 1+\varpi^2,\ 1+\varpi^2i,\ 1+\varpi^3$ of
+$E_0^\times/E_0^{\times3}$ (the last five being a basis of
+$U^{(1)}_{E_0}/U^{(1)3}_{E_0}$; recall $1+\varpi^3 i$ is a cube) the cubic
+Hilbert pairing of $E_0$, written as exponents of $\zeta$, is
+antisymmetric with upper-triangular entries
+\[
+ (\varpi,1+\varpi^3)=2,\quad (1+\varpi,1+\varpi i)=1,\quad (1+\varpi,1+\varpi^2)=2,\quad
+ (1+\varpi i,1+\varpi^2 i)=1,
+\]
+and all other upper-triangular entries $0$.  On the basis
+$\varpi,1+\varpi,1+\varpi^2,1+\varpi^3$ of $F^\times/F^{\times3}$ the pairing of $F$
+has $(\varpi,1+\varpi^3)=1$, $(1+\varpi,1+\varpi^2)=1$ and all other
+upper-triangular entries $0$.  Both are nondegenerate, Galois
+invariant, and satisfy $(a,b)_{E_0}=(a,\Nm b)_F$ for $a\in F$; the common
+sign is the choice of the identification $\mu_3\simeq\Z/3$.
+
+\section{Verification scripts}\label{app:scripts}
+All scripts are in pure Python with exact rational or modular
+arithmetic; none uses floating point except to display complex
+character values at the end of scripts~11.  They are kept with the
+paper under \texttt{part-IV/scripts/}.
+\begin{enumerate}[label=\arabic*.]
+\item \texttt{step1\_G3.py}: exact arithmetic in $\Ocal_D$; the $648$
+depth-one classes modulo $K^4U_F^{(1)}$; their cubes in $V$; the $72$
+elements of $\bar G_3$, the $36$ lines, agreement with \eqref{eq:G3formula}.
+\item \texttt{step2\_finite.py}: the finite group $Q/Q_7$ ($3^9$
+elements); the cube map; depths of cubes ($3$ or $\ge6$);
+$\Cubes(Q_2)=Q_6$; $Q_6$-invariance of $G_3$.
+\item \texttt{step3\_actions.py}: the actions of $\Ad(1+j),\Ad(1+ij),\Ad(1+i),\Ad(j)$
+on $V$; orders of the groups they generate ($27$, $8$, $216$); orbits on
+$\bar G_3$ and on the lines; $B=720$.
+\item \texttt{step4\_design.py}, \texttt{step6\_orbit.py}: the design
+search (the nine, resp.\ $3^{10}$, candidates), the cocycle extension
+test, the simply transitive orbit, the Fourier identities.
+\item \texttt{step5\_H1.py}: (a) the Lazard form on $K^4/K^8$:
+invariant alternating forms vanishing on torus subspaces are $0$;
+(b) odd functions on $Q_6/Q_8$ with equivariant defects are linear.
+\item \texttt{cover.py}, \texttt{step7\_symbols.py}: Steinberg
+relations and the Hilbert symbols of $F$ and $E_0$; nondegeneracy,
+Galois invariance, norm compatibility; the cocycle identity for
+\eqref{eq:kubota} (250 triples); the diagonal formula; triviality on
+scalars; the torus commutator formula of Part~I (200 pairs).
+\item \texttt{step8\_H1test.py}, \texttt{step9\_H1\_stratified.py},
+\texttt{step12\_H1\_proof\_check.py}: corroboration of
+Proposition~\ref{prop:H1}: (H1) through cube roots (Hensel in $F(X)$),
+through \eqref{eq:H1identity} ($7600$ stratified instances), and
+through \eqref{eq:H1reduced} and \eqref{eq:H1identity} on $12{,}000$
+instances covering every case of the proof; script~12 also verifies the
+closed form \eqref{eq:ell} against the digit form and the symbol facts
+\eqref{eq:level0}.
+\item \texttt{step10\_defects.py}: defects of $3$- and $4$-term
+relations in $\bar G_3$ against $e_*$; $\omega=0$; $\kappa_{1,5}$.
+\item \texttt{step11\_endtoend.py}, \texttt{step11b.py}: the character
+of $\Ind_{\tU_3}^{\tU_1}\lambda_0$ from \eqref{eq:lambda0} against
+\eqref{eq:Phivalues}.
+\end{enumerate}
+
+\section*{Acknowledgments and research-status note}
+The computations stem from the collaborative Part~IV project of
+D. Joyner, ChatGPT (OpenAI), and Claude (Anthropic).  Claude's
+referee report on Part~IV, Draft~5 suggested the positivity
+criterion and a uniform rank-two toral analysis; the reduction to the
+Sylow $3$-subgroup, the finite model, the explicit cocycle model and
+the verification scripts of Drafts~1--2 were produced by Claude;
+the proof of Proposition~\ref{prop:H1} in Draft~2 replaces a
+case-by-case argument of Draft~1 whose first case was incorrect, as
+pointed out in ChatGPT's referee report on Draft~1.  Sources
+labeled [E] are imported from Parts I--III or [JC]; results labeled
+[P] are proved here; results labeled [P$^{\mathrm c}$] rely in addition
+on the exhaustive exact computations listed in Appendix~\ref{app:scripts}
+and itemized in Remark~\ref{rem:dependencies}.  Independent refereeing of the hand arguments and
+re-execution of the scripts are advisable before the result is cited.
+\begin{thebibliography}{99}
+\bibitem{JoynerI} D. Joyner, Claude (Anthropic), and ChatGPT (OpenAI),
+\emph{A metaplectic Jacquet--Langlands transfer for division
+algebras of prime degree, I}, Draft 8 (2026).
+\bibitem{JoynerIII} D. Joyner, ChatGPT (OpenAI), and Claude (Anthropic),
+\emph{A metaplectic Jacquet--Langlands transfer for division
+algebras of prime degree, III}, Draft 9 (2026).
+\bibitem{JoynerIV} D. Joyner, ChatGPT (OpenAI), and Claude (Anthropic),
+\emph{A metaplectic Jacquet--Langlands transfer for division
+algebras of prime degree, IV: Local power maps, toral positivity,
+and conditional global comparison}, concluding Draft 6 (2026).
+\bibitem{JC} D. Joyner with Claude (Anthropic),
+\emph{On the metaplectic analog of Kazhdan's ``endoscopic'' lifting},
+corrected version (2026), \texttt{metaplectic\_kazhdan\_revised12.tex}.
+\bibitem{FK} Y. Flicker and D. Kazhdan,
+\emph{Metaplectic correspondence}, Publ. Math. IH\'ES
+\textbf{64} (1986), 53--110.
+\bibitem{KP1} D. Kazhdan and S. J. Patterson, \emph{Metaplectic forms},
+Publ. Math. IH\'ES \textbf{59} (1984), 35--142.
+\bibitem{Kub} T. Kubota, \emph{On automorphic functions and the
+reciprocity law in a number field}, Lectures in Mathematics, Kyoto
+University 2, Kinokuniya, Tokyo, 1969.
+\bibitem{FV} I. B. Fesenko and S. V. Vostokov, \emph{Local fields and
+their extensions}, 2nd ed., Transl. Math. Monogr. 121, AMS, 2002.
+\bibitem{Ser} J.-P. Serre, \emph{Local fields}, Grad. Texts in Math.
+67, Springer, 1979.
+\bibitem{SW} P. Symonds and T. Weigel, Cohomology of $p$-adic analytic
+groups, in: \emph{New horizons in pro-$p$ groups}, Progr. Math. 184,
+Birkh\"auser, 2000, 349--410.
+\bibitem{Laz} M. Lazard, \emph{Groupes analytiques $p$-adiques},
+Publ. Math. IH\'ES \textbf{26} (1965); see also J. D. Dixon, M. P. F. du
+Sautoy, A. Mann and D. Segal, \emph{Analytic pro-$p$ groups}, 2nd ed.,
+Cambridge Univ. Press (1999), Thm.~5.1.5 and Ch.~4.
+\bibitem{Moo} C. Moore, \emph{Group extensions of $p$-adic and adelic
+linear groups}, Publ. Math. IH\'ES \textbf{35} (1968), 157--222.
+\bibitem{Isa} I. M. Isaacs, \emph{Character theory of finite groups},
+Academic Press (1976), Ch.~8 (Brauer's characterization of characters).
+\bibitem{Zou24} J. Zou,
+\emph{Local metaplectic correspondence and applications},
+arXiv:2209.05852v3 (December 2024), especially \S3 and Remark~3.8.
+\end{thebibliography}
+\end{document}

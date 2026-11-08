@@ -103,20 +103,41 @@ transfer for division algebras of prime degree"*.
 
 ### Companion paper: the rank-two wild case
 
-`part-IV/mjl_rank2_wild_draft0` (*Wild-place metaplectic character
+`part-IV/mjl_rank2_wild_draftK` (*Wild-place metaplectic character
 transfer in degree two: toral positivity and the nonabelian gluing
-problem*) is the start of a standalone paper on the open local problem
-for quaternion algebras. Its first target is the running example's
-wild place: is `L_D·1` an irreducible genuine representation of
-dimension 27?
+problem*) is a standalone paper on the open local problem for
+quaternion algebras. Draft 0 set the problem up; Drafts 1-4 (November
+2026, written by Claude, refereed by ChatGPT) prove:
+
+- **Target A** (the running example's wild place): `L_D·1` is the
+  character of a single genuine irreducible representation of dimension
+  27, whose restriction to the pro-3 part is induced from an explicit
+  character of the covered third congruence subgroup. Label [P^c]: the
+  proof uses four exhaustive finite computations (scripts in
+  `part-IV/scripts/`, exact arithmetic only); the one previously sampled
+  step, hypothesis (H1), has a hand proof since Draft 2.
+- **Part of Target B**: the same holds for every irreducible
+  representation of `D^×` trivial on the second congruence subgroup
+  and all its norm twists; for an arbitrary row there is a reduction to
+  the pro-3 Sylow subgroup and a sufficient criterion in terms of a
+  cube-root transform of the character.
+- **Part of Target C**: the p-th power identity and the
+  multiplicativity of the canonical star section on the 2d-th
+  congruence subgroup hold for every odd prime p and every field
+  containing the p-th roots of unity.
+
+Each draft has a revision log (`mjl_rank2_wild_revision_log_draftK`);
+ChatGPT's referee reports on Drafts 1-3 are the files
+`mjl_rank2_wild_draftK_referee_report_chatgpt.md`. Current draft: 4.
 
 ### Main open problems
 
 - **Integrality of `L_D` at places dividing `n`.** It is open whether
   `L_D` maps irreducible characters to irreducible genuine characters
-  there. For `r = 2` the torus-level step is done, and the remaining
-  question is to glue those restrictions over the full nonabelian
-  group.
+  there in general. For the running example (`r = 2`, `n = 3`,
+  `F = Q_3(zeta_3)`) the companion paper settles the trivial character and
+  all rows trivial on the second congruence subgroup; rows of higher
+  level, and other `p` and `F`, remain open.
 - **The full comparison of `D^×` with its cover.** The comparison is
   proved only conditionally. What is missing is matching at the places
   where `D` splits and at the complex places.
@@ -131,7 +152,8 @@ part-II/    Part II drafts and revision logs
 part-III/   Part III drafts and revision logs
 part-IV/    Part IV drafts, revision logs, referee reports, the
             rank-two toral positivity note, and the rank-two
-            companion paper (mjl_rank2_wild_draftK)
+            companion paper (mjl_rank2_wild_draftK) with its
+            verification scripts in part-IV/scripts/
 notes/      Supporting notes, including the running example
 software/   Supporting code (MIT License)
 ```
