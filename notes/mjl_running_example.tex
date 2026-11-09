@@ -4,42 +4,49 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{booktabs,array,enumitem}
+\usepackage{xcolor}
 \usepackage{listings}
-\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 \lstset{basicstyle=\ttfamily\small,columns=fullflexible,frame=single}
 \newcommand{\Q}{\mathbb Q}
+\newcommand{\A}{\mathbb A}
 \newcommand{\C}{\mathbb C}
 \newcommand{\F}{\mathbb F}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\GL}{\mathrm{GL}}
 \newcommand{\p}{\mathfrak p}
 \newcommand{\Reg}{\operatorname{Reg}}
-\newcommand{\Ptag}{\textbf{[P]}}
-\newcommand{\Etag}{\textbf{[E]}}
-\newcommand{\Ctag}{\textbf{[C]}}
+\newcommand{\Ptag}{\textbf{(P)}}
+\newcommand{\Etag}{\textbf{(E)}}
+\newcommand{\Ctag}{\textbf{(C)}}
 \theoremstyle{definition}
 \newtheorem{fact}{Fact}
-\title{The running example for the metaplectic Jacquet--Langlands series:\\
+\title{The running example for the metaplectic Jacquet--Langlands book:\\
 \normalsize $K=\Q(\zeta_3)$, $n=3$, $r=2$, $D=(-1,\,4-\zeta_3)_K$}
 \author{David Joyner \and Claude (Anthropic)}
-\date{November 8, 2026 --- draft}
+\date{November 8, 2026 --- draft; resynchronized to the book November 9, 2026}
 \begin{document}
 \maketitle
 
 \begin{abstract}
-We fix one concrete case of the standing assumptions of Parts~I--IV and
-[JC], and evaluate in it the main objects of each part. These are the
+We fix one concrete case of the standing assumptions of \cite{Book26} and
+\cite{JC26}, and evaluate in it the main objects of each chapter. These are the
 cocycle parameters, the commutator pairings, the good elements, the
 constants $b_D$ and $c_D$, the wild toral decompositions, and the global
 normalization ledger. Every statement is either checked here, or quoted
 with its location and status label. The aim is to make the general
-constructions concrete, and to give each part a common place to test its
+constructions concrete, and to give each chapter a common place to test its
 formulas.
 \end{abstract}
 
-\paragraph{Theorem numbers.} References to the series are to the drafts
-in the repository: Parts~I and~II, Draft~8; Part~III, Draft~9;
-Part~IV, Draft~5; and the rank-two toral positivity note.
+\paragraph{Theorem numbers.} The four parts and the companion paper on
+the rank-two wild place have been combined into a single book
+\cite{Book26}, which is now the current source; references below are
+to its chapter, section and theorem numbers (Chapters~4--7 are Parts~I--IV,
+and Chapter~8 is the companion paper). Numbers are current as of the
+book draft committed alongside this revision and can shift in later
+drafts, since the book is renumbered automatically when sections are
+added or removed.
 
 \section{The data}
 \begin{center}
@@ -47,11 +54,11 @@ Part~IV, Draft~5; and the rank-two toral positivity note.
 \toprule
 Base field & $K=\Q(\zeta_3)$, totally imaginary, $\mu_3\subset K$\\
 Covering degree, rank & $n=3$, \quad $r=2$, \quad $(n,r)=1$\\
-Parameters (Part~I, Assumption~1.1) & $r'=2$, \quad $c=1$, \quad $c_v=r'c=2$\\
+Parameters (Assumption~4.1.1) & $r'=2$, \quad $c=1$, \quad $c_v=r'c=2$\\
 Checks & $3\mid r-1+2c=3$, \quad $3\mid r-1+2rc_v=9$\\
 Division algebra & $D=(-1,\,4-\zeta_3)_K$, \quad $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)$\\
 Ramification & $S=\{\p_3,\p_7\}$, \quad $\p_3=(1-\zeta_3)$, \quad $\p_7=(3+\zeta_3)$\\
-Cyclic subfield (Part~I, [JC]) & $L=K(i)=\Q(\zeta_{12})\subset D$\\
+Cyclic subfield (\cite{JC26}) & $L=K(i)=\Q(\zeta_{12})\subset D$\\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -83,13 +90,17 @@ $(2)$, $(5)$, $(3z+1)$, $(z+4)$ and $(z-3)$. Here $(-3z-2)=(3+z)$,
 since $(-3z-2)/(3+z)=z^2$ is a unit.
 \end{proof}
 
-The hypotheses of Part~I also hold.
+The hypotheses of Assumption~4.1.1 (Chapter~4, continuing those of
+\cite[\S1]{JC26}) also hold.
 \begin{itemize}
 \item $L=K(i)$ is cyclic of degree $r=2$ and lies in $D$.
 \item At both places of $S$, $L_v$ is a field, because $-1$ is not a
 square in $\F_3$ or $\F_7$.
 \item $|S|=2$ is even, as it must be for $r=2$.
 \end{itemize}
+A fuller check of this example against the hypotheses of \cite{JC26},
+\cite{FK86} and \cite{FK88} is in the book's Chapter~1
+(Example~1.3.1 and Remark~1.3.2).
 
 \section{The local fields}
 \begin{center}
@@ -104,45 +115,45 @@ complex & $\C$ & cover splits & $9$ & $1$\\
 \bottomrule
 \end{tabular}
 \end{center}
-The last column is $n^2|n|_v^{-1}$ at the finite places (Part~IV,
-Proposition~4.2). Locally at $\p_3$ we have $3+\zeta_3\equiv1\pmod{\p_3}$,
+The last column is $n^2|n|_v^{-1}$ at the finite places (Chapter~7,
+Proposition~7.4.2). Locally at $\p_3$ we have $3+\zeta_3\equiv1\pmod{\p_3}$,
 which is a square. So $D_{\p_3}\cong(-1,\varpi)$ with
 $\varpi=\zeta_3-1$; this is exactly the model $E_0\oplus E_0j$, $j^2=\varpi$,
-of Part~IV, Example~6.3. At $\p_7$, $D_{\p_7}\cong(-1,7)_{\Q_7}$.
+of the companion chapter, Chapter~8, Example~8.7.1. At $\p_7$, $D_{\p_7}\cong(-1,7)_{\Q_7}$.
 
-\section{Part I: cocycle, commutators, good elements}
+\section{Chapter 4: cocycle, commutators, good elements}
 \begin{itemize}
-\item \emph{Diagonal torus} (Part~IV, Proposition~2.1). With $c_v=2$,
+\item \emph{Diagonal torus} (Chapter~7, Proposition~7.2.1). With $c_v=2$,
 \[
 [\tilde t,\tilde u]=\prod_{i,j}(t_i,u_j)_3^{A_{ij}},\qquad
 A=-I+5J\equiv\begin{pmatrix}1&-1\\-1&1\end{pmatrix}\pmod 3,
 \]
 so $[\tilde t,\tilde u]=(t_1/t_2,u_1/u_2)_3$. A regular
 $\mathrm{diag}(t_1,t_2)$ is good if and only if $t_1/t_2$ is a cube.
-\item \emph{Quadratic tori} (Part~I, Proposition~3.1 and Example~3.7).
+\item \emph{Quadratic tori} (Chapter~4, Proposition~4.3.1 and Example~4.3.7).
 Here $[x,y]=(Nx,Ny)_F^{2}(x,y)_E^{-1}$. The good elements are
-$F^\times E^{\times3}$ (Part~I, Proposition~3.5; Part~IV, Theorem~3.1).
+$F^\times E^{\times3}$ (Chapter~4, Proposition~4.3.5).
 \item \emph{Index of the good elements in a quadratic torus},
-$|3|_v^{-1}$ (Part~I, Theorem~3.9):
+$|3|_v^{-1}$ (Chapter~4, Proposition~4.3.5):
 \begin{itemize}
 \item at $\p_3$ it is $9$: the covered torus is a Heisenberg group, and
 its genuine irreducibles have dimension~$3$;
 \item at $\p_7$ it is $1$: every element is good, and the covered torus
 is abelian.
 \end{itemize}
-\item \emph{Sign.} The matching sign $(-1)^{r-1}$ of Part~I,
-Theorem~4.5, is $-1$.
-\item \emph{A regular-but-not-good element} (Part~IV, Remark~3.3). The
+\item \emph{Sign.} The matching sign $(-1)^{r-1}$ of Chapter~4,
+Theorem~4.4.5 (Theorem~B), is $-1$.
+\item \emph{A regular-but-not-good element} (Chapter~7, Remark~7.3.3). The
 element $\mathrm{diag}(1,\zeta_3)$ is regular. It is not good at
 $\p_3$, because $\zeta_9\notin\Q_3(\zeta_3)$. Its cube is the identity.
 \end{itemize}
 
-\section{Part III: the transform $L_D$}
+\section{Chapter 6: the transform $L_D$}
 \begin{center}
 \begin{tabular}{@{}lccc@{}}
 \toprule
 & $b_D=|3|^{-1/2}$ & $c_D=|3|^{-3/2}$ & $R_E=\Delta(t)/\Delta(t^3)$\\\midrule
-$\p_7$ (tame) & $1$ & $1$ & $\equiv1$ (Part~III, Lemma~7.4)\\
+$\p_7$ (tame) & $1$ & $1$ & $\equiv1$ (Chapter~6, Lemma~6.7.4)\\
 $\p_3$ (wild) & $3$ & $27$ & $\in\{1,3,9\}$ (below)\\
 \bottomrule
 \end{tabular}
@@ -150,20 +161,20 @@ $\p_3$ (wild) & $3$ & $27$ & $\in\{1,3,9\}$ (below)\\
 
 \begin{itemize}
 \item \emph{At $\p_7$.} $L_D$ is a dimension-preserving bijection of
-irreducible characters (Part~III, Theorem~7.6) \Etag.
+irreducible characters (Chapter~6, Theorem~6.7.6) \Ptag.
 \item \emph{At $\p_3$, divisibility.} The cover does not split, and
-every genuine irreducible has dimension divisible by~$3$ (Part~III,
-Proposition~8.1) \Etag.
+every genuine irreducible has dimension divisible by~$3$ (Chapter~6,
+Proposition~6.8.1) \Ptag.
 \item \emph{At $\p_3$, the prediction.} If $L_D$ maps irreducibles to
 irreducibles, then $\dim\tau=27\dim\rho$. In particular $L_D\mathbf1$
 would be an irreducible of dimension~$27$.
 \end{itemize}
 
-\section{Part IV: the wild place $\p_3$}
+\section{Chapters 7 and 8: the wild place $\p_3$}
 \subsection*{The three quadratic tori}
 $F=\Q_3(\zeta_3)$ has three quadratic extensions. All of them embed in
-$D_{\p_3}$. On $E^1\cong E^\times/F^\times$, Part~IV, \S6.3 and the
-toral note give the following \Ptag.
+$D_{\p_3}$. On $E^1\cong E^\times/F^\times$, Chapter~7's
+toral-positivity analysis gives the following \Ptag.
 
 \begin{center}
 \begin{tabular}{@{}llll@{}}
@@ -189,26 +200,31 @@ $(L_D\mathbf1)(t^*)$ & $3$ & $9$ & $27$\\
 \end{tabular}
 \end{center}
 
-\subsection*{What is open in the example}
-\Ctag\quad \emph{Is $L_D\mathbf1$ at $\p_3$ the character of an
-irreducible genuine representation of $\widetilde{D_{\p_3}^\times}$, of
-dimension~$27$?}
-\begin{itemize}
-\item By the positivity lemma (Part~IV referee report on Draft~5, \S2),
-it suffices that every $L_D\Theta_\rho$ be positive definite.
-\item Torus positivity is now known.
-\item The missing input is the restriction to the $p$-elementary
-subgroups of the covered pro-$3$ group.
-\end{itemize}
-This is the smallest instance of the wild integrality problem.
+\subsection*{What the book now proves}
+This question is no longer open for the running example. Chapter~8
+(the companion chapter) proves, as its main theorem (Target~A) \Ptag:
+$L_D\mathbf1=\Theta_\tau$ for a unique
+genuine irreducible representation $\tau$ of $\widetilde{D_{\p_3}^\times}$,
+of dimension $27$, exhibited explicitly as induced from a canonical
+genuine character of the third congruence subgroup. The proof runs
+through hypothesis (H1) (Chapter~8, Proposition~8.11.4), the theorem
+that (H1) implies Target~A (Chapter~8, Theorem~8.10.6), and the
+uniqueness/irreducibility of the restriction to the pro-$3$ part
+(Chapter~8, Theorem~8.9.5). The same chapter extends this to every
+representation of $D^\times$ trivial on the third congruence subgroup
+and its norm twists. What remains open -- rows of higher level in
+this example, and the wild place for other primes and base fields --
+is discussed in the book's Chapter~8, \S8.15 (Future directions).
+This is no longer the smallest open instance of the wild integrality
+problem; it is the first solved one.
 
 \section{Global: good classes and the normalization ledger}
 \begin{itemize}
-\item \emph{Good classes} (Part~IV, Theorem~5.2) \Ptag. A regular
+\item \emph{Good classes} (Chapter~7, Theorem~7.5.2) \Ptag. A regular
 $\gamma\in D^\times(K)$ with $E=K(\gamma)$ has a rational lift that is
 good everywhere if and only if $\gamma\in K^\times E^{\times3}$. The map
 $[s]\mapsto[s^3]$ is a bijection onto these classes.
-\item \emph{The ledger} (Part~IV, Example~8.8). Take $\lambda_v=1$ at the
+\item \emph{The ledger} (Chapter~7, Example~7.8.8). Take $\lambda_v=1$ at the
 finite split places. Then
 \[
 \Lambda=\lambda_\infty\cdot b_{D,\p_3}\cdot b_{D,\p_7}=3\lambda_\infty,
@@ -217,22 +233,42 @@ and $\Lambda=1$ forces $\lambda_\infty=1/3=|3|_\infty^{-1/2}$.
 \item \emph{The identity-term heuristic.} It gives the complex factor
 $\lambda_\infty|3|_\infty^{-1}=1/27$, which balances $c_{D,\p_3}=27$ by
 the product formula.
-\item \emph{Unramified places.} FK's unit matching needs $p\nmid n$ and
+\item \emph{Unramified places.} \cite{FK86}'s unit matching needs $p\nmid n$ and
 $(n,N_2)=(3,1)=1$. Both hold at every finite place outside $S$, since $\p_3\in S$
-is the only place above~$3$.
+is the only place above~$3$. (As the book's Chapter~1, Remark~1.3.2
+notes, $(n,N_2)=1$ holds automatically for every odd $n$ in the
+quaternion case $r=2$, since there are no composite integers at
+most~$2$.)
 \end{itemize}
 
-\section{[JC]}
-In [JC] the lifting runs from genuine automorphic representations of
+\section{Relation to \cite{JC26}}
+In \cite{JC26} the lifting runs from genuine automorphic representations of
 an $n$-fold cover of $L_{\A}^\times$, here with $L=\Q(\zeta_{12})$, to
 $\varepsilon$-invariant genuine representations of the cover of
-$D^\times_{\A}$. Part~I, \S1, says this. A section of [JC] evaluated in
-this example would complete the picture.
+$D^\times_{\A}$. Chapter~4, \S4.1, of the book says this. A section of
+\cite{JC26} evaluated in this example would complete the picture.
 
 \section*{Suggested use}
-Each part could contain a short subsection, ``The running example'',
-pointing to the relevant section of this note. Each new formula in a
-draft can then be tested here first. The open question of \S5 is the
-natural first target for the wild integrality problem.
+Each chapter of the book has a short subsection, ``A running example''
+(or, in Chapter~1, the canonical statement, Example~1.3.1), pointing
+to the relevant section of this note; \cite{Book26} cites this note
+in the normal way wherever the example is worked out further. Each
+new formula in a draft can be tested here first. Chapter~8,
+\S8.15 is the natural place to look for the next target in the wild
+integrality problem, now that this example's own wild place is
+settled.
+
+\begin{thebibliography}{99}
+\bibitem{Book26} D.~Joyner, Claude and ChatGPT, \emph{On a metaplectic
+Jacquet--Langlands transfer for division algebras of prime degree},
+book draft, \texttt{book/mjl\_book\_draft.tex}, this repository, 2026.
+\bibitem{JC26} D.~Joyner and Claude, On the metaplectic analog of
+Kazhdan's ``endoscopic'' lifting (original 1988, corrected 2026),
+\texttt{metaplectic\_kazhdan\_revised12.tex}.
+\bibitem{FK86} Y.~Z.~Flicker and D.~A.~Kazhdan, Metaplectic
+correspondence, \emph{Publ.\ Math.\ IH\'ES} 64 (1986), 53--110.
+\bibitem{FK88} Y.~Z.~Flicker and D.~A.~Kazhdan, A simple trace
+formula, \emph{J.\ Analyse Math.} 50 (1988), 189--200.
+\end{thebibliography}
 
 \end{document}

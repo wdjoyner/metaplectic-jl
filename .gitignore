@@ -10,6 +10,9 @@
 *.blg
 *.nav
 *.snm
+*.idx
+*.ilg
+*.ind
 
 # macOS files
 .DS_Store
