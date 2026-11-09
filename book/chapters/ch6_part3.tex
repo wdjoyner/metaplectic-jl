@@ -18,11 +18,11 @@
 \providecommand{\Gb}{}\renewcommand{\Gb}{\overline{G}}
 \providecommand{\GDb}{}\renewcommand{\GDb}{\overline{G}_D}
 \providecommand{\Zb}{}\renewcommand{\Zb}{\overline{Z}}
-\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
-\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
-\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
-\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
-\chapter{The division-algebra side and its local character transform}\label{ch:III}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{(P)}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{(E)}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{(O)}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{(C)}}}
+\chapter[The division-algebra side]{The division-algebra side and its local character transform}\label{ch:III}
 \paragraph{Overview.} Let $D/F$ be a central division algebra of prime degree $r$ and
 $\widetilde{D^\times}$ the $n$-fold cover ($n$ odd) specified in
 Chapter~\ref{ch:I}, where $(n,r)=1$. We construct and normalize a unitary
@@ -40,20 +40,18 @@ its published correspondence range, by an explicit cocycle, star-map,
 central-character and root-sum check. The wild-place character
 correspondence and the adelic trace-formula comparison remain open.
 
-\paragraph{Source.} This chapter is Part~III, Draft~10 (November 2026), with references converted to the numbering of this book; see the Preface.
-
 \section{Introduction and results}
 The classical local Jacquet--Langlands correspondence identifies
 irreducible representations of $D^\times$ with essentially
 square-integrable representations of $\GL_r(F)$ in the appropriate
-central-character families \cite{DKV}. It does not produce a
+central-character families \cite{DKV84}. It does not produce a
 correspondence between ordinary representations of $D^\times$ and
 genuine representations of its metaplectic cover: pullback from the
-linear group is not genuine. This paper studies the division-algebra
+linear group is not genuine. This chapter studies the division-algebra
 side directly and provides local results independent of a conjectural
 global trace-formula comparison.
 
-This section places the paper in the series, records the status of its results, and introduces the running example. It depends only on the statements of Chapters~\ref{ch:I} and~\ref{ch:II}; references to them are to Chapter~\ref{ch:I}, and Chapter~\ref{ch:II}. The notation of the series and of this paper is collected in \S\ref{III:sec:glossary}, the results are listed with their labels in the \hyperref[III:sec:summary]{Summary of results} that follows this section, and related work is discussed in \S\ref{III:sec:related}.
+This section places the chapter in the series, records the status of its results, and introduces the running example. It depends only on the statements of Chapters~\ref{ch:I} and~\ref{ch:II}; references to them are to Chapter~\ref{ch:I}, and Chapter~\ref{ch:II}. The notation of the series and of this chapter is collected in \S\ref{III:sec:glossary}, the results are listed with their labels in the \hyperref[III:sec:summary]{Summary of results} that follows this section, and related work is discussed in \S\ref{III:sec:related}.
 
 \paragraph{Position within the series.}
 Chapter~\ref{ch:I} constructs the specified covers, computes their good elements, and
@@ -68,28 +66,28 @@ The principal issues and their status are:
 \toprule
 \textbf{Topic} & \textbf{Assertion} & \textbf{Status}\\
 \midrule
-Covering theory & Scalar centrality and good-locus description from Chapter~\ref{ch:I} & [E]\\
-Local harmonic analysis & Unitary $L_D$ and explicit coefficient $b_D$ & [P]\\
-Tame representations & Splitting over $D^1$ and irreducible-character bijection for $p\nmid n$ & [P]\\
-Wild representations & Nonsplitting and necessary divisibility constraints & [P]\\
- & Integrality of $L_D$ at places dividing $n$ & [C]\\
-Character relation (D2) of Chapter~\ref{ch:I} & Tame places, with the Flicker--Kazhdan--Zou theorem available (in particular when $(n,N_r)=1$); cocycle and star-map compatibility checked below (Corollary~\ref{III:cor:D2tame}) & [P]\\
-Test functions & Normalized local orbital-integral transfer and trace adjunction & [P]\\
-Global arithmetic & Local-to-global powers modulo scalars outside any finite set & [P]\\
-Global comparison & Good-element matching, adelic measures, spectral separation & [C]\\
+Covering theory & Scalar centrality and good-locus description from Chapter~\ref{ch:I} & (E)\\
+Local harmonic analysis & Unitary $L_D$ and explicit coefficient $b_D$ & (P)\\
+Tame representations & Splitting over $D^1$ and irreducible-character bijection for $p\nmid n$ & (P)\\
+Wild representations & Nonsplitting and necessary divisibility constraints & (P)\\
+ & Integrality of $L_D$ at places dividing $n$ & (C)\\
+Character relation (D2) of Chapter~\ref{ch:I} & Tame places, with the Flicker--Kazhdan--Zou theorem available (in particular when $(n,N_r)=1$); cocycle and star-map compatibility checked below (Corollary~\ref{III:cor:D2tame}) & (P)\\
+Test functions & Normalized local orbital-integral transfer and trace adjunction & (P)\\
+Global arithmetic & Local-to-global powers modulo scalars outside any finite set & (P)\\
+Global comparison & Good-element matching, adelic measures, spectral separation & (C)\\
 \bottomrule
 \end{tabular}
 \end{center}
-The labels are those of the whole series (\S\ref{gl:labels}). As in Chapters~\ref{ch:I} and~\ref{ch:II}, \textbf{[P]} means proved here (possibly using
-results marked \textbf{[E]}), \textbf{[E]} means established elsewhere
-(including Chapters~\ref{ch:I} and~\ref{ch:II}) and used as a black box, \textbf{[O]} means that
-a proof is outlined but not fully written out or checked, and \textbf{[C]}
+The labels are those of the whole series (\S\ref{gl:labels}). As in Chapters~\ref{ch:I} and~\ref{ch:II}, \textbf{(P)} means proved here (possibly using
+results marked \textbf{(E)}), \textbf{(E)} means established elsewhere
+(including Chapters~\ref{ch:I} and~\ref{ch:II}) and used as a black box, \textbf{(O)} means that
+a proof is outlined but not fully written out or checked, and \textbf{(C)}
 means conjectural: new mathematical input is required.
 These statuses concern the precise stated hypotheses; the local
 claims rely on the specific covering cocycle of Chapter~\ref{ch:I}, not on
 an arbitrary central extension.
 
-The two distinct maps in the paper should be kept separate:
+The two distinct maps in the chapter should be kept separate:
 the unitary operator on invariant $L^2$ class functions, and a
 bijection of individual irreducible characters. The first exists at
 all division places, whereas the second is established here only
@@ -102,7 +100,7 @@ states what remains for an adelic metaplectic Jacquet--Langlands
 comparison. Section~\ref{III:sec:glossary} collects the notation and glossary, and Section~\ref{III:sec:related} discusses related work; the literature of the whole series is reviewed in \S\ref{I:sec:lit}.
 
 \subsection*{The running example}
-In the series' running example, $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$ (\S\ref{I:sec:intro}, and \texttt{notes/mjl\_running\_example.tex}), the two places of $S$ illustrate the two regimes of this paper. At $\mathfrak p_7$, which does not divide $n$, $b_D=c_D=1$, the discriminant ratio is identically $1$ (Lemma~\ref{III:lem:tame-R}), and $L_D$ is a dimension-preserving bijection of irreducible characters (Theorem~\ref{III:thm:tame-transfer}). At $\mathfrak p_3$, where $K_v=\mathbb{Q}_3(\zeta_3)$ and $|3|_v=1/9$, one has $b_D=3$ and $c_D=27$. There the cover does not split, and genuine irreducibles have dimension divisible by $3$ (Proposition~\ref{III:prop:wild-obstruction}). Integrality of $L_D$ would force $L_D\mathbf 1$ to be irreducible of dimension $27$ (Remark~\ref{III:rem:wild-test}). Whether it is remains open; see Chapter~\ref{ch:IV}.
+In the series' running example, $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$ (\S\ref{I:sec:intro}, and \texttt{notes/mjl\_running\_example.tex}), the two places of $S$ illustrate the two regimes of this chapter. At $\mathfrak p_7$, which does not divide $n$, $b_D=c_D=1$, the discriminant ratio is identically $1$ (Lemma~\ref{III:lem:tame-R}), and $L_D$ is a dimension-preserving bijection of irreducible characters (Theorem~\ref{III:thm:tame-transfer}). At $\mathfrak p_3$, where $K_v=\mathbb{Q}_3(\zeta_3)$ and $|3|_v=1/9$, one has $b_D=3$ and $c_D=27$. There the cover does not split, and genuine irreducibles have dimension divisible by $3$ (Proposition~\ref{III:prop:wild-obstruction}). Integrality of $L_D$ would force $L_D\mathbf 1$ to be irreducible of dimension $27$ (Remark~\ref{III:rem:wild-test}). Whether it is remains open; see Chapter~\ref{ch:IV}.
 
 \section{Local setting and good elements}\label{III:sec:setting}
 We fix the local field, central-character conventions, and the
@@ -271,7 +269,7 @@ measures does not alter the ratio, but the proposed global trace
 formula requires independent, explicit adelic normalizations.
 
 Zou's corrected local Flicker--Kazhdan character relation
-\cite[(3.2) and Remark~3.3]{Z} has elliptic coefficient
+\cite[(3.2) and Remark~3.3]{Z23} has elliptic coefficient
 \[
   \frac{n}{d_F(d_r)|n|_F^{r/2}},\qquad
   d_F(m)=m|m|_F^{-1/2},\qquad
@@ -366,7 +364,7 @@ A unitary operator need not send an orthonormal basis to itself. Even if its mat
 \section{Adams operations and finite-group characters}\label{III:sec:adams}
 We recall the $K$-theoretic origin of the Adams operations and
 explain why they preserve irreducibility in certain tame
-finite-group situations. The section depends on nothing earlier in the paper and introduces the Adams operations $\psi^n$ and virtual characters.
+finite-group situations. The section depends on nothing earlier in the chapter and introduces the Adams operations $\psi^n$ and virtual characters.
 \subsection*{Background from $K$-theory and finite-group characters}
 The Adams operations (after J.~F.~Adams) originated in algebraic topology, where complex topological
 $K$-theory studies the Grothendieck group of complex vector bundles. For a finite
@@ -433,7 +431,7 @@ We use the special cover of Chapter~\ref{ch:I}, including the centrality of $\tZ
 its good-element calculation. Write $H^1=\ker(\Nrd:H\to F^\times)$,
 and put $U_D^1=1+\mathfrak P_D$ for the principal units in the maximal
 order of $D$. The term \emph{tame} here means $p\nmid n$; it does not
-impose a condition on the ramification of a maximal subfield of $D$. The section depends on \S\S\ref{III:sec:setting}--\ref{III:sec:adams}, on Chapter~\ref{ch:I}, and, for Corollary~\ref{III:cor:D2tame}, on \cite{DKV} and \cite{Z}. It introduces $H^1$ and $U_D^1$.
+impose a condition on the ramification of a maximal subfield of $D$. The section depends on \S\S\ref{III:sec:setting}--\ref{III:sec:adams}, on Chapter~\ref{ch:I}, and, for Corollary~\ref{III:cor:D2tame}, on \cite{DKV84} and \cite{Z23}. It introduces $H^1$ and $U_D^1$.
 
 \begin{lemma}[\Ptag\ Prime-to-$n$ finite quotients]\label{III:lem:prime-to-n}
 All finite continuous quotients of $H^1$ and $H/Z$ have order relatively
@@ -560,7 +558,7 @@ over $i\ne j$ (equivalently, the $F$-determinant) yields
 Here the middle product is interpreted with the appropriate
 extension of the normalized absolute value to a splitting field.
 The $p$-adic analytic change-of-variables theorem
-\cite[Proposition~1.2.1]{Loe} applies to the local analytic
+\cite[Proposition~1.2.1]{Loe08} applies to the local analytic
 diffeomorphism $P_n$. The probability Haar measure is associated
 locally to a nonvanishing left-invariant top-degree differential
 form, so preservation of Haar measure implies
@@ -713,7 +711,7 @@ We distinguish the intrinsically defined $n$th power of a lift from
 any choice of cocycle section.  The following facts are the exact
 compatibilities needed to compose the two local correspondences;
 they are consequences of Chapter~\ref{ch:I} and the formulas in
-\cite[\S\S2.2, 3.1]{Z}, not additional assumptions.
+\cite[\S\S2.2, 3.1]{Z23}, not additional assumptions.
 
 Write $F=K_v$ and $c_v=r'c$ as in Chapter~\ref{ch:I}, with $rr'\equiv1\pmod n$.
 \cref{I:prop:restriction}(b), identifies the restriction of the ambient
@@ -727,7 +725,7 @@ factor gives
  \prod_{i<j}(a_i,b_j)_n
  \left(\prod_i a_i,\prod_j b_j\right)_n^{c_v}.
 \end{equation}
-This is precisely Zou's block formula \cite[(2.1)]{Z} in the
+This is precisely Zou's block formula \cite[(2.1)]{Z23} in the
 one-dimensional-block case.  In particular the two models determine
 the same extension class and the same centrality parameter
 \[
@@ -756,7 +754,7 @@ $\widetilde\omega(s(a^nI_r))=\omega(a)$, after transporting
 $\widetilde\theta$ through an isomorphism of covers.
 
 Flicker--Kazhdan define the star map for odd $n$ by
-$x^*=\widetilde x^{\,n}$ \cite[\S4]{FK}; this agrees with
+$x^*=\widetilde x^{\,n}$ \cite[\S4]{FK86}; this agrees with
 \eqref{III:eq:star} and is natural under \emph{every} isomorphism of
 central extensions fixing $\mu_n$.  Two identifications of the
 ambient $\GL_r$ cover with the Kazhdan--Patterson model differ
@@ -790,10 +788,10 @@ $\theta(a)=\widetilde\theta(a^*)$.
 Assume that the square-integrable Flicker--Kazhdan correspondence
 for the parameter-$c_v$ Kazhdan--Patterson cover is available
 in the corrected form of \cite[Proposition~3.6 and
-Definition~3.7]{Z}. A sufficient published range for this
+Definition~3.7]{Z23}. A sufficient published range for this
 external input is $(n,N_r)=1$, where $N_r$ is the least common
 multiple of the composite positive integers at most $r$, with
-$N_r=1$ when there are none \cite[\S26]{FK}.
+$N_r=1$ when there are none \cite[\S26]{FK86}.
 
 Then the division-side tame transfer $L_D$ of
 Theorem~\ref{III:thm:tame-transfer}, the classical local
@@ -837,7 +835,7 @@ $\theta$.  The usual elliptic-character relation is
  \Theta_\rho(t)=(-1)^{r-1}\Theta_\pi(j(t)),
 \end{equation}
 where $j:E\hookrightarrow M_r(F)$ and the discriminant
-normalization is the common one above \cite{DKV}.
+normalization is the common one above \cite{DKV84}.
 The character $\theta$ is trivial on $\mu_n$ by
 \eqref{III:eq:scalar-audit}, so $\pi$ lies in the permitted
 linear central-character family in Zou's correspondence.
@@ -902,10 +900,10 @@ irreducibility or integrality from $L^2$ unitarity alone.
 \end{proof}
 \begin{remark}[Scope and status of Corollary~\ref{III:cor:D2tame}]
 The earlier version of this corollary carried status
-\textbf{[O]} because the cocycle, star map and central
+\textbf{(O)} because the cocycle, star map and central
 characters had not been compared explicitly with Zou.
 Equations~\eqref{III:eq:zou-cocycle-audit}--\eqref{III:eq:jstar-audit}
-now perform that comparison; the result is \textbf{[P]}
+now perform that comparison; the result is \textbf{(P)}
 \emph{under the written external correspondence hypothesis}.
 In particular $(n,N_r)=1$ suffices by the stated
 Flicker--Kazhdan theorem, as used by Zou.  For additional
@@ -1231,7 +1229,7 @@ $b_D$ does not determine adelic orbital measures. The distinction from Chapter~\
 
 \section{Kottwitz's framework for rational orbits and inner forms}
 \label{III:sec:kottwitz}
-This section is expository; it depends on nothing earlier in the paper, and its terminology (stable and rational conjugacy, inner forms, the torus obstruction, Tamagawa factors) is collected in \S\ref{III:subsec:glossIII}.
+This section is expository; it depends on nothing earlier in the chapter, and its terminology (stable and rational conjugacy, inner forms, the torus obstruction, Tamagawa factors) is collected in \S\ref{III:subsec:glossIII}.
 Kottwitz's \emph{Stable trace formula: cuspidal tempered terms}
 \cite{Kot84} explains how Galois cohomology organizes rational
 conjugacy classes within stable classes (\S\S7.7--7.9), how maximal
@@ -1273,7 +1271,7 @@ place implies global embeddability. Kottwitz's general \S9.5
 formulates an obstruction to torus transfer in a class of
 $H^2(K,T_{\mathrm{sc}})$ (pp.~638--639); the specialized Brauer
 criterion avoids that additional complication here. For linear
-orbital-integral transfer see also \cite{Coh}.
+orbital-integral transfer see also \cite{Coh18}.
 
 \paragraph{Tamagawa factors.}
 Kottwitz \S5 identifies the relative Tamagawa number
@@ -1408,7 +1406,7 @@ vanishes. In particular, the usual
 \end{equation}
 This is stronger than the general
 finiteness of $\Sha^1$ for a finite Galois module
-\cite[Chapter~I, \S4]{MilADT}.
+\cite[Chapter~I, \S4]{MilADT06}.
 \end{corollary}
 \begin{proof}
 From $1\to\mathbb G_m\to\operatorname{Res}_{E/K}\mathbb G_m
@@ -1475,9 +1473,9 @@ of Proposition~\ref{III:prop:global-power-hasse}. Then determine which
 rational elements are locally \emph{good} for the particular
 cover at split and division places. Vanishing of the Kummer
 localization kernel alone does not identify the surviving cover orbits.
-\item \textbf{Local normalization and compatibility.} At $v\in S$, convert the probability-measure test transfer of Section~\ref{III:sec:orbital} to the fixed global measures and check the local geometric factor against the exact desired global comparison. At split places, cite the exact usable form of Flicker--Kazhdan \cite{FK}, taking into account Zou's correction to their Lemma 27.1 \cite{Z}. Check unramified unit elements and archimedean factors separately.
+\item \textbf{Local normalization and compatibility.} At $v\in S$, convert the probability-measure test transfer of Section~\ref{III:sec:orbital} to the fixed global measures and check the local geometric factor against the exact desired global comparison. At split places, cite the exact usable form of Flicker--Kazhdan \cite{FK86}, taking into account Zou's correction to their Lemma 27.1 \cite{Z23}. Check unramified unit elements and archimedean factors separately.
 \item \textbf{Identity and volume terms.} With the trace-formula quotient measures fixed, calculate the identity terms, orbital-integral Jacobians, and central character factors. The $b_D$ of Theorem~\ref{III:thm:unitary} is a \emph{local probability-measure normalization} and does not dispose of the global normalization problem.
-\item \textbf{Spectral separation and integrality.} Derive a finite, or otherwise rigorously summable, character identity. Use classical strong multiplicity one for the linear group \cite{Bad}, but do not infer integrality merely from $L^2$ unitarity. The proposed Cauchy--Schwarz argument requires an explicit identity, its correct normalization, and control of every other local factor.
+\item \textbf{Spectral separation and integrality.} Derive a finite, or otherwise rigorously summable, character identity. Use classical strong multiplicity one for the linear group \cite{Bad08}, but do not infer integrality merely from $L^2$ unitarity. The proposed Cauchy--Schwarz argument requires an explicit identity, its correct normalization, and control of every other local factor.
 \end{enumerate}
 
 \begin{remark}[Restriction on $n$]\label{III:rem:N}

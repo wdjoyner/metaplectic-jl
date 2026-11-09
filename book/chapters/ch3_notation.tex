@@ -6,23 +6,23 @@ Every statement in the series carries one of the following labels.
 A label is never upgraded without a proof, and every change of label
 is recorded in the revision log of the draft in which it is made.
 \begin{description}
-\item[\textbf{[P]}] \emph{Proved here}: a complete argument is
+\item[\textbf{(P)}]\index{p@\textbf{(P)}} \emph{Proved here}: a complete argument is
 included in the Part in which the label appears, possibly using
-results labeled \textbf{[E]}.  A statement proved under an
-explicitly stated hypothesis is labeled \textbf{[P]} together with
-the hypothesis, as in ``\textbf{[P]} under $(\mathrm H_D)$'', and the
+results labeled \textbf{(E)}.  A statement proved under an
+explicitly stated hypothesis is labeled \textbf{(P)} together with
+the hypothesis, as in ``\textbf{(P)} under $(\mathrm{Hyp}_D)$'', and the
 hypothesis itself is listed separately with its own label.
-\item[\textbf{[E]}] \emph{Established elsewhere}: a precisely cited
+\item[\textbf{(E)}]\index{e@\textbf{(E)}} \emph{Established elsewhere}: a precisely cited
 theorem from the literature or from an earlier Part, used as a black
-box.  ``\textbf{[P]} (using \textbf{[E]})'' marks a proof that rests
-on such inputs; ``\textbf{[E]}/\textbf{[P]}'' marks a statement that
+box.  ``\textbf{(P)} (using \textbf{(E)})'' marks a proof that rests
+on such inputs; ``\textbf{(E)}/\textbf{(P)}'' marks a statement that
 is partly cited and partly proved.
-\item[\textbf{[O]}] \emph{Proof outlined}: the steps are identified,
+\item[\textbf{(O)}]\index{o@\textbf{(O)}} \emph{Proof outlined}: the steps are identified,
 but at least one of them remains to be written out or checked.
-\item[\textbf{[C]}] \emph{Conjectural}: new mathematical input is
+\item[\textbf{(C)}]\index{c@\textbf{(C)}} \emph{Conjectural}: new mathematical input is
 required.  This includes the goals deferred to later Parts and the
 hypotheses under which conditional statements are proved.
-\item[\textbf{[P$^{\mathrm c}$]}] \emph{Proved modulo an exhaustive
+\item[\textbf{(P$^{\mathrm c}$)}]\index{p c@\textbf{(P$^{\mathrm c}$)}} \emph{Proved modulo an exhaustive
 exact computation}: the proof consists of hand arguments together
 with a computation that is exhaustive over an explicitly described
 finite set and uses exact arithmetic only (no sampling, and no
@@ -34,25 +34,25 @@ used only in Chapter~\ref{ch:W}.
 
 \section{Global data}\label{gl:global}
 \begin{description}
-\item[$K$, $n$, $\mu_n$] $K$ is a totally imaginary number field
+\item[$K$, $n$, $\mu_n$]\index{k n n@$K$, $n$, $\mu_n$} $K$ is a totally imaginary number field
 containing the group $\mu_n$ of $n$-th roots of unity, and $n\ge1$ is
 odd.  All archimedean places of $K$ are complex.
-\item[$r$, $D$, $L$, $S$] $r$ is a prime with $(n,r)=1$; $D$ is a
+\item[$r$, $D$, $L$, $S$]\index{r d l s@$r$, $D$, $L$, $S$} $r$ is a prime with $(n,r)=1$; $D$ is a
 central division algebra over $K$ of dimension $r^2$; $L\subset D$ is
 a cyclic maximal subfield, so $[L:K]=r$; $S$ is the (finite) set of
 places at which $D$ ramifies.  Since $r$ is prime, every $v\in S$ is
 finite and $D_v$ is a division algebra; $|S|\ge2$, and $|S|$ is even
 if $r=2$ (\S\ref{I:subsec:setting}).
-\item[$r'$, $c$, $c_v$] Integers with $rr'\equiv1\pmod n$ and
+\item[$r'$, $c$, $c_v$]\index{r c c v@$r'$, $c$, $c_v$} Integers with $rr'\equiv1\pmod n$ and
 $n\mid r-1+2c$; then $c_v:=r'c$ satisfies $n\mid r-1+2rc_v$ (\cref{I:ass:standing}).  Despite the subscript, $c_v$ does not depend on the
 place $v$.  The parameter $c$ occurs \emph{before} the relabeling of
 $\mu_n$ described in \S\ref{gl:cocycle}, and $c_v$ \emph{after} it.
-\item[$\mathbb A_K$, $L_v$] $\mathbb A_K$ is the adele ring of $K$
+\item[$\mathbb A_K$, $L_v$]\index{a k l v@$\mathbb A_K$, $L_v$} $\mathbb A_K$ is the adele ring of $K$
 (written $\mathbb A$ when no confusion is possible), and
 $L_v:=L\otimes_KK_v=\prod_{w\mid v}L_w$.
-\item[$G_D$] The algebraic group $D^\times$ over $K$, so that
+\item[$G_D$]\index{g d@$G_D$} The algebraic group $D^\times$ over $K$, so that
 $G_D(K_v)=D_v^\times$.
-\item[Running example] $K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$,
+\item[Running example]\index{running example@Running example} $K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$,
 $D=(-1,4-\zeta_3)_K$, ramified exactly at
 $S=\{\mathfrak p_3,\mathfrak p_7\}$ with $\mathfrak p_3=(1-\zeta_3)$
 and $\mathfrak p_7=(3+\zeta_3)$; $L=K(i)=\mathbb Q(\zeta_{12})$,
@@ -64,17 +64,17 @@ the series.
 
 \section{Local fields and absolute values}\label{gl:local}
 \begin{description}
-\item[$F$, $\mathcal O_F$, $\varpi$, $q_F$, $p$] $F$ is a
+\item[$F$, $\mathcal O_F$, $\varpi$, $q_F$, $p$]\index{f o f q f p@$F$, $\mathcal O_F$, $\varpi$, $q_F$, $p$} $F$ is a
 nonarchimedean local field of characteristic zero containing $\mu_n$
 (usually $F=K_v$), with ring of integers $\mathcal O_F$, uniformizer
 $\varpi$, residue field of order $q_F$, and residual characteristic
 $p$.
-\item[$|\cdot|_F$, $|\cdot|_p$] $|\cdot|_F$ is the normalized absolute
+\item[$|\cdot|_F$, $|\cdot|_p$]\index{absolute value@$\lvert\cdot\rvert_F$, $\lvert\cdot\rvert_p$} $|\cdot|_F$ is the normalized absolute
 value, $|\varpi|_F=q_F^{-1}$; on $\mathbb Q_p$ it is written
 $|\cdot|_p$, with $|p|_p=p^{-1}$.  In particular $|n|_F=1$ if
 $p\nmid n$, and $|F^\times/F^{\times n}|=n^2|n|_F^{-1}$ (Chapter~\ref{ch:I},
 proof of Proposition~5.5).
-\item[Places dividing $n$; tame and wild places] A place $v$ (or the
+\item[Places dividing $n$; tame and wild places]\index{places dividing n tame and wild places@Places dividing $n$; tame and wild places} A place $v$ (or the
 field $F=K_v$) \emph{divides $n$} if $p\mid n$.  The places $v\in S$
 with $p\nmid n$ are called \emph{tame}, and those with $p\mid n$
 \emph{wild}.  In the running example $\mathfrak p_7$ is tame and
@@ -83,56 +83,66 @@ $\mathfrak p_3$ is wild ($|3|_{\mathfrak p_3}=3^{-2}$).
 
 \section{Hilbert symbols}\label{gl:hilbert}
 \begin{description}
-\item[$(a,b)_F$] The $n$-th Hilbert symbol of $F$, with values in
-$\mu_n$; Chapter~\ref{ch:IV} and the companion paper also write $(a,b)_{n,F}$ or
+\item[$(a,b)_F$]\index{a b f@$(a,b)_F$} The $n$-th Hilbert symbol of $F$, with values in
+$\mu_n$; Chapter~\ref{ch:IV} and the companion chapter also write $(a,b)_{n,F}$ or
 $(a,b)_n$.  It is bimultiplicative, nondegenerate and antisymmetric,
 $(a,b)_F=(b,a)_F^{-1}$.  At complex places it is trivial.
-\item[Norm compatibility] For a finite extension $F'/F$, $a\in
+\item[Norm compatibility]\index{norm compatibility@Norm compatibility} For a finite extension $F'/F$, $a\in
 F^\times$ and $b\in F'^\times$, $(a,b)_{F'}=(a,N_{F'/F}b)_F$; in
 particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$
 [Serre, \emph{Local Fields}, Ch.~XIV].
-\item[$(a,b)_{\mathbb A}$] For a number field $M\supseteq K$,
+\item[$(a,b)_{\mathbb A}$]\index{a b a@$(a,b)_{\mathbb A}$} For a number field $M\supseteq K$,
 $(a,b)_{\mathbb A_M}=\prod_w(a_w,b_w)_{M_w}$.  Hilbert reciprocity:
 $(a,b)_{\mathbb A_M}=1$ for $a,b\in M^\times$.
 \end{description}
 
 \section{Covers and the cocycle normalization}\label{gl:cocycle}
 \begin{description}
-\item[Cover, $p$, $\overline{H'}$] An \emph{$n$-fold cover} of a
+\item[Cover, $p$, $\overline{H'}$]\index{cover p h@Cover, $p$, $\overline{H'}$} An \emph{$n$-fold cover} of a
 locally compact group $H$ is a topological central extension
 $1\to\mu_n\to\overline H\xrightarrow{\ p\ }H\to1$.  For a subgroup
 $H'\subset H$ we write $\overline{H'}:=p^{-1}(H')$.  Chapters~\ref{ch:I} and~\ref{ch:II}
-write $\overline H$; Parts~III, IV and the companion paper write
+write $\overline H$; Parts~III, IV and the companion chapter write
 $\widetilde H$, $\widetilde Z$.
-\item[Commutators] For lifts $\tilde x,\tilde y$ of commuting
+\item[Commutators]\index{commutators@Commutators} For lifts $\tilde x,\tilde y$ of commuting
 elements, $[x,y]:=\tilde x\tilde y\tilde x^{-1}\tilde y^{-1}\in\mu_n$;
 it does not depend on the lifts, and it is bimultiplicative on a
 torus [Flicker--Kazhdan, \S3].
-\item[Kazhdan--Patterson cocycle $\sigma_F$] The cocycle of
+\item[Kazhdan--Patterson cocycle $\sigma_F$]\index{kazhdan patterson cocycle f@Kazhdan--Patterson cocycle $\sigma_F$} The cocycle of
 [Kazhdan--Patterson, \S0.1] and [Flicker--Kazhdan, \S2] on
 $\mathrm{GL}(r,F)$ with twisting parameter $0$.  On the diagonal
 torus,
-$\sigma_F(\mathrm{diag}(a_i),\mathrm{diag}(b_i))=\prod_{i<j}(a_i,b_j)_F$.
-\item[Parameter-$c'$ cover $\overline G^{(c')}$] The cover of
+\[
+\sigma_F(\mathrm{diag}(a_i),\mathrm{diag}(b_i))=\prod_{i<j}(a_i,b_j)_F.
+\]
+\item[Parameter-$c'$ cover $\overline G^{(c')}$]\index{parameter c cover g c@Parameter-$c'$ cover $\overline G^{(c')}$} The cover of
 $\mathrm{GL}(r,F)$ with cocycle
-$\sigma_F(g,h)\,(\det g,\det h)_F^{\,c'}$.  The comparison uses
+\[
+\sigma_F(g,h)\,(\det g,\det h)_F^{\,c'}.
+\]
+The comparison uses
 $c'=c_v$; the parameter is forced (\cref{I:rem:forced}).  On the
 diagonal torus the commutator of $\mathrm{diag}(t_i)$ and
-$\mathrm{diag}(u_j)$ is $\prod_{i,j}(t_i,u_j)_F^{A_{ij}}$ with
-$A=-I_r+(1+2c_v)J_r$, where $J_r$ is the all-ones matrix (\S\ref{IV:subsec:restriction}).
-\item[Ambient cover $\overline{\mathcal G}_v$] The cover of
+$\mathrm{diag}(u_j)$ is
+\[
+\prod_{i,j}(t_i,u_j)_F^{A_{ij}},\qquad A=-I_r+(1+2c_v)J_r,
+\]
+where $J_r$ is the all-ones matrix (\S\ref{IV:subsec:restriction}).
+\item[Ambient cover $\overline{\mathcal G}_v$]\index{ambient cover g v@Ambient cover $\overline{\mathcal G}_v$} The cover of
 $\mathcal G_v=\mathrm{GL}(r,L_v)=\prod_{w\mid v}\mathrm{GL}(r,L_w)$
 with cocycle
-$\prod_{w\mid v}\sigma_{L_w}(g_w,h_w)\,(\det g_w,\det h_w)_{L_w}^{\,c_v}$,
+\[
+\prod_{w\mid v}\sigma_{L_w}(g_w,h_w)\,(\det g_w,\det h_w)_{L_w}^{\,c_v},
+\]
 the copies of $\mu_n$ being identified (\S\ref{I:subsec:ambient} and
 equation~(1)).  Both covers compared in the series are subgroups of
 it, so their common central subgroup $p^{-1}(K_v^\times)$ is literally
 the same subgroup on the two sides.
-\item[Restriction and relabeling] Pulled back along
+\item[Restriction and relabeling]\index{restriction and relabeling@Restriction and relabeling} Pulled back along
 $\iota_D:D_v^\times\hookrightarrow\mathcal G_v$, the ambient cocycle
 is the local component of the cocycle
 $\beta=\sigma_L\cdot(\mathrm{Nrd},\mathrm{Nrd})^c$ of the corrected
-1988 paper [JC, equation~(4)].  Pulled back along the diagonal
+1988 paper \cite[equation~(4)]{JC26}.  Pulled back along the diagonal
 embedding of $\mathrm{GL}(r,K_v)$, it is isomorphic, \emph{as an
 extension}, to the extension with cocycle
 $\sigma_F^{\,r}(\det,\det)_F^{\,c}$ (\cref{I:prop:restriction}).  The
@@ -144,11 +154,11 @@ equality of cocycles, and it is unique up to
 $\tilde g\mapsto\chi(\det p(\tilde g))\,\tilde g$ with
 $\chi:F^\times\to\mu_n$ continuous.  Central characters are therefore
 never transported through it (\cref{I:rem:chidet}).
-\item[Scalar centrality] Because $n\mid r-1+2rc_v$, the whole inverse
+\item[Scalar centrality]\index{scalar centrality@Scalar centrality} Because $n\mid r-1+2rc_v$, the whole inverse
 image $\overline Z=p^{-1}(F^\times)$ of the scalars is central
 (\cref{I:lem:center}).  A cover with this property is called
 \emph{scalar-central}.
-\item[Global normalization] Globally one uses the normalized cocycle
+\item[Global normalization]\index{global normalization@Global normalization} Globally one uses the normalized cocycle
 $\tau_w(g,h)=\sigma_w(g,h)\,\kappa_w(g)\kappa_w(h)\kappa_w(gh)^{-1}$
 of [Flicker--Kazhdan, \S2], where $\kappa_w$ is trivial for $w\mid
 n\infty$.  The compact splitting is $\kappa^*_w(k)=(k,1)_\tau$ on
@@ -158,7 +168,7 @@ unnormalized models the rational splitting is $x\mapsto(x,1)_\sigma$
 at every place (\cref{I:lem:splittings}).  The global ambient cover
 $\overline{\mathcal G}(\mathbb A_L)$ has cocycle
 $\tau_L\cdot(\det,\det)_{\mathbb A_L}^{\,c_v}$.
-\item[Star map] For $h$ in the base group and any lift $\tilde h$,
+\item[Star map]\index{star map@Star map} For $h$ in the base group and any lift $\tilde h$,
 $h^*:=\tilde h^{\,n}$.  It does not depend on the lift, it is
 conjugation equivariant, $(ah)^*=a^*h^*$ for scalars $a$, and it is
 multiplicative on every torus because $n$ is odd (\cref{III:def:star}; \S\ref{IV:subsec:star}).  For $\zeta\in\mu_n(F)$ one has
@@ -167,9 +177,9 @@ $\zeta^*=1$.
 
 \section{Genuine objects, central characters and good elements}\label{gl:genuine}
 \begin{description}
-\item[Genuine representation] A representation of $\overline H$ on
+\item[Genuine representation]\index{genuine representation@Genuine representation} A representation of $\overline H$ on
 which $\mu_n$ acts by the tautological character $\zeta\mapsto\zeta$.
-\item[$\tilde\theta$, $\theta$] A genuine character $\tilde\theta$ of
+\item[$\tilde\theta$, $\theta$]\index{$\tilde\theta$, $\theta$@$\tilde\theta$, $\theta$} A genuine character $\tilde\theta$ of
 $\overline Z$ (unitary from \S\ref{I:subsec:globalcovers} on; globally, a character of
 $\overline Z(\mathbb A_K)$ trivial on $\iota(K^\times)$).  The same
 $\tilde\theta$ serves both covers, since $\overline Z$ is a common
@@ -177,19 +187,19 @@ subgroup.  The ordinary character attached to it is
 $\theta(a):=\tilde\theta(a^*)$; it is trivial on $\mu_n$, and
 $\theta$ does not determine $\tilde\theta$ (\S\ref{IV:subsec:star}).
 Chapter~\ref{ch:III} requires only that $\tilde\theta|_{\mu_n}$ be faithful.
-\item[Genuine test functions] $C_c^\infty(\overline H,\tilde\theta)_{\mathrm{gen}}$
+\item[Genuine test functions]\index{genuine test functions@Genuine test functions} $C_c^\infty(\overline H,\tilde\theta)_{\mathrm{gen}}$
 is the space of smooth functions with support compact modulo
 $\overline Z$ and $f(z\tilde h)=\tilde\theta(z)^{-1}f(\tilde h)$ for
 $z\in\overline Z$; in particular $f(\zeta\tilde h)=\zeta^{-1}f(\tilde h)$.
 Characters and invariant class functions of genuine representations
 transform by $\tilde\theta$ itself (\S\ref{III:sec:setting}).
-\item[Regular, elliptic] An element of $\mathrm{GL}(r,F)$ is
+\item[Regular, elliptic]\index{regular elliptic@Regular, elliptic} An element of $\mathrm{GL}(r,F)$ is
 \emph{regular} if its eigenvalues are distinct, and \emph{elliptic
 regular} if moreover its characteristic polynomial is irreducible.
 Since $r$ is prime, the regular elements of $D_v^\times$ are the
 noncentral ones, and they are all elliptic.  An element of a cover is
 regular (elliptic) if its image is.
-\item[Good element] A regular $\tilde\gamma$ is \emph{good} if it
+\item[Good element]\index{good element@Good element} A regular $\tilde\gamma$ is \emph{good} if it
 commutes with $p^{-1}(T_\gamma)$, where $T_\gamma$ is the centralizer
 of $\gamma=p(\tilde\gamma)$; equivalently, $\tilde\gamma$ is central
 in the covered torus $\overline{T_\gamma}$.  Genuine invariant
@@ -202,16 +212,152 @@ $\overline{E^\times}$ has dimension $|n|_F^{-(r-1)/2}$ (\cref{I:prop:good}).  Co
 places not dividing $n$.
 \end{description}
 
+\section{Representation-theoretic background}\label{gl:reptheory}
+This section collects, in one place, the representation-theoretic
+facts used throughout the series but not specific to any one
+chapter: the structure of smooth representations of the groups at
+hand, the behavior of characters on compact-modulo-center groups,
+and the germ expansion of orbital integrals near singular elements.
+It is meant as a single point of reference for \S\ref{II:sec:center}
+(Chapter~\ref{ch:II}), which transports genuine orbital integrals
+near the center to a germ expansion for the linear group, and for
+\S\ref{III:sec:characters} (Chapter~\ref{ch:III}), which turns a
+unitary transform of class functions into a question about honest
+(integral) correspondence of irreducible characters; both sections
+assume the background collected here.
+\begin{description}
+\item[Smooth, admissible representation]\index{smooth admissible representation@Smooth, admissible representation} A representation of a
+$p$-adic group $G$ (or of a cover $\overline G$) on a complex vector
+space is \emph{smooth} if every vector is fixed by some open
+subgroup, and \emph{admissible} if in addition the space of vectors
+fixed by any given open compact subgroup is finite-dimensional.
+Every representation occurring in this book, genuine or not, is
+smooth and admissible; for a genuine representation, ``fixed by
+$U$'' means fixed by $U\cap\ker(\mu_n\text{-action})$, since $\mu_n$
+itself never fixes a nonzero genuine vector (\S\ref{gl:genuine}).
+\item[Compact-modulo-center groups and finite dimensionality]\index{compact modulo center groups and finite dimensionality@Compact-modulo-center groups and finite dimensionality} If
+$G/Z$ is compact -- as for $D_v^\times/F^\times$ (since $r$ is prime
+and $D_v$ a division algebra), or for a covered torus modulo its
+center -- every smooth irreducible representation with a fixed
+central character is automatically finite-dimensional: its matrix
+coefficients are then literally the matrix coefficients of a unitary
+representation of a compact group (twisted by the central
+character), which decomposes discretely with finite multiplicities
+by the Peter--Weyl theorem. For covered tori this is the
+Stone--von~Neumann-type finiteness of \cite[\S0.3]{KP84}, used
+throughout \S\ref{I:sec:tori} (\cref{I:prop:good}); for $H=D_v^\times$
+and its cover $\widetilde H$ (\S\ref{gl:transform}) it is the
+starting point of \S\ref{III:sec:characters}: ``since $H/Z$ is
+compact, every smooth irreducible representation with a fixed
+central character is finite dimensional.''
+\item[Character of a representation]\index{character of a representation@Character of a representation} For a finite-dimensional smooth
+representation $\rho$, its character $\Theta_\rho(g):=\operatorname{tr}\rho(g)$ is
+a class function (constant on conjugacy classes), locally constant
+on $G$; a genuine character transforms under the center by the
+central character, exactly as a genuine test function does
+(\S\ref{gl:genuine}). Two finite-dimensional irreducible
+representations with the same central character are isomorphic if
+and only if they have the same character, by the usual linear
+independence of characters.
+\item[Schur orthogonality, compact-modulo-center case]\index{schur orthogonality compact modulo center case@Schur orthogonality, compact-modulo-center case} For $G/Z$
+compact and a fixed unitary central character, the characters
+$\{\Theta_\rho\}$ of the irreducible representations with that
+central character form an orthonormal basis of the space of class
+functions on $G$ transforming by that central character, for the
+invariant inner product normalized by $\mathrm{vol}(G/Z)=1$. This is
+the fact underlying Corollary~\ref{III:cor:matrix}: it is what makes
+the matrix of a unitary transform of class functions, expanded in
+the two bases of irreducible characters, a genuinely unitary matrix
+in the $\ell^2$ sense, rather than merely an operator preserving some
+other norm.
+\item[Unitary versus integral]\index{unitary versus integral@Unitary versus integral} A unitary matrix in an orthonormal
+basis need not have integer, or even rational, entries; unitarity
+only forces each row and column to have squared norm $1$. An
+\emph{integral} unitary matrix is forced to be a signed permutation
+matrix (Corollary~\ref{III:cor:integrality}), which is the precise
+sense in which ``the transform matches characters one-to-one.''
+Distinguishing these two notions is the point of
+\S\ref{III:sec:characters} and of Remark~\ref{III:rem:warning}:
+unitarity of the normalized transform $L_D$ of \S\ref{gl:transform}
+is proved uniformly, but integrality, genuine irreducible characters
+going to a single genuine irreducible character rather than to a
+signed sum of several, is a separate arithmetic question, open at
+wild places.
+\item[Orbital integral]\index{orbital integral@Orbital integral} For $\gamma\in G$ regular semisimple with
+centralizer $T_\gamma$ and $f$ a suitable function on $G$, the
+orbital integral $\Phi(\gamma,f):=\int_{T_\gamma\backslash
+G}f(x^{-1}\gamma x)\,d\dot x$ is the basic local invariant
+distribution of harmonic analysis on $p$-adic groups: by the Weyl
+integration formula it reconstructs the invariant integral of $f$
+from its values on each conjugacy class, and, normalized by a
+discriminant factor $\Delta$, it is the local factor of the
+geometric side of a trace formula. The genuine, normalized version
+$F=\Delta\Phi$ used throughout the series is defined in
+\S\ref{gl:matching} below.
+\item[Unipotent classes of $\mathrm{GL}(r,F)$]\index{unipotent classes of gl r f@Unipotent classes of $\mathrm{GL}(r,F)$} The unipotent
+conjugacy classes of $\mathrm{GL}(r,F)$ are classified, exactly as
+over $\mathbb C$, by the partitions of $r$ (via Jordan type); this is
+the index set $\mathcal O$ of \cref{II:cor:germexp}. On the
+division-algebra side, since $D_v^\times/F^\times$ is compact, the
+only unipotent class is the trivial one $\{1\}$, which is why the
+germ expansion on that side (\cref{I:prop:germ}) has a single term.
+\item[Shalika germ, germ expansion]\index{shalika germ germ expansion@Shalika germ, germ expansion} An orbital integral
+$\Phi(\gamma,f)$ need not extend continuously as $\gamma$ approaches
+a singular (non-regular) semisimple element $\delta$; however,
+Shalika's germ expansion theorem \cite{Sha72} (see also
+\cite{HC70}) says that near $\delta$ it agrees, up to bounded error,
+with a \emph{finite} linear combination
+\[ \Phi(\gamma,f)=\sum_{\mathcal O}\Gamma_{\mathcal O}(\gamma)\,\Phi(u_{\mathcal O},f) \]
+of the orbital integrals of $f$ at representatives $u_{\mathcal O}$
+of the unipotent classes of the centralizer of $\delta$, with
+universal coefficients $\Gamma_{\mathcal O}$ (the \emph{germs})
+depending only on $\gamma$ and $\delta$, not on $f$. This is the
+classical fact that \S\ref{II:sec:center} transports to genuine
+functions on a cover: Proposition~\ref{II:prop:transport} shows that,
+sufficiently near a central good element, a genuine orbital integral
+on the cover literally \emph{equals} an ordinary orbital integral on
+the linear group, not just up to germs, so the Shalika germ
+expansion applies verbatim and gives Corollary~\ref{II:cor:germexp}.
+\item[Harish-Chandra's local character expansion]\index{harish chandra s local character expansion@Harish-Chandra's local character expansion} The
+representation-theoretic counterpart of the germ expansion: the
+character $\Theta_\rho$ of an admissible representation $\rho$, near
+the identity, is a linear combination of the Fourier transforms of
+nilpotent orbital integrals, with coefficients (rather than the
+germs) carrying the representation-theoretic information. This book
+does not use the local character expansion itself, but it is the
+reason germ expansions of orbital integrals (\S\ref{II:sec:center})
+are the geometric mirror of questions about characters of
+representations (\S\ref{III:sec:characters}): the same local, purely
+geometric data that describes test functions near a singular element
+also governs, dually, how characters of representations behave
+there.
+\item[Genuine representations as a parallel representation theory]\index{genuine representations as a parallel representation theory@Genuine representations as a parallel representation theory}
+A genuine representation of a cover $\overline G$ is, in effect, an
+ordinary representation of $\overline G$ on which the central
+$\mu_n$ acts tautologically; equivalently, after fixing a section
+(never a homomorphism, in general), it is a projective representation
+of $G$ with a prescribed cocycle. Every general fact recalled above,
+admissibility, finite-dimensionality modulo a compact center,
+characters as class functions, Schur orthogonality, and germ
+expansions, applies to genuine representations and genuine functions
+exactly as stated, with ``class function'' and ``conjugacy-invariant''
+always understood modulo the extra care needed at non-good elements
+(\S\ref{gl:genuine}): a genuine class function is automatically
+forced to vanish at regular elements that are not good, which is why
+every statement above, applied to a genuine representation or
+function, is really a statement about good elements only.
+\end{description}
+
 \section{Orbital integrals and matching}\label{gl:matching}
 \begin{description}
-\item[$\Delta$] For regular semisimple $\gamma$,
+\item[$\Delta$]\index{$\Delta$@$\Delta$} For regular semisimple $\gamma$,
 $\Delta(\gamma)=|D(\gamma)|_F^{1/2}|\det\gamma|_F^{-(r-1)/2}$, where
 $D(\gamma)$ is the discriminant of the (reduced) characteristic
 polynomial and $\det=\mathrm{Nrd}$ on the division-algebra side.
 Thus $\Delta(\gamma)^2$ is the Weyl discriminant
 $|\det(1-\mathrm{Ad}(\gamma^{-1}))|_{\mathfrak g/\mathfrak t}|_F$
 (\cref{I:def:oi} and \cref{I:lem:traceOI}).
-\item[$\Phi$, $F=\Delta\Phi$] $\Phi(\tilde\gamma,\tilde f)$ is the
+\item[$\Phi$, $F=\Delta\Phi$]\index{f@$\Phi$, $F=\Delta\Phi$} $\Phi(\tilde\gamma,\tilde f)$ is the
 orbital integral over $T_\gamma\backslash G$ of a genuine test
 function at a good regular $\tilde\gamma$, and
 $F(\tilde\gamma,\tilde f)=\Delta(\gamma)\Phi(\tilde\gamma,\tilde f)$
@@ -219,51 +365,51 @@ is the normalized orbital integral, set to $0$ at regular elements
 that are not good (\cref{I:def:oi}).  Chapter~\ref{ch:III} writes
 $J(t,f)=\Delta(t)\,O(t,f)$ for the same function, with its own
 measure conventions.
-\item[Canonical identification $\jmath$] At $v\in S$ and for a maximal
+\item[Canonical identification $\jmath$]\index{canonical identification@Canonical identification $\jmath$} At $v\in S$ and for a maximal
 subfield $E\subset D_v$ with an embedding $j:E\hookrightarrow
 M_r(F)$, every isomorphism of covered tori that is the identity on
 $\overline Z$ has the same restriction $\jmath_{E,j}$ to the good
 elements; these restrictions induce a bijection $\jmath$ from the good
 regular classes of the cover of $D_v^\times$ to the good regular
 elliptic classes of the cover of $\mathrm{GL}(r,F)$ (\cref{I:thm:ident} and \cref{I:cor:classes}).
-\item[Matching] Genuine test functions $\tilde f_D$ and $\tilde f$
+\item[Matching]\index{matching@Matching} Genuine test functions $\tilde f_D$ and $\tilde f$
 \emph{match} if (M1)
 $F(\tilde\gamma,\tilde f_D)=(-1)^{r-1}F(\jmath(\tilde\gamma),\tilde f)$
 at every good regular $\tilde\gamma$, and (M2) $F(\tilde\delta,\tilde
 f)=0$ at every good regular non-elliptic $\tilde\delta$ (\cref{I:def:matching}).  The sign sits in the matching of functions, so that
 the expected character relation is
 $\Theta_{\overline\pi_D}=(-1)^{r-1}\Theta_{\overline\pi}\circ\jmath$.
-\item[Supercusp form] A genuine test function on the cover of
+\item[Supercusp form]\index{supercusp form@Supercusp form} A genuine test function on the cover of
 $\mathrm{GL}(r,F)$ whose integrals along the unipotent radicals of
 all proper parabolic subgroups vanish, for example a matrix
 coefficient of a supercuspidal representation [Flicker--Kazhdan,
 \S13].
-\item[Germ] The asymptotic behavior of orbital integrals near a
+\item[Germ]\index{germ@Germ} The asymptotic behavior of orbital integrals near a
 singular element, expressed through Shalika germs [Flicker--Kazhdan,
 \S8]; used near the center in Chapter~\ref{ch:II}.
 \end{description}
 
 \section{Haar measures}\label{gl:measures}
 \begin{description}
-\item[Chapter~\ref{ch:I}] At $v\in S$ the Haar measures on $D_v^\times/F^\times$
+\item[Chapter~\ref{ch:I}]\index{chapter ch i@Chapter~\ref{ch:I}} At $v\in S$ the Haar measures on $D_v^\times/F^\times$
 and $\mathrm{GL}(r,F)/F^\times$ are arbitrary but fixed, and matching
 is defined with respect to them; torus measures are transported by
 conjugation and do not affect matching.  At $v\notin S$ the measures
 correspond under the identifications $\psi_v$ (\S\S\ref{I:subsec:oi}, \ref{I:subsec:measures}).
-\item[Chapter~\ref{ch:II}] At $v\in S$,
+\item[Chapter~\ref{ch:II}]\index{chapter ch ii@Chapter~\ref{ch:II}} At $v\in S$,
 $\mathrm{vol}(D_v^\times/F^\times)=d(\mathrm{St})^{-1}$, where
 $d(\mathrm{St})$ is the formal degree of the Steinberg representation
 for the chosen measure on $\mathrm{GL}(r,F)/F^\times$ (\cref{II:def:measures}).
-\item[Chapter~\ref{ch:III}] For the transform $L_D$, the quotients $H/Z$ and
+\item[Chapter~\ref{ch:III}]\index{chapter ch iii@Chapter~\ref{ch:III}} For the transform $L_D$, the quotients $H/Z$ and
 $T/Z$ carry their Haar \emph{probability} measures (\S\ref{III:sec:local}).
-\item[Formal degree] For a representation $\sigma$ that is square
+\item[Formal degree]\index{formal degree@Formal degree} For a representation $\sigma$ that is square
 integrable modulo the center, the constant $d(\sigma)$ in the Schur
 orthogonality relations; it depends on the Haar measure.
 \end{description}
 
 \section{The division-side transform}\label{gl:transform}
 \begin{description}
-\item[$H$, $\widetilde H$, $L_D$] For a local division algebra $D$ of
+\item[$H$, $\widetilde H$, $L_D$]\index{h h l d@$H$, $\widetilde H$, $L_D$} For a local division algebra $D$ of
 degree $r$ over $F$, $H=D^\times$ and $\widetilde H$ is its cover from
 Chapter~\ref{ch:I}.  The transform $L_D$ sends $\theta$-equivariant invariant
 $L^2$ functions $\varphi$ on $H$ to genuine
@@ -271,37 +417,37 @@ $\tilde\theta$-equivariant invariant functions on $\widetilde H$ by
 $(L_D\varphi)(z\,t^*)=b_D\,\tilde\theta(z)\,\Delta(t)\Delta(t^n)^{-1}\varphi(t)$
 at good regular elements, and $0$ at the others; it is unitary
 (\cref{III:def:L} and \cref{III:thm:unitary}).
-\item[$b_D$, $c_D$] $b_D=|n|_F^{-(r-1)/2}$ and
+\item[$b_D$, $c_D$]\index{b d c d@$b_D$, $c_D$} $b_D=|n|_F^{-(r-1)/2}$ and
 $c_D=|n|_F^{-(r^2-1)/2}$ (\S\S\ref{III:sec:local}--\ref{III:sec:characters}).  Both equal $1$ at a
 tame place; in the running example $b_D=3$ and $c_D=27$ at
 $\mathfrak p_3$.
-\item[Integrality of $L_D$] The question whether $L_D$ carries
+\item[Integrality of $L_D$]\index{integrality of l d@Integrality of $L_D$} The question whether $L_D$ carries
 irreducible characters to irreducible genuine characters.  It holds at
 tame places (Chapter~\ref{ch:III}) and is open in general at wild places
-(Chapter~\ref{ch:IV}; companion paper).
+(Chapter~\ref{ch:IV}; companion chapter).
 \end{description}
 
 \section{Named results and hypotheses}\label{gl:named}
 \begin{description}
-\item[Theorems A, B, C] Chapter~\ref{ch:I}: the comparison of covered elliptic
+\item[Theorems A, B, C]\index{theorems a b c@Theorems A, B, C} Chapter~\ref{ch:I}: the comparison of covered elliptic
 tori, the matching of regular-supported test functions, and the
-global transfer under $(\mathrm H_D)$ (with its converse under (H)).
-\item[Theorems D, E, C$'$] Chapter~\ref{ch:II}: the equivariant section near the
+global transfer under $(\mathrm{Hyp}_D)$ (with its converse under (Hyp)).
+\item[Theorems D, E, C$'$]\index{theorems d e c@Theorems D, E, C$'$} Chapter~\ref{ch:II}: the equivariant section near the
 center and its compatibility with $\jmath$; the matching of arbitrary
 genuine test functions; and the global transfer under the weaker
-hypothesis $(\mathrm H_D')$ (with its converse under $(\mathrm H')$).
-\item[$(\mathrm H_D)$, (H), $(\mathrm H_D')$, $(\mathrm H')$]
+hypothesis $(\mathrm{Hyp}_D')$ (with its converse under $(\mathrm{Hyp}')$).
+\item[$(\mathrm{Hyp}_D)$, (Hyp), $(\mathrm{Hyp}_D')$, $(\mathrm{Hyp}')$]\index{hyp d hyp hyp d hyp@$(\mathrm{Hyp}_D)$, (Hyp), $(\mathrm{Hyp}_D')$, $(\mathrm{Hyp}')$}
 Non-cancellation hypotheses: the character of a near-equivalence
 packet at the places of $S$ is not identically zero on the relevant
 matching test functions (\cref{I:def:HD} and
-\cref{I:thm:converse}; \cref{II:def:HDprime} and \S\ref{II:subsec:Cprime}).  $(\mathrm H_D)$
-holds when the $D$-side packet is finite (\cref{I:prop:HDfinite}); sufficient conditions for (H) are in \cref{I:rem:H}; and $(\mathrm H_D)\Rightarrow(\mathrm H_D')$,
-$(\mathrm H)\Rightarrow(\mathrm H')$ (\S\ref{II:subsec:Cprime}).
-\item[(D1)--(D4)] The steps left open by Chapter~\ref{ch:I}: matching of
+\cref{I:thm:converse}; \cref{II:def:HDprime} and \S\ref{II:subsec:Cprime}).  $(\mathrm{Hyp}_D)$
+holds when the $D$-side packet is finite (\cref{I:prop:HDfinite}); sufficient conditions for (Hyp) are in \cref{I:rem:H}; and $(\mathrm{Hyp}_D)\Rightarrow(\mathrm{Hyp}_D')$,
+$(\mathrm{Hyp})\Rightarrow(\mathrm{Hyp}')$ (\S\ref{II:subsec:Cprime}).
+\item[(D1)--(D4)]\index{d1 d4@(D1)--(D4)} The steps left open by Chapter~\ref{ch:I}: matching of
 arbitrary functions, local character relations, finiteness of
-near-equivalence packets, and composition with [JC] (\S\ref{I:sec:deferred}).
+near-equivalence packets, and composition with \cite{JC26} (\S\ref{I:sec:deferred}).
 Their status in the later Parts is recorded in \S\ref{I:subsec:partII}.
-\item[Targets A, B, C] The companion paper's three local problems at
+\item[Targets A, B, C]\index{targets a b c@Targets A, B, C} The companion chapter's three local problems at
 the wild place of the running example and beyond (Chapter~\ref{ch:W}, \S\ref{W:sec:intro}).
 \end{description}
 
@@ -340,33 +486,33 @@ the wild place of the running example and beyond (Chapter~\ref{ch:W}, \S\ref{W:s
 \providecommand{\iD}{}\renewcommand{\iD}{\iota_D}
 \providecommand{\iG}{}\renewcommand{\iG}{\iota_{\GL}}
 \providecommand{\jj}{}\renewcommand{\jj}{\jmath}
-\providecommand{\Pv}{}\renewcommand{\Pv}{\textbf{[P]}}
-\providecommand{\Ev}{}\renewcommand{\Ev}{\textbf{[E]}}
-\providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{[O]}}
-\providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{[C]}}
+\providecommand{\Pv}{}\renewcommand{\Pv}{\textbf{(P)}}
+\providecommand{\Ev}{}\renewcommand{\Ev}{\textbf{(E)}}
+\providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{(O)}}
+\providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{(C)}}
 \section{Notation specific to \texorpdfstring{Chapter~\ref{ch:I}}{Chapter 4}}\label{I:subsec:glossI}
 \begin{description}[style=nextline,leftmargin=1.5em]
-\item[$\iD$, $\iG$; $\GDb(K_v)$, $\Gb_v$, $\Zb_v$] The embeddings of $D_v^\times$ and $\GL(r,K_v)$ in $\cG_v=\GL(r,L_v)$, and the inverse images of their images and of $K_v^\times$ in the ambient cover $\cGb_v$ (\S\ref{I:subsec:ambient}, Definition~\ref{I:def:localcovers}).
-\item[$\alpha_v$, $\psi_v$] For $v\notin S$: an isomorphism $D_v\cong M_r(K_v)$, and the induced isomorphism of covers $\GDb(K_v)\to\Gb_v$ given by conjugation in $\cGb_v$ (Proposition~\ref{I:prop:outsideS}). $\psi^V=\otimes_{v\notin V}\psi_v$ (\S\ref{I:subsec:sep}).
-\item[$E$, $j$, $N$; $\Eb_D$, $\Eb_{\GL}$] At $v\in S$: a maximal subfield $E\subset D_v$, an embedding $j:E\hookrightarrow M_r(F)$, the norm $N=N_{E/F}$, and the covered tori $p^{-1}(\iD(E^\times))$ and $p^{-1}(\iG j(E^\times))$ (\S\ref{I:sec:tori}).
-\item[$\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$] Isomorphisms of covered tori over $\iG j\iD^{-1}$ that are the identity on $\mu_n$ and on $\Zb_v$; a torsor under the characters $E^\times\to\mu_n$ trivial on $F^\times$ (Theorem~\ref{I:thm:ident}).
-\item[$\mathcal C^{g}(\GDb(K_v))$, $\mathcal C^{g}_{\mathrm{ell}}(\Gb_v)$] The good regular, respectively good regular elliptic, conjugacy classes (\S\ref{I:subsec:cons}).
-\item[$E_i$, $j_i$, $\jj_i$; $dg_D$, $dg$, $dt_i$] Representatives of the degree-$r$ extensions of $F$ with fixed embeddings, the corresponding identifications, and the local Haar measures (\S\ref{I:subsec:oi}).
-\item[Admissible function; $W_{i,\bullet}$] A locally constant, $\tilde\theta_v^{-1}$-equivariant, $N_{G_\bullet}(T_{i,\bullet})$-invariant function on good regular elements of a covered torus with support compact modulo $\Zb_v$; $W_{i,\bullet}=N_{G_\bullet}(T_{i,\bullet})/T_{i,\bullet}$ (\S\ref{I:subsec:transported}).
-\item[$\cGb(\A_L)$, $\GDb(\A_K)$, $\Gb(\A_K)$, $\Zb(\A_K)$] The global ambient cover and its subgroups (\S\ref{I:subsec:globalcovers}).
-\item[$\iota$, $\ks_v$, $\kappa_w$, $\tau_w$, $s_N$] The rational splitting, the compact splittings, the Flicker--Kazhdan function $\kappa_w$, the normalized cocycle (Lemma~\ref{I:lem:splittings}), and the unipotent splittings (Proposition~\ref{I:prop:global}(e)).
-\item[$S_D$] A finite set of places containing $S$, the archimedean places, the places above $n$, and the places where $L$ or $\tilde\theta$ ramifies or the integrality conditions of Proposition~\ref{I:prop:outsideS}(c) fail (\S\ref{I:subsec:measures}).
-\item[$W_\gamma$, $c(\gamma)$, $\mathcal O_H$] For a regular elliptic rational $\gamma$: the automorphisms of $K(\gamma)/K$ fixing $K^\times\gamma$, the class-counting constant, and the set of good regular elliptic rational classes (\S\ref{I:sec:TF}).
-\item[$w_0$, $u$; admissible pair] A finite place $w_0\notin S$ carrying the supercusp form, a place $u\in S$ with elliptic support, and the pairs of test functions of Definition~\ref{I:def:globalpairs}.
-\item[(A1), (A2); (R1)--(R5)] The analytic inputs of the proof of Proposition~\ref{I:prop:FKvariant}, and the properties of $\Gb(\A_K)$ verified in \S\ref{I:app:cusp}.
-\item[$\sigma$, $\tilde f_\sigma$, $d(\sigma)$] A genuine supercuspidal representation of $\Gb_{w_0}$, its normalized matrix coefficient, and its formal degree (Lemma~\ref{I:lem:supercusp}).
-\item[$V$, $\rho$] $V=S\cup\{w_0\}$, and $\rho$ an admissible genuine irreducible representation of $\Gb(\A^V)$ (\S\ref{I:subsec:sep}).
-\item[Corner Hecke algebra; $e_v$, $e_{\mathfrak t}$, $A_v$, $A_\infty$, $A$, $e\tau$] For an idempotent (or idempotent multiplier) $e$, the algebra $e\mathcal He$; the central-character idempotents, the archimedean $K_\infty$-type projector, the corner algebras and the module $e\tau$ of Lemma~\ref{I:lem:corner}. Irreducible $\tau$ with $e\tau\ne0$ correspond to simple $e\mathcal He$-modules.
-\item[Near-equivalence packets $P_D(\rho)$, $P(\rho)$] The automorphic (resp.\ cuspidal) representations with components $\rho$ away from $V$ and $\sigma$ at $w_0$, counted with multiplicity; they need not be finite (Proposition~\ref{I:prop:packet}). $\Omega_D$, $\Omega$ are the finite sets of representations that can contribute at a fixed level (proof of Proposition~\ref{I:prop:packet}).
-\item[$\mathcal T_v$, $a$, $\Lambda_a$] The genuine irreducibles of $\GDb(K_v)$ with fixed vectors at a given level, a coefficient function on $\prod_{v\in S}\mathcal T_v$, and the corresponding trace functional (Lemma~\ref{I:lem:cancel}).
-\item[$(\mathrm H_D)$, (H); elliptic detectability] The condition that the character at $S$ of the $D$-side (resp.\ $\GL$-side) packet is not identically zero on matching regular-supported test functions (Definition~\ref{I:def:HD}, Theorem~\ref{I:thm:converse}).
-\item[(D1)--(D4)] The deferred steps of \S\ref{I:sec:deferred}.
-\item[$\Psi$, $\tilde\Psi$, $\Gb_T$, $T^{\reg}$, $\Tb^{g,\reg}$] The conjugation maps, the open set of good elements conjugate into $T^{\reg}$, the regular elements of an elliptic torus $T$, and the good regular elements of $\Tb$ (\S\ref{I:app:oi}).
+\item[$\iD$, $\iG$; $\GDb(K_v)$, $\Gb_v$, $\Zb_v$]\index{k v v v@iotaD, iotaGL; GDbar(K\_v), Gbar\_v, Zbar\_v} The embeddings of $D_v^\times$ and $\GL(r,K_v)$ in $\cG_v=\GL(r,L_v)$, and the inverse images of their images and of $K_v^\times$ in the ambient cover $\cGb_v$ (\S\ref{I:subsec:ambient}, Definition~\ref{I:def:localcovers}).
+\item[$\alpha_v$, $\psi_v$]\index{v v@alpha\_v, psi\_v} For $v\notin S$: an isomorphism $D_v\cong M_r(K_v)$, and the induced isomorphism of covers $\GDb(K_v)\to\Gb_v$ given by conjugation in $\cGb_v$ (Proposition~\ref{I:prop:outsideS}). $\psi^V=\otimes_{v\notin V}\psi_v$ (\S\ref{I:subsec:sep}).
+\item[$E$, $j$, $N$; $\Eb_D$, $\Eb_{\GL}$]\index{e j n d@E, j, N; Ebar\_D, Ebar\_GL} At $v\in S$: a maximal subfield $E\subset D_v$, an embedding $j:E\hookrightarrow M_r(F)$, the norm $N=N_{E/F}$, and the covered tori $p^{-1}(\iD(E^\times))$ and $p^{-1}(\iG j(E^\times))$ (\S\ref{I:sec:tori}).
+\item[$\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$]\index{d@Iso\_Zbar(Ebar\_D, Ebar\_GL)} Isomorphisms of covered tori over $\iG j\iD^{-1}$ that are the identity on $\mu_n$ and on $\Zb_v$; a torsor under the characters $E^\times\to\mu_n$ trivial on $F^\times$ (Theorem~\ref{I:thm:ident}).
+\item[$\mathcal C^{g}(\GDb(K_v))$, $\mathcal C^{g}_{\mathrm{ell}}(\Gb_v)$]\index{c g k v c g ell v@C\textasciicircum g(GDbar(K\_v)), C\textasciicircum g\_ell(Gbar\_v)} The good regular, respectively good regular elliptic, conjugacy classes (\S\ref{I:subsec:cons}).
+\item[$E_i$, $j_i$, $\jj_i$; $dg_D$, $dg$, $dt_i$]\index{e i j i i dg d dg dt i@E\_i, j\_i, j\_i; dg\_D, dg, dt\_i} Representatives of the degree-$r$ extensions of $F$ with fixed embeddings, the corresponding identifications, and the local Haar measures (\S\ref{I:subsec:oi}).
+\item[Admissible function; $W_{i,\bullet}$]\index{admissible function w i@Admissible function; W\_i, *} A locally constant, $\tilde\theta_v^{-1}$-equivariant, $N_{G_\bullet}(T_{i,\bullet})$-invariant function on good regular elements of a covered torus with support compact modulo $\Zb_v$; $W_{i,\bullet}=N_{G_\bullet}(T_{i,\bullet})/T_{i,\bullet}$ (\S\ref{I:subsec:transported}).
+\item[$\cGb(\A_L)$, $\GDb(\A_K)$, $\Gb(\A_K)$, $\Zb(\A_K)$]\index{l k k k@calGbar(A\_L), GDbar(A\_K), Gbar(A\_K), Zbar(A\_K)} The global ambient cover and its subgroups (\S\ref{I:subsec:globalcovers}).
+\item[$\iota$, $\ks_v$, $\kappa_w$, $\tau_w$, $s_N$]\index{v w w s n@iota, kappas\_v, kappa\_w, tau\_w, s\_N} The rational splitting, the compact splittings, the Flicker--Kazhdan function $\kappa_w$, the normalized cocycle (Lemma~\ref{I:lem:splittings}), and the unipotent splittings (Proposition~\ref{I:prop:global}(e)).
+\item[$S_D$]\index{s d@S\_D} A finite set of places containing $S$, the archimedean places, the places above $n$, and the places where $L$ or $\tilde\theta$ ramifies or the integrality conditions of Proposition~\ref{I:prop:outsideS}(c) fail (\S\ref{I:subsec:measures}).
+\item[$W_\gamma$, $c(\gamma)$, $\mathcal O_H$]\index{w c o h@W\_gamma, c(gamma), O\_H} For a regular elliptic rational $\gamma$: the automorphisms of $K(\gamma)/K$ fixing $K^\times\gamma$, the class-counting constant, and the set of good regular elliptic rational classes (\S\ref{I:sec:TF}).
+\item[$w_0$, $u$; admissible pair]\index{w 0 u admissible pair@w\_0, u; admissible pair} A finite place $w_0\notin S$ carrying the supercusp form, a place $u\in S$ with elliptic support, and the pairs of test functions of Definition~\ref{I:def:globalpairs}.
+\item[(A1), (A2); (R1)--(R5)]\index{a1 a2 r1 r5@(A1), (A2); (R1)--(R5)} The analytic inputs of the proof of Proposition~\ref{I:prop:FKvariant}, and the properties of $\Gb(\A_K)$ verified in \S\ref{I:app:cusp}.
+\item[$\sigma$, $\tilde f_\sigma$, $d(\sigma)$]\index{f d@sigma, f\_sigma, d(sigma)} A genuine supercuspidal representation of $\Gb_{w_0}$, its normalized matrix coefficient, and its formal degree (Lemma~\ref{I:lem:supercusp}).
+\item[$V$, $\rho$]\index{v@V, rho} $V=S\cup\{w_0\}$, and $\rho$ an admissible genuine irreducible representation of $\Gb(\A^V)$ (\S\ref{I:subsec:sep}).
+\item[Corner Hecke algebra; $e_v$, $e_{\mathfrak t}$, $A_v$, $A_\infty$, $A$, $e\tau$]\index{corner hecke algebra e v e t a v a a e@Corner Hecke algebra; e\_v, e\_ t, A\_v, A\_infty, A, etau} For an idempotent (or idempotent multiplier) $e$, the algebra $e\mathcal He$; the central-character idempotents, the archimedean $K_\infty$-type projector, the corner algebras and the module $e\tau$ of Lemma~\ref{I:lem:corner}. Irreducible $\tau$ with $e\tau\ne0$ correspond to simple $e\mathcal He$-modules.
+\item[Near-equivalence packets $P_D(\rho)$, $P(\rho)$]\index{near equivalence packets p d p@Near-equivalence packets P\_D(rho), P(rho)} The automorphic (resp.\ cuspidal) representations with components $\rho$ away from $V$ and $\sigma$ at $w_0$, counted with multiplicity; they need not be finite (Proposition~\ref{I:prop:packet}). $\Omega_D$, $\Omega$ are the finite sets of representations that can contribute at a fixed level (proof of Proposition~\ref{I:prop:packet}).
+\item[$\mathcal T_v$, $a$, $\Lambda_a$]\index{t v a a@T\_v, a, Lambda\_a} The genuine irreducibles of $\GDb(K_v)$ with fixed vectors at a given level, a coefficient function on $\prod_{v\in S}\mathcal T_v$, and the corresponding trace functional (Lemma~\ref{I:lem:cancel}).
+\item[$(\mathrm{Hyp}_D)$, (Hyp); elliptic detectability]\index{hyp d hyp elliptic detectability@(Hyp\_D), (Hyp); elliptic detectability} The condition that the character at $S$ of the $D$-side (resp.\ $\GL$-side) packet is not identically zero on matching regular-supported test functions (Definition~\ref{I:def:HD}, Theorem~\ref{I:thm:converse}).
+\item[(D1)--(D4)]\index{d1 d4@(D1)--(D4)} The deferred steps of \S\ref{I:sec:deferred}.
+\item[$\Psi$, $\tilde\Psi$, $\Gb_T$, $T^{\reg}$, $\Tb^{g,\reg}$]\index{t t g@Psi, Psi, Gbar\_T, T\textasciicircum reg, Tbar\textasciicircum g, reg} The conjugation maps, the open set of good elements conjugate into $T^{\reg}$, the regular elements of an elliptic torus $T$, and the good regular elements of $\Tb$ (\S\ref{I:app:oi}).
 \end{description}
 \endgroup
 \begingroup
@@ -400,28 +546,28 @@ the wild place of the running example and beyond (Chapter~\ref{ch:W}, \S\ref{W:s
 \providecommand{\iG}{}\renewcommand{\iG}{\iota_{\GL}}
 \providecommand{\jj}{}\renewcommand{\jj}{\jmath}
 \providecommand{\sg}{}\renewcommand{\sg}{\sigma}
-\providecommand{\Pv}{}\renewcommand{\Pv}{\textbf{[P]}}
-\providecommand{\Ev}{}\renewcommand{\Ev}{\textbf{[E]}}
-\providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{[O]}}
-\providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{[C]}}
+\providecommand{\Pv}{}\renewcommand{\Pv}{\textbf{(P)}}
+\providecommand{\Ev}{}\renewcommand{\Ev}{\textbf{(E)}}
+\providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{(O)}}
+\providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{(C)}}
 \section{Notation specific to \texorpdfstring{Chapter~\ref{ch:II}}{Chapter 5}}\label{II:subsec:glossII}
 \begin{description}[style=nextline,leftmargin=1.5em]
-\item[$G$, $\Gb$, $Z$, $\Zb$; $P_g$, $A_g$; eigenvalues] At a finite place $v$ with $F=K_v$: $G$ is $\GL(r,F)$ or $D_v^\times$, $\Gb=p^{-1}(G)$, $Z=F^\times$, $\Zb=p^{-1}(Z)$; $P_g$ is the (reduced) characteristic polynomial of $g$, $A_g=F[g]$, and the eigenvalues of $g$ are the roots of $P_g$ in $\ov F$ (\S\ref{II:subsec:localnotation}).
-\item[$\Phi^z$] The orbital integral over $Z\backslash G$, $\Phi^z(\gamma,f)=\vol(T_\gamma/Z)\,\Phi(\gamma,f)$ for regular elliptic $\gamma$ \cite[\S6]{FK} (\S\ref{II:subsec:localnotation}).
-\item[$d(\St)$, compatible measures, $\lambda_v$] The formal degree of the Steinberg representation of $\GL(r,F)$; the normalization $\vol(D_v^\times/F^\times)=d(\St)^{-1}$ at $v\in S$ (Definition~\ref{II:def:measures}); and $\lambda_v=d(\St)\vol(D_v^\times/F^\times)$, which equals $1$ for these measures (Remark~\ref{II:rem:measures}).
-\item[(I1)--(I11)] The results of Chapter~\ref{ch:I} used here, restated in the form used (\S\ref{II:subsec:fromPartI}).
-\item[$\Omega_M$, $V_M$, $V_{D,M}$] The monic degree-$r$ polynomials congruent to $(X-1)^r$ modulo $\fp^M$, and the conjugation-invariant open and closed set of elements of $G$ (resp.\ $D_v^\times$) whose characteristic polynomial lies in $\Omega_M$ (\S\ref{II:subsec:roots}).
-\item[$\delta_n$, $B$, $M_0$, $M_1$] The constants of Lemmas~\ref{II:lem:roots} and~\ref{II:lem:chooseM}: $\delta_n=1$ if $p\nmid n$ and $q^{-e/(p-1)}$ if $p\mid n$, $B=|n|_F^{-1}q^{e/(p-1)}$, $M_0$ the level from which the binomial series converges, and $M_1\ge M_0$ the level from which $\tilde\theta\circ\sg$ is trivial on the relevant scalars.
-\item[$g^{1/n}$] The canonical $n$-th root $\sum_k\binom{1/n}{k}(g-1)^k\in A_g$ for $g\in V_M$, $M\ge M_0$ (Lemma~\ref{II:lem:roots}).
-\item[$\sg$, $\sg_D$, $\sg_{\GL}$] The section $\sg(g)=\tilde h^{\,n}$ with $h=g^{1/n}$ (\S\ref{II:subsec:section}, Proposition~\ref{II:prop:section}).
-\item[$\mathcal T$, $\mathcal T_D$; $C_c^\infty(\Gb,\tilde\theta)_{\gen,M}$, $C_c^\infty(G/Z)_M$] The transport $(\mathcal T\tilde f)(p(z)g)=\tilde\theta(z)\tilde f(z\sg(g))$, a bijection between genuine functions supported on $p^{-1}(ZV_M)$ and functions on $G/Z$ supported on $ZV_M$ (Proposition~\ref{II:prop:transport}).
-\item[$\Gamma_{\mathcal O}$, $u_{\mathcal O}$] Shalika germs of $\GL(r,F)$ for the fixed measures, indexed by the unipotent classes $\mathcal O$ (partitions of $r$), with representatives $u_{\mathcal O}$; $\Gamma_{\{1\}}$ is the trivial germ (Corollaries~\ref{II:cor:germexp} and~\ref{II:cor:trivgerm}).
-\item[(L1), (L2); $f_{\St}$] The two linear inputs: the Steinberg pseudo-coefficient $f_{\St}$ and its orbital integrals, and linear matching of functions with vanishing non-elliptic orbital integrals (\S\ref{II:subsec:linear}).
-\item[$e_D$, $\tilde f^{\St}$] The genuine function on $\GDb(K_v)$ equal to $\tilde\theta_v^{-1}$ on $\Zb_v\sg_D(V_{D,M})$, and the transport of $d(\St)^{-1}f_{\St}$ cut off to $ZV_M$; they match (Proposition~\ref{II:prop:eD}).
-\item[$\tilde f_{\reg}$] The part of the matching function of Theorem~E supported on the good regular elliptic set (Theorem~\ref{II:thm:matching}).
-\item[(Ell), (Non); (G1), (G2)] The orbital-integral form and the unipotent (germ) form of the condition that a function match $\tilde f_D$ near $\Zb_v$ (\S\ref{II:subsec:germ}, Theorem~\ref{II:thm:germ}).
-\item[$u$-admissible pair] A pair of global test functions with elliptic support at one place $u\in S$ only and arbitrary matching functions at the other places of $S$ (Definition~\ref{II:def:uadm}).
-\item[$(\mathrm H_D')$, $(\mathrm H')$] The weakened non-cancellation hypotheses (Definition~\ref{II:def:HDprime}).
+\item[$G$, $\Gb$, $Z$, $\Zb$; $P_g$, $A_g$; eigenvalues]\index{g z p g a g eigenvalues@G, Gbar, Z, Zbar; P\_g, A\_g; eigenvalues} At a finite place $v$ with $F=K_v$: $G$ is $\GL(r,F)$ or $D_v^\times$, $\Gb=p^{-1}(G)$, $Z=F^\times$, $\Zb=p^{-1}(Z)$; $P_g$ is the (reduced) characteristic polynomial of $g$, $A_g=F[g]$, and the eigenvalues of $g$ are the roots of $P_g$ in $\ov F$ (\S\ref{II:subsec:localnotation}).
+\item[$\Phi^z$]\index{z@Phi\textasciicircum z} The orbital integral over $Z\backslash G$, $\Phi^z(\gamma,f)=\vol(T_\gamma/Z)\,\Phi(\gamma,f)$ for regular elliptic $\gamma$ \cite[\S6]{FK86} (\S\ref{II:subsec:localnotation}).
+\item[$d(\St)$, compatible measures, $\lambda_v$]\index{d compatible measures v@d(St), compatible measures, lambda\_v} The formal degree of the Steinberg representation of $\GL(r,F)$; the normalization $\vol(D_v^\times/F^\times)=d(\St)^{-1}$ at $v\in S$ (Definition~\ref{II:def:measures}); and $\lambda_v=d(\St)\vol(D_v^\times/F^\times)$, which equals $1$ for these measures (Remark~\ref{II:rem:measures}).
+\item[(I1)--(I11)]\index{i1 i11@(I1)--(I11)} The results of Chapter~\ref{ch:I} used here, restated in the form used (\S\ref{II:subsec:fromPartI}).
+\item[$\Omega_M$, $V_M$, $V_{D,M}$]\index{m v m v d m@Omega\_M, V\_M, V\_D, M} The monic degree-$r$ polynomials congruent to $(X-1)^r$ modulo $\fp^M$, and the conjugation-invariant open and closed set of elements of $G$ (resp.\ $D_v^\times$) whose characteristic polynomial lies in $\Omega_M$ (\S\ref{II:subsec:roots}).
+\item[$\delta_n$, $B$, $M_0$, $M_1$]\index{n b m 0 m 1@delta\_n, B, M\_0, M\_1} The constants of Lemmas~\ref{II:lem:roots} and~\ref{II:lem:chooseM}: $\delta_n=1$ if $p\nmid n$ and $q^{-e/(p-1)}$ if $p\mid n$, $B=|n|_F^{-1}q^{e/(p-1)}$, $M_0$ the level from which the binomial series converges, and $M_1\ge M_0$ the level from which $\tilde\theta\circ\sg$ is trivial on the relevant scalars.
+\item[$g^{1/n}$]\index{g 1 n@g\textasciicircum 1/n} The canonical $n$-th root $\sum_k\binom{1/n}{k}(g-1)^k\in A_g$ for $g\in V_M$, $M\ge M_0$ (Lemma~\ref{II:lem:roots}).
+\item[$\sg$, $\sg_D$, $\sg_{\GL}$]\index{d@s, s\_D, s\_GL} The section $\sg(g)=\tilde h^{\,n}$ with $h=g^{1/n}$ (\S\ref{II:subsec:section}, Proposition~\ref{II:prop:section}).
+\item[$\mathcal T$, $\mathcal T_D$; $C_c^\infty(\Gb,\tilde\theta)_{\gen,M}$, $C_c^\infty(G/Z)_M$]\index{t t d c c m c c g z m@T, T\_D; C\_c\textasciicircum infty(Gbar, theta)\_gen, M, C\_c\textasciicircum infty(G/Z)\_M} The transport $(\mathcal T\tilde f)(p(z)g)=\tilde\theta(z)\tilde f(z\sg(g))$, a bijection between genuine functions supported on $p^{-1}(ZV_M)$ and functions on $G/Z$ supported on $ZV_M$ (Proposition~\ref{II:prop:transport}).
+\item[$\Gamma_{\mathcal O}$, $u_{\mathcal O}$]\index{o u o@Gamma\_ O, u\_ O} Shalika germs of $\GL(r,F)$ for the fixed measures, indexed by the unipotent classes $\mathcal O$ (partitions of $r$), with representatives $u_{\mathcal O}$; $\Gamma_{\{1\}}$ is the trivial germ (Corollaries~\ref{II:cor:germexp} and~\ref{II:cor:trivgerm}).
+\item[(L1), (L2); $f_{\St}$]\index{l1 l2 f@(L1), (L2); f\_St} The two linear inputs: the Steinberg pseudo-coefficient $f_{\St}$ and its orbital integrals, and linear matching of functions with vanishing non-elliptic orbital integrals (\S\ref{II:subsec:linear}).
+\item[$e_D$, $\tilde f^{\St}$]\index{e d f@e\_D, f\textasciicircum St} The genuine function on $\GDb(K_v)$ equal to $\tilde\theta_v^{-1}$ on $\Zb_v\sg_D(V_{D,M})$, and the transport of $d(\St)^{-1}f_{\St}$ cut off to $ZV_M$; they match (Proposition~\ref{II:prop:eD}).
+\item[$\tilde f_{\reg}$]\index{f@f\_reg} The part of the matching function of Theorem~E supported on the good regular elliptic set (Theorem~\ref{II:thm:matching}).
+\item[(Ell), (Non); (G1), (G2)]\index{ell non g1 g2@(Ell), (Non); (G1), (G2)} The orbital-integral form and the unipotent (germ) form of the condition that a function match $\tilde f_D$ near $\Zb_v$ (\S\ref{II:subsec:germ}, Theorem~\ref{II:thm:germ}).
+\item[$u$-admissible pair]\index{u admissible pair@u-admissible pair} A pair of global test functions with elliptic support at one place $u\in S$ only and arbitrary matching functions at the other places of $S$ (Definition~\ref{II:def:uadm}).
+\item[$(\mathrm{Hyp}_D')$, $(\mathrm{Hyp}')$]\index{hyp d hyp@(Hyp\_D'), (Hyp')} The weakened non-cancellation hypotheses (Definition~\ref{II:def:HDprime}).
 \end{description}
 \endgroup
 \begingroup
@@ -443,72 +589,72 @@ the wild place of the running example and beyond (Chapter~\ref{ch:W}, \S\ref{W:s
 \providecommand{\Gb}{}\renewcommand{\Gb}{\overline{G}}
 \providecommand{\GDb}{}\renewcommand{\GDb}{\overline{G}_D}
 \providecommand{\Zb}{}\renewcommand{\Zb}{\overline{Z}}
-\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
-\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
-\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
-\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{(P)}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{(E)}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{(O)}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{(C)}}}
 \section{Notation and terminology specific to \texorpdfstring{Chapter~\ref{ch:III}}{Chapter 6}}\label{III:subsec:glossIII}
 \begin{description}[style=nextline,leftmargin=2.7cm,labelwidth=2.5cm,font=\normalfont\bfseries]
-\item[Adams operation $\psi^n$]
+\item[Adams operation $\psi^n$]\index{adams operation n@Adams operation psi\textasciicircum n}
 The $\lambda$-ring operation on the representation ring satisfying
 $\chi_{\psi^nV}(g)=\chi_V(g^n)$; it can produce a virtual character
 rather than an actual representation.
-\item[Equivariant $K$-theory]
+\item[Equivariant $K$-theory]\index{equivariant k theory@Equivariant K-theory}
 At a point, $K_Q^0(\mathrm{pt})=R(Q)$, the representation ring
 of a finite group $Q$. Exterior powers give its $\lambda$-operations.
-\item[Virtual character]
+\item[Virtual character]\index{virtual character@Virtual character}
 An integral linear combination of irreducible characters.
-\item[Hall $\pi$-subgroup]
+\item[Hall $\pi$-subgroup]\index{hall subgroup@Hall pi-subgroup}
 A subgroup whose order involves only primes in $\pi$ and whose
 index is prime to every prime in $\pi$; in the tame proof it
 separates the central $n$-part of a finite quotient.
-\item[Normalized orbital integral]
+\item[Normalized orbital integral]\index{normalized orbital integral@Normalized orbital integral}
 Here $J(t,f)=\Delta(t)O(t,f)$, where $\Delta$ is the square root
 of the Weyl discriminant and quotient Haar measures are specified.
-\item[Transforms $L_D,\mathcal O_D,\mathcal B$]
+\item[Transforms $L_D,\mathcal O_D,\mathcal B$]\index{transforms l d o d b@Transforms L\_D, O\_D, B}
 Respectively the unitary invariant class-function transform, the
 forward test-function transfer, and its inverse modulo orbital-integral
 kernels; see Definitions~\ref{III:def:L} and Theorem~\ref{III:thm:test-transfer}.
-\item[Stable/rational conjugacy]
+\item[Stable/rational conjugacy]\index{stable rational conjugacy@Stable/rational conjugacy}
 Conjugacy over an algebraic closure (with descent) versus conjugacy
 by the rational points $G(K)$; one stable class may contain several
 rational classes for a general reductive group.
-\item[Inner form]
+\item[Inner form]\index{inner form@Inner form}
 A twist of a reductive group by inner automorphisms;
 $\GL_1(D)$ is an inner form of $\GL_r$.
-\item[Induced torus]
+\item[Induced torus]\index{induced torus@Induced torus}
 In this paper $T=\operatorname{Res}_{E/K}\mathbb G_m$,
 with $T(K)=E^\times$ and $H^1(K,T)=1$ by Hilbert~90.
-\item[Kottwitz torus obstruction]
+\item[Kottwitz torus obstruction]\index{kottwitz torus obstruction@Kottwitz torus obstruction}
 A global cohomological obstruction to transferring an admissible
 torus to an inner form despite local embeddings, discussed in
 \cite[\S9.5]{Kot84}.
-\item[Relative Tamagawa number]
+\item[Relative Tamagawa number]\index{relative tamagawa number@Relative Tamagawa number}
 The ratio $\tau_1(G)=\tau(G)/\tau(G_{\mathrm{sc}})$; it is not
 a local probability Haar measure.
-\item[Brauer class]
+\item[Brauer class]\index{brauer class@Brauer class}
 The class $[D]\in\operatorname{Br}(K)$ of a central simple algebra;
 $E$ embeds maximally in $D$ exactly when $D\otimes_K E$ splits.
-\item[Scalar power quotient]
+\item[Scalar power quotient]\index{scalar power quotient@Scalar power quotient}
 $\mathcal Q(E/K,n)=E^\times/(K^\times E^{\times n})$;
 it measures global scalar-modulo-$n$th-power classes.
-\item[Kummer and $\Sha^1$]
+\item[Kummer and $\Sha^1$]\index{kummer and 1@Kummer and Sha\textasciicircum 1}
 The exact sequence $1\to T[n]\to T\xrightarrow{n}T\to1$
 relates powers to Galois cohomology. $\Sha^1(K,T[n])$ is the
 kernel of localization of $H^1(K,T[n])$ at every place.
-\item[$H$, $Z$, $\tH$, $\tZ$, $\widetilde T$]
+\item[$H$, $Z$, $\tH$, $\tZ$, $\widetilde T$]\index{h z t@H, Z, Htilde, Ztilde, T}
 $H=D^\times$ for a local division algebra $D$ of prime degree $r$, $Z=F^\times$, and their inverse images in the cover of Chapter~\ref{ch:I}; $\widetilde T=p^{-1}(T)$ for a maximal torus $T=E^\times$ (\S\ref{III:sec:setting}).
-\item[$H^1$, $U_D^1$]
+\item[$H^1$, $U_D^1$]\index{h 1 u d 1@H\textasciicircum 1, U\_D\textasciicircum 1}
 The reduced-norm-one group $\ker(\Nrd)$ and the principal units $1+\mathfrak P_D$ (\S\ref{III:sec:tame}).
-\item[Tame, wild]
+\item[Tame, wild]\index{tame wild@Tame, wild}
 In this paper \emph{tame} means $p\nmid n$; it imposes no condition on the ramification of maximal subfields (\S\ref{III:sec:tame}).
-\item[$\mathcal H_\theta(H)$, $\mathcal H_{\widetilde\theta}(\tH)$]
+\item[$\mathcal H_\theta(H)$, $\mathcal H_{\widetilde\theta}(\tH)$]\index{h h h@H\_theta(H), H\_theta(Htilde)}
 The Hilbert spaces of $\theta$-equivariant, respectively genuine $\tilde\theta$-equivariant, invariant $L^2$ functions, with the quotient probability measures (\S\ref{III:sec:local}).
-\item[$b_D$, $c_D$; character matrix]
+\item[$b_D$, $c_D$; character matrix]\index{b d c d character matrix@b\_D, c\_D; character matrix}
 $b_D=|n|_F^{-(r-1)/2}$ (Theorem~\ref{III:thm:unitary}) and $c_D=|n|_F^{-(r^2-1)/2}$ (Corollary~\ref{III:cor:integrality}); the matrix of $L_D$ in the bases of irreducible characters (Corollary~\ref{III:cor:matrix}).
-\item[$\mathcal C_{\eta^{-1}}(H)$, $L_D^{(\widetilde\eta)}$]
+\item[$\mathcal C_{\eta^{-1}}(H)$, $L_D^{(\widetilde\eta)}$]\index{c 1 h l d@C\_eta\textasciicircum -1(H), L\_D\textasciicircum (eta)}
 Locally constant functions transforming by $\eta^{-1}$ under $Z$, and the transform of Definition~\ref{III:def:L} for the genuine central character $\widetilde\eta$ (\S\ref{III:sec:orbital}).
-\item[$\Psi_D$, (\ref{III:eq:global-conj})]
+\item[$\Psi_D$, (\ref{III:eq:global-conj})]\index{d iii eq global conj@Psi\_D, (III:eq:global-conj)}
 The conjectural map from genuine irreducible representations to $\Irr(D_v^\times)$ and the target spectral identity of \S\ref{III:sec:global}.
 \end{description}
 \endgroup
@@ -532,22 +678,22 @@ The conjectural map from genuine irreducible representations to $\Irr(D_v^\times
 \providecommand{\tT}{}\renewcommand{\tT}{\widetilde T}
 \providecommand{\Gb}{}\renewcommand{\Gb}{\overline G}
 \providecommand{\GDb}{}\renewcommand{\GDb}{\overline{G_D}}
-\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
-\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
-\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
-\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{(P)}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{(E)}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{(C)}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{(O)}}}
 \section{Terminology specific to \texorpdfstring{Chapter~\ref{ch:IV}}{Chapter 7}}\label{IV:sec:glossary}
 \begin{description}[style=nextline,leftmargin=3.0cm]
-\item[Good element] A regular lift commuting with the full preimage of its ordinary centralizer; genuine invariant characters vanish on the nongood regular locus.
-\item[Scalar-central cover] A cover whose entire inverse image of $F^\times I_r$ is central; here forced by $n\mid r-1+2rc_v$.
-\item[Power-map kernel] $\ker(P_n)$ on $T(F)/F^\times$, distinct from the image index.  The kernel can be nontrivial on product tori even when the corresponding field-torus map is injective.
-\item[Star map] $h^*=\widetilde h^{\,n}$, independent of lift; multiplication on tori uses $n$ odd.
-\item[Weyl discriminant] The factor $\Delta=|\det(1-\operatorname{Ad}(t)|\mathfrak g/\mathfrak t)|^{1/2}$; it is not the unnormalized characteristic-polynomial discriminant.
-\item[Toral Fourier test] Expand the discriminant ratio $R_E$ in characters of the compact abelian group $E^\times/F^\times$.  Integral positive coefficients ensure torus-restriction positivity, not full-group integrality.
-\item[Nonabelian gluing] The additional requirement that compatible genuine covered-torus characters arise from an integral character of the full group $\widetilde{D^\times}$.
-\item[Twisted finite quotient] A finite quotient of $H/Z$ with the central character retained as a multiplier, used to compute projective/genuine irreducible characters.
-\item[Packet identity] An identity of traces over collections of automorphic representations; it does not assert a bijection between individual local irreducibles.
-\item[Formal degree] The Plancherel normalization of a square-integrable representation relative to a specified quotient Haar measure.
-\item[Root-sum relation] Zou's equation (3.2), which sums over all $n$th roots satisfying the stated regularity condition rather than choosing one arbitrarily.
+\item[Good element]\index{good element@Good element} A regular lift commuting with the full preimage of its ordinary centralizer; genuine invariant characters vanish on the nongood regular locus.
+\item[Scalar-central cover]\index{scalar central cover@Scalar-central cover} A cover whose entire inverse image of $F^\times I_r$ is central; here forced by $n\mid r-1+2rc_v$.
+\item[Power-map kernel]\index{power map kernel@Power-map kernel} $\ker(P_n)$ on $T(F)/F^\times$, distinct from the image index.  The kernel can be nontrivial on product tori even when the corresponding field-torus map is injective.
+\item[Star map]\index{star map@Star map} $h^*=\widetilde h^{\,n}$, independent of lift; multiplication on tori uses $n$ odd.
+\item[Weyl discriminant]\index{weyl discriminant@Weyl discriminant} The factor $\Delta=|\det(1-\operatorname{Ad}(t)|\mathfrak g/\mathfrak t)|^{1/2}$; it is not the unnormalized characteristic-polynomial discriminant.
+\item[Toral Fourier test]\index{toral fourier test@Toral Fourier test} Expand the discriminant ratio $R_E$ in characters of the compact abelian group $E^\times/F^\times$.  Integral positive coefficients ensure torus-restriction positivity, not full-group integrality.
+\item[Nonabelian gluing]\index{nonabelian gluing@Nonabelian gluing} The additional requirement that compatible genuine covered-torus characters arise from an integral character of the full group $\widetilde{D^\times}$.
+\item[Twisted finite quotient]\index{twisted finite quotient@Twisted finite quotient} A finite quotient of $H/Z$ with the central character retained as a multiplier, used to compute projective/genuine irreducible characters.
+\item[Packet identity]\index{packet identity@Packet identity} An identity of traces over collections of automorphic representations; it does not assert a bijection between individual local irreducibles.
+\item[Formal degree]\index{formal degree@Formal degree} The Plancherel normalization of a square-integrable representation relative to a specified quotient Haar measure.
+\item[Root-sum relation]\index{root sum relation@Root-sum relation} Zou's equation (3.2), which sums over all $n$th roots satisfying the stated regularity condition rather than choosing one arbitrarily.
 \end{description}
 \endgroup

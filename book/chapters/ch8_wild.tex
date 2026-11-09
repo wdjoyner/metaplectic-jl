@@ -1,6 +1,6 @@
-% Chapter generated from the companion paper on the rank-two wild place, Draft~8 by booktools/assemble.py
+% Chapter generated from the companion chapter on the rank-two wild place, Draft~8 by booktools/assemble.py
 \begingroup
-% macros of the companion paper on the rank-two wild place, Draft~8
+% macros of the companion chapter on the rank-two wild place, Draft~8
 \providecommand{\F}{}\renewcommand{\F}{F}
 \providecommand{\Z}{}\renewcommand{\Z}{\mathbb Z}
 \providecommand{\C}{}\renewcommand{\C}{\mathbb C}
@@ -25,12 +25,12 @@
 \providecommand{\Heis}{}\renewcommand{\Heis}{\mathrm{Heis}}
 \providecommand{\Cubes}{}\renewcommand{\Cubes}{\mathrm{Cubes}}
 \providecommand{\Good}{}\renewcommand{\Good}{\mathrm{Good}}
-\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
-\providecommand{\Pctag}{}\renewcommand{\Pctag}{\textnormal{\textbf{[P$^{\mathrm c}$]}}}
-\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
-\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
-\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
-\chapter{The wild place in degree two: toral positivity and the nonabelian gluing problem}\label{ch:W}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{(P)}}}
+\providecommand{\Pctag}{}\renewcommand{\Pctag}{\textnormal{\textbf{(P$^{\mathrm c}$)}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{(E)}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{(O)}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{(C)}}}
+\chapter[The wild place in degree two]{The wild place in degree two: toral positivity and the nonabelian gluing problem}\label{ch:W}
 \paragraph{Overview.} We study irreducible-character integrality for the scalar-central
 odd-degree metaplectic cover of a quaternion division algebra at a
 wild place.  The general result is a uniform quadratic toral
@@ -68,8 +68,6 @@ section on the $2d$-th congruence subgroup are proved for every odd prime
 $p$ and every $F\supset\mu_p$ (part of Target~C); what is not uniform is
 identified.
 
-\paragraph{Source.} This chapter is the companion paper on the rank-two wild place, Draft~8 (November 2026), with references converted to the numbering of this book; see the Preface.
-
 \section{Purpose, scope, and status}\label{W:sec:intro}
 This paper separates the wild division-side character problem from the
 conditional global trace comparison in Chapter~\ref{ch:IV} of the larger series.
@@ -106,7 +104,7 @@ number field) that is \emph{exhaustive} over an explicitly described
 finite set.  Every such computation is described in the text, and the
 scripts are listed in Appendix~\ref{W:app:scripts}.  No statement
 labeled \Pctag\ depends on floating-point arithmetic or on sampling.
-Sampled computations occur in the paper only as corroboration of
+Sampled computations occur in the chapter only as corroboration of
 statements that are proved by hand, and are identified as such where
 they are mentioned.
 
@@ -148,12 +146,12 @@ read.
 Let $F$ be a nonarchimedean local field.  A central simple algebra over
 $F$ has dimension $r^2$ for an integer $r$ (its degree), and its class in
 the Brauer group is determined by the Hasse invariant
-$\mathrm{inv}:\mathrm{Br}(F)\xrightarrow{\sim}\Q/\Z$ \cite[Ch.~XIII]{Ser}; \cite[\S31]{Rei}.  The algebras of degree $r$ are the $M_m(D)$ with $D$ a division
+$\mathrm{inv}:\mathrm{Br}(F)\xrightarrow{\sim}\Q/\Z$ \cite[Ch.~XIII]{Ser79}; \cite[\S31]{Rei75}.  The algebras of degree $r$ are the $M_m(D)$ with $D$ a division
 algebra of degree $d\mid r$, $md=r$, and $D$ is determined by its
 invariant $a/d\bmod1$ with $(a,d)=1$; in particular there is exactly one
 quaternion division algebra over $F$, with invariant $\tfrac12$.  A
 division algebra $D$ of degree $r$ has the following structure
-\cite[\S\S12--14]{Rei}; \cite[Ch.~I]{Wei}.  It carries a discrete valuation $v_D$
+\cite[\S\S12--14]{Rei75}; \cite[Ch.~I]{Wei73}.  It carries a discrete valuation $v_D$
 extending $v_F$, with $v_D(F^\times)=r\Z$ when normalized by
 $v_D(\Pi)=1$ for a uniformizer $\Pi$; its valuation ring $\Ocal_D$ is the
 unique maximal order, with unique maximal two-sided ideal
@@ -197,7 +195,7 @@ level two (dimension $6$, those nontrivial on $K^2/K^3$).  The level is
 the integer form of the Moy--Prasad depth: for $D^\times$ with its
 standard filtration a representation of level $m$ has depth $m/r$, and
 depth is preserved by the local Jacquet--Langlands correspondence
-\cite[Ch.~13]{BH06}; \cite{DKV}.  For $p\nmid r$, which includes the running
+\cite[Ch.~13]{BH06}; \cite{DKV84}.  For $p\nmid r$, which includes the running
 example ($r=2$, $p=3$), Howe and Corwin \cite{How77b}; \cite{Cor74} parametrize the
 irreducible representations of $D^\times$ by admissible pairs $(E,\chi)$,
 $E\subset D$ a subfield and $\chi$ a character of $E^\times$, with
@@ -218,13 +216,13 @@ $0\to\mathrm{Br}(F)\to\bigoplus_v\mathrm{Br}(F_v)\xrightarrow{\ \Sigma\ }\Q/\Z\t
 is exact, so a central simple algebra is determined by its local
 invariants, which vanish at all but finitely many places and sum to
 zero; the period of a class equals its index, so a class of order $r$ is
-the class of a division algebra of degree $r$ \cite[\S32]{Rei}; \cite[Ch.~XIII]{Wei}.
+the class of a division algebra of degree $r$ \cite[\S32]{Rei75}; \cite[Ch.~XIII]{Wei73}.
 A quaternion algebra over a number field is ramified at an even number
 of places (where its invariant is $\tfrac12$) and split elsewhere.  The
 local components $D_v=D\otimes F_v$ at ramified $v$ are the local
 division algebras above; the group $D^\times(F)\backslash D^\times(\mathbb A_F)/F^\times(\mathbb A_F)$
 is compact, so the automorphic spectrum of $D^\times$ is discrete, and
-the Jacquet--Langlands correspondence \cite[Ch.~III]{JL}; \cite{DKV}; \cite{Rog83}; \cite{Bad}
+the Jacquet--Langlands correspondence \cite[Ch.~III]{JL70}; \cite{DKV84}; \cite{Rog83}; \cite{Bad08}
 identifies the automorphic representations of $D^\times$ with those of
 $\mathrm{GL}_r$ that are discrete series at the ramified places; its
 local form is a bijection between the irreducible representations of
@@ -240,7 +238,7 @@ concerns one ramified place of the running example.
 We use the following from Chapter~\ref{ch:I}.  Let $\mu_n\subset F$.  The
 $n$-fold scalar-central cover $\tH\to H=D^\times$ is the central
 extension by $\mu_n$ obtained by restricting the Kazhdan--Patterson cover
-of $\mathrm{GL}_r(E_0)$ \cite{KP1} along $D\hookrightarrow M_r(E_0)$; its
+of $\mathrm{GL}_r(E_0)$ \cite{KP84} along $D\hookrightarrow M_r(E_0)$; its
 preimage $\tZ$ of the center $F^\times$ is central, and
 $\tZ\simeq\mu_n\times F^\times$ noncanonically (Chapter~\ref{ch:I}, Prop.~2.3).  The
 restriction of the cover to a maximal torus $E^\times$ is a Heisenberg
@@ -270,7 +268,7 @@ $k$) representation $\rho_\psi$ of $\mathcal H(W)$ with central character
 $\psi$; its character is supported on the center.  It is realized in the
 \emph{Schr\"odinger model}: for a Lagrangian decomposition $W=X\oplus Y$,
 $\rho_\psi=\Ind_{Y\times k}^{\mathcal H(W)}(\mathbf1\otimes\psi)$, acting on
-functions on $X$ \cite{Wei64}; \cite[Ch.~2]{MVW}.  The symplectic group $\mathrm{Sp}(W)$
+functions on $X$ \cite{Wei64}; \cite[Ch.~2]{MVW87}.  The symplectic group $\mathrm{Sp}(W)$
 acts on $\mathcal H(W)$ fixing the center, so by uniqueness it acts
 projectively on $\rho_\psi$; the resulting genuine representation of the
 metaplectic double cover $\mathrm{Mp}(W)$ is the Weil representation
@@ -292,7 +290,7 @@ quadratic space, split or anisotropic \cite{Wal80}; \cite{Wal91}.  So for $n=2$ 
 link between a metaplectic cover and a quaternion algebra is literally
 a Howe correspondence, with the cover on the split side.  For odd $n$
 no classical dual pair produces an $n$-fold cover, and the metaplectic
-correspondence of Flicker and Kazhdan \cite{FK} is established by the trace
+correspondence of Flicker and Kazhdan \cite{FK86} is established by the trace
 formula instead; the transform $L_D$ of Chapter~\ref{ch:III} is likewise defined
 analytically, by \eqref{W:eq:LD}, not by a kernel.
 
@@ -629,7 +627,7 @@ Take
  3=-\zeta_3^{-1}\varpi^2,\qquad q_F=3.
 \]
 Thus $v_F(3)=2$ and $|3|_F=3^{-2}=1/9$.  The compatible
-covering parameters in \cite{JC} and Chapter~\ref{ch:I} are respectively
+covering parameters in \cite{JC26} and Chapter~\ref{ch:I} are respectively
 $c=1$ and $c_v=2\pmod3$.  Let $D/F$ be the unique quaternion
 division algebra.  With $E_0=F(i)$, $i^2=-1$, its unramified
 quadratic maximal subfield, we may write
@@ -652,7 +650,7 @@ $F^\times E^{\times3}$ (\cref{I:prop:good}), and
  \qquad b_D=3,\qquad c_D=27.
 \]
 By the Heisenberg-type Stone--von Neumann theorem
-(\cite{JC}, Proposition~2.4; \cref{I:prop:good}), every genuine
+(\cite{JC26}, Proposition~2.4; \cref{I:prop:good}), every genuine
 irreducible representation of $\widetilde{E^\times}$ has degree $3$.
 This is \emph{not} a degree calculation for representations of
 $\widetilde{D^\times}$.
@@ -820,7 +818,7 @@ parameters (with the $C_2$ factor fixed), so the displayed
 multiplicities are invariant.
 \end{proof}
 
-\begin{remark}[Standing conventions for the rest of the paper]\label{W:rem:conventions}
+\begin{remark}[Standing conventions for the rest of the chapter]\label{W:rem:conventions}
 From here on $F=\Q_3(\zeta_3)$, $n=3$, $D$ is the quaternion division
 algebra, $E_0=F(i)$, and $j$, $\varpi$ are as in
 Example~\ref{W:ex:ranktwo-data}.  We write $\Ocal_D$ for the maximal
@@ -1284,7 +1282,7 @@ commutator is $\kappa_{1,5}(1,1)=\zeta^{\beta\Tr(1)}=\zeta^{2\beta}$,
 whence $\beta\ne0$.  (Consistently, $N_{E/F}(1+aj)=1-a^2\varpi\in U_F^{(1)}$
 and $N_{E/F}(1+a\varpi^2j)\in U_F^{(5)}$ pair trivially in $F$, so the
 commutator is the Hilbert pairing $(1+j,1+\varpi^2j)_E^{-1}$ of $E$ at the
-top level $1+5=pe_E/(p-1)=6$, which is nondegenerate \cite[Ch.~IV]{FV}.)
+top level $1+5=pe_E/(p-1)=6$, which is nondegenerate \cite[Ch.~IV]{FV02}.)
 
 (c) Let $t$ have depth one and $y\in K^4$, $c:=[\tilde t,\tilde y]\in\tilde K^5$,
 $d:=[c^{-1},\tilde t]\in\tilde K^6$, $e:=[d^{-1},\tilde t]$.  Then
@@ -1487,7 +1485,7 @@ $L_D\mathbf1$.
 (a) is Kubota's cocycle for $\mathrm{GL}_2$: for $\mathrm{SL}_2$ it is
 \cite[Thm.~2]{Kub67} and \cite[Ch.~1]{Kub69}, and the extension to $\mathrm{GL}_2$ by
 the factor $\det g$ in the second entry is the case $r=2$, $c=0$ of the
-Kazhdan--Patterson cocycle \cite[\S0.1]{KP1}, with the $n$-th power Hilbert
+Kazhdan--Patterson cocycle \cite[\S0.1]{KP84}, with the $n$-th power Hilbert
 symbol for the $n$-fold cover (the same formula serves in
 Section~\ref{W:sec:targetC}); it is the one external input of this section
 and is labeled \Etag.  (The twist $(\det g,\det h)^{c}$ is
@@ -1522,8 +1520,8 @@ bimultiplicativity and antisymmetry; the Steinberg relation
 $(u,1-u)=1$; Galois invariance $(\sigma u,\sigma v)=(u,v)$; triviality
 on cubes, in particular on $-1$, on $\mu_8$ and on
 $U^{(4)}_{E_0}\subset E_0^{\times3}$; and the depth bound
-$(U^{(i)}_{E_0},U^{(j)}_{E_0})=1$ for $i+j\ge4$ (see \cite[Ch.~IV]{FV} or
-\cite[Ch.~XIV]{Ser}).  A consequence used repeatedly: for $m\in U^{(3)}_{E_0}$
+$(U^{(i)}_{E_0},U^{(j)}_{E_0})=1$ for $i+j\ge4$ (see \cite[Ch.~IV]{FV02} or
+\cite[Ch.~XIV]{Ser79}).  A consequence used repeatedly: for $m\in U^{(3)}_{E_0}$
 and any $u\in E_0^\times$,
 \begin{equation}\label{W:eq:level0}
  (u,m)_{E_0}=(\varpi,m)_{E_0}^{\,v_{E_0}(u)},
@@ -1747,7 +1745,7 @@ the proof.
 (b) A second, independent argument reduces (H1) to a finite problem.
 The subgroup $K^4$ is a uniform pro-$3$ group of dimension $8$, so
 central $\mu_3$-extensions of $K^4$ are classified by alternating forms
-on $K^4/K^8$ \cite[Ch.~V]{Laz}; \cite[\S5]{SW}; the form of the cover is
+on $K^4/K^8$ \cite[Ch.~V]{Laz65}; \cite[\S5]{SW00}; the form of the cover is
 $\Ad(D^\times)$-invariant and vanishes on pairs of commuting elements by
 \cref{I:prop:comm} and the depth bounds for the symbols of
 $E_0$ and of the ramified quadratic extensions of $F$; script~5a finds
@@ -2482,7 +2480,7 @@ $jx=\sigma(x)j$, $K^m=1+\Pfr^m$, and
  d:=\frac{pe}{p-1},\qquad k_0:=\frac{2e}{p-1}=\frac{2d}{p},
 \end{equation}
 so that $U^{(k)}_{E_0}\subset E_0^{\times p}$ for $k>d$ and
-$(U^{(i)}_{E_0},U^{(j)}_{E_0})_p=1$ for $i+j>d$ \cite[Ch.~IV]{FV}; in the
+$(U^{(i)}_{E_0},U^{(j)}_{E_0})_p=1$ for $i+j>d$ \cite[Ch.~IV]{FV02}; in the
 running example $p=3$, $e=2$, $d=3$, $k_0=2$.  The cover is the
 restriction along $\iota$ of the Kazhdan--Patterson cover of
 $\mathrm{GL}_2(E_0)$ with cocycle $\sigma_{E_0}(g,h)(\det g,\det h)^{c}_{E_0}$,
@@ -2512,7 +2510,7 @@ $w\in\mu_pw_0\subset F$ for a root $w_0\in F$.  (c) Every $X\in K^{2d}\setminus 
 lies in a unique maximal subfield $E$ (and $X\in F^\times\cap K^{2d}=U_F^{(d)}$
 is trivially of the required form).  Recall the standard fact that for a
 local field $L\supset\mu_p$ with $e_L=e(L/\Q_p)$, the $p$-th power map
-$U^{(k)}_L\to U^{(k+e_L)}_L$ is bijective for $k>e_L/(p-1)$ \cite[Ch.~I]{FV}.
+$U^{(k)}_L\to U^{(k+e_L)}_L$ is bijective for $k>e_L/(p-1)$ \cite[Ch.~I]{FV02}.
 
 \emph{$E$ ramified.}  Then $e_E=2e$, $k_E=k_F$, $E\cap K^{2d}=U_E^{(2d)}$
 (as $v_D=v_E$), and $U_F^{(d)}\subset U_E^{(2d)}$ induces an isomorphism

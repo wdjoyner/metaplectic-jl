@@ -2,8 +2,8 @@
 % On a metaplectic Jacquet--Langlands transfer for division algebras of
 % prime degree -- book, Draft 1.
 %
-% Chapters 4--8 are generated from the frozen papers (Part I Draft 11,
-% Part II Draft 10, Part III Draft 10, Part IV Draft 6, companion paper
+% Chapters 4--8 are generated from the frozen manuscripts (Part I Draft 11,
+% Part II Draft 10, Part III Draft 10, Part IV Draft 6, companion chapter
 % Draft 8) by booktools/convert.py and booktools/assemble.py; the
 % generated files are in chapters/.  Build with
 %     pdflatex mjl_book_draft1.tex   (three passes)
@@ -21,6 +21,8 @@
 \usetikzlibrary{positioning,calc}
 \usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
 \usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\usepackage{makeidx}
+\makeindex
 
 % ---------------- theorem environments (shared by all chapters) -------
 \theoremstyle{plain}
@@ -118,80 +120,91 @@ item's actual type; these cases are listed in the revision log.  Each
 chapter still has its own introduction, which repeats some of the
 setting; removing that repetition is left for a later draft.
 
-\paragraph{Contributions.}  The acknowledgments of the manuscripts are
-reproduced below.  ChatGPT (OpenAI) and Claude (Anthropic) drafted and
-refereed parts of the series; the referee reports and the responses to
-them are in the repository.  Independent human review is the next step,
-and the mathematical claims should be assessed independently.
+\paragraph{Contributions.}  Each chapter was drafted by David Joyner
+together with Claude (Anthropic) or ChatGPT (OpenAI) (see the Source
+column above), and refereed by whichever of the two AI systems did not
+draft it; Chapter~\ref{ch:III} grew instead from discussion among all
+three.  The acknowledgments below, reproduced from the manuscripts,
+record only what is specific to each chapter -- a referee's correction,
+an independently supplied proof, an observed consequence -- rather than
+repeating this general pattern.  The referee reports and the responses
+to them are in the repository.  Independent human review is the next
+step, and the mathematical claims should be assessed independently.
 
 \input{chapters/acknowledgments_generated}
 
 \mainmatter
 \chapter{Introduction}\label{ch:intro}
-\section{The setting}
-Let $K$ be a totally imaginary number field containing the group
+\section{The setting}\label{sec:setting}
+\paragraph{Motivation.} The classical Jacquet--Langlands correspondence relates automorphic representations of $\mathrm{GL}(r)$ to those of the multiplicative group of a central division algebra $D$ of the same dimension, by comparing the two groups' trace formulas: elements of $D^\times$ correspond to the elliptic (non-split) conjugacy classes of $\mathrm{GL}(r)$, so the correspondence transports the harder, compact part of harmonic analysis on $\mathrm{GL}(r)$ into the smaller, compact-modulo-center group $D^\times$. A \emph{metaplectic}, or covering-group, analog of this correspondence asks the same question one level up: instead of $\mathrm{GL}(r)$ and $D^\times$ themselves, one compares an $n$-fold topological cover of $\mathrm{GL}(r)$ with a corresponding cover of $D^\times$, and asks whether genuine representations (those that are honestly projective and do not descend to the base group) still match. This book builds and studies such a correspondence for a division algebra of prime degree.
+
+\paragraph{The groups.} Let $K$ be a totally imaginary number field (one with no real embeddings, so every archimedean place of $K$ is complex) containing the group
 $\mu_n$ of $n$-th roots of unity, with $n$ odd; let $r$ be a prime with
 $(n,r)=1$; and let $D$ be a central division algebra of dimension $r^2$
 over $K$, ramified at the finite set $S$ of places, containing a cyclic
-maximal subfield $L$.  The book compares two $n$-fold covers: the cover
+maximal subfield $L$. ``Ramified at $S$'' means that $D$ is a twisted form of the matrix algebra $M_r(K)$ -- isomorphic to it almost everywhere -- that becomes a genuine division ring, with no zero divisors, at the places of $S$; the cyclic maximal subfield $L$, of degree $r$ over $K$, exhibits $D$ as a cyclic algebra and supplies the auxiliary field used throughout to compare $D^\times$ with $\mathrm{GL}(r)$.
+
+\paragraph{The two covers.} The book compares two $n$-fold covers: the cover
 of $D^\times_{\mathbb A}$ from the author's corrected 1988 paper on the
-metaplectic analog of Kazhdan's ``endoscopic'' lifting \cite{JC}, and
+metaplectic analog of Kazhdan's ``endoscopic'' lifting \cite{JC26}, and
 the Kazhdan--Patterson cover of $\mathrm{GL}(r,\mathbb A_K)$ with twisting
-parameter $c_v$, where $n\mid r-1+2rc_v$.  Both are subgroups of one
-cover of $\mathrm{GL}(r,\mathbb A_L)$ (\cref{I:prop:restriction}).  The
+parameter $c_v$, where $n\mid r-1+2rc_v$ (this numerical condition is exactly what makes the local cocycle of \cite{KP84} well defined for the chosen $n$ and $r$).  Both are subgroups of one
+cover of $\mathrm{GL}(r,\mathbb A_L)$ (\cref{I:prop:restriction}).  Comparing two covers built by different methods, for two different groups, raises an identification problem before any harmonic analysis can begin: an isomorphism of central extensions is canonical only up to a character valued in $\mu_n$, so an unexamined choice of isomorphism could leave the comparison of genuine functions, and so of genuine representations, ambiguous. Chapter~\ref{ch:I} resolves this by realizing both covers as subgroups of the single ambient cover of $\mathrm{GL}(r,\mathbb A_L)$ just mentioned; conjugation inside that one group then supplies the comparison, and its restriction to the centers of the relevant tori is canonical (Theorem~A, \S\ref{sec:chapters} below).
+
+\paragraph{The method.} The
 approach follows the trace-formula proof of the classical
 Jacquet--Langlands correspondence and uses the metaplectic
-correspondence of Flicker and Kazhdan \cite{FK} with the corrections of
-Zou \cite{Z}.  The global data and conventions are fixed in
-\S\S\ref{gl:global}--\ref{gl:cocycle}.
+correspondence of Flicker and Kazhdan \cite{FK86} with the corrections of
+Zou \cite{Z23}. Concretely: test functions on the two groups are matched by matching their orbital integrals; the geometric sides of the resulting trace formulas are then compared term by term; and the automorphic spectra are compared by reading off what survives. Two further points are special to the covered setting. First, orbital integrals on a cover are well behaved only on the \emph{good} elements -- regular elements whose centralizing torus the cover splits over canonically -- so matching and transfer are proved first in that generality, with the fully general case reached afterward through germ expansions near the center. Second, the metaplectic correspondence of \cite{FK86}, as corrected by \cite{Z23}, is used as the already-available harmonic analysis for the Kazhdan--Patterson side; the corresponding harmonic analysis for the division-algebra side is what this book supplies.
 
-\section{The chapters}
+The global data and conventions -- the measures, the test functions, and the cocycle normalization used in every later chapter -- are fixed once, in
+\S\S\ref{gl:global}--\ref{gl:cocycle}, rather than being restated each time they are needed.
+
+\section{The chapters}\label{sec:chapters}
+Chapters~\ref{ch:I}--\ref{ch:IV} and~\ref{ch:W} began as five separate papers and are now assembled into one book; each proves one stage of the correspondence and states explicitly which earlier stages it relies on.
 \begin{itemize}[leftmargin=*]
-\item Chapter~\ref{ch:lit} reviews the literature, and
-Chapter~\ref{ch:notation} collects the notation, the status labels and
+\item Chapter~\ref{ch:lit} reviews the literature on the classical Jacquet--Langlands correspondence, on covering groups, and on metaplectic correspondences, in order to place this book's results among them, and
+Chapter~\ref{ch:notation} collects the notation, the status labels (P), (E), (O), (C) used throughout to flag how completely each result is established, and
 the cocycle normalization.
-\item Chapter~\ref{ch:I} constructs the two covers inside one ambient
-cover, identifies their covered elliptic tori on good elements
-(Theorem~A), proves matching of test functions supported on the regular
-set (Theorem~B), and proves a global transfer under a non-cancellation
-hypothesis (Theorem~C).
-\item Chapter~\ref{ch:II} proves matching of arbitrary genuine test
-functions (Theorems~D and~E) and an improved global transfer
-(Theorem~C$'$).
-\item Chapter~\ref{ch:III} studies the division-algebra side through a
-unitary transform $L_D$ of class functions, proves that it carries
-irreducible characters to irreducible genuine characters at places not
-dividing $n$, obtains the character relation there in the range of the
-corrected Flicker--Kazhdan correspondence, and gives the obstruction at
-places dividing $n$.
-\item Chapter~\ref{ch:IV} reconciles the cocycle conventions, studies
-power maps and good elements for every maximal torus, proves a toral
-positivity criterion at places dividing $n$, and proves a conditional
-global comparison.
-\item Chapter~\ref{ch:W} treats the wild place of the running example
-in degree two: the transform of the trivial character, and of every
-representation trivial on the third congruence subgroup, is a genuine
-irreducible character.
+\item Chapter~\ref{ch:I} constructs the two covers inside one ambient cover, solving the identification problem of \S\ref{sec:setting} above; it
+identifies their covered elliptic tori on good elements (Theorem~A), so that a genuine character of such a torus and a genuine test function both have an unambiguous meaning on either side. It
+proves matching of test functions supported on the regular set (Theorem~B), and
+uses this matching, inside a comparison of the two groups' trace formulas, to prove a global transfer of automorphic representations under a non-cancellation hypothesis $(\mathrm{Hyp}_D)$ (Theorem~C), a hypothesis that rules out an otherwise-possible vanishing of a packet-counting coefficient for reasons unconnected to the transfer itself.
+\item Chapter~\ref{ch:II} removes the regular-set restriction of Theorem~B: by computing the germ expansion of orbital integrals near the center, it proves matching of arbitrary genuine test functions, including those not vanishing near the identity (Theorems~D and~E). This stronger matching improves the global transfer of Theorem~C to a version needing a weaker hypothesis at only one place of $S$ (Theorem~C$'$).
+\item Chapter~\ref{ch:III} turns from matching test functions to the finer question of matching individual representations. It
+studies the division-algebra side through a unitary transform $L_D$ of class functions, modeled on the classical character transform between $\mathrm{GL}(r)$ and $D^\times$; it
+proves that $L_D$ carries irreducible characters to irreducible genuine characters at places not
+dividing $n$ (the \emph{tame} places), obtains the character relation there in the range of the
+corrected Flicker--Kazhdan correspondence, and gives the obstruction -- a common factor forced on every genuine irreducible dimension -- at
+places dividing $n$ (the \emph{wild} places), where the same argument breaks down.
+\item Chapter~\ref{ch:IV} reconciles the differing cocycle conventions of \cite{FK86}, \cite{Z23}, and the present book, so that a result proved under one convention can be quoted under another; it
+studies power maps and good elements for every maximal torus, not only the one singled out in Chapter~\ref{ch:I}; it
+proves a toral positivity criterion -- a sign condition on a discriminant ratio -- at
+places dividing $n$; and it
+proves a conditional global comparison of characters, conditional on that positivity holding everywhere it is needed.
+\item Chapter~\ref{ch:W} treats the wild place of the running example in degree two, resolving the Chapter~\ref{ch:III} obstruction completely in this one case: the transform of the trivial character, and of every representation trivial on the third congruence subgroup, is a genuine irreducible character, exhibited explicitly as induced from a canonical genuine character of a congruence subgroup.
 \item Chapter~\ref{ch:summary} lists the results of
-Chapters~\ref{ch:I}--\ref{ch:W} with their labels.
+Chapters~\ref{ch:I}--\ref{ch:W} with their labels and status, as a single reference table.
 \end{itemize}
 
 \section{The running example}
-Every chapter tests its constructions on one case: $K=\mathbb Q(\zeta_3)$,
-$n=3$, $r=2$, and the quaternion algebra $D=(-1,4-\zeta_3)_K$, ramified
+Every chapter tests its constructions on one case, chosen to be as small as possible while still showing every phenomenon the theory needs to see: $K=\mathbb Q(\zeta_3)$,
+$n=3$, $r=2$ (the smallest available prime, giving the quaternion case), and the quaternion algebra $D=(-1,4-\zeta_3)_K$, ramified
 exactly at the prime above $3$ (a wild place, where $b_D=3$ and
-$c_D=27$) and at one prime above $7$ (a tame place).  Each chapter has a
+$c_D=27$ are, respectively, the forced common dimension of genuine representations and the discriminant of the relevant congruence filtration) and at one prime above $7$ (a tame place).  Having one place of each kind in a single fixed example lets every chapter illustrate its tame and wild behavior side by side, in a setting small enough to compute with directly; it is also exactly the case in which the wild obstruction of Chapter~\ref{ch:III} is resolved completely, in Chapter~\ref{ch:W}. Each chapter has a
 short subsection on it, and the note
 \texttt{notes/mjl\_running\_example.tex} in the repository works it out
 across the chapters.
 
 \section{Main open problems}
-Integrality of $L_D$ at places dividing $n$ in general; the full global
-comparison of the cover of $D^\times$ with the cover of $\mathrm{GL}(r)$,
-which needs matching at the places where $D$ splits and at the complex
-places; and the removal of the auxiliary support and packet hypotheses
-of Chapters~\ref{ch:I}--\ref{ch:II}.  Chapter~\ref{ch:W},
-\S\ref{W:sec:future}, discusses what a general wild result would need.
+Three problems are left open by the book, roughly in order of how much new machinery each is likely to need.
+\begin{itemize}[leftmargin=*]
+\item \emph{Integrality of $L_D$ at wild places in general.} Chapter~\ref{ch:W} proves integrality -- the property that $L_D$ sends irreducible characters to irreducible, rather than merely virtual, genuine characters -- only for the running example's own wild place, by an explicit combinatorial argument special to that case. Whether the same conclusion holds at every wild place, for every division algebra of prime degree and every admissible odd $n$, is open.
+\item \emph{The full global comparison of the cover of $D^\times$ with the cover of $\mathrm{GL}(r)$.} Chapters~\ref{ch:I}--\ref{ch:IV} compare the two covers' automorphic representations at the ramified places of $S$ and, conditionally on toral positivity, at the wild places. A complete global comparison would also need matching at the places where $D$ splits -- where $D^\times$ and $\mathrm{GL}(r)$ coincide as groups, but the two covers can still differ -- and at the complex archimedean places; this book treats neither.
+\item \emph{Removing the auxiliary support and packet hypotheses of Chapters~\ref{ch:I}--\ref{ch:II}.} The global transfer theorems (Theorems~C and~C$'$) are proved by fixing one auxiliary place $w_0$ carrying a supercuspidal component and by assuming a non-cancellation hypothesis on the relevant packet. Removing both devices, so that the transfer holds unconditionally and without reference to an auxiliary place, would likely need either the covering-group trace-formula techniques of W.-W.~Li \cite{Li10,Li12,Li14} or a comparable alternative to the packet-counting argument used here.
+\end{itemize}
+Chapter~\ref{ch:W},
+\S\ref{W:sec:future}, discusses in more detail what a fully general wild result would need.
 
 \input{chapters/ch2_literature}
 \input{chapters/ch3_notation}
@@ -207,4 +220,8 @@ of Chapters~\ref{ch:I}--\ref{ch:II}.  Chapter~\ref{ch:W},
 
 \backmatter
 \input{chapters/bibliography}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
 \end{document}

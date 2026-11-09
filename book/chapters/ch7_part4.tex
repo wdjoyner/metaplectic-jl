@@ -19,11 +19,11 @@
 \providecommand{\tT}{}\renewcommand{\tT}{\widetilde T}
 \providecommand{\Gb}{}\renewcommand{\Gb}{\overline G}
 \providecommand{\GDb}{}\renewcommand{\GDb}{\overline{G_D}}
-\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{[P]}}}
-\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{[E]}}}
-\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{[C]}}}
-\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{[O]}}}
-\chapter{Local power maps, toral positivity, and conditional global comparison}\label{ch:IV}
+\providecommand{\Ptag}{}\renewcommand{\Ptag}{\textnormal{\textbf{(P)}}}
+\providecommand{\Etag}{}\renewcommand{\Etag}{\textnormal{\textbf{(E)}}}
+\providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{(C)}}}
+\providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{(O)}}}
+\chapter[Local power maps and toral positivity]{Local power maps, toral positivity, and conditional global comparison}\label{ch:IV}
 \paragraph{Overview.} We conclude the fourth part of the metaplectic Jacquet--Langlands
 series with a precise separation of proved local and arithmetic
 results from two still-conditional goals.  We audit the ambient
@@ -40,7 +40,7 @@ integral Fourier coefficients of the discriminant ratio for
 field of odd residue characteristic, for all odd $n$ including
 $p\mid n$.  The complete numerical $r=2$, $n=3$ example and the
 nonabelian gluing problem are developed separately in a
-standalone companion paper, here begun as Draft~0.  We compare
+standalone companion chapter (Chapter~\ref{ch:W}), here begun as Draft~0.  We compare
 our normalizations with Zou's correction of Flicker--Kazhdan,
 state explicit conditions for split-place matching, and prove
 a conditional geometric and trace-distribution comparison with
@@ -48,8 +48,6 @@ normalization factor $\Lambda$.  No full wild-place irreducible
 correspondence, construction of exceptional local matching
 functions, or unconditional ordinary-to-covered global
 comparison is claimed.
-
-\paragraph{Source.} This chapter is Part~IV, concluding Draft~6 (November 2026), with references converted to the numbering of this book; see the Preface.
 
 \section{Introduction and mathematical status}\label{IV:sec:intro}
 The problem concerns three different local representation theories.
@@ -80,39 +78,39 @@ $p$ denotes its residue characteristic.  We call $v$ \emph{wild}
 if $p\mid n$.
 
 \paragraph{Status convention.}
-\textbf{[P]} denotes a proof included here (possibly invoking
-\textbf{[E]} inputs established in cited publications or earlier parts);
-\textbf{[O]} denotes a proof outlined but not fully established, and
-\textbf{[C]} denotes a conjectural goal requiring new mathematical
+\textbf{(P)} denotes a proof included here (possibly invoking
+\textbf{(E)} inputs established in cited publications or earlier parts);
+\textbf{(O)} denotes a proof outlined but not fully established, and
+\textbf{(C)} denotes a conjectural goal requiring new mathematical
 input.  When a proved proposition has explicit unresolved hypotheses,
-we mark its formal implication [P] and mark the outstanding hypotheses
-[C] separately, in agreement with the status usage of Chapter~\ref{ch:III}.
+we mark its formal implication (P) and mark the outstanding hypotheses
+(C) separately, in agreement with the status usage of Chapter~\ref{ch:III}.
 
 \begin{center}\small
 \begin{tabular}{@{}p{0.49\linewidth}p{0.37\linewidth}p{0.07\linewidth}@{}}
 \toprule
 Assertion & Precise basis & Status\\\midrule
-Diagonal and nonsplit good-element criterion, including wild $p$ & \cite[\S3]{FK}; \S\ref{I:sec:tori} & [E]\\
-Compatibility of the Chapter~\ref{ch:I} cocycle with $\sigma_{c_v}$ & Chapter~\ref{ch:I}, Prop. 2.3(b); direct calculation & [P]\\
-Power-map kernel, index, and Haar modulus on $T_E(F)/F^\times$ & Section \ref{IV:sec:localpowers} & [P]\\
-Global good-regular class criterion & Section \ref{IV:sec:globalgood}; Chapter~\ref{ch:III} Hasse principle & [P]\\
-Division-side unitary character transform and tame integral case & Chapter~\ref{ch:III}, Thms. 4.3, 7.6 & [E]\\
-Quadratic toral permutation-character theorem (all odd $n$) & Theorem \ref{IV:thm:quad-toral}; detailed example in companion paper & [P]\\
-Wild irreducible-character integrality for $\widetilde{D^\times}$ & Section \ref{IV:sec:wild} & [C]\\
-Covered $D$--covered $\GL$ global simple trace comparison & Chapters~\ref{ch:I}--\ref{ch:II} under their hypotheses & [E]\\
-Covered $D$--ordinary $D$ global comparison & Conditional implication in \S\ref{IV:sec:geometric}; full matching open & [P]/[C]\\
-Removal of auxiliary support and packet hypotheses & Section \ref{IV:sec:spectral} & [C]\\
+Diagonal and nonsplit good-element criterion, including wild $p$ & \cite[\S3]{FK86}; \S\ref{I:sec:tori} & (E)\\
+Compatibility of the Chapter~\ref{ch:I} cocycle with $\sigma_{c_v}$ & Chapter~\ref{ch:I}, Prop. 2.3(b); direct calculation & (P)\\
+Power-map kernel, index, and Haar modulus on $T_E(F)/F^\times$ & Section \ref{IV:sec:localpowers} & (P)\\
+Global good-regular class criterion & Section \ref{IV:sec:globalgood}; Chapter~\ref{ch:III} Hasse principle & (P)\\
+Division-side unitary character transform and tame integral case & Chapter~\ref{ch:III}, Thms. 4.3, 7.6 & (E)\\
+Quadratic toral permutation-character theorem (all odd $n$) & Theorem \ref{IV:thm:quad-toral}; detailed example in companion chapter (Ch.~\ref{ch:W}) & (P)\\
+Wild irreducible-character integrality for $\widetilde{D^\times}$ & Section \ref{IV:sec:wild} & (C)\\
+Covered $D$--covered $\GL$ global simple trace comparison & Chapters~\ref{ch:I}--\ref{ch:II} under their hypotheses & (E)\\
+Covered $D$--ordinary $D$ global comparison & Conditional implication in \S\ref{IV:sec:geometric}; full matching open & (P)/(C)\\
+Removal of auxiliary support and packet hypotheses & Section \ref{IV:sec:spectral} & (C)\\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \subsection*{The running example}
-The series' running example is $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, which is ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$ (\S\ref{I:sec:intro}, and \texttt{notes/mjl\_running\_example.tex} in the project repository). Its wild place $\mathfrak p_3$ has $K_v=\mathbb{Q}_3(\zeta_3)$, and there $D$ is the quaternion division algebra treated in Remark~\ref{IV:prop:all-three-tori} and in the companion paper Chapter~\ref{ch:W}. Theorem~\ref{IV:thm:quad-toral} gives the decompositions on all three quadratic tori at $\mathfrak p_3$. Theorem~\ref{IV:thm:globalgood} describes the globally good classes, and Example~\ref{IV:ex:ranktwoledger} is the global normalization ledger for this $D$, in which $\Lambda=1$ forces $\lambda_\infty=1/3$. The smallest open case of wild integrality is whether $L_D\mathbf 1$ at $\mathfrak p_3$ is irreducible of dimension $27$.
+The series' running example is $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, which is ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$ (\S\ref{I:sec:intro}, and \texttt{notes/mjl\_running\_example.tex} in the project repository). Its wild place $\mathfrak p_3$ has $K_v=\mathbb{Q}_3(\zeta_3)$, and there $D$ is the quaternion division algebra treated in Remark~\ref{IV:prop:all-three-tori} and in the companion chapter (Chapter~\ref{ch:W}). Theorem~\ref{IV:thm:quad-toral} gives the decompositions on all three quadratic tori at $\mathfrak p_3$. Theorem~\ref{IV:thm:globalgood} describes the globally good classes, and Example~\ref{IV:ex:ranktwoledger} is the global normalization ledger for this $D$, in which $\Lambda=1$ forces $\lambda_\infty=1/3$. The smallest open case of wild integrality is whether $L_D\mathbf 1$ at $\mathfrak p_3$ is irreducible of dimension $27$.
 
 \section{The exact cocycle convention and star map}\label{IV:sec:cocycle}
 This section fixes the one place where a parameter mismatch could
 invalidate every subsequent constant.  The ambient construction is
-a restriction of a cocycle over $L_v$, whereas \cite{FK} uses the standard
+a restriction of a cocycle over $L_v$, whereas \cite{FK86} uses the standard
 $\GL_r(F)$ Kazhdan--Patterson convention.
 
 \subsection{Restriction and relabeling}\label{IV:subsec:restriction}
@@ -192,16 +190,16 @@ is in $\mu_n$, and the class-two power identity
  =\widetilde h_1^{\,n}\widetilde h_2^{\,n}
 \end{equation}
 uses $n$ odd.  Thus star is multiplicative on the lifted torus.
-This agrees with the convention in \cite[\S4]{FK} and [Zou, \S3]:
+This agrees with the convention in \cite[\S4]{FK86} and [Zou, \S3]:
 Zou writes $x^*=u(x)s(x)^n$, where $u(x)=\pm1$ is the
-correction defined in \cite[\S4]{FK} and \cite[\S3.1]{Z}.
+correction defined in \cite[\S4]{FK86} and \cite[\S3.1]{Z23}.
 For odd $n$ the extra sign is absent in the
 Flicker--Kazhdan convention: the star is the $n$th power of a lift.
 The correction $u(x)$ is introduced for the even-$n$ convention;
 we do not infer that an arbitrary sign automatically lies in
 $\mu_n$.  In the odd-degree setting, therefore, $u(x)=1$
 by definition of the relevant convention (compare
-\cite[\S4]{FK} and \cite[\S3.1]{Z}).  For a scalar $\zeta\in\mu_n(F)$,
+\cite[\S4]{FK86} and \cite[\S3.1]{Z23}).  For a scalar $\zeta\in\mu_n(F)$,
 $\zeta^*=1$ in the standard diagonal cocycle model: the
 self-symbol $(\zeta,\zeta)_n=1$ for odd $n$, so
 $s(\zeta I_r)^n=s(I_r)=1$.  This last statement is also
@@ -222,7 +220,7 @@ $\theta^{-1}$ and $\widetilde\theta^{-1}$.
 A regular maximal torus in $\GL_r(F)$ may be nonsplit even at a
 place where $D_v\simeq M_r(F)$.  This is the situation not treated by
 the diagonal matrix alone.  The following calculation is not new:
-it is the proof of \cite[\S3, Proposition]{FK} in the notation of this
+it is the proof of \cite[\S3, Proposition]{FK86} in the notation of this
 series, and also underlies \cref{I:prop:good}.
 
 \begin{theorem}[\Etag\ Flicker--Kazhdan good-element theorem]\label{IV:thm:FKgood}
@@ -244,7 +242,7 @@ For regular $t$, this is exactly the criterion that $\widetilde t$
 is good.  Both identities are valid when $p\mid n$.
 \end{theorem}
 \begin{proof}[Proof from the cited formula, included for clarity]
-The commutator formula is \cite[\S3]{FK}, using \cite[Prop.~0.1.5]{KP1};
+The commutator formula is \cite[\S3]{FK86}, using \cite[Prop.~0.1.5]{KP84};
 its restriction to a single field is exactly \cref{I:prop:comm} after relabeling Chapter~\ref{ch:I}.  Write $N=\Nm_{E/F}$.
 Norm compatibility of local Hilbert symbols gives
 \[
@@ -744,7 +742,7 @@ automorphic comparison unconditionally.
 
 \section{Connection with Zou's corrected character relation}\label{IV:sec:Zou}
 For the Kazhdan--Patterson cover of the \emph{split group},
-Zou \cite[\S3]{Z} revisits the Flicker--Kazhdan metaplectic
+Zou \cite[\S3]{Z23} revisits the Flicker--Kazhdan metaplectic
 correspondence and records a corrected scalar in the character
 relation.  This is an essential input, but its objects are
 $\widetilde{\GL_r(F)}$ and ordinary $\GL_r(F)$, not directly
@@ -870,24 +868,24 @@ $\GL$ side must still be reconciled with \eqref{IV:eq:formaldegree}.
 \toprule
 Item & Required statement or calculation & Status\\\midrule
 \endhead
-Ambient cocycle and common center & \cref{I:lem:splittings} and Prop. 5.5; restriction \eqref{IV:eq:before} & [E]\\
-Regular rational good locus & Theorem \ref{IV:thm:globalgood} & [P]\\
-Global rational/stable classes & Hilbert 90 and Kottwitz's framework; local embeddability into $D$ & [E]\\
-Global torus coefficient & Same $dt$ in \eqref{IV:eq:globalvol}, including $|W_\gamma|$ & [E]\\
-Local $v\in S$ orbital transfer & \cref{III:thm:test-transfer}, equation \eqref{IV:eq:localJO} & [E]\\
-Split-place $v\notin S$ invariance & Lemma \ref{IV:lem:FKnecessary} (necessary); rank-two spherical calculation below & [P]\\
-Split-place pointwise transfer and $\lambda_v$ & Proposition \ref{IV:prop:conditionalglobal}; unproved existence & [C]\\
-Unramified unit elements & \cite[\S\S11--12]{FK} under $(n,N_r)=1$; transport to Chapter~\ref{ch:I} cover pending & [E]/[O]\\
-Nonregular powers and singular germs & Remark \ref{IV:rem:power-singular}; germ compatibility or support needed & [C]\\
-Central identity class & Suppressed in Prop. \ref{IV:prop:conditionalglobal}; separate germ/measure test below & [E]/[C]\\
-Spectral expansion & Chapter~\ref{ch:I}--II packet formula with restrictions; new factor matching & [E]/[C]\\
+Ambient cocycle and common center & \cref{I:lem:splittings} and Prop. 5.5; restriction \eqref{IV:eq:before} & (E)\\
+Regular rational good locus & Theorem \ref{IV:thm:globalgood} & (P)\\
+Global rational/stable classes & Hilbert 90 and Kottwitz's framework; local embeddability into $D$ & (E)\\
+Global torus coefficient & Same $dt$ in \eqref{IV:eq:globalvol}, including $|W_\gamma|$ & (E)\\
+Local $v\in S$ orbital transfer & \cref{III:thm:test-transfer}, equation \eqref{IV:eq:localJO} & (E)\\
+Split-place $v\notin S$ invariance & Lemma \ref{IV:lem:FKnecessary} (necessary); rank-two spherical calculation below & (P)\\
+Split-place pointwise transfer and $\lambda_v$ & Proposition \ref{IV:prop:conditionalglobal}; unproved existence & (C)\\
+Unramified unit elements & \cite[\S\S11--12]{FK86} under $(n,N_r)=1$; transport to Chapter~\ref{ch:I} cover pending & (E)/(O)\\
+Nonregular powers and singular germs & Remark \ref{IV:rem:power-singular}; germ compatibility or support needed & (C)\\
+Central identity class & Suppressed in Prop. \ref{IV:prop:conditionalglobal}; separate germ/measure test below & (E)/(C)\\
+Spectral expansion & Chapter~\ref{ch:I}--II packet formula with restrictions; new factor matching & (E)/(C)\\
 \bottomrule
 \end{longtable}
 \end{center}
 Here $N_r$ is the least common multiple of the \emph{composite}
-positive integers at most $r$ (the convention in \cite{FK}), with $N_r=1$
+positive integers at most $r$ (the convention in \cite{FK86}), with $N_r=1$
 when there are none.  The classical unramified unit matching in
-\cite[\S12, Corollary]{FK} is established under $(n,N_r)=1$
+\cite[\S12, Corollary]{FK86} is established under $(n,N_r)=1$
 and $p\nmid n$.  Thus $N_2=N_3=1$, and for prime $r=5$
 we have $N_5=4$, automatically prime to the odd integer $n$.
 Other ranks must retain the published hypothesis.
@@ -928,7 +926,7 @@ $\zeta^*=1$, so $(\zeta x)^*=x^*$.  The kernel on the
 quotient torus is $\mu_n(F)^{k_v}/\mu_n(F)$, of size
 $n^{k_v-1}$ (Proposition~\ref{IV:prop:power-etale}).
 Equation \eqref{IV:eq:FKinvariance} is the invariant-function
-condition of \cite[\S6]{FK}, expressed with the present
+condition of \cite[\S6]{FK86}, expressed with the present
 inverse central transformation convention.
 \end{definition}
 
@@ -972,7 +970,7 @@ $E^\times$, the root-fibre condition modulo scalars is vacuous.
 Moreover, when $f^0$ and the genuine spherical unit
 $\widetilde f^0$ are transported from the standard
 Flicker--Kazhdan cocycle and measure conventions,
-\cite[\S12, Corollary]{FK} establishes their regular-power
+\cite[\S12, Corollary]{FK86} establishes their regular-power
 matching with $\lambda_v=1$ in that normalization.  Whether the
 same equality holds \emph{literally} for the selected ambient
 cover and global measures of Chapters~\ref{ch:I}--\ref{ch:IV} requires their explicit
@@ -1186,7 +1184,7 @@ test functions or a global comparison.
 
 \subsection{Why Li, Kottwitz, and DKV do not close the gap}\label{IV:subsec:litroute}
 The linear Jacquet--Langlands theorem of
-Deligne--Kazhdan--Vign\'eras \cite{DKV} controls the ordinary
+Deligne--Kazhdan--Vign\'eras \cite{DKV84} controls the ordinary
 $D^\times$--$\GL_r$ relation, including the elliptic character
 sign, but it does not automatically manufacture a genuine
 representation of $\GDb_v$.  Kottwitz's analysis of stable
@@ -1197,7 +1195,7 @@ $H^1(K,T)=1$ by Shapiro's lemma and Hilbert 90, and embeddings
 $E\hookrightarrow D$ are controlled by Brauer splitting.
 Wen--Wei Li proves an invariant trace formula for adelic covers
 under an invariant trace Paley--Wiener hypothesis for Levi subgroups
-at \emph{real} archimedean places \cite{Li4}.  Here $K$ is totally
+at \emph{real} archimedean places \cite{Li14}.  Here $K$ is totally
 imaginary, so that real-place hypothesis is vacuous.  At the complex
 places the specified covers split (\S\ref{I:app:cusp}, item~(R4);
 see also its ambient-cover construction), and the linear invariant Paley--Wiener theorem
@@ -1272,7 +1270,7 @@ places the root sum in Zou's (3.2) should be written against the
 kernel and index in Proposition \ref{IV:prop:power-etale}, including
 the chosen Haar measures and central phases.  Third, one needs the explicit ambient-cover identification
 that transports the known unramified unit matching of
-\cite[\S12]{FK} to the selected convention, together with
+\cite[\S12]{FK86} to the selected convention, together with
 functions at the finitely many exceptional split places and a
 complete global coefficient identity as in
 Proposition~\ref{IV:prop:conditionalglobal}. Every ordinary rational regular class is paired with the star of
