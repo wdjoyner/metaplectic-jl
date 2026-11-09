@@ -96,17 +96,22 @@ cocycle-level ingredients of Target~C uniformly in $p$
 the main theorem are listed in Remark~\ref{W:rem:dependencies}.
 
 \paragraph{Labels.}
-\Ptag\ proved here; \Etag\ established elsewhere and used as a black
-box; \Otag\ outlined; \Ctag\ conjectural.  The new label \Pctag\ marks
-a statement whose proof uses, besides hand arguments, an exact finite
-computation (linear algebra over $\Fq_3$, or exact arithmetic in a
-number field) that is \emph{exhaustive} over an explicitly described
-finite set.  Every such computation is described in the text, and the
-scripts are listed in Appendix~\ref{W:app:scripts}.  No statement
-labeled \Pctag\ depends on floating-point arithmetic or on sampling.
-Sampled computations occur in the chapter only as corroboration of
-statements that are proved by hand, and are identified as such where
-they are mentioned.
+Proved here is the default and carries no visible tag; \Etag\ marks a
+statement established elsewhere and used as a black box; \Otag\
+marks one outlined but not fully written out or checked; \Ctag\ marks
+one that is conjectural. A remark immediately follows every
+\Etag, \Otag\ or \Ctag\ statement, saying where it is proved or, if
+conjectural or outlined, the motivation or what remains. The label
+\Pctag\ marks a statement whose proof uses, besides hand arguments, an
+exact finite computation (linear algebra over $\Fq_3$, or exact
+arithmetic in a number field) that is \emph{exhaustive} over an
+explicitly described finite set, and is proved here in that sense, so
+it also carries no further tag beyond \Pctag\ itself. Every such
+computation is described in the text, and the scripts are listed in
+Appendix~\ref{W:app:scripts}. No statement labeled \Pctag\ depends on
+floating-point arithmetic or on sampling. Sampled computations occur
+in the chapter only as corroboration of statements that are proved by
+hand, and are identified as such where they are mentioned.
 
 \begin{center}\small
 \begin{tabular}{@{}p{0.60\linewidth}p{0.26\linewidth}p{0.08\linewidth}@{}}
@@ -409,7 +414,7 @@ explicit analysis of the pro-$3$ part of the cover.
 \end{remark}
 
 \section{A useful global criterion: positivity of every row}\label{W:sec:positive}
-\begin{proposition}[\Ptag\ Positivity versus integrality]\label{W:prop:positive}
+\begin{proposition}[Positivity versus integrality]\label{W:prop:positive}
 With the unitary character matrix $(a_{\rho\tau})$ of
 \eqref{W:eq:matrixchars}, the following are equivalent:
 \begin{enumerate}[label=(\alph*)]
@@ -458,7 +463,7 @@ For noncentral $t\in E^\times$ let
 \]
 The ratio extends continuously at scalar elements, with value $|n|_F^{-1}$.
 
-\begin{theorem}[\Ptag\ Quadratic toral permutation positivity]\label{W:thm:main}
+\begin{theorem}[Quadratic toral permutation positivity]\label{W:thm:main}
 For any $E/F,n$ as above, $R_E$ is the character of a finite-dimensional permutation representation of a finite quotient of $A$. In particular,
 \[
  R_E(t)=\sum_{\chi\in\widehat A}m_\chi\chi(t),\qquad m_\chi\in\mathbb Z_{\geq0},
@@ -545,7 +550,7 @@ As all positive depths are odd, telescoping now gives
 Again each summand is the character of a permutation representation. Equations \eqref{W:eq:unram} and \eqref{W:eq:ram} prove Theorem~\ref{W:thm:main}.
 
 \section{From Fourier coefficients to covered-torus restrictions}\label{W:sec:fourier}
-\begin{lemma}[\Ptag\ Fourier test for restrictions to covered field tori]\label{W:lem:toral-Fourier}
+\begin{lemma}[Fourier test for restrictions to covered field tori]\label{W:lem:toral-Fourier}
 Let $E/F$ be any maximal field in $D$, with $r$ prime and
 $(r,n)=1$, and put $A_E=E^\times/F^\times$.  The function
 \[
@@ -773,7 +778,7 @@ quotients.  All coefficients are nonnegative integers and sum
 to $3+2+1+1+1+1=9$.  This applies to \emph{both} ramified
 quadratic isomorphism classes, independently of $u$.
 
-\begin{proposition}[\Ptag\ All quadratic torus restrictions pass
+\begin{proposition}[All quadratic torus restrictions pass
 an integral-character test]\label{W:prop:all-three-tori}
 In the wild example $F=\Q_3(\zeta_3)$, $r=2$, $n=3$,
 let $D/F$ be the quaternion division algebra.  The function
@@ -864,7 +869,7 @@ finite $2$-subgroup of $D^\times/F^\times$ is conjugate into $P_0$
 (Schur--Zassenhaus).
 
 \subsection{The cube map}
-\begin{lemma}[\Ptag]\label{W:lem:cube}
+\begin{lemma}\label{W:lem:cube}
 \begin{enumerate}[label=(\alph*)]
 \item For $k\ge3$ the cube map $K^k\to K^{k+4}$ is bijective.
 \item The cube map $Q\to Q$ is injective.
@@ -992,7 +997,7 @@ of the $648$ depth-one classes modulo $K^4U_F^{(1)}$
 \end{proof}
 
 \subsection{The transferred trivial character on $\tU_1$}
-\begin{lemma}[\Ptag]\label{W:lem:Phi}
+\begin{lemma}\label{W:lem:Phi}
 Put $\Phi:=L_D\mathbf1|_{\tU_1}$ and, for a good $g\in U_1$, write
 $g=zt^3$ with $z\in F^\times$ and $t\in K^1$ ($t=1$ if $g$ is central);
 its \emph{star lifts} are the three elements $\zeta\tilde z\,t^*$,
@@ -1042,7 +1047,7 @@ hence the unique Sylow $3$-subgroup; $\phi$ and $\Phi=\phi|_{\tU_1}$ are
 class functions on $\Gamma$ and $\Gamma_0$.  For a maximal subfield
 $E$ write $T_E:=\widetilde{E^\times}N/N\subset\Gamma$.
 
-\begin{lemma}[\Ptag\ Toral restrictions descend]\label{W:lem:toral-descent}
+\begin{lemma}[Toral restrictions descend]\label{W:lem:toral-descent}
 For every maximal subfield $E$, $\phi|_{T_E}$ is the character of a
 representation of $T_E$.
 \end{lemma}
@@ -1054,7 +1059,7 @@ particular $\Theta_W(m)=\Theta_W(1)=\dim W$, so $m$ acts trivially on $W$.
 \end{proof}
 
 \subsection{Two-groups}
-\begin{lemma}[\Ptag\ The star section on $2$-groups]\label{W:lem:2groups}
+\begin{lemma}[The star section on $2$-groups]\label{W:lem:2groups}
 Let $\hat P_0\subset\tH$ be the preimage of $P_0F^\times$ and
 $\Gamma_{P_0}:=\hat P_0N/N$.  Then $\Gamma_{P_0}\simeq\mu_3\times D_8$,
 the elements of $2$-power order form the unique complement
@@ -1088,7 +1093,7 @@ $\delta$ the genuine delta function at $\mu_3$, and
 $8\delta=\sum_\pi(\dim\pi)\Theta_\pi$.
 \end{proof}
 
-\begin{lemma}[\Ptag\ Centralizers of $2$-elements]\label{W:lem:centralizers}
+\begin{lemma}[Centralizers of $2$-elements]\label{W:lem:centralizers}
 Let $y\in\Gamma$ be an element of $2$-power order whose image in
 $\Gamma/\Gamma_0\simeq D_8$ is nontrivial, $\eta\in D^\times$ a
 representative of that image in $D^\times/F^\times$ and $E_y=F(\eta)$.
@@ -1125,7 +1130,7 @@ hence $u_0\in\bar N$ and $b\in T$.
 \end{proof}
 
 \subsection{The norm of $\Phi$}
-\begin{lemma}[\Ptag]\label{W:lem:norm}
+\begin{lemma}\label{W:lem:norm}
 With respect to the probability Haar measures,
 $\langle\phi,\phi\rangle_{\tH}=1$ and, for $m\ge1$,
 \[
@@ -1152,7 +1157,7 @@ product on $\tU_m$ is $\mu(U_{m'})/\mu(U_m)=[Q_{m'}:Q_m]$.
 \end{proof}
 
 \subsection{The reduction theorem}
-\begin{theorem}[\Ptag\ Reduction to the Sylow $3$-subgroup]\label{W:thm:reduction}
+\begin{theorem}[Reduction to the Sylow $3$-subgroup]\label{W:thm:reduction}
 The following are equivalent.
 \begin{enumerate}[label=(\roman*)]
 \item (Target A) $L_D\mathbf1$ is the character of a genuine irreducible
@@ -1210,7 +1215,7 @@ $\tU_6$, normal in $\tH$ because the star section is conjugation
 equivariant and $\tth$ is central.
 \end{definition}
 
-\begin{lemma}[\Ptag]\label{W:lem:H1necessary}
+\begin{lemma}\label{W:lem:H1necessary}
 If $L_D\mathbf1=\Theta_\tau$ with $\tau$ irreducible, then $\tau|_{\tU_6}=27\,\psi_6$;
 in particular (H1) holds.
 \end{lemma}
@@ -1233,7 +1238,7 @@ elements $\bar\sigma(g)$ ($g\in G_3$) are the images of the star lifts;
 by Lemma~\ref{W:lem:cube}(f) and the next lemma they depend only on the
 class of $g$ in $\bar G_3\subset V$.
 
-\begin{lemma}[\Ptag\ Three consequences of (H1)]\label{W:lem:H1consequences}
+\begin{lemma}[Three consequences of (H1)]\label{W:lem:H1consequences}
 Assume (H1).
 \begin{enumerate}[label=(\alph*)]
 \item For $a\in H$ and $b\in U_6$, $\psi_6([\tilde a,\tilde b])=1$.  Hence for
@@ -1335,7 +1340,7 @@ and equivariance of the star section gives
  e(sv)-e(v)=\beta_s(v)\qquad(v\in\bar G_3,\ s\in\Heis).
 \end{equation}
 
-\begin{proposition}[\Ptag\ What Target A forces]\label{W:prop:forces}
+\begin{proposition}[What Target A forces]\label{W:prop:forces}
 Suppose $L_D\mathbf1=\Theta_\tau$.  Then, with $\Lambda\subset V^\vee$ the
 set of $h$ with $\mu_h$ a constituent of $\tau|_{\tV}$:
 \begin{enumerate}[label=(\alph*)]
@@ -1464,7 +1469,7 @@ $\zeta\mapsto\zeta^{r'}$, which multiplies all exponents by $2$ and is
 irrelevant for everything below).  Elements of the cover are pairs
 $(g,e)$ with $(g,e)(h,f)=(gh,e+f+\beta(g,h))$.
 
-\begin{lemma}[\Etag/\Ptag\ The model is the cover]\label{W:lem:model}
+\begin{lemma}[\Etag\ The model is the cover]\label{W:lem:model}
 \begin{enumerate}[label=(\alph*)]
 \item \eqref{W:eq:kubota} is a $2$-cocycle on $\mathrm{GL}_2(E_0)$ whose
 restriction to the diagonal torus is $(a_1,b_2)_{E_0}$.
@@ -1536,7 +1541,7 @@ pairings trivial; the $6\times6$ matrix for $E_0$ is in
 Appendix~\ref{W:app:tables}.
 
 \subsection{The cube identity and the star section on $K^6$}
-\begin{proposition}[\Ptag\ Cubes of the standard section]\label{W:prop:cubeidentity}
+\begin{proposition}[Cubes of the standard section]\label{W:prop:cubeidentity}
 Let $w=x+yj\in D^\times$ with $y\ne0$, $T:=\Tr_{E_0/F}(x)\ne0$ and
 $A:=x^2+x\sigma(x)+\sigma(x)^2+\varpi\Nm(y)\ne0$.  Then
 $(w,0)^3=(w^3,0)$ in the cover.  The hypotheses hold for every
@@ -1564,7 +1569,7 @@ $x(\iota w^k)=\sigma(x)^k$ and $\det=\Nm(x)^k$, and the same bookkeeping
 gives $\sigma(w,w)+\sigma(w^2,w)=-h_E(\sigma x,x)+h_E(\sigma x,x)=0$.
 \end{proof}
 
-\begin{corollary}[\Ptag\ The star section on $K^6$]\label{W:cor:starK6}
+\begin{corollary}[The star section on $K^6$]\label{W:cor:starK6}
 \begin{enumerate}[label=(\alph*)]
 \item For every cube $g=t^3$ with $t\in K^1$, the star lift is
 $\sigma(g)=(g,0)$.
@@ -1631,7 +1636,7 @@ is then a character whose kernel meets each fiber of $\tU_6\to U_6$ in
 exactly one point, namely $\ell(u)$.
 \end{proof}
 
-\begin{proposition}[\Ptag\ (H1) holds]\label{W:prop:H1}
+\begin{proposition}[(H1) holds]\label{W:prop:H1}
 The identity \eqref{W:eq:H1identity} holds for all $X,X'\in K^6$.
 Consequently $\psi_6$ is a character of $\tU_6$, given on
 $\tilde K^6$ by \eqref{W:eq:psi6formula}.
@@ -1827,7 +1832,7 @@ their orbits (script~3); and the design search over all odd
 $D_8$-invariant functions on the $36$ lines together with the
 Heisenberg cocycle extension and the Fourier identities (scripts~4
 and~6).  Each is an enumeration of an explicitly described finite set.
-\item \Ptag\ Everything else is proved by hand: the toral theorem and
+\item Everything else is proved by hand: the toral theorem and
 the three torus calculations, the positivity criterion, the depth
 lemma, the Brauer reduction (Theorem~\ref{W:thm:reduction}), the
 consequences of (H1) and the uniqueness of the design given the finite
@@ -1922,7 +1927,7 @@ and $\phi_\rho(1)=27\dim\rho>0$, so $\phi_\rho$ is an irreducible
 character as soon as it is a virtual character.
 
 \subsection{The reduction theorem for every row}
-\begin{theorem}[\Ptag\ Reduction, all rows]\label{W:thm:reduction-all}
+\begin{theorem}[Reduction, all rows]\label{W:thm:reduction-all}
 $L_D\Theta_\rho$ is the character of a genuine irreducible representation
 of $\tH$ if and only if $\Phi_\rho$ is a virtual character of $\tU_1$.
 \end{theorem}
@@ -2025,7 +2030,7 @@ $\Gamma$, and unitarity finishes the proof.
 \end{proof}
 
 \subsection{The cube-root transform}
-\begin{lemma}[\Ptag\ Product formula]\label{W:lem:product}
+\begin{lemma}[Product formula]\label{W:lem:product}
 Assume \eqref{W:eq:normalized-central}.  There is a unique function
 $F_\rho$ on the set of star lifts of good elements of $H$ such that
 \begin{equation}\label{W:eq:product}
@@ -2187,7 +2192,7 @@ $F_\rho$ to the good classes of $Q_3/Q_7$ is a rational but not an
 integral combination of the restrictions of the $\Ad(Q_1)$-orbit sums of
 $\Irr(Q_3/Q_7)$ (script~13).  Nevertheless:
 
-\begin{lemma}[\Ptag\ The group $H=Q_3/Q_7$]\label{W:lem:Hstructure}
+\begin{lemma}[The group $H=Q_3/Q_7$]\label{W:lem:Hstructure}
 Let $H=Q_3/Q_7$, of order $3^6$.  Then $H'=[H,H]=Q_6/Q_7$, of order $3$;
 $Z(H)=Q_4/Q_7$, of index $9$; $H$ has $243$ linear characters and $54$
 nonlinear irreducible characters, all of degree $3$, namely the
@@ -2491,7 +2496,7 @@ $\beta(z,g)-\beta(g,z)=(1+4c)(z,\det g)$); for $p=3$ this is $c=2$.  We
 write $h_E$ for exponents of the $p$-th power symbol of $E_0$ and
 $(a,b)_E=h_E(a,b)$ additively.
 
-\begin{lemma}[\Ptag\ Depth facts]\label{W:lem:depth-gen}
+\begin{lemma}[Depth facts]\label{W:lem:depth-gen}
 \begin{enumerate}[label=(\alph*)]
 \item For $k>k_0$ the $p$-th power map $K^k\to K^{k+2e}$ is bijective.
 \item If $w\in D^\times$ and $w^p\in F^\times$, then $w\in F^\times$.
@@ -2545,7 +2550,7 @@ Uniqueness and the formula for $z$: $\Nrd X=z^2\Nrd(v)^p$, and squaring
 is bijective on $F^\times/F^{\times p}$, with inverse $y\mapsto y^{(p+1)/2}$.
 \end{proof}
 
-\begin{theorem}[\Ptag\ The $p$-th power identity]\label{W:thm:pthpower}
+\begin{theorem}[The $p$-th power identity]\label{W:thm:pthpower}
 Let $w=x+yj\in K^1$.  Then $(w,0)^p=(w^p,0)$ in the cover.
 \end{theorem}
 \begin{proof}
@@ -2601,7 +2606,7 @@ Since $b_1=0$, \eqref{W:eq:pthsum} vanishes.  For $p=3$ this is the computation 
 Proposition~\ref{W:prop:cubeidentity}.
 \end{proof}
 
-\begin{theorem}[\Ptag\ (H1) for every odd $p$]\label{W:thm:H1-gen}
+\begin{theorem}[(H1) for every odd $p$]\label{W:thm:H1-gen}
 Define the star section on $U_{2d}=F^\times K^{2d}$ by
 $\ell(zv^p):=(z,0)(v,0)^p$ with $v\in K^{k_0}$.  It is well defined,
 $\Ad(D^\times)$-equivariant, and a group homomorphism; explicitly
@@ -2649,7 +2654,7 @@ for $\psi_{2d}$ are as in Corollary~\ref{W:cor:starK6}(d).
 
 \begin{remark}[What is and is not uniform]\label{W:rem:uniform}
 \begin{enumerate}[label=(\roman*)]
-\item \Ptag\ Uniform in $p$ and $F$ (for $n=p$): the toral theorem
+\item Uniform in $p$ and $F$ (for $n=p$): the toral theorem
 (Section~\ref{W:sec:general-toral}); the positivity criterion; the cocycle
 model and the $p$-th power identity; the depth facts; hypothesis (H1)
 in the form of Theorem~\ref{W:thm:H1-gen}; the product formula and the

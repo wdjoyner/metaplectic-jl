@@ -85,10 +85,13 @@ The conventions below are repeated, with the rest of the series' notation, in \S
 All Hilbert symbols are $n$-th Hilbert symbols. For a finite extension $F'/F$ of local fields containing $\mu_n$, $a\in F^\times$ and $b\in F'^\times$, we use the norm compatibility $(a,b)_{F'}=(a,N_{F'/F}b)_F$ \cite[Ch.~XIV]{Ser79}; in particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$. For lifts $\tilde x,\tilde y$ of commuting elements, $[x,y]=\tilde x\tilde y\tilde x^{-1}\tilde y^{-1}$. For a cover $p:\ov H\to H$ and $H'\subset H$ we write $\ov{H'}=p^{-1}(H')$. Genuine functions and representations, good elements, and $C_c^\infty(\ov H,\tilde\theta)_\gen$ are as in \cite[\S\S1--2]{JC26}. As in \cite[\S6.1]{JC26}, we relabel $\mu_n$ once, by $\zeta\mapsto\zeta^{r'}$, at every place and globally, and we say explicitly when a formula is stated before or after relabeling.
 
 \subsection{How results are labeled}
-The labels \Pv, \Ev, \Ov, \Cv\ are those of the whole series and are
-defined in \S\ref{gl:labels} (which also defines \textbf{(P$^{\mathrm
-c}$)}, used only in the companion chapter and not in this one). The
-table below applies them to the results of this chapter.
+Statements proved in this chapter carry no visible tag; the labels
+\Ev, \Ov, \Cv\ mark everything else and are defined in
+\S\ref{gl:labels} (which also defines \textbf{(P$^{\mathrm
+c}$)}, used only in the companion chapter and not in this one), with
+a remark immediately after each tagged statement explaining its
+status. The table below applies the labels to the results of this
+chapter.
 
 \begin{center}
 \begin{tabular}{>{\raggedright\arraybackslash}p{0.47\textwidth}>{\raggedright\arraybackslash}p{0.15\textwidth}>{\raggedright\arraybackslash}p{0.25\textwidth}}
@@ -172,7 +175,7 @@ D_v^\times\arrow[r,hook,"\iD"] & \GL(r,L_v) & \GL(r,K_v)\arrow[l,hook',"\iG"']
 \qquad\qquad \Zb_v=p^{-1}(K_v^\times)\subset\GDb(K_v)\cap\Gb_v.
 \end{equation}
 
-\begin{lemma}\label{I:lem:center}\Pv
+\begin{lemma}\label{I:lem:center}
 The inverse image in $\cGb_v$ of the center $L_v^\times$ of $\cG_v$ is central in $\cGb_v$. In particular $\Zb_v$ is central in $\cGb_v$, in $\GDb(K_v)$ and in $\Gb_v$.
 \end{lemma}
 \begin{proof}
@@ -182,7 +185,7 @@ By \cite[\S2]{FK86} (see \cite[Lemma~2.1]{JC26}), the center of the parameter-$c
 \subsection{The restriction lemma}\label{I:subsec:restriction}
 We now identify the two subgroups of Definition~\ref{I:def:localcovers}. The $D$ side is the cover of \cite{JC26} by construction. The $\GL$ side is isomorphic, as a central extension, to the Kazhdan--Patterson cover with parameter $c_v$. This replaces the cocycle-level claim in the proof of \cite[Lemma~6.1(c)]{JC26} by a statement about extensions, with a proof that does not depend on the internal form of the Kazhdan--Patterson cocycle.
 
-\begin{proposition}\label{I:prop:restriction}\Pv\ (using \Ev\ inputs)
+\begin{proposition}\label{I:prop:restriction}\ (using \Ev\ inputs)
 Let $v$ be a finite place.
 \begin{enumerate}[label=(\alph*)]
 \item The pull-back of the cocycle \eqref{I:eq:ambient} along $\iD$ is the local component at $v$ of the cocycle $\beta=\sigma_L\cdot(\Nrd,\Nrd)^c$ of \cite[equation~(4)]{JC26}. Hence $\GDb(K_v)$ is the local cover of \cite[\S6.1]{JC26}.
@@ -229,7 +232,7 @@ An isomorphism $\phi:\Gb_v\to\Gb^{(c_v)}$ as in Proposition~\ref{I:prop:restrict
 \subsection{Places where $D$ splits}\label{I:subsec:outsideS}
 At $v\notin S$ the groups $D_v^\times$ and $\GL(r,K_v)$ are isomorphic. We show that the corresponding covers are identified by conjugation in $\cGb_v$, canonically once the isomorphism of the base groups is fixed, and compatibly with the splittings over maximal compact subgroups at almost all places. This is step~(2) of \cite[Remark~10.3]{JC26}.
 
-\begin{proposition}\label{I:prop:outsideS}\Pv
+\begin{proposition}\label{I:prop:outsideS}
 Let $v\notin S$ and fix a $K_v$-algebra isomorphism $\alpha_v:D_v\xrightarrow{\sim}M_r(K_v)$.
 \begin{enumerate}[label=(\alph*)]
 \item There is $g_v\in\cG_v$ with $\Ad(g_v)\circ\iD=\iG\circ\alpha_v$ on $D_v^\times$. It is unique up to the center $L_v^\times$ of $\cG_v$.
@@ -245,6 +248,16 @@ Let $v\notin S$ and fix a $K_v$-algebra isomorphism $\alpha_v:D_v\xrightarrow{\s
 (c) Under the hypotheses, $\Ad(g_v)$ restricts to an automorphism of the Azumaya algebra $M_r(\cO_{L_v})$ over $\cO_{L_v}=\prod_w\cO_{L_w}$, a product of local rings. Such an automorphism is inner by an element of $\GL(r,\cO_{L_v})$ (Skolem--Noether for Azumaya algebras over local rings, whose Picard groups are trivial). So $g_v\in L_v^\times\GL(r,\cO_{L_v})$, and we may take $g_v\in\GL(r,\cO_{L_v})$. The splittings in question are the restrictions of the splitting $\ks_{\cG_v}$ of $\cGb_v$ over $\GL(r,\cO_{L_v})$ (Proposition~\ref{I:prop:global}(d) and \cite[Lemma~6.1(d)]{JC26}). Since $\ks_{\cG_v}$ is a homomorphism, $\Ad(\ks_{\cG_v}(g_v))$ carries $\ks_{\cG_v}(\iD(k))$ to $\ks_{\cG_v}(g_v\iD(k)g_v^{-1})=\ks_{\cG_v}(\iG\alpha_v(k))$.
 \end{proof}
 
+\begin{example}[Continuing Example~\ref{ex:running}: a split place, and matching costs nothing there]\label{I:ex:split-matching}
+Take $v$ the place of $K=\Q(\zeta_3)$ above $13$. Since $13\equiv1\pmod3$, $13$ splits completely in $K$ (consistent with the Sage check behind Example~\ref{ex:running}), so $K_v=\Q_{13}$; and $13\notin\{3,7\}=S$, $13\nmid n=3$. Since $D$ is ramified exactly at $S$ (Example~\ref{ex:running}), $v\notin S$ means $D_v\cong M_2(\Q_{13})$ is already split, so $v$ is exactly the kind of place Proposition~\ref{I:prop:outsideS} covers, and $\alpha_v$ is any $\Q_{13}$-algebra isomorphism $D_v\xrightarrow{\sim}M_2(\Q_{13})$.
+
+Concretely: let $\gamma=\iD(t)$ for $t$ a generator of a maximal subfield $E\subset D$ good at $v$, and let $\tilde f_{D,v}$ be any genuine test function on $\GDb(K_v)$. Set $\tilde f_v:=\tilde f_{D,v}\circ\psi_v^{-1}$ as in part (b). Because $\psi_v$ is a group isomorphism carrying $\iD(\gamma)$ to $\iG(\alpha_v(\gamma))$ and the Haar measures are transported by $dg_{D,v}=\psi_v^*dg_v$ (the convention fixed in \S\ref{I:subsec:TFD}), the two orbital integrals are literally the same integral written in two sets of coordinates:
+\[
+\Phi\bigl(\iD(\gamma),\tilde f_{D,v}\bigr)=\Phi\bigl(\iG(\alpha_v(\gamma)),\tilde f_v\bigr),
+\]
+with no normalizing factor on either side. This is what ``matching is the identity at $v\notin S$'' means in practice: at the thirteen-adic place there is nothing to solve, no germ to match, and no constant to track, because the two sides are not merely isomorphic but presented, after $\psi_v$, as the same group acting on the same test function. All of the content of Chapters~\ref{ch:I}--\ref{ch:III} is about the two places $\p_3,\p_7\in S$, precisely because every other place looks like this one.
+\end{example}
+
 % =====================================================================
 \section{Comparison of covered elliptic tori at the ramified places}\label{I:sec:tori}
 This section shows that, at a place $v\in S$, the covered torus $\Eb_D\subset\GDb(K_v)$ attached to a maximal subfield $E\subset D_v$ and the covered torus $\Eb_{\GL}\subset\Gb_v$ attached to an embedding $E\hookrightarrow M_r(K_v)$ have the same commutator pairing, the same good elements and the same centers. They are identified on good elements by a canonical isomorphism. We compute the pairing (\S\ref{I:subsec:comm}) and the good elements (\S\ref{I:subsec:good}), give an example (\S\ref{I:subsec:example}), construct the identification (\S\ref{I:subsec:ident}), and record its consequences (\S\ref{I:subsec:cons}). It depends on \S\ref{I:sec:covers} (Lemma~\ref{I:lem:center} and Proposition~\ref{I:prop:restriction}) and on the commutator formula of \cite[\S3]{FK86}, \cite[Prop.~0.1.5]{KP84}. It introduces the covered tori $\Eb_D$ and $\Eb_{\GL}$, the set $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$, the canonical identification $\jj_{E,j}$ and the induced bijection $\jj$ of good regular elliptic classes.
@@ -256,7 +269,7 @@ We compute the commutator pairing of the covered torus on each side, inside $\cG
 
 For $x,y\in E^\times$ write $[x,y]_D$ and $[x,y]_{\GL}$ for the commutators of lifts of $\iD(x),\iD(y)$ and of $\iG j(x),\iG j(y)$. They are well defined and bimultiplicative \cite[\S3]{FK86}.
 
-\begin{proposition}\label{I:prop:comm}\Pv
+\begin{proposition}\label{I:prop:comm}
 For all $x,y\in E^\times$,
 \begin{equation}\label{I:eq:commboth}
 [x,y]_D=[x,y]_{\GL}=(Nx,Ny)_F^{\,r+2c}\,(x,y)_E^{-r}\qquad\text{(before relabeling)}.
@@ -291,14 +304,14 @@ If the $\GL$-side cover had parameter $c'$ instead of $c_v$, its pairing on $j(E
 \subsection{Good elements and centers}\label{I:subsec:good}
 From the explicit pairing we determine the good elements on both sides, the index of the center, and hence the dimension of genuine irreducible representations of the covered torus.
 
-\begin{lemma}\label{I:lem:FcapEn}\Pv
+\begin{lemma}\label{I:lem:FcapEn}
 $F^\times\cap E^{\times n}=F^{\times n}$. Hence $F^\times/F^{\times n}\to E^\times/E^{\times n}$ is injective.
 \end{lemma}
 \begin{proof}
 If $z=y^n$ with $y\in E^\times$, then $z^r=N(z)=N(y)^n\in F^{\times n}$. Also $z^n\in F^{\times n}$, and $(r,n)=1$, so $z\in F^{\times n}$.
 \end{proof}
 
-\begin{proposition}\label{I:prop:good}\Pv
+\begin{proposition}\label{I:prop:good}
 Let $\bullet\in\{D,\GL\}$.
 \begin{enumerate}[label=(\alph*)]
 \item An element $\tilde x\in\Eb_\bullet$ is good (central in $\Eb_\bullet$) if and only if $p(\tilde x)\in F^\times E^{\times n}$. No regularity assumption is needed.
@@ -338,7 +351,7 @@ Equal commutator pairings leave open whether the two covered tori are isomorphic
 Let $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$ be the set of isomorphisms of topological groups $\varphi:\Eb_D\to\Eb_{\GL}$ with $p\circ\varphi=(\iG j\iD^{-1})\circ p$ that are the identity on $\mu_n$ and on $\Zb_v$.
 \end{definition}
 
-\begin{theorem}\label{I:thm:ident}\Pv
+\begin{theorem}\label{I:thm:ident}
 \begin{enumerate}[label=(\alph*)]
 \item There is $g\in\cG_v$ with $g\,\iD(e)\,g^{-1}=\iG(j(e))$ for all $e\in E$. For any lift $\tilde g$, $\Ad(\tilde g)$ restricts to an element $\varphi_g\in\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$.
 \item Any two elements of $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$ agree on $Z(\Eb_D)$. The common restriction
@@ -371,7 +384,7 @@ Off the good elements, $\varphi$ depends on choices through a character of $E^\t
 \subsection{Consequences}\label{I:subsec:cons}
 We record that the identification is natural for conjugation, independent of $j$, and induces bijections of good regular elliptic classes and of genuine representations of covered tori. The class sets $\mathcal C^{g}(\GDb(K_v))$, $\mathcal C^{g}_{\mathrm{ell}}(\Gb_v)$ and the bijection $\jj$ defined here enter the definition of matching in \S\ref{I:sec:matching}.
 
-\begin{proposition}[Naturality]\label{I:prop:natural}\Pv
+\begin{proposition}[Naturality]\label{I:prop:natural}
 Let $y\in D_v^\times$ and $h\in\GL(r,F)$, and put $E'=yEy^{-1}$ and $j'=\Ad(h)\circ j\circ\Ad(y)^{-1}:E'\hookrightarrow M_r(F)$. Then on $Z(\Eb_D)$
 \[ \jj_{E',j'}\circ\Ad(\tilde y)=\Ad(\tilde h)\circ\jj_{E,j}. \]
 In particular $\jj_{E,j}$ depends on $j$ only through its $\GL(r,F)$-conjugacy class, which is unique. If $y$ normalizes $E$ and $h$ normalizes $j(E)$, inducing the same automorphism of $E$, then $\jj_{E,j}\circ\Ad(\tilde y)=\Ad(\tilde h)\circ\jj_{E,j}$.
@@ -382,7 +395,7 @@ Put $j_1:=\Ad(h)\circ j=j'\circ\Ad(y)$. Let $\varphi\in\Iso_{\Zb}(\Eb_D,\Eb_{\GL
 
 A regular element $\tilde\gamma$ of $\GDb(K_v)$ or $\Gb_v$ is \emph{good} if it is central in $\ov{T_\gamma}$, where $T_\gamma$ is the centralizer of $\gamma=p(\tilde\gamma)$. Let $\mathcal C^{g}(\GDb(K_v))$ be the set of conjugacy classes of good regular elements of $\GDb(K_v)$ (all regular elements of $D_v^\times$ are elliptic), and $\mathcal C^{g}_{\mathrm{ell}}(\Gb_v)$ the set of conjugacy classes of good regular elliptic elements of $\Gb_v$.
 
-\begin{corollary}\label{I:cor:classes}\Pv
+\begin{corollary}\label{I:cor:classes}
 The maps $\jj_{E,j}$ induce a well-defined bijection
 \[ \jj:\mathcal C^{g}(\GDb(K_v))\xrightarrow{\ \sim\ }\mathcal C^{g}_{\mathrm{ell}}(\Gb_v),\qquad [\tilde\gamma]\mapsto[\jj_{F(\gamma),j}(\tilde\gamma)]. \]
 It preserves (reduced) characteristic polynomials and commutes with multiplication by $\Zb_v$.
@@ -391,7 +404,7 @@ It preserves (reduced) characteristic polynomials and commutes with multiplicati
 \emph{Well defined:} by Proposition~\ref{I:prop:natural}. \emph{Surjective:} if $\tilde\gamma'$ is good regular elliptic, $E'=F(p(\tilde\gamma'))$ is a field of degree $r$, which embeds in $D_v$ \cite[Ch.~XIII]{Wei73}. Choose $E\subset D_v$ and $j$ with $j(E)=E'$; then $\tilde\gamma'\in Z(\Eb_{\GL})$ is $\jj_{E,j}$ of a unique element. \emph{Injective:} if $\jj(\tilde\gamma_1)$ and $\jj(\tilde\gamma_2)$ are conjugate, then $p(\tilde\gamma_1)$ and $p(\tilde\gamma_2)$ have the same characteristic polynomial, hence are conjugate in $D_v^\times$. By naturality we may assume $p(\tilde\gamma_1)=p(\tilde\gamma_2)$, so $\tilde\gamma_2=\zeta\tilde\gamma_1$ with $\zeta\in\mu_n$ and $\zeta\jj(\tilde\gamma_1)$ is conjugate to $\jj(\tilde\gamma_1)$. If $x^{-1}\tilde\delta x=\zeta\tilde\delta$ with $\tilde\delta$ regular and good, then $p(x)$ centralizes $p(\tilde\delta)$, so $x\in\ov{T_\delta}$ commutes with $\tilde\delta$, and $\zeta=1$.
 \end{proof}
 
-\begin{corollary}\label{I:cor:reps}\Pv
+\begin{corollary}\label{I:cor:reps}
 For $\varphi\in\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$, $\chi\mapsto\chi\circ\varphi^{-1}$ induces a bijection between isomorphism classes of genuine irreducible smooth representations of $\Eb_D$ and $\Eb_{\GL}$, independent of $\varphi$. On good elements $\tr\chi(\tilde t)=\tr(\chi\circ\varphi^{-1})(\jj_{E,j}(\tilde t))$, and both characters vanish off the good elements.
 \end{corollary}
 \begin{proof}
@@ -415,7 +428,7 @@ For $\bullet\in\{D,\GL\}$, $G_\bullet\in\{D_v^\times,\GL(r,F)\}$, a genuine $\ti
 with $\Delta(\gamma)=|D(\gamma)|_F^{1/2}|\det\gamma|_F^{-(r-1)/2}$ as in \cite[\S6]{FK86}, where $D(\gamma)$ is the discriminant of the (reduced) characteristic polynomial and $\det=\Nrd$ on the $D$ side. For non-good regular $\tilde\gamma$ put $F(\tilde\gamma,\tilde f):=0$.
 \end{definition}
 
-\begin{lemma}\label{I:lem:oiprops}\Pv\ (convergence: \Ev)
+\begin{lemma}\label{I:lem:oiprops}\ (convergence: \Ev)
 \begin{enumerate}[label=(\alph*)]
 \item The integrand of $\Phi$ is independent of the lift $\tilde x$ and left $T_\gamma$-invariant (because $\tilde\gamma$ is good). The integral converges absolutely. On the $D$ side $T_\gamma\backslash D_v^\times$ is compact, since $D_v^\times/F^\times$ is. On the $\GL$ side the orbit of a regular semisimple element is closed, and convergence is \cite[\S6]{FK86} (following Rao) \Ev.
 \item $F(\cdot,\tilde f)$ is constant on conjugacy classes, and $F(z\tilde\gamma,\tilde f)=\tilde\theta_v(z)^{-1}F(\tilde\gamma,\tilde f)$ for $z\in\Zb_v$; in particular it is genuine.
@@ -451,7 +464,7 @@ For $\bullet\in\{D,\GL\}$ and each $i$, let $\Eb_{i,\bullet}$ be the covered tor
 \item $h(\tilde y\tilde t\tilde y^{-1})=h(\tilde t)$ for $y\in N_{G_\bullet}(T_{i,\bullet})$.
 \end{enumerate}
 
-\begin{lemma}\label{I:lem:transported}\Pv
+\begin{lemma}\label{I:lem:transported}
 \begin{enumerate}[label=(\alph*)]
 \item If $\tilde f\in C_c^\infty(\ov{G_\bullet},\tilde\theta_v)_\gen$ is supported in the regular set, then for each $i$ the restriction of $F(\cdot,\tilde f)$ to $Z(\Eb_{i,\bullet})^{\reg}$ is admissible.
 \item $h\mapsto h\circ\jj_i^{-1}$ is a bijection from admissible functions on $Z(\Eb_{i,D})^{\reg}$ to admissible functions on $Z(\Eb_{i,\GL})^{\reg}$.
@@ -470,7 +483,7 @@ For $\bullet\in\{D,\GL\}$ and each $i$, let $\Eb_{i,\bullet}$ be the covered tor
 \subsection{The easy direction, in both directions}\label{I:subsec:easy}
 We combine the previous lemmas into the existence theorem for matching functions supported on the regular set, and check the hypotheses of the simple trace formula of \cite[\S18]{FK86}.
 
-\begin{theorem}\label{I:thm:easy}\Pv
+\begin{theorem}\label{I:thm:easy}
 \begin{enumerate}[label=(\alph*)]
 \item Let $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ vanish on a neighborhood of $\Zb_v$. Then there is $\tilde f\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$, supported on the good regular elliptic set, matching $\tilde f_D$.
 \item Let $\tilde f\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ be supported in the regular set, with $F(\tilde\delta,\tilde f)=0$ for all good regular non-elliptic $\tilde\delta$. Then there is $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ vanishing on a neighborhood of $\Zb_v$ and matching $\tilde f$.
@@ -494,7 +507,7 @@ We combine the previous lemmas into the existence theorem for matching functions
 \subsection{What fails for general functions}\label{I:subsec:general}
 We explain why Theorem~\ref{I:thm:easy}(a) cannot be extended to all $\tilde f_D$ by the same method, by computing the orbital integrals of $\tilde f_D$ near the center exactly.
 
-\begin{proposition}\label{I:prop:germ}\Pv
+\begin{proposition}\label{I:prop:germ}
 Let $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$. There are an open compact subgroup $U\subset D_v^\times$, normal in $D_v^\times$, and a splitting $\kappa_U:U\to\GDb(K_v)$ with the following properties.
 \begin{enumerate}[label=(\alph*)]
 \item $\Ad(\tilde x)\circ\kappa_U=\kappa_U\circ\Ad(x)$ on $U$ for every $x\in D_v^\times$, and $\kappa_U(t)$ is good for every regular $t\in U$.
@@ -530,14 +543,14 @@ This subsection proves, directly and for an arbitrary elliptic maximal torus (cy
 (a) For regular $t$, the differential of $\Psi$ is surjective, because $\Ad(t^{-1})-1$ is invertible on a complement of $\mathrm{Lie}\,T$. Dimensions agree, so the inverse function theorem for analytic maps over $F$ applies (Harish-Chandra's submersion principle \cite{HC70}, \cite[\S\S7, 13]{Kot05}). If $x^{-1}tx=y^{-1}t'y$, then $w:=yx^{-1}$ conjugates $t$ to $t'$; since $t$ is regular, $w$ normalizes $T$, which gives the fibers. Freeness holds because $w\in T$ if $Twx=Tx$. (b) This is \cite[Chapter~\ref{ch:I}]{HC70}, \cite[\S13]{Kot05}. On the $D$ side it is trivial, since $T\backslash G$ is compact.
 \end{proof}
 
-\begin{lemma}\label{I:lem:Acover}\Pv
+\begin{lemma}\label{I:lem:Acover}
 The map $\tilde\Psi:T\backslash G\times\Tb^{g,\reg}\to\Gb$, $(\dot x,\tilde t)\mapsto\tilde x^{-1}\tilde t\tilde x$, is well defined. It commutes with multiplication by $\Zb$ (in particular by $\mu_n$) on the second factor, and it is a covering map of degree $|W|$ onto the open set $\Gb_T:=p^{-1}(G_T)\cap\{\text{good elements}\}$. Its fibers are the $W$-orbits for the action $w\cdot(\dot x,\tilde t)=(T\tilde w x,\tilde w\tilde t\tilde w^{-1})$.
 \end{lemma}
 \begin{proof}
 Conjugation by $\tilde x$ does not depend on the lift. Replacing $x$ by $sx$ with $s\in T$ does not change $\tilde x^{-1}\tilde t\tilde x$, because $\tilde t$ is good. Similarly $\tilde w\tilde t\tilde w^{-1}$ does not depend on the lift $\tilde w$ of $w\in N_G(T)$ or on the representative of $w$ modulo $T$. The fiber statement follows from Lemma~\ref{I:lem:Asub}(a) by lifting: if $\tilde x^{-1}\tilde t\tilde x=\tilde y^{-1}\tilde t'\tilde y$, then $w=yx^{-1}$ normalizes $T$ and $\tilde t'=\tilde w\tilde t\tilde w^{-1}$. The induced map from the quotient by $W$ is therefore injective. It is a local homeomorphism, because $\Psi$ is and because $p:\Gb\to G$ and $p:\Tb\to T$ are finite coverings that are trivial over small open sets (the cover splits over small open compact subgroups). So it is a homeomorphism onto its open image. Since $W$ is finite and acts freely, $\tilde\Psi$ is a covering of degree $|W|$ onto its image. The image consists of good elements, because conjugates of good elements are good, and it is all of $\Gb_T$, because every good regular element conjugate into $T$ is conjugate to an element of $\Tb^{g,\reg}$.
 \end{proof}
 
-\begin{lemma}\label{I:lem:Aprops}\Pv
+\begin{lemma}\label{I:lem:Aprops}
 Let $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$ be supported in the regular set. Then $h(\tilde t):=F(\tilde t,\tilde f)$, for $\tilde t\in\Tb^{g,\reg}$, is admissible in the sense of \S\ref{I:subsec:transported}: (i) locally constant; (ii) $h(z\tilde t)=\tilde\theta(z)^{-1}h(\tilde t)$; (iii) with support compact modulo $\Zb$ inside $\Tb^{g,\reg}$; (iv) invariant under $N_G(T)$.
 \end{lemma}
 \begin{proof}
@@ -550,7 +563,7 @@ Let $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$ be supported in the regular 
 (i) Fix $\tilde t_0\in\Tb^{g,\reg}$. Let $U_T$ be an open compact subgroup of $T$ with $t_0U_T\subset T^{\reg}$, over which the cover splits by some $\kappa$. Every element of $\Tb$ near $\tilde t_0$ is of the form $\tilde t_0\kappa(u)$ with $u\in U_T$ (these are good, $Z(\Tb)$ being open). By Lemma~\ref{I:lem:Asub}(b) applied to $C=Zt_0U_T$ and $\Omega=p(\supp\tilde f)$, the set $X$ of $\dot x$ with $x^{-1}Cx\cap\Omega\ne\emptyset$ is compact. The function $(\dot x,u)\mapsto\tilde f(\tilde\Psi(\dot x,\tilde t_0\kappa(u)))$ is locally constant on $X\times U_T$ and vanishes for $\dot x\notin X$. By compactness of $X$ there is an open subgroup $U'\subset U_T$ such that its value at $(\dot x,u)$ equals its value at $(\dot x,1)$ for all $\dot x$ and all $u\in U'$. Integrating over $T\backslash G$ gives $\Phi(\tilde t_0\kappa(u),\tilde f)=\Phi(\tilde t_0,\tilde f)$ for $u\in U'$, and $\Delta$ is locally constant on $T^{\reg}$.
 \end{proof}
 
-\begin{lemma}\label{I:lem:Arealize}\Pv
+\begin{lemma}\label{I:lem:Arealize}
 Let $h$ be admissible on $\Tb^{g,\reg}$. Choose $\beta\in C_c^\infty(T\backslash G)$ with $\int\beta\,d\dot x=1$, and define $\tilde f$ on $\Gb$ by
 \[ \tilde f(\tilde y):=\frac1{|W|}\sum_{(\dot x,\tilde t)\in\tilde\Psi^{-1}(\tilde y)}\beta(\dot x)\,h(\tilde t)\,\Delta(t)^{-1}\quad(\tilde y\in\Gb_T),\qquad\tilde f(\tilde y):=0\quad(\tilde y\notin\Gb_T). \]
 Then $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$, its support is contained in $\tilde\Psi(\supp\beta\times\supp h)$ (good regular elements conjugate into $\Tb$), $F(\cdot,\tilde f)=h$ on $\Tb^{g,\reg}$, and $F(\tilde\delta,\tilde f)=0$ for every regular $\tilde\delta$ not conjugate into $\Tb$.
@@ -565,7 +578,7 @@ Then $\tilde f\in C_c^\infty(\Gb,\tilde\theta)_\gen$, its support is contained i
 Integrating over $T\backslash G$, and using that $Tx\mapsto Twx$ preserves $d\dot x$, gives $\Phi(\tilde t_0,\tilde f)=h(\tilde t_0)\Delta(t_0)^{-1}$, i.e.\ $F(\tilde t_0,\tilde f)=h(\tilde t_0)$. If $\tilde\delta$ is regular and not conjugate into $\Tb$, its conjugacy class does not meet $\Gb_T\supseteq\supp\tilde f$, so $\Phi(\tilde\delta,\tilde f)=0$.
 \end{proof}
 
-\begin{lemma}\label{I:lem:traceOI}\Pv\ (using \Ev)
+\begin{lemma}\label{I:lem:traceOI}\ (using \Ev)
 Let $\pib$ be an irreducible admissible genuine representation of $\Gb$ with central character $\tilde\theta$, and let $\tilde f_1,\tilde f_2\in C_c^\infty(\Gb,\tilde\theta)_\gen$ be supported in the regular set. If $F(\tilde\gamma,\tilde f_1)=F(\tilde\gamma,\tilde f_2)$ for every good regular $\tilde\gamma$, then $\tr\pib(\tilde f_1)=\tr\pib(\tilde f_2)$.
 \end{lemma}
 \begin{proof}
@@ -584,7 +597,7 @@ Let $\cGb(\A_L)$ be the cover of $\GL(r,\A_L)$ with cocycle $\tau_L\cdot(\det,\d
 
 We first make the section and splitting conventions explicit, since the normalized and unnormalized cocycle models describe the same splittings by different formulas.
 
-\begin{lemma}[Splitting conventions]\label{I:lem:splittings}\Pv\ (using \Ev)
+\begin{lemma}[Splitting conventions]\label{I:lem:splittings}\ (using \Ev)
 For a place $w$ of $L$ let $\sigma_w=\sigma_{L_w}$ be the Kazhdan--Patterson cocycle (parameter $0$) of $\GL(r,L_w)$, and $s_\sigma(g)=(g,1)_\sigma$ the corresponding section. For $w\nmid n\infty$ let $\kappa_w:\GL(r,L_w)\to\mu_n$ be the function of \cite[\S2]{FK86}: on $K_w=\GL(r,\cO_{L_w})$ it satisfies
 \begin{equation}\label{I:eq:kappaK}
 \sigma_w(k,k')=\kappa_w(kk')\,\kappa_w(k)^{-1}\kappa_w(k')^{-1}\qquad(k,k'\in K_w),
@@ -628,7 +641,7 @@ Throughout, $\iota$ and $\ks_v$ are the splittings of Lemma~\ref{I:lem:splitting
 $\GDb(\A_K):=p^{-1}(\iD(G_D(\A_K)))$ and $\Gb(\A_K):=p^{-1}(\iG(\GL(r,\A_K)))$, subgroups of $\cGb(\A_L)$, and $\Zb(\A_K):=p^{-1}(\A_K^\times)$.
 \end{definition}
 
-\begin{proposition}\label{I:prop:global}\Pv
+\begin{proposition}\label{I:prop:global}
 \begin{enumerate}[label=(\alph*)]
 \item The cocycle of $\cGb(\A_L)$ restricts on $G_D(\A_K)$ to $\beta_\tau:=\tau_L\cdot(\Nrd,\Nrd)^c$. This is the cocycle $\beta$ of \cite[equation~(4)]{JC26} when $\sigma_L$ there is read as the normalized cocycle $\tau_L$, which is the reading under which \cite{JC26}'s global cover is defined and split over $\GL(r,L)$. The rational splitting $\iota|_{G_D(K)}$ is that of \cite[Lemma~6.1(a),(d)]{JC26}, and the compact splittings $\ks_v$ are those of \cite[Lemma~6.1(d)]{JC26} (Remark~\ref{I:rem:JCsplitting}).
 \item $\iota$ splits $\Gb(\A_K)$ over $\GL(r,K)$, and $\GDb(\A_K)$ over $G_D(K)$.
@@ -658,7 +671,7 @@ We prove that the local identifications of \S\S\ref{I:sec:covers}--\ref{I:sec:ma
 
 For $\gamma\in G_D(K)$ and genuine factorizable $\tilde f_D=\otimes_v\tilde f_{D,v}$, write $F(\iota(\gamma),\tilde f_D):=\prod_vF(x_v,\tilde f_{D,v})$, where $(x_v)$ is any representative of $\iota(\gamma)$ in the restricted product. This is well defined because the product of the local phases is $1$ \cite[Lemma~6.1, Remark~(3)]{JC26}. Similarly on the $\GL$ side.
 
-\begin{theorem}\label{I:thm:rational}\Pv
+\begin{theorem}\label{I:thm:rational}
 Let $E\subset D$ be a maximal subfield, $j:E\hookrightarrow M_r(K)$ a $K$-embedding, and $\gamma\in E^\times$ regular and good at every place on the $D$ side. Fix $\alpha_v$ and $\psi_v$ for $v\notin S$ as in Proposition~\ref{I:prop:outsideS}. Let $\tilde f_D=\otimes\tilde f_{D,v}$ and $\tilde f=\otimes\tilde f_v$ be genuine and factorizable with $\tilde f_{D,v}=\tilde f_v\circ\psi_v$ for $v\notin S$ (with $dg_{D,v}=\psi_v^*dg_v$) and $\tilde f_{D,v}$, $\tilde f_v$ matching for $v\in S$. Then $j(\gamma)$ is good at every place on the $\GL$ side, and
 \[ F(\iota(\gamma),\tilde f_D)=F(\iota(j(\gamma)),\tilde f). \]
 \end{theorem}
@@ -676,7 +689,7 @@ using conjugation invariance and the fact that $\psi_v$ is an isomorphism of gro
 \emph{Conclusion.} Multiplying over $v$ gives $F(\iota(j\gamma),\tilde f)=(-1)^{(r-1)|S|}F(\iota(\gamma),\tilde f_D)$, and $(-1)^{(r-1)|S|}=1$, since $r-1$ is even for odd $r$ and $|S|$ is even for $r=2$.
 \end{proof}
 
-\begin{corollary}\label{I:cor:rationalbij}\Pv
+\begin{corollary}\label{I:cor:rationalbij}
 The map $\gamma\mapsto j(\gamma)$ induces a bijection between $G_D(K)$-conjugacy classes (modulo $Z(K)$) of regular $\gamma$ that are good at every place, and $\GL(r,K)$-conjugacy classes (modulo $Z(K)$) of regular elliptic $\gamma'$ that are good at every place and whose field $K(\gamma')$ embeds in $D$. For $\gamma'$ regular elliptic whose field does not embed in $D$, $F(\iota(\gamma'),\tilde f)=0$ whenever $\tilde f_v$ satisfies (M2) at all $v\in S$.
 \end{corollary}
 \begin{proof}
@@ -693,7 +706,7 @@ With these choices, the elliptic term of $\gamma$ on either side is \[ |W_\gamma
 \subsection{Cusp forms on finite central covers}\label{I:app:cusp}
 This subsection supplies the analytic input of Lemma~\ref{I:lem:A1}(a): the uniform sup-norm bound for $r(\phi)$ on cusp forms, for the cover $\Gb(\A_K)$. For $\GL(r,\A)$ the bound is classical \cite[Ch.~3]{GGPS69}, \cite{God66}, \cite[I.2]{MW95}. Moeglin and Waldspurger formulate their theory so as to include finite central coverings, and their theory of Eisenstein series is used for covering groups in this generality, for example by Gao \cite{Gao12} for $\mathrm{Mp}_4$. Rather than rely on that alone, we list the properties (R1)--(R5) of the group that the classical proof uses, and we verify each of them for $\Gb(\A_K)$. The subsection depends on \S\ref{I:sec:global} (Proposition~\ref{I:prop:global}(e)) and on Lemma~\ref{I:lem:A1}.
 
-\begin{lemma}\label{I:lem:Bsup}\Pv\ (using \Ev)
+\begin{lemma}\label{I:lem:Bsup}\ (using \Ev)
 Let $\phi$ be a genuine test function on $\Gb(\A_K)$ transforming by $\tilde\theta^{-1}$ under $\Zb(\A_K)$ ($K_\infty$-finite at the archimedean places). There is $C_\phi$ with $\sup_x|(r(\phi)\psi)(x)|\le C_\phi\|\psi\|_2$ for all $\psi\in L^2_{\mathrm{cusp}}$.
 \end{lemma}
 
@@ -728,7 +741,7 @@ Write $\mathcal O_H$ for the set of $H(K)$-conjugacy classes in $Z(K)\backslash 
 \subsection{The $D$ side}\label{I:subsec:TFD}
 We compute the trace of the right regular representation on the compact quotient. This is the untwisted case of \cite[Prop.~6.6]{JC26}, except that all maximal subfields of $D$ now contribute, not only $L$.
 
-\begin{proposition}\label{I:prop:geomD}\Pv
+\begin{proposition}\label{I:prop:geomD}
 Let $\tilde f_D=\otimes_v\tilde f_{D,v}$ be smooth, genuine, compactly supported modulo $\Zb(\A_K)$, with $\tilde f_D(z\tilde g)=\tilde\theta(z)^{-1}\tilde f_D(\tilde g)$, and let $\tilde R_D$ be the right regular representation on $L^2(\iota(G_D(K))\backslash\GDb(\A_K),\tilde\theta)$. Then $\tilde R_D(\tilde f_D)$ is of trace class, and
 \[ \sum_{\pib_D}m(\pib_D)\tr\pib_D(\tilde f_D)=\vol(Z(\A)G_D(K)\backslash G_D(\A))\,\tilde f_D(1)+\sum_{[\gamma]\in\mathcal O_{G_D}}c(\gamma)\,F(\iota(\gamma),\tilde f_D). \]
 The left side converges absolutely, and the sum on the right is finite. If $\tilde f_{D,u}$ vanishes near $\Zb_u$ for some $u\in S$, the first term on the right vanishes.
@@ -747,7 +760,7 @@ where $c_\gamma(s)\in\mu_n$ is defined by $\tilde s^{-1}\iota(\gamma)\tilde s=c_
 \subsection{The $\GL$ side: a variant of \cite[\S18]{FK86}}\label{I:subsec:TFGL}
 The simple trace formula \cite[\S18, Theorem]{FK86} requires the supercusp form at one of the two places where non-elliptic orbital integrals vanish. We want it at a place $w_0\notin S$, where matching is the identity. We state the variant we need and prove it by following the proof in \cite[\S18]{FK86}, noting which hypothesis each step uses. In fact we need only \emph{one} place with elliptic support, which then plays the roles of all three of the places $u,u',u''$ in \cite{FK86}.
 
-\begin{proposition}\label{I:prop:FKvariant}\Pv\ (using \Ev)
+\begin{proposition}\label{I:prop:FKvariant}\ (using \Ev)
 Let $\tilde f=\otimes_v\tilde f_v$ be smooth, genuine, compactly supported modulo $\Zb(\A_K)$, transforming by $\tilde\theta^{-1}$ under $\Zb(\A_K)$, with $\tilde f_v$ the unit element of the genuine spherical Hecke algebra (relative to $\ks_v$) for almost all $v$. Suppose:
 \begin{enumerate}[label=(\roman*)]
 \item at some place $w_0$, $\tilde f_{w_0}$ is a supercusp form \cite[\S13]{FK86}, i.e.\ $\int_{N(K_{w_0})}\tilde f_{w_0}(\tilde x\,s_N(n)\,\tilde y)\,dn=0$ for every unipotent radical $N$ of a proper parabolic subgroup and all $\tilde x,\tilde y$;
@@ -785,10 +798,10 @@ with absolute convergence by Cauchy--Schwarz (both kernels are square integrable
 In the notation of \cite[\S18, Theorem]{FK86}, condition (ii) at $u$ implies the conditions at $u'$ and $u''$ (Theorem~\ref{I:thm:easy}(c)), and the place $u$ of \cite{FK86} (which carries the supercusp form there) is replaced by $w_0$. In particular $u''$ need not be distinct from $u'$, and a single place of $S$ suffices for the geometric side. We use $|S|\ge2$ only to know that $S\neq\emptyset$.
 \end{remark}
 
-\begin{lemma}[Cuspidal kernels]\label{I:lem:A1}\Pv\ (using \Ev)
+\begin{lemma}[Cuspidal kernels]\label{I:lem:A1}\ (using \Ev)
 Let $X:=\iota(\GL(r,K))\Zb(\A_K)\backslash\Gb(\A_K)$, which is homeomorphic to $Z(\A)\GL(r,K)\backslash\GL(r,\A)$ and has finite volume. Let $L^2_{\mathrm{cusp}}\subset L^2(\iota(\GL(r,K))\backslash\Gb(\A_K),\tilde\theta)$ be the cuspidal subspace, $P$ the projection onto it, and $\phi$ a genuine test function transforming by $\tilde\theta^{-1}$.
 \begin{enumerate}[label=(\alph*)]
-\item \Pv\ (using \Ev; \S\ref{I:app:cusp}) There is $C_\phi$ such that
+\item (using \Ev; \S\ref{I:app:cusp}) There is $C_\phi$ such that
 \[ \sup_{x}|(r(\phi)\psi)(x)|\le C_\phi\|\psi\|_2\qquad(\psi\in L^2_{\mathrm{cusp}}) \]
 (Gelfand--Graev--Piatetski-Shapiro, Godement).
 \item $r(\phi)P$ is Hilbert--Schmidt, with $\|r(\phi)P\|_{HS}^2\le C_\phi^2\vol(X)$.
@@ -817,7 +830,7 @@ Fix a finite place $w_0\notin S$, a place $u\in S$, and a finite set $S_D\supset
 \end{enumerate}
 \end{definition}
 
-\begin{theorem}\label{I:thm:comparison}\Pv
+\begin{theorem}\label{I:thm:comparison}
 For every admissible pair,
 \[ \sum_{\pib_D}m(\pib_D)\tr\pib_D(\tilde f_D)=\sum_{\pib\ \mathrm{cuspidal}}m(\pib)\tr\pib(\tilde f), \]
 both sides converging absolutely.
@@ -842,7 +855,7 @@ This section deduces Theorem~C from Theorem~\ref{I:thm:comparison}. We first use
 \subsection{The place $w_0$}\label{I:subsec:w0}
 We fix the component at $w_0$ by a choice of test function, so that no separation is needed there. The supercuspidal $\sigma$ and the test function $\tilde f_\sigma$ fixed here are kept for the rest of the section.
 
-\begin{lemma}\label{I:lem:supercusp}\Pv\ (using \Ev)
+\begin{lemma}\label{I:lem:supercusp}\ (using \Ev)
 Let $\sigma$ be a genuine irreducible supercuspidal representation of $\Gb_{w_0}$ with (unitary) central character $\tilde\theta_{w_0}$. Then $\sigma$ is unitarizable, since its matrix coefficients are compactly supported modulo $\Zb_{w_0}$ and hence square integrable modulo the center; we fix an invariant inner product. Let $v\in\sigma$ and $v^\vee\in\sigma^\vee$ with $\langle v,v^\vee\rangle=1$, and let $d(\sigma)$ be the formal degree (for $dg_{w_0}$). Put $\tilde f_\sigma(\tilde g):=d(\sigma)\langle\sigma(\tilde g^{-1})v,v^\vee\rangle$. Then $\tilde f_\sigma$ is genuine, transforms by $\tilde\theta_{w_0}^{-1}$ under $\Zb_{w_0}$, and is a supercusp form. Moreover $\tr\sigma(\tilde f_\sigma)=1$, and $\pi(\tilde f_\sigma)=0$ for every irreducible smooth $\pi\not\cong\sigma$ with central character $\tilde\theta_{w_0}$.
 \end{lemma}
 \begin{proof}
@@ -858,7 +871,7 @@ where the superscript $w_0$ denotes the components away from $w_0$. All $\pib$ o
 \subsection{Separation}\label{I:subsec:sep}
 We separate \eqref{I:eq:w0fixed} first by archimedean infinitesimal characters, to reduce to finite sums, and then by the components outside $S\cup\{w_0\}$. For the second step we use corner Hecke algebras $e\mathcal He$ and linear independence of traces of finitely many simple modules. Packets are \emph{not} assumed finite. Instead, the packet identity is proved as an identity of locally finite sums: for each test function, only finitely many terms are nonzero.
 
-\begin{lemma}\label{I:lem:nusep}\Pv\ (using \Ev)
+\begin{lemma}\label{I:lem:nusep}\ (using \Ev)
 For each $W_{\infty,\C}$-orbit $\nu$, \eqref{I:eq:w0fixed} holds with both sums restricted to representations of archimedean infinitesimal character $\nu$. If all finite components of the test functions are bi-invariant under a fixed open compact subgroup $U$ of the finite adeles (split by $\ks$), and the archimedean components lie in $e_{\mathfrak t}C_c^\infty e_{\mathfrak t}$ for a fixed finite set $\mathfrak t$ of $K_\infty$-types, then only finitely many terms on either side are nonzero. Specifically, the nonzero terms come from representations $\pib$ with $e_Ue_{\mathfrak t}\pib\neq0$ and infinitesimal character $\nu$.
 \end{lemma}
 \begin{proof}
@@ -871,7 +884,7 @@ Let $A$ be a $\C$-algebra and $M_1,\dots,M_k$ pairwise non-isomorphic simple $A$
 
 Let $V:=S\cup\{w_0\}$. For a genuine representation $\pib$ of $\Gb(\A_K)$ let $\pib^V$ be its component away from $V$, and use the same notation on the $D$ side. Via $\psi^V:=\otimes_{v\notin V}\psi_v$, genuine representations of $\GDb(\A^V)$ and of $\Gb(\A^V)$ correspond; we write $\rho\circ\psi^V$ for the transport of $\rho$.
 
-\begin{lemma}[Tensor products of simple modules]\label{I:lem:tensor}\Pv
+\begin{lemma}[Tensor products of simple modules]\label{I:lem:tensor}
 Let $B_1,\dots,B_m$ be $\C$-algebras (not necessarily unital), and let $M_i,M'_i$ be finite-dimensional simple $B_i$-modules on which $B_i$ acts nondegenerately (i.e.\ $B_iM_i=M_i$), so that $B_i\to\mathrm{End}(M_i)$ is surjective by density. Then $M:=\bigotimes_iM_i$ is a simple $B:=\bigotimes_iB_i$-module, and if $M\cong M':=\bigotimes_iM'_i$ as $B$-modules then $M_i\cong M'_i$ for every $i$.
 \end{lemma}
 \begin{proof}
@@ -880,7 +893,7 @@ $B\to\bigotimes_i\mathrm{End}(M_i)=\mathrm{End}(M)$ is surjective, so $M$ is sim
 
 \emph{Why fixed-central-character Hecke algebras.} All test functions in this chapter transform under the full central subgroup $\Zb$ by $\tilde\theta^{-1}$, as the $L^2$ spaces do, and convolution is over $G/Z$. The resulting Hecke algebras $C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ are not subalgebras of the ordinary Hecke algebra $C_c^\infty(\Gb_v)$. In particular, the idempotent of an open compact subgroup $\ks_v(U_v)$, a function supported on $\mu_n\ks_v(U_v)$, does not belong to them when $\Zb_v$ is non-compact. It acts on them as a convolution multiplier, but it is not their unit. The unit of the corner algebra must instead be the \emph{central-character idempotent} supported on $\Zb_v\ks_v(U_v)$, defined below. The archimedean projector $e_{\mathfrak t}$ is likewise a multiplier and not a function.
 
-\begin{lemma}[Corner algebras]\label{I:lem:corner}\Pv\ (using \Ev)
+\begin{lemma}[Corner algebras]\label{I:lem:corner}\ (using \Ev)
 Let $U^V=\prod_{v\notin V,\,v<\infty}U_v$ be an open compact subgroup, with $U_v=\GL(r,\cO_v)$ split by $\ks_v$ for $v\notin S_D$, and let $\mathfrak t$ be a finite set of $K_\infty$-types.
 \begin{itemize}
 \item At a finite place $v\notin V$, assume that $\tilde\theta_v$ is trivial on $\ks_v(U_v\cap K_v^\times)$; this holds for $v\notin S_D$, and after shrinking $U_v$ in general. Let $\mathcal H_v:=C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ be the algebra of smooth genuine functions, compactly supported modulo $\Zb_v$, with $f(z\tilde g)=\tilde\theta_v(z)^{-1}f(\tilde g)$, under the convolution $(f_1*f_2)(\tilde g)=\int_{\Gb_v/\Zb_v}f_1(\tilde h)f_2(\tilde h^{-1}\tilde g)\,d\dot h$. Let $e_v\in\mathcal H_v$ be the central-character idempotent
@@ -910,7 +923,7 @@ Thus each factor is a simple, nondegenerate, finite-dimensional module over the 
 (c) Choose a finite set $T$ that works for both $\tau$ and $\tau'$ as in (b), and enlarge it by any finite set of places. Applying Lemma~\ref{I:lem:tensor} to the subalgebra of (b) gives $e_{\mathfrak t}\tau_\infty\cong e_{\mathfrak t}\tau'_\infty$ and $e_v\tau_v\cong e_v\tau'_v$ for $v\in T$, hence $\tau_\infty\cong\tau'_\infty$ and $\tau_v\cong\tau'_v$ for $v\in T$. Since $T$ can contain any given finite place, $\tau_v\cong\tau'_v$ for every $v$, and so $\tau\cong\tau'$.
 \end{proof}
 
-\begin{proposition}[Packet identity]\label{I:prop:packet}\Pv
+\begin{proposition}[Packet identity]\label{I:prop:packet}
 Let $\rho$ be an admissible genuine irreducible representation of $\Gb(\A^V)$. Put
 \begin{gather*} P_D(\rho):=\{\pib_D:\ \pib_D^V\cong\rho\circ\psi^V,\ \pib_{D,w_0}\cong\sigma\circ\psi_{w_0}\},\\ P(\rho):=\{\pib\ \mathrm{cuspidal}:\ \pib^V\cong\rho,\ \pib_{w_0}\cong\sigma\}, \end{gather*}
 counted with multiplicities $m(\cdot)$. These sets need not be finite. Let $(\tilde f_{D,v},\tilde f_v)_{v\in S}$ be matching, with $\tilde f_{D,v}$ vanishing near $\Zb_v$ and $\tilde f_v$ supported in the regular set. Then only finitely many terms of each side of
@@ -933,7 +946,7 @@ in which only representations from the finite sets $\Omega_D$, $\Omega$ occur. A
 \subsection{Non-cancellation and the transfer}\label{I:subsec:transfer}
 Proposition~\ref{I:prop:packet} produces a $\GL$-side packet as soon as the $D$-side of \eqref{I:eq:packet} is nonzero for \emph{some} matching regular-supported family. We now show that this happens if $P_D(\rho)$ is finite. We also determine exactly what a failure would look like (Lemma~\ref{I:lem:cancel}). Since we cannot exclude such a failure for infinite packets, Theorem~C is stated under a hypothesis $(\mathrm{Hyp}_D)$ that is parallel to the hypothesis (Hyp) of the converse.
 
-\begin{lemma}[Finite case]\label{I:lem:noncancel}\Pv
+\begin{lemma}[Finite case]\label{I:lem:noncancel}
 Let $\tau_1,\dots,\tau_k$ be pairwise inequivalent genuine irreducible representations of $\GDb(K_S):=\prod_{v\in S}\GDb(K_v)$ (modulo the identification of the $\mu_n$'s) with central character $\tilde\theta_S$, and let $m_1,\dots,m_k>0$. Then there are $\tilde f_{D,v}\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$, $v\in S$, each vanishing near $\Zb_v$, with $\sum_im_i\tr\tau_i(\otimes_v\tilde f_{D,v})\ne0$.
 \end{lemma}
 \begin{proof}
@@ -942,7 +955,7 @@ Each $\tau_i$ is finite-dimensional, since $\GDb(K_S)$ is compact modulo its cen
 
 The example $\delta_e=\sum_\tau(\dim\tau)\Theta_\tau$ on a compact group shows that the finiteness assumption in Lemma~\ref{I:lem:noncancel} cannot simply be dropped. The next lemma determines exactly which coefficient functions cancel at a fixed level. When $S$ has one element, the cancelling functions are the multiples of the Plancherel weight, as in this example. Since $|S|\ge2$ under our assumptions, the actual condition is weaker: the coefficient function must be a sum of terms, each of which has a Plancherel factor at one place of $S$.
 
-\begin{lemma}[When cancellation occurs]\label{I:lem:cancel}\Pv
+\begin{lemma}[When cancellation occurs]\label{I:lem:cancel}
 For $v\in S$ let $U_v\subset D_v^\times$ be an open compact subgroup over which the cover splits by $\kappa_v$, with $\tilde\theta_v\circ\kappa_v$ trivial on $U_v\cap K_v^\times$. Let $e_{U_v}$ be the central-character idempotent of $\Zb_v\kappa_v(U_v)$, as in Lemma~\ref{I:lem:corner}, and let $\mathcal H_v:=e_{U_v}*C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen*e_{U_v}$, which is finite-dimensional. Let $\mathcal R_v\subset\mathcal H_v$ be the subspace of functions vanishing near $\Zb_v$, and let $\mathcal T_v$ be the finite set of genuine irreducible $\tau_v$ with central character $\tilde\theta_v$ and $\tau_v^{U_v}\ne0$. For a function $a$ on $\mathcal T:=\prod_{v\in S}\mathcal T_v$, put $\Lambda_a(\otimes_vf_v):=\sum_{\tau\in\mathcal T}a(\tau)\prod_v\tr\tau_v(f_v)$. Then $\Lambda_a$ vanishes on $\bigotimes_v\mathcal R_v$ if and only if
 \[ a\in\sum_{v\in S}d_v\otimes\C^{\mathcal T_{\ne v}},\qquad d_v(\tau_v):=\dim\tau_v,\qquad \mathcal T_{\ne v}:=\prod_{w\in S\smallsetminus\{v\}}\mathcal T_w. \]
 Equivalently, $a$ maps to $0$ in $\bigotimes_{v\in S}\big(\C^{\mathcal T_v}/\C d_v\big)$. If $S$ had one element, this would say that $a$ is proportional to $\tau\mapsto\dim\tau$, i.e.\ to the Plancherel weight. For $|S|\ge2$ it does \emph{not} say that $a$ is proportional to the product weight $\prod_vd_v$. For example, with two places and $d_1=d_2=(1,1)$, the positive matrix $a=\left(\begin{smallmatrix}2&3\\4&5\end{smallmatrix}\right)=d_1\otimes(0,1)+(2,4)\otimes d_2$ cancels.
@@ -961,14 +974,14 @@ We say that a packet $P_D(\rho)$ satisfies $(\mathrm{Hyp}_D)$ if there are $\til
 
 By Lemma~\ref{I:lem:cancel}, $(\mathrm{Hyp}_D)$ fails if and only if, at every level $U=\prod_{v\in S}U_v$, the function $a_U$ on $\prod_v\mathcal T_v$ is of the form in that lemma. Here $a_U(\tau)$ is the total multiplicity of the members of $P_D(\rho)$ whose $S$-component is $\tau$. So a failure requires that, at every level, the coefficient function of the packet at $S$ be a sum of terms each having a Plancherel factor at some place of $S$. This is a strong but not obviously contradictory condition when $P_D(\rho)$ is infinite.
 
-\begin{proposition}\label{I:prop:HDfinite}\Pv
+\begin{proposition}\label{I:prop:HDfinite}
 If $P_D(\rho)$ is finite and nonempty, then $(\mathrm{Hyp}_D)$ holds.
 \end{proposition}
 \begin{proof}
 The $S$-components of the members of $P_D(\rho)$ are pairwise inequivalent. Two members with isomorphic components at $S$ have isomorphic components everywhere, and so are the same automorphic representation, counted once with its multiplicity. Apply Lemma~\ref{I:lem:noncancel}.
 \end{proof}
 
-\begin{theorem}[Theorem C]\label{I:thm:transfer}\Pv\ under $(\mathrm{Hyp}_D)$
+\begin{theorem}[Theorem C]\label{I:thm:transfer}\ under $(\mathrm{Hyp}_D)$
 Let $\pib_D$ be an irreducible genuine automorphic representation of $\GDb(\A_K)$ with central character $\tilde\theta$, such that $\pib_{D,w_0}$ is supercuspidal for some finite place $w_0\notin S$. Let $\rho=\pib_D^V\circ(\psi^V)^{-1}$ and $\sigma=\pib_{D,w_0}\circ\psi_{w_0}^{-1}$, and assume that $P_D(\rho)$ satisfies $(\mathrm{Hyp}_D)$; this holds, for example, if $P_D(\rho)$ is finite (Proposition~\ref{I:prop:HDfinite}). Then there is a genuine cuspidal automorphic representation $\pib$ of $\Gb(\A_K)$ with central character $\tilde\theta$ such that $\pib_v\cong\pib_{D,v}\circ\psi_v^{-1}$ for every $v\notin S$, and the packet identity \eqref{I:eq:packet} holds.
 \end{theorem}
 
@@ -976,7 +989,7 @@ Let $\pib_D$ be an irreducible genuine automorphic representation of $\GDb(\A_K)
 By $(\mathrm{Hyp}_D)$ there are $\tilde f_{D,v}$ ($v\in S$) vanishing near $\Zb_v$ for which the left side of \eqref{I:eq:packet} is nonzero. By Theorem~\ref{I:thm:easy}(a) they have matching $\tilde f_v$ supported on the good regular elliptic set. By Proposition~\ref{I:prop:packet} the right side is nonzero, so $P(\rho)\ne\emptyset$. Any $\pib\in P(\rho)$ is cuspidal, with $\pib^V\cong\rho$ and $\pib_{w_0}\cong\sigma$, which is the assertion.
 \end{proof}
 
-\begin{theorem}[Converse]\label{I:thm:converse}\Pv\ under hypothesis (Hyp)
+\begin{theorem}[Converse]\label{I:thm:converse}\ under hypothesis (Hyp)
 Let $\pib$ be a genuine cuspidal automorphic representation of $\Gb(\A_K)$ with central character $\tilde\theta$, with $\pib_{w_0}$ supercuspidal for some finite $w_0\notin S$. Let $\rho=\pib^V$, $\sigma=\pib_{w_0}$. Assume
 \begin{enumerate}[label=(Hyp)]
 \item there are $\tilde f_v$ ($v\in S$), supported in the regular set of $\Gb_v$ with vanishing orbital integrals at good regular non-elliptic elements, such that $\sum_{\pib'\in P(\rho)}m(\pib')\prod_{v\in S}\tr\pib'_v(\tilde f_v)\ne0$.
@@ -1049,7 +1062,7 @@ its tame irreducible-character theorem (\cref{III:thm:tame-transfer}),
 ordinary local Jacquet--Langlands \cite{DKV84}, and the corrected
 Flicker--Kazhdan--Zou correspondence to obtain (D2), with the
 sign $(-1)^{r-1}$, on matching good regular elliptic elements.
-This is \Pv\ within the explicitly stated external-correspondence
+This is proved within the explicitly stated external-correspondence
 range (using the cited \Ev\ inputs), and is \emph{not} an
 unconditional assertion for every pair $(n,r)$ with $p\nmid n$.
 At wild places, irreducible-character integrality of $L_D$

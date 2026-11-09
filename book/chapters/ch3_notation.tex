@@ -2,35 +2,51 @@
 This chapter collects the notation and conventions of the book. Sections~\ref{gl:labels}--\ref{gl:named} hold for every chapter; they include the status labels (\S\ref{gl:labels}) and the cocycle normalization (\S\ref{gl:cocycle}). The remaining sections list the notation specific to individual chapters, with pointers to the definitions. The chapter proves nothing and can be consulted at any point.
 
 \section{Status labels}\label{gl:labels}
-Every statement in the series carries one of the following labels.
-A label is never upgraded without a proof, and every change of label
-is recorded in the revision log of the draft in which it is made.
+Every statement in the book has one of the following statuses. A
+status is never upgraded without a proof, and every change is
+recorded in the revision log of the draft in which it is made.
+
+\textbf{Proved here is the default and carries no visible tag.}
+A Lemma, Proposition, Theorem or Corollary with no label after its
+name has a complete argument in the chapter in which it appears,
+possibly using results labeled \textbf{(E)} below; "proved here, using
+(using \textbf{(E)})" marks a proof that rests on such inputs. A
+statement proved only under an explicitly stated hypothesis says so
+in words, as in "proved here, under $(\mathrm{Hyp}_D)$", and the
+hypothesis itself is listed separately with its own status.
+
+Every other status is written explicitly after the statement's name,
+and a remark immediately follows the statement giving the reason:
+where it is proved, if the status is \textbf{(E)}; what is missing
+from the outline, if \textbf{(O)}; or the mathematical motivation for
+believing it, if \textbf{(C)}. The statuses are:
 \begin{description}
-\item[\textbf{(P)}]\index{p@\textbf{(P)}} \emph{Proved here}: a complete argument is
-included in the Part in which the label appears, possibly using
-results labeled \textbf{(E)}.  A statement proved under an
-explicitly stated hypothesis is labeled \textbf{(P)} together with
-the hypothesis, as in ``\textbf{(P)} under $(\mathrm{Hyp}_D)$'', and the
-hypothesis itself is listed separately with its own label.
 \item[\textbf{(E)}]\index{e@\textbf{(E)}} \emph{Established elsewhere}: a precisely cited
-theorem from the literature or from an earlier Part, used as a black
-box.  ``\textbf{(P)} (using \textbf{(E)})'' marks a proof that rests
-on such inputs; ``\textbf{(E)}/\textbf{(P)}'' marks a statement that
-is partly cited and partly proved.
+theorem from the literature or from an earlier chapter, used as a
+black box. "\textbf{(E)}, partly proved here" marks a statement that
+is partly cited and partly proved; the following remark says which
+part is which.
 \item[\textbf{(O)}]\index{o@\textbf{(O)}} \emph{Proof outlined}: the steps are identified,
-but at least one of them remains to be written out or checked.
+but at least one of them remains to be written out or checked; the
+following remark says which.
 \item[\textbf{(C)}]\index{c@\textbf{(C)}} \emph{Conjectural}: new mathematical input is
-required.  This includes the goals deferred to later Parts and the
-hypotheses under which conditional statements are proved.
+required. This includes the goals deferred to later chapters and the
+hypotheses under which conditional statements are proved; the
+following remark gives the evidence or motivation for the
+conjecture.
 \item[\textbf{(P$^{\mathrm c}$)}]\index{p c@\textbf{(P$^{\mathrm c}$)}} \emph{Proved modulo an exhaustive
 exact computation}: the proof consists of hand arguments together
 with a computation that is exhaustive over an explicitly described
 finite set and uses exact arithmetic only (no sampling, and no
-floating point without exact re-verification).  Each such script is
+floating point without exact re-verification). Each such script is
 committed to the repository, cited by commit hash, and described in
-an appendix and in the scripts' README.  At present this label is
+an appendix and in the scripts' README. At present this label is
 used only in Chapter~\ref{ch:W}.
 \end{description}
+A status table near the front of each chapter lists every
+noteworthy statement with its status, for quick reference; such a
+table may still show \textbf{(P)} explicitly as a row label, even
+though the statement itself carries no visible tag in the body.
 
 \section{Global data}\label{gl:global}
 \begin{description}
