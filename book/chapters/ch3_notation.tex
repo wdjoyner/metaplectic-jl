@@ -101,7 +101,7 @@ invertible) exactly when $s=1$. The matrix algebra $M_m(F)$ is the
 \emph{split} central simple algebra of degree $m$: it is central
 simple but, for $m\ge2$, not a division algebra, so it is the
 standing non-example against which ``division algebra'' is a real
-restriction.
+restriction. The running example's $D=(-1,4-\zeta_3)_K$ (Example~\ref{ex:running}) is such an algebra, of degree $r=2$ over $K$.
 \item[Brauer group and local invariant]\index{brauer group and local invariant@Brauer group, local invariant $\mathrm{inv}(D)$} Two central simple $F$-algebras are
 \emph{Brauer equivalent} if $M_a(D_1)\cong M_b(D_2)$ for some $a,b$;
 equivalence classes form a group $\mathrm{Br}(F)$ under tensor
@@ -114,7 +114,13 @@ field extension $E/F$ of degree $e$, restriction
 $\mathrm{Br}(F)\to\mathrm{Br}(E)$ corresponds under this isomorphism
 to multiplication by $e$ on $\Q/\Z$: $\mathrm{inv}(D\otimes_FE)=e\cdot\mathrm{inv}(D)$.
 This is the single computation behind Example~\ref{II:ex:trivgerm}
-below and behind Remark~\ref{III:rem:coprimality-needed}.
+below and behind Remark~\ref{III:rem:coprimality-needed}. Since the
+running example's $D$ is ramified, not split, at both places of
+$S=\{\mathfrak p_3,\mathfrak p_7\}$ (Example~\ref{ex:running}), and a
+quaternion algebra has only one nonzero invariant to be,
+$\mathrm{inv}(D_{\mathfrak p_3})=\mathrm{inv}(D_{\mathfrak p_7})=\tfrac12$:
+the same value at both places, which is exactly why $|S|=2$ is even
+(see Global existence below).
 \item[Local classification; the standard construction]\index{local classification of division algebras@Local classification of division algebras; standard construction} Over a
 non-archimedean local field $F$, for every $m\ge1$ there is, up to
 isomorphism, exactly one central division algebra of degree $m$: the
@@ -132,7 +138,40 @@ is a central division algebra of degree $m$ over $F$ with
 $\mathrm{inv}(D)=1/m$. This is the \emph{standard construction}; the
 degree-$2$ case is the usual quaternion division algebra over $F$,
 and \S\ref{III:sec:local} reuses exactly this construction (with
-$m=r$) to build $D_v$ at a wild place.
+$m=r$) to build $D_v$ at a wild place. At the running example's own
+wild place, $F=K_{\mathfrak p_3}=\Q_3(\zeta_3)$ ($m=r=2$); the
+construction and its uniformizer $\Pi$ are written out explicitly in
+Example~\ref{W:ex:ranktwo-data}.
+\item[Congruence filtration and level]\index{congruence subgroups@Congruence subgroups $K^j$}\index{level of a representation@Level (of a representation of $D^\times$)}\index{moy prasad depth@Moy--Prasad depth} The
+standard construction's valuation ring $\mathcal O_D=\mathcal
+O_{F_m}[\Pi]$ has
+a unique maximal two-sided ideal $\mathfrak P=\Pi\mathcal O_D$, with residue
+field $k_D=\mathcal O_D/\mathfrak P$ the degree-$m$ extension of the residue
+field of $F$; this gives $D^\times$ its \emph{congruence filtration}
+by the open normal pro-$p$ subgroups $K^j:=1+\mathfrak P^j$ ($j\ge1$), with
+$K^j/K^{j+1}\cong k_D$ (additively) and $\mathcal O_D^\times/K^1\cong
+k_D^\times$. Since $D^\times/F^\times$ is compact, every smooth
+irreducible representation $\rho$ of $D^\times$ is finite-dimensional
+and trivial on some $K^j$; its \emph{level} is the least $j$ with
+$\rho|_{K^{j+1}}$ trivial (so level $0$ means $\rho$ is trivial on
+$K^1$). Level is the integer form of the Moy--Prasad depth -- a
+representation of level $j$ has depth $j/m$ -- and depth is preserved
+by the local Jacquet--Langlands correspondence. The same notion, for
+the groups $\overline G_D(K_v)$ of this book rather than for $D_v^\times$
+itself, is what is meant by ``level'' in
+Proposition~\ref{II:prop:cancel2} and Corollary~\ref{II:cor:finiteStypes} below. At the running example's wild place
+($F=\Q_3(\zeta_3)$, $m=r=2$, residue field $\mathbb F_3$), $D^\times/F^\times
+K^1\cong D_8$ (order $8$), and the representations of level $\le2$
+with trivial central character are exactly the irreducible
+representations of a group of order $216$: five of level $0$ (the
+representations of $D_8$), four of level $1$, and four of level $2$
+-- worked out in full in Example~\ref{W:ex:ranktwo-data} and
+\S\ref{W:sec:depth}. Levels are unbounded on $\mathrm{Irr}(D^\times)$,
+which is exactly why Chapter~\ref{ch:W}'s Theorems~\ref{W:thm:levelone}
+and~\ref{W:thm:leveltwo}, which settle Target~B at levels $\le2$
+(\S\ref{W:sec:plan}), do not by themselves settle it for every
+representation, and why \S\ref{W:sec:future} asks for an inductive
+mechanism in the level.
 \item[Embedding criterion]\index{embedding criterion for division algebras@Embedding criterion, splitting field}\index{splitting field@Splitting field} For $D$ a central division algebra of
 degree $m$ over a local field $F$, a degree-$m$ field extension
 $E/F$ embeds as a maximal subfield of $D$ if and only if $E$
@@ -169,6 +208,11 @@ of characteristic $0$ containing a cyclic degree-$r$ subfield of $K$
 is itself a cyclic algebra -- which is one reason, alongside the one
 below, that cyclic maximal subfields $L\subset D$ (\S\ref{gl:global})
 are available by construction rather than as an extra hypothesis.
+The running example's quaternion presentation
+$D=(-1,4-\zeta_3)_K$ (Example~\ref{ex:running}) is exactly this cyclic
+algebra $(L/K,\sigma,4-\zeta_3)$ for $L=K(\sqrt{-1})=K(i)=\Q(\zeta_{12})$
+-- the cyclic maximal subfield of \S\ref{gl:global} -- with $\sigma$
+complex conjugation on $L/K$ and $\Pi=j$.
 \item[Why prime degree]\index{why prime degree@Prime degree, index-vs-degree dichotomy}\index{index of a csa@Index (of a central simple algebra)} The \emph{index} of a central simple
 algebra is the degree of its division-algebra representative in
 $\mathrm{Br}(F)$; it always divides the degree $m$ of the algebra one
@@ -181,7 +225,13 @@ the structural reason the series takes $r$ prime throughout: it is
 what makes ``ramified at $v$'' ($D_v$ a division algebra) and
 ``split at $v$'' ($D_v\cong M_r(K_v)$) the only two possibilities at
 every place, with no third case for Chapters~\ref{ch:I}--\ref{ch:IV}
-to treat separately.
+to treat separately. The running example exhibits exactly this
+dichotomy and nothing else: at the two places of $S=\{\mathfrak
+p_3,\mathfrak p_7\}$, $D_v$ is the genuine quaternion division
+algebra (index $2$); at every other place, including $\mathfrak p_{13}$
+of Example~\ref{I:ex:split-matching}, $D_v\cong M_2(K_v)$ is fully
+split (index $1$) -- there is no place where $D_v$ is only ``partly''
+nonsplit.
 \item[Global existence and the reciprocity obstruction]\index{global existence of division algebras@Global existence of division algebras, reciprocity obstruction} Over a
 global field $K$, the Albert--Brauer--Hasse--Noether theorem
 identifies $\mathrm{Br}(K)$ with the classes
@@ -597,6 +647,25 @@ $(\mathrm{Hyp})\Rightarrow(\mathrm{Hyp}')$ (\S\ref{II:subsec:Cprime}).
 arbitrary functions, local character relations, finiteness of
 near-equivalence packets, and composition with \cite{JC26} (\S\ref{I:sec:deferred}).
 Their status in the later Parts is recorded in \S\ref{I:subsec:partII}.
+\item[Toral positivity; the discriminant ratio]\index{toral positivity@Toral positivity}\index{discriminant ratio@Discriminant ratio $\Delta(t)/\Delta(t^n)$} For a regular
+element $t$ in a maximal field $E\subset D_v$, write
+$\Delta(t)=\lvert\det(1-\mathrm{Ad}(t)\mid\mathfrak h/\mathfrak
+t)\rvert_F^{1/2}$ for the Weyl-type discriminant factor and
+$R_E(t):=\Delta(t)/\Delta(t^n)$ for the \emph{discriminant ratio}
+(\eqref{IV:eq:Delta}); this ratio is locally constant on the compact
+torus $A_E=E^\times/F^\times$ and so has a finite Fourier expansion
+there. \emph{Toral positivity} is the hypothesis that this expansion
+has only nonnegative integer coefficients, equivalently that $R_E$ is
+the character of a finite permutation representation of $A_E$;
+by Proposition~\ref{IV:prop:int} this is equivalent to integrality of
+the entire unitary character-transform matrix $(a_{\rho\tau})$ of
+$L_D$ (\S\ref{gl:transform} below), which is what Chapters~\ref{ch:III}
+and~\ref{ch:IV} need but cannot prove in general. Chapter~\ref{ch:IV}'s
+global comparison is conditional on toral positivity holding at every
+place it is needed; Chapter~\ref{ch:W} proves it unconditionally for
+every quadratic $E$ at the running example's wild place
+(Theorem~\ref{W:thm:main}), with explicit multiplicities $(3,2,2,2)$
+on the unramified torus and $(3,2,1,1,1,1)$ on either ramified one.
 \item[Targets A, B, C]\index{targets a b c@Targets A, B, C} The companion chapter's three local problems at
 the wild place of the running example and beyond (Chapter~\ref{ch:W}, \S\ref{W:sec:intro}).
 \end{description}
