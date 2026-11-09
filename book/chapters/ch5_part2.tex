@@ -168,7 +168,7 @@ We fix compatible Haar measures at the places of $S$ (Definition~\ref{II:def:mea
 
 Measures are as in \S\ref{I:subsec:oi}: $dg$ on $G/Z$, $dt$ on $T/Z$, and $dg/dt$ on $T\backslash G$; at $v\in S$ they are specialized as follows.
 
-\begin{definition}[Compatible measures]\label{II:def:measures}
+\begin{definition}[Compatible measures]\label{II:def:measures}\index{compatible measures@Compatible measures}
 At each $v\in S$, let $dg_v$ be any Haar measure on $\GL(r,F)/F^\times$, and let $d(\St)=d(\St;dg_v)$ be the formal degree, with respect to $dg_v$, of the Steinberg representation of $\GL(r,F)$ (trivial central character). Normalize the Haar measure $dg_{D,v}$ on the compact group $D_v^\times/F^\times$ by
 \[ \vol(D_v^\times/F^\times;\,dg_{D,v})=d(\St;dg_v)^{-1}. \]
 The measures $dt$ on tori are arbitrary, as in Chapter~\ref{ch:I} (matching does not depend on them).
@@ -233,7 +233,7 @@ For $M\ge1$ let $\Omega_M$ be the set of monic polynomials of degree $r$ over $F
 \subsection{The section $\sg$}\label{II:subsec:section}
 We now lift the $n$-th root to the cover, defining the section $\sg$ (and $\sg_D$, $\sg_{\GL}$) used in the rest of the chapter. The resulting section is equivariant, consists of good elements, and is compatible with every splitting in sight and with the identification $\jj$ of Chapter~\ref{ch:I}.
 
-\begin{definition}
+\begin{definition}[The section $\sg$]\index{section sg@Section $\sg$}
 For $M\ge M_0$ and $g\in V_M$ put $\sg(g):=\tilde h^{\,n}$, where $h=g^{1/n}$ and $\tilde h$ is any lift of $h$ to $\Gb$. We write $\sg_D$ and $\sg_{\GL}$ when the group must be specified.
 \end{definition}
 
@@ -563,7 +563,7 @@ This section deduces Theorem~C$'$ from Theorem~E. We relax Chapter~\ref{ch:I}'s 
 \subsection{$u$-admissible pairs and the comparison}\label{II:subsec:uadm}
 We define the class of global test functions used in this section ($u$-admissible pairs, Definition~\ref{II:def:uadm}) and show that Chapter~\ref{ch:I}'s comparison of trace formulas applies to it.
 
-\begin{definition}\label{II:def:uadm}
+\begin{definition}[$u$-admissible pairs]\label{II:def:uadm}\index{u admissible pairs@$u$-admissible pairs}
 Fix a finite place $w_0\notin S$, a place $u\in S$, and a finite set $S_D\supseteq S\cup\{w_0\}$ as in \S\ref{I:subsec:measures}. A pair $(\tilde f_D,\tilde f)$ of factorizable genuine test functions with central characters $\tilde\theta^{-1}$ is \emph{$u$-admissible} if:
 \begin{enumerate}[label=(\alph*)]
 \item at $u$: $\tilde f_{D,u}$ vanishes near $\Zb_u$, $\tilde f_u$ is supported on the regular elliptic set, and they match;
@@ -612,7 +612,7 @@ The proof of \cref{I:prop:packet}, applies with three changes. (1) The reduction
 \subsection{Theorem C$'$ and its converse}\label{II:subsec:Cprime}
 We state the new non-cancellation hypotheses $(\mathrm{Hyp}_D')$ and $(\mathrm{Hyp}')$ (Definition~\ref{II:def:HDprime}), which are used again in \S\ref{II:subsec:cancel2} and \S\ref{II:sec:partIII}, and prove the transfer in both directions.
 
-\begin{definition}\label{II:def:HDprime}
+\begin{definition}[Hypotheses $(\mathrm{Hyp}_D')$, $(\mathrm{Hyp}')$]\label{II:def:HDprime}\index{hypothesis hypdprime@Hypotheses $(\mathrm{Hyp}_D')$, $(\mathrm{Hyp}')$}
 A packet $P_D(\rho)$ satisfies $(\mathrm{Hyp}_D')$ if there are $u\in S$ and $\tilde f_{D,v}\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ ($v\in S$), with $\tilde f_{D,u}$ vanishing near $\Zb_u$ and the others arbitrary, such that
 \[ \sum_{\pib'_D\in P_D(\rho)}m(\pib'_D)\prod_{v\in S}\tr\pib'_{D,v}(\tilde f_{D,v})\neq0 . \]
 A packet $P(\rho)$ satisfies $(\mathrm{Hyp}')$ if there are $u\in S$ and $\tilde f_v\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ ($v\in S$), all with vanishing orbital integrals at good regular non-elliptic elements, with $\tilde f_u$ supported in the regular set, such that $\sum_{\pib'\in P(\rho)}m(\pib')\prod_{v\in S}\tr\pib'_v(\tilde f_v)\ne0$.

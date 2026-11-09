@@ -58,7 +58,9 @@ central division algebra over $K$ of dimension $r^2$; $L\subset D$ is
 a cyclic maximal subfield, so $[L:K]=r$; $S$ is the (finite) set of
 places at which $D$ ramifies.  Since $r$ is prime, every $v\in S$ is
 finite and $D_v$ is a division algebra; $|S|\ge2$, and $|S|$ is even
-if $r=2$ (\S\ref{I:subsec:setting}).
+if $r=2$ (\S\ref{I:subsec:setting}).  For the general theory behind
+this definition, why $r$ is taken prime, and worked local and global
+examples, see \S\ref{gl:divalg}.
 \item[$r'$, $c$, $c_v$]\index{r c c v@$r'$, $c$, $c_v$} Integers with $rr'\equiv1\pmod n$ and
 $n\mid r-1+2c$; then $c_v:=r'c$ satisfies $n\mid r-1+2rc_v$ (\cref{I:ass:standing}).  Despite the subscript, $c_v$ does not depend on the
 place $v$.  The parameter $c$ occurs \emph{before} the relabeling of
@@ -76,6 +78,129 @@ $c=1$, $r'=2$, $c_v=2$.  The place $\mathfrak p_3$ divides $n$ and
 $\mathfrak p_7$ does not.  See Example~\ref{ex:running} for the choice
 of this example and \cite{JRE26} for the case worked out across
 the series.
+\end{description}
+
+\section{Division algebras}\label{gl:divalg}
+This section expands on the single line in \S\ref{gl:global}
+introducing $D$: it collects, with examples, the facts about central
+division algebras actually used in the book, and explains why the
+series restricts to \emph{prime} degree $r$. Nothing here is new; the
+point of writing it out is to make the single running example of
+\S\ref{gl:global} serve as a worked illustration of each fact as it
+is introduced, rather than to prove anything (see, e.g., \cite{Rei75,Pie82}).
+\begin{description}
+\item[Central simple algebra, central division algebra]\index{central simple algebra@Central simple algebra, central division algebra} A
+finite-dimensional algebra $D$ over a field $F$ is \emph{central
+simple} if its center is exactly $F$ and it has no two-sided ideals
+other than $0$ and $D$; every central simple $F$-algebra has
+$F$-dimension $m^2$ for some integer $m\ge1$, called its
+\emph{degree}. By Wedderburn's theorem, $D\cong M_s(\Delta)$ for a
+division algebra $\Delta$ with center $F$ and some $s\ge1$; $D$
+itself is a \emph{division algebra} (every nonzero element
+invertible) exactly when $s=1$. The matrix algebra $M_m(F)$ is the
+\emph{split} central simple algebra of degree $m$: it is central
+simple but, for $m\ge2$, not a division algebra, so it is the
+standing non-example against which ``division algebra'' is a real
+restriction.
+\item[Brauer group and local invariant]\index{brauer group and local invariant@Brauer group, local invariant $\mathrm{inv}(D)$} Two central simple $F$-algebras are
+\emph{Brauer equivalent} if $M_a(D_1)\cong M_b(D_2)$ for some $a,b$;
+equivalence classes form a group $\mathrm{Br}(F)$ under tensor
+product, the \emph{Brauer group}, in which every class has a unique
+division-algebra representative. When $F$ is a non-archimedean local
+field, $\mathrm{Br}(F)\cong\Q/\Z$ canonically, and the image
+$\mathrm{inv}(D)\in\Q/\Z$ of a class is its \emph{local invariant};
+$D$ is split (Brauer-trivial) exactly when $\mathrm{inv}(D)=0$. For a
+field extension $E/F$ of degree $e$, restriction
+$\mathrm{Br}(F)\to\mathrm{Br}(E)$ corresponds under this isomorphism
+to multiplication by $e$ on $\Q/\Z$: $\mathrm{inv}(D\otimes_FE)=e\cdot\mathrm{inv}(D)$.
+This is the single computation behind Example~\ref{II:ex:trivgerm}
+below and behind Remark~\ref{III:rem:coprimality-needed}.
+\item[Local classification; the standard construction]\index{local classification of division algebras@Local classification of division algebras; standard construction} Over a
+non-archimedean local field $F$, for every $m\ge1$ there is, up to
+isomorphism, exactly one central division algebra of degree $m$: the
+one with $\mathrm{inv}(D)=1/m$ (equivalently $-1/m$, $\gcd(k,m)/m$ for any $k$
+coprime to $m$, \ldots\ -- any generator of the cyclic group
+$\tfrac1m\Z/\Z\subset\Q/\Z$ gives the same algebra up to the
+labeling of the isomorphism $\mathrm{Br}(F)\cong\Q/\Z$). It can be
+built explicitly: let $F_m/F$ be the unramified extension of degree
+$m$, with Frobenius-twisted conjugation $\sigma$, and let $\varpi$ be
+a uniformizer of $F$; then
+\[
+D=F_m\langle\Pi\rangle,\qquad \Pi^m=\varpi,\qquad \Pi x\Pi^{-1}=\sigma(x)\ (x\in F_m),
+\]
+is a central division algebra of degree $m$ over $F$ with
+$\mathrm{inv}(D)=1/m$. This is the \emph{standard construction}; the
+degree-$2$ case is the usual quaternion division algebra over $F$,
+and \S\ref{III:sec:local} reuses exactly this construction (with
+$m=r$) to build $D_v$ at a wild place.
+\item[Embedding criterion]\index{embedding criterion for division algebras@Embedding criterion, splitting field} For $D$ a central division algebra of
+degree $m$ over a local field $F$, a degree-$m$ field extension
+$E/F$ embeds as a maximal subfield of $D$ if and only if $E$
+\emph{splits} $D$, i.e.\ $\mathrm{inv}(D\otimes_FE)=0$; by the
+restriction formula above this says exactly $m\cdot\mathrm{inv}(D)=0$
+in $\Q/\Z$, which always holds, so \emph{every} degree-$m$ extension
+of $F$ embeds in the degree-$m$ division algebra. (For $D$ of degree
+$m$ and $E/F$ of smaller degree $e<m$ properly dividing $m$, the same
+formula need not vanish; this is exactly the $r=2$ instance worked
+out in Example~\ref{II:ex:trivgerm} and the $r\mapsto n$ failure in
+Remark~\ref{III:rem:coprimality-needed}.)
+\item[Quaternion algebras, Hilbert symbols]\index{quaternion algebras hilbert symbols@Quaternion algebras, Hilbert symbol $(a,b)_K$} The $r=2$ case of the
+standard construction is classically written $(a,b)_K:=K\langle
+i,j\rangle$ with $i^2=a$, $j^2=b$, $ij=-ji$, for $a,b\in K^\times$; it
+is a division algebra unless $b$ is a norm from $K(\sqrt a)$, in
+which case $(a,b)_K\cong M_2(K)$. (This is the \emph{classical,
+quadratic} Hilbert symbol -- valued in $\{\pm1\}=\mu_2$ -- and is
+unrelated to the book's own $n$-th Hilbert symbol $(a,b)_F\in\mu_n$
+of \S\ref{gl:hilbert}: the two never coincide, since $n$ is odd
+throughout.) The running example's global algebra
+$D=(-1,4-\zeta_3)_K$ (\S\ref{gl:global}) and its wild-place
+localization $D_{\mathfrak p_3}$ are both of this form, as is the
+tame-place localization $D_{\mathfrak p_7}\cong(-1,7)_{\Q_7}$ used in
+Example~\ref{II:ex:trivgerm}.
+\item[Cyclic algebras]\index{cyclic algebras@Cyclic algebras $(L/F,\sigma,a)$} More generally, for $L/F$ cyclic of degree $m$
+with $\mathrm{Gal}(L/F)=\langle\sigma\rangle$ and $a\in F^\times$, the
+\emph{cyclic algebra} $(L/F,\sigma,a):=L\langle\Pi\rangle$ with
+$\Pi^m=a$ and $\Pi x\Pi^{-1}=\sigma(x)$ is central simple of degree
+$m$ over $F$; the standard construction above is the local case
+$L=F_m$ unramified, $a=\varpi$. Every central division algebra over a
+local field is Brauer-equivalent to a cyclic algebra, and (Albert)
+every central division algebra of \emph{prime} degree over any field
+of characteristic $0$ containing a cyclic degree-$r$ subfield of $K$
+is itself a cyclic algebra -- which is one reason, alongside the one
+below, that cyclic maximal subfields $L\subset D$ (\S\ref{gl:global})
+are available by construction rather than as an extra hypothesis.
+\item[Why prime degree]\index{why prime degree@Prime degree, index-vs-degree dichotomy} The \emph{index} of a central simple
+algebra is the degree of its division-algebra representative in
+$\mathrm{Br}(F)$; it always divides the degree $m$ of the algebra one
+started with. When $m=r$ is prime, the only divisors of $r$ are $1$
+and $r$, so a central simple algebra built by the cyclic-algebra
+construction at prime degree $r$ is \emph{automatically} either fully
+split ($M_r(F)$, index $1$) or a genuine division algebra (index
+$r$) -- there is no intermediate case to rule out. This dichotomy is
+the structural reason the series takes $r$ prime throughout: it is
+what makes ``ramified at $v$'' ($D_v$ a division algebra) and
+``split at $v$'' ($D_v\cong M_r(K_v)$) the only two possibilities at
+every place, with no third case for Chapters~\ref{ch:I}--\ref{ch:IV}
+to treat separately.
+\item[Global existence and the reciprocity obstruction]\index{global existence of division algebras@Global existence of division algebras, reciprocity obstruction} Over a
+global field $K$, the Albert--Brauer--Hasse--Noether theorem
+identifies $\mathrm{Br}(K)$ with the classes
+$(\mathrm{inv}_v(D))_v\in\bigoplus_v\Q/\Z$ summing to $0$ (the
+reciprocity law), subject only to: finitely many local invariants
+nonzero, and each archimedean one of order dividing $2$. Since $K$ is
+totally imaginary (\S\ref{gl:global}), the archimedean constraint is
+vacuous, so a central division algebra of prime degree $r$ over $K$
+exists with \emph{any} prescribed finite ramification set $S$ of
+size $\ge2$, the local invariants at $S$ being any nonzero elements
+of $\tfrac1r\Z/\Z$ summing to $0$ -- this is exactly why $|S|$ is
+even when $r=2$ (every nonzero element of $\tfrac12\Z/\Z$ is the same
+element, so an even number of them is forced to sum to $0$), and why
+no such constraint appears for $r\ge3$. The running example's own
+$S=\{\mathfrak p_3,\mathfrak p_7\}$, $r=2$ (\S\ref{gl:global}) is the
+smallest possible instance of this existence theorem, and
+Remark~\ref{III:rem:coprimality-needed} constructs, for contrast, a
+local degree-$3$ division algebra over the running example's own
+wild completion $K_{\mathfrak p_3}=\Q_3(\zeta_3)$.
 \end{description}
 
 \section{Local fields and absolute values}\label{gl:local}
@@ -102,7 +227,11 @@ $\mathfrak p_3$ is wild ($|3|_{\mathfrak p_3}=3^{-2}$).
 \item[$(a,b)_F$]\index{a b f@$(a,b)_F$} The $n$-th Hilbert symbol of $F$, with values in
 $\mu_n$; Chapter~\ref{ch:IV} and the companion chapter also write $(a,b)_{n,F}$ or
 $(a,b)_n$.  It is bimultiplicative, nondegenerate and antisymmetric,
-$(a,b)_F=(b,a)_F^{-1}$.  At complex places it is trivial.
+$(a,b)_F=(b,a)_F^{-1}$.  At complex places it is trivial.  The
+classical $n=2$ analog of this symbol builds quaternion division
+algebras; see the Quaternion algebras entry of \S\ref{gl:divalg} for
+that construction and why it is a different object from the one
+here.
 \item[Norm compatibility]\index{norm compatibility@Norm compatibility} For a finite extension $F'/F$, $a\in
 F^\times$ and $b\in F'^\times$, $(a,b)_{F'}=(a,N_{F'/F}b)_F$; in
 particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$
@@ -395,6 +524,10 @@ at every good regular $\tilde\gamma$, and (M2) $F(\tilde\delta,\tilde
 f)=0$ at every good regular non-elliptic $\tilde\delta$ (\cref{I:def:matching}).  The sign sits in the matching of functions, so that
 the expected character relation is
 $\Theta_{\overline\pi_D}=(-1)^{r-1}\Theta_{\overline\pi}\circ\jmath$.
+At a place $v\notin S$, matching is simply the identity map in the
+coordinates fixed by $\psi_v$, with no sign and nothing to solve; see
+Example~\ref{I:ex:split-matching} for this worked out at a named
+split place of the running example.
 \item[Supercusp form]\index{supercusp form@Supercusp form} A genuine test function on the cover of
 $\mathrm{GL}(r,F)$ whose integrals along the unipotent radicals of
 all proper parabolic subgroups vanish, for example a matrix
@@ -415,7 +548,8 @@ correspond under the identifications $\psi_v$ (\S\S\ref{I:subsec:oi}, \ref{I:sub
 \item[Chapter~\ref{ch:II}]\index{chapter ch ii@Chapter~\ref{ch:II}} At $v\in S$,
 $\mathrm{vol}(D_v^\times/F^\times)=d(\mathrm{St})^{-1}$, where
 $d(\mathrm{St})$ is the formal degree of the Steinberg representation
-for the chosen measure on $\mathrm{GL}(r,F)/F^\times$ (\cref{II:def:measures}).
+for the chosen measure on $\mathrm{GL}(r,F)/F^\times$ (\cref{II:def:measures}).  Example~\ref{II:ex:trivgerm} computes the resulting
+trivial-germ sign at the running example's tame place.
 \item[Chapter~\ref{ch:III}]\index{chapter ch iii@Chapter~\ref{ch:III}} For the transform $L_D$, the quotients $H/Z$ and
 $T/Z$ carry their Haar \emph{probability} measures (\S\ref{III:sec:local}).
 \item[Formal degree]\index{formal degree@Formal degree} For a representation $\sigma$ that is square

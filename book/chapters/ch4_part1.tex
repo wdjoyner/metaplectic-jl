@@ -163,7 +163,7 @@ where $\sigma_{L_w}$ is the Kazhdan--Patterson cocycle with parameter $0$ \cite[
 \[ \iD:D_v^\times\hookrightarrow\cG_v,\qquad \iG:\GL(r,K_v)\hookrightarrow\cG_v \]
 be the embedding induced by $D\otimes_KL\cong M_r(L)$, and the diagonal inclusion. Note that $\det\circ\iD=\Nrd$, and $\iD$ and $\iG$ agree on the scalars $K_v^\times$.
 
-\begin{definition}\label{I:def:localcovers}
+\begin{definition}[Local covers $\GDb(K_v)$, $\Gb_v$]\label{I:def:localcovers}\index{local covers@Local covers $\GDb(K_v)$, $\Gb_v$}
 $\GDb(K_v):=p^{-1}(\iD(D_v^\times))\subset\cGb_v$ and $\Gb_v:=p^{-1}(\iG(\GL(r,K_v)))\subset\cGb_v$. Let $\Zb_v:=p^{-1}(K_v^\times)$; it is a subgroup of both.
 \end{definition}
 
@@ -347,7 +347,7 @@ So every genuine irreducible representation of $\Eb_D$ or $\Eb_{\GL}$ has dimens
 \subsection{A canonical identification on good elements}\label{I:subsec:ident}
 Equal commutator pairings leave open whether the two covered tori are isomorphic, and if so how canonically. We show that they are isomorphic, by conjugation inside $\cGb_v$, and that every isomorphism that is the identity on the common central subgroup $\Zb_v$ has the same restriction to good elements. This defines the identification $\jj_{E,j}$ used in the rest of the paper.
 
-\begin{definition}
+\begin{definition}[Isomorphisms of covered tori]\index{isomorphisms of covered tori@Isomorphisms of covered tori, $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$}
 Let $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$ be the set of isomorphisms of topological groups $\varphi:\Eb_D\to\Eb_{\GL}$ with $p\circ\varphi=(\iG j\iD^{-1})\circ p$ that are the identity on $\mu_n$ and on $\Zb_v$.
 \end{definition}
 
@@ -422,7 +422,7 @@ We fix measures, define the normalized orbital integrals, and record their basic
 
 \emph{Measures.} Fix Haar measures $dg_D$ on $D_v^\times/F^\times$ and $dg$ on $\GL(r,F)/F^\times$, and for each $i$ a Haar measure $dt_i$ on $E_i^\times/F^\times$. Use $dt_i$ on both $\iD(E_i^\times)/F^\times$ and $j_i(E_i^\times)/F^\times$, and transport it by conjugation to every torus conjugate to these. Quotient measures on $T\backslash G$ are $dg/dt$. The matching relation below does not depend on the choice of the $dt_i$: rescaling $dt_i$ by $\lambda$ multiplies the orbital integrals on both sides at elements of tori of type $i$ by $\lambda^{-1}$. It does depend on $dg_D$ and $dg$, which are fixed.
 
-\begin{definition}\label{I:def:oi}
+\begin{definition}[Orbital integral]\label{I:def:oi}\index{orbital integral@Orbital integral, $\Phi$, $F$}
 For $\bullet\in\{D,\GL\}$, $G_\bullet\in\{D_v^\times,\GL(r,F)\}$, a genuine $\tilde f\in C_c^\infty(\ov{G_\bullet},\tilde\theta_v)_\gen$ and a good regular semisimple $\tilde\gamma$ with centralizer $T_\gamma$, put
 \[ \Phi(\tilde\gamma,\tilde f):=\int_{T_\gamma\backslash G_\bullet}\tilde f(\tilde x^{-1}\tilde\gamma\tilde x)\,d\dot x,\qquad F(\tilde\gamma,\tilde f):=\Delta(\gamma)\,\Phi(\tilde\gamma,\tilde f), \]
 with $\Delta(\gamma)=|D(\gamma)|_F^{1/2}|\det\gamma|_F^{-(r-1)/2}$ as in \cite[\S6]{FK86}, where $D(\gamma)$ is the discriminant of the (reduced) characteristic polynomial and $\det=\Nrd$ on the $D$ side. For non-good regular $\tilde\gamma$ put $F(\tilde\gamma,\tilde f):=0$.
@@ -443,7 +443,7 @@ with $\Delta(\gamma)=|D(\gamma)|_F^{1/2}|\det\gamma|_F^{-(r-1)/2}$ as in \cite[\
 \subsection{Definition of matching}\label{I:subsec:defmatch}
 We define matching with the sign $(-1)^{r-1}$ and with vanishing at good regular non-elliptic elements, using the bijection of Corollary~\ref{I:cor:classes}.
 
-\begin{definition}\label{I:def:matching}
+\begin{definition}[Matching]\label{I:def:matching}\index{matching@Matching, of test functions}
 Functions $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ and $\tilde f\in C_c^\infty(\Gb_v,\tilde\theta_v)_\gen$ \emph{match} if
 \begin{enumerate}[label=(M\arabic*)]
 \item $F(\tilde\gamma,\tilde f_D)=(-1)^{r-1}F(\jj(\tilde\gamma),\tilde f)$ for every good regular $\tilde\gamma\in\GDb(K_v)$, and
@@ -637,7 +637,7 @@ Throughout, $\iota$ and $\ks_v$ are the splittings of Lemma~\ref{I:lem:splitting
 
 \emph{Unitarity.} From now on $\tilde\theta:\Zb(\A_K)\to\C^\times$ is a genuine \emph{unitary} character trivial on $\iota(K^\times)$, and its local components $\tilde\theta_v$ are unitary. This is needed for the $L^2$ spaces, adjoints, formal degrees and Schur orthogonality used in \S\S\ref{I:sec:TF}--\ref{I:sec:spectral}.
 
-\begin{definition}
+\begin{definition}[Global covers $\GDb(\A_K)$, $\Gb(\A_K)$]\index{global covers@Global covers $\GDb(\A_K)$, $\Gb(\A_K)$}
 $\GDb(\A_K):=p^{-1}(\iD(G_D(\A_K)))$ and $\Gb(\A_K):=p^{-1}(\iG(\GL(r,\A_K)))$, subgroups of $\cGb(\A_L)$, and $\Zb(\A_K):=p^{-1}(\A_K^\times)$.
 \end{definition}
 
@@ -821,7 +821,7 @@ Let $X:=\iota(\GL(r,K))\Zb(\A_K)\backslash\Gb(\A_K)$, which is homeomorphic to $
 \subsection{Comparison}\label{I:subsec:comparison}
 We now show that the two trace formulas agree for matching test functions. The places $w_0\notin S$ and $u\in S$ and the admissible pairs fixed in Definition~\ref{I:def:globalpairs} are used throughout \S\ref{I:sec:spectral}.
 
-\begin{definition}\label{I:def:globalpairs}
+\begin{definition}[Admissible pairs]\label{I:def:globalpairs}\index{admissible pairs@Admissible pairs, of test functions}
 Fix a finite place $w_0\notin S$, a place $u\in S$, and a finite set $S_D\supseteq S\cup\{w_0\}$ as in \S\ref{I:subsec:measures}. A pair $(\tilde f_D,\tilde f)$ of factorizable genuine test functions with central characters $\tilde\theta^{-1}$ is \emph{admissible} if:
 \begin{enumerate}[label=(\alph*)]
 \item for $v\in S$, $\tilde f_{D,v}$ vanishes near $\Zb_v$, $\tilde f_v$ is supported in the regular set, and they match (in particular $F(\tilde\delta,\tilde f_v)=0$ at good regular non-elliptic $\tilde\delta$); moreover $\tilde f_u$ is supported on the regular elliptic set. (By Theorem~\ref{I:thm:easy}, every $\tilde f_{D,v}$ vanishing near $\Zb_v$ has such a partner, supported on the good regular elliptic set; conversely every such $\tilde f_v$ has a partner $\tilde f_{D,v}$.)
@@ -966,7 +966,7 @@ Since the cover splits over $U_v$ and $\tilde\theta_v\circ\kappa_v$ is trivial o
 For finite-dimensional spaces, $\bigotimes_v\ker(\mathrm{ev}_{1,v})=\bigcap_v\ker(\mathrm{ev}_{1,v}\otimes\mathrm{id})$, so its annihilator in $(\bigotimes_v\mathcal H_v)^*$ is $\sum_v\C\,\mathrm{ev}_{1,v}\otimes\bigotimes_{w\ne v}\mathcal H_w^*$. Let $E_v:\mathcal H_v\to Z(\mathcal H_v)$ be the central projection (with kernel $[\mathcal H_v,\mathcal H_v]$). Then $\lambda\mapsto\lambda\circ(\otimes_vE_v)$ is a projection of $(\bigotimes\mathcal H_v)^*$ onto the span of products of trace functionals; it fixes $\Lambda_a$ and the $\mathrm{ev}_{1,v}$. Applying it to an expression $\Lambda_a=\sum_v\mathrm{ev}_{1,v}\otimes\mu_v$, we may assume that each $\mu_v$ is a combination of products of the $\tr\tau_w$. Expanding in the basis $\{\prod_v\tr\tau_v\}$ gives the stated condition, and conversely.
 \end{proof}
 
-\begin{definition}\label{I:def:HD}
+\begin{definition}[Hypothesis $(\mathrm{Hyp}_D)$]\label{I:def:HD}\index{hypothesis hypd@Hypothesis $(\mathrm{Hyp}_D)$}
 We say that a packet $P_D(\rho)$ satisfies $(\mathrm{Hyp}_D)$ if there are $\tilde f_{D,v}\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ ($v\in S$), each vanishing near $\Zb_v$, with
 \[ \sum_{\pib'_D\in P_D(\rho)}m(\pib'_D)\prod_{v\in S}\tr\pib'_{D,v}(\tilde f_{D,v})\neq0 \]
 (a sum with finitely many nonzero terms).

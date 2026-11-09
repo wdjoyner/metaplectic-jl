@@ -13,7 +13,7 @@ been established.**
 
 The working document is `book/mjl_book_draft.tex` (*On a metaplectic
 Jacquet–Langlands transfer for division algebras of prime degree*, by
-David Joyner, Claude and ChatGPT), compiled to
+David Joyner, Claude and ChatGPT; currently Draft 2), compiled to
 `book/mjl_book_draft.pdf`. Build it with:
 
 ```bash
