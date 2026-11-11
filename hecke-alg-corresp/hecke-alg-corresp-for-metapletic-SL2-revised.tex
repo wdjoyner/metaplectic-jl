@@ -1,0 +1,1240 @@
+%% File: hecke-alg-corresp-for-metapletic-SL2-revised.tex
+%% Revised version of "A correspondence for the generalized Hecke algebra of
+%% the metaplectic cover \overline{SL(2,F)}, F p-adic", NYJM 4 (1998), 223-235.
+%% Compiles cleanly with pdflatex.
+
+\documentclass[12pt,reqno]{amsart}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[margin=1in]{geometry}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+
+% Legacy AMS-LaTeX compatibility macros
+\let\cal\mathcal
+\let\Bbb\mathbb
+\let\frak\mathfrak
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{axiom}{Axiom}
+
+\theoremstyle{remark}
+\newtheorem{remark}{Remark}
+\newtheorem{exercise}{Exercise}[section]
+
+\title[The generalized Hecke algebra of $\overline{SL(2,F)}$]{A correspondence
+for the generalized Hecke algebra of the metaplectic cover
+$\overline{SL(2,F)}$, $F$ $p$-adic}
+
+\author{David Joyner}
+\address{Mathematics Department, Chauvenet Hall,
+572 Holloway Road, Annapolis, MD 21402, USA}
+\email{wdjoyner@gmail.com}
+
+\thanks{Originally published in \emph{New York J.\ Math.}\ \textbf{4} (1998),
+223--235. I thank Bill Wardlaw for some helpful conversations on the proof of
+Proposition \ref{prop:main} and the anonymous referee for many helpful
+corrections and suggestions. This revised version incorporates corrections to
+the generator relations of Proposition \ref{prop:main}, explicit level and
+cocycle splitting conditions for general $n$ in Proposition \ref{prop:main2},
+and a clarification of Savin's Iwahori-Hecke isomorphism in Section
+\ref{section:savin}.}
+
+\keywords{metaplectic groups, generalized Hecke algebras,
+representation theory, $p$-adic groups, $SL(2)$}
+\subjclass[2020]{22E50, 11F70}
+
+\newcommand{\abstracttext}{We prove, using a technique developed for
+$GL(n)$ in Howe and Moy \cite{H}, a bijection between generalized Hecke
+algebras of $G=SL(2,F)$ over a $p$-adic field and those of its $n$-fold
+metaplectic cover $\overline{G}$. This result implies that there is a
+canonical correspondence between irreducible admissible representations of $G$
+and genuine irreducible admissible representations of $\overline{G}$ of
+``sufficiently large level'' (depending on $n,p$).}
+
+\begin{document}
+
+\begin{abstract}
+\abstracttext
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+%%%% **** The text of the paper starts here **** %%%%
+
+Let $F$ be a $p$-adic field of characteristic $0$, with uniformizer $\pi$,
+ring of integers ${\cal O}$, and let $q$ denote the cardinality of the residue
+field. Let $\mu_n(F)$ denote the group of $n^{\text{th}}$ roots of unity in $F$
+and assume $|\mu_n(F)|=n$. We will identify $\mu_n(F)$ with a subgroup of
+${\Bbb{C}}^\times$ (via some fixed isomorphism
+$\theta:\mu_n(F)\rightarrow \mu_n({\Bbb{C}})$). Write $\mu_n=\mu_n(F)$.
+Let $G=SL(2,F)$ and let $\frak{g}$ denote its Lie algebra. Let
+$\overline{G}=\overline{SL(2,F)}$ denote the $n$-fold metaplectic cover
+defined by the Kubota cocycle
+\[
+\beta(g_1,g_2)=\left(\frac{x(g_1g_2)}{x(g_1)},
+\frac{x(g_1g_2)}{x(g_2)}\right),
+\]
+for $g_1,g_2\in G$, where
+\[
+x\begin{pmatrix}
+a & b\\
+c & d
+\end{pmatrix}=
+\begin{cases}
+c, & \text{if } c\neq 0,\\
+d, & \text{otherwise},
+\end{cases}
+\]
+and where $(\ ,\ )$ is the $n^{\text{th}}$ power Hilbert symbol on
+$F^\times \times F^\times$. By \S 1 of Kubota \cite{K}, $\beta$ is a
+$2$-cocycle (called a ``factor set'' in \cite{K}) which is trivial near the
+identity in $G\times G$, so $\overline{G}$ is a topological covering group of
+$G$. We denote elements of $\overline{G}$ by $\overline{x}=(x,\zeta)$,
+$x\in G,\ \zeta\in \mu_n$, and multiplication by
+\[
+\overline{x}_1\overline{x}_2=(x_1,\zeta_1)(x_2,\zeta_2)
+=(x_1x_2,\beta(x_1,x_2)\zeta_1\zeta_2).
+\]
+Let $\rho:\overline{G}\rightarrow G$ denote the natural surjection. If $H$ is
+any subgroup of $G$ then we define $\overline{H}=\rho^{-1}(H)$. We choose a
+Haar measure on $G$, to be normalized below, and a Haar measure on $\mu_n$
+normalized so that $\operatorname{vol}(\mu_n)=1$. Let the Haar measure on
+$\overline{G}$ be the product measure.
+
+We prove, using a technique developed for $GL(n)$ in \cite{H}, a bijection
+between generalized Hecke algebras of $G$ and those of $\overline{G}$. A
+precise statement will be given in Theorem \ref{thrm:main}. This result
+implies that there is a canonical one-to-one correspondence between
+irreducible admissible representations of $G$ and genuine irreducible
+admissible representations of $\overline{G}$ of ``sufficiently large level''
+(depending on $n,p$). For the precise statement, see Corollary
+\ref{corollary:main}.
+
+The study of genuine admissible representations on $p$-adic groups has its
+origins in the book \cite{G} by S. Gelbart. Flicker \cite{F} determined a
+comparison of Hecke algebras of \emph{smooth functions} on $GL(2,F)$ and
+$\overline{GL(2,F)}$ using the matching of orbital integrals. This was then
+used, with the Arthur-Selberg trace formula, to establish a global ``Shimura
+correspondence''. Neither of these two works used the Hecke algebras
+considered here. G. Savin \cite{S} has given an isomorphism between the
+Iwahori-Hecke algebras in the case when $p$ is relatively prime to $2n$ and
+$G$ is any reductive $p$-adic group which splits over ${\cal O}$. This
+isomorphism generalized a result of Flicker and Kazhdan \cite{FK} who
+considered the special case of $GL(r)$. (Savin's result is discussed briefly
+in \S \ref{section:savin} below.) The works of Rallis-Schiffmann \cite{RS} and
+Schultz \cite{Sch} also dealt with a correspondence between representations on
+$\overline{G}$ and on $G$ (or a closely related group), though from a
+different perspective and using different methods. Our hope is that the result
+in the present paper will form one small step, along with Waldspurger's
+multiplicity one theorem for $\overline{SL(2,F)}$ \cite{W} and the
+Arthur-Selberg trace formula, in an eventual proof of Labesse's multiplicity
+one conjecture for $SL(2)$.
+
+\section{Some notation}
+
+Let
+\[
+s_1=
+\begin{pmatrix}
+0 & -1\\
+1 & 0
+\end{pmatrix},\quad
+s_2=
+\begin{pmatrix}
+0 & -\pi^{-1}\\
+\pi & 0
+\end{pmatrix},\quad
+t=
+\begin{pmatrix}
+0 & -1\\
+\pi & 0
+\end{pmatrix},\quad
+t_0=
+\begin{pmatrix}
+\pi & 0 \\
+0 & \pi^{-1}
+\end{pmatrix}.
+\]
+Note $t_0=s_1^{-1}s_2$, $t\notin G$, and $ts_1t^{-1}=s_2$. Although
+$t\notin G$, conjugation by $t$ defines an automorphism of $G$ of order $2$
+(since $t^2=-\pi I$ is central in $GL(2,F)$).
+
+Let
+\[
+u_+(x)=
+\begin{pmatrix}
+1 & x\\
+0 & 1
+\end{pmatrix},\quad
+u_-(x)=
+\begin{pmatrix}
+1 & 0\\
+x & 1
+\end{pmatrix},\quad
+h(x)=
+\begin{pmatrix}
+x & 0\\
+0 & x^{-1}
+\end{pmatrix}.
+\]
+
+Let
+\[
+B=\left\{
+\begin{pmatrix}
+{\cal O} & {\cal O}\\
+\pi {\cal O} & {\cal O}
+\end{pmatrix}\right\}\cap G
+\]
+denote the Iwahori subgroup,
+\[
+{\frak{b}}=\left\{
+\begin{pmatrix}
+{\cal O} & {\cal O}\\
+\pi {\cal O} & {\cal O}
+\end{pmatrix}\right\}\cap \frak{g}
+\]
+denote its Lie algebra, and for $k>0$ let
+\[
+B_k=\left(I+t^{2k}
+\begin{pmatrix}
+{\cal O} & {\cal O}\\
+\pi {\cal O} & {\cal O}
+\end{pmatrix}\right)\cap G
+=\left\{
+\begin{pmatrix}
+a & b\\
+\pi c & d
+\end{pmatrix}\in G \;\middle|\;
+a-1,\, d-1,\, b,\, c \in \pi^k{\cal O}
+\right\}
+\]
+denote the $k^{\text{th}}$ filtration subgroup of $B$. Note that
+$t B t^{-1}=B$ and $t B_k t^{-1}=B_k$. Let
+\[
+{\frak{b}}_k
+=\left\{
+\begin{pmatrix}
+a & b\\
+\pi c & -a
+\end{pmatrix}
+\;\middle|\;
+a,b,c\in \pi^{k}{\cal O}\right\}
+\]
+denote the Lie algebra of $B_k$.
+
+\begin{definition}
+\label{def:1}
+Let $H$ denote a locally compact unimodular group and let $K$ denote an open
+compact subgroup of $H$ with Haar measure on $H$ normalized so that $K$ has
+measure one. Let ${\cal H}(H//K)$ denote the space of functions on $H$ which
+are locally constant, compactly supported, and bi-$K$-invariant. This forms an
+algebra under convolution,
+\[
+(f*g)(x)=\int_H f(y)g(y^{-1}x)\,dy,
+\]
+called the \textbf{generalized Hecke algebra}.
+\end{definition}
+
+We shall study the algebra ${\cal H}(G//B_k)$ in Section \ref{section:sl2}.
+
+Recall that a $2$-cocycle $\alpha :H\times H \rightarrow \mu_n$ of a group $H$
+is \textbf{trivial} if there is a function $s:H\rightarrow \mu_n$ (called a
+\textbf{splitting}) such that $\alpha(h_1,h_2)=s(h_1)s(h_2)s(h_1h_2)^{-1}$,
+for $h_1,h_2\in H$. In this case the cover of $H$ defined by $\alpha$ is said
+to \textbf{split}, and the map $h \mapsto (h, s(h)^{-1})$ embeds $H$ as a
+subgroup of $\overline{H}$. When $\alpha$ is replaced by the equivalent
+cocycle $\alpha'(h_1,h_2)=\alpha(h_1,h_2)s(h_1)^{-1}s(h_2)^{-1}s(h_1h_2)$ on
+$H\times H$, the splitting becomes trivial on $H$, and $H$ embeds canonically
+as $H^*=\{(h,1)\mid h\in H\}\subset \overline{H}$.
+
+By Hensel's Lemma, if $k>2\operatorname{ord}_\pi(n)$ (and in particular for
+any $k\ge 1$ when $\gcd(p,n)=1$), we have
+$1+\pi^k{\cal O}\subset (F^\times)^n$. For such $k$, every $u\in 1+\pi^k{\cal O}$
+is an $n^{\text{th}}$ power in $F^\times$, so the $n^{\text{th}}$ power
+Hilbert symbol satisfies $(u,y)=1$ for all $u\in 1+\pi^k{\cal O}$ and all
+$y\in F^\times$. By \cite{K}, Theorem 2, the Kubota splitting function
+$s_K:G\rightarrow \mu_n$ defined by
+\[
+s_K\begin{pmatrix} a & b \\ c & d \end{pmatrix}
+=
+\begin{cases}
+(c,d), & \text{if } cd\neq 0 \text{ and } \operatorname{ord}_\pi(c) \text{ is odd},\\
+1, & \text{otherwise},
+\end{cases}
+\]
+trivializes $\beta$ on the principal congruence subgroup of level $\pi^k$, and
+satisfies $s_K|_{B_k}\equiv 1$ since $d\in 1+\pi^k{\cal O}\subset (F^\times)^n$
+for all elements of $B_k$. In fact, directly from the definition of $\beta$,
+for any $g_1,g_2\in B_k$, the Iwahori factorization $B_k=U_k^- T_k U_k^+$
+implies that $\overline{B}_k$ splits.
+
+Recall that a complex-valued function $f$ on $\overline{G}$ is called
+\textbf{genuine} if $f(g,\zeta)=\theta(\zeta) f(g,1)$, for $g\in G$ and
+$\zeta\in \mu_n$. Here $\theta$ is a fixed isomorphism
+$\theta:\mu_n\rightarrow \mu_n({\Bbb{C}})$. It being agreed that we may
+identify $\mu_n$ and $\mu_n({\Bbb{C}})$, we shall, \emph{from this point on,
+drop $\theta$ from the notation.}
+
+\begin{definition}
+\label{def:2}
+Assume that $k>0$ is chosen so large that $1+\pi^k{\cal O}\subset (F^\times)^n$
+(so in particular $\overline{B}_k$ splits). Fix a cocycle $\beta'$ equivalent
+to $\beta$ such that $\beta'|_{B_k\times B_k}=1$, and identify $B_k$ with the
+split subgroup $B_k^*=\{(b,1)\mid b\in B_k\}\subset \overline{B}_k$. Assume
+that the Haar measure on $\overline{G}$ is normalized so that $\overline{B}_k$
+has measure $1$. Let ${\cal H}(\overline{G}//B_k)_{gen}$ denote the space of
+functions on $\overline{G}$ which are genuine, locally constant, compactly
+supported, and bi-$B_k^*$-invariant. This is the \textbf{(metaplectic)
+generalized Hecke algebra} on $\overline{G}$.
+\end{definition}
+
+We will study this algebra in Section \ref{section:metaplectic}. Note that it
+depends on the splitting of the cocycle on $B_k$. To have a measure on
+$\overline{G}$ which fits with the measure on $G$ used in
+\S \ref{section:sl2}, we shall also assume that $\mu_n$ has measure $1$.
+
+\section{Some lemmas}
+
+Let ${\Bbb{F}}_q={\cal O}/\pi{\cal O}$ denote the residue field of $F$.
+
+\begin{lemma}
+\label{lemma:3}
+For $k>0$, $B_k/B_{k+1}\cong {\frak{b}}_k/{\frak{b}}_{k+1}\cong {\Bbb F}_q^3$,
+as abelian groups. (The second isomorphism is not canonical.)
+\end{lemma}
+
+\begin{proof}
+The graph of the first isomorphism is
+$\{(g\cdot B_{k+1},X+ {\frak{b}}_{k+1}) \mid
+(I+X+{\frak{b}}_{k+1})\cap g\cdot B_{k+1}\neq \emptyset\}$
+(namely, $I+X \bmod B_{k+1} \mapsto X \bmod {\frak{b}}_{k+1}$ for
+$X\in {\frak{b}}_k$). It is also a special case of a general result of Morris
+(Proposition 3.4 in \cite{M}). The second isomorphism is due to the fact that
+the surjective homomorphism
+\[
+\begin{pmatrix}
+a & b\\
+\pi c & -a
+\end{pmatrix}\longmapsto
+\bigl(\pi^{-k}a \bmod \pi,\; \pi^{-k}b \bmod \pi,\; \pi^{-k}c \bmod \pi\bigr)
+\in {\Bbb F}_q^3
+\]
+has image ${\Bbb F}_q^3$ and kernel ${\frak{b}}_{k+1}$.
+\end{proof}
+
+The following result is stated as Proposition 2.2 in Chapter 3 of \cite{H}.
+
+\begin{lemma}
+\label{lemma:general}
+In the notation of Definition \ref{def:1}, let $f_h$ denote the characteristic
+function of the double coset $K h K$ in $H$. Then $f_1$ is the unit of
+${\cal H}(H//K)$. More generally, if
+\[
+\operatorname{vol}(Kh_1K)\operatorname{vol}(Kh_2K)=\operatorname{vol}(Kh_1h_2K),
+\]
+then $f_{h_1}*f_{h_2}=f_{h_1h_2}$.
+\end{lemma}
+
+We need a version of the previous lemma for genuine functions. Assume $\beta'$
+is chosen as in Definition \ref{def:2} so that $\beta'|_{B_k\times B_k}=1$.
+Since $1+\pi^k{\cal O}\subset (F^\times)^n$, for any $g\in G$ and any
+$b_1,b_2\in B_k$ satisfying $b_1 g b_2 = g$, the compatibility of the Kubota
+splitting with $1+\pi^k{\cal O}\subset (F^\times)^n$ ensures that
+$(b_1,1)(g,1)(b_2,1)=(g,1)$. Thus, for each $g\in G$, there is a unique
+genuine bi-$B_k^*$-invariant function $\overline{f}_g$ supported on
+$\overline{B}_k(g,1)\overline{B}_k$ satisfying $\overline{f}_g(g,1)=1$;
+explicitly, for $b_1,b_2\in B_k$ and $\zeta\in\mu_n$,
+\[
+\overline{f}_g\bigl((b_1,1)(g,1)(b_2,1)(1,\zeta)\bigr)=\zeta,
+\]
+and $\overline{f}_g(\overline{x})=0$ for
+$\overline{x}\notin \overline{B}_k(g,1)\overline{B}_k$. When $\beta'$ is
+additionally normalized on the double coset $B_k g B_k$ so that
+$\beta'(b_1,g)\beta'(b_1g,b_2)=1$ for $b_1,b_2\in B_k$, this takes the simple
+form
+\[
+\overline{f}_{g}(x,\zeta)
+=
+\begin{cases}
+\zeta, & x\in B_kgB_k,\\
+0, & \text{otherwise}.
+\end{cases}
+\]
+Let
+\[
+(\phi_1*\phi_2)(g)=
+\int_{\overline{G}}\phi_1(x)\phi_2(x^{-1}g)\,dx,
+\quad g\in \overline{G}.
+\]
+
+Now we prove a genuine analog of Lemma \ref{lemma:general} above.
+
+\begin{lemma}
+\label{lemma:genuine}
+Assume $\operatorname{vol}(\overline{B}_k)=1$. If $g_1,g_2\in G$ are such that
+$\beta'((g_1,1),(g_2,1))=1$ on the double coset representatives and
+\[
+\operatorname{vol}(B_kg_1B_k)
+\operatorname{vol}(B_kg_2B_k)
+=\operatorname{vol}(B_kg_1g_2B_k),
+\]
+then $\overline{f}_{g_1}*\overline{f}_{g_2}=\overline{f}_{g_1g_2}$.
+\end{lemma}
+
+\begin{proof}
+We compute
+\[
+\begin{aligned}
+(\overline{f}_{g_1}*\overline{f}_{g_2})(g,1)
+&=\int_{\overline{G}}
+\overline{f}_{g_1}(x)\overline{f}_{g_2}(x^{-1}(g,1))\,dx\\
+&=\int_{G}\overline{f}_{g_1}(x,1)\overline{f}_{g_2}(x^{-1}g,1)
+\beta'(x,x^{-1}g)^{-1}\,dx.
+\end{aligned}
+\]
+Since $|\overline{f}_{g_i}(x,1)|=f_{g_i}(x)$, the support of this integral is
+contained in the support of $f_{g_1}*f_{g_2}$. By Lemma \ref{lemma:general},
+$f_{g_1}*f_{g_2}=f_{g_1g_2}$, so
+\[
+\operatorname{supp}(\overline{f}_{g_1}*\overline{f}_{g_2})
+\subset \operatorname{supp}(\overline{f}_{g_1g_2}).
+\]
+Since $\overline{f}_{g_1}*\overline{f}_{g_2}$ is genuine and bi-$B_k^*$-invariant,
+and the space of genuine bi-$B_k^*$-invariant functions supported on a single
+double coset $\overline{B}_k(g_1g_2,1)\overline{B}_k$ is one-dimensional
+(spanned by $\overline{f}_{g_1g_2}$), we must have
+$\overline{f}_{g_1}*\overline{f}_{g_2}=c\overline{f}_{g_1g_2}$ for some
+constant $c$. Evaluating at $(g_1g_2,1)$: by the volume condition
+$\operatorname{vol}(B_kg_1B_k)\operatorname{vol}(B_kg_2B_k)
+=\operatorname{vol}(B_kg_1g_2B_k)$, the map
+$B_k\times B_k\times B_k\rightarrow B_kg_1g_2B_k$ given by
+$(b_1,b_2,b_3)\mapsto b_1g_1b_2g_2b_3$ has fiber $B_k$ at $g_1g_2$, so for
+$x=g_1b_2$ ($b_2\in B_k$) we have $x^{-1}g_1g_2=b_2^{-1}g_2$ and the integrand
+at $g=g_1g_2$ is identically $1$ on $g_1B_k$, yielding $c=\operatorname{vol}(g_1B_k)=1$.
+\end{proof}
+
+As in the above proof, we have the following expression for the convolution in
+terms of the cocycle.
+
+\begin{lemma}
+\label{lemma:convolve}
+For any genuine functions $\phi_1,\phi_2\in {\cal H}(\overline{G}//B_k)_{gen}$,
+we have
+\[
+(\phi_1*\phi_2)(g,\zeta)
+=\zeta\int_{G}\phi_1(x,1)\phi_2(x^{-1}g,1)
+\beta'(x,x^{-1}g)^{-1}\,dx,
+\]
+for any $g\in G$ and $\zeta\in\mu_n$.
+\end{lemma}
+
+Note that the generalized metaplectic Hecke algebra depends on the cocycle
+$\beta$, so let us denote this dependence temporarily by
+${\cal H}_\beta(\overline{G}//B_k)_{gen}$. If the cocycle is changed to an
+equivalent one, say to $\beta'$, where
+\[
+\beta(g,h)=\beta'(g,h)s(g)s(h)s(gh)^{-1}
+\]
+is the cocycle modified by $s$ and $s:G\rightarrow \mu_n$ is any function
+satisfying $s(1)=1$ and $s|_{B_k}\equiv 1$ (for example, the Kubota splitting
+\cite{K,KP}), then the two algebras are isomorphic.
+
+\begin{lemma}
+\label{lemma:isomorphic}
+Let $\beta,\beta'$ be as above and let $s:G\rightarrow \mu_n$ satisfy
+$s(1)=1$. There is a canonical isomorphism
+\[
+\phi:{\cal H}_{\beta'}(\overline{G}//B_k)_{gen}
+\stackrel{\sim}{\longrightarrow}
+{\cal H}_{\beta}(\overline{G}//B_k)_{gen},
+\]
+as algebras, defined by sending $f(g,\zeta)=\zeta f(g,1)$ to
+$\phi(f)(g,\zeta)=\zeta s(g) f(g,1)$. In other words, under this mapping, we
+have
+\[
+\phi(f_1*_{\beta'} f_2)(g,\zeta)
+=(\phi(f_1)*_{\beta}\phi(f_2))(g,\zeta),
+\]
+where $*_\beta$ denotes the convolution with respect to the $\beta$ cocycle
+\[
+(\phi_1*_\beta \phi_2)(g,\zeta)
+=\zeta \int_{G}\phi_1(x,1)\phi_2(x^{-1}g,1)
+\beta(x,x^{-1}g)^{-1}\,dx
+\]
+and, similarly, $*_{\beta'}$ denotes the convolution with respect to the
+$\beta'$ cocycle.
+\end{lemma}
+
+\begin{proof}
+Using $\beta(x,x^{-1}g)^{-1}=\beta'(x,x^{-1}g)^{-1}s(x)^{-1}s(x^{-1}g)^{-1}s(g)$,
+we have
+\[
+\begin{aligned}
+(\phi(f_1)*_\beta \phi(f_2))(g,\zeta)
+&=\zeta \int_G s(x)f_1(x,1)s(x^{-1}g)f_2(x^{-1}g,1)
+\beta(x,x^{-1}g)^{-1}\,dx\\
+&=\zeta s(g)\int_G f_1(x,1)f_2(x^{-1}g,1)\beta'(x,x^{-1}g)^{-1}\,dx\\
+&=\phi(f_1*_{\beta'}f_2)(g,\zeta),
+\end{aligned}
+\]
+as claimed.
+\end{proof}
+
+\section{The structure of ${\cal H}(G//B_k)$}
+\label{section:sl2}
+
+We want to determine the structure of the generalized Hecke algebra as a
+finitely generated algebra with generators and relations. Then we will do the
+same for the metaplectic analog and compare the two.
+
+The affine Weyl group $W_a = N_G(T)/(T\cap B)$ of $G$ is an infinite dihedral
+group generated by the images of $s_1$ and $s_2$, and the finite Weyl group
+$W$ is generated by the image of $s_1$. Note that in $G$, $s_1^2=s_2^2=-I\in B$,
+and every element of the group $\langle s_1,s_2\rangle \subset G$ can be
+written up to sign $\pm I\in B$ as a reduced alternating word in $s_1$ and
+$s_2$ (in particular, $t_0=s_1^{-1}s_2=h(-1)s_1s_2$). We will use the
+Iwahori-Bruhat decomposition
+\[
+G=BW_aB
+\]
+to determine the structure of the generalized Hecke algebra.
+
+Recall $(\operatorname{Ad} g)(x)=gxg^{-1}$. Let $S=\{s_1,s_2\}\cup B$.
+
+\begin{proposition}
+\label{prop:main}
+The algebra ${\cal H}(G//B_k)$ is generated by the functions $f_g$, $g\in S$.
+Assume that $\operatorname{vol}(B_k)=1$. These elements are subject to the
+relations below.
+
+\noindent
+\textbf{(A) Relations for the $s_i$'s ($i=1,2$):}
+\begin{enumerate}
+\item[(i)] $f_{s_1}*f_{s_1}=c_1\sum_x f_x$, where $x$ runs over a set of
+representatives of $((-1)\cdot (\operatorname{Ad} s_1)(B_k)\cdot B_k)/B_k$ and
+$c_1=\operatorname{vol}(B_k s_1 B_k)=q$,
+\item[(ii)] $f_{s_2}*f_{s_2}=c_2\sum_x f_x$, where $x$ runs over a set of
+representatives of $((-1)\cdot (\operatorname{Ad} s_2)(B_k)\cdot B_k)/B_k$ and
+$c_2=\operatorname{vol}(B_k s_2 B_k)=q$.
+\end{enumerate}
+
+\noindent
+\textbf{(B) Relations for elements of $B$:}
+\begin{enumerate}
+\item[(i)] $f_1$ is the identity of ${\cal H}(G//B_k)$,
+\item[(ii)] $f_x*f_y=f_{xy}$, for $x,y\in B$,
+\item[(iii)] $f_{xg}=f_{gx}=f_g$, for all $x\in B_k,\ g\in G$.
+\end{enumerate}
+
+\noindent
+\textbf{(C) Mixed relations:}
+\begin{enumerate}
+\item[(i)] $f_{s_i}*f_x=f_{\operatorname{Ad} s_i(x)}*f_{s_i}$, for
+$x\in B\cap (\operatorname{Ad} s_i^{-1})(B)$ ($i=1,2$),
+\item[(ii)] $f_{s_1}*f_{u_+(x)}*f_{s_1}=c_1^2 f_{\operatorname{Ad} s_1(u_+(x))}
+=c_1^2 f_{u_-(-x)}$, for $x\in {\cal O}^\times$, where
+$c_1=\operatorname{vol}(B_k s_1 B_k)$,
+\item[(iii)] $f_{s_2}*f_{u_-(-\pi x)}*f_{s_2}=c_2^2 f_{\operatorname{Ad} s_2(u_-(-\pi x))}
+=c_2^2 f_{u_+(x)}$, for $x\in {\cal O}^\times$, where
+$c_2=\operatorname{vol}(B_k s_2 B_k)$.
+\end{enumerate}
+
+\noindent
+(The relations C(ii) and C(iii) must be expressed in terms of the generators
+$S$, as in \cite{H}. Using the Bruhat identity
+$u_-(-x)=u_+(-x^{-1})s_1 h(-x) u_+(-x^{-1})$ for $x\in {\cal O}^\times$, the
+relation corresponding to C(ii) is
+\[
+f_{s_1}*f_{u_+(x)}*f_{s_1}
+=c_1^2\bigl(f_{u_+(-x^{-1})}*f_{s_1}*f_{h(-x)}*f_{u_+(-x^{-1})}\bigr).
+\]
+Conjugating by $t$, where $ts_1t^{-1}=s_2$, $tu_+(y)t^{-1}=u_-(-\pi y)$, and
+$th(z)t^{-1}=h(z^{-1})$, the relation corresponding to C(iii) is
+\[
+f_{s_2}*f_{u_-(-\pi x)}*f_{s_2}
+=c_2^2\bigl(f_{u_-(\pi x^{-1})}*f_{s_2}*f_{h(-x^{-1})}*f_{u_-(\pi x^{-1})}\bigr),
+\]
+and similarly $f_{s_2}*f_{u_+(x)}*f_{s_2}=c_2^2 f_{u_-(\pi^2 x)}$ for
+$x\in {\cal O}^\times$.)
+
+Furthermore, these relations form a defining set of relations for
+${\cal H}(G//B_k)$ as an algebra.
+\end{proposition}
+
+\begin{remark}
+\label{rem:1}
+\begin{enumerate}
+\item This proposition has an analog for $G$ replaced by $GL(n)$, proved in
+\cite{H}, Theorem 2.1, Chapter 3. Unlike the $GL(n)$ case where the length-zero
+element $t$ lies in $GL(n,F)$ and normalizes $B_k$, in $SL(2,F)$ the element
+$t_0=s_1^{-1}s_2=\operatorname{diag}(\pi,\pi^{-1})$ has length $2$ in $W_a$
+and does not normalize $B_k$. However, the outer automorphism
+$\operatorname{Ad}(t)$ of $SL(2,F)$ preserves $B$ and $B_k$ and swaps $s_1$
+and $s_2$, allowing us to use the Coxeter generators $\{s_1,s_2\}$ directly.
+Note that for $t_0=h(-1)s_1s_2$, length additivity gives
+$f_{t_0}=f_{h(-1)}*f_{s_1}*f_{s_2}$ and
+$f_{t_0^{-1}}=f_{h(-1)}*f_{s_2}*f_{s_1}$, which satisfy
+$f_{t_0}*f_{s_1}=f_{s_1}*f_{t_0^{-1}}$.
+
+\item Note that though $S$ is infinite, the set of generators
+$\{f_g \mid g\in S\}$ is finite (since $f_b$ for $b\in B$ depends only on the
+coset $bB_k\in B/B_k$), so the algebra is indeed finitely generated.
+
+\item Possibly B(iii) is a superfluous relation once restricted to $B/B_k$.
+
+\item Note that $s_1$ and $s_2$ have order $4$ in $G$ ($s_1^2=s_2^2=-I\in B$),
+not order $2$ as the analogous permutation matrices in \cite{H} do.
+
+\item The volume constants are computed as follows:
+\[
+\operatorname{vol}(B_k s_1 B_k)
+=\operatorname{vol}(B_k s_1 B_k s_1^{-1})/\operatorname{vol}(B_k)
+=|U_k^- B_k/B_k|=|U_k^-/(U_k^-\cap B_k)|=|\pi^k{\cal O}/\pi^{k+1}{\cal O}|=q,
+\]
+and since $tB_kt^{-1}=B_k$ and $ts_1t^{-1}=s_2$,
+\[
+\operatorname{vol}(B_k s_2 B_k)
+=\operatorname{vol}(t B_k s_1 B_k t^{-1})
+=\operatorname{vol}(B_k s_1 B_k)=q.
+\]
+More generally, for any reduced alternating word $w=s_{i_1}s_{i_2}\cdots s_{i_r}$
+($i_j\in\{1,2\}$, $i_j\neq i_{j+1}$) and any $b\in B$, Iwahori factorization
+for $B_k$ gives
+\[
+\operatorname{vol}(B_k b w B_k)=\operatorname{vol}(B_k w B_k)
+=\prod_{j=1}^r \operatorname{vol}(B_k s_{i_j} B_k)=q^r,
+\]
+so by Lemma \ref{lemma:general},
+$f_w=f_{s_{i_1}}*f_{s_{i_2}}*\cdots *f_{s_{i_r}}$.
+\end{enumerate}
+\end{remark}
+
+Here are some general facts we will use in the proof below.
+
+\begin{lemma}
+\label{lemma:9}
+\begin{enumerate}
+\item[(a)] $B_k$ is a normal subgroup of $B$, and $tB_kt^{-1}=B_k$.
+\item[(b)] Let $U^+_k=\{u_+(x) \mid x\in \pi^k{\cal O}\}$ and
+$U^-_k=\{u_-(x) \mid x\in \pi^k{\cal O}\}$. We have
+\[
+B_k\cdot (s_1^{-1}B_ks_1)=(s_1^{-1}B_ks_1)\cdot B_k=U^-_kB_k,
+\]
+and
+\[
+B_k\cdot (s_2^{-1}B_ks_2)=(s_2^{-1}B_ks_2)\cdot B_k=U^+_{k-1}B_k,
+\]
+and both $U^-_kB_k$ and $U^+_{k-1}B_k$ are groups containing $B_k$ as a
+normal subgroup of index $q$.
+\item[(c)] In general, we have
+\[
+(f_{g_1}*f_{g_2})(x)=\int_G f_{g_1}(y)f_{g_2}(y^{-1}x)\,dy
+=\operatorname{vol}(B_kg_1B_k\cap xB_kg_2^{-1}B_k).
+\]
+\item[(d)] In general, we have
+\[
+\int_G (f*g)(x)\,dx=\int_G f(y)\,dy \int_G g(x)\,dx,\quad
+\int_G (f*g*h)(x)\,dx=\int_G f(x)\,dx \int_G g(y)\,dy\int_G h(z)\,dz.
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Parts (a) and (b) may be proven by direct matrix calculations (with the second
+identity in (b) following from the first by conjugating by $t$). Parts (c) and
+(d) are simple consequences of the definitions.
+\end{proof}
+
+\begin{proof}[Proof of Proposition \ref{prop:main}]
+We shall follow the ideas in \cite{H}, proof of Theorem 2.1.
+
+We begin by verifying A(i): $f_{s_1}*f_{s_1}=c_1\sum_{x\in X} f_x$, where $x$
+runs over a complete set $X$ of representatives of
+$((-1)\cdot (\operatorname{Ad} s_1)(B_k)\cdot B_k)/B_k$. As in \cite{H}, parts
+(a) and (b) of Lemma \ref{lemma:9} imply that
+\[
+f_{s_1}*f_{s_1}=c_1\cdot \chi_{(-1)\cdot U^-_kB_k},
+\]
+where $\chi_E$ denotes the characteristic function of a subset $E$ of $G$ and
+where $c_1\neq 0$ is some constant. In other words,
+\[
+(f_{s_1}*f_{s_1})(g)=c_1\sum_{x\in X} f_x(g),\quad g\in G.
+\]
+Plugging $g=-I=s_1^2$ into both sides and using Lemma \ref{lemma:9}(c), we
+obtain
+\[
+\operatorname{vol}(B_k s_1 B_k)=c_1.
+\]
+Conjugating by the measure-preserving automorphism $\operatorname{Ad}(t)$
+(which maps $B_k$ to $B_k$ and $s_1$ to $s_2$) immediately gives A(ii) with
+$c_2=\operatorname{vol}(B_k s_2 B_k)=q$.
+
+Part (c) of Lemma \ref{lemma:9} implies part B(i) of the proposition.
+
+We now verify part B(ii). We know $\operatorname{vol}(B_k)=1$ implies
+$\operatorname{vol}(bB_k)=1$, for each $b\in B$. Since $B_k$ is normal in $B$,
+$B_kbB_k=bB_k$, so Lemma \ref{lemma:general} implies part B(ii).
+
+Part B(iii) follows from the definition of $f_g$.
+
+We shall now verify C(i). Since $B_k$ is normal in $B$, for any $b\in B$ we
+have
+\[
+\operatorname{vol}(B_k s_i b B_k)=\operatorname{vol}(B_k s_i b B_k b^{-1} b)
+=\operatorname{vol}(B_k s_i B_k b)=\operatorname{vol}(B_k s_i B_k).
+\]
+This and Lemma \ref{lemma:general} imply $f_{s_i}*f_x=f_{s_ix}$, for $x\in B$.
+Likewise, if $s_ixs_i^{-1}\in B$ then
+$f_{s_ixs_i^{-1}}*f_{s_i}=f_{s_ix}$. This implies C(i).
+
+We next verify C(ii). The proof of this part is sketched in \cite{H}. The
+argument in \cite{H} gives $f_{s_1}*f_{u_+(x)}*f_{s_1}=c f_{u_-(-x)}$, for
+$x\in {\cal O}^\times$, for some constant $c\neq 0$. Here $c$ may be evaluated
+using part (d) of Lemma \ref{lemma:9}, which implies
+\[
+c=\frac{\operatorname{vol}(B_k s_1 B_k)^2\operatorname{vol}(B_k u_+(x) B_k)}
+{\operatorname{vol}(B_k u_-(-x) B_k)}
+=\operatorname{vol}(B_k s_1 B_k)^2 = c_1^2.
+\]
+(Here we have used the fact that $u_+(x)\in B$, so
+$\operatorname{vol}(B_k u_+(x) B_k)=\operatorname{vol}(B_k u_+(x))
+=\operatorname{vol}(B_k)=1$, and the fact that
+$\operatorname{vol}(B_k u_-(-x) B_k)
+=\operatorname{vol}(s_1^{-1}B_ks_1 u_+(x) s_1^{-1}B_ks_1)
+=\operatorname{vol}(s_1^{-1}B_ks_1 u_+(x))
+=\operatorname{vol}(s_1^{-1}B_ks_1)=1$.) Since
+$u_-(-x)=u_+(-x^{-1})s_1 h(-x)u_+(-x^{-1})$ with $u_+(-x^{-1}), h(-x)\in B$,
+we have $f_{u_-(-x)}=f_{u_+(-x^{-1})}*f_{s_1}*f_{h(-x)}*f_{u_+(-x^{-1})}$ by
+C(i) and B(ii).
+
+Part C(iii) follows directly from C(ii) by applying the automorphism
+$\operatorname{Ad}(t)$.
+
+It remains to show that this list of relations is a defining set of relations
+for the algebra. To this end, we follow the proof of \cite{H}, Chapter 3,
+Theorem 2.1, as follows.
+
+For $g\in S$, let $\tilde{f}_g$ denote an abstract element. Let
+$\tilde{\cal H}$ denote the free algebra generated by these elements modulo
+the relations (A)--(C) in the proposition. We want to show that the natural
+homomorphism
+\begin{equation}
+\label{eq:obvious}
+\tilde{\cal H}\longrightarrow {\cal H}(G//B_k)
+\end{equation}
+is an isomorphism.
+
+Choose a set of reduced alternating words $w=s_{i_1}s_{i_2}\cdots s_{i_r}$
+($i_j\in\{1,2\}$, $i_j\neq i_{j+1}$) representing the elements of $W_a$, and
+define $\tilde{f}_w=\tilde{f}_{s_{i_1}}*\tilde{f}_{s_{i_2}}*\cdots
+*\tilde{f}_{s_{i_r}}$ (with $\tilde{f}_1$ for the trivial word). Let
+$\tilde{\cal J}$ denote the vector space span in $\tilde{\cal H}$ generated by
+the elements $\tilde{f}_g=\tilde{f}_x*\tilde{f}_w*\tilde{f}_y$, where $g=xwy$
+for $x,y\in B$ and $w\in W_a$. As in \cite{H}, pages 38--39, the relations (B)
+and (C) imply that $\tilde{f}_g$ depends only on the double coset $B_kgB_k$,
+not on the particular representation $g=xwy$. Furthermore, $\tilde{\cal J}$ is
+invariant under left and right multiplication by any abstract generator
+$\tilde{f}_g$, $g\in S$: multiplication by $\tilde{f}_b$ ($b\in B$) is absorbed
+via B(ii), while multiplication by $\tilde{f}_{s_i}$ either increases the
+length of $w$ or is reduced via C(i), C(ii), C(iii), and A(i)--(ii) exactly as
+in \cite{H}, pages 38--39.
+
+From this invariance property and $\tilde{f}_1\in\tilde{\cal J}$, it follows
+that $\tilde{\cal J}=\tilde{\cal H}$. Thus $\tilde{\cal H}$ is spanned by the
+elements $\tilde{f}_g$ indexed by the double cosets $B_kgB_k\in B_k\backslash G/B_k$.
+Since the images $f_g\in {\cal H}(G//B_k)$ of distinct double cosets have
+disjoint supports, they are linearly independent in ${\cal H}(G//B_k)$, which
+implies that the map (\ref{eq:obvious}) is injective.
+
+Finally, since $B_k$ is normal in $B$, for any $b_1,b_2\in B$ and $w\in W_a$
+we have
+\[
+\operatorname{vol}(B_k b_1 w b_2 B_k)
+=\operatorname{vol}(b_1 B_k w B_k b_2)
+=\operatorname{vol}(B_k w B_k).
+\]
+This and Lemma \ref{lemma:general} imply
+$f_{b_1}*f_w*f_{b_2}=f_{b_1wb_2}$. Combining this with the Iwahori-Bruhat
+decomposition $G=BW_aB$ and $f_w=f_{s_{i_1}}*\cdots *f_{s_{i_r}}$, we see
+that ${\cal H}(G//B_k)$ is spanned by the image of $\tilde{\cal H}$, so the
+map (\ref{eq:obvious}) is surjective.
+\end{proof}
+
+\section{The structure of ${\cal H}(\overline{G}//B_k)_{gen}$}
+\label{section:metaplectic}
+
+This section is the metaplectic analog of the previous section. We want to
+determine the structure of the metaplectic generalized Hecke algebra as a
+finitely generated algebra with generators and relations.
+
+Throughout this section, we assume that $k>0$ is chosen so large that
+$1+\pi^k{\cal O}\subset (F^\times)^n$ (for instance,
+$k>2\operatorname{ord}_\pi(n)$). As noted in Section 1, this guarantees that
+$(u,y)=1$ for all $u\in 1+\pi^k{\cal O}$ and all $y\in F^\times$, so that
+$\overline{B}_k$ splits. If the residual characteristic $p$ of $F$ is
+relatively prime to $n$, then $1+\pi{\cal O}\subset (F^\times)^n$ already holds
+for $k=1$, and in fact $\overline{B}$ splits.
+
+\begin{remark}
+\label{rem:torus_center}
+Before stating Proposition \ref{prop:main2}, let us note how the $n$-fold
+cover behaves on the diagonal torus $T=\{h(a)\mid a\in F^\times\}$ and on $B$:
+\begin{enumerate}
+\item For $h(a),h(b)\in T$, Kubota's cocycle gives $\beta(h(a),h(b))=(b,a)$,
+so the commutator in $\overline{T}$ is
+$[(h(a),1),(h(b),1)]=(b,a)^2=(b^2,a)$.
+\item When $n=1$ or $n=2$ (the classical $2$-fold metaplectic cover),
+$(b,a)^2=1$ for all $a,b\in F^\times$, so $\overline{T}$ is abelian. Moreover,
+when $1+\pi^k{\cal O}\subset (F^\times)^n$, for any $n\ge 1$ the subgroup
+$T_k=T\cap B_k=\{h(u)\mid u\in 1+\pi^k{\cal O}\}$ satisfies $(u,a)=1$ for all
+$a\in F^\times$, so $\overline{T}_k$ lies in the center of $\overline{T}$.
+\item For general $n\ge 1$, let $B^{(n)}=\{b\in B \mid \text{the diagonal entries
+of } b \text{ lie in } ({\cal O}^\times)^n(1+\pi^k{\cal O})\}$. On $B^{(n)}$,
+all diagonal entries are $n^{\text{th}}$ powers in $F^\times$, so the Hilbert
+symbol vanishes identically on $B^{(n)}$ and $\overline{B^{(n)}}$ splits and
+commutes with $(t_0,1)$. In addition, choosing coset representatives of
+$B/B^{(n)}\cong {\cal O}^\times/({\cal O}^\times)^n$ and of the double cosets
+$B_k\backslash G/B_k$, we may choose the coboundary $s:G\rightarrow \mu_n$ in
+Lemma \ref{lemma:isomorphic} (with $s|_{B_k}\equiv 1$) so that $\beta'$
+trivializes the cocycle on the chosen coset decompositions.
+\end{enumerate}
+\end{remark}
+
+Let the Haar measure on $\overline{G}$ be normalized so that $\overline{B}_k$
+has measure one. Convolution gives ${\cal H}(\overline{G}//B_k)_{gen}$ the
+structure of an algebra.
+
+\begin{proposition}
+\label{prop:main2}
+Assume that $\operatorname{vol}(\overline{B}_k)=1$, that $k>0$ is chosen so
+large that $1+\pi^k{\cal O}\subset (F^\times)^n$, and choose the equivalent
+cocycle $\beta'$ via Lemma \ref{lemma:isomorphic} as above. The algebra
+${\cal H}(\overline{G}//B_k)_{gen}$ is generated by the functions
+$\overline{f}_g$, $g\in S$. On the $n^{\text{th}}$-power Iwahori subgroup
+$B^{(n)}$ (and on all of $B$ when $n\mid 2$ and $\gcd(p,n)=1$, or under the
+normalized coset splitting of Remark \ref{rem:torus_center}), these elements
+are subject to the same relations as in Proposition \ref{prop:main}, except
+that $f_g$ must be replaced by $\overline{f}_g$. Furthermore, these relations
+form a defining set of relations for ${\cal H}(\overline{G}//B_k)_{gen}$ as an
+algebra.
+\end{proposition}
+
+\begin{proof}
+First we verify that the claimed relations hold.
+
+\textbf{A(i), A(ii):} By Lemma \ref{lemma:convolve}, we have
+\[
+(\overline{f}_{s_i}*\overline{f}_{s_i})(x,1)
+=\int_{B_ks_iB_k}
+\overline{f}_{s_i}(y^{-1}x,1)\beta'(y,y^{-1}x)^{-1}\,dy.
+\]
+Because $1+\pi^k{\cal O}\subset (F^\times)^n$, $\beta'$ is trivial on
+$U_k^-B_k$ and $U_{k-1}^+B_k$, and for the same reason as in the
+non-metaplectic case, $\overline{f}_{s_i}*\overline{f}_{s_i}$ is supported on
+$\overline{((-1)\cdot (\operatorname{Ad} s_i)(B_k)\cdot B_k)}$. Evaluating at
+$(-I,1)$ gives the same constant $c_i=\operatorname{vol}(B_ks_iB_k)=q$ as in
+the non-metaplectic case, which proves A(i) and A(ii).
+
+\textbf{B(i):} For $g\in \overline{G}$ and $\phi\in {\cal H}(\overline{G}//B_k)_{gen}$,
+since $\phi(gx^{-1})\overline{f}_1(x)=\phi(g)$ for all $x=(b,\zeta)\in\overline{B}_k$
+(by right $B_k^*$-invariance and genuineness of $\phi$), we have
+\[
+(\phi*\overline{f}_1)(g)=\int_{\overline{G}}\phi(gx^{-1})\overline{f}_1(x)\,dx
+=\int_{\overline{B}_k}\phi(gx^{-1})\overline{f}_1(x)\,dx
+=\phi(g)\operatorname{vol}(\overline{B}_k)=\phi(g).
+\]
+Similarly, $\overline{f}_1*\phi=\phi$, so $\overline{f}_1$ is the identity in
+${\cal H}(\overline{G}//B_k)_{gen}$.
+
+\textbf{B(ii):} By Lemma \ref{lemma:convolve}, we have
+\[
+(\overline{f}_x*\overline{f}_y)(g,1)
+=\int_{B_kxB_k}
+\overline{f}_{y}(h^{-1}g,1)
+\beta'(h,h^{-1}g)^{-1}\,dh.
+\]
+This is non-zero if and only if $gy^{-1}=xb$ for some $b\in B_k$, since $B_k$
+is normal in $B$. This implies
+$\operatorname{supp}(\overline{f}_x*\overline{f}_y)\subset
+\overline{B_kxyB_k}$, and Lemma \ref{lemma:genuine} yields
+$\overline{f}_x*\overline{f}_y=\overline{f}_{xy}$.
+
+\textbf{B(iii):} This is an immediate consequence of Lemma \ref{lemma:genuine}.
+
+\textbf{C(i):} The proof of this identity is analogous to the proof in the
+non-metaplectic case (using Lemma \ref{lemma:genuine} in place of Lemma
+\ref{lemma:general} where appropriate) and is omitted.
+
+\textbf{C(ii), C(iii):} These are proven in the same way as in the
+non-metaplectic case, so we only sketch the argument. The proof in the
+non-metaplectic case shows that each of these triple convolutions is supported
+on a single double $\overline{B}_k$-coset. On the other hand, the support of
+each non-zero function in the Hecke algebra contains at least one double
+$\overline{B}_k$-coset, since different double $\overline{B}_k$-cosets are
+disjoint. Since convolution preserves genuineness and bi-$B_k^*$-invariance,
+those functions whose support is precisely one double $\overline{B}_k$-coset
+are constant multiples of the corresponding $\overline{f}_g$. The constant
+multiple is evaluated at the double coset representative exactly as in the
+non-metaplectic case, and since the measures differ only by the normalized
+measure on $\mu_n$, the volume computations are identical.
+
+It remains to show that this list of relations is a defining set of relations
+for the algebra. Since $\{\overline{f}_g \mid B_kgB_k\in B_k\backslash G/B_k\}$
+forms a vector space basis of ${\cal H}(\overline{G}//B_k)_{gen}$ indexed by
+the same double cosets as ${\cal H}(G//B_k)$, the argument is identical to the
+non-metaplectic case in Proposition \ref{prop:main}.
+\end{proof}
+
+\section{Application to representation theory}
+
+The following is our main result:
+
+\begin{theorem}
+\label{thrm:main}
+If $k>0$ is chosen sufficiently large as in Proposition \ref{prop:main2} (so
+in particular $\overline{B}_k$ splits), then the map
+$f_{g}\longmapsto \overline{f}_{g}$, $g\in S$, defines an isomorphism of
+algebras ${\cal H}(G//B_k)\rightarrow {\cal H}(\overline{G}//B_k)_{gen}$.
+\end{theorem}
+
+\begin{proof}
+This is an immediate consequence of Propositions \ref{prop:main} and
+\ref{prop:main2}.
+\end{proof}
+
+\begin{corollary}
+\label{corollary:main}
+If $k>0$ is as in Theorem \ref{thrm:main}, then the algebra isomorphism
+$\eta:{\cal H}(G//B_k)\rightarrow {\cal H}(\overline{G}//B_k)_{gen}$ induces a
+set-theoretic bijection
+$\eta^*:{\cal H}(\overline{G}//B_k)_{gen}^\wedge
+\rightarrow {\cal H}(G//B_k)^\wedge$ on the sets of equivalence classes of
+irreducible (genuine, in the case of $\overline{G}$) representations.
+Furthermore, if
+\[
+\begin{array}{ccc}
+{\cal H}(G//B_k)&\longrightarrow &{\cal H}(\overline{G}//B_k)_{gen}\\
+f & \longmapsto &\overline{f}
+\end{array}
+\]
+and
+\[
+\begin{array}{ccc}
+{\cal H}(\overline{G}//B_k)_{gen}^\wedge
+  &\longrightarrow &{\cal H}(G//B_k)^\wedge\\
+\overline{\pi}&\longmapsto &\pi
+\end{array}
+\]
+then $\operatorname{tr}(\overline{\pi}(\overline{f}))=\operatorname{tr}(\pi(f))$.
+\end{corollary}
+
+\begin{proof}
+Let $\eta:{\cal H}(G//B_k)\rightarrow {\cal H}(\overline{G}//B_k)_{gen}$ be
+the algebra isomorphism of Theorem \ref{thrm:main}, and let
+$\eta^*:{\cal H}(\overline{G}//B_k)_{gen}^\wedge
+\rightarrow {\cal H}(G//B_k)^\wedge$ be the pullback map defined by
+$\eta^*(\overline{\pi})=\overline{\pi}\circ \eta$. Suppose
+$\pi=\eta^*(\overline{\pi})$ and $\pi'=\eta^*(\overline{\pi}')$ are equivalent
+in ${\cal H}(G//B_k)^\wedge$. Since $\eta$ is surjective, every
+$\overline{f}\in {\cal H}(\overline{G}//B_k)_{gen}$ is of the form
+$\overline{f}=\eta(f)$ for some $f\in {\cal H}(G//B_k)$, so any intertwining
+isomorphism between $\pi$ and $\pi'$ also intertwines $\overline{\pi}$ and
+$\overline{\pi}'$. Thus $\eta^*$ is injective. Conversely, for any
+$(\pi,W)\in {\cal H}(G//B_k)^\wedge$, the composition
+$\overline{\pi}=\pi\circ \eta^{-1}$ defines an irreducible representation in
+${\cal H}(\overline{G}//B_k)_{gen}^\wedge$ satisfying
+$\eta^*(\overline{\pi})=\pi$, so $\eta^*$ is surjective.
+
+The equality of the traces $\operatorname{tr}(\overline{\pi}(\eta(f)))
+=\operatorname{tr}(\pi(f))$ holds by definition of $\eta^*$.
+\end{proof}
+
+\begin{definition}
+\label{def:13}
+Let $K$ denote a compact open subgroup of $\overline{G}$. A locally constant
+complex-valued function $f$ on $\overline{G}$ is called \textbf{left} (resp.,
+\textbf{right}) \textbf{Hecke finite} if the vector space spanned by all
+functions of the form $h*f$ (resp., $f*h$), for
+$h\in {\cal H}(\overline{G}//K)$, is finite dimensional. Let
+${\cal A}_{gen}(\overline{G})$ denote the space of all locally constant
+complex-valued genuine functions $f$ on $\overline{G}$ for which
+\begin{itemize}
+\item $f$ is double $K$-finite,
+\item $f$ is right- and left-Hecke finite.
+\end{itemize}
+This space is called the space of \textbf{matrix coefficients} of
+$\overline{G}$. If $(\pi,V)$ is a genuine admissible representation of
+$\overline{G}$ then the span of the elements
+$f(g)=\langle v_0^*,\pi(g)v_0\rangle$ ($g\in \overline{G}$), for all
+$v_0\in V$ and $v_0^*\in V^*$, the smooth contragredient of $V$, is called the
+space of \textbf{matrix coefficients of $\pi$} and is denoted
+${\cal A}_{gen}(\pi)$.
+\end{definition}
+
+Let $\rho$ (resp., $\lambda$) denote the right (resp., left) regular
+representation of $\overline{G}$ on ${\cal A}_{gen}(\overline{G})$. The next
+proposition establishes that the metaplectic analogs of (the relevant parts
+of) Corollary 1.10.6 in \cite{Sil} for $\overline{G}$ are true. The result
+below implies that we can ``explicitly'' realize the space of any genuine
+irreducible representation of $\overline{G}$ as a subspace of
+${\cal A}_{gen}(\overline{G})$, a fact we will make use of later.
+
+\begin{proposition}
+\label{prop:silberger}
+Let $f\in {\cal A}_{gen}(\overline{G})$ and let $V_f$ denote the
+$\overline{G}$-module spanned by the translates $\rho(g)f$, $g\in \overline{G}$,
+and let $\pi$ denote the restriction of $\rho$ to $V_f$. We have:
+\begin{enumerate}
+\item[(a)] There exist elements $v_0\in V_f$ and $v_0^*\in V_f^*$, the
+contragredient of $V_f$, such that $f(g)=\langle v_0^*,\pi(g)v_0\rangle$, for
+all $g\in \overline{G}$.
+\item[(b)] ${\cal A}_{gen}(\pi)$ is spanned by $\lambda(x)\rho(y)f$,
+$x,y\in \overline{G}$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The proof of this follows from the general arguments given in \cite{Sil}. The
+results in that part of the book \cite{Sil} hold for more general totally
+disconnected groups, so one need only check that the argument remains valid
+when ``genuineness'' is also assumed.
+\end{proof}
+
+We need to recall some facts regarding the relationship between smooth
+representations of $\overline{G}$ and finite dimensional
+${\cal H}(\overline{G}//B_k)_{gen}$-modules. To this end, we recall briefly
+how one can construct smooth representations of $\overline{G}$ from finite
+dimensional ${\cal H}(\overline{G}//B_k)_{gen}$-modules---both the so-called
+``induced'' and ``produced'' modules in \S 2 of Borel \cite{Bo} will do this
+job. The ``inverse'' construction is then given along with some of the basic
+properties of these constructions in Proposition \ref{prop:borel} below.
+
+\begin{definition}
+\label{def:15}
+If $(r,W)$ is a finite dimensional ${\cal H}(\overline{G}//B_k)$-module then
+we define $(I(r),I(W))$ to be the \textbf{induced} $\overline{G}$-module and
+$(P(r),P(W))$ to be the (smooth) \textbf{produced} $\overline{G}$-module
+constructed in \cite{Bo}. Analogously, if $(r,W)$ is a finite dimensional
+${\cal H}(\overline{G}//B_k)_{gen}$-module then we define
+$(I_{gen}(r),I_{gen}(W))$ to be the \textbf{induced} genuine
+$\overline{G}$-module and $(P_{gen}(r),P_{gen}(W))$ to be the
+\textbf{produced} genuine $\overline{G}$-module obtained by replacing
+$C_c(\overline{G}/B_k)$ by $C_c(\overline{G}/B_k)_{gen}$ in the constructions
+in \cite{Bo}.
+\end{definition}
+
+\begin{proposition}
+\label{prop:borel}
+Let $(r,W)$ be a finite dimensional ${\cal H}(\overline{G}//B_k)_{gen}$-module
+and let $(\pi,V)$ be a genuine smooth representation of $\overline{G}$.
+\begin{enumerate}
+\item[(a)] There are natural ${\cal H}(\overline{G}//B_k)_{gen}$-module
+isomorphisms
+\[
+W\cong I_{gen}(W)^{B_k}\quad \text{and}\quad W\cong P_{gen}(W)^{B_k}.
+\]
+\item[(b)] $I_{gen}(W)$ is generated, as a $\overline{G}$-module, by
+$I_{gen}(W)^{B_k}$.
+\item[(c)] The natural restriction maps yield isomorphisms
+\[
+\rho_P : \operatorname{Hom}_{\overline{G}}(V,P_{gen}(W))
+\longrightarrow
+\operatorname{Hom}_{{\cal H}(\overline{G}//B_k)_{gen}}(V^{B_k},W)
+\]
+and
+\[
+\rho_I : \operatorname{Hom}_{\overline{G}}(I_{gen}(W),V)
+\longrightarrow
+\operatorname{Hom}_{{\cal H}(\overline{G}//B_k)_{gen}}(W,V^{B_k}).
+\]
+\item[(d)] $(r,W)$ is an irreducible ${\cal H}(\overline{G}//B_k)_{gen}$-module
+if and only if $(I_{gen}(r),I_{gen}(W))$ is an irreducible representation of
+$\overline{G}$. Moreover, if $(r,W)$ is an irreducible
+${\cal H}(\overline{G}//B_k)_{gen}$-module then $I_{gen}(r)\cong P_{gen}(r)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+In the case $n=1$, the statements in the proposition above are either in
+\S\S 1--2 of \cite{Bo} as stated or follow from Borel's results using Schur's
+lemma (see, for example, Lemma 3.14 in \cite{CR}). In general, one need only
+check that the argument remains valid when ``genuineness'' is also assumed.
+\end{proof}
+
+\begin{definition}
+\label{def:17}
+We define a genuine admissible irreducible representation of $\overline{G}$ to
+be \textbf{supercuspidal} if and only if its matrix coefficients are compactly
+supported. We define a genuine admissible irreducible representation of
+$\overline{G}$ to be \textbf{square-integrable} if and only if its matrix
+coefficients belong to $L^2(\overline{G})$.
+
+We define an irreducible finite dimensional
+${\cal H}(\overline{G}//B_k)_{gen}$-module $(r,W)$ to be \textbf{supercuspidal}
+(resp., \textbf{square-integrable}) if and only if $I_{gen}(r)$ is a
+supercuspidal (resp., square-integrable) representation of $\overline{G}$.
+\end{definition}
+
+Next we observe that, as in the case of $GL(n)$, the correspondence of
+Corollary \ref{corollary:main} preserves supercuspidals and discrete series
+representations (\cite{H}, page 33).
+
+\begin{corollary}
+\label{cor:18}
+Assume $k>0$ is as in Corollary \ref{corollary:main}.
+\begin{itemize}
+\item An admissible genuine representation
+$\overline{\pi}\in {\cal H}(\overline{G}//B_k)_{gen}^\wedge$ is supercuspidal
+if and only if $\pi$ is, where $\pi,\overline{\pi}$ are as in Corollary
+\ref{corollary:main}.
+\item $\overline{\pi}$ is square-integrable if and only if $\pi$ is, where
+$\pi,\overline{\pi}$ are as in Corollary \ref{corollary:main}.
+\end{itemize}
+\end{corollary}
+
+\begin{proof}
+Suppose that the mapping
+${\cal H}(\overline{G}//B_k)_{gen}^\wedge \rightarrow {\cal H}(G//B_k)^\wedge$
+sends a representation $(\overline{r},\overline{W})$ to a representation
+$(r,W)$. Note that the construction of the correspondence in Corollary
+\ref{corollary:main} implies that $W=\overline{W}$. From the construction of
+$I_{gen}(\overline{W})= C_c(\overline{G}/B_k)_{gen}
+\otimes_{{\cal H}(\overline{G}//B_k)_{gen}}\overline{W}$ (more precisely, from
+the definition of $\otimes_{{\cal H}(\overline{G}//B_k)_{gen}}$), we see that
+the $\overline{r}(\overline{f}_g)$-action on
+$\overline{W}\cong I_{gen}(\overline{W})^{B_k}$ corresponds to the
+$\overline{f}_g$-action (via convolution) on $C_c(\overline{G}/B_k)_{gen}$.
+Identifying $\overline{W}$ with $I_{gen}(\overline{W})^{B_k}$, we see that
+each element of $\overline{W}$ is Hecke-finite and may therefore be regarded
+as a matrix coefficient of $\overline{G}$. Let $(\overline{\pi},\overline{V})$
+denote the $\overline{G}$-module generated by an element
+$w\in \overline{W}\cong I_{gen}(\overline{W})^{B_k}$. By Proposition
+\ref{prop:silberger} (or Proposition \ref{prop:borel}(b)),
+$\overline{\pi}=I_{gen}(\overline{r})$.
+
+From this and the fact that $W=\overline{W}$, it follows that if the elements
+of $\overline{W}$ are compactly supported (when regarded as matrix
+coefficients of $\overline{G}$) then the elements of $W$ are also compactly
+supported (when regarded as matrix coefficients of $G$). Now assume that
+$(\overline{r},\overline{W})$ is supercuspidal, so the matrix coefficients of
+$I_{gen}(\overline{r})$ have compact support. As indicated above, $(r,W)$ is
+supercuspidal as well, and the converse holds symmetrically. This establishes
+the first part of the corollary.
+
+The second part of the corollary is proved similarly, hence is omitted.
+\end{proof}
+
+\section{The Iwahori algebra}
+\label{section:savin}
+
+In the case where $k=0$ and $\gcd(p,2n)=1$, the genuine Iwahori-Hecke algebra
+${\cal H}(\overline{G}//B)_{gen}$ is described by a general theorem due to
+Savin \cite{S}. Recall that for $G=SL(2,F)$, the dual group of the $n$-fold
+metaplectic cover $\overline{G}$ depends on the parity of $n$: let
+$G^\vee=SL(2,F)$ when $n$ is odd, and let $G^\vee=PGL(2,F)\cong SO(3,F)$ when
+$n$ is even (with Iwahori subgroup $B^\vee \subset G^\vee$). We recall Savin's
+theorem in this setting:
+
+\begin{theorem}[Savin \cite{S}]
+\label{thm:savin}
+Assume $\gcd(p,2n)=1$. There is an isomorphism of Iwahori-Hecke algebras
+\[
+{\cal H}(\overline{G}//B)_{gen}\stackrel{\sim}{\longrightarrow}
+{\cal H}(G^\vee//B^\vee),
+\]
+where $G^\vee=G=SL(2,F)$ when $n$ is odd, and $G^\vee=PGL(2,F)$ when $n$ is
+even.
+\end{theorem}
+
+\begin{corollary}
+\label{cor:20}
+Assume $\gcd(p,2n)=1$. The isomorphism
+${\cal H}(\overline{G}//B)_{gen}\rightarrow {\cal H}(G^\vee//B^\vee)$ induces
+a set-theoretic bijection
+${\cal H}(\overline{G}//B)_{gen}^\wedge
+\rightarrow {\cal H}(G^\vee//B^\vee)^\wedge$ on the sets of equivalence
+classes of irreducible (genuine, in the case of $\overline{G}$)
+representations with a $B$-fixed (resp., $B^\vee$-fixed) vector. Furthermore,
+if
+\[
+\begin{array}{ccc}
+{\cal H}(G^\vee//B^\vee)&\longrightarrow &{\cal H}(\overline{G}//B)_{gen}\\
+f & \longmapsto &\overline{f}
+\end{array}
+\]
+and
+\[
+\begin{array}{ccc}
+{\cal H}(\overline{G}//B)_{gen}^\wedge &\longrightarrow &{\cal H}(G^\vee//B^\vee)^\wedge\\
+\overline{\pi}&\longmapsto &\pi
+\end{array}
+\]
+then $\operatorname{tr}(\overline{\pi}(\overline{f}))=\operatorname{tr}(\pi(f))$.
+\end{corollary}
+
+\begin{thebibliography}{99}
+
+\bibitem[Bo]{Bo} A. Borel, ``Admissible representations of a semi-simple group
+over a local field with vectors fixed under an Iwahori subgroup,''
+\emph{Invent.\ Math.}\ \textbf{35} (1976), 233--259, MR 56 \#3196.
+
+\bibitem[CR]{CR} C. Curtis and I. Reiner, \emph{Methods of representation
+theory, I}, Wiley-Interscience, John Wiley and Sons, New York, 1981,
+MR 82i:20001.
+
+\bibitem[F]{F} Y. Flicker, ``Automorphic forms on covering groups of
+$GL(2)$,'' \emph{Invent.\ Math.}\ \textbf{57} (1980), 119--182, MR 81m:10057.
+
+\bibitem[FK]{FK} Y. Flicker and D. Kazhdan, ``Metaplectic correspondence,''
+\emph{Publ.\ Math.\ IHES}\ \textbf{64} (1986), 53--110, MR 88d:11049.
+
+\bibitem[G]{G} S. Gelbart, \emph{Weil's representation and the spectrum of the
+metaplectic group}, Lecture Notes in Math., No.\ 530, Springer-Verlag, Berlin,
+1976, MR 54 \#12654.
+
+\bibitem[H]{H} R. Howe (with the collaboration of A. Moy),
+\emph{Harish-Chandra homomorphisms for $p$-adic groups}, CBMS Regional
+Conference Series in Mathematics, No.\ 59, Amer.\ Math.\ Soc., Providence,
+1985, MR 87h:22023.
+
+\bibitem[KP]{KP} D. Kazhdan and S. Patterson, ``Metaplectic forms,''
+\emph{Publ.\ Math.\ IHES}\ \textbf{59} (1984), 35--142, MR 85g:22033.
+
+\bibitem[K]{K} T. Kubota, ``Topological covering of $SL(2)$ over a local
+field,'' \emph{J.\ Math.\ Soc.\ Japan}\ \textbf{19} (1967), 114--121,
+MR 34 \#4264.
+
+\bibitem[M]{M} L. Morris, ``$P$-cuspidal representations,'' \emph{Proc.\
+London Math.\ Soc.}\ \textbf{57} (1988), 329--356, MR 89j:22038.
+
+\bibitem[RS]{RS} S. Rallis and G. Schiffmann, ``Repr\'esentations
+supercuspidales du groupe m\'etaplectique,'' \emph{J.\ Math.\ Kyoto Univ.}\
+\textbf{17} (1977), 567--603, MR 58 \#16523.
+
+\bibitem[S]{S} G. Savin, ``Local Shimura correspondence,'' \emph{Math.\ Ann.}\
+\textbf{280} (1988), 185--190, MR 89h:22018.
+
+\bibitem[Sch]{Sch} J. Schultz, ``Lifting of characters of $\overline{SL_2(F)}$
+and $SO_{2,1}(F)$, for $F$ nonarchimedean,'' PhD thesis (supervised by
+J. Adams), Univ.\ of Maryland at College Park, 1998.
+
+\bibitem[Sil]{Sil} A. Silberger, \emph{Introduction to harmonic analysis on
+reductive $p$-adic groups}, Princeton Univ.\ Press, Princeton, 1979,
+MR 81m:22025.
+
+\bibitem[W]{W} J.-L. Waldspurger, ``Correspondance de Shimura,'' \emph{J.\
+Math.\ Pures Appl.}\ \textbf{59} (1980), 1--132, MR 83f:10029.
+
+\end{thebibliography}
+
+\end{document}
