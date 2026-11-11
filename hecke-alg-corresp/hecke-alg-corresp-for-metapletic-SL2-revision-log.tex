@@ -1,0 +1,309 @@
+%% Revision log for hecke-alg-corresp-for-metapletic-SL2-revised.tex
+%% Compiles with pdflatex.
+
+\documentclass[12pt,letterpaper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array,longtable}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\title{Revision log for ``A correspondence for the generalized Hecke algebra
+of the metaplectic cover $\overline{SL(2,F)}$, $F$ $p$-adic''}
+\author{David Joyner}
+\email{wdjoyner@gmail.com}
+\date{Log entry 1, for Draft 1, November 11, 2026.}
+
+\begin{document}
+\maketitle
+
+\section{Files and provenance}
+
+\begin{itemize}
+\item Original: \emph{New York J.\ Math.}\ \textbf{4} (1998), 223--235.
+Original source \texttt{howe6.tex}, with an AMS-\LaTeX{} conversion
+\texttt{hecke-alg-corresp-for-metapletic-SL2-1998-amsart.tex} and the PDF
+\texttt{hecke-alg-corresp-for-metapletic-SL2\_1998.pdf}.
+\item Revised paper: \texttt{hecke-alg-corresp-for-metapletic-SL2-revised.tex}
+(this log describes Draft~1 of it).
+\item Style guide: \texttt{joyner-math-paper-style-guide.md}, Draft~2, in the
+top-level folder of the repository.
+\item The file was edited in place, at the author's request.
+\end{itemize}
+
+\section{AI usage}
+
+Three AI systems took part. None of them is listed as an author.
+\begin{enumerate}
+\item \textbf{Argon (Google Gemini), reviser.} Argon made the 2026
+mathematical corrections to the original text, before the present pass. The
+former \verb|\thanks| note of the revised file summarized them as follows:
+corrections to the generator relations of Proposition 6.1 (formerly
+Proposition 8), explicit level and cocycle splitting conditions for general
+$n$ in Proposition 7.2 (formerly Proposition 10), and a clarification of
+Savin's Iwahori--Hecke isomorphism in Section 9 (formerly Section 6). This
+log does not itemize Argon's changes line by line. A full comparison with the
+1998 conversion is still to be done.
+\item \textbf{ChatGPT (OpenAI), referee.} ChatGPT refereed the corrected
+text. Its report is not in the repository.
+\item \textbf{Claude (Anthropic, Claude Opus 5.5), editor.} Claude made the
+Draft~1 changes listed in Sections 3 and 4 below. It brought the file into
+line with the style guide, and drafted new expository material. It made no
+change to any statement, proof, hypothesis or status of a result, except the
+rewording of one sentence recorded in Section 3.6. Claude did not referee the
+mathematics.
+\end{enumerate}
+Review by AI systems is not an independent certification of the results.
+
+\section{Changes in Draft 1 (editorial)}
+
+\subsection{Typesetting (guide Section 1)}
+\begin{itemize}
+\item Class options \texttt{12pt,letterpaper,reqno} (class \texttt{amsart}
+kept). Added \texttt{fontenc} (T1), \texttt{newtxtext} and
+\texttt{newtxmath} (Times), \texttt{geometry} with letter paper and one-inch
+margins, \texttt{microtype}, and \texttt{array}/\texttt{longtable} for the
+notation table.
+\item Theorems, propositions, lemmas, corollaries, definitions, examples and
+remarks now share one counter numbered within sections. Remarks were
+previously on their own counter. Equations are numbered within sections.
+\item The hand-typed ``As noted in Section 1'' (old Section 4, now Section 7)
+became a \verb|\ref| to Section~4.
+\item The final compile with \texttt{pdflatex} has no errors, warnings,
+undefined references or overfull boxes. The three overfull boxes of the
+previous version disappeared with the change to Times fonts and
+\texttt{microtype}. No manual line breaks were added.
+\end{itemize}
+
+\subsection{Title page, abstract and acknowledgments (guide Sections 5, 6.2,
+6.3)}
+\begin{itemize}
+\item Subtitle added: ``Draft 1. Corrected and expanded version''. The original
+title is unchanged.
+\item Date line added: ``Original draft: 1998. Corrected and expanded draft:
+2026.''
+\item The Naval Academy address was removed. The email address
+\texttt{wdjoyner@gmail.com} was kept.
+\item The \verb|\thanks| note now identifies the original publication and
+the date of the revision.
+\item The abstract now opens with an AI-disclosure sentence and a pointer to
+the Acknowledgments. The rest of the abstract is unchanged.
+\item New unnumbered Acknowledgments section. The original thanks to Bill
+Wardlaw and the anonymous referee moved there word for word from the
+\verb|\thanks| note. The AI credits, the non-certification statement and the
+pointer to this log were added.
+\item The sentence of the former \verb|\thanks| note describing the 2026
+corrections (``This revised version incorporates corrections to\ldots'') was
+removed from the paper (guide 6.4). Its content is in Section 2 of this log.
+\end{itemize}
+
+\subsection{Citation keys (guide 1.7)}
+All 14 keys and bibliography labels were changed, and every \verb|\cite| was
+updated (36 citations). The entries themselves are unchanged.
+
+\begin{center}
+\begin{tabular}{llll}
+Old & New & Old & New\\ \hline
+Bo & Bo76 & KP & KP84\\
+CR & CR81 & M & Mo88\\
+F & Fl80 & RS & RS77\\
+FK & FK86 & S & Sa88\\
+G & Ge76 & Sch & Sc98\\
+H & HM85 & Sil & Si79\\
+K & Ku67 & W & Wa80\\
+\end{tabular}
+\end{center}
+
+Nine references were added for the literature review: BK98, CL25, GGW18,
+GS12, Ka21, Pe13, Sa04, TW18 and We18.
+
+\subsection{Structure (guide Section 2)}
+\begin{itemize}
+\item The unsectioned opening text became Section~1, Introduction, with an
+orienting paragraph, the running example and a paragraph on the organization
+of the paper.
+\item The paragraph of the opening text that surveys earlier work (``The study
+of genuine admissible representations\ldots'') moved, word for word, to the
+new Section~2.1. Section~2 is a new literature review, split into work up to
+1998 and work after 1998.
+\item New Section~3, Background, with four subsections.
+\item The old Section~1, ``Some notation'', is now Section~4. A table of
+notation was added at its start.
+\item Old Sections 2--6 are now Sections 5--9.
+\item New Section~10, Summary of results, and Section~11, Glossary, followed
+by the Acknowledgments and the references.
+\end{itemize}
+
+\subsection{Orienting paragraphs (guide 3.2)}
+New orienting paragraphs were added at the start of Sections 1, 2, 2.2, 3,
+each subsection of 3, and Sections 4, 5, 8, 9, 10 and 11. Sections 6 and 7
+already began with an orienting paragraph, and Section 2.1 begins with one
+drawn from new text.
+
+\subsection{Wording fix}
+In Section~4 the sentence ``In fact, directly from the definition of $\beta$,
+for any $g_1,g_2\in B_k$, the Iwahori factorization $B_k=U_k^-T_kU_k^+$
+implies that $\overline{B}_k$ splits.'' was not grammatical. At the author's
+request it now reads ``In fact, the definition of $\beta$ and the Iwahori
+factorization $B_k=U_k^-T_kU_k^+$ imply directly that $\overline{B}_k$
+splits.'' The dangling phrase ``for any $g_1,g_2\in B_k$'' was dropped. The
+claim is unchanged.
+
+\section{New mathematical and expository text, for refereeing (ground rule 2)}
+
+Every item below is new in Draft~1 and was written by Claude. None of it
+changes or adds to the results of the paper. Each item should be refereed.
+\begin{enumerate}
+\item \textbf{Example 1.1} (running example: $F=\mathbb{Q}_3$, $n=2$, $k=1$).
+Values of the quadratic Hilbert symbol, including $(-1,3)=-1$.
+\item \textbf{Section 2} (literature review). Summaries of BK98, Sa04, GS12,
+TW18, CL25, Ka21, Pe13, We18 and GGW18 are based on their abstracts only. The
+claim that the dual group in Weissman's framework depends on the parity of
+$n$, in agreement with Section 9, is from memory (verification level 3).
+\item \textbf{Section 3.1} and \textbf{Example 3.1}
+($\mathcal{H}(F^\times//\mathcal{O}^\times)\cong\mathbb{C}[t,t^{-1}]$).
+\item \textbf{Section 3.2} and \textbf{Example 3.2}: properties of the Hilbert
+symbol, $\beta(h(a),h(b))=(b,a)$, $\beta(h(-1),h(3))=-1$ and
+$\beta(s_1,s_1)=(-1,-1)=1$ in $\mathbb{Q}_3$.
+\item \textbf{Section 3.3} and \textbf{Example 3.3}: $[B:B_1]=q^2(q-1)=18$,
+$\operatorname{vol}(B_1s_1B_1)=3$, $\operatorname{vol}(B_1s_1s_2B_1)=9$.
+\item \textbf{Section 3.4} and \textbf{Example 3.4}: the description of
+Borel's produced module as the smooth part of
+$\operatorname{Hom}_{\mathcal{H}(H//K)}(C_c(K\backslash H),W)$ is from memory
+and should be checked against Bo76. The trivial representation and its
+module.
+\item \textbf{Notation table} at the start of Section 4.
+\item \textbf{Examples 4.2, 4.3, 4.4, 4.6} (for Definition 4.1, trivial
+cocycles, genuine functions, Definition 4.5).
+\item \textbf{Examples 5.2 and 5.4} (for Lemmas 5.1 and 5.3). Example 5.4 uses
+Lemma 6.3(d) to show $f_{s_1}*f_{s_1}\neq f_{-I}$.
+\item \textbf{Example 6.4} (relation A(i) in the running example, checked
+against the trivial representation).
+\item \textbf{Example 7.3} (Proposition 7.2 in the running example).
+\item \textbf{Examples 8.3, 8.5, 8.8, 8.11, 8.13} (main theorem, matrix
+coefficients, induced modules, supercuspidal and square-integrable
+representations, Corollary 8.12). Example 8.11 uses two standard facts stated
+without citation: the Steinberg representation of $SL(2,F)$ is
+square-integrable, and a representation with a nonzero Iwahori-fixed vector
+is a subquotient of an unramified principal series and so is not
+supercuspidal.
+\item \textbf{Example 9.3}: the Iwahori--Matsumoto quadratic relation
+$T_s*T_s=(q-1)T_s+qT_1$ for $PGL(2,\mathbb{Q}_3)$, stated without citation
+(verification level 3).
+\item \textbf{Section 10} (summary of results and open questions) and
+\textbf{Section 11} (glossary).
+\end{enumerate}
+
+\section{Concordance of numbering (guide 6.8)}
+
+All \verb|\label|s were kept. The old numbers are those of the previous
+compiled version of the revised file, which agree with the 1998 paper.
+
+\begin{center}
+\begin{longtable}{lll}
+Label & Old & New\\ \hline
+(sections) & Section 1 Some notation & Section 4\\
+& Section 2 Some lemmas & Section 5\\
+\texttt{section:sl2} & Section 3 & Section 6\\
+\texttt{section:metaplectic} & Section 4 & Section 7\\
+& Section 5 Application & Section 8\\
+\texttt{section:savin} & Section 6 & Section 9\\
+\texttt{def:1} & Definition 1 & Definition 4.1\\
+\texttt{def:2} & Definition 2 & Definition 4.5\\
+\texttt{lemma:3} & Lemma 3 & Lemma 5.1\\
+\texttt{lemma:general} & Lemma 4 & Lemma 5.3\\
+\texttt{lemma:genuine} & Lemma 5 & Lemma 5.5\\
+\texttt{lemma:convolve} & Lemma 6 & Lemma 5.6\\
+\texttt{lemma:isomorphic} & Lemma 7 & Lemma 5.7\\
+\texttt{prop:main} & Proposition 8 & Proposition 6.1\\
+\texttt{rem:1} & Remark 1 & Remark 6.2\\
+\texttt{lemma:9} & Lemma 9 & Lemma 6.3\\
+\texttt{eq:obvious} & equation (1) & equation (6.1)\\
+\texttt{rem:torus\_center} & Remark 2 & Remark 7.1\\
+\texttt{prop:main2} & Proposition 10 & Proposition 7.2\\
+\texttt{thrm:main} & Theorem 11 & Theorem 8.1\\
+\texttt{corollary:main} & Corollary 12 & Corollary 8.2\\
+\texttt{def:13} & Definition 13 & Definition 8.4\\
+\texttt{prop:silberger} & Proposition 14 & Proposition 8.6\\
+\texttt{def:15} & Definition 15 & Definition 8.7\\
+\texttt{prop:borel} & Proposition 16 & Proposition 8.9\\
+\texttt{def:17} & Definition 17 & Definition 8.10\\
+\texttt{cor:18} & Corollary 18 & Corollary 8.12\\
+\texttt{thm:savin} & Theorem 19 & Theorem 9.1\\
+\texttt{cor:20} & Corollary 20 & Corollary 9.2\\
+\end{longtable}
+\end{center}
+
+\section{Original and new results (guide 6.5)}
+
+Every numbered theorem, proposition, lemma, corollary, definition and remark
+is from the original 1998 paper, as corrected by Argon in 2026 (Section 2).
+Draft~1 establishes no new results. The examples, the background, the
+literature review, the summary and the glossary are new exposition (Section
+4).
+
+\section{Sources not consulted (guide 4.3)}
+
+Claude consulted none of the 14 original references, so no citation in the
+paper was checked against its source. In particular, these precise citations
+are unchecked: Ku67 \S1 and Theorem~2, HM85 Chapter~3 (Proposition~2.2,
+Theorem~2.1, page~33 and pages~38--39), Mo88 Proposition~3.4, Si79
+Corollary~1.10.6, CR81 Lemma~3.14, and Bo76 \S\S1--2.
+
+For the nine new references, the bibliographic data (authors, title,
+journal, volume, year and pages) were checked against the publisher's or
+arXiv's web page, except BK98 and Sa04, which were taken from the reference
+list of GS12 as shown on the AMS site. The summaries rely on the abstracts
+only. The full texts were not read.
+
+\section{Points for the author and the referees}
+
+These were noticed during the editorial pass. None was changed, because each
+would need a mathematical change (ground rule 1).
+\begin{enumerate}
+\item Lemma 5.7 assumes only $s(1)=1$. The paragraph before it also requires
+$s|_{B_k}\equiv1$, which seems to be needed for $\phi$ to preserve
+bi-$B_k^*$-invariance.
+\item Proofs that are omitted or only sketched (guide 3.7): C(i) in the proof
+of Proposition 7.2 (``is omitted''), C(ii) and C(iii) there (sketched), the
+proofs of Propositions 8.6 and 8.9 (``one need only check''), the second part
+of Corollary 8.12 (``omitted''), and Corollary 9.2, which has no proof.
+\item Remark 6.2(3) (``Possibly B(iii) is a superfluous relation'') is a
+speculation. It is listed as an open question in Section 10.
+\item The symbols $U_k^\pm$ and $T_k$ are used in Section 4 before Lemma 6.3
+and Remark 7.1 define them (guide 3.5). The new notation table now lists
+them before their first use. The text itself was not changed.
+\end{enumerate}
+
+\section{Style-guide rules: defaults and exceptions}
+
+\textbf{[DECIDE] defaults used.} Document class: kept \texttt{amsart}.
+Times package: \texttt{newtx}. Glossary placement: notation near the
+beginning (Section 4), glossary at the end just before the acknowledgments
+(Section 11). AI systems on the author line: not listed, with the credit in
+the acknowledgments.
+
+\textbf{Rules not applied, and why.}
+\begin{itemize}
+\item The paper-specific rules in guide Section 9 for the metaplectic
+Jacquet--Langlands series (status labels (P), (E), (C) and so on, hypothesis
+tags, the $|\cdot|_p$ convention, a new file for each draft). This is a
+standalone 1998 paper stored in that repository. It is not part of the
+series. At the author's request, the file was edited in place.
+\item Rule 6.6 (``Remark 2026.$n$''). Choosing what to mark would require a
+verification that this editorial pass did not do. The candidates are listed
+in Section 8, item 2.
+\item Rules 3.6 and 3.7 (state all hypotheses, do not skip steps). Meeting them
+would change statements or proofs. See Section 8.
+\item Rule 3.3 (an example in every section) was not applied to the literature
+review, the summary of results or the glossary, which explain no new concepts.
+\item Rule 3.8 (no semicolons) was applied to new text only. Existing
+semicolons were kept.
+\item Rule 8.6 (copyright). The repository is public and already contains the
+corrected version of the published paper. The copyright position has not
+been checked.
+\end{itemize}
+
+\end{document}
