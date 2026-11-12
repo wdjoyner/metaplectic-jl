@@ -42,7 +42,7 @@ running example $F=\Q_3(\zeta_3)$, $n=3$, $D$ quaternion.  We prove
 that the division-side transform $L_D$ of Chapter~\ref{ch:III} carries the
 trivial character of $D^\times$ to the character of a single genuine
 irreducible representation $\tau$ of the cover, of dimension $27$
-(Target~A of Draft~0), and we describe $\tau$: its restriction to the
+(Target~A), and we describe $\tau$: its restriction to the
 pro-$3$ part of the cover is induced from a canonical genuine
 character of the covered third congruence subgroup.  The proof has
 three layers: a reduction, via Brauer's characterization and the
@@ -69,12 +69,12 @@ $p$ and every $F\supset\mu_p$ (part of Target~C); what is not uniform is
 identified.
 
 \section{Purpose, scope, and status}\label{W:sec:intro}
-This paper separates the wild division-side character problem from the
-conditional global trace comparison in Chapter~\ref{ch:IV} of the larger series.
-Draft~0 proved the general toral theorem (Section~\ref{W:sec:general-toral}),
-worked out the three quadratic tori of the running example
-(Section~\ref{W:sec:examplewild}), proved the positivity--integrality
-criterion (Section~\ref{W:sec:positive}), and formulated three targets:
+This chapter separates the wild division-side character problem from the
+conditional global trace comparison in Chapter~\ref{ch:IV}.
+The chapter proves the general toral theorem (Section~\ref{W:sec:general-toral}),
+works out the three quadratic tori of the running example
+(Section~\ref{W:sec:examplewild}), proves the positivity--integrality
+criterion (Section~\ref{W:sec:positive}), and formulates three targets:
 \begin{description}[style=nextline]
 \item[Target A] For $F=\Q_3(\zeta_3)$, $D$ quaternion and $n=3$, decide
 whether $L_D\mathbf1$ is the character of a single $27$-dimensional
@@ -86,7 +86,7 @@ are integral, or exhibit a nonintegral one.
 \item[Target C] Extend Target~B to all odd $n$, all $F$ of odd residual
 characteristic with $\mu_n\subset F$, and quaternion $D/F$.
 \end{description}
-Drafts~1--6 settle Target~A affirmatively (Theorem~\ref{W:thm:main-targetA}),
+The later sections settle Target~A affirmatively (Theorem~\ref{W:thm:main-targetA}),
 settle Target~B for all representations trivial on $K^3$ and their norm
 twists (Theorems~\ref{W:thm:levelone}, \ref{W:thm:leveltwo}), prove the reduction theorem for
 every row (Theorem~\ref{W:thm:reduction-all}) and a sufficient criterion
@@ -175,7 +175,7 @@ unit; for the quaternion algebra one may take $\Pi^2=\varpi$ and
 $\Pi x\Pi^{-1}=\sigma(x)$, which is the description
 $D=E_0\oplus E_0j$ used in Example~\ref{W:ex:ranktwo-data}.  Every field
 extension of $F$ of degree $r$ embeds in $D$ as a maximal subfield, and
-when $r$ is prime (the case of this series), every element of
+when $r$ is prime (the case of this book), every element of
 $D\setminus F$ generates a maximal subfield; the
 maximal subfields of the quaternion algebra are the three quadratic
 extensions of $F$ ($p$ odd), one unramified and two ramified, and the
@@ -244,10 +244,10 @@ $\mathrm{GL}_r$ that are discrete series at the ramified places; its
 local form is a bijection between the irreducible representations of
 $D_v^\times$ and the discrete series of $\mathrm{GL}_r(F_v)$ characterized
 by the character relation $\Theta_\pi(g)=(-1)^{r-1}\Theta_\rho(g')$ on
-matching regular elliptic elements.  Chapters~\ref{ch:I}--\ref{ch:IV} of this series concern
+matching regular elliptic elements.  Chapters~\ref{ch:I}--\ref{ch:IV} concern
 the metaplectic analogue of this picture: an $n$-fold cover of
 $D^\times$ and the Kazhdan--Patterson cover of $\mathrm{GL}_r$, related
-by a transfer of characters.  The present paper is purely local and
+by a transfer of characters.  The present chapter is purely local and
 concerns one ramified place of the running example.
 
 \subsection{The cover, the star map and good elements}\label{W:subsec:coverbackground}
@@ -256,11 +256,11 @@ $n$-fold scalar-central cover $\tH\to H=D^\times$ is the central
 extension by $\mu_n$ obtained by restricting the Kazhdan--Patterson cover
 of $\mathrm{GL}_r(E_0)$ \cite{KP84} along $D\hookrightarrow M_r(E_0)$; its
 preimage $\tZ$ of the center $F^\times$ is central, and
-$\tZ\simeq\mu_n\times F^\times$ noncanonically (Chapter~\ref{ch:I}, Prop.~2.3).  The
+$\tZ\simeq\mu_n\times F^\times$ noncanonically (\cref{I:prop:restriction}).  The
 restriction of the cover to a maximal torus $E^\times$ is a Heisenberg
 group: the commutator of lifts is a bimultiplicative pairing
 $E^\times\times E^\times\to\mu_n$ with kernel $F^\times E^{\times n}$ on
-either side (Chapter~\ref{ch:I}, Prop.~3.1 and \eqref{W:eq:ranktwo-comm}), so the
+either side (\cref{I:prop:comm} and \eqref{W:eq:ranktwo-comm}), so the
 covered torus has center $C_E$ of index $|n|_F^{-(r-1)}$ in
 $\widetilde{E^\times}$, and every genuine irreducible representation of
 $\widetilde{E^\times}$ has degree $b_D=|n|_F^{-(r-1)/2}$ and is determined
@@ -275,6 +275,8 @@ lies in $F^\times\cdot\{x^n\}$, and the division-side transform
 elements.  In the running example $n=3$, $b_D=3$, $c_D=27$.
 
 \subsection{Heisenberg groups, the Weil representation and the Howe correspondence}\label{W:subsec:howe}
+This subsection recalls the Heisenberg group, the Stone--von Neumann theorem, the Weil representation and the Howe correspondence. They serve as a heuristic for the later sections, and Remark~\ref{W:rem:howe-duality} uses them to restate Target~B as a duality.
+
 Let $(W,\langle\ ,\ \rangle)$ be a finite-dimensional symplectic space
 over a local field or a finite field $k$, and $\mathcal H(W)=W\times k$
 the Heisenberg group, $(w,s)(w',s')=(w+w',s+s'+\tfrac12\langle w,w'\rangle)$.
@@ -310,7 +312,7 @@ correspondence of Flicker and Kazhdan \cite{FK86} is established by the trace
 formula instead; the transform $L_D$ of Chapter~\ref{ch:III} is likewise defined
 analytically, by \eqref{W:eq:LD}, not by a kernel.
 
-Three points of contact with the present paper.  First, the covered
+Three points of contact with the present chapter.  First, the covered
 tori are Heisenberg groups and the degree-$b_D$ representations of
 Section~\ref{W:sec:fourier} are their Stone--von Neumann representations.
 Second, the finite groups of Sections~\ref{W:sec:depth}--\ref{W:sec:finite}
@@ -347,6 +349,8 @@ corresponding prediction nevertheless survives, with the character
 $\lambda_0$ absorbing the nonlinearity of the cube root.
 
 \section{Division-side character transform and its normalization}\label{W:sec:transform}
+This section recalls the transform $L_D$ of Chapter~\ref{ch:III} and its normalizing constants, in the notation of this chapter. It then recalls the criterion that the rest of the chapter tests. The transform permutes irreducible characters exactly when its matrix is integral.
+
 Let $F$ be nonarchimedean, $D/F$ a division algebra of prime
 degree $r$, $H=D^\times$, and $\tH$ its specified cover.
 Set $Z=F^\times$ and $\tZ=p^{-1}(Z)$, equipped with compatible
@@ -384,6 +388,8 @@ orbital-integral/test-function transfer.  Test functions transform
 by $\tth^{-1}$, not by $\tth$.
 
 \subsection{Integral-matrix criterion}\label{W:subsec:integral}
+This subsection writes $L_D$ as a matrix in the bases of irreducible characters and recalls the integrality criterion of Chapter~\ref{ch:III}. The criterion turns a question about characters into a question about integers.
+
 Choose $\tth$ first and put
 $\theta(a)=\tth(a^*)$.
 \cref{III:thm:unitary} and \cref{III:cor:matrix}, show that $L_D$ is a
@@ -419,12 +425,14 @@ simplest illustration take $Q=C_p$, $C=1$, $n=p$: then the
 Adams operation sends every linear character to the trivial
 character.  This does not prove a nonintegral coefficient for
 $L_D$; it only shows why that particular proof method fails.
-The present paper replaces the Adams argument, in the running
+The present chapter replaces the Adams argument, in the running
 example, by Brauer's characterization of characters and an
 explicit analysis of the pro-$3$ part of the cover.
 \end{remark}
 
 \section{A useful global criterion: positivity of every row}\label{W:sec:positive}
+This section proves that integrality of the whole character matrix is equivalent to positive definiteness of every row. It also explains why the positivity of a single row decides nothing about that row.
+
 \begin{proposition}[Positivity versus integrality]\label{W:prop:positive}
 With the unitary character matrix $(a_{\rho\tau})$ of
 \eqref{W:eq:matrixchars}, the following are equivalent:
@@ -461,6 +469,8 @@ carries this out.
 \end{remark}
 
 \section{A general quadratic theorem}\label{W:sec:general-toral}
+This section proves that the discriminant ratio $R_E$ is the character of a permutation representation, for every quadratic extension $E/F$ and every odd $n$. This is the toral positivity statement of the chapter. The proof computes $R_E$ on the filtration of the norm-one group, first in general and then separately for unramified and ramified extensions.
+
 Let $F$ be a finite extension of $\Q_p$ with $p$ odd, residue field of cardinality $q$, and let $n\geq1$ be odd with $\mu_n\subset F$. Let $E/F$ be any quadratic field extension, with nontrivial Galois involution $\sigma$. Put
 \[
  A=E^\times/F^\times,\qquad G=E^1=\ker(N_{E/F}:E^\times\to F^\times).
@@ -483,6 +493,8 @@ where only finitely many $m_\chi$ are nonzero. This includes every wild case $p\
 \end{theorem}
 
 \subsection{A radial valuation formula}
+This subsection shows that $R_E(u)$ depends only on the depth $v_E(1-u)$ of $u$ in the norm-one group, and gives the formula. The two subsections that follow turn the formula into a sum of permutation characters.
+
 Write $n=p^a m$ with $(m,p)=1$, and put
 \[
  t_\zeta=v_E(1-\zeta),\qquad
@@ -517,6 +529,8 @@ Define for $k\geq0$
 and put $T=\max_{\zeta\ne1}t_\zeta$. All values $M_k$ are positive integers because roots $\zeta,\zeta^{-1}$ occur in pairs of equal valuation. We have $M_k=M_T$ for $k\geq T$.
 
 \subsection{The unramified filtration}
+This subsection treats an unramified extension $E/F$. It computes the indices of the filtration subgroups and writes $R_E$ as a nonnegative integral combination of the permutation characters of $G$ on the quotients $G/G_k$.
+
 Suppose $E/F$ is unramified. Then $q_E=q^2$ and reduction of the norm-one group has order $q+1$; at every deeper level the trace-zero subgroup of the residue-field additive group has order $q$. Thus the filtration satisfies
 \[
  [G:G_1]=q+1,\qquad [G:G_k]=(q+1)q^{k-1}\quad(k\geq1).
@@ -535,6 +549,8 @@ By telescoping \eqref{W:eq:radial},
 Here $[G:G_k]\,\mathbf1_{G_k}$ is precisely the permutation character of $G$ on $G/G_k$.
 
 \subsection{The ramified filtration}
+This subsection treats a ramified extension $E/F$. The positive depths are now odd, so the indices change, but the conclusion has the same form as in the unramified case.
+
 Suppose $E/F$ is ramified. Then $q_E=q$ and $t_\zeta=2v_F(1-\zeta)$ is even. The norm-one group has filtration
 \[
  [G:G_1]=2,\qquad G_{2j}=G_{2j+1},\qquad [G:G_{2j}]=2q^j\quad(j\geq1).
@@ -561,6 +577,8 @@ As all positive depths are odd, telescoping now gives
 Again each summand is the character of a permutation representation. Equations \eqref{W:eq:unram} and \eqref{W:eq:ram} prove Theorem~\ref{W:thm:main}.
 
 \section{From Fourier coefficients to covered-torus restrictions}\label{W:sec:fourier}
+This section explains what the Fourier coefficients of $R_E$ mean on the cover. They are the multiplicities with which genuine representations of the covered torus occur in the restriction of a transferred character. The section also states the limit of this test. It concerns restrictions to a torus and does not decide integrality on the whole cover.
+
 \begin{lemma}[Fourier test for restrictions to covered field tori]\label{W:lem:toral-Fourier}
 Let $E/F$ be any maximal field in $D$, with $r$ prime and
 $(r,n)=1$, and put $A_E=E^\times/F^\times$.  The function
@@ -643,7 +661,7 @@ Take
  3=-\zeta_3^{-1}\varpi^2,\qquad q_F=3.
 \]
 Thus $v_F(3)=2$ and $|3|_F=3^{-2}=1/9$.  The compatible
-covering parameters in \cite{JC26} and Chapter~\ref{ch:I} are respectively
+covering parameters in \cite{JC26a} and Chapter~\ref{ch:I} are respectively
 $c=1$ and $c_v=2\pmod3$.  Let $D/F$ be the unique quaternion
 division algebra.  With $E_0=F(i)$, $i^2=-1$, its unramified
 quadratic maximal subfield, we may write
@@ -666,13 +684,15 @@ $F^\times E^{\times3}$ (\cref{I:prop:good}), and
  \qquad b_D=3,\qquad c_D=27.
 \]
 By the Heisenberg-type Stone--von Neumann theorem
-(\cite{JC26}, Proposition~2.4; \cref{I:prop:good}), every genuine
+(\cite[Proposition~2.4]{JC26a}; \cref{I:prop:good}), every genuine
 irreducible representation of $\widetilde{E^\times}$ has degree $3$.
 This is \emph{not} a degree calculation for representations of
 $\widetilde{D^\times}$.
 \end{example}
 
 \subsection{The unramified quadratic torus}
+This subsection computes $R_{E_0}$ on the unramified quadratic torus of the example. It then decomposes $R_{E_0}$ into characters of a finite quotient.
+
 Put $E_0=F(i)$ as above.  Since $X^2+1$ is irreducible over
 $\mathbb F_3$, $E_0/F$ is unramified and its residue field is
 $\mathbb F_9$.  For $t=a+bi$ with $a,b\in F$ the reduced norm
@@ -717,6 +737,8 @@ $3+2+2+2=9$; it is stronger than merely checking that
 $R_{E_0}$ takes integer values.
 
 \subsection{Both ramified quadratic tori}
+This subsection does the same computation for the two ramified quadratic extensions of $F$. Proposition~\ref{W:prop:all-three-tori} then collects the three cases.
+
 Every ramified quadratic extension of $F$ can be written
 $E_d=F(j_d)$, $j_d^2=d=u\varpi$ with $u\in\mathcal O_F^\times$.
 There are two isomorphism classes, distinguished by the square
@@ -856,6 +878,8 @@ $\theta_\rho(\zeta)=\tth(\zeta^*)=\tth(1)=1$.
 \end{remark}
 
 \section{The pro-3 structure of $K^1$ and the cube map}\label{W:sec:depth}
+This section describes the pro-$3$ group on which the rest of the argument takes place. It determines the good elements of that group by studying the cube map, and it computes the transferred trivial character there.
+
 The whole wild phenomenon lives on the pro-$3$ group
 \[
  Q:=K^1F^\times/F^\times\;\simeq\;K^1/U_F^{(1)},\qquad
@@ -880,6 +904,8 @@ finite $2$-subgroup of $D^\times/F^\times$ is conjugate into $P_0$
 (Schur--Zassenhaus).
 
 \subsection{The cube map}
+This subsection collects the properties of the cube map on $Q$ in one lemma. Its main output is the description of the good elements. They have depth exactly $3$ or depth at least $6$.
+
 \begin{lemma}\label{W:lem:cube}
 \begin{enumerate}[label=(\alph*)]
 \item For $k\ge3$ the cube map $K^k\to K^{k+4}$ is bijective.
@@ -962,6 +988,8 @@ spanning and the symmetry $\bar G_3=-\bar G_3$ are read off from it.
 \end{proof}
 
 \subsection{Coordinates on $V$ and the set $\bar G_3$}
+This subsection introduces coordinates on the finite group $V=Q_3/Q_6$ and describes the good classes of depth three explicitly in them. The later finite computations are carried out in these coordinates.
+
 Write $\Pfr^3=\varpi\Ocal_{E_0}j\oplus\varpi^2\Ocal_{E_0}$ and
 $\Pfr^6=\varpi^3\Ocal_D$.  Since $(1+X)(1+Y)\equiv1+X+Y$ modulo
 $\Pfr^6$ for $X,Y\in\Pfr^3$, the map $1+X\mapsto X$ identifies
@@ -1008,6 +1036,8 @@ of the $648$ depth-one classes modulo $K^4U_F^{(1)}$
 \end{proof}
 
 \subsection{The transferred trivial character on $\tU_1$}
+This subsection computes the values of $L_D\mathbf1$ on the preimage $\tU_1$ of $U_1$. In particular it shows that the restriction is supported on $\tU_3$.
+
 \begin{lemma}\label{W:lem:Phi}
 Put $\Phi:=L_D\mathbf1|_{\tU_1}$ and, for a good $g\in U_1$, write
 $g=zt^3$ with $z\in F^\times$ and $t\in K^1$ ($t=1$ if $g$ is central);
@@ -1035,7 +1065,11 @@ Lemma~\ref{W:lem:cube}(e).
 \end{proof}
 
 \section{Reduction to the pro-3 Sylow subgroup}\label{W:sec:reduction}
+This section reduces Target~A to a statement about the group $\tU_1$. It passes to a finite quotient of $\tH$, treats the elements of $2$-power order directly, and computes the norm of the restricted function. Theorem~\ref{W:thm:reduction} combines these steps.
+
 \subsection{A finite quotient}
+This subsection replaces $\tH$ by a finite quotient $\Gamma$ on which $L_D\mathbf1$ is defined, so that the character theory of finite groups applies. It also shows that the toral restrictions of Section~\ref{W:sec:examplewild} descend to $\Gamma$.
+
 Let $\phi:=L_D\mathbf1$.  By Chapter~\ref{ch:III} the row of $\phi$ in
 \eqref{W:eq:matrixchars} is finite: $\phi=\sum_{\tau\in S}a_\tau\Theta_\tau$
 with $S$ finite.  Each $\tau\in S$ is a finite-dimensional smooth
@@ -1070,6 +1104,8 @@ particular $\Theta_W(m)=\Theta_W(1)=\dim W$, so $m$ acts trivially on $W$.
 \end{proof}
 
 \subsection{Two-groups}
+This subsection treats the elements of $2$-power order in $\Gamma$. It computes the restriction of $L_D\mathbf1$ to the relevant $2$-subgroup and describes the centralizers of $2$-elements. Both facts are used in the proof of the reduction theorem.
+
 \begin{lemma}[The star section on $2$-groups]\label{W:lem:2groups}
 Let $\hat P_0\subset\tH$ be the preimage of $P_0F^\times$ and
 $\Gamma_{P_0}:=\hat P_0N/N$.  Then $\Gamma_{P_0}\simeq\mu_3\times D_8$,
@@ -1141,6 +1177,8 @@ hence $u_0\in\bar N$ and $b\in T$.
 \end{proof}
 
 \subsection{The norm of $\Phi$}
+This subsection computes the norm of $L_D\mathbf1$ and of its restrictions to the subgroups $\tU_m$. These norms are used in the reduction theorem and in the later sections.
+
 \begin{lemma}\label{W:lem:norm}
 With respect to the probability Haar measures,
 $\langle\phi,\phi\rangle_{\tH}=1$ and, for $m\ge1$,
@@ -1168,6 +1206,8 @@ product on $\tU_m$ is $\mu(U_{m'})/\mu(U_m)=[Q_{m'}:Q_m]$.
 \end{proof}
 
 \subsection{The reduction theorem}
+This subsection states and proves the reduction. Target~A holds if and only if the restriction of $L_D\mathbf1$ to $\tU_1$ is a virtual character.
+
 \begin{theorem}[Reduction to the Sylow $3$-subgroup]\label{W:thm:reduction}
 The following are equivalent.
 \begin{enumerate}[label=(\roman*)]
@@ -1212,6 +1252,8 @@ choice.
 \end{remark}
 
 \section{The finite model and the defect function}\label{W:sec:finite}
+This section studies the restriction of $L_D\mathbf1$ to $\tU_3$ in a finite model. It introduces Hypothesis (H1) and a defect function, and it shows that Target~A is equivalent to (H1).
+
 Throughout this section we assume the following hypothesis, which is
 necessary for Target~A (Lemma~\ref{W:lem:H1necessary}) and will be
 proved in Section~\ref{W:sec:model}.
@@ -1225,6 +1267,17 @@ $\tU_6$.  Under (H1) put $N_6:=\ker\psi_6$, an open subgroup of
 $\tU_6$, normal in $\tH$ because the star section is conjugation
 equivariant and $\tth$ is central.
 \end{definition}
+
+\begin{example}[What (H1) says over one maximal subfield]\label{W:ex:H1torus}
+Let $E\subset D$ be a maximal subfield, and consider the elements of $\tU_6$ that lie over $E^\times$. The star map is a homomorphism on each covered torus (\S\ref{W:subsec:coverbackground}), and $\tZ$ is central. So for two such elements $\zeta\tilde z\,t^*$ and $\zeta'\tilde z'\,t'^*$ with $t,t'\in E^\times$, the product is $\zeta\zeta'\,\tilde z\tilde z'\,(tt')^*$, and
+\[
+ \psi_6\bigl(\zeta\tilde z\,t^*\cdot\zeta'\tilde z'\,t'^*\bigr)
+ =\zeta\zeta'\,\tth(\tilde z\tilde z')
+ =\psi_6(\zeta\tilde z\,t^*)\,\psi_6(\zeta'\tilde z'\,t'^*).
+\]
+Thus $\psi_6$ is multiplicative on the part of $\tU_6$ over any single maximal subfield, and this needs no hypothesis. The content of (H1) is the same identity for star lifts $t^*$ and $t'^*$ with $t$ and $t'$ in different maximal subfields.
+\end{example}
+
 
 \begin{lemma}\label{W:lem:H1necessary}
 If $L_D\mathbf1=\Theta_\tau$ with $\tau$ irreducible, then $\tau|_{\tU_6}=27\,\psi_6$;
@@ -1336,6 +1389,8 @@ for some $s\in\Fq_3$, and $\Tr(a\,\overline{s\,i\,a})=-s\Nm(a)\Tr(i)=0$.
 \end{proof}
 
 \subsection{The $27$ characters and the defect function}
+This subsection describes the genuine characters of the finite group $\tV$ and defines the defect function $e$. It then records what Target~A forces on $e$.
+
 Assume (H1).  Fix a complement $V_0$ to $\mu_3$ in $\tV$; genuine
 characters of $\tV$ are then $\mu_h(\zeta,v)=\zeta\cdot\zeta^{h(v)}$,
 $h\in V^\vee$.  The star section gives a canonical lift
@@ -1386,6 +1441,8 @@ $\Phi$ and of the induced character off $\tU_3$.
 \end{proof}
 
 \subsection{Symmetry pins down the defect function}
+This subsection uses the conjugation action of $D^\times$ to cut the possible defect functions down to a two-parameter family, and then determines the defect function. The conclusion is Theorem~\ref{W:thm:H1equiv}.
+
 The group $D^\times$ acts on everything by conjugation through
 $G_{\mathrm{sym}}:=D^\times/F^\times K^3$, of order $216$, an extension of
 $D_8=\langle\Ad(1+i),\Ad(j)\rangle$ by $\Heis$.  Its action on $V$ is
@@ -1552,6 +1609,8 @@ pairings trivial; the $6\times6$ matrix for $E_0$ is in
 Appendix~\ref{W:app:tables}.
 
 \subsection{The cube identity and the star section on $K^6$}
+This subsection proves (H1). It first shows that the standard section of the model is compatible with cubes. It then identifies the star section on $K^6$ and verifies the identity that makes $\psi_6$ a character.
+
 \begin{proposition}[Cubes of the standard section]\label{W:prop:cubeidentity}
 Let $w=x+yj\in D^\times$ with $y\ne0$, $T:=\Tr_{E_0/F}(x)\ne0$ and
 $A:=x^2+x\sigma(x)+\sigma(x)^2+\varpi\Nm(y)\ne0$.  Then
@@ -1716,9 +1775,10 @@ $h_E(b',a/\sigma a)+3h_E(b',\sigma a)=v(b')\bigl(h_E(\varpi,a)-h_E(\varpi,\sigma
 
 \emph{Case $b\ne0$, $b'=0$.}  Then $x(\iota X')=\sigma(a')$,
 $x(\iota XX')=\sigma(b)a'$, and
-$\beta=h_E\bigl(a',\sigma(b)a'/(\sigma(a')n)\bigr)=h_E(a',\sigma b)=v(b)\lambda(a')$,
+\[\beta=h_E\bigl(a',\sigma(b)a'/(\sigma(a')n)\bigr)=h_E(a',\sigma b)=v(b)\lambda(a'),\]
 the other three symbols vanishing by the third remark.  Also
-$\kappa(X')=0$ and $\kappa(XX')=h_E(b\sigma(a'),nn')=h_E(b,n)+h_E(b,n')=\kappa(X)+v(b)\lambda(a')$.
+$\kappa(X')=0$ and
+\[\kappa(XX')=h_E(b\sigma(a'),nn')=h_E(b,n)+h_E(b,n')=\kappa(X)+v(b)\lambda(a').\]
 Both sides of \eqref{W:eq:H1identity} equal $\kappa(X)+v(b)\lambda(a')$.
 
 \emph{Case $b=b'=0$.}  All three $\kappa$ vanish and
@@ -1775,6 +1835,8 @@ Lazard-form computation is of independent interest for Target~B.
 \end{remark}
 
 \section{The main theorem}\label{W:sec:maintheorem}
+This section assembles the earlier sections into the main theorem, Target~A, and lists what its proof depends on. A corollary extends the result to the representations trivial on $K^1$ and their twists.
+
 \begin{theorem}[\Pctag\ Target A]\label{W:thm:main-targetA}
 Let $F=\Q_3(\zeta_3)$, $n=3$, $D$ the quaternion division algebra over
 $F$, $\tH$ its scalar-central $3$-fold cover, and $\tth$ a genuine
@@ -1905,6 +1967,8 @@ obtained by a further twist.
 \end{proof}
 
 \section{Target B: other rows}\label{W:sec:plan}
+This section turns to the other rows of the character matrix, that is, to $L_D\Theta_\rho$ for a general irreducible $\rho$. It extends the reduction theorem to every row and compares each row with the row of the trivial character by a product formula. It then proves Target~B for the representations trivial on $K^3$.
+
 Throughout this section $\rho$ is an irreducible smooth representation of
 $D^\times$ (finite dimensional, as $D^\times/F^\times$ is compact) with
 central character $\theta_\rho$ trivial on $\mu_3$, $\theta_0$ is a
@@ -1938,6 +2002,8 @@ and $\phi_\rho(1)=27\dim\rho>0$, so $\phi_\rho$ is an irreducible
 character as soon as it is a virtual character.
 
 \subsection{The reduction theorem for every row}
+This subsection extends the reduction theorem of Section~\ref{W:sec:reduction} from the trivial character to every $\rho$.
+
 \begin{theorem}[Reduction, all rows]\label{W:thm:reduction-all}
 $L_D\Theta_\rho$ is the character of a genuine irreducible representation
 of $\tH$ if and only if $\Phi_\rho$ is a virtual character of $\tU_1$.
@@ -2041,6 +2107,8 @@ $\Gamma$, and unitarity finishes the proof.
 \end{proof}
 
 \subsection{The cube-root transform}
+This subsection writes $L_D\Theta_\rho$ as the product of $L_D\mathbf1$ and a function built from $\Theta_\rho$ and the cube root. It then gives a sufficient criterion for a row in terms of this product.
+
 \begin{lemma}[Product formula]\label{W:lem:product}
 Assume \eqref{W:eq:normalized-central}.  There is a unique function
 $F_\rho$ on the set of star lifts of good elements of $H$ such that
@@ -2116,6 +2184,8 @@ Theorem~\ref{W:thm:reduction-all} applies.
 \end{proof}
 
 \subsection{All representations trivial on $K^2$}
+This subsection proves Target~B for the representations of $D^\times$ that are trivial on $K^2$.
+
 Let $\pi_3:U_3\to U_3/U_4\simeq Q_3/Q_4\simeq\Fq_9$ be the depth-three
 digit (the $A$-coordinate of \eqref{W:eq:Vcoords}), a homomorphism which
 is $\Ad(U_1)$-invariant because $[U_1,U_3]\subset U_4$, and identify
@@ -2185,6 +2255,8 @@ genuine representation of $\tH$.
 \end{remark}
 
 \subsection{Level two}\label{W:subsec:targetB}
+This subsection proves Target~B for the representations that are trivial on $K^3$ but not on $K^2$. It first describes these representations and the finite group through which the argument runs.
+
 Let now $\rho$ be irreducible and trivial on $K^3$ but not on $K^2$.
 Normalize $\theta_\rho\in\{\mathbf1,\mathrm{sgn}\}$ as in
 \eqref{W:eq:normalized-central}; then $\rho|_{K^1}$ factors through
@@ -2433,6 +2505,8 @@ Proposition~\ref{W:prop:design}, and the table of $\Lambda$); Steps~2 and
 \end{remark}
 
 \subsection{Beyond level two}\label{W:subsec:cuberoot}
+This subsection describes the pattern common to the two proofs above and isolates the statements that an extension to higher levels would need. It is an outline, as its label says.
+
 \Otag\ The proofs of Theorems~\ref{W:thm:levelone} and~\ref{W:thm:leveltwo}
 both run as follows.  For $m\ge1$ put $N_m:=\max(3m+1,6)$,
 $\mathrm{Heis}_m:=Q_1/Q_{m+1}$, $H_m:=Q_3/Q_{N_m}$,
@@ -2695,7 +2769,9 @@ have not examined it.
 \end{enumerate}
 \end{remark}
 
-\subsection{Proof checkpoints retained from Draft 0}
+\subsection{Proof checkpoints}
+This subsection lists what a positive solution for a general row must supply, and notes which items are now available.
+
 A positive solution for a row must still supply (i) an explicit
 cocycle/central-character normalization (now available, uniformly in
 $p$), (ii) a finite-level factorization or an induced construction

@@ -30,19 +30,21 @@ pdflatex mjl_book_draft.tex   # final pass to place the index
 |---------|----------|
 | 1 | Introduction and overview, including the running example |
 | 2 | Literature review |
-| 3 | Notation and glossary |
+| 3 | Background and notation |
 | 4 | Local matching and a global transfer under elliptic-support conditions |
 | 5 | Matching of arbitrary functions and an improved global transfer |
 | 6 | The division-algebra side and its local character transform |
 | 7 | Local power maps, toral positivity, and conditional global comparison |
 | 8 | The rank-two wild place: toral positivity and the nonabelian gluing problem |
 | 9 | Summary of results |
+| 10 | Glossary |
 
 Chapters 4–7 correspond to the series' former Parts I–IV, and Chapter
 8 to the former standalone companion paper on the rank-two wild case.
 The book's revision log is `book/mjl_book_revision_log_draftK.tex`,
-where `K` is the current log entry number (it grows with each
-revision, independently of the book file's own name).
+where `K` is the draft number. The log of Draft 2 lists every addition
+that still needs refereeing and gives a concordance of the numbers
+that changed.
 
 ### The setting
 
@@ -73,7 +75,7 @@ the standing hypotheses drawn on from [JC26], [FK86] and [FK88]. Each
 later chapter has its own short "running example" subsection
 cross-referencing Example 1.3.1, and `notes/mjl_running_example.tex`
 works the case out in detail across Chapters 4–8; it is cited in the
-book as [JRE26].
+book as [JC26b].
 
 The approach follows the classical trace-formula proof of the
 Jacquet–Langlands correspondence. It uses the metaplectic correspondence
@@ -105,8 +107,9 @@ corrections of J. Zou (arXiv:2209.05852).
 | **(C)** | Conjectural, or conditional on stated unproved hypotheses |
 | **(P^c)** | Proved modulo an exhaustive exact computation whose script is in the repository (Chapter 8 only) |
 
-The full definitions, together with the book's notation and the
-cocycle normalization, are in Chapter 3 (Notation and glossary).
+The full definitions and the book's notation are in Chapter 3
+(Background and notation). The cocycle normalization is in Chapter 10
+(Glossary).
 
 ## Repository layout
 

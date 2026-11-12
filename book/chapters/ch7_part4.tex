@@ -40,7 +40,7 @@ integral Fourier coefficients of the discriminant ratio for
 field of odd residue characteristic, for all odd $n$ including
 $p\mid n$.  The complete numerical $r=2$, $n=3$ example and the
 nonabelian gluing problem are developed separately in a
-standalone companion chapter (Chapter~\ref{ch:W}), here begun as Draft~0.  We compare
+standalone companion chapter (Chapter~\ref{ch:W}).  We compare
 our normalizations with Zou's correction of Flicker--Kazhdan,
 state explicit conditions for split-place matching, and prove
 a conditional geometric and trace-distribution comparison with
@@ -56,7 +56,7 @@ central cover; the cover $\Gb_v$ of $\GL_r(K_v)$ is defined inside the
 same ambient cover.  An additional \emph{ordinary} group $H_v$ enters
 through the transform $L_{D,v}$ of Chapter~\ref{ch:III}.  These are not interchangeable.
 In particular, a comparison between $\GDb$ and $\Gb$ has already been
-obtained in Chapters~\ref{ch:I}--\ref{ch:II} (here cited as Draft~8 of each) under their
+obtained in Chapters~\ref{ch:I}--\ref{ch:II} under their
 stated test-function and spectral hypotheses.  We cite Chapter~\ref{ch:III} throughout.  The new proposed comparison between $H$ and $\GDb$ is a
 different assertion.  This concluding version records the separate
 rank-two wild case in a companion manuscript Chapter~\ref{ch:W}.
@@ -91,10 +91,10 @@ we mark its formal implication (P) and mark the outstanding hypotheses
 \toprule
 Assertion & Precise basis & Status\\\midrule
 Diagonal and nonsplit good-element criterion, including wild $p$ & \cite[\S3]{FK86}; \S\ref{I:sec:tori} & (E)\\
-Compatibility of the Chapter~\ref{ch:I} cocycle with $\sigma_{c_v}$ & Chapter~\ref{ch:I}, Prop. 2.3(b); direct calculation & (P)\\
+Compatibility of the Chapter~\ref{ch:I} cocycle with $\sigma_{c_v}$ & \cref{I:prop:restriction}(b); direct calculation & (P)\\
 Power-map kernel, index, and Haar modulus on $T_E(F)/F^\times$ & Section \ref{IV:sec:localpowers} & (P)\\
 Global good-regular class criterion & Section \ref{IV:sec:globalgood}; Chapter~\ref{ch:III} Hasse principle & (P)\\
-Division-side unitary character transform and tame integral case & Chapter~\ref{ch:III}, Thms. 4.3, 7.6 & (E)\\
+Division-side unitary character transform and tame integral case & \cref{III:thm:unitary,III:thm:tame-transfer} & (E)\\
 Quadratic toral permutation-character theorem (all odd $n$) & Theorem \ref{IV:thm:quad-toral}; detailed example in companion chapter (Ch.~\ref{ch:W}) & (P)\\
 Wild irreducible-character integrality for $\widetilde{D^\times}$ & Section \ref{IV:sec:wild} & (C)\\
 Covered $D$--covered $\GL$ global simple trace comparison & Chapters~\ref{ch:I}--\ref{ch:II} under their hypotheses & (E)\\
@@ -105,7 +105,7 @@ Removal of auxiliary support and packet hypotheses & Section \ref{IV:sec:spectra
 \end{center}
 
 \subsection*{The running example}
-The series' running example is $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, which is ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$ (Example~\ref{ex:running}, and \cite{JRE26}). Its wild place $\mathfrak p_3$ has $K_v=\mathbb{Q}_3(\zeta_3)$, and there $D$ is the quaternion division algebra treated in Remark~\ref{IV:prop:all-three-tori} and in the companion chapter (Chapter~\ref{ch:W}). Theorem~\ref{IV:thm:quad-toral} gives the decompositions on all three quadratic tori at $\mathfrak p_3$. Theorem~\ref{IV:thm:globalgood} describes the globally good classes, and Example~\ref{IV:ex:ranktwoledger} is the global normalization ledger for this $D$, in which $\Lambda=1$ forces $\lambda_\infty=1/3$. The smallest open case of wild integrality is whether $L_D\mathbf 1$ at $\mathfrak p_3$ is irreducible of dimension $27$.
+The series' running example is $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, which is ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$ (Example~\ref{ex:running}, and \cite{JC26b}). Its wild place $\mathfrak p_3$ has $K_v=\mathbb{Q}_3(\zeta_3)$, and there $D$ is the quaternion division algebra treated in Remark~\ref{IV:prop:all-three-tori} and in the companion chapter (Chapter~\ref{ch:W}). Theorem~\ref{IV:thm:quad-toral} gives the decompositions on all three quadratic tori at $\mathfrak p_3$. Theorem~\ref{IV:thm:globalgood} describes the globally good classes, and Example~\ref{IV:ex:ranktwoledger} is the global normalization ledger for this $D$, in which $\Lambda=1$ forces $\lambda_\infty=1/3$. The smallest open case of wild integrality is whether $L_D\mathbf 1$ at $\mathfrak p_3$ is irreducible of dimension $27$.
 
 \section{The exact cocycle convention and star map}\label{IV:sec:cocycle}
 This section fixes the one place where a parameter mismatch could
@@ -114,6 +114,8 @@ a restriction of a cocycle over $L_v$, whereas \cite{FK86} uses the standard
 $\GL_r(F)$ Kazhdan--Patterson convention.
 
 \subsection{Restriction and relabeling}\label{IV:subsec:restriction}
+This subsection recalls the cocycle of the $\GL$ side before and after the relabeling of $\mu_n$, and checks the resulting commutator on the diagonal torus. The two parameters $c$ and $c_v$ are easy to confuse, and every later constant depends on using the right one.
+
 Let $\sigma_F$ be the parameter-zero Kazhdan--Patterson cocycle with
 restriction to the diagonal torus
 \begin{equation}\label{IV:eq:parameterzero}
@@ -174,6 +176,8 @@ convention below, not for Hilbert-symbol antisymmetry.
 \end{remark}
 
 \subsection{Star and central characters}\label{IV:subsec:star}
+This subsection recalls the star map $h\mapsto h^*$, its behavior on scalars and on tori, and its relation to the conventions of \cite{FK86} and \cite{Zo23}. It then fixes how genuine and ordinary central characters correspond.
+
 For an element $h$ of the ordinary group, choose any lift
 $\widetilde h$ and define $h^*=\widetilde h^{\,n}$.  It is
 independent of the lift because $\mu_n$ is central.  In the present
@@ -190,16 +194,16 @@ is in $\mu_n$, and the class-two power identity
  =\widetilde h_1^{\,n}\widetilde h_2^{\,n}
 \end{equation}
 uses $n$ odd.  Thus star is multiplicative on the lifted torus.
-This agrees with the convention in \cite[\S4]{FK86} and [Zou, \S3]:
+This agrees with the convention in \cite[\S4]{FK86} and \cite[\S3]{Zo23}:
 Zou writes $x^*=u(x)s(x)^n$, where $u(x)=\pm1$ is the
-correction defined in \cite[\S4]{FK86} and \cite[\S3.1]{Z23}.
+correction defined in \cite[\S4]{FK86} and \cite[\S3.1]{Zo23}.
 For odd $n$ the extra sign is absent in the
 Flicker--Kazhdan convention: the star is the $n$th power of a lift.
 The correction $u(x)$ is introduced for the even-$n$ convention;
 we do not infer that an arbitrary sign automatically lies in
 $\mu_n$.  In the odd-degree setting, therefore, $u(x)=1$
 by definition of the relevant convention (compare
-\cite[\S4]{FK86} and \cite[\S3.1]{Z23}).  For a scalar $\zeta\in\mu_n(F)$,
+\cite[\S4]{FK86} and \cite[\S3.1]{Zo23}).  For a scalar $\zeta\in\mu_n(F)$,
 $\zeta^*=1$ in the standard diagonal cocycle model: the
 self-symbol $(\zeta,\zeta)_n=1$ for odd $n$, so
 $s(\zeta I_r)^n=s(I_r)=1$.  This last statement is also
@@ -292,7 +296,7 @@ $\operatorname{diag}(1,\zeta_3)$ is regular but not good:
 $\zeta_3\notin F^{\times3}$, since $F$ does not contain $\zeta_9$.
 Its cube is the identity.  A character or orbital-integral formula with
 $\Delta(t^n)$ in the denominator must restrict to $t^n$ regular
-(as in Zou's equation (3.2)), or use a separately proved germ extension.
+(as in Zou's equation \cite[(3.2)]{Zo23}), or use a separately proved germ extension.
 On a degree-$r$ \emph{field} torus, by contrast, if $t$ is regular
 and $t^n\in F$, then Kummer theory gives
 $[F(t):F]\mid n$; since $[F(t):F]=r$ and $(r,n)=1$, this is
@@ -521,11 +525,12 @@ spaces of invariant class functions.  Wild-place irreducible-character
 integrality does not follow from this analytic statement.  We record
 here the exact character-theoretic criterion and a positive result on
 quadratic field tori.  Detailed ramified and unramified computations
-for $F=\mathbb Q_3(\zeta_3)$ belong to the separate companion project
-\emph{Wild-place metaplectic character transfer in degree two},
-Draft~0, cited below as Chapter~\ref{ch:W}.
+for $F=\mathbb Q_3(\zeta_3)$ belong to the separate companion chapter,
+Chapter~\ref{ch:W}.
 
 \subsection{Normalization and the unitary character matrix}\label{IV:subsec:integral}
+This subsection recalls the transform $L_D$ of Chapter~\ref{ch:III} with its constants. It then states the criterion that links integrality of the character matrix to positivity.
+
 Let $F$ be a nonarchimedean field containing $\mu_n$, let $D/F$
 be a division algebra of prime degree $r$ with $(r,n)=1$, and put
 $H=D^\times$ and $Z=F^\times$.  Write $\tH$ for the scalar-central
@@ -588,6 +593,8 @@ nonintegral entries (for example $1/\sqrt2,1/\sqrt2$).
 \end{proof}
 
 \subsection{The toral Fourier reduction}
+This subsection restricts the question to a maximal field torus, where it becomes a question about the Fourier coefficients of the discriminant ratio $R_E$. It proves that these coefficients are nonnegative integers when $E/F$ is quadratic.
+
 For a maximal field $E/F$, $A_E=E^\times/F^\times$ is compact
 abelian.  The continuous discriminant ratio is locally constant and
 hence has a finite Fourier expansion
@@ -742,7 +749,7 @@ automorphic comparison unconditionally.
 
 \section{Connection with Zou's corrected character relation}\label{IV:sec:Zou}
 For the Kazhdan--Patterson cover of the \emph{split group},
-Zou \cite[\S3]{Z23} revisits the Flicker--Kazhdan metaplectic
+Zou \cite[\S3]{Zo23} revisits the Flicker--Kazhdan metaplectic
 correspondence and records a corrected scalar in the character
 relation.  This is an essential input, but its objects are
 $\widetilde{\GL_r(F)}$ and ordinary $\GL_r(F)$, not directly
@@ -751,7 +758,7 @@ $\tH$ and $H$ at a division place.
 \begin{proposition}[\Etag\ Zou's root-sum constant in our case]\label{IV:prop:Zouconstant}
 Write $d_F(m)=m|m|_F^{-1/2}$ and
 $d_r=\gcd(n,2rc_v+r-1)$.  Under \eqref{IV:eq:parameters},
-$d_r=n$.  In Zou's equation (3.2), the coefficient preceding
+$d_r=n$.  In Zou's equation \cite[(3.2)]{Zo23}, the coefficient preceding
 the root sum in rank $r$ is
 \begin{equation}\label{IV:eq:Zouprefactor}
  \frac{1}{d_F(d_r)|n|_F^{r/2}}
@@ -765,7 +772,7 @@ $\pi$ has central character $\omega_\pi$ trivial on $\mu_n$,
 these summands agree and the effective coefficient is $b_D$.
 This restriction on $\omega_\pi$ is essential: without it, the
 scalar sum is $\sum_{\zeta\in\mu_n}\omega_\pi(\zeta)=0$,
-so equation (3.2) instead forces the covered character to vanish
+so \cite[(3.2)]{Zo23} instead forces the covered character to vanish
 at $x^*$.  For a genuine lift pair the compatibility
 $\omega_\pi(a)=\omega_{\widetilde\pi}(a^*)$
 and $\zeta^*=1$ imply $\omega_\pi|_{\mu_n}=1$ automatically.
@@ -815,6 +822,8 @@ The second is not a formal consequence of the first or of the
 unitarity of $L_D$.
 
 \subsection{Geometric coefficients and the product formula}
+This subsection records how the global torus coefficients and the local discriminant factors enter the geometric side. It explains why the local constants $b_{D,v}$ cannot be cancelled by the product formula alone.
+
 For a regular elliptic rational $\gamma$, with $E=K[\gamma]$,
 Chapter~\ref{ch:I} identifies the torus coefficient $c(\gamma)$, recalled in
 \eqref{IV:eq:globalvol}. The same torus measure $dt$ must be used
@@ -850,6 +859,8 @@ In particular the local factors $b_{D,v}$ for $v\in S$
 $\prod_v|n|_v=1$ without the split-side contributions.
 
 \subsection{Haar ledger}\label{IV:subsec:ledger}
+This subsection lists, in one table, the measure normalizations and the local statements that a global geometric comparison needs, with the status of each.
+
 For $v\in S$, \cref{II:def:measures}, fixes
 \begin{equation}\label{IV:eq:formaldegree}
  \vol(D_v^\times/F_v^\times;dg_{D,v})
@@ -868,7 +879,7 @@ $\GL$ side must still be reconciled with \eqref{IV:eq:formaldegree}.
 \toprule
 Item & Required statement or calculation & Status\\\midrule
 \endhead
-Ambient cocycle and common center & \cref{I:lem:splittings} and Prop. 5.5; restriction \eqref{IV:eq:before} & (E)\\
+Ambient cocycle and common center & \cref{I:lem:splittings} and \cref{I:prop:global}; restriction \eqref{IV:eq:before} & (E)\\
 Regular rational good locus & Theorem \ref{IV:thm:globalgood} & (P)\\
 Global rational/stable classes & Hilbert 90 and Kottwitz's framework; local embeddability into $D$ & (E)\\
 Global torus coefficient & Same $dt$ in \eqref{IV:eq:globalvol}, including $|W_\gamma|$ & (E)\\
@@ -929,6 +940,16 @@ Equation \eqref{IV:eq:FKinvariance} is the invariant-function
 condition of \cite[\S6]{FK86}, expressed with the present
 inverse central transformation convention.
 \end{definition}
+
+\begin{example}[The condition in rank two]\label{IV:ex:FKcompatible}
+Let $r=2$ and $n=3$, and let $v\notin S$, so that $H_v\cong\GL_2(F)$ with $F=K_v$. A regular element lies in a torus $E_v^\times$, where $E_v$ is either a quadratic field or $F\times F$. If $E_v$ is a field, then $k_v=1$ and every cube root of unity in $E_v$ is a scalar, so \eqref{IV:eq:nonscalar-root-invariance} imposes nothing. If $E_v=F\times F$, then $k_v=2$ and the torus is conjugate to the diagonal torus. Take $x=\operatorname{diag}(a,b)$ with $a^3\neq b^3$, so that $x^3$ is regular, and take $\zeta=(1,\zeta_3)$. Then \eqref{IV:eq:nonscalar-root-invariance} reads
+\[
+ J_{H_v}\bigl(\operatorname{diag}(a,\zeta_3b),f_v\bigr)
+ =J_{H_v}\bigl(\operatorname{diag}(a,b),f_v\bigr).
+\]
+The quotient $\mu_3(F)^2/\mu_3(F)$ has $3$ elements. So the condition says that the normalized orbital integrals of $f_v$ take the same value at $\operatorname{diag}(a,b)$, $\operatorname{diag}(a,\zeta_3b)$ and $\operatorname{diag}(a,\zeta_3^2b)$.
+\end{example}
+
 
 \begin{lemma}[Necessary split-place invariance]
 \label{IV:lem:FKnecessary}
@@ -1207,7 +1228,11 @@ traces required in \eqref{IV:eq:twocomparisons}.  The simpler already-proved tra
 of Chapters~\ref{ch:I}--\ref{ch:II} remain the appropriate initial comparison.
 
 \section{Spectral separation and a research program}\label{IV:sec:spectral}
+This section states the spectral identity that the conditional geometric comparison would give. It then explains what further argument is needed to pass from that identity to statements about individual local characters. The section describes a program and claims no new result.
+
 \subsection{The actual spectral distribution identity}
+This subsection defines the two global spectral distributions and states the conditional identity between them.
+
 Let $H=D^\times$ and $\widetilde H=\GDb$ globally, with
 compatible central characters $\theta,\widetilde\theta$.
 The quotient $H(K)Z_H(\A_K)\backslash H(\A_K)$ is compact

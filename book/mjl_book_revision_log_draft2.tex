@@ -1,0 +1,383 @@
+% Revision log for book Draft 2 (style-guide pass).  American English spelling.
+\documentclass[12pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\IfFileExists{newtxtext.sty}{\usepackage{newtxtext,newtxmath}}{\usepackage{mathptmx}\usepackage{amssymb}}
+\usepackage{microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{enumitem,booktabs,longtable,array}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=3em
+\title{On a metaplectic Jacquet--Langlands transfer for division algebras of prime degree\\[0.5em]
+\large Revision log for Draft 2}
+\author{Prepared by Claude (Anthropic) for David Joyner}
+\date{November 12, 2026}
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Scope}
+This log covers Draft~2 of the book (\texttt{book/mjl\_book\_draft.tex}). Draft~2 was made in two stages. The first stage is the six commits of November~9, 2026, which had no log. They are summarized in Section~\ref{sec:nov9} from the git history. The second stage is the pass of November~12, 2026, which brought the book into line with \texttt{joyner-math-paper-style-guide.md} (Draft~2 of the guide). Sections~\ref{sec:compile}--\ref{sec:notverified} describe that pass.
+
+The ground rules for the pass were set by David Joyner. No statement, proof, hypothesis or status label was to be changed. New mathematical text was allowed only where the guide requires it, and every such addition is listed in Section~\ref{sec:additions} so that it can be refereed. Semicolons in existing text were left alone. Every existing \verb|\label| was kept.
+
+\paragraph{Rulings by David Joyner, November 12, 2026.}
+\begin{enumerate}[leftmargin=*]
+\item The book is not a revision of the 1988 paper. The title page carries ``Draft 2'' and a 2026 date only. The subtitle ``Corrected and expanded version'', the date line ``Original draft: 1988'' and the \verb|\thanks| note of rules 6.2 and 6.3 are not used. The abstract says that the book grew out of the 1988 paper.
+\item Numbering by chapter and section (Theorem~4.4.5) is kept (rule 1.6).
+\item Rule 3.3 is not applied to sections that have nothing to exemplify.
+\item Citations were not checked again and scripts were not run again (rules 4.3 and 4.4).
+\item Examples: in this pass each of the 16 definitions gets an example (rule 3.4). Examples for the remaining sections (rule 3.3) are left for a later pass.
+\item Glossary: the default placement is used. The glossary moves to the end.
+\item The commits of November~9 are summarized in this log.
+\end{enumerate}
+
+\section{Compile status}\label{sec:compile}
+\begin{center}
+\begin{tabular}{@{}lll@{}}\toprule
+ & Before (commit \texttt{7631f2a}) & After\\\midrule
+Errors & 5 (undefined \verb|\p|) & 0\\
+Errors when the index is built & 9 more (see below) & 0\\
+Undefined references or citations & 0 & 0\\
+Overfull boxes & 4 at 11pt & 0 at 12pt\\
+Pages & 188 & 216\\
+\bottomrule\end{tabular}
+\end{center}
+The five errors were the macro \verb|\p|, used on three lines in the running-example text added on November~9 (Chapters~4, 5 and~6). It is now defined once in the preamble as \verb|\mathfrak p|, which is its meaning in the running-example note.
+
+A second set of errors appeared only when \texttt{makeindex} had been run. Index entries written from inside a chapter use that chapter's macros, which are local to the chapter. The index is now typeset inside a group that loads \texttt{chapters/index\_macros.tex}, a collection of the chapters' macro definitions.
+
+Five hyperref warnings (``Token not allowed in a PDF string'') remain. They come from mathematics in section titles and do not affect the output.
+
+\paragraph{Fonts.} The preamble loads \texttt{newtxtext} and \texttt{newtxmath} when they are installed, and \texttt{mathptmx} otherwise. The machine used for this pass does not have newtx, so the build was checked with \texttt{mathptmx}. Because \texttt{mathptmx} has no \verb|\jmath|, the fallback branch takes that one symbol from Computer Modern. The overfull-box check should be repeated once with newtx.
+
+\section{Defaults used for the [DECIDE] rules}
+\begin{itemize}[leftmargin=*]
+\item Document class: the class of the existing file, \texttt{book}, is kept.
+\item Times package: newtx, with \texttt{mathptmx} as the fallback.
+\item Glossary placement: notation near the beginning, glossary at the end.
+\item AI systems on the author line: the prompt gave no instruction, so the existing author line (David Joyner, Claude, ChatGPT) is kept. The acknowledgment is included.
+\end{itemize}
+
+\section{Changes}
+\subsection{Preamble and title page}
+\begin{itemize}[leftmargin=*]
+\item 11pt to 12pt. Latin Modern to Times. Letter paper and one-inch margins were already set.
+\item The status-tag macros in the main file printed square brackets, [P], [E] and so on. They now print parentheses, as the chapters' own macros already did. No tag was added, removed or changed.
+\item The author line now carries the address \texttt{wdjoyner@gmail.com} as a footnote. The date is November~12, 2026.
+\item The header comment said ``Draft 1'' and described the chapters as generated files. It now says Draft~2 and warns that the chapters have been edited by hand and must not be regenerated. The same warning is in \texttt{book/tools/README.md}.
+\end{itemize}
+
+\subsection{Front matter and acknowledgments}
+\begin{itemize}[leftmargin=*]
+\item New Abstract, opening with the AI-disclosure sentence (rules 2.1 and 5.2). See Section~\ref{sec:additions}.
+\item The Preface keeps its first paragraph. Its paragraphs ``Sources'' and ``What changed in the conversion'' were revision notes and are moved to Section~\ref{sec:moved} of this log. Its paragraph ``Contributions'' is merged into the new Acknowledgments.
+\item The five acknowledgment paragraphs are moved from the Preface to a chapter ``Acknowledgments'' just before the bibliography (rule 2.9). The chapter now also names each AI system and its role, gives the order of authors on each source manuscript, says that AI review is not an independent certification, and points to this log (rules 5.3--5.5). The five paragraphs themselves are unchanged.
+\end{itemize}
+
+\subsection{Section order}
+\begin{itemize}[leftmargin=*]
+\item Chapter~3 was ``Notation and glossary''. It is now ``Background and notation'' and keeps the status labels, the global data, the two background sections (division algebras, representation theory), local fields, Hilbert symbols, and the four chapter-specific notation sections.
+\item The six glossary sections (covers and the cocycle normalization; genuine objects; orbital integrals and matching; Haar measures; the division-side transform; named results and hypotheses) form a new Chapter~10, ``Glossary'', after the Summary of results. Their text is unchanged apart from the orienting paragraphs listed in Section~\ref{sec:additions}.
+\item The order is now: Abstract, Preface, Introduction, Literature, Background and notation, Chapters~4--8, Summary of results, Glossary, Appendix, Acknowledgments, Bibliography, Index.
+\item Three sentences in Chapter~1 that described or pointed into the old Chapter~3 were adjusted to the new layout, and a line for Chapter~10 was added to the list of chapters.
+\end{itemize}
+
+\subsection{Citation keys}
+Seven keys did not follow rule 1.7. Each was changed in the bibliography and in every \verb|\cite|.
+\begin{center}
+\begin{tabular}{@{}llr@{}}\toprule
+Old key & New key & Citations updated\\\midrule
+\texttt{J88} & \texttt{Jo88} & 6\\
+\texttt{JC26} & \texttt{JC26a} & 86\\
+\texttt{JRE26} & \texttt{JC26b} & 7\\
+\texttt{Z23} & \texttt{Zo23} & 26\\
+\texttt{MilADT06} & \texttt{Mil06} & 2\\
+\texttt{PRa88} & \texttt{PR88} & 2\\
+\texttt{PRp96} & \texttt{PR96} & 3\\
+\bottomrule\end{tabular}
+\end{center}
+\texttt{JC26} and \texttt{JRE26} are both by Joyner and Claude, 2026, hence the letters a and b. The other keys use up to three letters for a single author (\texttt{Bad08}, \texttt{Kaz84}), which was read as conforming. Four bibliography entries were moved to keep the list in the order of its labels.
+
+\subsection{Hand-typed references and citations (rule 1.5)}
+\begin{center}\small
+\begin{longtable}{@{}p{0.12\linewidth}p{0.40\linewidth}p{0.40\linewidth}@{}}\toprule
+Chapter & Was & Now\\\midrule\endhead
+3 & (Chapter 4, proof of Proposition 5.5) & proof of \texttt{I:prop:good}\\
+3 & equation (1) & \texttt{I:eq:ambient}\\
+7 & Chapter 4, Prop.\ 2.3(b) & \texttt{I:prop:restriction}(b)\\
+7 & Chapter 6, Thms.\ 4.3, 7.6 & \texttt{III:thm:unitary}, \texttt{III:thm:tame-transfer}\\
+7 & Prop.\ 5.5 & \texttt{I:prop:global}\\
+8 & Chapter 4, Prop.\ 2.3 & \texttt{I:prop:restriction}\\
+8 & Chapter 4, Prop.\ 3.1 & \texttt{I:prop:comm}\\
+8 & ([JC26], Proposition 2.4) & \verb|\cite[Proposition~2.4]{JC26a}|\\
+3, 6, 7 & Zou's equation (3.2), five places & \verb|\cite[(3.2)]{Zo23}|\\
+7 & {[Zou, \S3]} & \verb|\cite[\S3]{Zo23}|\\
+10 & {[Flicker--Kazhdan, \S\ldots]}, five places & \verb|\cite[\S...]{FK86}|\\
+10 & {[Kazhdan--Patterson, \S0.1]} & \verb|\cite[\S0.1]{KP84}|\\
+\bottomrule
+\end{longtable}
+\end{center}
+The numbers were resolved as follows. ``Proposition 5.5'' in the glossary follows the numbering of Part~I Draft~11, in which the proposition on good elements is 5.5. The references in Chapters~7 and~8 follow the numbering of Part~I Draft~8 and of Part~III, which agree with the section numbering of Chapters~4 and~6 of the book. Each target was also checked against the content of the sentence that cites it. \textbf{David: please confirm the three ``Prop.'' targets in Chapters~7 and~8.}
+
+\subsection{Hypothesis tags}
+In the last paragraph of Chapter~6 the tags $(H_D')$ and $(H')$ are now written $(\mathrm{Hyp}_D')$ and $(\mathrm{Hyp}')$, as everywhere else in the book. The hypothesis (H1) of Chapter~8 is a different object and is unchanged.
+
+\subsection{Revision notes removed from the body}
+\begin{center}\small
+\begin{longtable}{@{}p{0.10\linewidth}p{0.44\linewidth}p{0.38\linewidth}@{}}\toprule
+Chapter & Was & Now\\\midrule\endhead
+4, \S4.1.3 & ``References to Chapter 5 are to Draft 8 and those to Chapter 6 are to Draft 9.'' & removed\\
+4, 5 & ``(Draft 9)'' after references to Chapter 6, three places & removed\\
+5, \S5.1 & ``References such as \ldots\ are to Draft 11 of Chapter 4, and [JC26] refers \ldots'' & ``Here [JC26a] refers \ldots''\\
+7, 9 & ``a standalone companion chapter (Chapter 8), here begun as Draft 0'' & ``a standalone companion chapter (Chapter 8)''\\
+7, \S7.1 & ``(here cited as Draft 8 of each)'' & removed\\
+7, \S7.6 & ``the separate companion project \emph{Wild-place metaplectic character transfer in degree two}, Draft 0, cited below as Chapter 8'' & ``the separate companion chapter, Chapter 8''\\
+8, overview & ``(Target A of Draft 0)'' & ``(Target A)''\\
+8, \S8.1 & ``Draft 0 proved \ldots, worked out \ldots, proved \ldots, and formulated three targets'' & ``The chapter proves \ldots, works out \ldots, proves \ldots, and formulates three targets''\\
+8, \S8.1 & ``Drafts 1--6 settle Target A \ldots'' & ``The later sections settle Target A \ldots''\\
+8, \S8.14 & subsection title ``Proof checkpoints retained from Draft 0'' & ``Proof checkpoints''\\
+A & ``Since Draft 7, script 13 certifies'' & ``Script 13 certifies''\\
+A & ``since Draft 6 those two scripts are corroboration only'' & ``those two scripts are corroboration only''\\
+\bottomrule
+\end{longtable}
+\end{center}
+Left in place: the acknowledgment for Chapter~8 mentions Drafts~1--3 of the source manuscript, because it records who did what. One sentence in Chapter~8 (Remark on standing conventions) cites ``Chapter~6's log''. It was left because it is a pointer to a source and not a description of a change.
+
+\subsection{Wording that still described separate papers}
+The Draft~1 log listed this as a known limitation. In thirteen places ``this paper'', ``the present paper'', ``this Part'' or ``this series'' now reads ``this chapter'', ``the present chapter'', the chapter's number, or ``this book''. The places are in \S2.2, \S2.3, \S2.4, \S3.9, \S4.1.1, \S4.9 and Chapter~8 (\S8.1 and \S8.2). In \S2.1 ``Deligne--Kazhdan--Vign\'eras'' became ``Deligne, Kazhdan and Vign\'eras'' to remove an overfull line.
+
+\subsection{Overfull boxes}
+The repository address is now set with \verb|\nolinkurl| so that it can break (Preface, Acknowledgments, Appendix). Three inline formulas were set as displays: the normalized cocycle $\tau_w$ in the glossary, and two formulas in the proof of Proposition~\texttt{W:prop:H1} (case $b\neq0$, $b'=0$). The row of four matrices in Appendix~A.1 is broken into two rows. No formula was altered.
+
+\section{Additions that need refereeing}\label{sec:additions}
+\subsection{Examples paired with the definitions (rule 3.4)}
+Each example follows its definition. All but four continue the running example. The third column says what is new, so that a referee knows what to check.
+\begin{center}\small
+\begin{longtable}{@{}p{0.07\linewidth}p{0.46\linewidth}p{0.41\linewidth}@{}}\toprule
+No. & Label and content & What to check\\\midrule\endhead
+4.2.2 & \texttt{\detokenize{I:ex:localcovers}}. Follows: definition of the local covers. Instantiates the definition at $\mathfrak p_7$: $K_v=\mathbb Q_7$, $L_v=\mathbb Q_7(i)$ unramified, the cocycle exponent $c_v=2$, and an explicit matrix form of $\iota_D$ with $\det\iota_D=\mathrm{Nrd}$. & New: the explicit $2\times2$ matrix model of $\iota_D$ (the standard cyclic-algebra representation) and the claim that $-1$ is a nonsquare in $\mathbb Q_7$.\\[3pt]
+4.3.9 & \texttt{\detokenize{I:ex:iso}}. Follows: definition of $\mathrm{Iso}_{\overline Z}$. Counts the isomorphisms: one at $\mathfrak p_7$, nine at $\mathfrak p_3$. & New: the count $|X|=[E^\times:F^\times E^{\times n}]$, from Theorem I:thm:ident(c), Proposition I:prop:good(b) and the fact that a finite abelian group of exponent dividing $n$ has as many $\mu_n$-valued characters as elements.\\[3pt]
+4.4.2 & \texttt{\detokenize{I:ex:oi}}. Follows: definition of the orbital integral. Computes $\Delta(a+bi)=|b|_F|a^2+b^2|_F^{-1/2}$ at $\mathfrak p_7$, with the values $\Delta(1+i)=1$, $\Delta(1+7i)=7^{-1}$, and evaluates $\Phi$ and $F$ for a conjugation-invariant function. & New: the computation of $\Delta$ and the formula $\Phi=\mathrm{vol}\cdot\tilde f(\tilde\gamma)$ for invariant $\tilde f$. No claim is made that a particular invariant function exists.\\[3pt]
+4.4.5 & \texttt{\detokenize{I:ex:matching}}. Follows: definition of matching. Spells out (M1) and (M2) for $r=2$, gives the zero pair and the family from Theorem I:thm:easy(a). & New: the remark that (M2) holds for a function supported on the elliptic set because conjugates of non-elliptic elements are non-elliptic.\\[3pt]
+4.5.5 & \texttt{\detokenize{I:ex:globalcovers}}. Follows: definition of the global covers. Describes the two global covers in the running example and where they differ. & No new claim beyond Proposition I:prop:outsideS and the compactness of $D_v^\times$ modulo its center.\\[3pt]
+4.6.6 & \texttt{\detokenize{I:ex:admissible}}. Follows: definition of admissible pairs. Assembles an admissible pair place by place with $w_0\mid13$ and $u=\mathfrak p_7$. & Relies on Theorem I:thm:easy(a). Please check that the choices at $S_D\smallsetminus(S\cup\{w_0\})$ meet condition (b) as intended.\\[3pt]
+4.7.10 & \texttt{\detokenize{I:ex:HD}}. Follows: definition of $(\mathrm{Hyp}_D)$. The case of a packet with one member. & No new claim. It points forward to Proposition I:prop:HDfinite.\\[3pt]
+5.2.2 & \texttt{\detokenize{II:ex:measures}}. Follows: definition of compatible measures. Scaling behavior, and the choice $d(\mathrm{St})=1$, which makes $dg_{D,v}$ the probability measure. & New: only the statement that formal degree scales inversely with Haar measure.\\[3pt]
+5.3.3 & \texttt{\detokenize{II:ex:section}}. Follows: definition of the section $\mathbf s$. $\mathbf s(1)=1$, the section on scalars, and the cube root congruent to $1$ modulo $7$ at $\mathfrak p_7$. & New: the identification of $a^{1/3}$ among the three cube roots at $\mathfrak p_7$, using $\delta_3=1$ and Lemma II:lem:roots(c).\\[3pt]
+5.6.2 & \texttt{\detokenize{II:ex:uadm}}. Follows: definition of $u$-admissible pairs. A $u$-admissible pair that is not admissible, with $u=\mathfrak p_7$. & New: the remark that every admissible pair is $u$-admissible. Relies on Theorem II:thm:matching(a).\\[3pt]
+5.6.6 & \texttt{\detokenize{II:ex:HDprime}}. Follows: definition of $(\mathrm{Hyp}_D')$, $(\mathrm{Hyp}')$. What the weaker hypothesis allows at $\mathfrak p_3$ when $u=\mathfrak p_7$. & New: the statement that a packet with one member satisfies $(\mathrm{Hyp}_D')$, which follows from Proposition I:prop:HDfinite and $(\mathrm{Hyp}_D)\Rightarrow(\mathrm{Hyp}_D')$.\\[3pt]
+6.2.2 & \texttt{\detokenize{III:ex:star}}. Follows: definition of the star map. The three lifts of $h$ have the same cube, $1^*=1$. & No new claim.\\[3pt]
+6.2.4 & \texttt{\detokenize{III:ex:good}}. Follows: definition of a good regular element. All regular elements are good at $\mathfrak p_7$. At $\mathfrak p_3$ the lifts of $j$ are good and the lifts of $1+j$ are not. & New: $j=\varpi^{-1}j^3\in F^\times E^{\times3}$, and the use of Lemma W:lem:cube(e) for $1+j$ (depth $1$). This is a forward reference from Chapter 6 to Chapter 8.\\[3pt]
+6.4.2 & \texttt{\detokenize{III:ex:L}}. Follows: definition of $L_D$. The transform at $\mathfrak p_7$ (no rescaling) and the values $3$, $9$, $27$ of $L_D\mathbf 1$ at $j^*$, $(1+j)^*$, $(1+\varpi j)^*$ at $\mathfrak p_3$. & No new computation. The values are those of equation W:eq:ramified-values and the table after it. Forward reference to Chapter 8.\\[3pt]
+7.8.2 & \texttt{\detokenize{IV:ex:FKcompatible}}. Follows: definition of FK-compatible functions. The condition for $r=2$, $n=3$: nothing on a field torus, and equality of $J$ at $\mathrm{diag}(a,b)$, $\mathrm{diag}(a,\zeta_3b)$, $\mathrm{diag}(a,\zeta_3^2b)$ on the split torus. & A direct specialization of the definition.\\[3pt]
+8.10.2 & \texttt{\detokenize{W:ex:H1torus}}. Follows: hypothesis (H1). Shows that $\psi_6$ is multiplicative over a single maximal subfield without any hypothesis. & New: this short argument, which uses that the star map is a homomorphism on each covered torus and that $\widetilde Z$ is central.\\[3pt]
+\bottomrule
+\end{longtable}
+\end{center}
+Labels written in the third column (for example I:prop:good) are the book's \verb|\label| names.
+
+Two examples in Chapter~6 (6.2.4 and 6.4.2) refer forward to Chapter~8. The facts they use are proved there without using Chapter~6's definitions of the star map or of good elements in any new way, but a referee should confirm that no circularity arises.
+
+\subsection{Abstract}
+The Abstract is new. It states the setting and the contributions, following the Introduction and the chapter overviews. It claims nothing that the book does not state. It describes Theorems~C and~C$'$ as proved under a non-cancellation hypothesis, describes the integrality of $L_D$ at places dividing $n$ as proved only in part, and describes the results of Chapter~8 at the wild place as proved modulo exhaustive exact computations, label (P$^{\mathrm c}$). It also says that the book grew out of the 1988 paper [Jo88] and that Remark~10.3 of its corrected version [JC26a] outlines the step the book begins to carry out. That last sentence follows \S4.1.1.
+
+\subsection{Orienting paragraphs (rule 3.2)}
+An orienting paragraph was added at the start of each heading below. Each says what the section does and why, in two or three sentences. They are meant to contain no mathematical claim beyond what the section itself states, but they do paraphrase mathematics, so they are listed.
+\begin{itemize}[leftmargin=*]
+\item Chapter~1: the chapter opening.
+\item Chapter~3: the chapter opening (rewritten for the new layout), \S3.2, \S3.4, \S3.5, \S3.7--\S3.10.
+\item Chapter~10: the chapter opening and \S10.1--\S10.6.
+\item Chapter~6: \S{}6.9.1, \S{}6.9.2, \S{}6.12.1, \S{}6.12.2.
+\item Chapter~7: \S{}7.2.1, \S{}7.2.2, \S{}7.6.1, \S{}7.6.2, \S{}7.8.1, \S{}7.8.2, \S{}7.9, \S{}7.9.1.
+\item Chapter~8: \S{}8.2.3, \S{}8.3, \S{}8.3.1, \S{}8.4, \S{}8.5, \S{}8.5.1, \S{}8.5.2, \S{}8.5.3, \S{}8.6, \S{}8.7.1, \S{}8.7.2, \S{}8.8, \S{}8.8.1, \S{}8.8.2, \S{}8.8.3, \S{}8.9, \S{}8.9.1, \S{}8.9.2, \S{}8.9.3, \S{}8.9.4, \S{}8.10, \S{}8.10.1, \S{}8.10.2, \S{}8.11.1, \S{}8.12, \S{}8.13, \S{}8.13.1, \S{}8.13.2, \S{}8.13.3, \S{}8.13.4, \S{}8.13.5, \S{}8.14.1.
+\item Chapter~9: \S{}9.4, \S{}9.5.
+\item Appendix~A: \S{}A.1.
+\end{itemize}
+In all, 61 headings received an orienting paragraph or had theirs rewritten. Headings whose existing opening already said what the section does were left alone. This includes every subsection of Chapters~4 and~5.
+
+\subsection{Other new text}
+The new paragraphs of the Acknowledgments and the shortened Preface contain no mathematics.
+
+\section{Concordance}\label{sec:concordance}
+No equation number changed. Section numbers changed only in the old Chapter~3. Theorem numbers changed only because the 16 new examples use the shared theorem counter.
+
+\subsection{Sections}
+\begin{center}
+\begin{tabular}{@{}lll@{}}\toprule
+Section & Draft 2 before this pass & Now\\\midrule
+Status labels; Global data; Division algebras & 3.1--3.3 & 3.1--3.3\\
+Local fields and absolute values & 3.4 & 3.4\\
+Hilbert symbols & 3.5 & 3.5\\
+Covers and the cocycle normalization & 3.6 & 10.1\\
+Genuine objects, central characters and good elements & 3.7 & 10.2\\
+Representation-theoretic background & 3.8 & 3.6\\
+Orbital integrals and matching & 3.9 & 10.3\\
+Haar measures & 3.10 & 10.4\\
+The division-side transform & 3.11 & 10.5\\
+Named results and hypotheses & 3.12 & 10.6\\
+Notation specific to Chapters 4, 5, 6, 7 & 3.13--3.16 & 3.7--3.10\\
+\bottomrule\end{tabular}
+\end{center}
+
+\subsection{Rule for theorem-like items}
+The rule below covers every numbered item, labeled or not. In a section not listed, no number changed.
+\begin{center}
+\begin{tabular}{@{}lll@{}}\toprule
+Section & New example(s) at & Old number $\to$ new number\\\midrule
+4.2 & 4.2.2 & 4.2.$j$ $\to$ 4.2.$(j{+}1)$ for $j\ge2$\\
+4.3 & 4.3.9 & 4.3.$j$ $\to$ 4.3.$(j{+}1)$ for $j\ge9$\\
+4.4 & 4.4.2, 4.4.5 & $j\to j{+}1$ for $2\le j\le3$; $j\to j{+}2$ for $j\ge4$\\
+4.5 & 4.5.5 & 4.5.$j$ $\to$ 4.5.$(j{+}1)$ for $j\ge5$\\
+4.6 & 4.6.6 & 4.6.$j$ $\to$ 4.6.$(j{+}1)$ for $j\ge6$\\
+4.7 & 4.7.10 & 4.7.$j$ $\to$ 4.7.$(j{+}1)$ for $j\ge10$\\
+5.2 & 5.2.2 & 5.2.$j$ $\to$ 5.2.$(j{+}1)$ for $j\ge2$\\
+5.3 & 5.3.3 & 5.3.$j$ $\to$ 5.3.$(j{+}1)$ for $j\ge3$\\
+5.6 & 5.6.2, 5.6.6 & $j\to j{+}1$ for $2\le j\le4$; $j\to j{+}2$ for $j\ge5$\\
+6.2 & 6.2.2, 6.2.4 & $j\to j{+}1$ for $2\le j\le2$; $j\to j{+}2$ for $j\ge3$\\
+6.4 & 6.4.2 & 6.4.$j$ $\to$ 6.4.$(j{+}1)$ for $j\ge2$\\
+7.8 & 7.8.2 & 7.8.$j$ $\to$ 7.8.$(j{+}1)$ for $j\ge2$\\
+8.10 & 8.10.2 & 8.10.$j$ $\to$ 8.10.$(j{+}1)$ for $j\ge2$\\
+\bottomrule\end{tabular}
+\end{center}
+
+\subsection{Labeled items whose number changed}
+\begin{center}\small
+\begin{longtable}{@{}lll@{}}\toprule
+Label & Old & New\\\midrule\endhead
+\texttt{\detokenize{gl:cocycle}} & 3.6 & 10.1\\
+\texttt{\detokenize{gl:genuine}} & 3.7 & 10.2\\
+\texttt{\detokenize{gl:reptheory}} & 3.8 & 3.6\\
+\texttt{\detokenize{gl:matching}} & 3.9 & 10.3\\
+\texttt{\detokenize{gl:measures}} & 3.10 & 10.4\\
+\texttt{\detokenize{gl:transform}} & 3.11 & 10.5\\
+\texttt{\detokenize{gl:named}} & 3.12 & 10.6\\
+\texttt{\detokenize{I:subsec:glossI}} & 3.13 & 3.7\\
+\texttt{\detokenize{II:subsec:glossII}} & 3.14 & 3.8\\
+\texttt{\detokenize{III:subsec:glossIII}} & 3.15 & 3.9\\
+\texttt{\detokenize{IV:sec:glossary}} & 3.16 & 3.10\\
+\texttt{\detokenize{I:lem:center}} & 4.2.2 & 4.2.3\\
+\texttt{\detokenize{I:prop:restriction}} & 4.2.3 & 4.2.4\\
+\texttt{\detokenize{I:rem:JC61c}} & 4.2.4 & 4.2.5\\
+\texttt{\detokenize{I:rem:chidet}} & 4.2.5 & 4.2.6\\
+\texttt{\detokenize{I:prop:outsideS}} & 4.2.6 & 4.2.7\\
+\texttt{\detokenize{I:ex:split-matching}} & 4.2.7 & 4.2.8\\
+\texttt{\detokenize{I:thm:ident}} & 4.3.9 & 4.3.10\\
+\texttt{\detokenize{I:prop:natural}} & 4.3.11 & 4.3.12\\
+\texttt{\detokenize{I:cor:classes}} & 4.3.12 & 4.3.13\\
+\texttt{\detokenize{I:cor:reps}} & 4.3.13 & 4.3.14\\
+\texttt{\detokenize{I:lem:oiprops}} & 4.4.2 & 4.4.3\\
+\texttt{\detokenize{I:def:matching}} & 4.4.3 & 4.4.4\\
+\texttt{\detokenize{I:lem:transported}} & 4.4.4 & 4.4.6\\
+\texttt{\detokenize{I:thm:easy}} & 4.4.5 & 4.4.7\\
+\texttt{\detokenize{I:prop:germ}} & 4.4.6 & 4.4.8\\
+\texttt{\detokenize{I:lem:Asub}} & 4.4.8 & 4.4.10\\
+\texttt{\detokenize{I:lem:Acover}} & 4.4.9 & 4.4.11\\
+\texttt{\detokenize{I:lem:Aprops}} & 4.4.10 & 4.4.12\\
+\texttt{\detokenize{I:lem:Arealize}} & 4.4.11 & 4.4.13\\
+\texttt{\detokenize{I:lem:traceOI}} & 4.4.12 & 4.4.14\\
+\texttt{\detokenize{I:prop:global}} & 4.5.5 & 4.5.6\\
+\texttt{\detokenize{I:thm:rational}} & 4.5.6 & 4.5.7\\
+\texttt{\detokenize{I:cor:rationalbij}} & 4.5.7 & 4.5.8\\
+\texttt{\detokenize{I:lem:Bsup}} & 4.5.8 & 4.5.9\\
+\texttt{\detokenize{I:thm:comparison}} & 4.6.6 & 4.6.7\\
+\texttt{\detokenize{I:rem:Einputs}} & 4.6.7 & 4.6.8\\
+\texttt{\detokenize{I:prop:HDfinite}} & 4.7.10 & 4.7.11\\
+\texttt{\detokenize{I:thm:transfer}} & 4.7.11 & 4.7.12\\
+\texttt{\detokenize{I:thm:converse}} & 4.7.12 & 4.7.13\\
+\texttt{\detokenize{I:rem:H}} & 4.7.13 & 4.7.14\\
+\texttt{\detokenize{II:rem:measures}} & 5.2.2 & 5.2.3\\
+\texttt{\detokenize{II:prop:section}} & 5.3.3 & 5.3.4\\
+\texttt{\detokenize{II:lem:chooseM}} & 5.3.5 & 5.3.6\\
+\texttt{\detokenize{II:prop:transport}} & 5.3.6 & 5.3.7\\
+\texttt{\detokenize{II:cor:germexp}} & 5.3.7 & 5.3.8\\
+\texttt{\detokenize{II:rem:FK8}} & 5.3.8 & 5.3.9\\
+\texttt{\detokenize{II:thm:comparison2}} & 5.6.2 & 5.6.3\\
+\texttt{\detokenize{II:prop:packet2}} & 5.6.3 & 5.6.4\\
+\texttt{\detokenize{II:def:HDprime}} & 5.6.4 & 5.6.5\\
+\texttt{\detokenize{II:thm:Cprime}} & 5.6.5 & 5.6.7\\
+\texttt{\detokenize{II:thm:Cprimeconv}} & 5.6.7 & 5.6.9\\
+\texttt{\detokenize{II:cor:Hprimesq}} & 5.6.8 & 5.6.10\\
+\texttt{\detokenize{II:prop:cancel2}} & 5.6.9 & 5.6.11\\
+\texttt{\detokenize{II:cor:finiteStypes}} & 5.6.11 & 5.6.13\\
+\texttt{\detokenize{III:def:good}} & 6.2.2 & 6.2.3\\
+\texttt{\detokenize{III:rem:good-vanish}} & 6.2.3 & 6.2.5\\
+\texttt{\detokenize{III:prop:good}} & 6.2.4 & 6.2.6\\
+\texttt{\detokenize{III:lem:well-defined}} & 6.4.2 & 6.4.3\\
+\texttt{\detokenize{III:thm:unitary}} & 6.4.3 & 6.4.4\\
+\texttt{\detokenize{III:rem:normalizations}} & 6.4.4 & 6.4.5\\
+\texttt{\detokenize{IV:lem:FKnecessary}} & 7.8.2 & 7.8.3\\
+\texttt{\detokenize{IV:prop:ranktwo-unit}} & 7.8.3 & 7.8.4\\
+\texttt{\detokenize{IV:rem:fk-range}} & 7.8.4 & 7.8.5\\
+\texttt{\detokenize{IV:prop:conditionalglobal}} & 7.8.5 & 7.8.6\\
+\texttt{\detokenize{IV:rem:identity-germs}} & 7.8.7 & 7.8.8\\
+\texttt{\detokenize{IV:ex:ranktwoledger}} & 7.8.8 & 7.8.9\\
+\texttt{\detokenize{W:lem:H1necessary}} & 8.10.2 & 8.10.3\\
+\texttt{\detokenize{W:lem:H1consequences}} & 8.10.3 & 8.10.4\\
+\texttt{\detokenize{W:prop:forces}} & 8.10.4 & 8.10.5\\
+\texttt{\detokenize{W:prop:design}} & 8.10.5 & 8.10.6\\
+\texttt{\detokenize{W:thm:H1equiv}} & 8.10.6 & 8.10.7\\
+\bottomrule
+\end{longtable}
+\end{center}
+
+\section{Guide rules not applied, and why}
+\begin{itemize}[leftmargin=*]
+\item Rules 6.2 and 6.3 (subtitle, date line, \verb|\thanks| note): by ruling 1 above.
+\item Rule 1.6: theorem numbers are by chapter and section, and equation numbers are by chapter, as the \texttt{book} class gives them. By ruling 2.
+\item Rule 3.3 (an example in every section): deferred by ruling 5. At present 9 of the 80 sections of Chapters~2--9 and the Appendix contain an example environment. About 22 sections have nothing to exemplify (literature, status labels, notation lists, chapter introductions, lists of open problems, summaries, the script appendix). Roughly 45 sections still need an example.
+\item Rule 3.8 (no semicolons): applied to new text only, by the ground rules.
+\item Rule 2.1 asks for an abstract. The \texttt{book} class has none, so the Abstract is an unnumbered front-matter chapter.
+\item The default preamble of the guide uses \texttt{hidelinks}. The book keeps its colored links, since the guide's preamble is stated for new papers.
+\item Rules 6.5--6.8 do not apply. The book is not a revision of an older paper, so there is no split between original and newly established results to record. All results date from 2026, and no status was changed in this pass.
+\end{itemize}
+
+\section{What was not verified}\label{sec:notverified}
+\begin{itemize}[leftmargin=*]
+\item No source in the bibliography was consulted in this pass. No citation, theorem number or page number in an existing citation was checked (rule 4.3).
+\item No script was run (rule 4.4).
+\item The proofs were not refereed. This was a style pass. The full read needed for rules 3.2--3.4 was done by reading the opening of every section and subsection and the statement and surroundings of every definition, not by checking proofs line by line.
+\item The build was checked with \texttt{mathptmx}, not with newtx.
+\item The 16 new examples were checked by their author only. They need an independent referee.
+\item Section~\ref{sec:nov9} is a summary of commit messages. The changes it describes were not checked again.
+\end{itemize}
+
+\section{AI usage in this draft}
+The pass of November~12, 2026 was carried out by Claude (Anthropic), model Claude Fable~5.2, working from David Joyner's instructions, with a plan approved by him before any edit. Claude wrote the Abstract, the orienting paragraphs, the 16 examples, the new paragraphs of the Acknowledgments and this log. The commits of November~9 were made by Claude (Anthropic), model Claude Sonnet~5, according to their commit messages. ChatGPT (OpenAI) took no part in Draft~2. The AI usage for the source manuscripts is recorded in their own revision logs and referee reports, in the folders \texttt{part-I} to \texttt{part-IV} of the repository.
+
+\section{The commits of November 9, 2026}\label{sec:nov9}
+These six commits turned Draft~1 into the file that this pass started from. The summary follows the commit messages.
+\begin{enumerate}[leftmargin=*]
+\item \texttt{78c6c5f}: a round of 15 editorial revisions to Draft~1.
+\item \texttt{09d254a}: the main file was renamed from \texttt{mjl\_book\_draft1} to \texttt{mjl\_book\_draft}. The running example was given an example environment (Example~1.3.1) and a remark checking that it meets the hypotheses in play. The README and the running-example note were brought up to date.
+\item \texttt{c87b14b}: the visible (P) tag was removed from the headers of results proved in their own chapter, and kept in the status tables. Three pieces of mathematics were added: Remark \texttt{III:rem:coprimality-needed} (a counterexample showing that $(n,r)=1$ is needed in Lemma \texttt{III:lem:regular}), Example \texttt{II:ex:trivgerm} (the trivial germ at $\mathfrak p_7$) and Example \texttt{I:ex:split-matching} (matching at a split place).
+\item \texttt{614cffe}: new background section on division algebras (now \S3.3). Index entries for all 16 definitions. Bibliography entry for Pierce. The title page was labeled Draft~2.
+\item \texttt{42698b6}: cross-references from Chapter~1 to the background, and index entries for ``Division algebra'', ``Index'' and ``Splitting field''.
+\item \texttt{9182c9c}: every item of \S3.3 was tied to the running example. New items ``Congruence filtration and level'' (\S3.3) and ``Toral positivity; the discriminant ratio'' (now \S10.6).
+\end{enumerate}
+\textbf{The mathematical additions of commits \texttt{c87b14b}, \texttt{614cffe} and \texttt{9182c9c} have not been refereed either}, as far as the repository shows. They should go to the referee together with the additions of Section~\ref{sec:additions}.
+
+\section{Material moved here from the Preface}\label{sec:moved}
+\paragraph{Sources.} Chapters~4--8 are the following manuscripts, written in November 2026 and frozen when the book was assembled.
+\begin{center}\small
+\begin{tabular}{@{}lll@{}}\toprule
+Chapter & Source & Authors (as on the source)\\\midrule
+4 & Part~I, Draft~11 & Joyner, Claude, ChatGPT\\
+5 & Part~II, Draft~10 & Joyner, Claude, ChatGPT\\
+6 & Part~III, Draft~10 & Joyner, ChatGPT, Claude\\
+7 & Part~IV, concluding Draft~6 & Joyner, ChatGPT, Claude\\
+8 & Companion paper on the rank-two wild place, Draft~8 & Joyner, ChatGPT, Claude\\
+\bottomrule\end{tabular}
+\end{center}
+Chapter~2 gathers the literature review of Part~I and the related-work sections of the other manuscripts. Chapters~3 and~10 gather the shared glossary of the series and the notation sections of the manuscripts. Chapter~9 gathers their summaries of results. The Appendix holds the tables and verification scripts of Chapter~8.
+
+\paragraph{What changed in the conversion (from the Draft 1 Preface).} No statement, proof, hypothesis or status label was changed. References between the manuscripts, which were typed by hand (``Part~I, Lemma~2.2''), are now cross-references to the numbering of the book; references to the literature are now citations to one bibliography; the macros of each manuscript are kept, local to its chapter. The source drafts sometimes cite other Parts by an older numbering; each such reference was mapped through the numbering of the draft it was written against. Where a manuscript names an item with the wrong type (for example ``Definition'' for what is a lemma), the reference now shows the item's actual type; these cases are listed in the revision log of Draft~1. Each chapter still has its own introduction, which repeats some of the setting; removing that repetition is left for a later draft.
+
+\section{Files}
+\begin{itemize}[leftmargin=*]
+\item \texttt{book/mjl\_book\_draft.tex} and its PDF.
+\item \texttt{book/chapters/}, with two new files: \texttt{ch10\_glossary.tex} and \texttt{index\_macros.tex}.
+\item This log, \texttt{book/mjl\_book\_revision\_log\_draft2.tex}, and its PDF. The log of Draft~1 is unchanged.
+\item \texttt{README.md} and \texttt{book/tools/README.md}, updated.
+\end{itemize}
+\end{document}

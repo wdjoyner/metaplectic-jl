@@ -39,20 +39,20 @@
 \providecommand{\Ov}{}\renewcommand{\Ov}{\textbf{(O)}}
 \providecommand{\Cv}{}\renewcommand{\Cv}{\textbf{(C)}}
 \chapter[Local matching and global transfer]{Local matching and a global transfer under elliptic-support conditions}\label{ch:I}
-\paragraph{Overview.} Let $D$ be a central division algebra of prime degree $r$ over a totally imaginary number field $K$ containing $\mu_n$, with $n$ odd and $(n,r)=1$. We compare the $n$-fold cover of $D^\times_{\A}$ constructed in \cite{JC26} with the Kazhdan--Patterson cover of $\GL(r,\A_K)$, realizing both as subgroups of one cover of $\GL(r,\A_L)$, where $L\subset D$ is a cyclic maximal subfield. \emph{Theorem~A:} at each ramified place of $D$, the covered elliptic tori on the two sides have the same commutator pairing and the same good elements, and they are identified on good elements by a canonical isomorphism. \emph{Theorem~B:} genuine test functions supported on the regular set have matching functions on the other side, in both directions. \emph{Theorem~C:} using a variant of the simple trace formula of Flicker--Kazhdan, we prove a locally finite identity of packets at the ramified places. From it we obtain a cuspidal transfer, with the same components away from the ramified places, for every genuine automorphic representation of the cover of $D^\times_{\A}$ that has a supercuspidal component at some split place, under a non-cancellation hypothesis that holds whenever the $D$-side packet is finite. Chapter~\ref{ch:II} proves the matching of arbitrary functions and replaces this hypothesis by a weaker one; Chapter~\ref{ch:III} studies the local character relations from the side of the division algebra.
+\paragraph{Overview.} Let $D$ be a central division algebra of prime degree $r$ over a totally imaginary number field $K$ containing $\mu_n$, with $n$ odd and $(n,r)=1$. We compare the $n$-fold cover of $D^\times_{\A}$ constructed in \cite{JC26a} with the Kazhdan--Patterson cover of $\GL(r,\A_K)$, realizing both as subgroups of one cover of $\GL(r,\A_L)$, where $L\subset D$ is a cyclic maximal subfield. \emph{Theorem~A:} at each ramified place of $D$, the covered elliptic tori on the two sides have the same commutator pairing and the same good elements, and they are identified on good elements by a canonical isomorphism. \emph{Theorem~B:} genuine test functions supported on the regular set have matching functions on the other side, in both directions. \emph{Theorem~C:} using a variant of the simple trace formula of Flicker--Kazhdan, we prove a locally finite identity of packets at the ramified places. From it we obtain a cuspidal transfer, with the same components away from the ramified places, for every genuine automorphic representation of the cover of $D^\times_{\A}$ that has a supercuspidal component at some split place, under a non-cancellation hypothesis that holds whenever the $D$-side packet is finite. Chapter~\ref{ch:II} proves the matching of arbitrary functions and replaces this hypothesis by a weaker one; Chapter~\ref{ch:III} studies the local character relations from the side of the division algebra.
 
 % =====================================================================
 \section{Introduction}\label{I:sec:intro}
-This section states the main results, fixes the standing assumptions and conventions, explains how results are labeled, and describes what the later parts of the series do. It depends on nothing else in the chapter. The global data $K,n,r,L,D,S,r',c,c_v$ are fixed in Assumption~\ref{I:ass:standing}; all notation, including the status labels and the cocycle normalization, is collected in \S\ref{I:sec:glossary}, and the results are summarized, with labels and pointers, in \S\ref{I:sec:summary} at the end of the chapter. Throughout, \cite{JC26} refers to the corrected version (\texttt{metaplectic\_kazhdan\_revised12.tex}) of \cite{J88}, and a reference such as \cite[Lemma~6.1]{JC26} is to the numbering there.
+This section states the main results, fixes the standing assumptions and conventions, explains how results are labeled, and describes what the later parts of the series do. It depends on nothing else in the chapter. The global data $K,n,r,L,D,S,r',c,c_v$ are fixed in Assumption~\ref{I:ass:standing}; all notation, including the status labels and the cocycle normalization, is collected in \S\ref{I:sec:glossary}, and the results are summarized, with labels and pointers, in \S\ref{I:sec:summary} at the end of the chapter. Throughout, \cite{JC26a} refers to the corrected version (\texttt{metaplectic\_kazhdan\_revised12.tex}) of \cite{Jo88}, and a reference such as \cite[Lemma~6.1]{JC26a} is to the numbering there.
 
 \subsection{Setting and aim}\label{I:subsec:setting}
-We fix the global data, which are those of \cite[\S1]{JC26}, and explain where this paper fits.
+We fix the global data, which are those of \cite[\S1]{JC26a}, and explain where this chapter fits.
 
 \begin{assumption}\label{I:ass:standing}
 $K$ is a totally imaginary number field containing $\mu_n$, with $n\ge1$ odd; $L/K$ is cyclic of prime degree $r$ with $(n,r)=1$; $D$ is a central division algebra over $K$ of dimension $r^2$ containing $L$; and $S$ is the set of places where $D$ ramifies. Fix $r'\in\Z$ with $rr'\equiv1\pmod n$ and $c\in\Z$ with $n\mid r-1+2c$, and put $c_v:=r'c$, so that $n\mid r-1+2rc_v$.
 \end{assumption}
 
-The paper \cite{JC26} lifts genuine automorphic representations of an $n$-fold cover of the torus $L^\times_{\A}$ to $\eps$-invariant genuine automorphic representations of an $n$-fold cover $\GDb(\A_K)$ of $D^\times_{\A}$. Its Remark~10.3 outlines the missing step needed to reach the Kazhdan--Patterson cover $\Gb(\A_K)$ of $\GL(r,\A_K)$: a metaplectic Jacquet--Langlands transfer from $\GDb$ to $\Gb$. Chapter~\ref{ch:I} establishes the local matching of test functions that the transfer requires, and a global transfer for representations with suitable local components. The later parts of the series (\S\ref{I:subsec:partII}) remove some of those conditions and study the local character relations.
+The paper \cite{JC26a} lifts genuine automorphic representations of an $n$-fold cover of the torus $L^\times_{\A}$ to $\eps$-invariant genuine automorphic representations of an $n$-fold cover $\GDb(\A_K)$ of $D^\times_{\A}$. Its Remark~10.3 outlines the missing step needed to reach the Kazhdan--Patterson cover $\Gb(\A_K)$ of $\GL(r,\A_K)$: a metaplectic Jacquet--Langlands transfer from $\GDb$ to $\Gb$. Chapter~\ref{ch:I} establishes the local matching of test functions that the transfer requires, and a global transfer for representations with suitable local components. The later parts of the series (\S\ref{I:subsec:partII}) remove some of those conditions and study the local character relations.
 
 Since $r$ is prime, every $v\in S$ is finite (the archimedean places are complex), $D_v$ is a division algebra, and $L_v:=L\otimes_KK_v$ is a field. The local invariants of $D$ are nonzero elements of $\frac1r\Z/\Z$ with sum $0$, so $|S|\ge2$, and $|S|$ is even if $r=2$.
 
@@ -70,19 +70,19 @@ We state the three main results informally; precise statements are referenced.
 Theorem~C rests on the simple trace formula of Flicker and Kazhdan \cite[\S18]{FK86}. We need it in a slightly different form, with the supercusp form at a place outside $S$; this variant is proved in Proposition~\ref{I:prop:FKvariant}. Since the multiplicity-one and local character theory needed to isolate single representations is not available here, Theorem~C is a statement about packets.
 
 \subsection{Goals of the later parts}\label{I:subsec:partII}
-The goals below are needed to complete the metaplectic Jacquet--Langlands correspondence by removing the restrictions of Theorems~B and~C. Each item lists the inputs it needs, followed by its current status in the later parts of the series. References to Chapter~\ref{ch:II} are to Draft~8 and those to Chapter~\ref{ch:III} are to Draft~9.
+The goals below are needed to complete the metaplectic Jacquet--Langlands correspondence by removing the restrictions of Theorems~B and~C. Each item lists the inputs it needs, followed by its current status in the later parts of the series.
 \begin{enumerate}[label=(\roman*)]
 \item \emph{Matching of arbitrary functions.} Extend Theorem~B to all $\tilde f_D$, and to all $\tilde f$ with vanishing non-elliptic orbital integrals. This needs the germ expansions of \cite[\S8]{FK86} at central good elements, their restriction to the elliptic set, and a genuine function with the orbital integrals of a Steinberg pseudo-coefficient near the center, and an analog of \cite[A.3]{DKV84} (\S\ref{I:subsec:general}, item (D1)). \emph{Status:} proved in Chapter~\ref{ch:II} (Theorem~E).
-\item \emph{Local character relations.} Prove a metaplectic local Jacquet--Langlands correspondence: a bijection $\pib_v\leftrightarrow\pib_{D,v}$ between genuine square-integrable representations of $\Gb(K_v)$ and genuine irreducible representations of $\GDb(K_v)$, with $\Theta_{\pib_{D,v}}=(-1)^{r-1}\Theta_{\pib_v}\circ\jj$ on good regular elements (item (D2)). This needs (i), the elliptic orthogonality relations of \cite[\S\S24--25]{FK86}, and multiplicity one and rigidity for $\Gb(\A_K)$ (\cite[\S\S27--28]{FK86}, as corrected in \cite{Z23}). \emph{Status:} Chapter~\ref{ch:III} constructs a unitary transform $L_D$ between ordinary and genuine invariant class functions on $D_v^\times$ and its cover, and proves that it bijects irreducible characters at the places $v\in S$ of residue characteristic prime to $n$. When the square-integrable Flicker--Kazhdan correspondence is available in Zou's corrected form \cite[Proposition~3.6, Definition~3.7]{Z23}, \cref{III:cor:D2tame}, proves (D2) at such tame places; the published sufficient range $(n,N_r)=1$ and the precise compatibility checks are recorded in Remark~\ref{I:rem:D2tame}. Outside that range an appropriate metaplectic correspondence theorem is an additional input. At places dividing $n$ the irreducible-character integrality needed for this composition remains open.
+\item \emph{Local character relations.} Prove a metaplectic local Jacquet--Langlands correspondence: a bijection $\pib_v\leftrightarrow\pib_{D,v}$ between genuine square-integrable representations of $\Gb(K_v)$ and genuine irreducible representations of $\GDb(K_v)$, with $\Theta_{\pib_{D,v}}=(-1)^{r-1}\Theta_{\pib_v}\circ\jj$ on good regular elements (item (D2)). This needs (i), the elliptic orthogonality relations of \cite[\S\S24--25]{FK86}, and multiplicity one and rigidity for $\Gb(\A_K)$ (\cite[\S\S27--28]{FK86}, as corrected in \cite{Zo23}). \emph{Status:} Chapter~\ref{ch:III} constructs a unitary transform $L_D$ between ordinary and genuine invariant class functions on $D_v^\times$ and its cover, and proves that it bijects irreducible characters at the places $v\in S$ of residue characteristic prime to $n$. When the square-integrable Flicker--Kazhdan correspondence is available in Zou's corrected form \cite[Proposition~3.6, Definition~3.7]{Zo23}, \cref{III:cor:D2tame}, proves (D2) at such tame places; the published sufficient range $(n,N_r)=1$ and the precise compatibility checks are recorded in Remark~\ref{I:rem:D2tame}. Outside that range an appropriate metaplectic correspondence theorem is an additional input. At places dividing $n$ the irreducible-character integrality needed for this composition remains open.
 \item \emph{An unconditional global correspondence.} Remove the auxiliary supercuspidal place in Theorem~C, either via W.-W.~Li's trace formula for covers \cite{Li14} or via (i), and refine the packet identity of Theorem~C to a correspondence of individual representations using (ii). \emph{Status:} open; see \S\ref{II:sec:partIII}(iii).
 \item \emph{Removing $(\mathrm{Hyp}_D)$ and (Hyp).} Prove finiteness of near-equivalence packets for $\GDb(\A_K)$ (for example, by bounding the level at $S$ in terms of the components outside $S$), and linear independence of elliptic characters in $\GL$-side packets, so that Theorem~C becomes unconditional (Remark~\ref{I:rem:H}, item (D3)). \emph{Status:} Chapter~\ref{ch:II} replaces $(\mathrm{Hyp}_D)$ by the weaker $(\mathrm{Hyp}_D')$ and reduces its removal to a bound on levels at $S$ (\cref{II:cor:finiteStypes}); open in general.
-\item \emph{Completing \cite[Remark~10.3]{JC26}.} Compose the lifting of \cite{JC26} with the transfer, to obtain genuine automorphic representations of the Kazhdan--Patterson cover of $\GL(r,\A_K)$ attached to genuine characters of the covered torus (item (D4)). Then compare the result with the Flicker--Kazhdan correspondence \cite{FK86} to $\GL(r,\A_K)$ and with Kazhdan's endoscopic lifting. \emph{Status:} open.
+\item \emph{Completing \cite[Remark~10.3]{JC26a}.} Compose the lifting of \cite{JC26a} with the transfer, to obtain genuine automorphic representations of the Kazhdan--Patterson cover of $\GL(r,\A_K)$ attached to genuine characters of the covered torus (item (D4)). Then compare the result with the Flicker--Kazhdan correspondence \cite{FK86} to $\GL(r,\A_K)$ and with Kazhdan's endoscopic lifting. \emph{Status:} open.
 \end{enumerate}
 
 \subsection{Conventions}\label{I:subsec:conventions}
 The conventions below are repeated, with the rest of the series' notation, in \S\ref{I:sec:glossary} (Hilbert symbols in \S\ref{gl:hilbert}, covers and the relabeling of $\mu_n$ in \S\ref{gl:cocycle}, genuine objects and good elements in \S\ref{gl:genuine}).
 
-All Hilbert symbols are $n$-th Hilbert symbols. For a finite extension $F'/F$ of local fields containing $\mu_n$, $a\in F^\times$ and $b\in F'^\times$, we use the norm compatibility $(a,b)_{F'}=(a,N_{F'/F}b)_F$ \cite[Ch.~XIV]{Ser79}; in particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$. For lifts $\tilde x,\tilde y$ of commuting elements, $[x,y]=\tilde x\tilde y\tilde x^{-1}\tilde y^{-1}$. For a cover $p:\ov H\to H$ and $H'\subset H$ we write $\ov{H'}=p^{-1}(H')$. Genuine functions and representations, good elements, and $C_c^\infty(\ov H,\tilde\theta)_\gen$ are as in \cite[\S\S1--2]{JC26}. As in \cite[\S6.1]{JC26}, we relabel $\mu_n$ once, by $\zeta\mapsto\zeta^{r'}$, at every place and globally, and we say explicitly when a formula is stated before or after relabeling.
+All Hilbert symbols are $n$-th Hilbert symbols. For a finite extension $F'/F$ of local fields containing $\mu_n$, $a\in F^\times$ and $b\in F'^\times$, we use the norm compatibility $(a,b)_{F'}=(a,N_{F'/F}b)_F$ \cite[Ch.~XIV]{Ser79}; in particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$. For lifts $\tilde x,\tilde y$ of commuting elements, $[x,y]=\tilde x\tilde y\tilde x^{-1}\tilde y^{-1}$. For a cover $p:\ov H\to H$ and $H'\subset H$ we write $\ov{H'}=p^{-1}(H')$. Genuine functions and representations, good elements, and $C_c^\infty(\ov H,\tilde\theta)_\gen$ are as in \cite[\S\S1--2]{JC26a}. As in \cite[\S6.1]{JC26a}, we relabel $\mu_n$ once, by $\zeta\mapsto\zeta^{r'}$, at every place and globally, and we say explicitly when a formula is stated before or after relabeling.
 
 \subsection{How results are labeled}
 Statements proved in this chapter carry no visible tag; the labels
@@ -137,7 +137,7 @@ The logical dependencies are as follows. Arrows mean ``is used in'', and the not
 Everything except the last box is unconditional, given the cited \Ev\ inputs. The \Ev\ inputs used in the global sections are listed in Remark~\ref{I:rem:Einputs}.
 
 \subsection{A running example}\label{I:subsec:runningexample}
-Continuing Example~\ref{ex:running}: $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, which is ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$; explicitly, $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)=\mathfrak p_3\mathfrak p_7$. We take $L=K(i)=\mathbb{Q}(\zeta_{12})$, and $c=1$, $r'=2$, $c_v=2$ in Assumption~\ref{I:ass:standing}. At $\mathfrak p_3$, where $K_v=\mathbb{Q}_3(\zeta_3)$, the covered elliptic tori are non-abelian: the good elements have index $9$, and genuine irreducibles of a covered torus have dimension $3$ (Example~\ref{I:ex:r2n3}). At $\mathfrak p_7$, where $K_v=\mathbb{Q}_7\supset\mu_3$, they are abelian. The sign in Theorem~\ref{I:thm:easy} is $-1$. \cite{JRE26} works this case out in detail across Chapters~\ref{ch:I}--\ref{ch:IV}, including an independent machine check (\cite[\S1]{JRE26}) that $D$ is ramified exactly at $\mathfrak p_3$ and $\mathfrak p_7$.
+Continuing Example~\ref{ex:running}: $K=\mathbb{Q}(\zeta_3)$, $n=3$, $r=2$, $D=(-1,4-\zeta_3)_K$, which is ramified exactly at $S=\{\mathfrak p_3,\mathfrak p_7\}$, with $\mathfrak p_3=(1-\zeta_3)$ and $\mathfrak p_7=(3+\zeta_3)$; explicitly, $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)=\mathfrak p_3\mathfrak p_7$. We take $L=K(i)=\mathbb{Q}(\zeta_{12})$, and $c=1$, $r'=2$, $c_v=2$ in Assumption~\ref{I:ass:standing}. At $\mathfrak p_3$, where $K_v=\mathbb{Q}_3(\zeta_3)$, the covered elliptic tori are non-abelian: the good elements have index $9$, and genuine irreducibles of a covered torus have dimension $3$ (Example~\ref{I:ex:r2n3}). At $\mathfrak p_7$, where $K_v=\mathbb{Q}_7\supset\mu_3$, they are abelian. The sign in Theorem~\ref{I:thm:easy} is $-1$. \cite{JC26b} works this case out in detail across Chapters~\ref{ch:I}--\ref{ch:IV}, including an independent machine check (\cite[\S1]{JC26b}) that $D$ is ramified exactly at $\mathfrak p_3$ and $\mathfrak p_7$.
 
 \subsection{Organization}
 Section~\ref{I:sec:lit} reviews the literature for the whole series (Chapters~\ref{ch:II}--\ref{ch:IV} refer to it), and Section~\ref{I:sec:glossary} collects the notation and glossary of the series (shared by all four Parts) together with the notation specific to Chapter~\ref{ch:I}. Sections~\ref{I:sec:covers}--\ref{I:sec:matching} contain the local theory; the facts about orbital integrals on elliptic tori that it needs are proved in \S\ref{I:app:oi}. Sections~\ref{I:sec:global}--\ref{I:sec:spectral} contain the global theory, and \S\ref{I:app:cusp} supplies its analytic input for cusp forms on the cover. Section~\ref{I:sec:deferred} lists what is left after this chapter, Section~\ref{I:sec:conclusion} summarizes what the local theory gives on its own, and Section~\ref{I:sec:summary} lists the results with their labels.
@@ -145,7 +145,7 @@ Section~\ref{I:sec:lit} reviews the literature for the whole series (Chapters~\r
 
 % =====================================================================
 \section{Local covers}\label{I:sec:covers}
-This section realizes the cover of $D_v^\times$ from \cite{JC26} and the Kazhdan--Patterson cover of $\GL(r,K_v)$ as subgroups of one cover of the larger group $\GL(r,L\otimes_KK_v)$ (\S\ref{I:subsec:why}--\ref{I:subsec:ambient}). It then shows that the $\GL$-side subgroup is the Kazhdan--Patterson cover with parameter $c_v$, as an extension (\S\ref{I:subsec:restriction}), and identifies the two covers canonically at the places where $D$ splits (\S\ref{I:subsec:outsideS}). It depends only on the Kazhdan--Patterson cocycle \cite[\S0.1]{KP84}, \cite[\S2]{FK86} and the Matsumoto--Moore classification \cite{Mat69}, \cite{Moo68}, and uses from \cite{JC26} only the definition of the cover of $D_v^\times$. It introduces the ambient cover $\cGb_v$, the embeddings $\iD$ and $\iG$, the local covers $\GDb(K_v)$ and $\Gb_v$, their common central subgroup $\Zb_v$, and the identifications $\psi_v$ at $v\notin S$.
+This section realizes the cover of $D_v^\times$ from \cite{JC26a} and the Kazhdan--Patterson cover of $\GL(r,K_v)$ as subgroups of one cover of the larger group $\GL(r,L\otimes_KK_v)$ (\S\ref{I:subsec:why}--\ref{I:subsec:ambient}). It then shows that the $\GL$-side subgroup is the Kazhdan--Patterson cover with parameter $c_v$, as an extension (\S\ref{I:subsec:restriction}), and identifies the two covers canonically at the places where $D$ splits (\S\ref{I:subsec:outsideS}). It depends only on the Kazhdan--Patterson cocycle \cite[\S0.1]{KP84}, \cite[\S2]{FK86} and the Matsumoto--Moore classification \cite{Mat69}, \cite{Moo68}, and uses from \cite{JC26a} only the definition of the cover of $D_v^\times$. It introduces the ambient cover $\cGb_v$, the embeddings $\iD$ and $\iG$, the local covers $\GDb(K_v)$ and $\Gb_v$, their common central subgroup $\Zb_v$, and the identifications $\psi_v$ at $v\notin S$.
 
 \subsection{Why an ambient cover}\label{I:subsec:why}
 We explain the idea before the computations.
@@ -167,6 +167,13 @@ be the embedding induced by $D\otimes_KL\cong M_r(L)$, and the diagonal inclusio
 $\GDb(K_v):=p^{-1}(\iD(D_v^\times))\subset\cGb_v$ and $\Gb_v:=p^{-1}(\iG(\GL(r,K_v)))\subset\cGb_v$. Let $\Zb_v:=p^{-1}(K_v^\times)$; it is a subgroup of both.
 \end{definition}
 
+\begin{example}[Continuing Example~\ref{ex:running}: the local covers at $\mathfrak p_7$]\label{I:ex:localcovers}
+Take $v=\mathfrak p_7$. Then $K_v=\Q_7$, because $7$ splits in $K=\Q(\zeta_3)$. Since $-1$ is not a square in $\Q_7$, the algebra $L_v=\Q_7(i)$ is a field, namely the unramified quadratic extension of $\Q_7$. So $\cG_v=\GL(2,\Q_7(i))$, and $\cGb_v$ is its cover with cocycle $\sigma_{L_v}(g,h)\,(\det g,\det h)_{L_v}^{2}$, because $c_v=2$. Write $D_v=L_v\oplus L_vj$ with $j^2=4-\zeta_3$ and $jx=\sigma(x)j$ for $x\in L_v$, where $\sigma$ is the nontrivial automorphism of $L_v/K_v$. One choice of the isomorphism $D\otimes_KL\cong M_2(L)$ gives
+\[ \iD(x+yj)=\begin{pmatrix}x&(4-\zeta_3)\,y\\ \sigma(y)&\sigma(x)\end{pmatrix},\qquad \det\iD(x+yj)=x\sigma(x)-(4-\zeta_3)\,y\sigma(y)=\Nrd(x+yj). \]
+Then $\GDb(K_v)$ is the preimage in $\cGb_v$ of the matrices of this form with nonzero determinant, and $\Gb_v$ is the preimage of $\GL(2,\Q_7)$. The group $\Zb_v$ is the preimage of the scalar matrices with entry in $\Q_7^\times$.
+\end{example}
+
+
 \begin{equation}\label{I:eq:diagram}
 \begin{tikzcd}[column sep=small]
 \GDb(K_v)\arrow[r,hook]\arrow[d] & \cGb_v\arrow[d] & \Gb_v\arrow[l,hook']\arrow[d]\\
@@ -179,25 +186,25 @@ D_v^\times\arrow[r,hook,"\iD"] & \GL(r,L_v) & \GL(r,K_v)\arrow[l,hook',"\iG"']
 The inverse image in $\cGb_v$ of the center $L_v^\times$ of $\cG_v$ is central in $\cGb_v$. In particular $\Zb_v$ is central in $\cGb_v$, in $\GDb(K_v)$ and in $\Gb_v$.
 \end{lemma}
 \begin{proof}
-By \cite[\S2]{FK86} (see \cite[Lemma~2.1]{JC26}), the center of the parameter-$c_v$ cover of $\GL(r,L_w)$ is the inverse image of $\{z:z^{r-1+2rc_v}\in L_w^{\times n}\}$, which is all of $L_w^\times$ since $n\mid r-1+2rc_v$. This is an \Ev\ input. Centrality in the product with identified $\mu_n$'s follows factor by factor.
+By \cite[\S2]{FK86} (see \cite[Lemma~2.1]{JC26a}), the center of the parameter-$c_v$ cover of $\GL(r,L_w)$ is the inverse image of $\{z:z^{r-1+2rc_v}\in L_w^{\times n}\}$, which is all of $L_w^\times$ since $n\mid r-1+2rc_v$. This is an \Ev\ input. Centrality in the product with identified $\mu_n$'s follows factor by factor.
 \end{proof}
 
 \subsection{The restriction lemma}\label{I:subsec:restriction}
-We now identify the two subgroups of Definition~\ref{I:def:localcovers}. The $D$ side is the cover of \cite{JC26} by construction. The $\GL$ side is isomorphic, as a central extension, to the Kazhdan--Patterson cover with parameter $c_v$. This replaces the cocycle-level claim in the proof of \cite[Lemma~6.1(c)]{JC26} by a statement about extensions, with a proof that does not depend on the internal form of the Kazhdan--Patterson cocycle.
+We now identify the two subgroups of Definition~\ref{I:def:localcovers}. The $D$ side is the cover of \cite{JC26a} by construction. The $\GL$ side is isomorphic, as a central extension, to the Kazhdan--Patterson cover with parameter $c_v$. This replaces the cocycle-level claim in the proof of \cite[Lemma~6.1(c)]{JC26a} by a statement about extensions, with a proof that does not depend on the internal form of the Kazhdan--Patterson cocycle.
 
 \begin{proposition}\label{I:prop:restriction}\ (using \Ev\ inputs)
 Let $v$ be a finite place.
 \begin{enumerate}[label=(\alph*)]
-\item The pull-back of the cocycle \eqref{I:eq:ambient} along $\iD$ is the local component at $v$ of the cocycle $\beta=\sigma_L\cdot(\Nrd,\Nrd)^c$ of \cite[equation~(4)]{JC26}. Hence $\GDb(K_v)$ is the local cover of \cite[\S6.1]{JC26}.
+\item The pull-back of the cocycle \eqref{I:eq:ambient} along $\iD$ is the local component at $v$ of the cocycle $\beta=\sigma_L\cdot(\Nrd,\Nrd)^c$ of \cite[equation~(4)]{JC26a}. Hence $\GDb(K_v)$ is the local cover of \cite[\S6.1]{JC26a}.
 \item There is an isomorphism of central extensions of $\GL(r,K_v)$ by $\mu_n$ (the identity on $\mu_n$ and over $\GL(r,K_v)$)
 \[ \Gb_v\ \cong\ \text{the extension with cocycle }\sigma_{K_v}^{\,r}\,(\det,\det)_{K_v}^{\,c}. \]
-After relabeling by $\zeta\mapsto\zeta^{r'}$, the right side is the Kazhdan--Patterson cover $\Gb^{(c_v)}$ of $\GL(r,K_v)$, normalized as in \cite[Lemma~2.1]{JC26}.
-\item Any two isomorphisms as in (b) differ by an automorphism $\tilde g\mapsto\chi(\det p(\tilde g))\tilde g$ with $\chi:K_v^\times\to\mu_n$ a continuous character. Every result about $\Gb^{(c_v)}$ that we import from \cite{FK86} or \cite{KP84} is stated in terms of the group $\Gb^{(c_v)}$, the projection $p$ and $\mu_n$ alone (commutators, good elements, orbital integrals, characters, supercusp forms, germ expansions). It therefore holds for $\Gb_v$ via any such isomorphism. The only exception is the use of the splittings $\ks_v$ over maximal compact subgroups; these are defined directly on $\Gb_v$ in Proposition~\ref{I:prop:global}(d), and the local results of \cite{JC26} hold for any splitting \cite[Remarks after Lemma~6.1]{JC26}.
+After relabeling by $\zeta\mapsto\zeta^{r'}$, the right side is the Kazhdan--Patterson cover $\Gb^{(c_v)}$ of $\GL(r,K_v)$, normalized as in \cite[Lemma~2.1]{JC26a}.
+\item Any two isomorphisms as in (b) differ by an automorphism $\tilde g\mapsto\chi(\det p(\tilde g))\tilde g$ with $\chi:K_v^\times\to\mu_n$ a continuous character. Every result about $\Gb^{(c_v)}$ that we import from \cite{FK86} or \cite{KP84} is stated in terms of the group $\Gb^{(c_v)}$, the projection $p$ and $\mu_n$ alone (commutators, good elements, orbital integrals, characters, supercusp forms, germ expansions). It therefore holds for $\Gb_v$ via any such isomorphism. The only exception is the use of the splittings $\ks_v$ over maximal compact subgroups; these are defined directly on $\Gb_v$ in Proposition~\ref{I:prop:global}(d), and the local results of \cite{JC26a} hold for any splitting \cite[Remarks after Lemma~6.1]{JC26a}.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-(a) For $g,h\in D_v^\times$ we have $\det\iD(g)_w=\Nrd g\in K_v^\times$ for each $w\mid v$. By norm compatibility, $\prod_{w\mid v}(\Nrd g,\Nrd h)_{L_w}^{c_v}=(\Nrd g,\Nrd h)_{K_v}^{rc_v}=(\Nrd g,\Nrd h)_{K_v}^{c}$, since $\sum_w[L_w:K_v]=r$, $rc_v=rr'c\equiv c\pmod n$, and the values lie in $\mu_n$. The remaining factor is the restriction of the parameter-$0$ cocycle of $\GL(r,L_v)$, which is the local component of $\sigma_L$ in \cite[equation~(4)]{JC26}. (Globally one uses the normalized cocycle $\tau_L$ of \cite[\S2]{FK86}, which differs from the product of the $\sigma_{L_w}$ by the coboundary of $\kappa$. This changes the cocycle model of $\cGb_v$ but not the group $\cGb_v$, nor the subgroups of Definition~\ref{I:def:localcovers}.)
+(a) For $g,h\in D_v^\times$ we have $\det\iD(g)_w=\Nrd g\in K_v^\times$ for each $w\mid v$. By norm compatibility, $\prod_{w\mid v}(\Nrd g,\Nrd h)_{L_w}^{c_v}=(\Nrd g,\Nrd h)_{K_v}^{rc_v}=(\Nrd g,\Nrd h)_{K_v}^{c}$, since $\sum_w[L_w:K_v]=r$, $rc_v=rr'c\equiv c\pmod n$, and the values lie in $\mu_n$. The remaining factor is the restriction of the parameter-$0$ cocycle of $\GL(r,L_v)$, which is the local component of $\sigma_L$ in \cite[equation~(4)]{JC26a}. (Globally one uses the normalized cocycle $\tau_L$ of \cite[\S2]{FK86}, which differs from the product of the $\sigma_{L_w}$ by the coboundary of $\kappa$. This changes the cocycle model of $\cGb_v$ but not the group $\cGb_v$, nor the subgroups of Definition~\ref{I:def:localcovers}.)
 
 (b) The twisting factor restricts to $(\det,\det)_{K_v}^{c}$ exactly as in (a). So it suffices to show that, for each $w\mid v$ with $d_w:=[L_w:K_v]$, the pull-back $X_1$ of the parameter-$0$ cover of $\GL(r,L_w)$ to $\GL(r,K_v)$ is isomorphic to the extension $X_2$ with cocycle $\sigma_{K_v}^{\,d_w}$, i.e.\ the push-out of the parameter-$0$ cover of $\GL(r,K_v)$ along $\zeta\mapsto\zeta^{d_w}$. Taking the Baer sum over $w\mid v$ then gives the cocycle $\sigma_{K_v}^{\,r}$. Write $F=K_v$ and $F'=L_w$.
 
@@ -213,7 +220,7 @@ For the relabeling, raising $\sigma_{K_v}^{\,r}(\det,\det)_{K_v}^{\,c}$ to the p
 \end{proof}
 
 \begin{remark}\label{I:rem:JC61c}
-(1) Proposition~\ref{I:prop:restriction}(b) is the form in which \cite[Lemma~6.1(c)]{JC26} should be stated: an isomorphism of extensions, not an equality of cocycles. The proof there, which appeals to the Bruhat decomposition, is replaced by Steps~1--3 above. An equality at the level of explicit cocycles would follow from the formula of \cite{BLS99}, where $\sigma$ is a product of Hilbert symbols of ratios of minors (which lie in $K_v$ when $g,h\in\GL(r,K_v)$); we do not need it.
+(1) Proposition~\ref{I:prop:restriction}(b) is the form in which \cite[Lemma~6.1(c)]{JC26a} should be stated: an isomorphism of extensions, not an equality of cocycles. The proof there, which appeals to the Bruhat decomposition, is replaced by Steps~1--3 above. An equality at the level of explicit cocycles would follow from the formula of \cite{BLS99}, where $\sigma$ is a product of Hilbert symbols of ratios of minors (which lie in $K_v$ when $g,h\in\GL(r,K_v)$); we do not need it.
 
 (2) For $v$ split in $L$, (b) is literal: the diagonal restriction of a product of $r$ copies of a cocycle is its $r$-th power.
 
@@ -230,14 +237,14 @@ An isomorphism $\phi:\Gb_v\to\Gb^{(c_v)}$ as in Proposition~\ref{I:prop:restrict
 \end{remark}
 
 \subsection{Places where $D$ splits}\label{I:subsec:outsideS}
-At $v\notin S$ the groups $D_v^\times$ and $\GL(r,K_v)$ are isomorphic. We show that the corresponding covers are identified by conjugation in $\cGb_v$, canonically once the isomorphism of the base groups is fixed, and compatibly with the splittings over maximal compact subgroups at almost all places. This is step~(2) of \cite[Remark~10.3]{JC26}.
+At $v\notin S$ the groups $D_v^\times$ and $\GL(r,K_v)$ are isomorphic. We show that the corresponding covers are identified by conjugation in $\cGb_v$, canonically once the isomorphism of the base groups is fixed, and compatibly with the splittings over maximal compact subgroups at almost all places. This is step~(2) of \cite[Remark~10.3]{JC26a}.
 
 \begin{proposition}\label{I:prop:outsideS}
 Let $v\notin S$ and fix a $K_v$-algebra isomorphism $\alpha_v:D_v\xrightarrow{\sim}M_r(K_v)$.
 \begin{enumerate}[label=(\alph*)]
 \item There is $g_v\in\cG_v$ with $\Ad(g_v)\circ\iD=\iG\circ\alpha_v$ on $D_v^\times$. It is unique up to the center $L_v^\times$ of $\cG_v$.
 \item $\psi_v:=\Ad(\tilde g_v)|_{\GDb(K_v)}:\GDb(K_v)\to\Gb_v$ (any lift $\tilde g_v$) is an isomorphism of covers over $\alpha_v$. It is the identity on $\mu_n$ and on $\Zb_v$, and depends only on $\alpha_v$. Replacing $\alpha_v$ by $\Ad(h)\circ\alpha_v$ with $h\in\GL(r,K_v)$ replaces $\psi_v$ by $\Ad(\tilde h)\circ\psi_v$.
-\item Suppose $v$ is finite, $v\nmid n$, $\alpha_v(\cO_{D,v})=M_r(\cO_v)$ for the global order $\cO_D$ used in \cite[Lemma~6.1(d)]{JC26}, and $\iD(\cO_{D,v})\otimes\cO_{L_v}=M_r(\cO_{L_v})$ (true for almost all $v$). Then $g_v$ may be taken in $\GL(r,\cO_{L_v})$, and $\psi_v$ carries the splitting $\ks_v(G_D(\cO_v))$ of \cite[Lemma~6.1(d)]{JC26} to the splitting $\ks_v(\GL(r,\cO_v))$ of Proposition~\ref{I:prop:global}(d).
+\item Suppose $v$ is finite, $v\nmid n$, $\alpha_v(\cO_{D,v})=M_r(\cO_v)$ for the global order $\cO_D$ used in \cite[Lemma~6.1(d)]{JC26a}, and $\iD(\cO_{D,v})\otimes\cO_{L_v}=M_r(\cO_{L_v})$ (true for almost all $v$). Then $g_v$ may be taken in $\GL(r,\cO_{L_v})$, and $\psi_v$ carries the splitting $\ks_v(G_D(\cO_v))$ of \cite[Lemma~6.1(d)]{JC26a} to the splitting $\ks_v(\GL(r,\cO_v))$ of Proposition~\ref{I:prop:global}(d).
 \end{enumerate}
 \end{proposition}
 \begin{proof}
@@ -245,7 +252,7 @@ Let $v\notin S$ and fix a $K_v$-algebra isomorphism $\alpha_v:D_v\xrightarrow{\s
 
 (b) $\Ad(\tilde g_v)$ is an automorphism of $\cGb_v$, trivial on $\mu_n$, over $\Ad(g_v)$, so it maps $p^{-1}\iD(D_v^\times)$ onto $p^{-1}\iG(\GL(r,K_v))$. Changing $\tilde g_v$ within $p^{-1}(g_vL_v^\times)$ does not change $\Ad(\tilde g_v)$, since $p^{-1}(L_v^\times)$ is central (Lemma~\ref{I:lem:center}). The same lemma shows $\psi_v$ is the identity on $\Zb_v$. The last assertion is clear.
 
-(c) Under the hypotheses, $\Ad(g_v)$ restricts to an automorphism of the Azumaya algebra $M_r(\cO_{L_v})$ over $\cO_{L_v}=\prod_w\cO_{L_w}$, a product of local rings. Such an automorphism is inner by an element of $\GL(r,\cO_{L_v})$ (Skolem--Noether for Azumaya algebras over local rings, whose Picard groups are trivial). So $g_v\in L_v^\times\GL(r,\cO_{L_v})$, and we may take $g_v\in\GL(r,\cO_{L_v})$. The splittings in question are the restrictions of the splitting $\ks_{\cG_v}$ of $\cGb_v$ over $\GL(r,\cO_{L_v})$ (Proposition~\ref{I:prop:global}(d) and \cite[Lemma~6.1(d)]{JC26}). Since $\ks_{\cG_v}$ is a homomorphism, $\Ad(\ks_{\cG_v}(g_v))$ carries $\ks_{\cG_v}(\iD(k))$ to $\ks_{\cG_v}(g_v\iD(k)g_v^{-1})=\ks_{\cG_v}(\iG\alpha_v(k))$.
+(c) Under the hypotheses, $\Ad(g_v)$ restricts to an automorphism of the Azumaya algebra $M_r(\cO_{L_v})$ over $\cO_{L_v}=\prod_w\cO_{L_w}$, a product of local rings. Such an automorphism is inner by an element of $\GL(r,\cO_{L_v})$ (Skolem--Noether for Azumaya algebras over local rings, whose Picard groups are trivial). So $g_v\in L_v^\times\GL(r,\cO_{L_v})$, and we may take $g_v\in\GL(r,\cO_{L_v})$. The splittings in question are the restrictions of the splitting $\ks_{\cG_v}$ of $\cGb_v$ over $\GL(r,\cO_{L_v})$ (Proposition~\ref{I:prop:global}(d) and \cite[Lemma~6.1(d)]{JC26a}). Since $\ks_{\cG_v}$ is a homomorphism, $\Ad(\ks_{\cG_v}(g_v))$ carries $\ks_{\cG_v}(\iD(k))$ to $\ks_{\cG_v}(g_v\iD(k)g_v^{-1})=\ks_{\cG_v}(\iG\alpha_v(k))$.
 \end{proof}
 
 \begin{example}[Continuing Example~\ref{ex:running}: a split place, and matching costs nothing there]\label{I:ex:split-matching}
@@ -278,7 +285,7 @@ After relabeling by $\zeta\mapsto\zeta^{r'}$ this becomes
 \begin{equation}\label{I:eq:commrelab}
 [x,y]=(Nx,Ny)_F^{\,1+2c_v}\,(x,y)_E^{-1}=\big((Nx)^{1+2c_v}x^{-1},\,y\big)_E,
 \end{equation}
-which is \cite[equation~(2)]{JC26} for the elliptic torus $j(E^\times)$ of $\Gb^{(c_v)}$.
+which is \cite[equation~(2)]{JC26a} for the elliptic torus $j(E^\times)$ of $\Gb^{(c_v)}$.
 \end{proposition}
 
 \begin{proof}
@@ -316,7 +323,7 @@ Let $\bullet\in\{D,\GL\}$.
 \begin{enumerate}[label=(\alph*)]
 \item An element $\tilde x\in\Eb_\bullet$ is good (central in $\Eb_\bullet$) if and only if $p(\tilde x)\in F^\times E^{\times n}$. No regularity assumption is needed.
 \item $[\Eb_\bullet:Z(\Eb_\bullet)]=[E^\times:F^\times E^{\times n}]=|n|_F^{-(r-1)}$. In particular $\Eb_\bullet$ is abelian if and only if $v\nmid n$.
-\item Every genuine irreducible smooth representation of $\Eb_\bullet$ has dimension $|n|_F^{-(r-1)/2}$ (an integer: if $p\mid n$ and $p^k\Vert n$, then $\mu_{p^k}\subset F$ forces $p-1\mid[F:\mathbb Q_p]$, so $|n|_F^{-1}=p^{k[F:\mathbb Q_p]}$ is a square), and is determined by its central character on $Z(\Eb_\bullet)$ \cite[Prop.~2.4]{JC26}.
+\item Every genuine irreducible smooth representation of $\Eb_\bullet$ has dimension $|n|_F^{-(r-1)/2}$ (an integer: if $p\mid n$ and $p^k\Vert n$, then $\mu_{p^k}\subset F$ forces $p-1\mid[F:\mathbb Q_p]$, so $|n|_F^{-1}=p^{k[F:\mathbb Q_p]}$ is a square), and is determined by its central character on $Z(\Eb_\bullet)$ \cite[Prop.~2.4]{JC26a}.
 \item If $x\in E^\times\smallsetminus F^\times$, then $F(x^n)=E$. In particular, if $x$ is regular, so is $x^n$.
 \end{enumerate}
 \end{proposition}
@@ -332,7 +339,7 @@ Let $\bullet\in\{D,\GL\}$.
 \end{proof}
 
 \begin{remark}
-Part~(b) generalizes \cite[Lemma~2.5]{JC26} from unramified $E$ to all maximal subfields when $v\nmid n$. Part~(d) shows that for regular elliptic elements the condition ``$x^*$ regular'' in \cite[\S18]{FK86} is automatic.
+Part~(b) generalizes \cite[Lemma~2.5]{JC26a} from unramified $E$ to all maximal subfields when $v\nmid n$. Part~(d) shows that for regular elliptic elements the condition ``$x^*$ regular'' in \cite[\S18]{FK86} is automatic.
 \end{remark}
 
 \subsection{An example}\label{I:subsec:example}
@@ -350,6 +357,13 @@ Equal commutator pairings leave open whether the two covered tori are isomorphic
 \begin{definition}[Isomorphisms of covered tori]\index{isomorphisms of covered tori@Isomorphisms of covered tori, $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$}
 Let $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$ be the set of isomorphisms of topological groups $\varphi:\Eb_D\to\Eb_{\GL}$ with $p\circ\varphi=(\iG j\iD^{-1})\circ p$ that are the identity on $\mu_n$ and on $\Zb_v$.
 \end{definition}
+
+\begin{example}[Continuing Example~\ref{ex:running}: the set $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$ at the two ramified places]\label{I:ex:iso}
+By Theorem~\ref{I:thm:ident}(a) and~(c) below, the set $\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$ is nonempty and is a torsor under the group $X$ of continuous characters $E^\times\to\mu_n$ that are trivial on $F^\times$. Such a character is trivial on $F^\times E^{\times n}$. So $X$ is the group of characters of the finite abelian group $E^\times/F^\times E^{\times n}$ with values in $\mu_n$. That group has exponent dividing $n$, so $|X|=[E^\times:F^\times E^{\times n}]$, and this index is $|n|_F^{-(r-1)}$ by Proposition~\ref{I:prop:good}(b).
+
+At $v=\mathfrak p_7$ we have $|3|_F=1$. So $X$ is trivial and there is exactly one isomorphism. Here the covered tori are abelian, every element is good, and the single isomorphism is $\jj_{E,j}$ itself. At $v=\mathfrak p_3$ we have $|3|_F^{-1}=9$ (Example~\ref{I:ex:r2n3}), so there are nine isomorphisms. They differ by the nine characters in $X$. By Theorem~\ref{I:thm:ident}(b) they all agree on the good elements, which form a subgroup of index $9$.
+\end{example}
+
 
 \begin{theorem}\label{I:thm:ident}
 \begin{enumerate}[label=(\alph*)]
@@ -408,7 +422,7 @@ It preserves (reduced) characteristic polynomials and commutes with multiplicati
 For $\varphi\in\Iso_{\Zb}(\Eb_D,\Eb_{\GL})$, $\chi\mapsto\chi\circ\varphi^{-1}$ induces a bijection between isomorphism classes of genuine irreducible smooth representations of $\Eb_D$ and $\Eb_{\GL}$, independent of $\varphi$. On good elements $\tr\chi(\tilde t)=\tr(\chi\circ\varphi^{-1})(\jj_{E,j}(\tilde t))$, and both characters vanish off the good elements.
 \end{corollary}
 \begin{proof}
-By \cite[Prop.~2.4]{JC26} the isomorphism class is determined by the central character $\zeta_\chi$ on $Z(\Eb_\bullet)$, and the central character of $\chi\circ\varphi^{-1}$ is $\zeta_\chi\circ\jj_{E,j}^{-1}$, independent of $\varphi$ by Theorem~\ref{I:thm:ident}(b).
+By \cite[Prop.~2.4]{JC26a} the isomorphism class is determined by the central character $\zeta_\chi$ on $Z(\Eb_\bullet)$, and the central character of $\chi\circ\varphi^{-1}$ is $\zeta_\chi\circ\jj_{E,j}^{-1}$, independent of $\varphi$ by Theorem~\ref{I:thm:ident}(b).
 \end{proof}
 
 % =====================================================================
@@ -428,16 +442,25 @@ For $\bullet\in\{D,\GL\}$, $G_\bullet\in\{D_v^\times,\GL(r,F)\}$, a genuine $\ti
 with $\Delta(\gamma)=|D(\gamma)|_F^{1/2}|\det\gamma|_F^{-(r-1)/2}$ as in \cite[\S6]{FK86}, where $D(\gamma)$ is the discriminant of the (reduced) characteristic polynomial and $\det=\Nrd$ on the $D$ side. For non-good regular $\tilde\gamma$ put $F(\tilde\gamma,\tilde f):=0$.
 \end{definition}
 
+\begin{example}[Continuing Example~\ref{ex:running}: the factor $\Delta$ and an orbital integral on the $D$ side]\label{I:ex:oi}
+Take $v=\mathfrak p_7$, so $F=\Q_7$ and $r=2$. Let $\gamma=a+bi\in L_v^\times\subset D_v^\times$ with $a,b\in F$ and $b\neq0$. Its reduced characteristic polynomial is $X^2-2aX+(a^2+b^2)$, with discriminant $D(\gamma)=-4b^2$. So $\gamma$ is regular and
+\[ \Delta(\gamma)=|{-4b^2}|_F^{1/2}\,|a^2+b^2|_F^{-1/2}=|b|_F\,|a^2+b^2|_F^{-1/2}. \]
+For example, $\Delta(1+i)=1$ and $\Delta(1+7i)=7^{-1}$. Since $v\nmid n$, every lift $\tilde\gamma$ of $\gamma$ is good (Proposition~\ref{I:prop:good}(b)). Now suppose that $\tilde f$ is invariant under conjugation. Then the integrand of $\Phi$ is constant, and
+\[ \Phi(\tilde\gamma,\tilde f)=\vol(T_\gamma\backslash D_v^\times)\,\tilde f(\tilde\gamma),\qquad F(\tilde\gamma,\tilde f)=\Delta(\gamma)\,\vol(T_\gamma\backslash D_v^\times)\,\tilde f(\tilde\gamma). \]
+The volume is finite because $D_v^\times/F^\times$ is compact.
+\end{example}
+
+
 \begin{lemma}\label{I:lem:oiprops}\ (convergence: \Ev)
 \begin{enumerate}[label=(\alph*)]
 \item The integrand of $\Phi$ is independent of the lift $\tilde x$ and left $T_\gamma$-invariant (because $\tilde\gamma$ is good). The integral converges absolutely. On the $D$ side $T_\gamma\backslash D_v^\times$ is compact, since $D_v^\times/F^\times$ is. On the $\GL$ side the orbit of a regular semisimple element is closed, and convergence is \cite[\S6]{FK86} (following Rao) \Ev.
 \item $F(\cdot,\tilde f)$ is constant on conjugacy classes, and $F(z\tilde\gamma,\tilde f)=\tilde\theta_v(z)^{-1}F(\tilde\gamma,\tilde f)$ for $z\in\Zb_v$; in particular it is genuine.
-\item If $\tilde\gamma$ is regular elliptic and not good, then the formal integral $\int_{T_\gamma\backslash G_\bullet}$ (over $\ov{T_\gamma}\backslash\ov{G_\bullet}$) vanishes; this is \cite[Prop.~2.7]{JC26} with $\eps=1$. Thus the convention $F=0$ at non-good elements loses nothing.
-\item For $\gamma\in E_i^\times$ regular, $\Delta(\gamma)$ is the same on the two sides. If $E_i/F$ is cyclic, then $\Delta$ equals $|t_0^2|_F^{1/2}$ times the factor $\Delta$ of \cite[\S4.1]{JC26} with $\eps=1$, for any $t_0$ as there, so that $F(\cdot,\tilde f)=|t_0^2|_F^{1/2}\,\tilde f^{T}$ in the notation of \cite[\S4.1]{JC26}.
+\item If $\tilde\gamma$ is regular elliptic and not good, then the formal integral $\int_{T_\gamma\backslash G_\bullet}$ (over $\ov{T_\gamma}\backslash\ov{G_\bullet}$) vanishes; this is \cite[Prop.~2.7]{JC26a} with $\eps=1$. Thus the convention $F=0$ at non-good elements loses nothing.
+\item For $\gamma\in E_i^\times$ regular, $\Delta(\gamma)$ is the same on the two sides. If $E_i/F$ is cyclic, then $\Delta$ equals $|t_0^2|_F^{1/2}$ times the factor $\Delta$ of \cite[\S4.1]{JC26a} with $\eps=1$, for any $t_0$ as there, so that $F(\cdot,\tilde f)=|t_0^2|_F^{1/2}\,\tilde f^{T}$ in the notation of \cite[\S4.1]{JC26a}.
 \end{enumerate}
 \end{lemma}
 \begin{proof}
-(a) and (b) are immediate from the definitions, Lemma~\ref{I:lem:center} and conjugation invariance of the measures. (c) is \cite[Prop.~2.7]{JC26}. (d) The characteristic polynomials agree. For \cite{JC26}'s factor (defined only for cyclic $E_i$): $\tilde\Delta(t)^2=\pm D(t)$ and $t_0^2\in F^\times$, so $|\tilde\Delta(t)t_0^{-1}|_F=|D(t)|_F^{1/2}|t_0^2|_F^{-1/2}$.
+(a) and (b) are immediate from the definitions, Lemma~\ref{I:lem:center} and conjugation invariance of the measures. (c) is \cite[Prop.~2.7]{JC26a}. (d) The characteristic polynomials agree. For \cite{JC26a}'s factor (defined only for cyclic $E_i$): $\tilde\Delta(t)^2=\pm D(t)$ and $t_0^2\in F^\times$, so $|\tilde\Delta(t)t_0^{-1}|_F=|D(t)|_F^{1/2}|t_0^2|_F^{-1/2}$.
 \end{proof}
 
 \subsection{Definition of matching}\label{I:subsec:defmatch}
@@ -450,6 +473,11 @@ Functions $\tilde f_D\in C_c^\infty(\GDb(K_v),\tilde\theta_v)_\gen$ and $\tilde 
 \item $F(\tilde\delta,\tilde f)=0$ for every good regular non-elliptic $\tilde\delta\in\Gb_v$.
 \end{enumerate}
 \end{definition}
+
+\begin{example}[Continuing Example~\ref{ex:running}: matching when $r=2$]\label{I:ex:matching}
+In the running example $r=2$, so the sign in (M1) is $-1$, and (M1) reads $F(\tilde\gamma,\tilde f_D)=-F(\jj(\tilde\gamma),\tilde f)$ for good regular $\tilde\gamma$. A regular semisimple element of $\GL(2,F)$ is either elliptic, when its eigenvalues generate a quadratic field over $F$, or conjugate to a diagonal matrix with distinct entries in $F$. So (M2) says that the orbital integrals of $\tilde f$ vanish at the good lifts of the elements conjugate to $\operatorname{diag}(a,b)$ with $a\neq b$. Such elements have no counterpart in $D_v^\times$, where every noncentral element generates a quadratic field. The simplest matching pair is $\tilde f_D=0$ and $\tilde f=0$. A larger family comes from Theorem~\ref{I:thm:easy}(a) below. Every $\tilde f_D$ that vanishes near $\Zb_v$ has a matching $\tilde f$ supported on the good regular elliptic set. For such $\tilde f$ condition (M2) holds because no conjugate of a non-elliptic element lies in its support.
+\end{example}
+
 
 By Corollary~\ref{I:cor:classes} and Lemma~\ref{I:lem:oiprops}(b), (M1) is a condition on conjugacy classes, and it is compatible with the common central character $\tilde\theta_v$. With the sign placed here, the expected character relation $\Theta_{\pib_D}=(-1)^{r-1}\Theta_{\pib}\circ\jj$ on good regular elements would give $\tr\pib_D(\tilde f_D)=\tr\pib(\tilde f)$ for matching functions. Badulescu \cite[\S4.6]{Bad08} puts no sign in the matching of functions and keeps the sign $(-1)^{nd-n}$ in the character relation; the two conventions are equivalent.
 
@@ -473,7 +501,7 @@ For $\bullet\in\{D,\GL\}$ and each $i$, let $\Eb_{i,\bullet}$ be the covered tor
 \end{lemma}
 
 \begin{proof}
-(a) This is Lemma~\ref{I:lem:Aprops}, applied to $G_\bullet$ and the elliptic torus $T_{i,\bullet}$. For cyclic $E_i$ it is also \cite[Lemma~4.5(a)]{JC26} with $\eps=1$, up to the constant of Lemma~\ref{I:lem:oiprops}(d).
+(a) This is Lemma~\ref{I:lem:Aprops}, applied to $G_\bullet$ and the elliptic torus $T_{i,\bullet}$. For cyclic $E_i$ it is also \cite[Lemma~4.5(a)]{JC26a} with $\eps=1$, up to the constant of Lemma~\ref{I:lem:oiprops}(d).
 
 (b) $\jj_i$ is a homeomorphism (Theorem~\ref{I:thm:ident}(b)), so (i) is preserved. It is the identity on $\Zb_v$ (so (ii) and compactness modulo $\Zb_v$ in (iii) are preserved) and preserves regularity in both directions (so the rest of (iii) is preserved). For (iv): let $y\in N_{D_v^\times}(E_i)$ induce $\sigma\in\Aut(E_i/F)$. By Skolem--Noether there is $h\in N_{\GL(r,F)}(j_i(E_i))$ inducing $j_i\sigma j_i^{-1}$, and conversely. By Proposition~\ref{I:prop:natural}, $\jj_i\circ\Ad(\tilde y)=\Ad(\tilde h)\circ\jj_i$, so invariance under $\Ad(\tilde y)$ on one side is equivalent to invariance under $\Ad(\tilde h)$ on the other. (Elements of $T_{i,\bullet}$ itself act trivially on good elements.) The same argument with $\jj_i^{-1}$ gives the inverse.
 
@@ -529,7 +557,7 @@ Proposition~\ref{I:prop:germ} shows that $F(\cdot,\tilde f_D)$ is \emph{not} com
 
 
 \subsection{Orbital integrals on an elliptic torus}\label{I:app:oi}
-This subsection proves, directly and for an arbitrary elliptic maximal torus (cyclic or not), the facts about orbital integrals of regular-supported functions used in \S\ref{I:sec:matching}: their properties (Lemma~\ref{I:lem:Aprops}), their realization (Lemma~\ref{I:lem:Arealize}), and the fact that traces of regular-supported functions depend only on orbital integrals (Lemma~\ref{I:lem:traceOI}). It makes the local matching independent of \cite[Lemma~4.5]{JC26}, which is stated there only for cyclic extensions. The only input is Harish-Chandra's submersion principle and a properness statement (Lemma~\ref{I:lem:Asub}). The subsection introduces the maps $\Psi$ and $\tilde\Psi$ and the open set $\Gb_T$, which are used only here.
+This subsection proves, directly and for an arbitrary elliptic maximal torus (cyclic or not), the facts about orbital integrals of regular-supported functions used in \S\ref{I:sec:matching}: their properties (Lemma~\ref{I:lem:Aprops}), their realization (Lemma~\ref{I:lem:Arealize}), and the fact that traces of regular-supported functions depend only on orbital integrals (Lemma~\ref{I:lem:traceOI}). It makes the local matching independent of \cite[Lemma~4.5]{JC26a}, which is stated there only for cyclic extensions. The only input is Harish-Chandra's submersion principle and a properness statement (Lemma~\ref{I:lem:Asub}). The subsection introduces the maps $\Psi$ and $\tilde\Psi$ and the open set $\Gb_T$, which are used only here.
 
 \emph{Setting.} $F$ is a $p$-adic field containing $\mu_n$, and $G$ is $D_F^\times$ or $\GL(r,F)$, with $D_F$ a central division algebra of degree $r$. The group $\Gb$ is an $n$-fold cover in which $\Zb=p^{-1}(Z)$, $Z=F^\times$, is central, and $\tilde\theta$ is a genuine character of $\Zb$. $T=E^\times\subset G$ is an elliptic maximal torus, with $E/F$ separable of degree $r$, and $W=N_G(T)/T$ (a finite group). $T^{\reg}$ is the set of regular elements of $T$ (here $T^{\reg}=E^\times\smallsetminus F^\times$ when $r$ is prime), and $\Tb^{g,\reg}$ is the set of good regular elements of $\Tb$. Measures $dg$, $dt$ on $G/Z$, $T/Z$ and $d\dot x$ on $T\backslash G$ are as in \S\ref{I:subsec:oi}. Note that $Z(\Tb)$ is an open and closed subgroup of $\Tb$, since its image $F^\times E^{\times n}$ (Proposition~\ref{I:prop:good}) contains the open subgroup $E^{\times n}$.
 
@@ -588,7 +616,7 @@ summed over representatives $T$ of the (finitely many) conjugacy classes of maxi
 \end{proof}
 
 \section{Global covers and rational lifts}\label{I:sec:global}
-This section constructs the global $\GL$-side cover inside the same ambient adelic cover as the $D$-side cover of \cite{JC26} (\S\ref{I:subsec:globalcovers}). It then proves that, under the local identifications of \S\S\ref{I:sec:covers}--\ref{I:sec:matching}, the rational lift of an elliptic element on the $D$ side corresponds to the rational lift of the corresponding element on the $\GL$ side, so that the elliptic terms of the two trace formulas agree term by term (\S\ref{I:subsec:rational}). The measure conventions are fixed in \S\ref{I:subsec:measures}, and \S\ref{I:app:cusp} supplies the sup-norm bound for cusp forms on the cover that the trace formula of \S\ref{I:sec:TF} uses. The section depends on \S\S\ref{I:sec:covers}--\ref{I:sec:matching} and on the global normalization of the Kazhdan--Patterson cocycle \cite[\S2]{FK86}, \cite[\S0.1]{KP84}. It introduces the global covers $\cGb(\A_L)$, $\GDb(\A_K)$, $\Gb(\A_K)$ and $\Zb(\A_K)$, the splittings $\iota$ and $\ks_v$, the global central character $\tilde\theta$ (unitary from here on), and the finite set of places $S_D$.
+This section constructs the global $\GL$-side cover inside the same ambient adelic cover as the $D$-side cover of \cite{JC26a} (\S\ref{I:subsec:globalcovers}). It then proves that, under the local identifications of \S\S\ref{I:sec:covers}--\ref{I:sec:matching}, the rational lift of an elliptic element on the $D$ side corresponds to the rational lift of the corresponding element on the $\GL$ side, so that the elliptic terms of the two trace formulas agree term by term (\S\ref{I:subsec:rational}). The measure conventions are fixed in \S\ref{I:subsec:measures}, and \S\ref{I:app:cusp} supplies the sup-norm bound for cusp forms on the cover that the trace formula of \S\ref{I:sec:TF} uses. The section depends on \S\S\ref{I:sec:covers}--\ref{I:sec:matching} and on the global normalization of the Kazhdan--Patterson cocycle \cite[\S2]{FK86}, \cite[\S0.1]{KP84}. It introduces the global covers $\cGb(\A_L)$, $\GDb(\A_K)$, $\Gb(\A_K)$ and $\Zb(\A_K)$, the splittings $\iota$ and $\ks_v$, the global central character $\tilde\theta$ (unitary from here on), and the finite set of places $S_D$.
 
 \subsection{The global covers}\label{I:subsec:globalcovers}
 We define the global ambient cover and the two global covers as subgroups, and list the properties needed for the trace formulas. The splitting conventions of Lemma~\ref{I:lem:splittings} and the unitarity of $\tilde\theta$ are used in all later sections.
@@ -628,11 +656,11 @@ This is the statement of \cite[\S2]{FK86} that $x\mapsto s(x)/\kappa(x)$ is a ho
 \end{proof}
 
 \begin{remark}[Conventions]\label{I:rem:JCsplitting}
-Throughout, $\iota$ and $\ks_v$ are the splittings of Lemma~\ref{I:lem:splittings}: $\iota(x)=s(x)/\kappa_L(x)$ and $\ks_w(k)=s(k)$ in the normalized model. These are the conventions of \cite[Lemma~6.1(a),(d)]{JC26}.
+Throughout, $\iota$ and $\ks_v$ are the splittings of Lemma~\ref{I:lem:splittings}: $\iota(x)=s(x)/\kappa_L(x)$ and $\ks_w(k)=s(k)$ in the normalized model. These are the conventions of \cite[Lemma~6.1(a),(d)]{JC26a}.
 \end{remark}
 
-\begin{remark}[No circularity with {\cite{JC26}}]\label{I:rem:nocirc}
-\cite{JC26} cites Proposition~\ref{I:prop:restriction} of the present chapter for the local identification of covers. That proposition is purely local. Its proof uses only the explicit restriction of the Kazhdan--Patterson cocycle to the diagonal torus \cite[\S2]{FK86}, the Matsumoto--Moore classification \cite{Mat69}, \cite{Moo68}, and the commutator formula \cite{Mil71}. It uses no result of \cite{JC26}. Conversely, the present chapter uses from \cite{JC26} only the definition of the global cover of $D^\times_{\A}$ and the local lemmas cited by number (all from \cite[\S\S2--4]{JC26}). It uses none of \cite{JC26}'s global theorems.
+\begin{remark}[No circularity with {\cite{JC26a}}]\label{I:rem:nocirc}
+\cite{JC26a} cites Proposition~\ref{I:prop:restriction} of the present chapter for the local identification of covers. That proposition is purely local. Its proof uses only the explicit restriction of the Kazhdan--Patterson cocycle to the diagonal torus \cite[\S2]{FK86}, the Matsumoto--Moore classification \cite{Mat69}, \cite{Moo68}, and the commutator formula \cite{Mil71}. It uses no result of \cite{JC26a}. Conversely, the present chapter uses from \cite{JC26a} only the definition of the global cover of $D^\times_{\A}$ and the local lemmas cited by number (all from \cite[\S\S2--4]{JC26a}). It uses none of \cite{JC26a}'s global theorems.
 \end{remark}
 
 \emph{Unitarity.} From now on $\tilde\theta:\Zb(\A_K)\to\C^\times$ is a genuine \emph{unitary} character trivial on $\iota(K^\times)$, and its local components $\tilde\theta_v$ are unitary. This is needed for the $L^2$ spaces, adjoints, formal degrees and Schur orthogonality used in \S\S\ref{I:sec:TF}--\ref{I:sec:spectral}.
@@ -641,25 +669,30 @@ Throughout, $\iota$ and $\ks_v$ are the splittings of Lemma~\ref{I:lem:splitting
 $\GDb(\A_K):=p^{-1}(\iD(G_D(\A_K)))$ and $\Gb(\A_K):=p^{-1}(\iG(\GL(r,\A_K)))$, subgroups of $\cGb(\A_L)$, and $\Zb(\A_K):=p^{-1}(\A_K^\times)$.
 \end{definition}
 
+\begin{example}[Continuing Example~\ref{ex:running}: the global covers]\label{I:ex:globalcovers}
+In the running example $L=\Q(\zeta_{12})$, $r=2$ and $n=3$, so $\cGb(\A_L)$ is a $3$-fold cover of $\GL(2,\A_L)$. The group $\GDb(\A_K)$ is the preimage of $D^\times_{\A}$, embedded by $\iD$, and $\Gb(\A_K)$ is the preimage of $\GL(2,\A_K)$, embedded diagonally. At $v=\mathfrak p_3$ and $v=\mathfrak p_7$ the group $D_v^\times$ is the unit group of a quaternion division algebra. It is compact modulo its center, while $\GL(2,K_v)$ is not. At every other place $D_v^\times\cong\GL(2,K_v)$, and Proposition~\ref{I:prop:outsideS} identifies the local covers $\GDb(K_v)$ and $\Gb_v$. So the two global covers are built from the same local data away from the two places of $S$.
+\end{example}
+
+
 \begin{proposition}\label{I:prop:global}
 \begin{enumerate}[label=(\alph*)]
-\item The cocycle of $\cGb(\A_L)$ restricts on $G_D(\A_K)$ to $\beta_\tau:=\tau_L\cdot(\Nrd,\Nrd)^c$. This is the cocycle $\beta$ of \cite[equation~(4)]{JC26} when $\sigma_L$ there is read as the normalized cocycle $\tau_L$, which is the reading under which \cite{JC26}'s global cover is defined and split over $\GL(r,L)$. The rational splitting $\iota|_{G_D(K)}$ is that of \cite[Lemma~6.1(a),(d)]{JC26}, and the compact splittings $\ks_v$ are those of \cite[Lemma~6.1(d)]{JC26} (Remark~\ref{I:rem:JCsplitting}).
+\item The cocycle of $\cGb(\A_L)$ restricts on $G_D(\A_K)$ to $\beta_\tau:=\tau_L\cdot(\Nrd,\Nrd)^c$. This is the cocycle $\beta$ of \cite[equation~(4)]{JC26a} when $\sigma_L$ there is read as the normalized cocycle $\tau_L$, which is the reading under which \cite{JC26a}'s global cover is defined and split over $\GL(r,L)$. The rational splitting $\iota|_{G_D(K)}$ is that of \cite[Lemma~6.1(a),(d)]{JC26a}, and the compact splittings $\ks_v$ are those of \cite[Lemma~6.1(d)]{JC26a} (Remark~\ref{I:rem:JCsplitting}).
 \item $\iota$ splits $\Gb(\A_K)$ over $\GL(r,K)$, and $\GDb(\A_K)$ over $G_D(K)$.
 \item $\Zb(\A_K)$ is a common subgroup of $\GDb(\A_K)$ and $\Gb(\A_K)$, central in both, and $\iota(K^\times)$ is a common subgroup. Hence a genuine unitary character $\tilde\theta$ of $\Zb(\A_K)$ trivial on $\iota(K^\times)$ serves both sides.
-\item For almost all $v$, $\ks_{\cG_v}$ restricts to splittings $\ks_v$ of $\GDb(K_v)$ over $G_D(\cO_v)$ and of $\Gb_v$ over $\GL(r,\cO_v)$; these agree with \cite[Lemma~6.1(d)]{JC26} on the $D$ side and are carried to each other by $\psi_v$ (Proposition~\ref{I:prop:outsideS}(c)). For $\gamma$ rational and integral outside a finite set, $\iota(\gamma)_v=\ks_v(\gamma)$ for almost all $v$. The covers are the restricted products of their local components with respect to these splittings.
+\item For almost all $v$, $\ks_{\cG_v}$ restricts to splittings $\ks_v$ of $\GDb(K_v)$ over $G_D(\cO_v)$ and of $\Gb_v$ over $\GL(r,\cO_v)$; these agree with \cite[Lemma~6.1(d)]{JC26a} on the $D$ side and are carried to each other by $\psi_v$ (Proposition~\ref{I:prop:outsideS}(c)). For $\gamma$ rational and integral outside a finite set, $\iota(\gamma)_v=\ks_v(\gamma)$ for almost all $v$. The covers are the restricted products of their local components with respect to these splittings.
 \item Let $N$ be the unipotent radical of a parabolic subgroup of $\GL(r)$ defined over $K$. There is a unique splitting $s_N$ of $\Gb(\A_K)$ over $N(\A_K)$, and $s_N|_{N(K)}=\iota|_{N(K)}$.
 \item The local components of $\Gb(\A_K)$ are the covers $\Gb_v$ of Definition~\ref{I:def:localcovers}, isomorphic to $\Gb^{(c_v)}$ after relabeling (Proposition~\ref{I:prop:restriction}(b)).
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-(a) As in Proposition~\ref{I:prop:restriction}(a), $(\det,\det)_{\A_L}^{c_v}$ restricts on $G_D(\A_K)$ to $\prod_v(\Nrd,\Nrd)_{K_v}^{rc_v}=(\Nrd,\Nrd)^c$, so the restricted cocycle is $\beta_\tau$. In \cite{JC26}, $\sigma_L$ is described as the Kazhdan--Patterson cocycle of $\GL(r,\A_L)$ ``which splits over $\GL(r,L)$'', with rational splitting $x\mapsto s(x)/\kappa_L(x)$. A global product of local cocycles is defined only after the normalization \eqref{I:eq:tausigma} \cite[\S2]{FK86}. So $\sigma_L$ in \cite{JC26} is the normalized cocycle $\tau_L$, and its rational splitting is $\iota$ of Lemma~\ref{I:lem:splittings}(c). The compact splittings are those of Lemma~\ref{I:lem:splittings}(b) (Remark~\ref{I:rem:JCsplitting}). Central characters are defined on our $\Zb(\A_K)$ and are not transported.
+(a) As in Proposition~\ref{I:prop:restriction}(a), $(\det,\det)_{\A_L}^{c_v}$ restricts on $G_D(\A_K)$ to $\prod_v(\Nrd,\Nrd)_{K_v}^{rc_v}=(\Nrd,\Nrd)^c$, so the restricted cocycle is $\beta_\tau$. In \cite{JC26a}, $\sigma_L$ is described as the Kazhdan--Patterson cocycle of $\GL(r,\A_L)$ ``which splits over $\GL(r,L)$'', with rational splitting $x\mapsto s(x)/\kappa_L(x)$. A global product of local cocycles is defined only after the normalization \eqref{I:eq:tausigma} \cite[\S2]{FK86}. So $\sigma_L$ in \cite{JC26a} is the normalized cocycle $\tau_L$, and its rational splitting is $\iota$ of Lemma~\ref{I:lem:splittings}(c). The compact splittings are those of Lemma~\ref{I:lem:splittings}(b) (Remark~\ref{I:rem:JCsplitting}). Central characters are defined on our $\Zb(\A_K)$ and are not transported.
 
 (b) $\tau_L$ is split over $\GL(r,L)$ by $\iota$ (Lemma~\ref{I:lem:splittings}(c)), and $(\det g,\det h)_{\A_L}=1$ for $g,h\in\GL(r,L)$ by Hilbert reciprocity for $L$. So $\iota$ splits $\cGb(\A_L)$ over $\GL(r,L)$, and hence over its subgroups $\iG(\GL(r,K))$ and $\iD(G_D(K))$.
 
 (c) $\iD$ and $\iG$ agree on $\A_K^\times$, and on $K^\times$ the splitting is $\iota$ in both cases. Centrality is Lemma~\ref{I:lem:center} at each place.
 
-(d) For almost all $v$ (namely $v\nmid n\infty$, $v$ unramified in $L$, and the integrality conditions of Proposition~\ref{I:prop:outsideS}(c)), $\iD(G_D(\cO_v))$ and $\iG(\GL(r,\cO_v))$ lie in $\GL(r,\cO_{L_v})$. There $\ks_{\cG_v}:=\prod_{w\mid v}\ks_w$, with $\ks_w(k)=(k,1)_\tau$, is a homomorphism by Lemma~\ref{I:lem:splittings}(b),(e). This agrees with \cite[Lemma~6.1(d)]{JC26} (Remark~\ref{I:rem:JCsplitting}). Compatibility with $\psi_v$ is Proposition~\ref{I:prop:outsideS}(c). The statement about $\iota(\gamma)$ is Lemma~\ref{I:lem:splittings}(d) in $\cGb(\A_L)$, hence in the subgroups.
+(d) For almost all $v$ (namely $v\nmid n\infty$, $v$ unramified in $L$, and the integrality conditions of Proposition~\ref{I:prop:outsideS}(c)), $\iD(G_D(\cO_v))$ and $\iG(\GL(r,\cO_v))$ lie in $\GL(r,\cO_{L_v})$. There $\ks_{\cG_v}:=\prod_{w\mid v}\ks_w$, with $\ks_w(k)=(k,1)_\tau$, is a homomorphism by Lemma~\ref{I:lem:splittings}(b),(e). This agrees with \cite[Lemma~6.1(d)]{JC26a} (Remark~\ref{I:rem:JCsplitting}). Compatibility with $\psi_v$ is Proposition~\ref{I:prop:outsideS}(c). The statement about $\iota(\gamma)$ is Lemma~\ref{I:lem:splittings}(d) in $\cGb(\A_L)$, hence in the subgroups.
 
 (e) Locally, the section $s$ of \cite[\S2]{FK86} splits the cover over $N(K_v)$. A splitting is unique, because $N(K_v)$ is divisible (it is unipotent in characteristic $0$), so it has no nontrivial homomorphisms to $\mu_n$. At almost all $v$ the local splitting agrees with $\ks_v$ on $N(\cO_v)$, again by uniqueness: $N(\cO_v)$ is pro-$p$ with $p\nmid n$. Hence the local splittings define a splitting of the restricted product over $N(\A_K)$. It is unique, since $N(\A_K)$ is divisible (for $X$ in the Lie algebra with integral components almost everywhere, $X/n$ is again such). The restriction to $N(K)$ is a splitting of $\Gb(\A_K)$ over the divisible group $N(K)$, as is $\iota|_{N(K)}$, so they agree.
 
@@ -669,7 +702,7 @@ $\GDb(\A_K):=p^{-1}(\iD(G_D(\A_K)))$ and $\Gb(\A_K):=p^{-1}(\iG(\GL(r,\A_K)))$, 
 \subsection{Rational lifts correspond}\label{I:subsec:rational}
 We prove that the local identifications of \S\S\ref{I:sec:covers}--\ref{I:sec:matching} carry the rational lift of a rational elliptic element of $G_D(K)$ to the rational lift of the corresponding element of $\GL(r,K)$, so that the elliptic terms of the two trace formulas agree.
 
-For $\gamma\in G_D(K)$ and genuine factorizable $\tilde f_D=\otimes_v\tilde f_{D,v}$, write $F(\iota(\gamma),\tilde f_D):=\prod_vF(x_v,\tilde f_{D,v})$, where $(x_v)$ is any representative of $\iota(\gamma)$ in the restricted product. This is well defined because the product of the local phases is $1$ \cite[Lemma~6.1, Remark~(3)]{JC26}. Similarly on the $\GL$ side.
+For $\gamma\in G_D(K)$ and genuine factorizable $\tilde f_D=\otimes_v\tilde f_{D,v}$, write $F(\iota(\gamma),\tilde f_D):=\prod_vF(x_v,\tilde f_{D,v})$, where $(x_v)$ is any representative of $\iota(\gamma)$ in the restricted product. This is well defined because the product of the local phases is $1$ \cite[Lemma~6.1, Remark~(3)]{JC26a}. Similarly on the $\GL$ side.
 
 \begin{theorem}\label{I:thm:rational}
 Let $E\subset D$ be a maximal subfield, $j:E\hookrightarrow M_r(K)$ a $K$-embedding, and $\gamma\in E^\times$ regular and good at every place on the $D$ side. Fix $\alpha_v$ and $\psi_v$ for $v\notin S$ as in Proposition~\ref{I:prop:outsideS}. Let $\tilde f_D=\otimes\tilde f_{D,v}$ and $\tilde f=\otimes\tilde f_v$ be genuine and factorizable with $\tilde f_{D,v}=\tilde f_v\circ\psi_v$ for $v\notin S$ (with $dg_{D,v}=\psi_v^*dg_v$) and $\tilde f_{D,v}$, $\tilde f_v$ matching for $v\in S$. Then $j(\gamma)$ is good at every place on the $\GL$ side, and
@@ -739,7 +772,7 @@ For $H\in\{G_D,\GL(r)\}$ and a regular elliptic $\gamma\in H(K)$, put $E=K(\gamm
 Write $\mathcal O_H$ for the set of $H(K)$-conjugacy classes in $Z(K)\backslash H(K)$ of regular elliptic elements that are good at every place. (On the $D$ side every regular element is elliptic.)
 
 \subsection{The $D$ side}\label{I:subsec:TFD}
-We compute the trace of the right regular representation on the compact quotient. This is the untwisted case of \cite[Prop.~6.6]{JC26}, except that all maximal subfields of $D$ now contribute, not only $L$.
+We compute the trace of the right regular representation on the compact quotient. This is the untwisted case of \cite[Prop.~6.6]{JC26a}, except that all maximal subfields of $D$ now contribute, not only $L$.
 
 \begin{proposition}\label{I:prop:geomD}
 Let $\tilde f_D=\otimes_v\tilde f_{D,v}$ be smooth, genuine, compactly supported modulo $\Zb(\A_K)$, with $\tilde f_D(z\tilde g)=\tilde\theta(z)^{-1}\tilde f_D(\tilde g)$, and let $\tilde R_D$ be the right regular representation on $L^2(\iota(G_D(K))\backslash\GDb(\A_K),\tilde\theta)$. Then $\tilde R_D(\tilde f_D)$ is of trace class, and
@@ -830,6 +863,11 @@ Fix a finite place $w_0\notin S$, a place $u\in S$, and a finite set $S_D\supset
 \end{enumerate}
 \end{definition}
 
+\begin{example}[Continuing Example~\ref{ex:running}: an admissible pair]\label{I:ex:admissible}
+In the running example $S=\{\mathfrak p_3,\mathfrak p_7\}$. Take $w_0$ to be a place of $K$ above $13$, which lies outside $S$ and does not divide $n$ (Example~\ref{I:ex:split-matching}), and take $u=\mathfrak p_7$. An admissible pair is assembled place by place. At $\mathfrak p_3$ and at $\mathfrak p_7$ choose any $\tilde f_{D,v}$ vanishing near $\Zb_v$, and let $\tilde f_v$ be a matching function supported on the good regular elliptic set. It exists by Theorem~\ref{I:thm:easy}(a). This gives condition (a), including the extra condition at $u$. At $w_0$ let $\tilde f_{w_0}$ be a supercusp form, and put $\tilde f_{D,w_0}=\tilde f_{w_0}\circ\psi_{w_0}$. At the remaining places of $S_D$ choose $\tilde f_v$ freely, $K_v$-finite at the complex places, and put $\tilde f_{D,v}=\tilde f_v\circ\psi_v$. Outside $S_D$ take the unit elements.
+\end{example}
+
+
 \begin{theorem}\label{I:thm:comparison}
 For every admissible pair,
 \[ \sum_{\pib_D}m(\pib_D)\tr\pib_D(\tilde f_D)=\sum_{\pib\ \mathrm{cuspidal}}m(\pib)\tr\pib(\tilde f), \]
@@ -843,7 +881,7 @@ By Corollary~\ref{I:cor:rationalbij}, $\gamma\mapsto j(\gamma)$ is a bijection f
 \end{proof}
 
 \begin{remark}\label{I:rem:Einputs}
-The \Ev\ inputs of the global sections are: the sup-norm bound for cusp forms on $\GL(r,\A)$ \cite{GGPS69}, \cite{God66}, \cite[I.2]{MW95}, transferred to the cover in \S\ref{I:app:cusp}, and the Dixmier--Malliavin theorem (A2) \cite{DM78}, used for the trace formula on the cuspidal spectrum; the trace class property on the compact quotient; absolute convergence and factorization of elliptic orbital integrals \cite[\S6]{FK86}; finiteness of cusp forms of fixed level, type and infinitesimal character \cite{HC68}, \cite[I.2]{MW95}; Arthur's multipliers \cite{Art83} (as in \cite[Lemma~6.3]{JC26}); and the splitting-off of supercuspidal representations (Lemma~\ref{I:lem:supercusp}).
+The \Ev\ inputs of the global sections are: the sup-norm bound for cusp forms on $\GL(r,\A)$ \cite{GGPS69}, \cite{God66}, \cite[I.2]{MW95}, transferred to the cover in \S\ref{I:app:cusp}, and the Dixmier--Malliavin theorem (A2) \cite{DM78}, used for the trace formula on the cuspidal spectrum; the trace class property on the compact quotient; absolute convergence and factorization of elliptic orbital integrals \cite[\S6]{FK86}; finiteness of cusp forms of fixed level, type and infinitesimal character \cite{HC68}, \cite[I.2]{MW95}; Arthur's multipliers \cite{Art83} (as in \cite[Lemma~6.3]{JC26a}); and the splitting-off of supercuspidal representations (Lemma~\ref{I:lem:supercusp}).
 \end{remark}
 
 % =====================================================================
@@ -875,7 +913,7 @@ We separate \eqref{I:eq:w0fixed} first by archimedean infinitesimal characters, 
 For each $W_{\infty,\C}$-orbit $\nu$, \eqref{I:eq:w0fixed} holds with both sums restricted to representations of archimedean infinitesimal character $\nu$. If all finite components of the test functions are bi-invariant under a fixed open compact subgroup $U$ of the finite adeles (split by $\ks$), and the archimedean components lie in $e_{\mathfrak t}C_c^\infty e_{\mathfrak t}$ for a fixed finite set $\mathfrak t$ of $K_\infty$-types, then only finitely many terms on either side are nonzero. Specifically, the nonzero terms come from representations $\pib$ with $e_Ue_{\mathfrak t}\pib\neq0$ and infinitesimal character $\nu$.
 \end{lemma}
 \begin{proof}
-This is the proof of \cite[Lemma~6.12]{JC26}, with the torus side replaced by the $\GL$ side. \emph{Finiteness:} a term is nonzero only if $\pib(\tilde f)\neq0$, which forces $e_Ue_{\mathfrak t}\pib\neq0$. On the $D$ side, the automorphic forms of level $U$, of $K_\infty$-types in $\mathfrak t$ and with given Casimir eigenvalue form a finite-dimensional space, by ellipticity of the Casimir operator on the compact quotient, as in \cite[Lemma~6.12]{JC26}. On the $\GL$ side the contributing $\pib$ are cuspidal, and the corresponding spaces of cusp forms are finite-dimensional \cite{HC68}, \cite[I.2]{MW95} \Ev. \emph{Multipliers:} at the complex places both covers split, $\tilde f_{D,v}=\tilde f_v\circ\psi_v$, and Arthur's multipliers \cite[Lemma~6.3]{JC26} act by the same scalar $\hat\mu(\nu_\pi)$ on both sides, preserving $e_{\mathfrak t}C_c^\infty e_{\mathfrak t}$ and admissibility. The Paley--Wiener argument of \cite[Lemma~6.12]{JC26} then separates the orbits $\nu$, using the absolute convergence of both sides (Theorem~\ref{I:thm:comparison}).
+This is the proof of \cite[Lemma~6.12]{JC26a}, with the torus side replaced by the $\GL$ side. \emph{Finiteness:} a term is nonzero only if $\pib(\tilde f)\neq0$, which forces $e_Ue_{\mathfrak t}\pib\neq0$. On the $D$ side, the automorphic forms of level $U$, of $K_\infty$-types in $\mathfrak t$ and with given Casimir eigenvalue form a finite-dimensional space, by ellipticity of the Casimir operator on the compact quotient, as in \cite[Lemma~6.12]{JC26a}. On the $\GL$ side the contributing $\pib$ are cuspidal, and the corresponding spaces of cusp forms are finite-dimensional \cite{HC68}, \cite[I.2]{MW95} \Ev. \emph{Multipliers:} at the complex places both covers split, $\tilde f_{D,v}=\tilde f_v\circ\psi_v$, and Arthur's multipliers \cite[Lemma~6.3]{JC26a} act by the same scalar $\hat\mu(\nu_\pi)$ on both sides, preserving $e_{\mathfrak t}C_c^\infty e_{\mathfrak t}$ and admissibility. The Paley--Wiener argument of \cite[Lemma~6.12]{JC26a} then separates the orbits $\nu$, using the absolute convergence of both sides (Theorem~\ref{I:thm:comparison}).
 \end{proof}
 
 \begin{lemma}\label{I:lem:linind}\Ev
@@ -972,6 +1010,11 @@ We say that a packet $P_D(\rho)$ satisfies $(\mathrm{Hyp}_D)$ if there are $\til
 (a sum with finitely many nonzero terms).
 \end{definition}
 
+\begin{example}[The hypothesis for a packet with one member]\label{I:ex:HD}
+Suppose that $P_D(\rho)=\{\pib_D\}$ has one member, with multiplicity $m(\pib_D)\ge1$. Then the sum has one term. So $(\mathrm{Hyp}_D)$ asks for functions $\tilde f_{D,v}$, one for each $v\in S$, each vanishing near $\Zb_v$, with $\tr\pib_{D,v}(\tilde f_{D,v})\neq0$ for every $v\in S$. In this case the hypothesis is a local condition at each place of $S$. In the running example these are the two places $\mathfrak p_3$ and $\mathfrak p_7$. Proposition~\ref{I:prop:HDfinite} below shows that such functions exist, and more generally that every finite nonempty packet satisfies $(\mathrm{Hyp}_D)$.
+\end{example}
+
+
 By Lemma~\ref{I:lem:cancel}, $(\mathrm{Hyp}_D)$ fails if and only if, at every level $U=\prod_{v\in S}U_v$, the function $a_U$ on $\prod_v\mathcal T_v$ is of the form in that lemma. Here $a_U(\tau)$ is the total multiplicity of the members of $P_D(\rho)$ whose $S$-component is $\tau$. So a failure requires that, at every level, the coefficient function of the packet at $S$ be a sum of terms each having a Plancherel factor at some place of $S$. This is a strong but not obviously contradictory condition when $P_D(\rho)$ is infinite.
 
 \begin{proposition}\label{I:prop:HDfinite}
@@ -1012,9 +1055,9 @@ This section lists the steps that need new input, and exactly where each would e
 
 \begin{enumerate}[label=(D\arabic*),leftmargin=3em]
 \item \Cv\ \emph{Matching of arbitrary functions.} (a) For $\tilde f_D$ not vanishing near $\Zb_v$: needed to remove the regular-support condition at $v\in S$ in Theorems~\ref{I:thm:comparison}--\ref{I:thm:transfer}. Inputs: the germ expansion of \cite[\S8]{FK86} at central good elements, the restriction of germs to the elliptic set, and a genuine function with the orbital integrals of a Steinberg pseudo-coefficient near the center (Proposition~\ref{I:prop:germ} and the Remark after it). (b) For $\tilde f$ with vanishing non-elliptic orbital integrals but not regular support (e.g.\ supercusp forms at $v\in S$): needed to put $w_0$ in $S$ and to drop the regular-support condition in (Hyp). Input: a characterization of orbital integrals of genuine functions on $\Gb_v$ (the analog of \cite[A.3]{DKV84}), via \cite[\S8]{FK86}, \cite[\S1]{KP86}.
-\item \Cv\ \emph{Local character relations.} For square-integrable genuine $\pib_v$ there should be $\pib_{D,v}$ with $\Theta_{\pib_{D,v}}=(-1)^{r-1}\Theta_{\pib_v}\circ\jj$ on good regular elements, and conversely. Needed to turn \eqref{I:eq:packet} into a correspondence and to remove (Hyp). Inputs: isolating single representations in \eqref{I:eq:packet}, using multiplicity one and rigidity for $\Gb(\A_K)$ (\cite[\S\S27--28]{FK86} as corrected by \cite{Z23}); the elliptic orthogonality relations \cite[\S\S24--25]{FK86}; and a canonical normalization of $dg_{D,v}$ relative to $dg_v$.
+\item \Cv\ \emph{Local character relations.} For square-integrable genuine $\pib_v$ there should be $\pib_{D,v}$ with $\Theta_{\pib_{D,v}}=(-1)^{r-1}\Theta_{\pib_v}\circ\jj$ on good regular elements, and conversely. Needed to turn \eqref{I:eq:packet} into a correspondence and to remove (Hyp). Inputs: isolating single representations in \eqref{I:eq:packet}, using multiplicity one and rigidity for $\Gb(\A_K)$ (\cite[\S\S27--28]{FK86} as corrected by \cite{Zo23}); the elliptic orthogonality relations \cite[\S\S24--25]{FK86}; and a canonical normalization of $dg_{D,v}$ relative to $dg_v$.
 \item \Cv\ \emph{Finiteness of near-equivalence packets.} Needed to remove $(\mathrm{Hyp}_D)$ from Theorem~\ref{I:thm:transfer}, via Proposition~\ref{I:prop:HDfinite}. For the converse one needs in addition linear independence of the elliptic characters of the members of a finite $\GL$-side packet (Remark~\ref{I:rem:H}).
-\item \Cv\ \emph{Composing with \cite{JC26}.} The lifts of \cite[Theorem~6.13]{JC26} are unramified almost everywhere, with no supercuspidal component imposed. Applying Theorem~\ref{I:thm:transfer} requires one supercuspidal $\pib_{D,w_0}$. That means either extending \cite{JC26} to allow an arbitrary test function at one extra place inert in $L$ (the local transfer \cite[Lemma~4.5]{JC26} holds there), or removing the supercuspidal condition, by \cite{Li14} or by (D1)(b).
+\item \Cv\ \emph{Composing with \cite{JC26a}.} The lifts of \cite[Theorem~6.13]{JC26a} are unramified almost everywhere, with no supercuspidal component imposed. Applying Theorem~\ref{I:thm:transfer} requires one supercuspidal $\pib_{D,w_0}$. That means either extending \cite{JC26a} to allow an arbitrary test function at one extra place inert in $L$ (the local transfer \cite[Lemma~4.5]{JC26a} holds there), or removing the supercuspidal condition, by \cite{Li14} or by (D1)(b).
 \end{enumerate}
 
 \begin{remark}[(D2) at places prime to $n$]\label{I:rem:D2tame}
@@ -1025,19 +1068,19 @@ transform.  Put $F=K_v$, and assume $p\nmid n$.
 A sufficient published hypothesis for the external correspondence
 is $(n,N_r)=1$, where $N_r$ is the least common multiple of the
 composite positive integers at most $r$ (and $N_r=1$ if none occur)
-\cite[\S26]{FK86}; \cite[Proposition~3.6 and Definition~3.7]{Z23}.
+\cite[\S26]{FK86}; \cite[Proposition~3.6 and Definition~3.7]{Zo23}.
 
 Chapter~\ref{ch:I}, Proposition~\ref{I:prop:restriction}(b), identifies the
 restricted ambient cover, after relabeling $\mu_n$, with the
 parameter-$c_v$ Kazhdan--Patterson extension.  Its diagonal cocycle
 is $\prod_{i<j}(a_i,b_j)_n(\det a,\det b)_n^{c_v}$,
-which is Zou's formula \cite[(2.1)]{Z23} for one-dimensional blocks.
+which is Zou's formula \cite[(2.1)]{Zo23} for one-dimensional blocks.
 The scalar cocycle exponent is
 $e_r=\binom r2+c_vr^2$; it is divisible by $n$ because
 $2e_r=r(r-1+2rc_v)$, $n$ is odd, and
 $n\mid r-1+2rc_v$.  Consequently the scalar-section and
 central-character condition in Zou's correspondence agree with
-those of this paper; in particular the associated ordinary scalar
+those of this chapter; in particular the associated ordinary scalar
 character is trivial on $\mu_n$.
 
 For odd $n$, the star map is intrinsically
@@ -1048,7 +1091,7 @@ Theorem~\ref{I:thm:ident} satisfies
 $\jj(z t_D^*)=z(jt)_{\GL}^*$ for $z\in\Zb_v$.
 The discriminants on the two inner forms agree on matching
 elliptic elements.  For a regular elliptic $t$ the root sum in
-\cite[(3.2)]{Z23} has exactly $n$ equal contributions (the roots
+\cite[(3.2)]{Zo23} has exactly $n$ equal contributions (the roots
 $\zeta t$, $\zeta\in\mu_n$), yielding the coefficient
 \[
  b_D=\frac{n}{d_F(n)|n|_F^{r/2}}
@@ -1057,7 +1100,7 @@ $\zeta t$, $\zeta\in\mu_n$), yielding the coefficient
 \]
 Here $d_r=\gcd(n,2rc_v+r-1)=n$; at a tame place
 $b_D=1$ and the discriminant ratio $\Delta(t)/\Delta(t^n)$
-is $1$.  Thus \cref{III:cor:D2tame} (Draft~9), composes
+is $1$.  Thus \cref{III:cor:D2tame} composes
 its tame irreducible-character theorem (\cref{III:thm:tame-transfer}),
 ordinary local Jacquet--Langlands \cite{DKV84}, and the corrected
 Flicker--Kazhdan--Zou correspondence to obtain (D2), with the
@@ -1073,7 +1116,7 @@ remains open.
 \section{Conclusion: what the local theorem gives on its own}\label{I:sec:conclusion}
 This section records what the local results of \S\S\ref{I:sec:covers}--\ref{I:sec:matching} establish independently of the global argument. It proves nothing new and introduces no notation.
 
-At a place $v$ where $D$ is ramified, the cover $\GDb(K_v)$ of \cite{JC26} and the Kazhdan--Patterson cover $\Gb(K_v)$ with parameter $c_v$ are subgroups of one cover of $\GL(r,L_v)$. This identifies their centers and central characters without any choice. For every maximal subfield $E\subset D_v$, the covered tori on the two sides have identical commutator pairings and good elements, and Theorem~\ref{I:thm:ident} gives a \emph{canonical} identification of their good parts. Consequently there is a canonical bijection between good regular elliptic conjugacy classes (Corollary~\ref{I:cor:classes}). Matching of genuine test functions is therefore well defined, with no choices beyond Haar measures. Theorem~\ref{I:thm:easy} then shows that matching is possible in both directions for functions supported on the regular set, for arbitrary (not necessarily cyclic) maximal subfields, by a self-contained argument (\S\ref{I:app:oi}).
+At a place $v$ where $D$ is ramified, the cover $\GDb(K_v)$ of \cite{JC26a} and the Kazhdan--Patterson cover $\Gb(K_v)$ with parameter $c_v$ are subgroups of one cover of $\GL(r,L_v)$. This identifies their centers and central characters without any choice. For every maximal subfield $E\subset D_v$, the covered tori on the two sides have identical commutator pairings and good elements, and Theorem~\ref{I:thm:ident} gives a \emph{canonical} identification of their good parts. Consequently there is a canonical bijection between good regular elliptic conjugacy classes (Corollary~\ref{I:cor:classes}). Matching of genuine test functions is therefore well defined, with no choices beyond Haar measures. Theorem~\ref{I:thm:easy} then shows that matching is possible in both directions for functions supported on the regular set, for arbitrary (not necessarily cyclic) maximal subfields, by a self-contained argument (\S\ref{I:app:oi}).
 
 These statements are the local prerequisites for \emph{any} trace-formula comparison between $\GDb$ and $\Gb$. They do not depend on the trace formula of \cite{FK86}, on finiteness of packets, or on multiplicity one. Proposition~\ref{I:prop:germ} also shows exactly where the regular-support condition has to be removed (germs at the center); Chapter~\ref{ch:II} removes it. Globally, the packet identity of Proposition~\ref{I:prop:packet} is unconditional. What remains conditional is only the final non-cancellation step, isolated as $(\mathrm{Hyp}_D)$ and (Hyp).
 \endgroup

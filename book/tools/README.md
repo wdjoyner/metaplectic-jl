@@ -21,5 +21,8 @@ Draft 6, and the companion paper Draft 8.
    bibliography. (`bibs.json` is produced by the extraction step in
    the Draft 1 log.)
 
-From Draft 2 on, the chapter files are edited directly; these scripts
-document how Draft 1 was produced.
+From Draft 2 on, the chapter files are edited directly. These scripts
+document how Draft 1 was produced. **Do not run them again:** they
+would overwrite the hand edits of Draft 2, including the new examples,
+the orienting paragraphs, the renamed citation keys and the split of
+Chapter 3 into Chapter 3 and Chapter 10.

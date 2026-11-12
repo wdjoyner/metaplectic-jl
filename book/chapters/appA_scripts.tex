@@ -31,13 +31,17 @@
 \providecommand{\Otag}{}\renewcommand{\Otag}{\textnormal{\textbf{(O)}}}
 \providecommand{\Ctag}{}\renewcommand{\Ctag}{\textnormal{\textbf{(C)}}}
 \section{Tables}\label{W:app:tables}
+This section collects the tables that Chapter~\ref{ch:W} refers to. They are written in the coordinates of \eqref{W:eq:Vcoords}.
+
 \paragraph{Coordinates.}  $V=Q_3/Q_6\simeq\Fq_3^5$ with basis
 $(A_{\mathrm{re}},A_{\mathrm{im}},C_{\mathrm{im}},B_{\mathrm{re}},B_{\mathrm{im}})$
 as in \eqref{W:eq:Vcoords}; a vector is written as a string of five
 digits.  The generators act by the matrices
 \[
 \Ad(1+j):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\0&1&1&0&0\\0&0&0&1&0\\0&2&1&0&1\end{psmallmatrix},\quad
-\Ad(1+ij):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\2&0&1&0&0\\2&0&2&1&0\\0&0&0&0&1\end{psmallmatrix},\quad
+\Ad(1+ij):\begin{psmallmatrix}1&0&0&0&0\\0&1&0&0&0\\2&0&1&0&0\\2&0&2&1&0\\0&0&0&0&1\end{psmallmatrix},
+\]
+\[
 \Ad(1+i):\begin{psmallmatrix}0&2&0&0&0\\1&0&0&0&0\\0&0&1&0&0\\0&0&0&0&2\\0&0&0&1&0\end{psmallmatrix},\quad
 \Ad(j):\begin{psmallmatrix}1&0&0&0&0\\0&2&0&0&0\\0&0&2&0&0\\0&0&0&1&0\\0&0&0&0&2\end{psmallmatrix}.
 \]
@@ -81,10 +85,10 @@ sign is the choice of the identification $\mu_3\simeq\Z/3$.
 
 \section{Verification scripts}\label{W:app:scripts}
 The scripts are in the directory \texttt{part-IV/scripts/} of the
-repository \texttt{github.com/wdjoyner/metaplectic-jl}; the version used
+repository \href{https://github.com/wdjoyner/metaplectic-jl}{\nolinkurl{github.com/wdjoyner/metaplectic-jl}}; the version used
 for this draft is that of commit \texttt{67e6439} (November~8, 2026), and the README there
 lists, for each script, the statement it supports and whether it is
-load bearing.  Since Draft~7, script~13 certifies the group law of
+load bearing.  Script~13 certifies the group law of
 $Q_3/Q_7$ deterministically (associativity on all $729^3$ triples,
 identity, inverses) and verifies the character table exactly by checking
 that each rounded character is a common eigenvector of all class-sum
@@ -102,8 +106,7 @@ display complex character values, and scripts~13--14 obtain the
 character table of $Q_3/Q_7$ by Burnside's algorithm in floating point
 and then round the values to $\Z[\zeta_3]$ (maximal rounding error
 $2\cdot10^{-13}$) and re-verify all orthogonality relations exactly;
-this is numerical discovery followed by exact verification, and since
-Draft~6 those two scripts are corroboration only
+this is numerical discovery followed by exact verification, and those two scripts are corroboration only
 (Theorem~\ref{W:thm:leveltwo} is proved by hand).  They are kept with the
 paper under \texttt{part-IV/scripts/}.
 \begin{enumerate}[label=\arabic*.]
