@@ -86,8 +86,9 @@
 
 \chapter{Abstract}
 This book was written by David Joyner together with the AI systems
-Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google), which
-drafted, revised, and refereed the text. The Acknowledgments
+Claude (Anthropic) and ChatGPT (OpenAI), which drafted, revised, and
+refereed the text. Gemini (Google) prepared the Draft~3 revision. The
+Acknowledgments
 (page~\pageref{ch:ack}) and the Draft~3 revision log describe each
 contribution in detail.
 
@@ -153,7 +154,7 @@ This chapter introduces the mathematical problem, summarizes each chapter, fixes
 \section{The setting}\label{sec:setting}
 This section introduces the linear and covering groups under comparison, explains why a single ambient cover is needed to identify them, and outlines the trace-formula strategy.
 
-\paragraph{Motivation.} The classical Jacquet--Langlands correspondence relates automorphic representations of $\mathrm{GL}(r)$ to those of the multiplicative group $D^\times$ of a central division algebra $D$ of degree $r$ \cite{JL70,DKV84,Rog83,Bad08}. Its proof compares the trace formulas of the two groups. Elements of $D^\times$ correspond to the elliptic conjugacy classes of $\mathrm{GL}(r)$, meaning those whose characteristic polynomials do not split over the base field. That correspondence transports the discrete, compact-modulo-center part of harmonic analysis on $\mathrm{GL}(r)$ to the smaller group $D^\times$. A \emph{metaplectic}, or covering-group, analog asks the same question one level up. One replaces $\mathrm{GL}(r)$ and $D^\times$ by $n$-fold topological central extensions by the group $\mu_n$ of $n$-th roots of unity. One then asks whether \emph{genuine} representations, meaning representations on which $\mu_n$ acts faithfully by a fixed character rather than trivially, still match across the two covers. This book builds and studies part of that program for a division algebra of prime degree.
+\paragraph{Motivation.} The classical Jacquet--Langlands correspondence relates automorphic representations of $\mathrm{GL}(r)$ to those of the multiplicative group $D^\times$ of a central division algebra $D$ of degree $r$ \cite{JL70,DKV84,Rog83,Bad08}. Its proof compares the trace formulas of the two groups. Regular elements of $D^\times$ correspond to the regular elliptic conjugacy classes of $\mathrm{GL}(r)$, meaning those whose characteristic polynomials are irreducible over the base field. That correspondence transports the discrete, compact-modulo-center part of harmonic analysis on $\mathrm{GL}(r)$ to the smaller group $D^\times$. A \emph{metaplectic}, or covering-group, analog asks the same question one level up. One replaces $\mathrm{GL}(r)$ and $D^\times$ by $n$-fold topological central extensions by the group $\mu_n$ of $n$-th roots of unity. One then asks whether \emph{genuine} representations, meaning representations on which $\mu_n$ acts through a fixed faithful character rather than trivially, still match across the two covers. This book builds and studies part of that program for a division algebra of prime degree.
 
 \paragraph{The groups.} Let $K$ be a totally imaginary number field, so every archimedean place of $K$ is complex. Assume $K$ contains the group $\mu_n$ of $n$-th roots of unity, with $n$ odd. Let $r$ be a prime with $\gcd(n,r)=1$, and write $\mathbb A_K$ for the adele ring of $K$. Let $D$ be a central division algebra of dimension $r^2$ over $K$, ramified at the finite set $S$ of places, and containing a cyclic maximal subfield $L$ of degree $r$ over $K$. Saying that $D$ is ramified at $S$ means that $D\otimes_K K_v$ is isomorphic to the matrix algebra $M_r(K_v)$ for every place $v\notin S$, whereas $D_v = D\otimes_K K_v$ is a central division algebra over $K_v$ for every $v\in S$. Because $r$ is prime, no intermediate matrix-over-division-ring case can occur at any place. The cyclic maximal subfield $L$ presents $D$ as a cyclic algebra over $K$ and supplies an embedding of $D^\times$ into $\mathrm{GL}(r,L)$ used throughout the book (see \S\ref{gl:divalg}).
 
@@ -183,15 +184,11 @@ This section summarizes the contents and logical dependencies of Chapters~\ref{c
 \item Chapter~\ref{ch:summary} tabulates the principal theorems and proof statuses across Chapters~\ref{ch:I}--\ref{ch:W}, and Chapter~\ref{ch:glossary} provides a glossary of technical terms and normalizations.
 \end{itemize}
 
-\begin{example}[How a representation of $D^\times$ traverses the chapters]\label{ex:intro-pipeline}
-Consider the trivial representation $\mathbf 1$ of $D_v^\times$ at the two ramified places of $D=(-1,4-\zeta_3)_K$ in Example~\ref{ex:running}. Chapters~\ref{ch:I} and~\ref{ch:II} match genuine test functions around and across the center at both places. At the tame place $\mathfrak p_7$, Chapter~\ref{ch:III} shows that $L_D(\mathbf 1)$ is a one-dimensional genuine character. At the wild place $\mathfrak p_3$, Chapter~\ref{ch:IV} verifies toral positivity on all three quadratic subfields, and Chapter~\ref{ch:W} proves (\Pctag) that $L_D(\mathbf 1)$ is the character of an irreducible $27$-dimensional genuine representation induced from a congruence subgroup.
-\end{example}
-
 \section{The running example}\label{sec:running}
 This section fixes a single concrete division algebra and covering datum on which every chapter tests its definitions, constants, and theorems.
 
 \begin{example}[The running example]\label{ex:running}
-Take $K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$, the cyclic maximal subfield $L=K(i)=\mathbb Q(\zeta_{12})$, and the quaternion algebra $D=(-1,4-\zeta_3)_K$, generated over $K$ by $i,j$ with $i^2=-1$, $j^2=4-\zeta_3$, and $ij=-ji$. In $\mathbb Z[\zeta_3]$ one has $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)$ of norm $21=3\cdot 7$, and $D$ is ramified precisely at $S=\{\mathfrak p_3,\mathfrak p_7\}$, where $\mathfrak p_3=(1-\zeta_3)$ lies above $3$ and $\mathfrak p_7=(3+\zeta_3)$ lies above $7$. We write $|\cdot|_p$ for the $p$-adic absolute value normalized by $|p|_p=p^{-1}$. At the wild place $\mathfrak p_3$, where $K_{\mathfrak p_3}=\mathbb Q_3(\zeta_3)$ has $|3|_{K_{\mathfrak p_3}}=3^{-2}$, the local scaling constants of Chapter~\ref{ch:III} are $b_D = |3|_{K_{\mathfrak p_3}}^{-(r-1)/2} = 3$ (the unitary normalization factor of $L_D$, which also divides the dimension of every genuine irreducible representation) and $c_D = |3|_{K_{\mathfrak p_3}}^{-(r^2-1)/2} = 27$ (the near-center dimension-scaling factor of $L_D$). At the tame place $\mathfrak p_7$, one has $b_D=c_D=1$. In Assumption~\ref{I:ass:standing} we set $r'=2$, $c=1$, and $c_v=r'c=2$.
+Take $K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$, the cyclic maximal subfield $L=K(i)=\mathbb Q(\zeta_{12})$, and the quaternion algebra $D=(-1,4-\zeta_3)_K$, generated over $K$ by $i,j$ with $i^2=-1$, $j^2=4-\zeta_3$, and $ij=-ji$. In $\mathbb Z[\zeta_3]$ one has $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)$ of norm $21=3\cdot 7$, and $D$ is ramified precisely at $S=\{\mathfrak p_3,\mathfrak p_7\}$, where $\mathfrak p_3=(1-\zeta_3)$ lies above $3$ and $\mathfrak p_7=(3+\zeta_3)$ lies above $7$. For a local field $F$ we write $|\cdot|_F$ for its normalized absolute value, so that $|\varpi|_F=q_F^{-1}$ for a uniformizer $\varpi$ and residue field of size $q_F$. At the wild place $\mathfrak p_3$, the field $K_{\mathfrak p_3}=\mathbb Q_3(\zeta_3)$ is ramified of degree $2$ over $\mathbb Q_3$ with residue field $\mathbb F_3$, so $|3|_{K_{\mathfrak p_3}}=3^{-2}$, and the local scaling constants of Chapter~\ref{ch:III} are $b_D = |3|_{K_{\mathfrak p_3}}^{-(r-1)/2} = 3$ (the unitary normalization factor of $L_D$, which also divides the dimension of every genuine irreducible representation) and $c_D = |3|_{K_{\mathfrak p_3}}^{-(r^2-1)/2} = 27$ (the near-center dimension-scaling factor of $L_D$). At the tame place $\mathfrak p_7$, one has $b_D=c_D=1$. In Assumption~\ref{I:ass:standing} we set $r'=2$, $c=1$, and $c_v=r'c=2$.
 \end{example}
 
 Pairing one wild place and one tame place in a single quaternion algebra lets every chapter display tame and wild behavior side by side. At $\mathfrak p_3$, Chapter~\ref{ch:W} establishes irreducible character integrality for the trivial character and for all representations trivial on $K^3$ (levels $\le 2$). The full verification of Assumption~\ref{I:ass:standing} in this example appears in \S\ref{I:subsec:runningexample}, and the companion note \cite{JC26b} works through the arithmetic across Chapters~\ref{ch:I}--\ref{ch:IV}.
@@ -205,6 +202,10 @@ Chapters~\ref{ch:I}--\ref{ch:III} draw on three external works, and Example~\ref
 
 \emph{\cite{FK88}.} This paper is cited only for the philosophy of the simple trace formula, whereas Proposition~\ref{I:prop:FKvariant} is proved directly following \cite[\S18]{FK86}. Its support condition---fixing a supercuspidal test function at one auxiliary place $w_0\notin S$---restricts the class of automorphic representations addressed by Theorem~C rather than constraining $(K,n,r,D)$.
 \end{remark}
+
+\begin{example}[How a representation of $D^\times$ traverses the chapters]\label{ex:intro-pipeline}
+Consider the trivial representation $\mathbf 1$ of $D_v^\times$ at the two ramified places of $D=(-1,4-\zeta_3)_K$ in Example~\ref{ex:running}, traced through the chapters of the book. Chapters~\ref{ch:I} and~\ref{ch:II} match genuine test functions around and across the center at both places. At the tame place $\mathfrak p_7$, Chapter~\ref{ch:III} shows that $L_D(\mathbf 1)$ is a one-dimensional genuine character. At the wild place $\mathfrak p_3$, Chapter~\ref{ch:IV} verifies toral positivity on all three quadratic subfields, and Chapter~\ref{ch:W} proves (\Pctag) that $L_D(\mathbf 1)$ is the character of an irreducible $27$-dimensional genuine representation induced from a congruence subgroup.
+\end{example}
 
 \section{Main open problems}\label{sec:open}
 This section records the three principal questions left open by the book, ordered from local wild representation theory to unconditional global trace-formula comparison.
@@ -234,10 +235,10 @@ At $K_{\mathfrak p_3}=\mathbb Q_3(\zeta_3)$ with congruence filtration $K^j = 1+
 
 \backmatter
 \chapter{Acknowledgments}\label{ch:ack}
-This book was written by David Joyner together with the AI systems
-Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google). Claude and
-ChatGPT are listed on the title page as co-authors of the underlying
-manuscripts. Their roles were as follows.
+This book was written by David Joyner together with two AI systems,
+Claude (Anthropic) and ChatGPT (OpenAI). Both systems are listed as
+authors. A third system, Gemini (Google), revised Draft~3 but is not an
+author. The roles of all three were as follows.
 
 Each of Chapters~\ref{ch:I}--\ref{ch:W} began as a separate manuscript.
 Each was drafted by David Joyner together with Claude or ChatGPT, and
@@ -262,11 +263,18 @@ referee report on Draft~2 (November~14, 2026), identifying the local
 Brauer-group classification error in Chapter~\ref{ch:notation}, the
 scalar-centrality explanation error and wild-level overclaim in
 Chapter~\ref{ch:intro}, and verifying internal consistency of the
-level-two orbit certificate. Gemini (Google) prepared Draft~3, verifying
-the referee corrections independently, checking the finite-design and
-adjoint-orbit tables of Appendix~\ref{ch:scripts} by exact computation,
-fixing compilation and cross-reference issues across the source tree,
-and revising the exposition to follow the style guide.
+level-two orbit certificate.
+
+Gemini (Google) prepared Draft~3 in response to that report. It checked
+each of the referee's corrections independently before making it, and
+corrected the description of the constants $b_D$ and $c_D$ in the
+running example. It wrote the script \path{scripts/verify_appendix_tables.py},
+which checks by exact computation that the finite-design and
+adjoint-action tables of Appendix~\ref{ch:scripts} are consistent with
+one another. It also fixed build warnings and hand-typed citations, and
+revised Chapter~\ref{ch:intro} to follow the style guide, adding three
+worked examples there. Claude then reviewed Draft~3 and made the final
+corrections recorded in its revision log.
 
 The paragraphs below are reproduced from the manuscripts. They record
 what is specific to each chapter, such as a referee's correction, an

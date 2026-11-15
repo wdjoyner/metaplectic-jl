@@ -11,17 +11,19 @@ been established.**
 
 ## The book
 
-The working document is `book/mjl_book_draft.tex` (*On a metaplectic
+The working document is `book/mjl_book_draft3.tex` (*On a metaplectic
 Jacquet–Langlands transfer for division algebras of prime degree*, by
-David Joyner, Claude and ChatGPT; currently Draft 2), compiled to
-`book/mjl_book_draft.pdf`. Build it with:
+David Joyner, Claude and ChatGPT; currently Draft 3), compiled to
+`book/mjl_book_draft3.pdf`. Draft 2 is kept as `book/mjl_book_draft.tex`
+for reference; the chapter files in `book/chapters/` are those of the
+current draft (earlier versions are in the git history). Build it with:
 
 ```bash
 cd book
-pdflatex mjl_book_draft.tex
-pdflatex mjl_book_draft.tex   # second pass for cross-references
-makeindex mjl_book_draft.idx  # builds the index
-pdflatex mjl_book_draft.tex   # final pass to place the index
+pdflatex mjl_book_draft3.tex
+pdflatex mjl_book_draft3.tex   # second pass for cross-references
+makeindex mjl_book_draft3.idx  # builds the index
+pdflatex mjl_book_draft3.tex   # final pass to place the index
 ```
 
 ### Chapters
@@ -41,8 +43,11 @@ pdflatex mjl_book_draft.tex   # final pass to place the index
 
 Chapters 4–7 correspond to the series' former Parts I–IV, and Chapter
 8 to the former standalone companion paper on the rank-two wild case.
-The book's revision log is `book/mjl_book_revision_log_draftK.tex`,
-where `K` is the draft number. The log of Draft 2 lists every addition
+The book's revision log for Drafts 1 and 2 is
+`book/mjl_book_revision_log_draftK.tex`, where `K` is the draft number;
+the Draft 3 log is `book/mjl_book_draft3_revision_log.tex`. The Draft 3
+log records the response to the November 14, 2026 referee report
+(`book/reports/metaplectic_jl_book_referee_report_2026-11-14.tex`). The log of Draft 2 lists every addition
 that still needs refereeing and gives a concordance of the numbers
 that changed.
 
@@ -114,7 +119,7 @@ The full definitions and the book's notation are in Chapter 3
 ## Repository layout
 
 ```
-book/       The book: mjl_book_draft.tex / .pdf, chapters/,
+book/       The book: mjl_book_draft3.tex / .pdf, chapters/, scripts/,
             bibliography.tex, and the revision log
 glossary.tex  Shared glossary of notation, conventions and status
             labels, input by each frozen Part below

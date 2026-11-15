@@ -1,0 +1,280 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath}
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array,enumitem}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=2em
+\title{Referee Report on\\\emph{On a metaplectic Jacquet--Langlands transfer\\for division algebras of prime degree}\\[.5em]\large Book Draft 2 (November 12, 2026)}
+\author{Independent AI review by ChatGPT (GPT-6)}
+\date{November 14, 2026}
+\begin{document}
+\maketitle
+\noindent\textbf{Materials checked.} The GitHub \texttt{main} branch under
+\url{https://github.com/wdjoyner/metaplectic-jl/tree/main/book},
+including the master LaTeX file, Chapters 2--10, the appendix, bibliography,
+and Draft 2 revision log; the attached \path{joyner-math-paper-style-guide.md}
+(Draft 1, November 11, 2026); selected related published literature; and
+\path{part-IV/scripts/level2_orbit_certificate.txt}.
+The compiled book PDF was not independently inspected page by page, and the
+full LaTeX source tree was not downloaded to a local build directory.
+This is a selective mathematical re-refereeing, not a line-by-line proof
+certification of the entire 216-page reported build.
+
+\section{Recommendation}
+\textbf{Verdict: promising and potentially original research monograph;
+major mathematical fact-checking and editorial corrections remain before
+it should be presented as a certified account.}
+The work has a clear, substantial goal: a metaplectic analogue of the
+Jacquet--Langlands correspondence for a central division algebra of prime
+degree. The book correctly does not claim the full correspondence. Its
+strongest specific contributions appear to be the ambient-cover and local
+matching construction, the unitary division-side transform, the quadratic
+toral positivity theorem, and the explicit wild cubic-cover character
+calculations through level two. The global automorphic transfer retains
+support and packet non-cancellation hypotheses; split-place and
+archimedean comparison and wild integrality at arbitrary levels are open.
+
+\section{Summary of results and proof status}
+\begin{longtable}{@{}p{.12\linewidth}p{.56\linewidth}p{.23\linewidth}@{}}
+\toprule Chapter & Principal result & Status presented\\\midrule\endhead
+4 (I) & Realization of two covers inside one ambient cover; canonical
+identification of good covered elliptic tori (A); matching away from the
+center (B); packet-level trace identity and transfer (C). & Local results
+proved using cited inputs; C conditional on $(\mathrm{Hyp}_D)$ and an
+auxiliary supercuspidal place.\\
+5 (II) & Canonical local $n$th-root section, germ transport near the center,
+matching of arbitrary genuine test functions (D, E), and weakened
+non-cancellation criterion (C$'$). & Matching proved using linear
+harmonic-analysis inputs; global transfer conditional.\\
+6 (III) & Unitary transform $L_D$ on central-character class functions,
+tame irreducible-character integrality, a wild dimensional obstruction,
+and local orbital-integral adjunction. & Tame results proved; general
+wild integrality unresolved.\\
+7 (IV) & Good-element/power-map calculations for tori, quadratic toral
+permutation positivity, and cocycle-normalization and conditional global
+comparison criteria. & Positivity presented as proved; global
+comparison conditional.\\
+8 (wild) & Cubic quaternion example over $F=\mathbb Q_3(\zeta_3)$:
+Target A, dimension-27 genuine character from the trivial character;
+Target B for representations trivial on $K^3$ (through level two),
+including 54 degree-three intermediate characters. & Key Target A
+components tagged (P$^c$); level-two proof uses hand arguments
+and inherits the Target A computation.\\\bottomrule
+\end{longtable}
+
+\paragraph{Unitary character transform.}
+For the specified cover of $H=D^\times$, the book constructs
+$L_D:\mathcal H_\theta(H)\xrightarrow{\sim}
+\mathcal H_{\widetilde\theta}(\widetilde H)$,
+with normalization $b_D=|n|_F^{-(r-1)/2}$. If its irreducible-character
+matrix is integral, unitarity and further sign arguments force a
+permutation of irreducible characters. For $p\nmid n$ the book proves
+integrality; for $p\mid n$ it is a genuinely new obstruction.
+
+\paragraph{Toral theorem.}
+For a quadratic extension $E/F$, $p$ odd, $n$ odd, and $\mu_n\subset F$,
+the function $R_E(t)=\Delta(t)/\Delta(t^n)$, extended to scalars,
+is shown to be a finite permutation character on $E^\times/F^\times$.
+The proof is a radial valuation decomposition into regular characters of
+finite quotients. This gives positive integral Fourier coefficients
+without claiming extension of the toral modules to the entire
+nonabelian cover.
+
+\paragraph{Wild calculation.}
+For $F=\mathbb Q_3(\zeta_3)$, $n=3$, $r=2$, the text finds
+$b_D=3$ and $c_D=27$, exhibits $L_D\mathbf1$ as an irreducible
+genuine character of dimension $27$, and proves the analogous
+statement for representations trivial on $K^3$ (including norm twists).
+The level-two case produces two irreducible constituents of dimension
+$81$ on the relevant congruence subgroup.
+
+\section{Originality assessment}
+\textbf{Distinguish new proofs/results from new formulations of established
+frameworks.} The ordinary Jacquet--Langlands correspondence is classical
+\cite{JL70}; metaplectic correspondence for covered $\mathrm{GL}_r$ and
+its test-function theory precede this book \cite{FK86}. Joyner's 1988
+paper already studied covers attached to division algebras and metaplectic
+lifting \cite{Jo88}. Zou corrected and developed the local
+Flicker--Kazhdan correspondence \cite{Zo23}; Kaplan--Lapid--Zou
+classified irreducibles for covers of $\mathrm{GL}_r$ \cite{KLZ23}.
+Thus neither covering groups, the basic power map, nor the general
+trace-formula strategy are themselves original here.
+
+\begin{description}[style=nextline,leftmargin=0pt]
+\item[High potential originality.] The concrete division-side wild
+integrality result, its finite-design/Clifford orbit machinery, and the
+uniform quadratic toral permutation-character theorem appear distinctive
+relative to the works consulted. Priority requires a more exhaustive
+literature search and independent proof verification.
+\item[Moderate to high potential originality.] The ambient common-cover
+identification and two-sided matching for arbitrary genuine test
+functions near the center provide new work in this specific division-algebra
+setting, though their ingredients are established tools.
+\item[Moderate originality.] The unitary $L_D$ transform and tame
+integrality theorem may be mathematically useful new formulations
+and proofs, but their relationship to the 1988 division-side
+character relations should be sharpened to delimit the new claims.
+\item[More limited originality.] The conditional global transfer and
+cocycle normalization are substantial synthesis and adaptation,
+but the trace-formula and representation-separation techniques are
+classical; a fully unconditional transfer is not yet established.
+\end{description}
+
+\noindent\emph{Originality verdict.} The work should be described as a
+partial program with several candidate new theorems rather than as
+a completed new correspondence. Search results did not locate an earlier
+identical result for the explicit wild computations, but absence of a
+search result does not establish priority.
+
+\section{Verification performed and limits}
+Following the attached guide, the levels are: 1 = independent derivation;
+2 = checked against an actually consulted source; 3 = background knowledge
+only. Proof status labels in the book are distinct from these levels.
+
+\paragraph{Level 1: arithmetic.} In $\mathbb Z[\zeta_3]$,
+$4-\zeta_3=(1-\zeta_3)(3+\zeta_3)$, and the three norms are $21,3,7$,
+respectively. This independently supports the stated factorization of
+the ramified primes. Since $|3|_{\mathbb Q_3(\zeta_3)}=3^{-2}$,
+$b_D=3$ and $c_D=27$ follow directly.
+
+\paragraph{Level 1: toral cubic example.} With residue field size $3$,
+the valuation formula in Chapter 8 gives
+$R_{\rm ur}=1+2\operatorname{Reg}(C_4)$ and
+$R_{\rm ram}=1+\operatorname{Reg}(C_2)+\operatorname{Reg}(C_6)$.
+Both have value $9$ at the identity, as predicted by $|3|_F^{-1}$.
+This validates these numerical instances, not the full general theorem.
+
+\paragraph{Level 1: independent certificate consistency.} I obtained
+the committed 81,944-character level-two orbit certificate via GitHub
+and checked its tables independently, using fresh group-table and
+action-table assertions rather than accepting the manuscript's report.
+The alleged group of order $27$ is associative with identity; both
+listed permutation actions satisfy the group-action property and have
+no nonidentity fixed point. The 54 degree-three characters form two
+orbits of size 27, and the 243 linear characters form nine orbits of
+size 27. This certifies \emph{internal consistency of the tables},
+not their derivation from the Hilbert-symbol cocycle.
+
+\paragraph{Level 2: external literature.} Publication metadata and
+abstracts for \cite{FK86,Jo88,Zo23,KLZ23} were consulted. Their entire
+proofs and the theorem-specific dependencies in the book were not
+independently cross-checked. No Level 1 check of the global trace-formula
+proof was completed. Load-bearing design and Hilbert-symbol scripts
+were inspected for provenance but not executed in full. Accordingly,
+(P$^c$) statements remain conditional on the certificate and computations
+being correct as claimed.
+
+\section{Compliance with the attached style guide}
+\textbf{Substantially aligned in structure, but not fully compliant in
+verification and exposition.} The main source uses
+\verb|\documentclass[12pt,letterpaper,oneside]{book}|, Times text and
+math via \texttt{newtx} with \texttt{mathptmx} fallback, and one-inch
+margins. Keeping the existing \texttt{book} class follows the guide's
+[DECIDE] default. The required introduction, actual literature review,
+background and notation, body, summary, glossary, acknowledgments,
+references and revision log are present. The email and AI roles are
+correctly stated, and the acknowledgments explicitly reject the notion
+that AI review certifies the work.
+
+A static scan of the master and twelve included text files found
+495 distinct \verb|\label| values, no unresolved \verb|\ref|/
+\verb|\eqref|/\verb|\cref| targets in the source tree, and no missing
+\verb|\cite| keys among the 106 \verb|\bibitem| entries. This is a
+source-level consistency audit, not a proof of successful compilation.
+The Draft 2 revision log reports a successful 216-page build with no
+undefined references or overfull boxes under the available Times
+fallback. I did not independently rebuild the book or audit the
+rendered pages.
+
+The number of worked examples is modest relative to the number of
+technical sections: Chapters 4--8 contain 23 explicit
+\verb|example| environments in total, while many subsections have no
+standalone worked example. Some sections need no example, as the author's
+November 12 ruling records, but further examples in the wild and global
+sections would materially help readers. Long paragraphs and semicolon-heavy
+sentences remain, especially in Chapters 4, 5 and 8. The guide prefers
+short sentences. Several displayed named statuses use parentheses
+(P), (E), (O), (C), rather than the square-bracket notation in the
+guide; this is an intentional but undocumented choice relative to the
+attached version, and needs a decision rather than being treated as a
+mathematical defect. The book's chapter-and-section theorem numbering
+(4.4.5, etc.) is also intentional and explicitly authorized in the
+revision log despite the paper guide's simpler example.
+
+The revision log explicitly says citations were not rechecked and scripts
+were not rerun during the Draft 2 pass. This means the full verification
+requirements of style-guide Sections 4.3--4.5 remain outstanding, even
+though the manuscript correctly records its limitations. In a revised
+edition, provide an audit table identifying each substantial imported
+theorem, exact theorem/page citation, and independent check; attach a
+machine-readable log for every load-bearing computation, with source
+commit and dependency versions.
+
+\section{Relevant earlier literature}
+\begin{thebibliography}{KLZ23}
+\bibitem[JL70]{JL70} H. Jacquet and R. P. Langlands,
+\emph{Automorphic Forms on GL(2)}, Springer Lecture Notes in Mathematics 114 (1970).
+\bibitem[FK86]{FK86} Y. Z. Flicker and D. A. Kazhdan,
+\emph{Metaplectic correspondence}, Publ. Math. IH\'ES \textbf{64} (1986), 53--110.
+\bibitem[Jo88]{Jo88} D. Joyner,
+\emph{On the metaplectic analog of Kazhdan's ``endoscopic'' lifting},
+Israel J. Math. \textbf{61} (1988), 113--154.
+\bibitem[Zo23]{Zo23} J. Zou,
+\emph{Local metaplectic correspondence and applications},
+Math. Z. \textbf{305} (2023), article 43.
+\bibitem[KLZ23]{KLZ23} E. Kaplan, E. Lapid and J. Zou,
+\emph{Classification of irreducible representations of metaplectic
+covers of the general linear group over a non-archimedean local field},
+Represent. Theory \textbf{27} (2023), 1041--1087.
+\end{thebibliography}
+
+\section{Errors and required corrections (listed last)}
+\begin{enumerate}[leftmargin=*,label=\textbf{E\arabic*.}]
+\item \textbf{False statement, verified independently (Level 1): local
+division algebras are not unique in degree $m>2$.}
+\texttt{book/chapters/ch3\_notation.tex}, about lines 127--133,
+says that for each degree $m$ there is exactly one central division
+algebra over a nonarchimedean local field, and that invariants
+$1/m,-1/m,k/m$ designate the same algebra. This is false.
+$\operatorname{Br}(F)\simeq\mathbb Q/\mathbb Z$ distinguishes them:
+the number of isomorphism classes with degree $m$ is $\varphi(m)$;
+for $m=3$, invariants $1/3$ and $2/3$ give distinct division
+algebras (opposites). Replace the passage by a correct classification
+and adapt the cyclic construction to Frobenius power $\sigma^a$.
+Chapter 8, lines 156--170, already states this correctly and supplies
+a consistency check within the book. This error lies in the background,
+not a demonstrated counterexample to an original theorem.
+
+\item \textbf{False explanatory assertion (Level 1): cocycle existence
+versus scalar centrality.} \texttt{book/mjl\_book\_draft.tex},
+Introduction, ``The two covers'', says $n\mid r-1+2rc_v$ is exactly
+the condition making the local Kazhdan--Patterson cocycle well defined.
+But $\sigma_F(g,h)(\det g,\det h)_{n,F}^{c_v}$ is a 2-cocycle
+for every integer $c_v$ because it is a product of 2-cocycles.
+The displayed divisibility condition instead makes the full preimage
+of scalar matrices central; this is explicitly the use made of it
+in Chapter 4, Lemma \texttt{I:lem:center}, and Chapter 7's diagonal
+commutator audit. Replace ``well defined'' by ``has central scalar
+preimage'' (under the specified conventions).
+
+\item \textbf{Overclaim (fixable misstatement, Level 2): wild obstruction
+not completely resolved.} The Introduction's chapter overview and
+running-example discussion describe Chapter 8 as resolving the
+Chapter 6 wild obstruction ``completely'' in the example. But the
+same book proves Target A and Target B only for representations
+trivial on $K^3$ and explicitly leaves higher congruence levels
+open (Chapter 8, Future directions). Replace with ``resolves the
+trivial-character case and all cases through level two''.
+
+\item \textbf{Unverified dependencies (fixable verification gap, not a
+proved mathematical error).} Full numerical and cocycle audit for
+Target A is not repeated here; the whole 216-page book has not
+been independently recompiled, and its imported theorem citations
+have not all been checked theorem by theorem. Retain the (P$^c$)
+labels until an independent rerun of the exact-design and symbol
+scripts confirms their outputs, and record precisely what was tested.
+\end{enumerate}
+\end{document}
