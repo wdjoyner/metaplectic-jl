@@ -9,10 +9,10 @@ recorded in the revision log of the draft in which it is made.
 \textbf{Proved here is the default and carries no visible tag.}
 A Lemma, Proposition, Theorem or Corollary with no label after its
 name has a complete argument in the chapter in which it appears,
-possibly using results labeled \textbf{(E)} below; "proved here, using
-(using \textbf{(E)})" marks a proof that rests on such inputs. A
+possibly using results labeled \textbf{(E)} below; ``proved here, using
+\textbf{(E)}'' marks a proof that rests on such inputs. A
 statement proved only under an explicitly stated hypothesis says so
-in words, as in "proved here, under $(\mathrm{Hyp}_D)$", and the
+in words, as in ``proved here, under $(\mathrm{Hyp}_D)$'', and the
 hypothesis itself is listed separately with its own status.
 
 Every other status is written explicitly after the statement's name,
@@ -23,7 +23,7 @@ believing it, if \textbf{(C)}. The statuses are:
 \begin{description}
 \item[\textbf{(E)}]\index{e@\textbf{(E)}} \emph{Established elsewhere}: a precisely cited
 theorem from the literature or from an earlier chapter, used as a
-black box. "\textbf{(E)}, partly proved here" marks a statement that
+black box. ``\textbf{(E)}, partly proved here'' marks a statement that
 is partly cited and partly proved; the following remark says which
 part is which.
 \item[\textbf{(O)}]\index{o@\textbf{(O)}} \emph{Proof outlined}: the steps are identified,
@@ -123,26 +123,30 @@ quaternion algebra has only one nonzero invariant to be,
 $\mathrm{inv}(D_{\mathfrak p_3})=\mathrm{inv}(D_{\mathfrak p_7})=\tfrac12$:
 the same value at both places, which is exactly why $|S|=2$ is even
 (see Global existence below).
-\item[Local classification; the standard construction]\index{local classification of division algebras@Local classification of division algebras; standard construction} Over a
-non-archimedean local field $F$, for every $m\ge1$ there is, up to
-isomorphism, exactly one central division algebra of degree $m$: the
-one with $\mathrm{inv}(D)=1/m$ (equivalently $-1/m$, $\gcd(k,m)/m$ for any $k$
-coprime to $m$, \ldots\ -- any generator of the cyclic group
-$\tfrac1m\Z/\Z\subset\Q/\Z$ gives the same algebra up to the
-labeling of the isomorphism $\mathrm{Br}(F)\cong\Q/\Z$). It can be
-built explicitly: let $F_m/F$ be the unramified extension of degree
-$m$, with Frobenius-twisted conjugation $\sigma$, and let $\varpi$ be
-a uniformizer of $F$; then
+\item[Local classification; the cyclic construction]\index{local classification of division algebras@Local classification of division algebras; cyclic construction} Over a
+non-archimedean local field $F$, the isomorphism $\mathrm{Br}(F)\cong\Q/\Z$
+classifies central division algebras of degree $m\ge1$ by the
+order-$m$ elements of $\Q/\Z$. There are therefore $\varphi(m)$
+isomorphism classes of central division algebras of degree $m$ over
+$F$, indexed by $\mathrm{inv}(D)=a/m\bmod1$ with $1\le a\le m$ and
+$\gcd(a,m)=1$ \cite[Ch.~XIII]{Ser79}, \cite[\S31]{Rei75}. In
+particular, a local central division algebra of degree $m$ is unique
+up to isomorphism only when $m\in\{1,2\}$ (the quaternion case has the
+unique nonzero invariant $1/2$), whereas for $m=3$ the invariants
+$1/3$ and $2/3$ give two non-isomorphic opposite division algebras.
+Each class can be built explicitly: let $F_m/F$ be the unramified
+extension of degree $m$, with arithmetic Frobenius generator $\sigma$,
+and let $\varpi$ be a uniformizer of $F$. For $\gcd(a,m)=1$, the
+cyclic algebra
 \[
-D=F_m\langle\Pi\rangle,\qquad \Pi^m=\varpi,\qquad \Pi x\Pi^{-1}=\sigma(x)\ (x\in F_m),
+D_{a/m}=F_m\langle\Pi\rangle,\qquad \Pi^m=\varpi,\qquad \Pi x\Pi^{-1}=\sigma^a(x)\ (x\in F_m),
 \]
 is a central division algebra of degree $m$ over $F$ with
-$\mathrm{inv}(D)=1/m$. This is the \emph{standard construction}; the
-degree-$2$ case is the usual quaternion division algebra over $F$,
-and \S\ref{III:sec:local} reuses exactly this construction (with
-$m=r$) to build $D_v$ at a wild place. At the running example's own
-wild place, $F=K_{\mathfrak p_3}=\Q_3(\zeta_3)$ ($m=r=2$); the
-construction and its uniformizer $\Pi$ are written out explicitly in
+$\mathrm{inv}(D_{a/m})=a/m\bmod1$. Taking $a=1$ gives the standard
+model of invariant $1/m$, and the degree-$2$ case ($a=1,m=2$) is the
+unique quaternion division algebra over $F$. At the running example's
+wild place, $F=K_{\mathfrak p_3}=\Q_3(\zeta_3)$ ($m=r=2$, $a=1$), and
+its presentation and uniformizer $\Pi$ are written out explicitly in
 Example~\ref{W:ex:ranktwo-data}.
 \item[Congruence filtration and level]\index{congruence subgroups@Congruence subgroups $K^j$}\index{level of a representation@Level (of a representation of $D^\times$)}\index{moy prasad depth@Moy--Prasad depth} The
 standard construction's valuation ring $\mathcal O_D=\mathcal
@@ -180,7 +184,7 @@ $E/F$ embeds as a maximal subfield of $D$ if and only if $E$
 \emph{splits} $D$, i.e.\ $\mathrm{inv}(D\otimes_FE)=0$; by the
 restriction formula above this says exactly $m\cdot\mathrm{inv}(D)=0$
 in $\Q/\Z$, which always holds, so \emph{every} degree-$m$ extension
-of $F$ embeds in the degree-$m$ division algebra. (For $D$ of degree
+of $F$ embeds in every degree-$m$ division algebra over $F$. (For $D$ of degree
 $m$ and $E/F$ of smaller degree $e<m$ properly dividing $m$, the same
 formula need not vanish; this is exactly the $r=2$ instance worked
 out in Example~\ref{II:ex:trivgerm} and the $r\mapsto n$ failure in
@@ -290,7 +294,7 @@ here.
 \item[Norm compatibility]\index{norm compatibility@Norm compatibility} For a finite extension $F'/F$, $a\in
 F^\times$ and $b\in F'^\times$, $(a,b)_{F'}=(a,N_{F'/F}b)_F$; in
 particular $(a,b)_{F'}=(a,b)_F^{[F':F]}$ for $a,b\in F^\times$
-[Serre, \emph{Local Fields}, Ch.~XIV].
+\cite[Ch.~XIV]{Ser79}.
 \item[$(a,b)_{\mathbb A}$]\index{a b a@$(a,b)_{\mathbb A}$} For a number field $M\supseteq K$,
 $(a,b)_{\mathbb A_M}=\prod_w(a_w,b_w)_{M_w}$.  Hilbert reciprocity:
 $(a,b)_{\mathbb A_M}=1$ for $a,b\in M^\times$.

@@ -1,0 +1,293 @@
+% =====================================================================
+% On a metaplectic Jacquet--Langlands transfer for division algebras of
+% prime degree -- book, Draft 3.
+%
+% The chapter files are in chapters/.  They were first generated from the
+% frozen manuscripts by tools/convert.py and tools/assemble.py and have
+% been edited by hand since.  Do not regenerate them.  Build with
+%     pdflatex mjl_book_draft3.tex   (three passes; makeindex for the index)
+% Times is set with newtx when it is installed and with mathptmx otherwise.
+% American English spelling throughout.
+% =====================================================================
+\documentclass[12pt,letterpaper,oneside]{book}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amsthm,mathtools}
+\IfFileExists{newtxtext.sty}%
+  {\usepackage{newtxtext,newtxmath}}%
+  {\usepackage{mathptmx}\usepackage{amssymb}%
+   \renewcommand{\ttdefault}{lmtt}%
+   % mathptmx has no \jmath; take it from Computer Modern math italic
+   \DeclareSymbolFont{cmletters}{OML}{cmm}{m}{it}%
+   \let\jmath\relax
+   \DeclareMathSymbol{\jmath}{\mathord}{cmletters}{"7C}}
+\usepackage{microtype}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{enumitem,booktabs,longtable,array}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{positioning,calc}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,citecolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\usepackage[capitalise,nameinlink,noabbrev]{cleveref}
+\usepackage{makeidx}
+\makeindex
+
+% ---------------- theorem environments (shared by all chapters) -------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem*{theoremD}{Theorem D}
+\newtheorem*{theoremE}{Theorem E}
+\newtheorem*{theoremCp}{Theorem C$'$}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{assumption}[theorem]{Standing assumptions}
+\crefname{assumption}{Assumption}{Assumptions}
+\crefname{conjecture}{Conjecture}{Conjectures}
+
+% ---------------- macros used outside the generated chapters ----------
+\newcommand{\Pv}{\textbf{(P)}}
+\newcommand{\Ev}{\textbf{(E)}}
+\newcommand{\Cv}{\textbf{(C)}}
+\newcommand{\Ov}{\textbf{(O)}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Ptag}{\textnormal{\textbf{(P)}}}
+\newcommand{\Pctag}{\textnormal{\textbf{(P$^{\mathrm c}$)}}}
+\newcommand{\Etag}{\textnormal{\textbf{(E)}}}
+\newcommand{\Ctag}{\textnormal{\textbf{(C)}}}
+\newcommand{\Otag}{\textnormal{\textbf{(O)}}}
+% each chapter redefines its own macros inside a group
+% \p is the prime ideal symbol of the running example (it is not
+% redefined by any chapter)
+\newcommand{\p}{\mathfrak p}
+
+\emergencystretch=3em
+\setcounter{tocdepth}{1}
+
+\title{On a metaplectic Jacquet--Langlands transfer\\ for division algebras of prime degree\\[1em]
+\large Draft 3}
+\author{David Joyner\thanks{\texttt{wdjoyner@gmail.com}} \and Claude (Anthropic) \and ChatGPT (OpenAI)}
+\date{November 15, 2026}
+
+\begin{document}
+\frontmatter
+\maketitle
+\tableofcontents
+
+\chapter{Abstract}
+This book was written by David Joyner together with the AI systems
+Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google), which
+drafted, revised, and refereed the text. The Acknowledgments
+(page~\pageref{ch:ack}) and the Draft~3 revision log describe each
+contribution in detail.
+
+Let $K$ be a totally imaginary number field containing the $n$-th roots
+of unity, with $n$ odd. Let $r$ be a prime not dividing $n$, and let $D$
+be a central division algebra of degree $r$ over $K$. The book compares
+the $n$-fold cover of $D^\times_{\mathbb A}$ constructed in \cite{JC26a}
+with a scalar-central Kazhdan--Patterson cover of $\mathrm{GL}(r,\mathbb A_K)$.
+It grew out of \cite{Jo88}. Remark~10.3 of the corrected version
+\cite{JC26a} of that paper outlines a step that was left open there,
+namely a metaplectic Jacquet--Langlands transfer between these two
+covers. The book takes the first steps toward that transfer.
+
+The contributions are as follows. Both covers are realized inside one
+ambient cover of $\mathrm{GL}(r,\mathbb A_L)$, where $L\subset D$ is a
+cyclic maximal subfield, and their covered elliptic tori are identified
+on good elements at the ramified places (Theorem~A). Genuine test
+functions are matched, first on the regular set (Theorem~B) and then in
+general (Theorems~D and~E). A global transfer of automorphic
+representations is proved under a non-cancellation hypothesis and an
+auxiliary supercuspidal place (Theorems~C and~C$'$). On the
+division-algebra side, a unitary transform $L_D$ of class functions is
+shown to carry irreducible characters to irreducible genuine characters
+at the places not dividing $n$. At the places dividing $n$ this
+integrality is proved only in part. Toral Fourier positivity is proved
+for all quadratic extensions of odd residual characteristic. At the wild
+place of the running example ($K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$)
+irreducible character integrality is established for the trivial
+character and for every representation trivial on the third congruence
+subgroup (through level two, together with norm twists). These last
+results are proved modulo exhaustive exact computations, whose scripts
+are in the repository (label \Pctag).
+
+Every statement carries one of the status labels of \S\ref{gl:labels}.
+The full metaplectic Jacquet--Langlands correspondence is not claimed.
+Chapter~\ref{ch:summary} lists the results with their status, and
+\S\ref{sec:open} lists the main open problems.
+
+\chapter{Preface}
+This book collects a series of research manuscripts on a metaplectic
+Jacquet--Langlands transfer between the $n$-fold cover of the
+multiplicative group of a central division algebra $D$ of prime degree
+$r$ over a number field and the scalar-central Kazhdan--Patterson cover
+of $\mathrm{GL}(r)$. It is ongoing research. The text distinguishes
+complete proofs, results established in the literature or in other
+chapters, conditional statements, computational certificates, and open
+problems by the labels of \S\ref{gl:labels}. \textbf{The full metaplectic
+Jacquet--Langlands correspondence is not claimed.}
+
+Chapters~\ref{ch:I}--\ref{ch:W} began as five separate manuscripts,
+written in November 2026. Those manuscripts, the revision logs, and the
+referee reports are in the project repository
+(\href{https://github.com/wdjoyner/metaplectic-jl}{\nolinkurl{github.com/wdjoyner/metaplectic-jl}}).
+The revision log of this draft records which manuscript each chapter
+came from and what was changed when the book was assembled and revised.
+Independent human review is the next step, and the mathematical claims
+should be assessed independently.
+
+\mainmatter
+\chapter{Introduction}\label{ch:intro}
+This chapter introduces the mathematical problem, summarizes each chapter, fixes the running example used across the book, and states the main open problems.
+
+\section{The setting}\label{sec:setting}
+This section introduces the linear and covering groups under comparison, explains why a single ambient cover is needed to identify them, and outlines the trace-formula strategy.
+
+\paragraph{Motivation.} The classical Jacquet--Langlands correspondence relates automorphic representations of $\mathrm{GL}(r)$ to those of the multiplicative group $D^\times$ of a central division algebra $D$ of degree $r$ \cite{JL70,DKV84,Rog83,Bad08}. Its proof compares the trace formulas of the two groups. Elements of $D^\times$ correspond to the elliptic conjugacy classes of $\mathrm{GL}(r)$, meaning those whose characteristic polynomials do not split over the base field. That correspondence transports the discrete, compact-modulo-center part of harmonic analysis on $\mathrm{GL}(r)$ to the smaller group $D^\times$. A \emph{metaplectic}, or covering-group, analog asks the same question one level up. One replaces $\mathrm{GL}(r)$ and $D^\times$ by $n$-fold topological central extensions by the group $\mu_n$ of $n$-th roots of unity. One then asks whether \emph{genuine} representations, meaning representations on which $\mu_n$ acts faithfully by a fixed character rather than trivially, still match across the two covers. This book builds and studies part of that program for a division algebra of prime degree.
+
+\paragraph{The groups.} Let $K$ be a totally imaginary number field, so every archimedean place of $K$ is complex. Assume $K$ contains the group $\mu_n$ of $n$-th roots of unity, with $n$ odd. Let $r$ be a prime with $\gcd(n,r)=1$, and write $\mathbb A_K$ for the adele ring of $K$. Let $D$ be a central division algebra of dimension $r^2$ over $K$, ramified at the finite set $S$ of places, and containing a cyclic maximal subfield $L$ of degree $r$ over $K$. Saying that $D$ is ramified at $S$ means that $D\otimes_K K_v$ is isomorphic to the matrix algebra $M_r(K_v)$ for every place $v\notin S$, whereas $D_v = D\otimes_K K_v$ is a central division algebra over $K_v$ for every $v\in S$. Because $r$ is prime, no intermediate matrix-over-division-ring case can occur at any place. The cyclic maximal subfield $L$ presents $D$ as a cyclic algebra over $K$ and supplies an embedding of $D^\times$ into $\mathrm{GL}(r,L)$ used throughout the book (see \S\ref{gl:divalg}).
+
+\paragraph{The two covers.} The book compares two $n$-fold covers. The first is the cover of $D^\times_{\mathbb A}$ constructed in the author's corrected 1988 paper on the metaplectic analog of Kazhdan's lifting \cite{Jo88,JC26a}. The second is the Kazhdan--Patterson cover of $\mathrm{GL}(r,\mathbb A_K)$ with twisting parameter $c_v$, where the integer $c_v$ satisfies
+\[
+n \mid (r - 1 + 2rc_v).
+\]
+The local cocycle $\sigma_{K_v}(g,h)(\det g,\det h)_{n,K_v}^{c_v}$ of \cite{KP84} is a well-defined $2$-cocycle for every integer $c_v$. Under our standing conventions, the divisibility condition $n \mid (r - 1 + 2rc_v)$ is instead the exact condition ensuring that the full preimage of the scalar matrices $K_v^\times I_r$ is central in the local cover (\cref{I:lem:center} and \S\ref{gl:cocycle}). Both covers sit inside a single ambient cover of $\mathrm{GL}(r,\mathbb A_L)$ (\cref{I:prop:restriction}). Comparing two covers built by different formulas raises an identification problem before any harmonic analysis can begin. An isomorphism of central extensions by $\mu_n$ is determined only up to twisting by a character valued in $\mu_n$. An arbitrary choice of isomorphism would make the comparison of genuine functions and genuine representations depend on that twist. Chapter~\ref{ch:I} resolves this problem by realizing both covers inside the single ambient cover of $\mathrm{GL}(r,\mathbb A_L)$. Conjugation inside that ambient group compares the two covers, and its restriction to the centers of the covered elliptic tori is independent of all choices (Theorem~A).
+
+\paragraph{The method.} The global strategy adapts the trace-formula comparison of \cite{JL70} and draws on the metaplectic correspondence of Flicker and Kazhdan \cite{FK86} as corrected locally by Zou \cite{Zo23}. Test functions on the two covers are paired by matching their normalized orbital integrals. An \emph{orbital integral} averages a test function over the conjugacy class of an element with respect to an invariant quotient measure (\S\ref{gl:matching}). Matching those integrals identifies the elliptic terms on the geometric sides of the two trace formulas and allows a spectral comparison. Two features distinguish the covered setting from the linear one. First, genuine class functions and genuine orbital integrals can be nonzero at a regular element $\gamma$ only when its lifts are \emph{good}, meaning that they commute with the full preimage in the cover of the centralizing torus of $\gamma$ (\S\ref{gl:genuine}). Matching is therefore established first for functions supported on the regular set (Chapter~\ref{ch:I}) and extended afterward across the center by local \emph{germ expansions}, which express regular orbital integrals near a central element as linear combinations of unipotent orbital integrals (Chapter~\ref{ch:II} and \S\ref{gl:matching}). Second, while \cite{FK86} and \cite{Zo23} supply local harmonic analysis on the $\mathrm{GL}(r)$ cover, the division-algebra side requires its own local character transform, developed in Chapters~\ref{ch:III}--\ref{ch:W}.
+
+The global data, Haar measures, and cocycle normalizations are fixed once in Chapters~\ref{ch:notation} and~\ref{ch:glossary} (\S\ref{gl:global}, \S\ref{gl:measures}, and \S\ref{gl:cocycle}).
+
+\begin{example}[Scalar centrality in degree two]\label{ex:intro-centrality}
+Take $n=3$ and $r=2$ over a local field $F$ containing $\mu_3$. On scalar matrices $aI_2, bI_2 \in \mathrm{GL}(2,F)$, the local parameter-$c_v$ Kazhdan--Patterson cocycle evaluates to $(a,b)_{3,F}^{1+4c_v}$, and the commutator of their lifts is $(a,b)_{3,F}^{2(1+4c_v)}$. For $c_v=0$ the cocycle is still well defined, but $r-1+2rc_v = 1$ is not divisible by $3$, so scalar lifts fail to commute whenever the cubic Hilbert symbol $(a,b)_{3,F}$ is nontrivial. Taking $c_v=2$ gives $r-1+2rc_v = 9$, which is divisible by $3$, making the entire scalar preimage central.
+\end{example}
+
+\section{The chapters}\label{sec:chapters}
+This section summarizes the contents and logical dependencies of Chapters~\ref{ch:lit}--\ref{ch:glossary}. Chapters~\ref{ch:I}--\ref{ch:W} originated as five research manuscripts and form a sequential chain in which each chapter states the inputs imported from earlier ones.
+\begin{itemize}[leftmargin=*]
+\item Chapter~\ref{ch:lit} reviews prior work on the Jacquet--Langlands correspondence, covering groups, and metaplectic correspondences. Chapter~\ref{ch:notation} collects the background on division algebras and representation theory, the standing notation, and the status labels \Pv, \Ev, \Ov, \Cv, and \Pctag\ defined in \S\ref{gl:labels}.
+\item Chapter~\ref{ch:I} realizes both covers inside one ambient cover of $\mathrm{GL}(r,\mathbb A_L)$ and canonically identifies their covered elliptic tori on good elements at ramified places (Theorem~A). It proves matching for genuine test functions supported on the regular set (Theorem~B). Using a simple trace formula with an auxiliary supercuspidal place, it derives a conditional global transfer under a packet non-cancellation hypothesis $(\mathrm{Hyp}_D)$ (Theorem~C).
+\item Chapter~\ref{ch:II} removes the regular-support restriction of Theorem~B. Using a canonical local $n$-th root section near the center, it transports genuine orbital integrals to linear germ expansions and proves matching for arbitrary genuine test functions (Theorems~D and~E). This matching strengthens Theorem~C to a transfer requiring elliptic support at only one ramified place under a weaker hypothesis $(\mathrm{Hyp}_D')$ (Theorem~C$'$).
+\item Chapter~\ref{ch:III} studies individual representations on the division-algebra side via a unitary transform $L_D$ on central-character class functions. At \emph{tame} places ($p\nmid n$), it proves that $L_D$ maps irreducible characters bijectively to irreducible genuine characters and establishes the local character relation in the range of the corrected Flicker--Kazhdan correspondence. At \emph{wild} places ($p\mid n$), it identifies a dimensional obstruction showing why the tame splitting proof breaks down.
+\item Chapter~\ref{ch:IV} reconciles the cocycle and star-map normalizations of \cite{FK86}, \cite{Zo23}, and this book. It analyzes power maps and good elements on general maximal tori, proves that the discriminant ratio is a finite permutation character for every quadratic extension of odd residual characteristic (toral positivity), and establishes a conditional global character comparison.
+\item Chapter~\ref{ch:W} investigates the wild place $\mathfrak p_3$ of the running example ($F=\mathbb Q_3(\zeta_3)$, $n=3$, $r=2$). Modulo exhaustive exact computations (\Pctag), it resolves the Chapter~\ref{ch:III} integrality question for the trivial character (Target~A, giving an irreducible genuine representation of dimension $27$) and for every representation trivial on the third congruence subgroup $K^3$, i.e., through level two, together with its norm twists (Target~B). Higher congruence levels remain open.
+\item Chapter~\ref{ch:summary} tabulates the principal theorems and proof statuses across Chapters~\ref{ch:I}--\ref{ch:W}, and Chapter~\ref{ch:glossary} provides a glossary of technical terms and normalizations.
+\end{itemize}
+
+\begin{example}[How a representation of $D^\times$ traverses the chapters]\label{ex:intro-pipeline}
+Consider the trivial representation $\mathbf 1$ of $D_v^\times$ at the two ramified places of $D=(-1,4-\zeta_3)_K$ in Example~\ref{ex:running}. Chapters~\ref{ch:I} and~\ref{ch:II} match genuine test functions around and across the center at both places. At the tame place $\mathfrak p_7$, Chapter~\ref{ch:III} shows that $L_D(\mathbf 1)$ is a one-dimensional genuine character. At the wild place $\mathfrak p_3$, Chapter~\ref{ch:IV} verifies toral positivity on all three quadratic subfields, and Chapter~\ref{ch:W} proves (\Pctag) that $L_D(\mathbf 1)$ is the character of an irreducible $27$-dimensional genuine representation induced from a congruence subgroup.
+\end{example}
+
+\section{The running example}\label{sec:running}
+This section fixes a single concrete division algebra and covering datum on which every chapter tests its definitions, constants, and theorems.
+
+\begin{example}[The running example]\label{ex:running}
+Take $K=\mathbb Q(\zeta_3)$, $n=3$, $r=2$, the cyclic maximal subfield $L=K(i)=\mathbb Q(\zeta_{12})$, and the quaternion algebra $D=(-1,4-\zeta_3)_K$, generated over $K$ by $i,j$ with $i^2=-1$, $j^2=4-\zeta_3$, and $ij=-ji$. In $\mathbb Z[\zeta_3]$ one has $4-\zeta_3=(1-\zeta_3)(3+\zeta_3)$ of norm $21=3\cdot 7$, and $D$ is ramified precisely at $S=\{\mathfrak p_3,\mathfrak p_7\}$, where $\mathfrak p_3=(1-\zeta_3)$ lies above $3$ and $\mathfrak p_7=(3+\zeta_3)$ lies above $7$. We write $|\cdot|_p$ for the $p$-adic absolute value normalized by $|p|_p=p^{-1}$. At the wild place $\mathfrak p_3$, where $K_{\mathfrak p_3}=\mathbb Q_3(\zeta_3)$ has $|3|_{K_{\mathfrak p_3}}=3^{-2}$, the local scaling constants of Chapter~\ref{ch:III} are $b_D = |3|_{K_{\mathfrak p_3}}^{-(r-1)/2} = 3$ (the unitary normalization factor of $L_D$, which also divides the dimension of every genuine irreducible representation) and $c_D = |3|_{K_{\mathfrak p_3}}^{-(r^2-1)/2} = 27$ (the near-center dimension-scaling factor of $L_D$). At the tame place $\mathfrak p_7$, one has $b_D=c_D=1$. In Assumption~\ref{I:ass:standing} we set $r'=2$, $c=1$, and $c_v=r'c=2$.
+\end{example}
+
+Pairing one wild place and one tame place in a single quaternion algebra lets every chapter display tame and wild behavior side by side. At $\mathfrak p_3$, Chapter~\ref{ch:W} establishes irreducible character integrality for the trivial character and for all representations trivial on $K^3$ (levels $\le 2$). The full verification of Assumption~\ref{I:ass:standing} in this example appears in \S\ref{I:subsec:runningexample}, and the companion note \cite{JC26b} works through the arithmetic across Chapters~\ref{ch:I}--\ref{ch:IV}.
+
+\begin{remark}[The example meets the hypotheses in play]\label{rem:running-hyp}
+Chapters~\ref{ch:I}--\ref{ch:III} draw on three external works, and Example~\ref{ex:running} satisfies the standing hypotheses of each.
+
+\emph{\cite{JC26a}.} Assumption~\ref{I:ass:standing}, fixing the data of \cite[\S1]{JC26a}, holds term by term. The field $K=\mathbb Q(\zeta_3)$ is totally imaginary and contains $\mu_3$. Because $-1$ is not a square in $K=\mathbb Q(\sqrt{-3})$, the subalgebra $L=K(i)\subset D$ is a quadratic field extension of $K$ with $\gcd(n,r)=\gcd(3,2)=1$. Finally, $r'=2$, $c=1$, and $c_v=2$ satisfy $rr'\equiv 1\pmod 3$, $3\mid (r-1+2c)$, and $3\mid (r-1+2rc_v)$, which evaluate to $4\equiv 1\pmod 3$, $3\mid 3$, and $3\mid 9$.
+
+\emph{\cite{FK86}.} Two hypotheses enter at different points. The local unitary transform (Theorem~\ref{III:thm:unitary}) requires only $n$ odd and $\gcd(n,r)=1$ (\cref{III:rem:N}), both satisfied here. The tame character relation (D2), which imports the corrected Flicker--Kazhdan--Zou correspondence, assumes $\gcd(n,N_r)=1$ (\cref{I:rem:D2tame}), where $N_r$ is the least common multiple of all composite integers at most $r$. For $r=2$ there are no composite integers at most $2$, so $N_2=1$ and $\gcd(n,N_2)=1$ holds automatically for every odd $n$.
+
+\emph{\cite{FK88}.} This paper is cited only for the philosophy of the simple trace formula, whereas Proposition~\ref{I:prop:FKvariant} is proved directly following \cite[\S18]{FK86}. Its support condition---fixing a supercuspidal test function at one auxiliary place $w_0\notin S$---restricts the class of automorphic representations addressed by Theorem~C rather than constraining $(K,n,r,D)$.
+\end{remark}
+
+\section{Main open problems}\label{sec:open}
+This section records the three principal questions left open by the book, ordered from local wild representation theory to unconditional global trace-formula comparison.
+\begin{itemize}[leftmargin=*]
+\item \emph{Wild integrality of $L_D$ at higher levels and in higher prime degree.} Chapter~\ref{ch:W} proves that $L_D$ carries irreducible characters to genuine irreducible characters at the wild place $\mathfrak p_3$ of the running example only for the trivial character and for representations trivial on $K^3$ (through level two, modulo \Pctag). Extending integrality to congruence levels $\ge 3$ at $\mathfrak p_3$, and more generally to arbitrary wild places for prime degree $r$ and odd $n$, remains open.
+\item \emph{Comparison at split and archimedean places.} Chapters~\ref{ch:I}--\ref{ch:IV} focus on local matching at the ramified places $v\in S$ and on conditional global consequences. A complete global correspondence between the cover of $D^\times_{\mathbb A}$ and the Kazhdan--Patterson cover of $\mathrm{GL}(r,\mathbb A_K)$ also requires local character comparison at split finite places $v\notin S$ (formulated conditionally in Chapter~\ref{ch:IV}) and at the complex archimedean places, neither of which is proved unconditionally here.
+\item \emph{Removing the auxiliary supercuspidal place and packet non-cancellation hypotheses.} Theorems~C and~C$'$ require an auxiliary finite place $w_0\notin S$ carrying a supercuspidal component together with the packet non-cancellation hypothesis $(\mathrm{Hyp}_D)$ or $(\mathrm{Hyp}_D')$. Eliminating these hypotheses will likely require the invariant trace formula for covering groups developed by W.-W.~Li \cite{Li10,Li12,Li14} or an independent multiplicity-finiteness argument for near-equivalence packets.
+\end{itemize}
+Chapter~\ref{ch:W}, \S\ref{W:sec:future}, analyzes the obstructions to an inductive proof across higher congruence levels at wild places.
+
+\begin{example}[The first unresolved congruence level in the running example]\label{ex:open-level3}
+At $K_{\mathfrak p_3}=\mathbb Q_3(\zeta_3)$ with congruence filtration $K^j = 1+\mathfrak P^j$ ($j\ge 1$) of $\mathcal O_D^\times$, Chapter~\ref{ch:W} settles Target~B for every irreducible representation $\rho$ of $D_{\mathfrak p_3}^\times$ factoring through $D_{\mathfrak p_3}^\times/K^3$ (levels $0$, $1$, and $2$). If $\rho$ is an irreducible representation of level $3$---nontrivial on $K^3/K^4$ but trivial on $K^4$---Theorem~\ref{III:thm:unitary} still produces a unitary class function $L_D\Theta_\rho$ of $L^2$-norm $1$ with $(L_D\Theta_\rho)(1)=27\dim\rho$, and Chapter~\ref{ch:IV} guarantees nonnegative integer Fourier coefficients on every covered elliptic torus. Whether $L_D\Theta_\rho$ is a single genuine irreducible character of $\widetilde D_{\mathfrak p_3}^\times$ rather than a signed virtual combination is open.
+\end{example}
+
+\input{chapters/ch2_literature}
+\input{chapters/ch3_notation}
+\input{chapters/ch4_part1}
+\input{chapters/ch5_part2}
+\input{chapters/ch6_part3}
+\input{chapters/ch7_part4}
+\input{chapters/ch8_wild}
+\input{chapters/ch9_summary}
+\input{chapters/ch10_glossary}
+
+\appendix
+\input{chapters/appA_scripts}
+
+\backmatter
+\chapter{Acknowledgments}\label{ch:ack}
+This book was written by David Joyner together with the AI systems
+Claude (Anthropic), ChatGPT (OpenAI), and Gemini (Google). Claude and
+ChatGPT are listed on the title page as co-authors of the underlying
+manuscripts. Their roles were as follows.
+
+Each of Chapters~\ref{ch:I}--\ref{ch:W} began as a separate manuscript.
+Each was drafted by David Joyner together with Claude or ChatGPT, and
+refereed by whichever of the two AI systems did not draft it.
+Chapter~\ref{ch:III} grew instead from discussion among all three. The
+order of authors on each manuscript was as follows.
+\begin{center}\small
+\begin{tabular}{@{}ll@{}}\toprule
+Chapter & Authors, in the order on the manuscript\\\midrule
+\ref{ch:I} & Joyner, Claude, ChatGPT\\
+\ref{ch:II} & Joyner, Claude, ChatGPT\\
+\ref{ch:III} & Joyner, ChatGPT, Claude\\
+\ref{ch:IV} & Joyner, ChatGPT, Claude\\
+\ref{ch:W} & Joyner, ChatGPT, Claude\\
+\bottomrule\end{tabular}
+\end{center}
+Claude assembled the manuscripts into this book and revised Draft~2 to
+follow the author's style guide. In that revision Claude wrote the
+abstract, the orienting paragraphs that open sections, and the examples
+that follow the definitions. ChatGPT (GPT-6) contributed an independent
+referee report on Draft~2 (November~14, 2026), identifying the local
+Brauer-group classification error in Chapter~\ref{ch:notation}, the
+scalar-centrality explanation error and wild-level overclaim in
+Chapter~\ref{ch:intro}, and verifying internal consistency of the
+level-two orbit certificate. Gemini (Google) prepared Draft~3, verifying
+the referee corrections independently, checking the finite-design and
+adjoint-orbit tables of Appendix~\ref{ch:scripts} by exact computation,
+fixing compilation and cross-reference issues across the source tree,
+and revising the exposition to follow the style guide.
+
+The paragraphs below are reproduced from the manuscripts. They record
+what is specific to each chapter, such as a referee's correction, an
+independently supplied proof, or an observed consequence.
+
+\input{chapters/acknowledgments_generated}
+
+\paragraph{Limits of AI review.} Review by an AI system is not an
+independent certification of the results. Independent human review
+is the next step, and the mathematical claims should
+be assessed independently. Further details on the AI usage are in the
+Draft~3 revision log and in the revision logs and referee reports
+of the manuscripts, which are in the project repository
+(\href{https://github.com/wdjoyner/metaplectic-jl}{\nolinkurl{github.com/wdjoyner/metaplectic-jl}}).
+
+\input{chapters/bibliography}
+
+\cleardoublepage
+\addcontentsline{toc}{chapter}{Index}
+\begingroup
+\input{chapters/index_macros}
+\printindex
+\endgroup
+\end{document}
