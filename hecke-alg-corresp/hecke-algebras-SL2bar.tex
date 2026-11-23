@@ -37,6 +37,16 @@
 \DeclareMathOperator{\tr}{tr}
 \DeclareMathOperator{\Hom}{Hom}
 
+% Table of contents: sections flush left, subsections indented under the
+% section titles, numbers in fixed-width boxes so the titles line up.
+\makeatletter
+\def\l@section{\@tocline{1}{4pt}{0pt}{1.8em}{}}
+\def\l@subsection{\@tocline{2}{0pt}{1.8em}{2.4em}{}}
+\renewcommand{\tocsection}[3]{%
+  \makebox[\@tempdima][l]{\@ifnotempty{#2}{#2.}}#3}
+\let\tocsubsection\tocsection
+\makeatother
+
 \newcommand{\cO}{\mathcal{O}}
 \newcommand{\cH}{\mathcal{H}}
 \newcommand{\cP}{\mathcal{P}}
@@ -107,6 +117,7 @@ and compare with Savin's theorem at Iwahori level.
 %======================================================================
 \section{Introduction}
 \label{section:intro}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 This section states the problem, explains why it is natural, and
 summarizes the results.
@@ -216,6 +227,7 @@ questions. A glossary follows.
 %======================================================================
 \section{Literature review}
 \label{section:lit}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
 This section summarizes the work most closely related to ours. The
 first part covers work up to 1998, the year of the original version
@@ -1552,6 +1564,7 @@ of $(G/Z_n)(F)$ with non-zero Iwahori-fixed vectors.
 %======================================================================
 \section{Summary of results and open questions}
 \label{section:summary}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 This section collects the main results and the questions they leave
 open.
@@ -1611,7 +1624,6 @@ preserve supercuspidality and square-integrability?
 
 %======================================================================
 \section*{Glossary}
-\addcontentsline{toc}{section}{Glossary}
 
 \begin{description}[leftmargin=1.5em,style=nextline]
 \item[Admissible element] An element $g$ of $G$ for which conjugation by
@@ -1666,7 +1678,6 @@ category of smooth representations.
 
 %======================================================================
 \section*{Acknowledgments}
-\addcontentsline{toc}{section}{Acknowledgments}
 
 D.~J.\ thanks Bill Wardlaw for helpful conversations on the proof of
 the relations of Proposition~\ref{prop:main} in its original form, and
