@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 2 (November 2026). Corrected and expanded version of
+%% Draft 3 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -68,7 +68,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 2. Corrected and expanded version}}
+{\normalsize Draft 3. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -434,7 +434,7 @@ $a=(x+y)/x$. Then $(x+y)/y=a/(a-1)$, and
 Here $(a,a)_n=(-1,a)_n=(a,-1)_n^{-1}$. Also
 $(a,a-1)_n=(a,-1)_n(a,1-a)_n=(a,-1)_n$. Hence
 \[
-\beta(g_1,g_2)=(a,-1)_n^{-2}=(a,1)_n^{-1}=1.
+\beta(g_1,g_2)=(a,-1)_n^{-2}=(a,(-1)^{-2})_n=(a,1)_n=1.
 \] Two splittings of
 $U^\pm\cong F$ differ by a homomorphism $F\to\mu_n$. Such a
 homomorphism is trivial because $F$ is divisible.
@@ -466,8 +466,8 @@ t_0=h(\varpi)=\mat{\varpi}00{\varpi^{-1}}.
 \]
 Then $s_1^2=s_2^2=-1$, $t_0=s_1^{-1}s_2$, $t\notin G$, and
 $ts_1t^{-1}=s_2$. Moreover $s_1t_0^{-1}s_1^{-1}=t_0$ and
-$t_0^{-1}s_1=s_2$. Note that $s_1$ has order $4$, whereas the
-analogous generator in \cite{HM85} has order $2$.
+$t_0^{-1}s_1=s_2$. Note that $s_1$ has order $4$, whereas the permutation
+matrix used in \cite{HM85} for $GL(n)$ has order $2$.
 
 Let $\fB=\mat{\cO}{\cO}{\varpi\cO}{\cO}$. The Iwahori subgroup is
 $B=\fB^\times\cap G$, the group of matrices in $SL(2,\cO)$ that are
@@ -540,8 +540,9 @@ follows by conjugating with $t$. Here we use $ts_1t^{-1}=s_2$, part
 Under the identification in (d), $K$ acts on $\mathfrak{sl}_2(\Fq)$ by
 the adjoint action. For a unit $x$, the subalgebra of upper triangular
 matrices is not stable under $u=u_-(x)$. Two distinct planes in the
-three-dimensional space $\mathfrak{sl}_2(\Fq)$ meet in a line. So
-$[B_k:B_k\cap uB_ku^{-1}]=q$, and
+three-dimensional space $\mathfrak{sl}_2(\Fq)$ meet in a line. Both
+$B_k$ and $uB_ku^{-1}$ contain $\Gamma_{k+1}$, because $u\in K$
+normalizes $\Gamma_{k+1}$. So $[B_k:B_k\cap uB_ku^{-1}]=q$, and
 $\vol(B_kuB_k)=q\,\vol(B_k)=\vol(u\Gamma_k)$. Since
 $B_kuB_k\subset u\Gamma_k$, the two sets are equal.
 \end{proof}
@@ -886,9 +887,13 @@ Let $e$ be the ramification index of $F$ over $\mathbb{Q}_p$, and
 $\ord$ the normalized valuation of $F$. For $j>e/(p-1)$ the
 exponential series converges on $\varpi^jM_2(\cO)$ and defines a
 bijection onto $1+\varpi^jM_2(\cO)$ whose inverse is the logarithm
-series. Both series commute with conjugation by $g\in GL(2,F)$ whenever
-$X$ and $gXg^{-1}$ lie in $\varpi^jM_2(\cO)$. Moreover
-$\det\exp(X)=\exp(\tr X)$.
+series. Let $g\in GL(2,F)$. Conjugation by $g$ is continuous on
+$M_2(F)$ and commutes with the partial sums of both series. Hence the
+exponential series commutes with conjugation by $g$ whenever $X$ and
+$gXg^{-1}$ lie in $\varpi^jM_2(\cO)$, and the logarithm series commutes
+with conjugation by $g$ whenever $b$ and $gbg^{-1}$ lie in
+$1+\varpi^jM_2(\cO)$. This holds even when $g$ does not lie in
+$GL(2,\cO)$. Moreover $\det\exp(X)=\exp(\tr X)$.
 
 \begin{definition}
 \label{def:deep}
@@ -1599,11 +1604,16 @@ concern the genuine algebra.
 \begin{question}
 \label{q:n2}
 Let $n=2$, so that $\overline{T}$ is abelian and the obstruction of
-Theorem~\ref{thrm:main} vanishes. For deep $k$, can the lifts $\tilde
-g$ be chosen so that $\Phi:f_g\mapsto\fbar_{\tilde g}$ is an
-isomorphism of algebras? The situation at Iwahori level, where the
-genuine algebra is of $PGL(2)$ type, suggests that the answer is
-negative. We have not proved this.
+Theorem~\ref{thrm:main} vanishes. For deep $k$, is there an algebra
+isomorphism $\Psi:\Hlin\to\Hgen$ with $\Psi(f_g)=c_g\fbar_{\tilde g}$
+for every $g$ and some non-zero complex numbers $c_g$? A choice of lifts
+gives maps of this form with every $c_g$ in $\mu_2$. Arbitrary non-zero
+scalars give more room. For example, over $F=\mathbb{Q}_2$ every lift
+of $-1$ squares to $(-1,-1)_2=-1$, so
+$\fbar_{\widetilde{-1}}*\fbar_{\widetilde{-1}}=-\fbar_{(1,1)}$. The
+scalar $c_{-1}=i$ absorbs this sign, which no choice of lift can do. The
+situation at Iwahori level, where the genuine algebra is of $PGL(2)$
+type, suggests that the answer is negative. We have not proved this.
 \end{question}
 
 \begin{question}
@@ -1626,54 +1636,122 @@ preserve supercuspidality and square-integrability?
 \section*{Glossary}
 
 \begin{description}[leftmargin=1.5em,style=nextline]
-\item[Admissible element] An element $g$ of $G$ for which conjugation by
-a lift of $g$ carries the chosen lift of $K_0\cap g^{-1}K_0g$ onto the
-chosen lift of $gK_0g^{-1}\cap K_0$. Exactly the double cosets of such
-elements carry genuine bi-invariant functions.
-\item[Affine Weyl group] The group generated by the reflections $s_1$
-and $s_2$ modulo $\pm 1$. Its elements index the double cosets of the
-Iwahori subgroup.
-\item[Canonical lift] A distinguished copy in $\Gbar$ of a sufficiently
-small open subgroup of $G$. When $p\nmid n$ it is the unique pro-$p$
-lift. In general it is obtained by raising lifts of $n$-th roots to the
-$n$-th power.
-\item[Deep level] A level $k$ at which $B_k$, the principal congruence
-subgroup $\Gamma_k$ and its conjugate by $t$ all have canonical lifts.
-Every $k\geq 1$ is deep when $p\nmid n$.
-\item[Filtration subgroup] The subgroup $B_k$ of the Iwahori subgroup
-consisting of matrices congruent to the identity modulo $\varpi^k$ on
-and above the diagonal and modulo $\varpi^{k+1}$ below it.
-\item[Generalized Hecke algebra] The convolution algebra of compactly
-supported functions on a group that are invariant on both sides under a
-fixed open compact subgroup.
+\item[Admissible element] An element $g$ of $G$ is admissible, relative
+to a lift $K_0^*$ of an open compact subgroup $K_0$, if conjugation by a
+lift of $g$ carries the lift of $K_0\cap g^{-1}K_0g$ onto the lift of
+$gK_0g^{-1}\cap K_0$. The condition depends only on the double coset
+$K_0gK_0$, and it holds exactly when that double coset carries a
+non-zero genuine function that is invariant on both sides under
+$K_0^*$. At deep level every element of $G$ is admissible for the
+canonical lift of $B_k$, whereas at Iwahori level $t_0$ is not
+admissible when $n\geq 3$.
+\item[Affine Weyl group] For $SL(2,F)$ this is the infinite dihedral
+group generated by two reflections, represented here by $s_1$ and $s_2$
+up to the sign $\pm 1$. It is the semidirect product of the finite Weyl
+group of order $2$ with the group of translations generated by
+$t_0=h(\varpi)$. Its elements index the double cosets of the Iwahori
+subgroup in $SL(2,F)$.
+\item[Canonical lift] A distinguished splitting of a sufficiently small
+open subgroup of $G$ into the cover, compatible with restriction to
+smaller subgroups and with conjugation by every element of the cover.
+When $p\nmid n$ its image is the unique Sylow pro-$p$ subgroup of the
+inverse image. When $p\mid n$ it is built on deep congruence subgroups
+by taking $n$-th roots of matrices with the logarithm and exponential
+series, lifting them, and raising the lifts to the $n$-th power.
+\item[Deep level] A level $k\geq 1$ at which the filtration subgroup
+$B_k$, the principal congruence subgroup $\Gamma_k$ and its conjugate by
+$t$ all have canonical lifts. Every $k\geq 1$ is deep when $p\nmid n$.
+When $p\mid n$ the deep levels are those beyond an explicit bound that
+depends on the cover and on the power of $p$ dividing $n$. At deep level
+every double coset of $B_k$ carries a genuine Hecke function.
+\item[Filtration subgroup] For $k\geq 1$, the subgroup $B_k$ of the
+Iwahori subgroup consisting of matrices congruent to the identity modulo
+$\varpi^k$ on and above the diagonal and modulo $\varpi^{k+1}$ below it.
+These subgroups are normal in the Iwahori subgroup, they shrink to the
+identity as $k$ grows, and their successive quotients are isomorphic to
+$\Fq^3$. As $k$ grows, representations with $B_k$-fixed vectors include
+representations of greater depth.
+\item[Generalized Hecke algebra] For an open compact subgroup $K_0$ of
+a locally profinite unimodular group $H$, the algebra of compactly
+supported functions on $H$ that are invariant on both sides under $K_0$,
+with convolution as product. The characteristic functions of the double
+cosets of $K_0$ form a basis, and the characteristic function of $K_0$
+is the identity when $K_0$ has volume one. Its simple modules correspond
+to the irreducible smooth representations of $H$ with non-zero
+$K_0$-fixed vectors.
 \item[Genuine function] A function on the cover that transforms under
-the central subgroup $\mu_n$ by the fixed embedding of $\mu_n$ into
-$\C^\times$.
-\item[Genuine representation] A representation of the cover on which
-$\mu_n$ acts by a fixed faithful character. It does not factor through
-$G$.
+the central subgroup $\mu_n$ by the fixed embedding of $\mu_n$ into the
+complex numbers. It is determined by its values on one lift of each
+element of $G$, and it does not descend to a function on $G$ unless it
+is zero. The genuine Hecke algebra consists of the compactly supported
+genuine functions that are invariant on both sides under a lifted open
+compact subgroup.
+\item[Genuine representation] A smooth representation of the cover on
+which the central subgroup $\mu_n$ acts by a fixed faithful character.
+Since the character is faithful, such a representation does not factor
+through $G$ or through any smaller cover. Genuine representations are
+the local counterparts of modular forms of fractional weight, and
+genuine functions act on them by integration.
 \item[Hilbert symbol] The pairing $F^\times\times F^\times\to\mu_n$ of
-local class field theory. It is bimultiplicative, skew-symmetric and
-non-degenerate modulo $n$-th powers.
-\item[Iwahori subgroup] The subgroup of $SL(2,\cO)$ of matrices that are
-upper triangular modulo $\varpi$.
-\item[Iwahori--Bruhat decomposition] The decomposition of $G$ into
-disjoint double cosets of the Iwahori subgroup, indexed by the affine
-Weyl group.
-\item[Length] The number of simple reflections in a shortest expression
-of an affine Weyl group element. It controls the volume of the
-corresponding double coset.
+local class field theory, for a $p$-adic field $F$ containing $\mu_n$. It
+is bimultiplicative and skew-symmetric, it is trivial on the pairs
+$(a,-a)$ and $(a,1-a)$, and it is non-degenerate modulo $n$-th powers.
+Kubota's cocycle is built from it, and the non-triviality of
+$(u,\varpi)_n^2$ for $n\geq 3$ is what makes the inverse image of the
+diagonal torus non-abelian.
+\item[Iwahori subgroup] The open compact subgroup of $SL(2,\cO)$ of
+matrices whose lower left entry lies in $\varpi\cO$, so that they are
+upper triangular modulo $\varpi$. It is the stabilizer of an edge of the
+Bruhat--Tits tree of $SL(2,F)$, and it plays the role of a Borel
+subgroup at the integral level. When $p\nmid n$ the metaplectic cover
+splits over it.
+\item[Iwahori--Bruhat decomposition] The decomposition of $SL(2,F)$ into
+the disjoint double cosets $BwB$ of the Iwahori subgroup $B$, where $w$
+runs over representatives of the affine Weyl group. It shows that every
+element of $G$ can be written as $b_1wb_2$ with $b_1,b_2\in B$. This is
+how the Hecke algebras of the filtration subgroups are generated by
+functions attached to $B$ and to the two reflections.
+\item[Kubota's cocycle] The explicit $2$-cocycle on $SL(2,F)$ with
+values in $\mu_n$, built from the Hilbert symbol and from the lower left
+entry of a matrix, or the lower right entry when the lower left entry is
+zero. It defines the multiplication of the metaplectic cover on the set
+of pairs $(g,\zeta)$. It is a coboundary on sufficiently small open
+subgroups, so the cover splits locally.
+\item[Length] For a representative $w$ of the affine Weyl group, the
+least number of reflections $s_1$, $s_2$ needed to write $w$ up to sign.
+The translation $t_0^m$ has length $2|m|$, and $t_0^ms_1$ has length
+$|2m+1|$. The volume of the double coset $B_kwB_k$ is $q$ to the power
+of the length, so characteristic functions of such double cosets
+multiply exactly when lengths add.
 \item[Lift] An element of the cover that projects to a given element of
-$G$. Two lifts differ by an element of $\mu_n$.
+$G$. Two lifts of the same element differ by a unique element of the
+central subgroup $\mu_n$. Working with lifts rather than with cocycle
+coordinates makes the genuine Hecke basis independent of the choice of
+cocycle within its cohomology class.
 \item[Metaplectic cover] The central extension of $SL(2,F)$ by $\mu_n$
-defined by Kubota's cocycle, built from the Hilbert symbol.
-\item[Principal congruence subgroup] The subgroup of $SL(2,\cO)$ of
-matrices congruent to the identity modulo $\varpi^k$.
-\item[Splitting] A homomorphism from a subgroup of $G$ to the cover
-that is a right inverse of the projection.
-\item[Type] An open compact subgroup together with an irreducible
-representation of it whose Hecke algebra governs one block of the
-category of smooth representations.
+defined by Kubota's cocycle. As a set it is the product of $SL(2,F)$ and
+$\mu_n$, but the multiplication is twisted by the cocycle. It splits over
+sufficiently small open subgroups but not over the whole group, and for
+$n\geq 3$ the inverse image of the diagonal torus is non-abelian.
+\item[Principal congruence subgroup] For $j\geq 1$, the normal subgroup
+$\Gamma_j$ of $SL(2,\cO)$ of matrices congruent to the identity modulo
+$\varpi^j$ in every entry. It factors as a product of lower unipotent,
+diagonal and upper unipotent pieces, and it contains $B_j$ as a normal
+subgroup of index $q$. The square of the Hecke function attached to
+$s_1$ is supported on $-\Gamma_k$.
+\item[Splitting] A homomorphism from a subgroup $H$ of $G$ into the
+cover that is a right inverse of the projection. It exists exactly when
+Kubota's cocycle restricted to $H$ is a coboundary, and two splittings
+differ by a homomorphism from $H$ to $\mu_n$. The unipotent subgroups
+split uniquely, and a genuine Hecke algebra requires a choice of
+splitting of the open compact subgroup.
+\item[Type] In the sense of Bushnell and Kutzko, a pair consisting of an
+open compact subgroup and an irreducible representation of it whose
+Hecke algebra describes one block, or finitely many blocks, of the
+category of smooth representations. For the Iwahori subgroup of a split
+linear group, the trivial representation is a type for the unramified
+principal series block. In that case the representation induced from a
+simple module of the Hecke algebra is irreducible.
 \end{description}
 
 %======================================================================
@@ -1685,13 +1763,14 @@ the anonymous referee of \cite{Jo98} for many helpful corrections and
 suggestions.
 
 AI systems contributed substantially to this version. Gemini (Google),
-referred to as ``Carbon'', acted as referee of \cite{Jo98} and
-identified that its main theorem could not hold as stated. Claude
+referred to as ``Carbon'', acted as referee of \cite{Jo98}, identified
+that its main theorem could not hold as stated, and refereed Draft~2 of
+this revision. Claude
 (Anthropic) is a co-author. Claude checked the referee report point by
 point, drafted the corrected statements and the new proofs, revised the
 paper to the authors' house style, checked bibliographic data, and
 prepared the revision log. Two Claude models were used, Claude Fable
-5.2 for Draft~1 and Claude Opus 5.5 for Draft~2. AI review is not an
+5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 and~3. AI review is not an
 independent certification of the results, and the new arguments have
 not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.
