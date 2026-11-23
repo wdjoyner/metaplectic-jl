@@ -1,0 +1,349 @@
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 2, November 2026).
+%% Cross-references to the paper use xr. Compile the paper first.
+\documentclass[12pt,letterpaper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+
+\usepackage{enumitem}
+\usepackage[final]{microtype}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{xr}
+\externaldocument[P-]{hecke-algebras-SL2bar}
+
+\newcommand{\Gbar}{\overline{G}}
+\newcommand{\fbar}{\overline{f}}
+\newcommand{\cO}{\mathcal{O}}
+\DeclareMathOperator{\pr}{pr}
+\newcommand{\cH}{\mathcal{H}}
+
+\begin{document}
+
+\title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
+cover $\overline{SL_2}$'', Draft 2}
+\author{David Joyner and Claude}
+\date{November 23, 2026}
+\maketitle
+
+This log accompanies Draft~2 of the paper (file
+\texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
+expanded version of D.~Joyner, \emph{A correspondence for the
+generalized Hecke algebra of the metaplectic cover
+$\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
+(1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
+was the file \texttt{howe6.tex}. Numbers such as
+``Theorem~\ref{P-thrm:main}'' refer to Draft~2 of the paper.
+
+\section{Drafts}
+
+\begin{description}[leftmargin=1.5em,style=nextline]
+\item[Original] [Jo98], from \texttt{howe6.tex}.
+\item[Draft 1] (November 23, 2026). File
+\texttt{hecke-alg-metaplectic-SL2-corrected.tex}. Mathematical
+correction in response to the referee report by Carbon. The main
+theorem of [Jo98] was replaced. The revision log was an appendix of the
+paper.
+\item[Draft 2] (November 23, 2026). File
+\texttt{hecke-algebras-SL2bar.tex}. Revision to the house style guide
+(Draft~2 of November 11, 2026), new title, Claude added as co-author,
+one proof corrected, literature review added. This log is now a
+separate file.
+\end{description}
+
+\noindent
+A different revision of [Jo98], made earlier in 2026 with Argon and
+ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
+\texttt{metaplectic-jl}. Drafts~1 and~2 here were made from
+\texttt{howe6.tex} and do not incorporate that revision.
+
+\section{AI usage}
+
+\begin{itemize}[leftmargin=1.5em]
+\item \textbf{Gemini (Google), ``Carbon''.} Refereed [Jo98] for
+correctness and readability. The report recommended rejection or major
+revision. It is answered point by point in
+Section~\ref{sec:referee}.
+\item \textbf{Claude Fable 5.2 (Anthropic).} Produced Draft~1. It
+checked the referee report, decided with David Joyner to replace the
+main theorem by what survives, wrote the new statements and proofs of
+Sections~\ref{P-section:genuine}--\ref{P-section:savin}, and rewrote
+Section~\ref{P-section:sl2}.
+\item \textbf{Claude Opus 5.5 (Anthropic).} Produced Draft~2. It
+re-derived every proof in the paper (verification level~1), found and
+corrected one error in a proof (item~\ref{it:coverb} of
+Section~\ref{sec:d1d2}), wrote the literature review, background
+examples, notation table, summary and glossary, checked bibliographic
+data by web search, and wrote this log.
+\item \textbf{David Joyner} chose the route of an honest corrected
+draft over local fixes, chose the new title, and asked that Claude be
+listed as an author.
+\end{itemize}
+
+\noindent
+Verification levels follow the style guide. Level~1 is an independent
+derivation. Level~2 is a check against a source actually consulted.
+Level~3 is reliance on memory. No independent human reader has checked
+the new arguments.
+
+\section{Original and new results}
+
+\subsection*{Results of [Jo98] retained, with corrections}
+\begin{itemize}[leftmargin=1.5em]
+\item Lemma~\ref{P-lemma:general}, the Howe--Moy multiplicativity
+lemma (proof added).
+\item Lemma~\ref{P-lemma:subgroups}(a), (b), (d), corrected and with
+proofs.
+\item Proposition~\ref{P-prop:main}. The generators and relations
+A(i), A(ii), B, C(i) are retained. A(i), C(ii), C(iii) are corrected.
+C(iv) is replaced.
+\item Proposition~\ref{P-prop:borel}(a)--(c), from Borel. Part (d) is
+corrected.
+\item The statement of Savin's theorem, corrected as
+Theorem~\ref{P-thm:savin}.
+\end{itemize}
+
+\subsection*{Results new in 2026}
+Lemma~\ref{P-lemma:hilbert}, Lemma~\ref{P-lemma:cover},
+Lemma~\ref{P-lemma:subgroups}(c), (e), Lemma~\ref{P-lemma:length},
+Example~\ref{P-ex:t0}, Lemma~\ref{P-lemma:canonical},
+Definition~\ref{P-def:admissible}, Lemma~\ref{P-lemma:support},
+Lemma~\ref{P-lemma:genuine} (a corrected form of [Jo98, Lemma~3]),
+Proposition~\ref{P-prop:admissible}, Proposition~\ref{P-prop:main2} (it
+replaces [Jo98, Proposition~2]), Theorem~\ref{P-thrm:main},
+Corollary~\ref{P-corollary:main}, Example~\ref{P-ex:trace},
+Proposition~\ref{P-prop:level0}, and
+Questions~\ref{P-q:defining}, \ref{P-q:n2}, \ref{P-q:savin},
+\ref{P-q:reps}.
+
+\section{Changes of status}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{[Jo98, Theorem~1].} The map $f_g\mapsto\fbar_g$ was
+claimed to be an algebra bijection whenever $\overline{B_k}$ splits.
+Withdrawn. It is false for $n\geq 3$
+(Theorem~\ref{P-thrm:main}, Corollary~\ref{P-corollary:main}). The case
+$n=2$ is open (Question~\ref{P-q:n2}).
+\item \emph{[Jo98, Corollary~1].} Bijection of irreducible
+representations with equal traces. Withdrawn. False for $n\geq 3$
+(Example~\ref{P-ex:trace}).
+\item \emph{[Jo98, Corollary~2].} Preservation of supercuspidal and
+square-integrable representations. Withdrawn, since it depended on the
+false theorem and its proof confused vectors with matrix coefficients.
+Now an open question (Question~\ref{P-q:reps}).
+\item \emph{[Jo98, Proposition~1], final claim.} That the relations
+form a defining set. Downgraded to an open question
+(Question~\ref{P-q:defining}).
+\item \emph{[Jo98, Proposition~4(d)].} Irreducibility of the induced
+module. Replaced by the statement about its unique irreducible
+quotient.
+\item \emph{[Jo98, Corollary~3]} (traces at Iwahori level). Removed.
+\end{enumerate}
+
+\section{Concordance}
+
+Old numbers are those of the printed [Jo98], which numbers each kind
+of statement separately. These are the numbers used in the referee
+report.
+
+\begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
+\toprule
+{[Jo98]} & Draft 2 \\
+\midrule
+\endhead
+Definition 1 & Definition~\ref{P-def:1} \\
+Definition 2 & Definition~\ref{P-def:genuineHecke} \\
+Lemma 1 & Lemma~\ref{P-lemma:subgroups}(b) \\
+Lemma 2 & Lemma~\ref{P-lemma:general}(a), (d) \\
+Lemma 3 & Lemma~\ref{P-lemma:genuine} \\
+Lemma 4 & Definition~\ref{P-def:genuineHecke} and the last formula of
+Lemma~\ref{P-lemma:genuine} \\
+Lemma 5 & Remark~\ref{P-rem:cocycle} \\
+Proposition 1 & Proposition~\ref{P-prop:main} \\
+Remark 1 & Remark after Example~\ref{P-ex:t0}. Item (5) removed \\
+Lemma 6 & Lemma~\ref{P-lemma:subgroups}(a), (d) and
+Lemma~\ref{P-lemma:general}(b), (c) \\
+Proposition 2 & Proposition~\ref{P-prop:main2} \\
+Theorem 1 & Withdrawn. See Proposition~\ref{P-prop:admissible} and
+Theorem~\ref{P-thrm:main} \\
+Corollary 1 & Withdrawn. See Corollary~\ref{P-corollary:main} \\
+Definition 3, Proposition 3 & Removed (matrix coefficients) \\
+Definition 4 & Text before Proposition~\ref{P-prop:borel} \\
+Proposition 4 & Proposition~\ref{P-prop:borel} \\
+Definition 5, Corollary 2 & Removed. See Example~\ref{P-ex:trace} and
+Question~\ref{P-q:reps} \\
+Theorem 2 & Theorem~\ref{P-thm:savin} \\
+Corollary 3 & Removed \\
+\bottomrule
+\end{longtable}
+
+\section{Response to the referee report by Carbon}
+\label{sec:referee}
+
+Each item gives the report's claim, our verdict (correct, misprint,
+fixable gap, or false), the verification level, and the action taken.
+
+\subsection*{Major mathematical errors}
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{The main theorem is false.} Correct for $n\geq 3$, level~1.
+The torus commutator $(a,b)_n^2$ is Lemma~\ref{P-lemma:cover}(a). The
+report's suggestion that $n=2$ also fails is not established. Action:
+Theorem~\ref{P-thrm:main}, Corollary~\ref{P-corollary:main},
+Question~\ref{P-q:n2}.
+\item \emph{Savin's theorem is misstated.} Correct, level~2 (via the
+summary of Savin's result in Karasiewicz's paper, not via Savin's
+paper). Action: Theorem~\ref{P-thm:savin} and
+Remark~\ref{P-vrem:savin}.
+\item \emph{At Iwahori level $\fbar_{t_0}$ is unsupported when $n$ is
+even.} False for $n=2$, since then $(u,\varpi)_2^2=1$. True for every
+$n\geq 3$, odd or even, level~1. Action:
+Proposition~\ref{P-prop:level0}.
+\item \emph{At positive level $B_kt_0B_k$ may fail to support a genuine
+function.} The criterion stated is correct (it is admissibility,
+Definition~\ref{P-def:admissible}). The feared failure does not occur
+at deep level, level~1. Action: Proposition~\ref{P-prop:admissible}.
+\item \emph{The generators $\fbar_g$ are not well defined or not
+bi-invariant.} Correct, level~1. Action: the functions
+$\fbar_{\tilde g}$ of Lemma~\ref{P-lemma:support}.
+\item \emph{Lemma~3 ignores the zero function and the cocycle
+factor.} Correct, level~1. Action: Lemma~\ref{P-lemma:genuine}, whose
+last formula records the factor $\beta(g_1,g_2)^{-1}$.
+\item \emph{The span of the $\fbar_x$, $x\in B$, is a twisted group
+algebra.} Correct, level~1. Action: Proposition~\ref{P-prop:main2},
+relation ($\overline{\mathrm{B}}$)(ii).
+\item \emph{Proposition~2, A(ii): stray $g$ in a domain of
+integration.} Misprint. The proof containing it is replaced.
+\item \emph{The lift of $-I$ squares to $(-1,-1)_n$.} Correct, level~1.
+This is a cocycle phase on the subalgebra over $B$, covered by
+($\overline{\mathrm{B}}$)(ii). It is not by itself an obstruction.
+\end{enumerate}
+
+\subsection*{Additional issues}
+\begin{enumerate}[leftmargin=1.5em,resume]
+\item \emph{Remark~1(5) and relation C(iv) are false for $k\geq 1$.}
+Correct, level~1. Action: Example~\ref{P-ex:t0} and the new C(iv).
+\item \emph{The normal form $\tilde f_w=f_{s_1}^a*f_{t_0}^b$ is wrong.}
+Correct, level~1. Action: factorizations in the proof of
+Proposition~\ref{P-prop:main}.
+\item \emph{A(i) constant: $q$ versus $c$.} Correct, the constant is
+$q$, level~1. Also the unbound index $i$ in C(ii), C(iii) was a
+misprint.
+\item \emph{Lemma~1: the displayed map is identically zero.} Misprint,
+corrected in Lemma~\ref{P-lemma:subgroups}(b).
+\item \emph{Corollary~1: surjectivity not proved, $\phi$ written for
+$\eta$.} Correct but moot, since the corollary is withdrawn.
+\item \emph{Corollary~2 confuses vectors with matrix coefficients.}
+Correct, level~1. The corollary is withdrawn.
+\item \emph{Proposition~4(d): $I(W)$ need not be irreducible.} Correct,
+level~3 for the general theory. Action:
+Proposition~\ref{P-prop:borel}(d).
+\item \emph{Remarks on compactness of the center.} Correct but not
+needed. Not used.
+\end{enumerate}
+
+\subsection*{Readability and minor corrections}
+All adopted. The uniformizer is now $\varpi$ and the projection is
+$\pr$. The Haar measures are normalized once. The undefined symbol
+$\overline{G_s}$ is gone. The typographical errors listed in the report
+(``anonomous'', ``Iwawori'', ``muliplicity'', ``contruction'',
+``denotes'', ``follow'', ``implies'', ``are also are'', ``This
+established'', the doubled ``the'', the missing parentheses in $x(g)$,
+\texttt{W\^{}a}, ``Bruhat decomposition'') are corrected or removed with
+the text that contained them. The document is converted from
+\texttt{nyj2e} to \texttt{amsart}.
+
+\subsection*{The cocycle formula}
+The report first questioned the formula for $\beta$ and then verified
+it. We agree with the conclusion. Level~1 for the diagonal case
+$\beta(h(a),h(b))=(b,a)_n$ and for $U^\pm$
+(Lemma~\ref{P-lemma:cover}). The general cocycle identity is cited from
+Kubota (Remark~\ref{P-vrem:kubota}).
+
+\subsection*{Recommendation}
+The report recommended rejection or a complete rethinking of the main
+theorem. We adopted the second option. We do not adopt the report's
+unqualified statement that $\cH(G/\!/B_k)$ and the genuine algebra are
+not isomorphic. What is proved is the weaker statement of
+Corollary~\ref{P-corollary:main} about support-preserving maps.
+
+\section{Changes from Draft 1 to Draft 2}
+\label{sec:d1d2}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item Title changed at David Joyner's request to ``On Hecke algebras of
+the $p$-adic metaplectic cover $\overline{SL_2}$''. The subtitle and
+date line follow the style guide.
+\item Claude added as co-author. David Joyner's address changed to
+\texttt{wdjoyner@gmail.com}. The 1998 institutional address removed.
+\item The note on the original publication moved to a
+\texttt{\textbackslash thanks} footnote. The subsection comparing the
+paper with [Jo98] removed from the introduction. The revision log moved
+from an appendix to this file.
+\item New sections: literature review, notation table, summary of
+results and open questions. The background section now has an example
+in each subsection, using the running example $F=\mathbb{Q}_7$, $n=3$.
+The glossary moved from an appendix to the end, before the
+acknowledgments, and gained entries.
+\item\label{it:coverb} \emph{Proof correction.} In the proof of
+Lemma~\ref{P-lemma:cover}(b), Draft~1 computed $(a,a-1)_n$ as
+$(a,-1)_n^{-1}(a,1-a)_n$. The correct value is $(a,-1)_n$, and
+$\beta=(a,-1)_n^{-2}=1$. The statement is unchanged.
+\item In the proof of Lemma~\ref{P-lemma:genuine}, the deduction that
+$g_1g_2$ is admissible is now spelled out.
+\item In the proof of A(i) in Proposition~\ref{P-prop:main}, the
+support computation now includes the left factor $B_k$.
+\item Lemma~\ref{P-lemma:length} and relation C(iv) are stated for
+$\pm W_a$, which the generation argument uses.
+\item Savin's theorem: the hypothesis is now $\gcd(p,n)=1$, as in the
+secondary sources, and $G/Z_n$ is described as a quotient of algebraic
+groups.
+\item Citation keys changed to author initials plus year. Unverified
+citations flagged as Remarks~\ref{P-vrem:kubota},
+\ref{P-vrem:borel} and \ref{P-vrem:savin}.
+\item Operators declared with \texttt{\textbackslash
+DeclareMathOperator}. Equations numbered within sections. Semicolons
+removed from the prose.
+\item References added: [BK98], [GS12], [Ka21], [LS10], [Sa04],
+[TW18], [Wa24]. Borel's page range corrected to 233--259.
+\end{enumerate}
+
+\section{Sources}
+
+\subsection*{Not consulted in full text}
+None of the cited works was read in full during this revision. In
+particular the following statements rest on the 1998 text or on memory
+(level~3): Kubota's cocycle property and local splitting
+(Remark~\ref{P-vrem:kubota}), the Howe--Moy references in
+Lemma~\ref{P-lemma:general} and in the remark after
+Example~\ref{P-ex:t0}, and the section numbers of Borel and of
+Bushnell--Henniart in Proposition~\ref{P-prop:borel}. The statement of
+Savin's theorem rests on secondary sources
+(Remark~\ref{P-vrem:savin}). The summaries in the literature review of
+[Ge76], [RS77], [Wa80], [Fl80], [KP84], [FK86] and [Sc98] are level~3.
+The summaries of [GS12], [TW18], [Ka21], [LS10] and [Wa24] rest on
+their abstracts or introductions (level~2 for what is stated).
+
+\subsection*{Bibliographic data checked online}
+Volume and page data were checked for [Bo76], [Sa88], [Sa04], [Wa80],
+[BK98], [GS12], [TW18], [Ka21], [LS10]. For [Bo76] the article itself
+gives pages 233--259, while some indexes give 233--260. We use the
+article. Whether Schultz's thesis was completed in 1998 was not checked.
+
+\section{Style guide departures}
+
+\begin{itemize}[leftmargin=1.5em]
+\item Times is provided by \texttt{mathptmx}, because \texttt{newtx} is
+not installed in the build environment. The guide allows this
+fallback.
+\item The title is the new one requested by David Joyner, not the
+original title (guide 6.2).
+\item The central result of [Jo98] is replaced, not preserved (guide
+6.1), because it is false for $n\geq 3$. This was David Joyner's
+decision.
+\item Two harmless underfull vertical boxes remain. There are no
+overfull boxes and no undefined references.
+\end{itemize}
+
+\end{document}
