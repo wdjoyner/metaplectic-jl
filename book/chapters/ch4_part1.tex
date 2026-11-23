@@ -610,7 +610,7 @@ Integrating over $T\backslash G$, and using that $Tx\mapsto Twx$ preserves $d\do
 Let $\pib$ be an irreducible admissible genuine representation of $\Gb$ with central character $\tilde\theta$, and let $\tilde f_1,\tilde f_2\in C_c^\infty(\Gb,\tilde\theta)_\gen$ be supported in the regular set. If $F(\tilde\gamma,\tilde f_1)=F(\tilde\gamma,\tilde f_2)$ for every good regular $\tilde\gamma$, then $\tr\pib(\tilde f_1)=\tr\pib(\tilde f_2)$.
 \end{lemma}
 \begin{proof}
-The character $\Theta_{\pib}$ is a locally constant function on the regular set with $\tr\pib(\tilde f)=\int_{\Gb/\Zb}\tilde f\,\Theta_{\pib}$ for regular-supported $\tilde f$ (\cite[\S13]{FK86}, after Harish-Chandra) \Ev. The product $\tilde f\Theta_{\pib}$ is invariant under $\Zb$ (hence under $\mu_n$), so it is a function on $G/Z$. The Weyl integration formula on $G/Z$ \cite{HC70} \Ev\ gives
+The character $\Theta_{\pib}$ is a locally constant function on the regular set with $\tr\pib(\tilde f)=\int_{\Gb/\Zb}\tilde f\,\Theta_{\pib}$ for regular-supported $\tilde f$ (\cite[\S13]{FK86}, after Harish-Chandra; for covers see also \cite{Li12}) \Ev. The product $\tilde f\Theta_{\pib}$ is invariant under $\Zb$ (hence under $\mu_n$), so it is a function on $G/Z$. The Weyl integration formula on $G/Z$ \cite{HC70} \Ev\ gives
 \[ \tr\pib(\tilde f)=\sum_{T}\frac1{|W_T|}\int_{T/Z}\Delta(t)^2\,\Theta_{\pib}(\tilde t)\,\Phi(\tilde t,\tilde f)\,dt, \]
 summed over representatives $T$ of the (finitely many) conjugacy classes of maximal tori, with $W_T=N_G(T)/T$. The measures are $dg$ on $G/Z$, a Haar measure $dt$ on $T/Z$ for each $T$, and $d\dot x=dg/dt$ on $T\backslash G$ in $\Phi$; the formula holds with these choices for any $dt$, since rescaling $dt$ rescales $d\dot x$ inversely \cite{HC70}, \cite[\S7]{Kot05}. Here $\Delta(t)^2=|D(t)|_F|\det t|_F^{-(r-1)}$ is the Weyl discriminant $|\det(1-\Ad(t^{-1}))|_{\mathfrak g/\mathfrak t}|_F$. We used $\Theta_{\pib}(\tilde x^{-1}\tilde t\tilde x)=\Theta_{\pib}(\tilde t)$. At a non-good regular $\tilde t$ the integrand vanishes, because $\Theta_{\pib}(\tilde t)=0$ (conjugating by $\Tb$ multiplies $\tilde t$ by some $\zeta\ne1$). So the trace depends only on the values of $F(\cdot,\tilde f)=\Delta\Phi$ at good regular elements.
 \end{proof}
@@ -828,7 +828,7 @@ with absolute convergence by Cauchy--Schwarz (both kernels are square integrable
 \end{proof}
 
 \begin{remark}
-In the notation of \cite[\S18, Theorem]{FK86}, condition (ii) at $u$ implies the conditions at $u'$ and $u''$ (Theorem~\ref{I:thm:easy}(c)), and the place $u$ of \cite{FK86} (which carries the supercusp form there) is replaced by $w_0$. In particular $u''$ need not be distinct from $u'$, and a single place of $S$ suffices for the geometric side. We use $|S|\ge2$ only to know that $S\neq\emptyset$.
+In the notation of \cite[\S18, Theorem]{FK86}, condition (ii) at $u$ implies the conditions at $u'$ and $u''$ (Theorem~\ref{I:thm:easy}(c)), and the place $u$ of \cite{FK86} (which carries the supercusp form there) is replaced by $w_0$. In particular $u''$ need not be distinct from $u'$, and a single place of $S$ suffices for the geometric side. We use $|S|\ge2$ only to know that $S\neq\emptyset$. The proof also corrects two points of \cite[\S18]{FK86}: the class-counting weight in (18.1), and the passage from trace class to the integral of the kernel; see \S\ref{lit:sec:FK}.
 \end{remark}
 
 \begin{lemma}[Cuspidal kernels]\label{I:lem:A1}\ (using \Ev)
