@@ -1,0 +1,57 @@
+\documentclass[12pt,letterpaper]{amsart}
+\usepackage[T1]{fontenc}
+\IfFileExists{newtxtext.sty}%
+  {\usepackage{newtxtext,newtxmath}}%
+  {\usepackage{mathptmx}\usepackage{amssymb}\renewcommand{\ttdefault}{lmtt}}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{microtype}
+\usepackage{booktabs,longtable,array,enumitem}
+\usepackage[hidelinks]{hyperref}
+\emergencystretch=2em
+
+\title[Draft 4 Revision Log]{Revision Log for\\\emph{On a metaplectic Jacquet--Langlands transfer\\for division algebras of prime degree}\\[0.5em]\normalsize Draft 4}
+\author{David Joyner}
+\address{\texttt{wdjoyner@gmail.com}}
+\date{November 23, 2026}
+
+\begin{document}
+\maketitle
+
+\section{Overview and provenance}
+This file records the changes made in passing from Draft~3 (November~15, 2026) to Draft~4 (November~23, 2026). They were prepared by Claude (Anthropic) in three commits on \texttt{main}: \texttt{9e3e10d}, \texttt{d3c3889}, and the commit that adds this log. All of them concern citations to, and the use of, three external sources:
+\begin{itemize}[leftmargin=*]
+\item Deligne--Kazhdan--Vign\'eras [DKV84], checked against an English working translation (no French scan was available);
+\item Flicker--Kazhdan [FK86], checked against the Numdam PDF, with every cited passage read from the page images;
+\item Zou [Zo23], arXiv:2209.05852v3, checked in full for \S\S2.2--3.1.
+\end{itemize}
+Two referee reports by Claude describe the checks: one on the DKV translation and its use (November~23, 2026), and \path{reports/fk_referee_report_claude.tex} on the parts of [FK86] used by the book.
+
+No proof status tag ((P), (E), (O), (C), (P$^{\mathrm c}$)) was changed, and no theorem statement was changed. Two labels are new: \texttt{lit:sec:FK} and \texttt{gl:FKZ}. All existing labels are preserved. Because \S2.2 is new, the later sections of Chapter~2 are renumbered (the old \S\S2.2--2.4 become \S\S2.3--2.5). Cross-references are by label and are unaffected.
+
+\section{Changes}
+\begin{enumerate}[leftmargin=*,label=\textbf{C\arabic*.}]
+\item \textbf{Chapter~6, proof of Corollary III:cor:D2tame, step~2} (commit \texttt{9e3e10d}). ``The discriminant normalization is the common one above [DKV84]'' was replaced. The classical Jacquet--Langlands relation is between Harish-Chandra character functions, and no discriminant factor enters it.
+\item \textbf{Chapter~8, depth} (commit \texttt{9e3e10d}). Depth preservation is not proved in [DKV84]. DKV is now cited for the correspondence, [BH06, Ch.~13] for $r=2$, and Aubert--Baum--Plymen--Solleveld [ABPS16] (Progr.\ Math.\ 319, 2016, 17--41, checked) for inner forms of $\mathrm{GL}_n$ in general. [ABPS16] was added to the bibliography.
+\item \textbf{Chapter~2, new \S2.2, ``On the results of Flicker--Kazhdan used in this book''} (commit \texttt{d3c3889}). It records the following, and says how the book handles each:
+ \begin{itemize}[leftmargin=*]
+ \item the missing class-counting factor $|W_x|^{-1}$ in [FK86, (18.1)], and the unproved passage from trace class to the diagonal integral;
+ \item the missing complex conjugate in [FK86, \S25.1, Theorem];
+ \item the extension to covers, without proof, of results of Harish-Chandra, Kazhdan and Bernstein--Deligne--Kazhdan;
+ \item an independent gap in the proof of [FK86, Lemma~27.1(1)], consistent with Zou's correction;
+ \item two compensating misprints in [FK86, \S7];
+ \item a list of the statements checked and used as stated.
+ \end{itemize}
+ None affects a result labeled (P).
+\item \textbf{Chapter~4} (commit \texttt{d3c3889}). A sentence after the remark following Proposition~\texttt{I:prop:\allowbreak FKvariant} now points to \S2.2. [Li12] was added to the citation of [FK86, \S13] for characters on covers.
+\item \textbf{Chapter~5, source of (L1)} (commit \texttt{d3c3889}). A parenthesis now notes that [FK86] print the pseudo-coefficient identity without the complex conjugate, that the conjugate is needed for $\operatorname{tr}\mathrm{St}(f_{\mathrm{St}})=1$, and that it is immaterial for $\mathrm{St}$.
+\item \textbf{Chapter~2, \S2.1, the Jacquet--Langlands paragraph.} Added: ``We use only the main theorem of [DKV84] for division algebras; for later treatments see [Bad02], [Bad08].''
+\item \textbf{Chapter~3, \S3.6, new item ``Flicker--Kazhdan--Zou correspondence $\mathrm{MC}$''} (label \texttt{gl:FKZ}). This gives the definition, from Zou's (3.1), (3.2), Proposition~3.6 and Definition~3.7. It states its provenance: [FK86, \S26, Theorem], restated by [Zo23, Remark~3.1], with Levi subgroups corrected in [Zo23, Remark~3.8]. It states the published range: $\mathrm{char}\,F=0$ and $(n,N_r)=1$. It ends with an example: the elliptic case [Zo23, Remark~3.3], which recovers the constant $b_D$ of Remark~I:rem:D2tame. The term was previously used without definition.
+\item \textbf{Unified terminology.} Every variant was replaced by ``Flicker--Kazhdan--Zou correspondence'' (with $\mathrm{MC}$ and a pointer to \S3.6 at first use in a chapter). The variants were ``corrected (square-integrable) Flicker--Kazhdan correspondence'', ``Flicker--Kazhdan--Zou theorem'', ``corrected metaplectic correspondence'' and ``Zou's corrected form of the Flicker--Kazhdan correspondence''. Locations: Chapter~4 (goal (ii), \S4.8 opening, Remark~I:rem:D2tame), Chapter~5 (two places), Chapter~6 (status table, Corollary~III:cor:D2tame, the list of open items), Chapter~7 (one place), Chapter~9 (three places).
+\item \textbf{Citation for $(n,N_r)=1$.} Chapter~4 (Remark~I:rem:D2tame) and Chapter~6 (Corollary~III:cor:D2tame) cited this hypothesis to [FK86, \S26]. In [FK86] it is the hypothesis of the matching results [FK86, \S12, Corollary; \S13, Theorem], on which [FK86, \S26, Theorem] rests. [Zo23] takes [FK86, \S26] as its starting point and adds no further hypothesis. Both places now say so.
+\item \textbf{Chapter~10, glossary} (\S10.6). Added an entry for the Flicker--Kazhdan--Zou correspondence, as an independent summary.
+\item \textbf{Front and back matter.} Title page: Draft~4, November~23, 2026. The abstract now refers to ``the revision logs''. The Acknowledgments have a paragraph on the Draft~4 work. ``Limits of AI review'' refers to the revision logs of Drafts~1--4.
+\end{enumerate}
+
+\section{Build}
+\texttt{pdflatex} (three passes), \texttt{makeindex}, \texttt{pdflatex} (two passes): no errors, and no undefined references or citations.
+\end{document}

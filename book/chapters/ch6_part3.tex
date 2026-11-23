@@ -71,7 +71,7 @@ Local harmonic analysis & Unitary $L_D$ and explicit coefficient $b_D$ & (P)\\
 Tame representations & Splitting over $D^1$ and irreducible-character bijection for $p\nmid n$ & (P)\\
 Wild representations & Nonsplitting and necessary divisibility constraints & (P)\\
  & Integrality of $L_D$ at places dividing $n$ & (C)\\
-Character relation (D2) of Chapter~\ref{ch:I} & Tame places, with the Flicker--Kazhdan--Zou theorem available (in particular when $(n,N_r)=1$); cocycle and star-map compatibility checked below (Corollary~\ref{III:cor:D2tame}) & (P)\\
+Character relation (D2) of Chapter~\ref{ch:I} & Tame places, with the Flicker--Kazhdan--Zou correspondence available (in particular when $(n,N_r)=1$); cocycle and star-map compatibility checked below (Corollary~\ref{III:cor:D2tame}) & (P)\\
 Test functions & Normalized local orbital-integral transfer and trace adjunction & (P)\\
 Global arithmetic & Local-to-global powers modulo scalars outside any finite set & (P)\\
 Global comparison & Good-element matching, adelic measures, spectral separation & (C)\\
@@ -812,17 +812,19 @@ $p\nmid n$, and the standing odd-$n$ and $(n,r)=1$ assumptions
 hold. Fix the common faithful genuine central character
 $\widetilde\theta$ of Chapter~\ref{ch:I} and let
 $\theta(a)=\widetilde\theta(a^*)$.
-Assume that the square-integrable Flicker--Kazhdan correspondence
-for the parameter-$c_v$ Kazhdan--Patterson cover is available
-in the corrected form of \cite[Proposition~3.6 and
-Definition~3.7]{Zo23}. A sufficient published range for this
-external input is $(n,N_r)=1$, where $N_r$ is the least common
+Assume that the Flicker--Kazhdan--Zou correspondence
+$\mathrm{MC}$ (\S\ref{gl:reptheory}) is available for the
+parameter-$c_v$ Kazhdan--Patterson cover
+\cite[Proposition~3.6 and Definition~3.7]{Zo23}. As published, it
+is available when $(n,N_r)=1$, where $N_r$ is the least common
 multiple of the composite positive integers at most $r$, with
-$N_r=1$ when there are none \cite[\S26]{FK86}.
+$N_r=1$ when there are none: this is the hypothesis of the
+matching results \cite[\S12, Corollary; \S13, Theorem]{FK86} on
+which \cite[\S26, Theorem]{FK86}, and hence \cite{Zo23}, rests.
 
 Then the division-side tame transfer $L_D$ of
 Theorem~\ref{III:thm:tame-transfer}, the classical local
-Jacquet--Langlands correspondence, and the corrected metaplectic
+Jacquet--Langlands correspondence, and the Flicker--Kazhdan--Zou
 correspondence compose to a bijection between the relevant
 genuine irreducible representations $\widetilde\pi_D$ of
 $\widetilde{D^\times}$ and genuine essentially square-integrable
@@ -1526,7 +1528,7 @@ If \eqref{III:eq:global-conj} is established in a form that proves character int
 \xleftarrow{\ \mathrm{MC}\ }
 \Irr_{\mathrm{gen,ds}}(\widetilde{\GL}_r(F)),
 \]
-where $\mathrm{MC}$ is Zou's corrected form of the Flicker--Kazhdan correspondence, with the required restriction that the linear central character be trivial on $\mu_n$. At tame places this composition gives the proved conclusion of
+where $\mathrm{MC}$ is Flicker--Kazhdan--Zou correspondence (\S\ref{gl:reptheory}), with the required restriction that the linear central character be trivial on $\mu_n$. At tame places this composition gives the proved conclusion of
 Corollary~\ref{III:cor:D2tame} in the stated range of the external
 Flicker--Kazhdan theorem; outside that range it remains conditional
 on an applicable extension of the external input.

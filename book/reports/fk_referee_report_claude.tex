@@ -1,0 +1,115 @@
+\documentclass[12pt,letterpaper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[american]{babel}
+\usepackage{amsmath,amssymb,mathtools}
+\IfFileExists{newtxtext.sty}{\usepackage{newtxtext,newtxmath}}{\usepackage{mathptmx}\IfFileExists{tgtermes.sty}{\usepackage{tgtermes}}{}}
+\renewcommand{\sfdefault}{phv}\renewcommand{\ttdefault}{pcr}
+\usepackage[margin=1in]{geometry}
+\usepackage[expansion=false]{microtype}
+\usepackage{enumitem,xcolor,longtable,booktabs}
+\usepackage[hyphens]{url}
+\usepackage[colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black]{hyperref}
+\emergencystretch=3em
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\Ad}{\operatorname{Ad}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\A}{\mathbb A}
+\newcommand{\tG}{\widetilde G}
+\newcommand{\St}{\mathrm{St}}\newcommand{\vol}{\operatorname{vol}}
+\newcommand{\loc}[1]{{\small\textsf{[#1]}}}
+
+\title{Referee report on the parts of Flicker--Kazhdan,\\ \emph{Metaplectic correspondence} (Publ.\ Math.\ IH\'ES 64, 1986),\\ cited in the metaplectic Jacquet--Langlands book}
+\author{Claude (Anthropic)}
+\date{November 23, 2026}
+
+\begin{document}
+\maketitle
+
+\section{Scope}
+
+\textbf{Source.} The Numdam PDF of [FK], 59 pages, printed pp.~53--110. Its text layer is OCR, so I read every passage that the book cites from the page images.
+
+\textbf{What the book cites.} I searched \texttt{book/chapters/*.tex} on \texttt{main} (commit \texttt{9e3e10d}) for \texttt{FK86}. There are 141 citation commands, to \S\S2, 3, 4, 6, 7, 8, 11, 12, 13, 18, 24, 25, 25.1, 26, 26.2, 27.1, 27.3 and 28. I read all of these sections, and in addition \S\S9--10. I did not read \S\S1, 5, 14--17, 19--23 and 29, which the book does not cite. Nor did I read the proof of the Theorem of \S13, which the book does not use.
+
+\textbf{What was checked.} For each citation I checked that [FK] states what the book says it states, and that the statement is correct. Where a short computation decides correctness I did it (commutators, centers, measure factors, Jacobians, class counting). I did not have Zou's paper [Zo23] in this session. So for \S26.2 and Lemma~27.1 I report only what I found independently, and I rely on the book's existing account of Zou's corrections.
+
+\section{Summary}
+
+\begin{enumerate}[label=(\arabic*)]
+\item \textbf{No result of the book labeled (P) is affected.} Every issue below is either already handled in the book, or concerns a result the book uses only in status remarks and open steps.
+\item \textbf{Four substantive points:}
+ \begin{itemize}
+ \item[F1.] (18.1) omits the class-counting factor $|W_x|^{-1}$, and FK pass from trace class to the integral of the kernel without argument.
+ \item[F2.] The \S25.1 Theorem is missing a complex conjugate.
+ \item[F3.] FK state results of Harish-Chandra, Kazhdan and Bernstein--Deligne--Kazhdan for covers without the adaptation.
+ \item[F4.] The proof of Lemma~27.1(1) has a gap, consistent with Zou's correction.
+ \end{itemize}
+ There is also one pair of compensating misprints in \S7 (F5).
+\item \textbf{The book already handled F1 and F2 in substance,} but without saying that FK differ. I added a section to the book that records all five points, plus pointers from Chapters~4 and~5 (\S\ref{sec:edits}).
+\end{enumerate}
+
+\section{Findings}
+
+\begin{enumerate}[label=\textbf{F\arabic*.},leftmargin=2.4em]
+\item \textbf{\S18, the simple trace formula} \loc{pp.~81--82}.
+ \begin{itemize}
+ \item[(a)] \emph{Class counting.} The kernel is $\sum_{x\in G(F)/Z(F)}\tilde f(hxg^{-1})$. Grouping it by conjugacy classes in $G(F)/Z(F)$, the stabilizer of the class of $x$ is $C_x=\{g:gxg^{-1}\in Z(F)x\}$, not $G_x(F)Z(F)$. Unfolding gives a weight with the extra factor $[C_x:G_x(F)Z(F)]^{-1}=|W_x|^{-1}$, where $W_x=\{\sigma\in\operatorname{Aut}(E/F):\sigma(x)\in F^\times x\}$. (The adelic indices cancel, as in DKV~A.1.c.) On the cover there is also the commutator character of $C_x(\A)$, which kills a class when it is nontrivial. (18.1) has neither. \emph{Example:} $r=2$, $x^2=a$ a non-square; then $\sigma(x)=-x$ and $|W_x|=2$.
+ \emph{Effect on FK:} the comparison in Corollary~18 needs the weights on the two sides to correspond under $x\mapsto x^*$. I did not check whether FK's later arguments are affected.
+ \emph{Effect on the book:} none. The book's Proposition~I:prop:FKvariant has the constant $c(\gamma)=\vol/|W_\gamma|$ and the character $c_\gamma$ (Step~4).
+ \item[(b)] \emph{Kernel and trace.} FK go from ``$r(\tilde f)$ annihilates the non-cuspidal spectrum, hence is of trace class'' to ``its trace is obtained by integrating the kernel over the diagonal.'' The second step needs an argument: continuity of the cuspidal kernel and its equality with the full kernel. The book supplies it (Step~1 of the proof of I:prop:FKvariant, via (A1), (A2)).
+ \item[(c)] The hypotheses at $u,u',u''$ are correctly reported in the book, and the book's variant (supercusp form at $w_0\notin S$, one elliptic-support place $u$) follows FK's proof correctly.
+ \end{itemize}
+
+\item \textbf{\S25.1, pseudo-coefficients: the complex conjugate} \loc{p.~95}. The Theorem asserts $\Phi''(x,\tilde f)=\tilde\chi(x)$ on the regular elliptic set together with $\tr\tilde\pi(\tilde f)=1$. By the Weyl integration formula and the inner product of \S24 (conjugate on the second argument),
+\[\tr\tilde\pi'(\tilde f)=\sum_T\big([W(T)]\,|\widetilde T/\widetilde Z|\big)^{-1}\int\Delta\tilde\chi'(t)\,\Delta\Phi''(t,\tilde f)\,dt=\langle\tilde\chi',\overline{\Phi''(\cdot,\tilde f)}\rangle .\]
+So $\tr\tilde\pi'(\tilde f)=\delta_{\tilde\pi\tilde\pi'}$ requires $\Phi''=\overline{\tilde\chi}$. In \S13(ii), $\Phi''(x,\tilde f)=\chi(\tilde\pi)(x)$ is correct for the matrix coefficient $\tilde f(x)=d(\tilde\pi)\langle\tilde\pi(x)v,v'\rangle$, but by Schur orthogonality that function has $\tr\tilde\pi^\vee(\tilde f)=1$: it is a pseudo-coefficient of the contragredient. The book's (L1) states the conjugated form and attributed it to FK. I added a parenthesis there. The book's existing remark that its argument is insensitive to the convention (Step~4 of II:lem:L2) is correct, since the transfer identities have real coefficients and the Steinberg character is real on the elliptic set.
+
+\item \textbf{\S\S13, 25.1: linear results stated for covers} \loc{pp.~68--69, 95}.
+ \begin{itemize}
+ \item FK attribute the local integrability of characters of $\tG$ and the local character expansion (\S13, Proposition~(a), ``is [H], Theorem~5'') to Harish-Chandra.
+ \item They state Kazhdan's Theorem~K [K$'$] (existence of pseudo-coefficients and elliptic orthonormality) for square-integrable representations of $\tG$.
+ \item In Remark~(ii) of \S13 and in the Corollary of 27.3 they use the trace Paley--Wiener theorem [BDK] for $\tG$.
+ \end{itemize}
+ These sources treat connected reductive linear groups, and FK give no adaptation. For local integrability on covers, W.-W.~Li (Ann.\ Sci.\ \'ENS 45, 2012) is the reference, and the book already cites it in Chapter~5. I added it at the one place in Chapter~4 that cited only FK~\S13 for characters on covers. Genuine pseudo-coefficients and genuine orthonormality are used in the book's Corollary~II:cor:Hprimesq and in the inputs for (D2), and they are labeled (E) there. I did not find a published proof of Theorem~K for covers. A web search turned up Li's later work stating a trace Paley--Wiener theorem for coverings, but I have not read it closely enough to cite it for this. So I recommend keeping the (E) label and the explicit statement that these are taken in FK's form, as the new section does.
+
+\item \textbf{\S27.1, Lemma (1): a gap in the proof} \loc{p.~100}. To show that $I(\tilde\rho_1\nu^{s_1}\times\tilde\rho_2\nu^{s_2})$ ($\tilde\rho_i$ supercuspidal, $|s_1-s_2|\ne1$ or $\tilde\rho_1\not\cong\tilde\rho_2$) is irreducible, FK lift a square-integrable constituent to the linear side. They then say that $I(\rho_1\nu^{s_1}\times\rho_2\nu^{s_2})$ is irreducible ``by [BZ].'' But the lift $\rho_i$ of a supercuspidal $\tilde\rho_i$ need only be square-integrable: this is FK's own Corollary~26 and the example after it, where for $r=2$ and even $n$ a supercuspidal lifts to a special representation. For square-integrable $\rho_i$, irreducibility is governed by the linkage of Zelevinsky segments. For example, $\St_2\nu^{s_1}\times\St_2\nu^{s_2}$ is reducible when $|s_1-s_2|=2$. This is consistent with the book's statement that Zou corrected Lemma~27.1. I could not compare with [Zo23] itself.
+ \emph{Dependent FK results:} the Proposition of \S27 (irreducibility of unitary induction), Theorem~27.3 (correspondence for relevant and tempered representations) and Theorem~28 (multiplicity one and rigidity) depend on \S26.2 and Lemma~27.1. The book uses these only in status remarks and in steps it lists as open. The one use of Proposition~27.3 in a proof (Step~3 of II:lem:L2) has $n=1$, where it is Kazhdan's density theorem for $\GL(r,F)$.
+ I also note, without being able to decide it here, that the \S26.2 construction asserts that the $\widetilde Z\widetilde M_i^B$-conjugates $\tilde\rho_i'^{\,m}$ are ``all inequivalent unless $M_i=\GL(1)$'' without proof. This is the step that the later theory of metaplectic tensor products (Mezo, Kaplan, Takeda) handles in detail.
+
+\item \textbf{\S7, two compensating misprints} \loc{pp.~61--62}. With FK's own $\delta_P$ (defined by $d(ab)=\delta_P(a)\,db$ for right Haar $db$, which is $|\det\Ad(a)|_{\mathrm{Lie}\,N}|$), $D_{G/M}(m)=|\det(1-\Ad m)|_{\mathrm{Lie}\,N}|^2\,\delta_P(m)^{-1}$, not $\cdots\delta_P(m)$. (Check: for $\GL(2)$ and $m=\mathrm{diag}(a,b)$, $D_{G/M}(m)=|a-b|^2/|ab|$.) Also, the Jacobian of $n\mapsto m_0^{-1}n^{-1}m_0n$ is $|\det(1-\Ad(m_0^{-1}))|_{\mathrm{Lie}\,N}|=\delta_P(m_0)^{-1}|\det(1-\Ad m_0)|_{\mathrm{Lie}\,N}|$. The two slips cancel in the displayed computation, and the Proposition $F(x,\tilde f)=F^M(x,\tilde f_N)$ is correct. The book uses only the Proposition (with $n=1$, II:lem:L2 Step~2), and its constant term has $\delta_P^{1/2}$, as in FK.
+\end{enumerate}
+
+\section{Statements checked and found correct}
+
+\begin{longtable}{p{0.16\textwidth}p{0.47\textwidth}p{0.27\textwidth}}
+\toprule
+FK & Statement & Check\\
+\midrule
+\S2, (2.1) & $s(a)s(b)s(a)^{-1}=s(b)\,(\det a,\det b)/\prod_j(a_j,b_j)$ & from $\sigma(a,a')=\prod_{i<j}(a_i,a'_j)$\\
+\S2 & center $\widetilde Z_m$ = pullback of $\{x:x^{r-1+2rm}\in F^{\times n}\}\cong F^{\times n/d}$ & the set is $\mu_dF^{\times n/d}=F^{\times n/d}$, since $\mu_n\subset F$\\
+\S2 & splitting over $K$ ($|n|=1$), over $N$ via (2.2); $p$ a local homeomorphism; global $\tau_m$ and $x\mapsto s(x)/\kappa(x)$ on $G(F)$ & as used in Ch.~4\\
+\S3 & $[x,g]=(\det x,\det g)^{1+2m}/\prod_j(x_j,g_j)_{F_j}$; Proposition: $[x,T]=1\iff x\in Z_mT^n$ & proof verified, incl.\ $(\det x)^{(1+2m)r-1}\in F^{\times n}$\\
+\S4 & $x^*=s(x)^n=\tilde x^{\,n}$ for odd $n$, conjugation-equivariant & the book uses it for odd $n$ only\\
+\S6 & $\Delta(x)=|D(x)|^{1/2}|\det x|^{-(r-1)/2}$, $D$ over distinct eigenvalues; $\Phi''$; convergence (Rao) & as in the book\\
+\S8 & germ expansion at semisimple $x$ over good $y\ge x$; converse; Remarks (1)--(4) & statement as cited\\
+\S12, Cor. & $F(k,f^0)=F(k^*,\tilde f^0)$ if $(n,N)=1$, $N=\mathrm{lcm}$ of composite $r^*\le r$ & reduction to Theorem~12 verified\\
+\S13 & definition of supercusp forms; Selberg's principle (i); (ii) for $d\langle\tilde\pi(x)v,v'\rangle$ & (ii): see F2\\
+\S24 & $\langle\tilde\chi,\tilde\chi'\rangle$ with $([W(T)]\,|\widetilde T/\widetilde Z|)^{-1}$; Proposition $\langle\tilde\chi,\tilde\chi'\rangle=\langle\chi,\chi'\rangle$ & index computation verified (note $a/b|c|$ means $a/(b|c|)$)\\
+\S25 & Proposition 25 and its proof from Theorem~K & given F2, F3\\
+27.3, Prop. & matching from equality of tempered traces & used with $n=1$ only\\
+\S28, Thm. & multiplicity one/rigidity for $\tilde\pi$ lifting to metic cuspidal $\pi$ with elliptic components at three places & accurately reported in the book; see F4 for dependencies\\
+\bottomrule
+\end{longtable}
+
+\section{Changes made to the book}\label{sec:edits}
+
+Commit \texttt{d3c3889} on \texttt{main}:
+\begin{itemize}
+\item \textbf{Chapter~2, new \S2.2,} ``On the results of Flicker--Kazhdan used in this book'' (label \texttt{lit:sec:FK}). It has an orienting paragraph and six paragraphs: F1; F2; F3; F4, with Zou's corrections and the dependent FK results; F5; and a list of statements checked and used as stated.
+\item \textbf{Chapter~4:} a sentence after the remark following Proposition~I:prop:FKvariant pointing to \S2.2. Also, [Li12] added to the citation of [FK, \S13] for characters on covers.
+\item \textbf{Chapter~5,} source of (L1): a parenthesis noting that FK print the formula without the conjugate, why the conjugate is needed, and why it is immaterial for $\St$.
+\item \textbf{PDF rebuilt:} 218 pages, no errors or undefined references. The draft label is unchanged (Draft~3), pending your decision.
+\end{itemize}
+
+\end{document}
