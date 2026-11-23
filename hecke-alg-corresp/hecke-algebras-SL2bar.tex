@@ -1,0 +1,1769 @@
+%% On Hecke algebras of the p-adic metaplectic cover SL2bar
+%% Draft 2 (November 2026). Corrected and expanded version of
+%%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
+%%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
+%% Companion file: hecke-algebras-SL2bar-revision-log.tex
+%% Compiles with pdflatex. Times via mathptmx (newtx is not installed here).
+\documentclass[12pt,letterpaper]{amsart}
+\usepackage[T1]{fontenc}
+\usepackage{mathptmx}
+\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+
+\numberwithin{equation}{section}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{vremark}{Remark}
+\renewcommand{\thevremark}{2026.\arabic{vremark}}
+
+\DeclareMathOperator{\vol}{vol}
+\DeclareMathOperator{\ord}{ord}
+\DeclareMathOperator{\pr}{pr}
+\DeclareMathOperator{\Ad}{Ad}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Hom}{Hom}
+
+\newcommand{\cO}{\mathcal{O}}
+\newcommand{\cH}{\mathcal{H}}
+\newcommand{\cP}{\mathcal{P}}
+\newcommand{\fB}{\mathfrak{B}}
+\newcommand{\fb}{\mathfrak{b}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Fq}{\mathbb{F}_q}
+\newcommand{\Gbar}{\overline{G}}
+\newcommand{\gen}{\mathrm{gen}}
+\newcommand{\fbar}{\overline{f}}
+\newcommand{\mat}[4]{\begin{pmatrix} #1 & #2\\ #3 & #4\end{pmatrix}}
+\newcommand{\Hgen}{\cH(\Gbar/\!/B_k^*)_{\gen}}
+\newcommand{\Hlin}{\cH(G/\!/B_k)}
+
+\DeclareRobustCommand{\lowp}{\ensuremath{p}}
+\begin{document}
+
+\title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
+Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
+\texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
+{\normalsize Draft 2. Corrected and expanded version}}
+
+\author{David Joyner}
+\email{wdjoyner@gmail.com}
+\thanks{This paper is a corrected and expanded version of
+D.~Joyner, \emph{A correspondence for the generalized Hecke algebra of
+the metaplectic cover $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J.
+Math.\ \textbf{4} (1998), 223--235 \cite{Jo98}. Several statements of
+that paper, including its main theorem, are corrected here. The changes
+are listed in the revision log that accompanies this draft.}
+
+\author{Claude}
+\address{Anthropic, San Francisco, California, USA}
+
+\date{Original draft: 1998. Corrected and expanded draft: 2026.}
+
+\keywords{metaplectic groups, generalized Hecke algebras,
+representation theory, $p$-adic groups, $SL(2)$}
+\subjclass[2020]{Primary 22E50. Secondary 11F70, 20C08}
+
+\begin{abstract}
+This corrected and expanded version was prepared with substantial help
+from AI systems, as described in the Acknowledgments.
+Let $G=SL(2,F)$, where $F$ is a $p$-adic field containing the $n$-th
+roots of unity. Let $\Gbar$ be the $n$-fold metaplectic cover of $G$,
+and let $B_k$ be the $k$-th filtration subgroup of an Iwahori subgroup
+$B$. For $k$ sufficiently large (for every $k\geq 1$ when $p\nmid n$)
+we show that $B_k$ has a canonical lift $B_k^*$ to $\Gbar$. Every
+double coset $B_kgB_k$ then carries a genuine bi-$B_k^*$-invariant
+function $\fbar_{\tilde g}$. These functions multiply exactly as the
+characteristic functions $f_g$ in $\Hlin$ do whenever the volumes of
+the double cosets multiply. Each basic relation among the $f_g$ has an
+analog for the $\fbar_{\tilde g}$, with group elements replaced by
+suitable lifts. For $n\geq 3$, however, the lifts cannot be chosen
+consistently. The functions $\fbar_{\tilde t_0}$ and
+$\fbar_{\tilde h(u)}$ commute only up to the factor
+$(u,\varpi)_n^{2}$. Consequently no algebra homomorphism from $\Hlin$
+to the genuine Hecke algebra sends each $f_g$ to a non-zero function
+supported over $B_kgB_k$. We also describe the relations in $\Hlin$
+and compare with Savin's theorem at Iwahori level.
+\end{abstract}
+
+\maketitle
+
+\tableofcontents
+
+%======================================================================
+\section{Introduction}
+\label{section:intro}
+
+This section states the problem, explains why it is natural, and
+summarizes the results.
+
+Let $F$ be a $p$-adic field of characteristic $0$ with uniformizer
+$\varpi$, ring of integers $\cO$, and residue field $\Fq$ of
+cardinality $q$. Assume that $F$ contains the group $\mu_n$ of $n$-th
+roots of unity and that $|\mu_n|=n$. Let $G=SL(2,F)$ and let $\Gbar$
+be its $n$-fold metaplectic cover, the central extension of $G$ by
+$\mu_n$ constructed by Kubota \cite{Ku67}. Representations of $\Gbar$
+on which $\mu_n$ acts by a faithful character are called
+\emph{genuine}. They are the local objects behind modular forms of
+fractional weight.
+
+\subsection*{The problem}
+For an open compact subgroup $K_0$ of $G$, the representations of $G$
+with non-zero $K_0$-fixed vectors are controlled by the
+\emph{generalized Hecke algebra} $\cH(G/\!/K_0)$ of bi-$K_0$-invariant
+compactly supported functions. Howe and Moy \cite{HM85} described these
+algebras for $GL(n)$ and the filtration subgroups of an Iwahori
+subgroup by generators and relations. If $K_0$ lifts to a subgroup
+$K_0^*$ of $\Gbar$, there is an analogous algebra
+$\cH(\Gbar/\!/K_0^*)_{\gen}$ of genuine functions, which controls the
+genuine representations with $K_0^*$-fixed vectors. A natural question
+is the following.
+
+\begin{quote}
+\emph{Are $\cH(G/\!/K_0)$ and $\cH(\Gbar/\!/K_0^*)_{\gen}$ isomorphic
+by a map that sends the characteristic function of each double coset
+$K_0gK_0$ to a function supported over the same double coset?}
+\end{quote}
+
+\noindent
+Such an isomorphism would match the representations of $G$ and of
+$\Gbar$ with fixed vectors, together with their traces on these
+algebras. We study the question for $K_0=B_k$, the $k$-th filtration
+subgroup of the standard Iwahori subgroup $B$ of $G$.
+
+\subsection*{Main results}
+The level $k$ is called \emph{deep} if $k\geq 1$ and $p\nmid n$, or if
+$k$ exceeds an explicit bound $j_1$ in general
+(Definition~\ref{def:deep}). Throughout, $t_0=h(\varpi)$ is the
+diagonal matrix with entries $\varpi,\varpi^{-1}$, and $h(u)$ is the
+diagonal matrix with entries $u,u^{-1}$. For deep $k$ we prove the
+following.
+\begin{enumerate}[leftmargin=2em]
+\item $B_k$ has a canonical lift $B_k^*$ to $\Gbar$, compatible with
+conjugation by all of $\Gbar$ (Lemma~\ref{lemma:canonical}).
+\item Every double coset $B_kgB_k$ supports a genuine
+bi-$B_k^*$-invariant function $\fbar_{\tilde g}$, normalized by a
+choice of lift $\tilde g$ of $g$. Hence $f_g\mapsto\fbar_{\tilde g}$ is
+a support-preserving linear isomorphism from $\Hlin$ onto $\Hgen$
+(Proposition~\ref{prop:admissible}).
+\item If the volumes of $B_kg_1B_k$ and $B_kg_2B_k$ multiply to the
+volume of $B_kg_1g_2B_k$, then
+$\fbar_{\tilde g_1}*\fbar_{\tilde g_2}=\fbar_{\tilde g_1\tilde g_2}$
+(Lemma~\ref{lemma:genuine}).
+\item $\Hlin$ is generated by the $f_g$ with $g$ in
+$\{s_1,s_2\}\cup B$, which satisfy the relations of
+Proposition~\ref{prop:main}. Each of these relations holds in $\Hgen$
+for the $\fbar_{\tilde g}$, with lifts chosen to suit that relation
+(Proposition~\ref{prop:main2}).
+\item For every unit $u$ and every choice of lifts,
+$\fbar_{\tilde t_0}*\fbar_{\tilde h(u)}=(u,\varpi)_n^{-2}\,
+\fbar_{\tilde h(u)}*\fbar_{\tilde t_0}$, while $f_{t_0}$ and
+$f_{h(u)}$ commute (Theorem~\ref{thrm:main}).
+\end{enumerate}
+
+\noindent
+\textbf{The restriction $n\geq 3$.} The factor $(u,\varpi)_n^{2}$ is
+trivial for all units $u$ exactly when $n\leq 2$. Hence, for
+$n\geq 3$, the answer to the question above is negative at every deep
+level (Corollary~\ref{corollary:main}). For $n=2$ the obstruction
+vanishes and the question remains open (Question~\ref{q:n2}).
+
+At Iwahori level ($k=0$, $p\nmid n$) the double coset $Bt_0^mB$
+supports a non-zero genuine function only if $n$ divides $2m$
+(Proposition~\ref{prop:level0}). This agrees with Savin's theorem
+\cite{Sa88}, by which the genuine Iwahori--Hecke algebra of $\Gbar$ is
+isomorphic to the Iwahori--Hecke algebra of $SL(2,F)$ for odd $n$ and
+of $PGL(2,F)$ for even $n$.
+
+\subsection*{Status of results}
+A statement with a proof in this paper is proved here. A statement
+quoted from the literature carries a citation in its heading.
+Statements that we could not verify against their sources are flagged
+in remarks numbered ``Remark~2026.$m$''. Questions are open.
+
+\subsection*{Running example}
+Our running example is $F=\mathbb{Q}_7$ and $n=3$. Here $\mu_3\subset
+\mathbb{Q}_7$ because $3$ divides $7-1$, and $p=7$ does not divide
+$n$, so every level $k\geq 1$ is deep.
+
+\subsection*{Organization}
+Section~\ref{section:lit} reviews the literature.
+Section~\ref{section:background} collects background on the Hilbert
+symbol, the cover, the relevant subgroups and Hecke algebras.
+Section~\ref{section:notation} lists the notation.
+Section~\ref{section:sl2} treats $\Hlin$. Section~\ref{section:genuine}
+constructs the genuine basis. Section~\ref{section:metaplectic} gives
+the genuine relations and the obstruction.
+Section~\ref{section:reps} relates the algebras to representations.
+Section~\ref{section:savin} treats Iwahori level.
+Section~\ref{section:summary} summarizes the results and lists open
+questions. A glossary follows.
+
+%======================================================================
+\section{Literature review}
+\label{section:lit}
+
+This section summarizes the work most closely related to ours. The
+first part covers work up to 1998, the year of the original version
+\cite{Jo98}. The second part covers later work.
+
+\subsection{Work up to 1998}
+Kubota \cite{Ku67} constructed the topological $n$-fold covering of
+$SL(2)$ over a local field by an explicit cocycle built from the
+$n$-th power Hilbert symbol. We use his cocycle throughout.
+
+Gelbart's monograph \cite{Ge76} developed the representation theory
+of the two-fold cover of $SL(2)$ through Weil's representation, and it
+is the starting point for the study of genuine representations of
+$p$-adic covering groups. Rallis and Schiffmann \cite{RS77} studied
+the supercuspidal genuine representations of the two-fold cover.
+
+Waldspurger \cite{Wa80} established the Shimura correspondence between
+genuine representations of the two-fold cover of $SL(2)$ and
+representations of $PGL(2)$, locally and globally, by means of the
+theta correspondence. Flicker \cite{Fl80} compared Hecke algebras of
+smooth functions on $GL(2,F)$ and on its $n$-fold covers by matching
+orbital integrals, and combined this with the trace formula to obtain
+a global Shimura correspondence. Kazhdan and Patterson \cite{KP84}
+developed the theory of metaplectic forms on covers of $GL(r)$, and
+Flicker and Kazhdan \cite{FK86} extended the trace formula comparison
+to $GL(r)$. None of these works uses the Hecke algebras of open compact
+subgroups that we study.
+
+Howe and Moy \cite{HM85} described the Hecke algebras of the
+filtration subgroups of an Iwahori subgroup of $GL(n)$ by generators
+and relations. Our Section~\ref{section:sl2} adapts their method to
+$SL(2)$.
+
+Savin \cite{Sa88} proved that for the $n$-fold cover of a
+simply-laced, simply connected split group with $\gcd(n,p)=1$, the
+genuine Iwahori--Hecke algebra is isomorphic to the Iwahori--Hecke
+algebra of the linear group $G/Z_n$, where $Z_n$ is the $n$-torsion of
+the center of $G$. This is the Iwahori-level counterpart of our
+question.
+
+Bushnell and Kutzko \cite{BK98} introduced types. A type is a pair
+consisting of an open compact subgroup and an irreducible
+representation of it, whose Hecke algebra governs one block of the
+category of smooth representations. Schultz \cite{Sc98} studied a
+lifting of characters between $\overline{SL_2(F)}$ and $SO_{2,1}(F)$.
+
+\subsection{Work after 1998}
+Savin \cite{Sa04} studied the unramified representations of covering
+groups of split groups more generally. Loke and Savin \cite{LS10}
+treated the two-fold cover of $SL_2(\mathbb{Q}_2)$, where the residual
+characteristic divides $n$.
+
+Gan and Savin \cite{GS12} used types for the even and odd Weil
+representations to define two Hecke algebras governing the
+corresponding Bernstein components of the metaplectic group $Mp(2n)$
+in odd residual characteristic, and identified them with Iwahori--Hecke
+algebras of odd orthogonal groups. Takeda and Wood \cite{TW18}
+extended this to even residual characteristic.
+
+Karasiewicz \cite{Ka21} proved that a genuine Hecke algebra on the
+double cover of a simple, simply-laced, simply connected Chevalley
+group over $\mathbb{Q}_2$ admits a Bernstein presentation, and that it
+is isomorphic to the Iwahori--Hecke algebra of $G/Z_2$.
+
+Wang \cite{Wa24} studied the Hecke algebras of types for tame genuine
+principal series. He showed that each shares its affine Hecke algebra
+part with a Hecke algebra of the principal endoscopic group, and he
+gave a counterexample showing that the two algebras are not isomorphic
+in general.
+
+\subsection{How the present results fit}
+The cited works on Hecke algebra correspondences match a genuine
+Hecke algebra with the Hecke algebra of a \emph{different} linear
+group, such as $G/Z_n$, an odd orthogonal group, or an endoscopic
+group. Our results show that at positive level the comparison with $G$
+itself, by a support-preserving map, fails for $n\geq 3$. The cause is
+the non-commutativity of the inverse image of the diagonal torus in
+$\Gbar$. This is consistent with the rescaling of translations in
+Savin's theorem and with Wang's counterexample.
+
+%======================================================================
+\section{Background}
+\label{section:background}
+
+This section explains the prerequisites: the Hilbert symbol, Kubota's
+cover, the subgroups $B_k$ and their volumes, and generalized Hecke
+algebras. Each subsection ends with an example from the running
+example $F=\mathbb{Q}_7$, $n=3$.
+
+\subsection{The Hilbert symbol}
+The $n$-th power Hilbert symbol is a pairing
+$(\ ,\ )_n:F^\times\times F^\times\to\mu_n$ from local class field
+theory. We use the following standard properties.
+\begin{enumerate}[leftmargin=3.2em]
+\item[(H1)] It is bimultiplicative.
+\item[(H2)] It is skew-symmetric: $(a,b)_n(b,a)_n=1$.
+\item[(H3)] $(a,-a)_n=1$ for all $a$, and $(a,1-a)_n=1$ for $a\neq 1$.
+\item[(H4)] $(a,b)_n=1$ for all $b\in F^\times$ if and only if
+$a\in (F^\times)^n$.
+\item[(H5)] If $p\nmid n$ then $(u,v)_n=1$ for all $u,v\in\cO^\times$.
+\end{enumerate}
+From (H1)--(H3) we get $(a,a)_n=(-1,a)_n$. Properties (H3) are the
+Steinberg relations. Property (H4) says the pairing is non-degenerate
+modulo $n$-th powers.
+
+\begin{lemma}
+\label{lemma:hilbert}
+The map $u\mapsto (u,\varpi)_n$ sends $\cO^\times$ onto $\mu_n$. In
+particular, if $n\geq 3$, there is a unit $u$ with
+$(u,\varpi)_n^2\neq 1$.
+\end{lemma}
+
+\begin{proof}
+The element $\varpi$ has order $n$ in $F^\times/(F^\times)^n$. By (H1)
+and (H4), the character $a\mapsto (a,\varpi)_n$ of
+$F^\times/(F^\times)^n$ also has order $n$, so its image is $\mu_n$.
+Since $(\varpi,\varpi)_n=(-1,\varpi)_n$, we have
+$(\varpi^mu,\varpi)_n=((-1)^mu,\varpi)_n$ for every unit $u$. So the
+units already give the whole image. When $n\geq 3$, the squaring map
+on $\mu_n$ is not trivial.
+\end{proof}
+
+\begin{example}
+\label{ex:hilbert}
+When $p\nmid n$, the symbol $(u,\varpi)_n$ of a unit $u$ is the image
+in $\mu_n$ of $\bar u^{(q-1)/n}$, up to inversion depending on the
+normalization, where $\bar u$ is the residue of $u$. For $n=2$ and $p$
+odd this is the Legendre symbol of $\bar u$. In the running example
+$F=\mathbb{Q}_7$, $n=3$, the cube roots of unity modulo $7$ are
+$1,2,4$, and $(u,7)_3$ corresponds to $\bar u^{\pm 2}$. For $u=3$ we get
+$3^2=9\equiv 2$, so $(3,7)_3$ and $(3,7)_3^2$ are primitive cube roots
+of unity.
+\end{example}
+
+\subsection{The metaplectic cover}
+\label{subsec:cover}
+For $g=\mat abcd\in G$ put $x(g)=c$ if $c\neq 0$ and $x(g)=d$
+otherwise. Kubota's cocycle is
+\[
+\beta(g_1,g_2)=\left(\frac{x(g_1g_2)}{x(g_1)},
+\frac{x(g_1g_2)}{x(g_2)}\right)_n,\qquad g_1,g_2\in G.
+\]
+The group $\Gbar$ is the set of pairs $(g,\zeta)$ with $g\in G$ and
+$\zeta\in\mu_n$, with multiplication
+\[
+(g_1,\zeta_1)(g_2,\zeta_2)=(g_1g_2,\beta(g_1,g_2)\zeta_1\zeta_2).
+\]
+The projection is $\pr(g,\zeta)=g$, and we identify $\zeta\in\mu_n$
+with the central element $(1,\zeta)$. For $H\subset G$ we write
+$\overline{H}=\pr^{-1}(H)$. A \emph{lift} of $g\in G$ is an element
+$\tilde g\in\Gbar$ with $\pr(\tilde g)=g$. A \emph{splitting} of a
+subgroup $H\subset G$ is a homomorphism $s:H\to\Gbar$ with
+$\pr\circ s=\mathrm{id}_H$.
+
+\begin{vremark}
+\label{vrem:kubota}
+\emph{Cited, not re-checked against the source.} By \cite[\S1]{Ku67},
+$\beta$ is a $2$-cocycle, and its restriction to some open subgroup of
+$G$ is a coboundary. So $\Gbar$ is a locally compact totally
+disconnected group, and $\pr$ is a covering that splits over some open
+subgroup of $G$. We rely on this throughout. The formula for $\beta$
+can be rewritten with (H1)--(H3) as
+$(x(g_1),x(g_2))_n\,(-x(g_1)^{-1}x(g_2),x(g_1g_2))_n$.
+\end{vremark}
+
+Let
+\[
+u_+(x)=\mat 1x01,\qquad u_-(x)=\mat 10x1,\qquad h(a)=\mat a00{a^{-1}},
+\]
+and let $U^\pm=\{u_\pm(x)\,|\,x\in F\}$ and
+$T=\{h(a)\,|\,a\in F^\times\}$.
+
+\begin{lemma}
+\label{lemma:cover}
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item $\beta(h(a),h(b))=(b,a)_n$. Consequently, for any lifts,
+\[
+\tilde h(a)\,\tilde h(b)=(b,a)_n^2\ \tilde h(b)\,\tilde h(a).
+\]
+\item $\beta$ is identically $1$ on $U^+\times U^+$ and on
+$U^-\times U^-$. So $u_\pm(x)\mapsto (u_\pm(x),1)$ are splittings of
+$U^\pm$, and they are the only splittings of $U^\pm$.
+\item The subgroup $\overline{\{\pm 1\}}$ is central in $\Gbar$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) We have $x(h(a))=a^{-1}$, so
+$\beta(h(a),h(b))=(b^{-1},a^{-1})_n=(b,a)_n$. Hence
+\[
+(h(a),1)(h(b),1)=(b,a)_n(a,b)_n^{-1}\,(h(b),1)(h(a),1),
+\]
+and $(a,b)_n^{-1}=(b,a)_n$ by (H2). The relation does not depend on
+the lifts, because $\mu_n$ is central.
+
+(b) On $U^+$ the function $x$ is identically $1$, so $\beta=1$ there.
+On $U^-$, let $g_1=u_-(x)$ and $g_2=u_-(y)$. If $x=0$ or $y=0$, then
+$\beta(g_1,g_2)=1$ directly. If $x+y=0$, then $x(g_1g_2)=1$ and
+$\beta(g_1,g_2)=(x^{-1},-x^{-1})_n=1$ by (H3). Otherwise put
+$a=(x+y)/x$. Then $(x+y)/y=a/(a-1)$, and
+\[
+\beta(g_1,g_2)=(a,a)_n\,(a,a-1)_n^{-1}.
+\]
+Here $(a,a)_n=(-1,a)_n=(a,-1)_n^{-1}$. Also
+$(a,a-1)_n=(a,-1)_n(a,1-a)_n=(a,-1)_n$. Hence
+\[
+\beta(g_1,g_2)=(a,-1)_n^{-2}=(a,1)_n^{-1}=1.
+\] Two splittings of
+$U^\pm\cong F$ differ by a homomorphism $F\to\mu_n$. Such a
+homomorphism is trivial because $F$ is divisible.
+
+(c) Let $z=\pm 1$ with lift $\tilde z$. The map
+$g\mapsto\tilde z\tilde g\tilde z^{-1}\tilde g^{-1}$ does not depend on
+the lift $\tilde g$, and it is a homomorphism $G\to\mu_n$ because $z$
+is central in $G$. It is trivial because $G$ is perfect.
+\end{proof}
+
+\begin{example}
+\label{ex:cover}
+For $n=2$, Lemma~\ref{lemma:cover}(a) shows that $\overline{T}$ is
+abelian. In the running example $n=3$, $F=\mathbb{Q}_7$, take $a=7$ and
+$b=3$. Then $\tilde h(7)\tilde h(3)=(3,7)_3^2\,\tilde h(3)\tilde
+h(7)$, and $(3,7)_3^2\neq 1$ by Example~\ref{ex:hilbert}. So
+$\overline{T}$ is not abelian. This elementary fact is the source of
+Theorem~\ref{thrm:main}.
+\end{example}
+
+\subsection{Subgroups}
+\label{subsec:subgroups}
+Let
+\[
+s_1=\mat 0{-1}10,\quad
+s_2=\mat 0{-\varpi^{-1}}{\varpi}0,\quad
+t=\mat 0{-1}{\varpi}0,\quad
+t_0=h(\varpi)=\mat{\varpi}00{\varpi^{-1}}.
+\]
+Then $s_1^2=s_2^2=-1$, $t_0=s_1^{-1}s_2$, $t\notin G$, and
+$ts_1t^{-1}=s_2$. Moreover $s_1t_0^{-1}s_1^{-1}=t_0$ and
+$t_0^{-1}s_1=s_2$. Note that $s_1$ has order $4$, whereas the
+analogous generator in \cite{HM85} has order $2$.
+
+Let $\fB=\mat{\cO}{\cO}{\varpi\cO}{\cO}$. The Iwahori subgroup is
+$B=\fB^\times\cap G$, the group of matrices in $SL(2,\cO)$ that are
+upper triangular modulo $\varpi$. For $k\geq 1$ the $k$-th filtration
+subgroup and its Lie algebra are
+\[
+B_k=(1+\varpi^k\fB)\cap G,\qquad
+\fb_k=\left\{\mat ab{\varpi c}{-a}\ \Big|\ a,b,c\in\varpi^k\cO\right\}.
+\]
+We also put $B_0=B$. Since $t^2=-\varpi$, we have
+$B_k=(1+t^{2k}\fB)\cap G$. Let $K=SL(2,\cO)$, and for $j\geq 1$ let
+\[
+\Gamma_j=G\cap\bigl(1+\varpi^jM_2(\cO)\bigr)
+\]
+be the principal congruence subgroup of level $j$. Let
+$U^\pm_j=\{u_\pm(x)\,|\,x\in\varpi^j\cO\}$ and
+$T_j=\{h(a)\,|\,a\in 1+\varpi^j\cO\}$.
+
+\begin{lemma}
+\label{lemma:subgroups}
+Let $k\geq 1$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item $B_k$ is a normal subgroup of $B$, and $t$ normalizes $B$ and
+$B_k$.
+\item The map sending $\mat{1+\varpi^ka}{\varpi^kb}{\varpi^{k+1}c}{d}$
+to $(a,b,c)$ modulo $\varpi$ is a surjective homomorphism
+$B_k\to\Fq^3$ with kernel $B_{k+1}$. Likewise, the map sending
+$\mat ab{\varpi c}{-a}$ to $\varpi^{-k}(a,b,c)$ modulo $\varpi$
+induces an isomorphism $\fb_k/\fb_{k+1}\cong\Fq^3$. In particular
+$B_k$ is a pro-$p$ group.
+\item (Iwahori factorization.) Every element of $B_k$ can be written
+uniquely as $u_-(x)h(a)u_+(y)$ with $x\in\varpi^{k+1}\cO$,
+$a\in 1+\varpi^k\cO$ and $y\in\varpi^k\cO$. That is,
+$B_k=U^-_{k+1}T_kU^+_k$. Similarly $\Gamma_k=U^-_kT_kU^+_k$.
+\item $B_k\cdot(s_1^{-1}B_ks_1)=(s_1^{-1}B_ks_1)\cdot B_k
+=U_k^-B_k=\Gamma_k$. The group $B_k$ is normal in $\Gamma_k$ of index
+$q$. Similarly $B_k\cdot(s_2^{-1}B_ks_2)=t\Gamma_kt^{-1}=U^+_{k-1}B_k$.
+\item $\Gamma_k$ is normal in $K$. For $x\in\cO^\times$ we have
+$B_ku_-(x)B_k=u_-(x)\Gamma_k$, which has volume $q\cdot\vol(B_k)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) For $b\in\fB^\times$ we have $b(1+\varpi^k\fB)b^{-1}=1+\varpi^k\fB$.
+Also $t\fB t^{-1}=\fB$.
+
+(b) For $g=1+X$ and $g'=1+X'$ in $B_k$ we have $gg'=1+X+X'+XX'$ with
+$XX'\in\varpi^{2k}\fB\subset\varpi^{k+1}\fB$. This gives the
+homomorphism property. Surjectivity holds because, given $a$, $b$ and
+$c$, the entry $d$ can be solved for from $\det=1$. The statement for
+$\fb_k$ is clear.
+
+(c) If $g=\mat{a}{b}{c}{d}\in B_k$, then $a$ is a unit and
+$g=u_-(c/a)h(a)u_+(b/a)$. Uniqueness is clear. The same computation
+applies to $\Gamma_k$.
+
+(d) Conjugation by $s_1$ gives
+$s_1^{-1}\mat abcd s_1=\mat d{-c}{-b}a$. So
+$s_1^{-1}B_ks_1=U^-_kT_kU^+_{k+1}$. The product $(s_1^{-1}B_ks_1)B_k$
+is contained in $\Gamma_k$ and contains $U^-_kT_kU^+_k=\Gamma_k$ by
+(c). Taking inverses gives the same for $B_k(s_1^{-1}B_ks_1)$. The map
+$1+\varpi^kX\mapsto X$ modulo $\varpi$ identifies
+$\Gamma_k/\Gamma_{k+1}$ with the abelian group $\mathfrak{sl}_2(\Fq)$,
+and $B_k$ is the preimage of the upper triangular matrices. Hence
+$B_k$ is normal in $\Gamma_k$ of index $q$. The statement for $s_2$
+follows by conjugating with $t$. Here we use $ts_1t^{-1}=s_2$, part
+(a), and $tu_-(x)t^{-1}=u_+(-x/\varpi)$.
+
+(e) $\Gamma_k$ is the kernel of reduction modulo $\varpi^k$ on $K$.
+Under the identification in (d), $K$ acts on $\mathfrak{sl}_2(\Fq)$ by
+the adjoint action. For a unit $x$, the subalgebra of upper triangular
+matrices is not stable under $u=u_-(x)$. Two distinct planes in the
+three-dimensional space $\mathfrak{sl}_2(\Fq)$ meet in a line. So
+$[B_k:B_k\cap uB_ku^{-1}]=q$, and
+$\vol(B_kuB_k)=q\,\vol(B_k)=\vol(u\Gamma_k)$. Since
+$B_kuB_k\subset u\Gamma_k$, the two sets are equal.
+\end{proof}
+
+By the Iwahori--Bruhat decomposition, $G$ is the disjoint union of the
+double cosets $BwB$, where $w$ runs over
+\[
+W_a=\{t_0^m,\ t_0^ms_1\ |\ m\in\Z\},
+\]
+a set of representatives for the affine Weyl group. Define the length
+by $\ell(t_0^m)=2|m|$ and $\ell(t_0^ms_1)=|2m+1|$, so that
+$\ell(s_1)=\ell(s_2)=1$. Put $\ell(-w)=\ell(w)$.
+
+\begin{lemma}
+\label{lemma:length}
+For $k\geq 1$ and $w\in \pm W_a$, we have
+$\vol(B_kwB_k)=q^{\ell(w)}\vol(B_k)$.
+\end{lemma}
+
+\begin{proof}
+Since $-1$ is central, we may assume $w\in W_a$. We have
+$\vol(B_kwB_k)/\vol(B_k)=[B_k:B_k\cap wB_kw^{-1}]$. Conjugation by
+$t_0^m$ multiplies the upper right entry by $\varpi^{2m}$ and the lower
+left entry by $\varpi^{-2m}$. Conjugation by $s_1$ was computed in the
+proof of Lemma~\ref{lemma:subgroups}(d). Hence $wB_kw^{-1}$ is the set
+of elements of $G$ whose diagonal entries lie in $1+\varpi^k\cO$, whose
+upper right entry lies in $\varpi^i\cO$, and whose lower left entry
+lies in $\varpi^j\cO$. Here $(i,j)=(k+2m,\,k+1-2m)$ for $w=t_0^m$, and
+$(i,j)=(k+1+2m,\,k-2m)$ for $w=t_0^ms_1$. The intersection with $B_k$
+is described by the exponents $\max(i,k)$ and $\max(j,k+1)$. By the
+factorization of Lemma~\ref{lemma:subgroups}(c), applied to both
+groups, the index is $q^{e}$ with
+$e=(\max(i,k)-k)+(\max(j,k+1)-k-1)$. This exponent is $2|m|$ in the
+first case and $|2m+1|$ in the second.
+\end{proof}
+
+\begin{example}
+\label{ex:subgroups}
+In the running example $q=7$. For $k=1$, the quotient $B_1/B_2$ is
+isomorphic to $\mathbb{F}_7^3$. The double cosets $B_1s_1B_1$ and
+$B_1t_0B_1$ have volumes $7$ and $49$ times $\vol(B_1)$, and
+$B_1t_0s_1B_1$ has volume $343$ times $\vol(B_1)$.
+\end{example}
+
+\subsection{Generalized Hecke algebras}
+
+\begin{definition}
+\label{def:1}
+Let $H$ be a locally compact, totally disconnected, unimodular group,
+and let $K_0$ be an open compact subgroup of $H$. Normalize Haar
+measure on $H$ so that $K_0$ has measure one. Let $\cH(H/\!/K_0)$
+denote the space of functions on $H$ that are locally constant,
+compactly supported, and bi-$K_0$-invariant. With the convolution
+\[
+(f*g)(x)=\int_H f(y)g(y^{-1}x)\,dy
+\]
+it is an algebra, the \textbf{generalized Hecke algebra}. For $h\in H$,
+$f_h$ denotes the characteristic function of $K_0hK_0$.
+\end{definition}
+
+\begin{example}
+\label{ex:hecke}
+If $H$ is finite and $K_0=\{1\}$, then $\cH(H/\!/K_0)$ is the group
+algebra $\C[H]$, and $f_h*f_{h'}=f_{hh'}$. If $K_0$ is normal in $H$,
+then $\cH(H/\!/K_0)$ is the group algebra of the discrete group
+$H/K_0$. For $H=G$ and $K_0=B_k$, the group $B$ normalizes $B_k$, so
+the $f_x$ with $x\in B$ span a copy of $\C[B/B_k]$.
+\end{example}
+
+\begin{lemma}
+\label{lemma:general}
+In the notation of Definition~\ref{def:1}, the following hold.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item $f_1$ is the identity of $\cH(H/\!/K_0)$.
+\item $(f_{h_1}*f_{h_2})(x)=\vol(K_0h_1K_0\cap xK_0h_2^{-1}K_0)$. For any
+$\phi\in\cH(H/\!/K_0)$,
+\[
+(f_h*\phi)(x)=\sum_{v\in K_0/(K_0\cap hK_0h^{-1})}\phi(h^{-1}v^{-1}x).
+\]
+\item $\int_H f*g=\int_H f\cdot\int_H g$.
+\item If $\vol(K_0h_1K_0)\vol(K_0h_2K_0)=\vol(K_0h_1h_2K_0)$, then
+$f_{h_1}*f_{h_2}=f_{h_1h_2}$ and
+\begin{equation}
+\label{eq:unique}
+\{x\in K_0h_1K_0\ |\ x^{-1}h_1h_2\in K_0h_2K_0\}=h_1K_0 .
+\end{equation}
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Parts (a), (b) and (c) follow from the definitions. For (b) we use
+$K_0hK_0=\bigsqcup_v vhK_0$. For (d), part (b) shows that
+$f_{h_1}*f_{h_2}$ is bi-$K_0$-invariant, takes non-negative integer
+values, and is at least $1$ on $K_0h_1h_2K_0$. By (c) its integral is
+$\vol(K_0h_1h_2K_0)$. Hence it equals $1$ on $K_0h_1h_2K_0$ and
+vanishes elsewhere. Evaluating (b) at $x=h_1h_2$ gives
+$\vol(K_0h_1K_0\cap h_1h_2K_0h_2^{-1}K_0)=1$. This set contains
+$h_1K_0$ and is a union of left cosets of $K_0$, which gives
+(\ref{eq:unique}). Part (d) is \cite[Chapter~3,
+Proposition~2.2]{HM85}.
+\end{proof}
+
+%======================================================================
+\section{Notation}
+\label{section:notation}
+
+This section lists the notation used from here on. Each symbol is also
+defined at its first use.
+
+\medskip
+\begin{center}
+\begin{tabular}{@{}p{0.27\textwidth}p{0.67\textwidth}@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$F$, $\cO$, $\varpi$, $q$ & $p$-adic field, its integers, a uniformizer,
+the residue field size \\
+$\mu_n$, $(\ ,\ )_n$ & $n$-th roots of unity in $F$, $n$-th power
+Hilbert symbol \\
+$G$, $\Gbar$, $\pr$ & $SL(2,F)$, its $n$-fold metaplectic cover, the
+projection $\Gbar\to G$ \\
+$\beta$, $x(g)$ & Kubota's cocycle and the function used to define it \\
+$\overline{H}$ & the inverse image $\pr^{-1}(H)$ of $H\subset G$ \\
+$\tilde g$ & a lift of $g\in G$ to $\Gbar$ \\
+$u_\pm(x)$, $h(a)$, $T$ & unipotent and diagonal elements, the diagonal
+torus \\
+$s_1$, $s_2$, $t$, $t_0$ & the elements of
+\S\ref{subsec:subgroups}, with $t_0=h(\varpi)$ \\
+$K$, $B$, $B_k$ & $SL(2,\cO)$, the Iwahori subgroup, its $k$-th
+filtration subgroup \\
+$\Gamma_k$, $U^\pm_k$, $T_k$ & principal congruence subgroup and its
+unipotent and diagonal parts \\
+$W_a$, $\ell$ & representatives of the affine Weyl group, the length \\
+$f_g$ & characteristic function of $B_kgB_k$ \\
+$\cH(G/\!/B_k)$ & generalized Hecke algebra of $G$ with respect to
+$B_k$ \\
+$\cP$, $\sigma$ & small subgroups with canonical lifts, the canonical
+lift (Lemma~\ref{lemma:canonical}) \\
+$B_k^*$, $K_0^*$ & lifts of $B_k$, $K_0$ to subgroups of $\Gbar$ \\
+$\cH(\Gbar/\!/K_0^*)_{\gen}$ & genuine generalized Hecke algebra \\
+$\fbar_{\tilde g}$ & genuine bi-$K_0^*$-invariant function with value
+$1$ at $\tilde g$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{example}
+In the running example $F=\mathbb{Q}_7$, $n=3$, we may take
+$\varpi=7$, so $t_0=h(7)$, $q=7$, $\cO=\mathbb{Z}_7$, and
+$\mu_3=\{1,\omega,\omega^2\}$ with $\omega\in\mathbb{Z}_7$ a primitive
+cube root of unity congruent to $2$ modulo $7$.
+\end{example}
+
+%======================================================================
+\section{The structure of \texorpdfstring{$\cH(G/\!/B_k)$}{H(G//Bk)}}
+\label{section:sl2}
+
+This section describes the linear algebra $\Hlin$ by generators and
+relations, following the method of Howe and Moy \cite{HM85}. The
+relations found here are the ones we try to match in the genuine
+algebra. Throughout this section $k\geq 1$, Haar measure on $G$ is
+normalized by $\vol(B_k)=1$, and $\chi_S$ is the characteristic
+function of a subset $S\subset G$.
+
+\begin{proposition}
+\label{prop:main}
+Let $k\geq 1$. The algebra $\Hlin$ is generated by the functions $f_g$
+with $g\in\{s_1,s_2\}\cup B$. These are finitely many functions, since
+$f_g$ depends only on $B_kgB_k$. Moreover
+$f_{t_0}=f_{-1}*f_{s_1}*f_{s_2}$ and
+$f_{t_0^{-1}}=f_{-1}*f_{s_2}*f_{s_1}$. The following relations hold.
+
+\smallskip\noindent
+\textup{(A)} Relations for the $s_i$.
+\begin{itemize}[leftmargin=3em]
+\item[(i)] We have
+\begin{align*}
+f_{s_1}*f_{s_1}&=q\,\chi_{-\Gamma_k}
+=q\sum_{x\in\varpi^k\cO/\varpi^{k+1}\cO}f_{-u_-(x)},\\
+f_{s_2}*f_{s_2}&=q\,\chi_{-t\Gamma_kt^{-1}}
+=q\sum_{x\in\varpi^{k-1}\cO/\varpi^{k}\cO}f_{-u_+(x)}.
+\end{align*}
+\item[(ii)] $f_{t_0}*f_{s_1}=f_{s_1}*f_{t_0^{-1}}=f_{t_0s_1}$.
+\end{itemize}
+
+\noindent
+\textup{(B)} Relations for elements of $B$.
+\begin{itemize}[leftmargin=3em]
+\item[(i)] $f_1$ is the identity of $\Hlin$.
+\item[(ii)] $f_x*f_y=f_{xy}$ for $x,y\in B$. Thus the $f_x$ with $x\in
+B$ span a copy of the group algebra $\C[B/B_k]$.
+\end{itemize}
+
+\noindent
+\textup{(C)} Mixed relations.
+\begin{itemize}[leftmargin=3em]
+\item[(i)] $f_g*f_x=f_{gx}$ and $f_x*f_g=f_{xg}$ for $x\in B$ and
+$g\in G$. In particular $f_{g}*f_x=f_{gxg^{-1}}*f_{g}$ for
+$x\in B\cap g^{-1}Bg$.
+\item[(ii)] $f_{s_1}*f_{u_+(x)}*f_{s_1}=q\,f_{-u_-(-x)}$ for
+$x\in\cO^\times$.
+\item[(iii)] $f_{s_2}*f_{u_-(\varpi x)}*f_{s_2}
+=q\,f_{-u_+(-x/\varpi)}$ for $x\in\cO^\times$.
+\item[(iv)] $f_{t_0}*f_{t_0}=f_{t_0^2}$. More generally
+$f_{w}*f_{w'}=f_{ww'}$ whenever $w,w'\in \pm W_a$ and
+$\ell(w)+\ell(w')=\ell(ww')$.
+\end{itemize}
+
+\noindent
+The right-hand sides of \textup{C(ii)} and \textup{C(iii)} are
+expressed in terms of the generators by means of the identity
+\begin{equation}
+\label{eq:bruhat}
+s_1u_+(x)s_1=-u_-(-x)=-\,u_+(-x^{-1})\,s_1\,h(-x)\,u_+(-x^{-1}),
+\qquad x\in F^\times.
+\end{equation}
+It gives $f_{s_1}*f_{u_+(x)}*f_{s_1}
+=q\,f_{-u_+(-x^{-1})}*f_{s_1}*f_{h(-x)u_+(-x^{-1})}$. Conjugation by
+$t$ gives the analog for C(iii).
+\end{proposition}
+
+\begin{proof}
+\emph{Generation.} If $g=b_1wb_2$ with $b_1,b_2\in B$ and $w\in W_a$,
+then $f_g=f_{b_1}*f_w*f_{b_2}$ by C(i). By C(iv) and
+Lemma~\ref{lemma:length}, for $m\geq 0$ we have
+$f_{t_0^m}=f_{t_0}^{*m}$ and $f_{t_0^ms_1}=f_{t_0}^{*m}*f_{s_1}$. For
+$m\geq 1$ we have $f_{t_0^{-m}}=f_{t_0^{-1}}^{*m}$ and
+$f_{t_0^{-m}s_1}=f_{t_0^{-1}}^{*(m-1)}*f_{s_2}$, because
+$t_0^{-1}s_1=s_2$. Finally $t_0=s_1^{-1}s_2=(-1)s_1s_2$ and
+$t_0^{-1}=(-1)s_2s_1$, with
+$\ell(s_1s_2)=\ell(s_2s_1)=2=\ell(s_1)+\ell(s_2)$. So the formulas for
+$f_{t_0^{\pm1}}$ follow from C(iv) and C(i).
+
+\emph{\textup{B(i), B(ii), C(i)}.} B(i) is
+Lemma~\ref{lemma:general}(a). Since $B$ normalizes $B_k$, for $x\in B$
+we have $B_kxB_k=xB_k$ and $B_kgxB_k=B_kgB_kx$. Hence
+$\vol(B_kxB_k)=1$ and $\vol(B_kgxB_k)=\vol(B_kgB_k)$, and
+Lemma~\ref{lemma:general}(d) applies.
+
+\emph{\textup{C(iv), A(ii)}.} These follow from
+Lemmas~\ref{lemma:length} and \ref{lemma:general}(d). For A(ii) note
+that $t_0s_1=s_1t_0^{-1}$ and $\ell(t_0s_1)=3$.
+
+\emph{\textup{A(i)}.} Let $s=s_1$ and $Q=\Gamma_k$. By
+Lemma~\ref{lemma:subgroups}(d), $f_s*f_s$ is supported on
+\[
+B_ksB_ksB_k=B_ks^2(s^{-1}B_ks)B_k=-B_kQ=-Q.
+\]
+Let $y=s^2\gamma$ with $\gamma\in Q$, and let $v$ run over the $q$
+cosets of $B_k/(B_k\cap sB_ks^{-1})$. By
+Lemma~\ref{lemma:general}(b),
+\[
+(f_s*f_s)(y)=\sum_v f_s(s^{-1}v^{-1}s^2\gamma)
+=\sum_v f_s(s\,v^{-1}\gamma),
+\]
+because $s^2$ is central. As $v^{-1}\gamma\in Q=(s^{-1}B_ks)B_k$, we
+have $sv^{-1}\gamma\in B_ksB_k$. So every term is $1$ and
+$f_s*f_s=q\chi_{-Q}$. Since $B_k$ is normal in $Q$ and
+$Q=\bigsqcup_x u_-(x)B_k$, this is the stated sum. The case of $s_2$
+follows by applying the automorphism $f\mapsto f\circ\Ad(t)^{-1}$ of
+$\Hlin$, which sends $f_g$ to $f_{tgt^{-1}}$
+(Lemma~\ref{lemma:subgroups}(a)). Here we use
+$tu_-(x)t^{-1}=u_+(-x/\varpi)$.
+
+\emph{\textup{C(ii)}.} Let $s=s_1$ and $u=u_+(x)$ with $x\in\cO$. By
+C(i), $f_s*f_u*f_s=f_{su}*f_s$, and $B_ksuB_k=\bigsqcup_v vsuB_k$ with
+$v$ as before. The support lies in
+$suB_ksB_k=sus\,(s^{-1}B_ks)B_k=sus\,\Gamma_k$. For
+$y=sus\gamma$ with $\gamma\in\Gamma_k$ we get
+\[
+(f_{su}*f_s)(y)=\sum_vf_s\bigl((su)^{-1}v^{-1}(su)\,s\gamma\bigr).
+\]
+Since $su\in K$ normalizes $\Gamma_k$, the element
+$\gamma'=(su)^{-1}v^{-1}(su)$ lies in $\Gamma_k$. Then
+$\gamma's\gamma=s(s^{-1}\gamma's)\gamma\in s\Gamma_k\subset B_ksB_k$.
+Hence $f_{su}*f_s=q\,\chi_{sus\Gamma_k}$. By (\ref{eq:bruhat}),
+$sus=-u_-(-x)$. If $x$ is a unit, then
+$-u_-(-x)\Gamma_k=B_k(-u_-(-x))B_k$ by
+Lemma~\ref{lemma:subgroups}(e).
+
+\emph{\textup{C(iii)}.} Apply $\Ad(t)$ to C(ii) with $x$ replaced by
+$-x$. Here we use $tu_+(-x)t^{-1}=u_-(\varpi x)$ and
+$tu_-(x)t^{-1}=u_+(-x/\varpi)$.
+
+The identity (\ref{eq:bruhat}) is a direct matrix computation. The
+displayed formula after it follows from (\ref{eq:bruhat}) and C(i).
+\end{proof}
+
+The next example shows that $f_{t_0}$ is not invertible up to a scalar
+in $\Hlin$. This is a basic difference between positive level and the
+affine Weyl group, where $t_0$ is invertible.
+
+\begin{example}
+\label{ex:t0}
+Let
+\[
+R=(t_0B_kt_0^{-1})B_k
+=G\cap\mat{1+\varpi^k\cO}{\varpi^k\cO}{\varpi^{k-1}\cO}{1+\varpi^k\cO},
+\]
+a group containing $B_k$ with index $q^2$. Then
+$B_kt_0^{-1}B_k=t_0^{-1}R$. By Lemma~\ref{lemma:general}(b),
+\[
+(f_{t_0}*f_{t_0^{-1}})(y)=\sum_{v\in B_k/(B_k\cap t_0B_kt_0^{-1})}
+\chi_{t_0^{-1}R}(t_0^{-1}v^{-1}y)=q^2\chi_R(y).
+\]
+Thus $f_{t_0}*f_{t_0^{-1}}=q^2\chi_R$, which is not a multiple of
+$f_1$. Here $\ell(t_0)+\ell(t_0^{-1})=4\neq 0=\ell(1)$, so C(iv) does
+not apply. Similarly $f_{s_1}*f_{t_0}\neq f_{s_1t_0}=f_{s_2}$, since the
+two sides have integrals $q^3$ and $q$. In the running example with
+$k=1$, $f_{t_0}*f_{t_0^{-1}}=49\,\chi_R$, and $R/B_1$ has $49$
+elements.
+\end{example}
+
+\begin{remark}
+The analog of Proposition~\ref{prop:main} for $GL(n)$ is
+\cite[Chapter~3, Theorem~2.1]{HM85}. There it is shown in addition that
+the relations form a defining set. We have not carried out the
+corresponding argument for the list (A)--(C). The results of this
+paper do not use it.
+\end{remark}
+
+\begin{question}
+\label{q:defining}
+Do the relations \textup{(A)--(C)} of Proposition~\ref{prop:main},
+together with the expressions of the $f_g$ on their right-hand sides
+in terms of the generators, form a defining set of relations for
+$\Hlin$?
+\end{question}
+
+%======================================================================
+\section{Splittings and genuine functions}
+\label{section:genuine}
+
+This section constructs the genuine counterpart of the basis
+$\{f_g\}$. The point is that $B_k$ must be lifted to $\Gbar$ in a way
+compatible with conjugation, and that a double coset carries a genuine
+function only if a commutation condition holds. At deep level both
+issues are resolved.
+
+\subsection{Canonical splittings}
+Let $e$ be the ramification index of $F$ over $\mathbb{Q}_p$, and
+$\ord$ the normalized valuation of $F$. For $j>e/(p-1)$ the
+exponential series converges on $\varpi^jM_2(\cO)$ and defines a
+bijection onto $1+\varpi^jM_2(\cO)$ whose inverse is the logarithm
+series. Both series commute with conjugation by $g\in GL(2,F)$ whenever
+$X$ and $gXg^{-1}$ lie in $\varpi^jM_2(\cO)$. Moreover
+$\det\exp(X)=\exp(\tr X)$.
+
+\begin{definition}
+\label{def:deep}
+Fix an integer $j_0>e/(p-1)$ such that $\pr$ splits over
+$\Gamma_{j_0}$. Such $j_0$ exists by Remark~\ref{vrem:kubota}. Let
+$j_1=j_0+\ord(n)$. Let $\cP$ be the following family of open subgroups
+of $G$.
+\begin{itemize}[leftmargin=2em]
+\item If $p\nmid n$, $\cP$ consists of all open pro-$p$ subgroups of
+$G$.
+\item If $p\mid n$, $\cP$ consists of all open subgroups of
+$\Gamma_{j_1}$.
+\end{itemize}
+The level $k\geq 1$ is called \textbf{deep} if $B_k$, $\Gamma_k$ and
+$t\Gamma_kt^{-1}$ belong to $\cP$. Equivalently, $k\geq 1$ when
+$p\nmid n$, and $k\geq j_1+1$ when $p\mid n$.
+\end{definition}
+
+The family $\cP$ is closed under intersections and under passage to
+open subgroups. The equivalence in the definition holds because
+$t\Gamma_kt^{-1}=U^+_{k-1}B_k$ is contained in $\Gamma_{k-1}$ and is
+pro-$p$ for $k\geq 1$.
+
+\begin{example}
+\label{ex:deep}
+In the running example $p=7$ does not divide $n=3$, so every $k\geq 1$
+is deep. For the classical double cover over $F=\mathbb{Q}_2$ we have
+$p\mid n$, $e=1$ and $\ord(2)=1$. Then $j_0\geq 2$, and the deep levels
+are $k\geq j_0+2$.
+\end{example}
+
+\begin{lemma}[Canonical splitting]
+\label{lemma:canonical}
+For each $P\in\cP$ there is a splitting $s_P:P\to\Gbar$ with the
+following properties.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item If $P'\subset P$ are in $\cP$, then $s_P|_{P'}=s_{P'}$. Hence
+$\sigma(x)=s_P(x)$ is a well-defined lift of each
+$x\in\bigcup_{P\in\cP}P$.
+\item If $x\in P$, $g\in G$ and $gxg^{-1}\in P'$ with $P,P'\in\cP$,
+then $\tilde g\,\sigma(x)\,\tilde g^{-1}=\sigma(gxg^{-1})$ for every
+lift $\tilde g$ of $g$.
+\item $\sigma(u_\pm(x))=(u_\pm(x),1)$ whenever $u_\pm(x)$ lies in a
+member of $\cP$.
+\item If $p\nmid n$, then $s_P$ is the unique splitting of $P$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+\emph{Case $p\nmid n$.} Let $P$ be an open pro-$p$ subgroup. Then
+$\overline{P}$ is a profinite group and a central extension of the
+pro-$p$ group $P$ by the group $\mu_n$, whose order is prime to $p$.
+Hence $\overline{P}$ has a unique Sylow pro-$p$ subgroup $S_P$, we have
+$\overline{P}=\mu_n\times S_P$, and $\pr:S_P\to P$ is an isomorphism.
+Let $s_P$ be its inverse. An element of $\overline{P}$ lies in $S_P$ if
+and only if it generates a pro-$p$ subgroup. This gives (a). For (b),
+the element $\tilde g\sigma(x)\tilde g^{-1}$ lies in the pro-$p$ group
+$\tilde gS_P\tilde g^{-1}$ and in $\overline{P'}$. Hence it lies in
+$S_{P'}$, and it projects to $gxg^{-1}$. For (d), two splittings of $P$
+differ by a homomorphism $P\to\mu_n$. Such a homomorphism is trivial,
+because every element of a pro-$p$ group is an $n$-th power when
+$p\nmid n$. For (c), the restrictions of $\sigma$ and of
+$u\mapsto(u,1)$ to the pro-$p$ group $U^\pm\cap P$ are both splittings
+by Lemma~\ref{lemma:cover}(b). They differ by a homomorphism from a
+pro-$p$ group to $\mu_n$, which is trivial.
+
+\emph{Case $p\mid n$.} Let $s'$ be a splitting of $\Gamma_{j_0}$. For
+$b\in\Gamma_{j_1}$ put $X=\log b\in\varpi^{j_1}M_2(\cO)$. Then
+$\tr X=0$ and $X/n\in\varpi^{j_0}M_2(\cO)$, so
+$c=\exp(X/n)\in\Gamma_{j_0}$ satisfies $c^n=b$. Therefore
+\[
+s'(b)=s'(c)^n=\tilde c^{\,n}\qquad\mbox{for every lift $\tilde c$ of
+$c$,}
+\]
+because $\mu_n$ is central of exponent $n$. Define $s_P=s'|_P$ for
+$P\subset\Gamma_{j_1}$. Part (a) is clear, and the formula shows that
+$s_P$ does not depend on $s'$. For (b), let $b=x$ and $b'=gxg^{-1}$,
+both in $\Gamma_{j_1}$, with $X=\log b$. Then $\log b'=gXg^{-1}$, so
+$c'=\exp(gXg^{-1}/n)=gcg^{-1}$. The element
+$\tilde g\,s'(c)\,\tilde g^{-1}$ is a lift of $c'$. Hence
+\[
+\tilde g\,\sigma(b)\,\tilde g^{-1}
+=\bigl(\tilde g\,s'(c)\,\tilde g^{-1}\bigr)^n=\sigma(b').
+\]
+For (c), if $b=u_\pm(x)$, then $c=u_\pm(x/n)$ and
+$(c,1)^n=(u_\pm(x),1)$ by Lemma~\ref{lemma:cover}(b).
+\end{proof}
+
+\begin{example}
+\label{ex:canonical}
+Let $k$ be deep and $v\in 1+\varpi^k\cO$. Apply
+Lemma~\ref{lemma:canonical}(b) with $x=h(v)\in B_k$ and $g=t_0$, which
+commutes with $x$. It gives
+$\tilde t_0\sigma(h(v))\tilde t_0^{-1}=\sigma(h(v))$, so
+$(v,\varpi)_n^2=1$ by Lemma~\ref{lemma:cover}(a). This is consistent
+with the fact that, at deep level, every element of $1+\varpi^k\cO$ is
+an $n$-th power. For a unit $u$ that is not an $n$-th power no such
+statement holds. In the running example $u=3$ is such a unit.
+\end{example}
+
+\subsection{Genuine Hecke algebras}
+
+A function $f$ on $\Gbar$ is called \textbf{genuine} if
+$f(\zeta\tilde x)=\zeta f(\tilde x)$ for all $\tilde x\in\Gbar$ and
+$\zeta\in\mu_n$. Here we identify $\mu_n$ with the complex $n$-th roots
+of unity by a fixed isomorphism. Let $K_0\subset G$ be an open compact
+subgroup with a splitting $s$, and put $K_0^*=s(K_0)$. Haar measure on
+$G$ is normalized by $\vol(K_0)=1$, the measure on $\mu_n$ has total
+mass $1$, and $\Gbar$ carries the product measure. Then
+$\vol(\overline{K_0})=1$.
+
+\begin{definition}
+\label{def:genuineHecke}
+Let $\cH(\Gbar/\!/K_0^*)_{\gen}$ be the space of functions on $\Gbar$
+that are genuine, locally constant, compactly supported, and
+bi-$K_0^*$-invariant. With the convolution
+\[
+(\phi_1*\phi_2)(\tilde y)=\int_{\Gbar}\phi_1(\tilde x)
+\phi_2(\tilde x^{-1}\tilde y)\,d\tilde x
+=\int_G\phi_1(\tilde x)\phi_2(\tilde x^{-1}\tilde y)\,dx
+\]
+it is the \textbf{genuine generalized Hecke algebra} of $\Gbar$ with
+respect to $K_0^*$. In the second integral $\tilde x$ is any lift of
+$x$, and the integrand does not depend on the choice. The algebra
+depends on the splitting $s$.
+\end{definition}
+
+\begin{example}
+\label{ex:identity}
+The identity element of $\cH(\Gbar/\!/K_0^*)_{\gen}$ is the function
+$e_{K_0^*}$ supported on $\overline{K_0}$ with
+$e_{K_0^*}(\zeta s(x))=\zeta$. In the notation introduced below,
+$e_{K_0^*}=\fbar_{(1,1)}$.
+\end{example}
+
+\begin{definition}
+\label{def:admissible}
+An element $g\in G$ is called \textbf{$K_0^*$-admissible} if, for some
+(equivalently, any) lift $\tilde g$,
+\begin{equation}
+\label{eq:admissible}
+s(gxg^{-1})=\tilde g\,s(x)\,\tilde g^{-1}\qquad
+\mbox{for all }x\in K_0\cap g^{-1}K_0g.
+\end{equation}
+\end{definition}
+
+\begin{example}
+Every element of $K_0$ is $K_0^*$-admissible, because $s$ is a
+homomorphism. At Iwahori level with $n=3$ the element $t_0$ is not
+admissible (Proposition~\ref{prop:level0}). At deep level every element
+is admissible (Proposition~\ref{prop:admissible}).
+\end{example}
+
+\begin{lemma}
+\label{lemma:support}
+Let $g\in G$ with lift $\tilde g$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item The space of genuine bi-$K_0^*$-invariant functions supported on
+$\overline{K_0gK_0}$ has dimension $1$ if $g$ is $K_0^*$-admissible,
+and dimension $0$ otherwise. Admissibility depends only on the double
+coset $K_0gK_0$.
+\item If $g$ is admissible, let $\fbar_{\tilde g}$ be the unique such
+function with $\fbar_{\tilde g}(\tilde g)=1$. Thus
+$\fbar_{\tilde g}(\zeta\,s(x_1)\,\tilde g\,s(x_2))=\zeta$. Then
+$\fbar_{\zeta\tilde g}=\zeta^{-1}\fbar_{\tilde g}$, and
+$\fbar_{s(x_1)\tilde gs(x_2)}=\fbar_{\tilde g}$ for $x_1,x_2\in K_0$.
+\item Choose one lift $\tilde g$ of a representative of each
+admissible double coset. The resulting functions $\fbar_{\tilde g}$
+form a basis of $\cH(\Gbar/\!/K_0^*)_{\gen}$.
+\item For admissible $g$ and $\phi\in\cH(\Gbar/\!/K_0^*)_{\gen}$,
+\[
+(\fbar_{\tilde g}*\phi)(\tilde y)
+=\sum_{v\in K_0/(K_0\cap gK_0g^{-1})}
+\phi\bigl(\tilde g^{-1}s(v)^{-1}\tilde y\bigr).
+\]
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) A genuine bi-$K_0^*$-invariant function $f$ supported on
+$\overline{K_0gK_0}$ is determined by $f(\tilde g)$. A function with
+$f(\tilde g)=1$ exists if and only if $s(x_1)\tilde gs(x_2)=\zeta\tilde
+g$ implies $\zeta=1$. The relation $x_1gx_2=g$ means $x_1=gxg^{-1}$
+with $x=x_2^{-1}\in K_0\cap g^{-1}K_0g$. In that case
+\[
+s(x_1)\tilde gs(x_2)=s(gxg^{-1})\,\bigl(\tilde gs(x)\tilde
+g^{-1}\bigr)^{-1}\,\tilde g .
+\]
+The rest of (a), and parts (b) and (c), follow at once. For (d), write
+$K_0gK_0=\bigsqcup_v vgK_0$. On $vgK_0$ we may take
+$\tilde x=s(v)\tilde gs(x_2)$. Then $\fbar_{\tilde g}(\tilde x)=1$ and
+$\phi(\tilde x^{-1}\tilde y)=\phi(\tilde g^{-1}s(v)^{-1}\tilde y)$, and
+each coset $vgK_0$ has volume $1$.
+\end{proof}
+
+The following lemma is the genuine analog of
+Lemma~\ref{lemma:general}(d).
+
+\begin{lemma}
+\label{lemma:genuine}
+Let $g_1,g_2\in G$ be $K_0^*$-admissible, and suppose that
+\[
+\vol(K_0g_1K_0)\vol(K_0g_2K_0)=\vol(K_0g_1g_2K_0).
+\]
+Then $g_1g_2$ is $K_0^*$-admissible and
+$\fbar_{\tilde g_1}*\fbar_{\tilde g_2}=\fbar_{\tilde g_1\tilde g_2}$
+for all lifts $\tilde g_1$ and $\tilde g_2$. In terms of the cocycle,
+\[
+\fbar_{(g_1,1)}*\fbar_{(g_2,1)}=\beta(g_1,g_2)^{-1}\fbar_{(g_1g_2,1)}.
+\]
+\end{lemma}
+
+\begin{proof}
+The absolute value of $\fbar_{\tilde g_i}$ is $f_{g_i}\circ\pr$. So
+$\fbar_{\tilde g_1}*\fbar_{\tilde g_2}$ is supported on the inverse
+image of the support of $f_{g_1}*f_{g_2}$, which is $K_0g_1g_2K_0$ by
+Lemma~\ref{lemma:general}(d). The convolution is genuine and
+bi-$K_0^*$-invariant. We compute its value at
+$\tilde g_1\tilde g_2$:
+\[
+(\fbar_{\tilde g_1}*\fbar_{\tilde g_2})(\tilde g_1\tilde g_2)
+=\int_G\fbar_{\tilde g_1}(\tilde x)\,
+\fbar_{\tilde g_2}(\tilde x^{-1}\tilde g_1\tilde g_2)\,dx .
+\]
+By (\ref{eq:unique}) the integrand vanishes unless $x\in g_1K_0$. For
+$\tilde x=\tilde g_1s(x_2)$ the integrand is
+\[
+\fbar_{\tilde g_1}(\tilde g_1s(x_2))\,
+\fbar_{\tilde g_2}(s(x_2)^{-1}\tilde g_2)=1 .
+\]
+Since $\vol(g_1K_0)=1$, the value is $1$. So the convolution is a
+non-zero genuine bi-$K_0^*$-invariant function supported over
+$K_0g_1g_2K_0$. By Lemma~\ref{lemma:support}(a), $g_1g_2$ is
+admissible, and by Lemma~\ref{lemma:support}(b) the convolution equals
+$\fbar_{\tilde g_1\tilde g_2}$. The last formula follows from the
+identity $(g_1,1)(g_2,1)=\beta(g_1,g_2)(g_1g_2,1)$ and
+Lemma~\ref{lemma:support}(b).
+\end{proof}
+
+\begin{remark}
+\label{rem:cocycle}
+These constructions depend only on the group $\Gbar$. Replace $\beta$
+by a cohomologous cocycle
+$\beta'(g,h)=\beta(g,h)\,s_0(g)^{-1}s_0(h)^{-1}s_0(gh)$, where
+$s_0:G\to\mu_n$ is any function with $s_0(1)=1$. Then
+$(g,\zeta)\mapsto(g,s_0(g)^{-1}\zeta)$ is an isomorphism from the group
+defined by $\beta'$ to the group defined by $\beta$, and it carries
+genuine Hecke algebras to genuine Hecke algebras. In contrast, the
+function $(x,\zeta)\mapsto\zeta\,\chi_{K_0gK_0}(x)$ depends on the
+cocycle and need not be bi-$K_0^*$-invariant. This is why we work with
+lifts $\tilde g$ and not with the elements $(g,1)$.
+\end{remark}
+
+\subsection{Deep level}
+
+\begin{proposition}
+\label{prop:admissible}
+Let $k$ be deep, and let $B_k^*=\sigma(B_k)$ be the canonical lift of
+$B_k$. Then every $g\in G$ is $B_k^*$-admissible. Consequently, for any
+choice of lifts $\tilde g$ of representatives of the double cosets
+$B_kgB_k$, the functions $\fbar_{\tilde g}$ form a basis of $\Hgen$,
+and
+\[
+\Phi:\Hlin\to\Hgen,\qquad f_g\mapsto\fbar_{\tilde g},
+\]
+is an isomorphism of vector spaces with $|\Phi(f)|=|f|\circ\pr$.
+\end{proposition}
+
+\begin{proof}
+Condition (\ref{eq:admissible}) for $K_0=B_k$ and $s=\sigma|_{B_k}$ is
+Lemma~\ref{lemma:canonical}(b) with $P=P'=B_k$. The rest follows from
+Lemma~\ref{lemma:support}.
+\end{proof}
+
+\begin{example}
+In the running example, take $k=1$. The double cosets $B_1gB_1$ are
+indexed by $B/B_1\times(\pm W_a)\times B/B_1$ modulo the obvious
+identifications. For each of them, Proposition~\ref{prop:admissible}
+gives a function $\fbar_{\tilde g}$ on the cover of $SL(2,\mathbb{Q}_7)$
+with values in $\{0\}\cup\mu_3$.
+\end{example}
+
+%======================================================================
+\section{The structure of
+\texorpdfstring{$\cH(\Gbar/\!/B_k^*)_{\gen}$}{the genuine Hecke algebra}}
+\label{section:metaplectic}
+
+This section transfers the relations of Proposition~\ref{prop:main} to
+the genuine algebra and shows that the transfer cannot be made
+consistent when $n\geq 3$. Throughout, $k$ is deep,
+$B_k^*=\sigma(B_k)$ and $\vol(B_k)=1$. For $x$ in $\Gamma_k$ or in
+$t\Gamma_kt^{-1}$ we use the canonical lift $\sigma(x)$. Other elements
+receive arbitrary lifts, denoted by a tilde. Recall that $\tilde
+s_i^{\,2}$ is central by Lemma~\ref{lemma:cover}(c).
+
+\begin{proposition}
+\label{prop:main2}
+Let $k$ be deep. The algebra $\Hgen$ is generated by the functions
+$\fbar_{\tilde g}$ with $g\in\{s_1,s_2\}\cup B$. The following
+relations hold, for arbitrary lifts unless otherwise stated.
+
+\smallskip\noindent
+\textup{($\overline{\mbox{A}}$)}
+\begin{itemize}[leftmargin=3em]
+\item[(i)] We have
+\begin{align*}
+\fbar_{\tilde s_1}*\fbar_{\tilde s_1}
+&=q\sum_{x\in\varpi^k\cO/\varpi^{k+1}\cO}
+\fbar_{\tilde s_1^{\,2}\,(u_-(x),1)},\\
+\fbar_{\tilde s_2}*\fbar_{\tilde s_2}
+&=q\sum_{x\in\varpi^{k-1}\cO/\varpi^{k}\cO}
+\fbar_{\tilde s_2^{\,2}\,(u_+(x),1)}.
+\end{align*}
+\item[(ii)] $\fbar_{\tilde t_0}*\fbar_{\tilde s_1}
+=\fbar_{\tilde t_0\tilde s_1}
+=\varepsilon\,\fbar_{\tilde s_1}*\fbar_{\tilde t_0^{-1}}$, where
+$\varepsilon\in\mu_n$ is defined by
+$\tilde s_1\tilde t_0^{-1}\tilde s_1^{-1}=\varepsilon\,\tilde t_0$.
+\end{itemize}
+
+\noindent
+\textup{($\overline{\mbox{B}}$)}
+\begin{itemize}[leftmargin=3em]
+\item[(i)] $\fbar_{(1,1)}$ is the identity of $\Hgen$.
+\item[(ii)] $\fbar_{\tilde x}*\fbar_{\tilde y}=\fbar_{\tilde x\tilde y}$
+for $x,y\in B$. Thus the $\fbar_{\tilde x}$ with $x\in B$ span a copy
+of the genuine part of the group algebra of the finite group
+$\overline{B}/B_k^*$. This is a twisted group algebra of $B/B_k$, and
+$\fbar_{(x,1)}*\fbar_{(y,1)}=\beta(x,y)^{-1}\fbar_{(xy,1)}$.
+\end{itemize}
+
+\noindent
+\textup{($\overline{\mbox{C}}$)}
+\begin{itemize}[leftmargin=3em]
+\item[(i)] $\fbar_{\tilde g}*\fbar_{\tilde x}=\fbar_{\tilde g\tilde x}$
+and $\fbar_{\tilde x}*\fbar_{\tilde g}=\fbar_{\tilde x\tilde g}$ for
+$x\in B$ and $g\in G$. In particular
+$\fbar_{\tilde g}*\fbar_{\tilde x}
+=\fbar_{\tilde g\tilde x\tilde g^{-1}}*\fbar_{\tilde g}$ for
+$x\in B\cap g^{-1}Bg$.
+\item[(ii)] $\fbar_{\tilde s_1}*\fbar_{\tilde u}*\fbar_{\tilde s_1}
+=q\,\fbar_{\tilde s_1\tilde u\tilde s_1}$ for $u=u_+(x)$ with
+$x\in\cO^\times$.
+\item[(iii)] $\fbar_{\tilde s_2}*\fbar_{\tilde u}*\fbar_{\tilde s_2}
+=q\,\fbar_{\tilde s_2\tilde u\tilde s_2}$ for $u=u_-(\varpi x)$ with
+$x\in\cO^\times$.
+\item[(iv)] $\fbar_{\tilde w}*\fbar_{\tilde w'}
+=\fbar_{\tilde w\tilde w'}$ whenever $w,w'\in \pm W_a$ and
+$\ell(w)+\ell(w')=\ell(ww')$.
+\end{itemize}
+\end{proposition}
+
+\begin{proof}
+Relations ($\overline{\mbox{B}}$), ($\overline{\mbox{C}}$)(i) and
+($\overline{\mbox{C}}$)(iv), and the first equality in
+($\overline{\mbox{A}}$)(ii), follow from Lemma~\ref{lemma:genuine}
+with the volume computations in the proof of
+Proposition~\ref{prop:main}. The statement about generators follows by
+the argument given there, because every basis element
+$\fbar_{\tilde g}$ is a root of unity times a product of generators.
+For the second equality in ($\overline{\mbox{A}}$)(ii),
+Lemma~\ref{lemma:genuine} gives $\fbar_{\tilde s_1}*\fbar_{\tilde
+t_0^{-1}}=\fbar_{\tilde s_1\tilde t_0^{-1}}$. Since $\tilde s_1\tilde
+t_0^{-1}=\varepsilon\,\tilde t_0\tilde s_1$, we get
+$\fbar_{\tilde s_1\tilde t_0^{-1}}
+=\varepsilon^{-1}\fbar_{\tilde t_0\tilde s_1}$ by
+Lemma~\ref{lemma:support}(b).
+
+($\overline{\mbox{A}}$)(i). Let $s=s_1$ and $Q=\Gamma_k$. As in the
+linear case the convolution is supported over $-Q$. Let $\gamma\in Q$,
+and let $v$ run over the $q$ cosets of $B_k/(B_k\cap sB_ks^{-1})$.
+Lemma~\ref{lemma:support}(d) and the centrality of $\tilde s^{\,2}$
+give
+\[
+(\fbar_{\tilde s}*\fbar_{\tilde s})(\tilde s^{\,2}\sigma(\gamma))
+=\sum_v\fbar_{\tilde s}\bigl(\tilde s\,\sigma(v^{-1}\gamma)\bigr).
+\]
+Write $v^{-1}\gamma=(s^{-1}bs)b'$ with $b,b'\in B_k$. By
+Lemma~\ref{lemma:canonical}(b),
+$\sigma(v^{-1}\gamma)=\tilde s^{-1}\sigma(b)\tilde s\,\sigma(b')$. So
+$\tilde s\sigma(v^{-1}\gamma)=\sigma(b)\tilde s\sigma(b')$, and each
+term equals $1$. Hence $\fbar_{\tilde s}*\fbar_{\tilde s}$ takes the
+value $q$ at $\tilde s^{\,2}\sigma(\gamma)$ for every $\gamma\in Q$.
+Moreover $Q=\bigsqcup_xu_-(x)B_k$, and $\sigma(u_-(x))=(u_-(x),1)$ by
+Lemma~\ref{lemma:canonical}(c). The case of $s_2$ is identical, with
+$Q$ replaced by $t\Gamma_kt^{-1}=\bigsqcup_xu_+(x)B_k$, which belongs
+to $\cP$ because $k$ is deep.
+
+($\overline{\mbox{C}}$)(ii). Let $s=s_1$. By
+($\overline{\mbox{C}}$)(i) the left side is
+$\fbar_{\tilde s\tilde u}*\fbar_{\tilde s}$. By the proof of
+Proposition~\ref{prop:main}, it is supported over the single double
+coset $B_k(sus)B_k$. By Lemma~\ref{lemma:support}(d),
+\[
+(\fbar_{\tilde s\tilde u}*\fbar_{\tilde s})(\tilde s\tilde u\tilde s)
+=\sum_v\fbar_{\tilde s}\bigl((\tilde s\tilde u)^{-1}
+\sigma(v)^{-1}(\tilde s\tilde u)\,\tilde s\bigr)
+=\sum_v\fbar_{\tilde s}\bigl(\sigma(\gamma'_v)\,\tilde s\bigr),
+\]
+where $\gamma'_v=(su)^{-1}v^{-1}(su)\in\Gamma_k$, and we used
+Lemma~\ref{lemma:canonical}(b). By the same lemma,
+$\sigma(\gamma'_v)\tilde s=\tilde s\,\sigma(s^{-1}\gamma'_vs)$, with
+$s^{-1}\gamma_v's\in\Gamma_k=(s^{-1}B_ks)B_k$. The argument for
+($\overline{\mbox{A}}$)(i) shows that each term is $1$.
+
+($\overline{\mbox{C}}$)(iii) is proved in the same way, with $s_1$,
+$K$ and $\Gamma_k$ replaced by $s_2$, $tKt^{-1}$ and $t\Gamma_kt^{-1}$.
+\end{proof}
+
+\begin{remark}
+In ($\overline{\mbox{C}}$)(ii) the element
+$\tilde s_1\tilde u\tilde s_1$ is a lift of
+$-u_+(-x^{-1})s_1h(-x)u_+(-x^{-1})$ by (\ref{eq:bruhat}). So the right
+side is a root of unity times
+$q\,\fbar_{\widetilde{-1}}*\fbar_{\tilde u'}*\fbar_{\tilde s_1}*
+\fbar_{\tilde h(-x)}*\fbar_{\tilde u'}$, where $u'=u_+(-x^{-1})$. The
+root of unity depends on the lifts and can be computed from $\beta$.
+We do not need it.
+\end{remark}
+
+Every relation of Proposition~\ref{prop:main} thus holds in $\Hgen$
+after the elements of $G$ are replaced by lifts adapted to that
+relation. The next theorem shows that the lifts cannot be chosen once
+and for all.
+
+\begin{theorem}
+\label{thrm:main}
+Let $k$ be deep and $u\in\cO^\times$. Let $\tilde t_0$ and
+$\tilde h(u)$ be any lifts of $t_0$ and $h(u)$. Then
+\[
+\fbar_{\tilde t_0}*\fbar_{\tilde h(u)}
+=(u,\varpi)_n^{-2}\ \fbar_{\tilde h(u)}*\fbar_{\tilde t_0}\neq 0,
+\qquad\mbox{whereas}\qquad
+f_{t_0}*f_{h(u)}=f_{h(u)}*f_{t_0}.
+\]
+\end{theorem}
+
+\begin{proof}
+By C(i) of Proposition~\ref{prop:main}, both linear products equal
+$f_{t_0h(u)}$. By ($\overline{\mbox{C}}$)(i) of
+Proposition~\ref{prop:main2},
+$\fbar_{\tilde t_0}*\fbar_{\tilde h(u)}=\fbar_{\tilde t_0\tilde h(u)}$
+and
+$\fbar_{\tilde h(u)}*\fbar_{\tilde t_0}=\fbar_{\tilde h(u)\tilde t_0}$.
+By Lemma~\ref{lemma:cover}(a) with $a=\varpi$ and $b=u$, we have
+$\tilde t_0\tilde h(u)=(u,\varpi)_n^2\,\tilde h(u)\tilde t_0$. The
+claim follows from Lemma~\ref{lemma:support}(b).
+\end{proof}
+
+\begin{corollary}
+\label{corollary:main}
+Let $k$ be deep and $n\geq 3$. There is no algebra homomorphism
+$\Psi:\Hlin\to\Hgen$ such that, for every $g\in G$, $\Psi(f_g)$ is a
+non-zero function supported on $\overline{B_kgB_k}$. In particular, for
+no choice of lifts is the linear isomorphism $\Phi$ of
+Proposition~\ref{prop:admissible} an isomorphism of algebras.
+\end{corollary}
+
+\begin{proof}
+By Lemma~\ref{lemma:support}(a), $\Psi(f_g)=c_g\fbar_{\tilde g}$ with
+$c_g\neq 0$. By Lemma~\ref{lemma:hilbert} choose $u\in\cO^\times$ with
+$\zeta=(u,\varpi)_n^2\neq 1$. Apply $\Psi$ to the relation
+$f_{t_0}*f_{h(u)}=f_{h(u)}*f_{t_0}$ and use Theorem~\ref{thrm:main}.
+This gives
+\[
+(\zeta^{-1}-1)\,c_{t_0}c_{h(u)}\,
+\fbar_{\tilde h(u)}*\fbar_{\tilde t_0}=0,
+\]
+which is a contradiction.
+\end{proof}
+
+\begin{example}
+\label{ex:q7}
+In the running example $F=\mathbb{Q}_7$, $n=3$, take $u=3$. By
+Example~\ref{ex:hilbert}, $\zeta=(3,7)_3^2$ is a primitive cube root of
+unity. So $\fbar_{\tilde t_0}*\fbar_{\tilde h(3)}
+=\zeta^{-1}\fbar_{\tilde h(3)}*\fbar_{\tilde t_0}$ in
+$\cH(\Gbar/\!/B_k^*)_{\gen}$ for every $k\geq 1$.
+\end{example}
+
+\begin{remark}
+Corollary~\ref{corollary:main} concerns support-preserving maps. It
+does not by itself exclude an abstract isomorphism of $\C$-algebras
+between $\Hlin$ and $\Hgen$, and we make no claim either way. An
+abstract isomorphism that does not respect supports would not be
+expected to respect traces of representations.
+\end{remark}
+
+%======================================================================
+\section{Representation theory}
+\label{section:reps}
+
+This section records the general link between genuine Hecke algebras
+and genuine representations, and uses it to show that the trace
+identities one would hope for fail when $n\geq 3$. The link holds for
+any open compact subgroup $K_0$ of $G$ with a splitting $s$, and
+$K_0^*=s(K_0)$.
+
+A smooth representation $(\pi,V)$ of $\Gbar$ on which $\mu_n$ acts by
+the inverse of the fixed character $\mu_n\to\C^\times$ is called
+\textbf{genuine}. With this convention a genuine function $\phi$ acts
+on $V$ by $\pi(\phi)=\int_{\Gbar}\phi(\tilde x)\pi(\tilde x)\,d\tilde
+x$, and the integrand is invariant under $\mu_n$. Replacing the fixed
+character by its inverse exchanges this convention with the opposite
+one. For a genuine smooth $(\pi,V)$, the space $V^{K_0^*}$ of
+$K_0^*$-fixed vectors is a module over $\cH(\Gbar/\!/K_0^*)_{\gen}$.
+
+For a module $(r,W)$ over $\cH=\cH(\Gbar/\!/K_0^*)_{\gen}$, let
+\[
+I_{\gen}(W)=C_c(\Gbar/K_0^*)_{\gen}\otimes_{\cH}W
+\]
+be the \textbf{induced} $\Gbar$-module of Borel \cite[\S2]{Bo76}. Here
+$C_c(\Gbar/K_0^*)_{\gen}$ is the space of genuine, compactly supported,
+right $K_0^*$-invariant functions on $\Gbar$. The group $\Gbar$ acts on
+it by left translation, and $\cH$ acts by convolution on the right.
+
+\begin{proposition}[{\cite[\S\S1--2]{Bo76}, \cite[\S4.3]{BH06}}]
+\label{prop:borel}
+Let $(r,W)$ be a module over $\cH=\cH(\Gbar/\!/K_0^*)_{\gen}$, and let
+$(\pi,V)$ be a genuine smooth representation of $\Gbar$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item There is a natural isomorphism of $\cH$-modules
+$W\cong I_{\gen}(W)^{K_0^*}$.
+\item $I_{\gen}(W)$ is generated, as a $\Gbar$-module, by
+$I_{\gen}(W)^{K_0^*}$.
+\item Restriction to $W$ is an isomorphism
+$\Hom_{\Gbar}(I_{\gen}(W),V)\to\Hom_{\cH}(W,V^{K_0^*})$.
+\item If $W$ is simple, then $I_{\gen}(W)$ has a unique irreducible
+quotient $J_{\gen}(W)$, and $J_{\gen}(W)^{K_0^*}\cong W$. The maps
+$V\mapsto V^{K_0^*}$ and $W\mapsto J_{\gen}(W)$ are mutually inverse
+bijections between the set of equivalence classes of irreducible
+genuine smooth representations $V$ of $\Gbar$ with $V^{K_0^*}\neq 0$
+and the set of isomorphism classes of simple $\cH$-modules.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+The algebra $\cH(\Gbar/\!/K_0^*)$ of all bi-$K_0^*$-invariant compactly
+supported functions is the direct sum, over the characters $\chi$ of
+$\mu_n$, of the two-sided ideals of functions that transform by $\chi$
+under $\mu_n$. The algebra $\cH$ is the summand for the fixed
+character. A smooth representation of the kind considered is
+annihilated by the other summands. The statements therefore follow
+from the corresponding general facts for a locally profinite group and
+an open compact subgroup. Parts (a)--(c) are in \cite[\S\S1--2]{Bo76}.
+The bijection in (d) is in \cite[\S4.3]{BH06}. The description of the
+inverse map follows from (c), since the sum of all
+$\Gbar$-submodules of $I_{\gen}(W)$ with no non-zero $K_0^*$-fixed
+vectors is the unique maximal proper submodule when $W$ is simple.
+\end{proof}
+
+\begin{vremark}
+\label{vrem:borel}
+\emph{Cited, not re-checked against the sources.} The section numbers
+of \cite{Bo76} and \cite{BH06} in Proposition~\ref{prop:borel} are
+quoted from memory and from the 1998 version.
+\end{vremark}
+
+\begin{remark}
+In (d), $I_{\gen}(W)$ itself need not be irreducible for a general
+open compact subgroup. Irreducibility for the Iwahori subgroup of a
+linear group is a special feature established in \cite{Bo76}.
+\end{remark}
+
+Applied to $K_0=B_k$ with $k$ deep, Proposition~\ref{prop:borel}
+identifies the irreducible genuine smooth representations of $\Gbar$
+with non-zero $B_k^*$-fixed vectors with the simple modules of the
+algebra described in Proposition~\ref{prop:main2}. In the same way, the
+irreducible smooth representations of $G$ with non-zero $B_k$-fixed
+vectors correspond to the simple modules of $\Hlin$.
+
+\begin{example}
+\label{ex:trace}
+Let $k$ be deep and $n\geq 3$. Let $(\pi,V)$ be an admissible genuine
+representation with $V^{B_k^*}\neq 0$, so that $V^{B_k^*}$ is
+finite-dimensional. Choose a unit $u$ with
+$\zeta=(u,\varpi)_n^2\neq1$. Put $A=\pi(\fbar_{\tilde t_0})$ and
+$C=\pi(\fbar_{\tilde h(u)})$ on $V^{B_k^*}$. By
+Theorem~\ref{thrm:main}, $AC=\zeta^{-1}CA$. The operator $C$ is
+invertible, because $\fbar_{\tilde h(u)}*\fbar_{\tilde h(u)^{-1}}$ is
+the identity by ($\overline{\mbox{B}}$)(ii). Hence
+$A=\zeta^{-1}CAC^{-1}$ and $\tr A=\zeta^{-1}\tr A$, so $\tr A=0$. No
+such vanishing holds for $G$. For the trivial representation of $G$,
+$\tr\pi(f_{t_0})=\vol(B_kt_0B_k)=q^2$. Consequently there is no
+bijection $\overline\pi\mapsto\pi$, from the irreducible admissible
+genuine representations of $\Gbar$ with $B_k^*$-fixed vectors onto the
+irreducible admissible representations of $G$ with $B_k$-fixed
+vectors, such that
+$\tr\overline\pi(\fbar_{\tilde g})=\tr\pi(f_g)$ for all $g$ and some
+choice of lifts. In the running example this applies with $u=3$ and
+every $k\geq 1$.
+\end{example}
+
+%======================================================================
+\section{The Iwahori level}
+\label{section:savin}
+
+This section treats level $k=0$ in the tame case $p\nmid n$. It shows
+that the supports of the genuine and linear Iwahori--Hecke algebras
+already differ when $n\geq 3$, and it relates this to Savin's
+theorem.
+
+The cover splits over $B$. Indeed, the pro-$p$ radical $B^+$ of $B$
+has the canonical splitting $\sigma$ of Lemma~\ref{lemma:canonical}. By
+(H5) and Lemma~\ref{lemma:cover}(a), the map $u\mapsto(h(u),1)$ is a
+splitting of $T(\cO)=\{h(u)\,|\,u\in\cO^\times\}$, and it agrees with
+$\sigma$ on $T_1$ by uniqueness. Then
+$s(h(u)b)=(h(u),1)\sigma(b)$, for $u\in\cO^\times$ and $b\in B^+$, is a
+splitting of $B=T(\cO)B^+$ by Lemma~\ref{lemma:canonical}(b). Any other
+splitting of $B$ differs from $s$ by a homomorphism $B\to\mu_n$.
+
+\begin{proposition}
+\label{prop:level0}
+Let $p\nmid n$, let $s$ be any splitting of $B$, and put $B^*=s(B)$.
+If the double coset $Bt_0^mB$ supports a non-zero genuine
+bi-$B^*$-invariant function, then $n$ divides $2m$. In particular, if
+$n\geq 3$, then $\cH(\Gbar/\!/B^*)_{\gen}$ contains no non-zero
+function supported on $\overline{Bt_0B}$.
+\end{proposition}
+
+\begin{proof}
+Let $g=t_0^m=h(\varpi^m)$ and $x=h(v)$ with $v\in\cO^\times$. Then
+$x\in B\cap g^{-1}Bg$ and $gxg^{-1}=x$. By
+Lemma~\ref{lemma:support}(a) the hypothesis implies
+(\ref{eq:admissible}), so $s(x)$ commutes with $\tilde g$. By
+Lemma~\ref{lemma:cover}(a), the commutator of lifts of $h(\varpi^m)$
+and $h(v)$ is $(v,\varpi)_n^{2m}$. By Lemma~\ref{lemma:hilbert}, this
+is trivial for all units $v$ only if $n$ divides $2m$.
+\end{proof}
+
+\begin{example}
+\label{ex:level0}
+For $n=2$ the condition $n\mid 2m$ holds for every $m$. In the running
+example $n=3$, the double coset $Bt_0^mB$ can carry a genuine function
+only when $3\mid m$. So $Bt_0B$ and $Bt_0^2B$ carry none, while
+$Bt_0^3B$ may. The translations that survive form the lattice
+$3\Z$, a rescaling of the lattice $\Z$ of the linear group.
+\end{example}
+
+At Iwahori level, therefore, the linear and genuine Hecke algebras do
+not even have the same supports when $n\geq 3$. This is in contrast
+with Proposition~\ref{prop:admissible}, and it is consistent with the
+following theorem.
+
+\begin{theorem}[Savin {\cite{Sa88}}]
+\label{thm:savin}
+Assume $\gcd(p,n)=1$. The genuine Iwahori--Hecke algebra of the
+$n$-fold cover $\Gbar$ of $G=SL(2,F)$ is isomorphic to the
+Iwahori--Hecke algebra of $G/Z_n$, where $Z_n$ is the $n$-torsion of the
+center of $SL_2$ and the quotient is taken as algebraic groups. The
+group of $F$-points of $G/Z_n$ is $SL(2,F)$ if $n$ is odd and
+$PGL(2,F)$ if $n$ is even.
+\end{theorem}
+
+\begin{vremark}
+\label{vrem:savin}
+\emph{Cited from secondary sources.} The statement of
+Theorem~\ref{thm:savin} follows the description of \cite{Sa88} in
+\cite{Ka21} and in the abstract of the arXiv version of \cite{Ka21}. We
+did not consult \cite{Sa88} itself. In particular, the precise
+hypotheses on $p$ and the normalization of the isomorphism should be
+checked there.
+\end{vremark}
+
+Under Savin's isomorphism the translation part of the algebra is
+rescaled. By Proposition~\ref{prop:level0}, the isomorphism is
+therefore not of the form $f_g\mapsto\fbar_{\tilde g}$ when $n\geq 3$,
+even if $n$ is odd. By Proposition~\ref{prop:borel}(d) it induces a
+bijection between the irreducible genuine representations of $\Gbar$
+with non-zero $B^*$-fixed vectors and the irreducible representations
+of $(G/Z_n)(F)$ with non-zero Iwahori-fixed vectors.
+
+%======================================================================
+\section{Summary of results and open questions}
+\label{section:summary}
+
+This section collects the main results and the questions they leave
+open.
+
+\subsection*{Results}
+Let $G=SL(2,F)$ and let $\Gbar$ be its $n$-fold metaplectic cover.
+\begin{enumerate}[leftmargin=2em]
+\item The algebra $\Hlin$ is generated by the $f_g$ with $g$ in
+$\{s_1,s_2\}\cup B$, subject to the relations of
+Proposition~\ref{prop:main}. The element $f_{t_0}$ is not invertible
+up to a scalar (Example~\ref{ex:t0}).
+\item At deep level, $B_k$ has a canonical lift, every double coset
+carries a genuine function, and $\Hlin$ and $\Hgen$ have
+support-compatible bases (Proposition~\ref{prop:admissible}).
+\item Every relation of Proposition~\ref{prop:main} transfers to
+$\Hgen$ for suitable lifts (Proposition~\ref{prop:main2}).
+\item For $n\geq 3$ the lifts cannot be chosen consistently, and no
+support-preserving algebra homomorphism exists
+(Theorem~\ref{thrm:main} and Corollary~\ref{corollary:main}). The trace
+identities fail accordingly (Example~\ref{ex:trace}). In the running
+example $F=\mathbb{Q}_7$, $n=3$, this happens at every level $k\geq 1$.
+\item At Iwahori level with $p\nmid n$, the double coset $Bt_0^mB$
+carries a genuine function only if $n\mid 2m$
+(Proposition~\ref{prop:level0}), in line with Savin's theorem.
+\end{enumerate}
+
+\subsection*{Open questions}
+Question~\ref{q:defining} asks whether the relations of
+Proposition~\ref{prop:main} are a defining set. The following questions
+concern the genuine algebra.
+
+\begin{question}
+\label{q:n2}
+Let $n=2$, so that $\overline{T}$ is abelian and the obstruction of
+Theorem~\ref{thrm:main} vanishes. For deep $k$, can the lifts $\tilde
+g$ be chosen so that $\Phi:f_g\mapsto\fbar_{\tilde g}$ is an
+isomorphism of algebras? The situation at Iwahori level, where the
+genuine algebra is of $PGL(2)$ type, suggests that the answer is
+negative. We have not proved this.
+\end{question}
+
+\begin{question}
+\label{q:savin}
+For deep $k$, is $\Hgen$ isomorphic to a generalized Hecke algebra of
+the linear group $G/Z_n$, or to a twisted form of one, compatibly with
+supports up to a rescaling of the lattice of translations, in the
+spirit of Savin's theorem at level zero?
+\end{question}
+
+\begin{question}
+\label{q:reps}
+For deep $k$, is there a natural correspondence between the
+irreducible genuine representations of $\Gbar$ with $B_k^*$-fixed
+vectors and irreducible representations of a linear group? Does it
+preserve supercuspidality and square-integrability?
+\end{question}
+
+%======================================================================
+\section*{Glossary}
+\addcontentsline{toc}{section}{Glossary}
+
+\begin{description}[leftmargin=1.5em,style=nextline]
+\item[Admissible element] An element $g$ of $G$ for which conjugation by
+a lift of $g$ carries the chosen lift of $K_0\cap g^{-1}K_0g$ onto the
+chosen lift of $gK_0g^{-1}\cap K_0$. Exactly the double cosets of such
+elements carry genuine bi-invariant functions.
+\item[Affine Weyl group] The group generated by the reflections $s_1$
+and $s_2$ modulo $\pm 1$. Its elements index the double cosets of the
+Iwahori subgroup.
+\item[Canonical lift] A distinguished copy in $\Gbar$ of a sufficiently
+small open subgroup of $G$. When $p\nmid n$ it is the unique pro-$p$
+lift. In general it is obtained by raising lifts of $n$-th roots to the
+$n$-th power.
+\item[Deep level] A level $k$ at which $B_k$, the principal congruence
+subgroup $\Gamma_k$ and its conjugate by $t$ all have canonical lifts.
+Every $k\geq 1$ is deep when $p\nmid n$.
+\item[Filtration subgroup] The subgroup $B_k$ of the Iwahori subgroup
+consisting of matrices congruent to the identity modulo $\varpi^k$ on
+and above the diagonal and modulo $\varpi^{k+1}$ below it.
+\item[Generalized Hecke algebra] The convolution algebra of compactly
+supported functions on a group that are invariant on both sides under a
+fixed open compact subgroup.
+\item[Genuine function] A function on the cover that transforms under
+the central subgroup $\mu_n$ by the fixed embedding of $\mu_n$ into
+$\C^\times$.
+\item[Genuine representation] A representation of the cover on which
+$\mu_n$ acts by a fixed faithful character. It does not factor through
+$G$.
+\item[Hilbert symbol] The pairing $F^\times\times F^\times\to\mu_n$ of
+local class field theory. It is bimultiplicative, skew-symmetric and
+non-degenerate modulo $n$-th powers.
+\item[Iwahori subgroup] The subgroup of $SL(2,\cO)$ of matrices that are
+upper triangular modulo $\varpi$.
+\item[Iwahori--Bruhat decomposition] The decomposition of $G$ into
+disjoint double cosets of the Iwahori subgroup, indexed by the affine
+Weyl group.
+\item[Length] The number of simple reflections in a shortest expression
+of an affine Weyl group element. It controls the volume of the
+corresponding double coset.
+\item[Lift] An element of the cover that projects to a given element of
+$G$. Two lifts differ by an element of $\mu_n$.
+\item[Metaplectic cover] The central extension of $SL(2,F)$ by $\mu_n$
+defined by Kubota's cocycle, built from the Hilbert symbol.
+\item[Principal congruence subgroup] The subgroup of $SL(2,\cO)$ of
+matrices congruent to the identity modulo $\varpi^k$.
+\item[Splitting] A homomorphism from a subgroup of $G$ to the cover
+that is a right inverse of the projection.
+\item[Type] An open compact subgroup together with an irreducible
+representation of it whose Hecke algebra governs one block of the
+category of smooth representations.
+\end{description}
+
+%======================================================================
+\section*{Acknowledgments}
+\addcontentsline{toc}{section}{Acknowledgments}
+
+D.~J.\ thanks Bill Wardlaw for helpful conversations on the proof of
+the relations of Proposition~\ref{prop:main} in its original form, and
+the anonymous referee of \cite{Jo98} for many helpful corrections and
+suggestions.
+
+AI systems contributed substantially to this version. Gemini (Google),
+referred to as ``Carbon'', acted as referee of \cite{Jo98} and
+identified that its main theorem could not hold as stated. Claude
+(Anthropic) is a co-author. Claude checked the referee report point by
+point, drafted the corrected statements and the new proofs, revised the
+paper to the authors' house style, checked bibliographic data, and
+prepared the revision log. Two Claude models were used, Claude Fable
+5.2 for Draft~1 and Claude Opus 5.5 for Draft~2. AI review is not an
+independent certification of the results, and the new arguments have
+not yet been checked by an independent human reader. Further details on
+the AI usage can be found in the revision log.
+
+%======================================================================
+\begin{thebibliography}{GS12}
+
+\bibitem[Bo76]{Bo76} A.~Borel, Admissible representations of a
+semi-simple group over a local field with vectors fixed under an
+Iwahori subgroup, \emph{Invent. Math.} \textbf{35} (1976), 233--259.
+
+\bibitem[BH06]{BH06} C.~J.~Bushnell and G.~Henniart, \emph{The local
+Langlands conjecture for $GL(2)$}, Grundlehren der mathematischen
+Wissenschaften 335, Springer, Berlin, 2006.
+
+\bibitem[BK98]{BK98} C.~J.~Bushnell and P.~C.~Kutzko, Smooth
+representations of reductive $p$-adic groups: structure theory via
+types, \emph{Proc. London Math. Soc. (3)} \textbf{77} (1998), 582--634.
+
+\bibitem[Fl80]{Fl80} Y.~Flicker, Automorphic forms on covering groups
+of $GL(2)$, \emph{Invent. Math.} \textbf{57} (1980), 119--182.
+
+\bibitem[FK86]{FK86} Y.~Flicker and D.~Kazhdan, Metaplectic
+correspondence, \emph{Publ. Math. IH\'ES} \textbf{64} (1986), 53--110.
+
+\bibitem[Ge76]{Ge76} S.~Gelbart, \emph{Weil's representation and the
+spectrum of the metaplectic group}, Lecture Notes in Mathematics 530,
+Springer, Berlin, 1976.
+
+\bibitem[GS12]{GS12} W.~T.~Gan and G.~Savin, Representations of
+metaplectic groups II: Hecke algebra correspondences, \emph{Represent.
+Theory} \textbf{16} (2012), 513--539.
+
+\bibitem[HM85]{HM85} R.~Howe (with the collaboration of A.~Moy),
+\emph{Harish-Chandra homomorphisms for $p$-adic groups}, CBMS Regional
+Conference Series in Mathematics 59, Amer. Math. Soc., Providence,
+1985.
+
+\bibitem[Jo98]{Jo98} D.~Joyner, A correspondence for the generalized
+Hecke algebra of the metaplectic cover $\overline{SL(2,F)}$, $F$
+$p$-adic, \emph{New York J. Math.} \textbf{4} (1998), 223--235.
+
+\bibitem[Ka21]{Ka21} E.~Karasiewicz, A Hecke algebra on the double
+cover of a Chevalley group over $\mathbb{Q}_2$, \emph{Algebra Number
+Theory} \textbf{15} (2021), 1729--1753.
+
+\bibitem[KP84]{KP84} D.~A.~Kazhdan and S.~J.~Patterson, Metaplectic
+forms, \emph{Publ. Math. IH\'ES} \textbf{59} (1984), 35--142.
+
+\bibitem[Ku67]{Ku67} T.~Kubota, Topological covering of $SL(2)$ over a
+local field, \emph{J. Math. Soc. Japan} \textbf{19} (1967), 114--121.
+
+\bibitem[LS10]{LS10} H.~Y.~Loke and G.~Savin, Representations of the
+two-fold central extension of $SL_2(\mathbb{Q}_2)$, \emph{Pacific J.
+Math.} \textbf{247} (2010), 435--454.
+
+\bibitem[RS77]{RS77} S.~Rallis and G.~Schiffmann, Repr\'esentations
+supercuspidales du groupe m\'etaplectique, \emph{J. Math. Kyoto Univ.}
+\textbf{17} (1977), 567--603.
+
+\bibitem[Sa88]{Sa88} G.~Savin, Local Shimura correspondence,
+\emph{Math. Ann.} \textbf{280} (1988), 185--190.
+
+\bibitem[Sa04]{Sa04} G.~Savin, On unramified representations of
+covering groups, \emph{J. Reine Angew. Math.} \textbf{566} (2004),
+111--134.
+
+\bibitem[Sc98]{Sc98} J.~Schultz, \emph{Lifting of characters of
+$\overline{SL_2(F)}$ and $SO_{2,1}(F)$, for $F$ nonarchimedean}, Ph.D.
+thesis (supervised by J.~Adams), University of Maryland, College Park,
+1998.
+
+\bibitem[TW18]{TW18} S.~Takeda and A.~Wood, Hecke algebra
+correspondences for the metaplectic group, \emph{Trans. Amer. Math.
+Soc.} \textbf{370} (2018), 1101--1121.
+
+\bibitem[Wa80]{Wa80} J.-L.~Waldspurger, Correspondance de Shimura,
+\emph{J. Math. Pures Appl.} \textbf{59} (1980), 1--133.
+
+\bibitem[Wa24]{Wa24} R.~Wang, Hecke algebras for tame genuine principal
+series and local Shimura correspondence, preprint, arXiv:2405.06254,
+2024.
+
+\end{thebibliography}
+
+\end{document}
