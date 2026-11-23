@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 2, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 3, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -23,19 +23,20 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 2}
+cover $\overline{SL_2}$'', Draft 3}
 \author{David Joyner and Claude}
 \date{November 23, 2026}
 \maketitle
 
-This log accompanies Draft~2 of the paper (file
+This log accompanies Draft~3 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~2 of the paper.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~3 of the paper. The
+numbering of Draft~3 is the same as that of Draft~2.
 
 \section{Drafts}
 
@@ -51,12 +52,17 @@ paper.
 (Draft~2 of November 11, 2026), new title, Claude added as co-author,
 one proof corrected, literature review added. This log is now a
 separate file.
+\item[Draft 3] (November 23, 2026). Same file. Response to Carbon's
+second referee report, which reviewed Draft~2. Glossary rewritten,
+Question~\ref{P-q:n2} sharpened, several proofs clarified. The
+footnote and table of contents changes made after Draft~2 was first
+posted are also counted here.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1 and~2 here were made from
+\texttt{metaplectic-jl}. Drafts~1--3 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -65,7 +71,9 @@ ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
 \item \textbf{Gemini (Google), ``Carbon''.} Refereed [Jo98] for
 correctness and readability. The report recommended rejection or major
 revision. It is answered point by point in
-Section~\ref{sec:referee}.
+Section~\ref{sec:referee}. Carbon also refereed Draft~2. That report
+recommended acceptance subject to minor revisions, and it is answered in
+Section~\ref{sec:referee2}.
 \item \textbf{Claude Fable 5.2 (Anthropic).} Produced Draft~1. It
 checked the referee report, decided with David Joyner to replace the
 main theorem by what survives, wrote the new statements and proofs of
@@ -76,7 +84,8 @@ re-derived every proof in the paper (verification level~1), found and
 corrected one error in a proof (item~\ref{it:coverb} of
 Section~\ref{sec:d1d2}), wrote the literature review, background
 examples, notation table, summary and glossary, checked bibliographic
-data by web search, and wrote this log.
+data by web search, and wrote this log. It also produced Draft~3,
+checking each point of Carbon's second report before acting on it.
 \item \textbf{David Joyner} chose the route of an honest corrected
 draft over local fixes, chose the new title, and asked that Claude be
 listed as an author.
@@ -179,7 +188,7 @@ Corollary 3 & Removed \\
 \bottomrule
 \end{longtable}
 
-\section{Response to the referee report by Carbon}
+\section{Response to Carbon's first referee report (on [Jo98])}
 \label{sec:referee}
 
 Each item gives the report's claim, our verdict (correct, misprint,
@@ -268,6 +277,103 @@ unqualified statement that $\cH(G/\!/B_k)$ and the genuine algebra are
 not isomorphic. What is proved is the weaker statement of
 Corollary~\ref{P-corollary:main} about support-preserving maps.
 
+\section{Response to Carbon's second referee report (on Draft 2)}
+\label{sec:referee2}
+
+The report recommended acceptance subject to minor revisions. It
+stated that every numbered proof had been checked and found sound. Each
+point is answered below with a verdict and a verification level.
+
+\subsection*{Technical points}
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{Hypothesis of Savin's theorem.} The summary calls this a
+slip, but the body of the report concludes that $\gcd(p,n)=1$ is the
+right hypothesis. Verdict: no error found. We add one observation
+(level~1). When $n$ is even, $\gcd(p,n)=1$ already forces $p$ to be
+odd, so the hypotheses $p\nmid n$ and $p\nmid 2n$ differ only when $n$
+is odd and $p=2$. The report quotes the first page of [Sa88], but it
+does not say that the source was consulted, so we treat the quotation
+as level~3. Remark~\ref{P-vrem:savin} is kept.
+\item \emph{Question~\ref{P-q:n2} ($n=2$).} The report suggests
+distinguishing maps given by a choice of lifts, whose scalars lie in
+$\mu_2$, from maps with arbitrary non-zero scalars. Adopted. The
+question now asks about arbitrary scalars, and it gives the example of
+the lift of $-1$ over $\mathbb{Q}_2$, whose square is
+$(-1,-1)_2=-1$. The computation of that square from the cocycle is
+level~1. The report's discussion of Gauss sums at Iwahori level was not
+checked and is not used.
+\item \emph{Lemma~\ref{P-lemma:canonical}, case $p\mid n$.} The report
+re-derives the argument and finds it correct, including for $g$ outside
+$GL(2,\cO)$. It suggests stating why $\log$ and $\exp$ commute with
+conjugation. Adopted (level~1). The paragraph before
+Definition~\ref{P-def:deep} now gives the continuity argument and
+separates the conditions for $\exp$ and for $\log$.
+\item \emph{Remarks~\ref{P-vrem:kubota} and \ref{P-vrem:borel}.} The
+report states that the cited results and section numbers agree with
+[Ku67], [Bo76] and [BH06]. The report does not say that these sources
+were consulted, and the style guide asks for claims of another AI to be
+checked independently. A partial check: the table of contents of [BH06]
+has a section titled ``The Hecke Algebra'' in its first chapter,
+consistent with the citation of \S4.3, but the title of \S4.3 itself
+was not seen. Both remarks are kept.
+\end{enumerate}
+
+\subsection*{Glossary}
+The report found most entries too short and proposed replacements.
+Adopted in substance. Every entry now has two to four sentences, and an
+entry for Kubota's cocycle was added. The proposed text was not used
+verbatim, for four reasons. It pointed to numbered statements, which
+the house rules exclude from glossary entries. It used semicolons. One
+sentence in the entry for genuine functions was garbled. The entry for
+types asserted that the trivial representation of $B_k$ is not a
+single-block type in general, which we have not checked, so the new
+entry makes no claim about $B_k$.
+
+\subsection*{Readability and minor items}
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{Claude on the author line.} The report notes that arXiv and
+most journals do not accept AI authors. Not changed, since this was
+David Joyner's decision. The acknowledgments already describe the AI
+contributions. A version for submission would need the change.
+\item \emph{Proof of Lemma~\ref{P-lemma:cover}(b).} The step
+$(a,-1)_n^{-2}=1$ is now written as
+$(a,-1)_n^{-2}=(a,(-1)^{-2})_n=(a,1)_n=1$. Adopted.
+\item \emph{Proof of Lemma~\ref{P-lemma:subgroups}(e).} Added that
+$B_k$ and $uB_ku^{-1}$ both contain $\Gamma_{k+1}$ because $u\in K$
+normalizes $\Gamma_{k+1}$. Adopted (level~1).
+\item \emph{Order of $s_1$.} The comparison with [HM85] now refers to
+the permutation matrix used there for $GL(n)$. Adopted.
+\item \emph{Subtitle.} The report reminds us to update the subtitle when
+finalizing. The draft number is now~3. The rest of the subtitle follows
+the style guide and is unchanged.
+\item \emph{[Wa24].} Kept as an arXiv citation. We did not check
+whether it has since been published.
+\item \emph{Proof of Lemma~\ref{P-lemma:hilbert}.} The report approves
+it. No change.
+\end{enumerate}
+
+\section{Changes from Draft 2 to Draft 3}
+\label{sec:d2d3}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item The footnote on the first page now describes the paper as a
+significant revision of [Jo98], correcting, changing and expanding on
+various topics, at David Joyner's request, since the title has changed.
+\item The table of contents was reformatted. Subsections are indented
+under their sections, the unnumbered headings inside the introduction
+and the summary are omitted, and the duplicate entries for the glossary
+and the acknowledgments are removed.
+\item The glossary was rewritten, with an entry for Kubota's cocycle
+added.
+\item Question~\ref{P-q:n2} was sharpened.
+\item Clarifications in the proofs of Lemma~\ref{P-lemma:cover}(b) and
+Lemma~\ref{P-lemma:subgroups}(e), in the paragraph on $\exp$ and $\log$
+before Definition~\ref{P-def:deep}, and in the comparison of $s_1$ with
+[HM85].
+\item The subtitle, acknowledgments and this log were updated for
+Draft~3.
+\end{enumerate}
+
 \section{Changes from Draft 1 to Draft 2}
 \label{sec:d1d2}
 
@@ -280,12 +386,7 @@ date line follow the style guide.
 \item The note on the original publication moved to a
 \texttt{\textbackslash thanks} footnote. The subsection comparing the
 paper with [Jo98] removed from the introduction. The revision log moved
-from an appendix to this file. The footnote describes the paper as a significant revision of
-[Jo98], at David Joyner's request, since the title has changed.
-\item The table of contents was reformatted. Subsections are indented
-under their sections, the unnumbered headings inside the introduction
-and the summary are omitted, and the duplicate entries for the glossary
-and the acknowledgments are removed.
+from an appendix to this file.
 \item New sections: literature review, notation table, summary of
 results and open questions. The background section now has an example
 in each subsection, using the running example $F=\mathbb{Q}_7$, $n=3$.
@@ -347,7 +448,7 @@ original title (guide 6.2).
 \item The central result of [Jo98] is replaced, not preserved (guide
 6.1), because it is false for $n\geq 3$. This was David Joyner's
 decision.
-\item Two harmless underfull vertical boxes remain. There are no
+\item One harmless underfull vertical box remains. There are no
 overfull boxes and no undefined references.
 \end{itemize}
 
