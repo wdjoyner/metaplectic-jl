@@ -35,3 +35,12 @@ Example: `python3 prod_check.py 7 3 "('ts',-3)"` prints the relation Y^2 = 294 Y
   stable class. Use `unit` for ramified tori, where h=diag(u,1) with u a non-square unit. Use `t` for unramified
   tori, where h=[[0,-1],[p,0]].
   Example: `python3 elliptic2.py 3 2 6 5 unit` gives (1,3,-3) and (1,3,3).
+
+## Structure constants N_k(x,z) (Draft 14, Section 6.4)
+
+- `Ncheck.py p "[(labx,labz),...]"`: for each pair, prints N_k(x,z) for k=1,2,3. This is the coefficient of
+  the double coset of xz in f_x*f_z at level k, counted as the number of cosets x'B_k in B_k x B_k with
+  x'^{-1}xz in B_k z B_k. Labels are ('t',m) for t0^m and ('ts',m) for t0^m s1, so s1=('ts',0) and
+  s2=('ts',-1).
+  Example: `python3 Ncheck.py 3 "[(('ts',0),('ts',0)),(('t',1),('t',-1)),(('t',1),('ts',0))]"` gives
+  [3,3,3], [9,9,9] and [1,1,1] (Remark 2026.4).

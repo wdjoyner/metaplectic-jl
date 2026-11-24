@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 13, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 14, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,7 +24,7 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 13}
+cover $\overline{SL_2}$'', Draft 14}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
@@ -107,12 +107,16 @@ summary, and ``support-preserving'' is defined
 \item[Draft 13] (November 24, 2026). Same file. At David Joyner's
 request, a clearer explanation of why no support-preserving map with
 constants of absolute value one is a homomorphism.
+\item[Draft 14] (November 24, 2026). Same file. At David Joyner's
+request, a remark on the structure constants $N_k(x,z)$ and a
+proposition on subalgebras where they equal one, in the new
+Section~\ref{P-subsec:Nk}.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--13 here were made from
+\texttt{metaplectic-jl}. Drafts~1--14 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -207,7 +211,9 @@ Lemmas~\ref{P-lemma:ellcount}, \ref{P-lemma:fixedtree} (a classical
 fact, with a proof) and~\ref{P-lemma:ellrec},
 Propositions~\ref{P-prop:ellsl2}, \ref{P-prop:ellpgl} and
 \ref{P-prop:ellgen}, and the conditional
-Theorem~\ref{P-thm:ellcond}. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
+Theorem~\ref{P-thm:ellcond}. New in Draft~14:
+Remark~\ref{P-rem:Nk}, Proposition~\ref{P-prop:monoid} and
+Example~\ref{P-ex:monoid}. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
 classical [IM65].
 
 \section{Changes of status}
@@ -450,6 +456,50 @@ the style guide and is unchanged.
 whether it has since been published.
 \item \emph{Proof of Lemma~\ref{P-lemma:hilbert}.} The report approves
 it. No change.
+\end{enumerate}
+
+\section{Response to David Joyner's request on Draft 13}
+\label{sec:d13request}
+
+David Joyner asked for a remark summarizing the behavior of the
+structure constant $N$ in item (7), which he wrote as $N(x,k)$. He also
+asked for the isomorphism between the subspaces of $\mathcal{H}(G/\!/B_k)$ and
+$\mathcal{H}(\overline{G}/\!/B_k^*)_{\mathrm{gen}}$
+spanned by the $f_x$ with $N(x,k)=1$.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item The constant depends on a pair, not on a single element. It is
+$N_k(x,z)$, the coefficient of the double coset of $xz$ in $f_x*f_z$.
+So the subspace in the request is taken to be the span of the $f_x$ for
+$x$ in a monoid $M$ in which every product has structure constant one.
+\item New Section~\ref{P-subsec:Nk}. Remark~\ref{P-rem:Nk} proves
+$N_k(x,x^{-1})=q^{\ell(w)}$ for $x\in BwB$, at every deep level. So
+large constants do not go away as $k$ grows, and
+Theorem~\ref{P-thm:unimodular} holds level by level.
+Remark~\ref{P-vrem:Nk} records computed values for $q=3$ and
+$k=1,2,3$. In these cases $N_k(x,z)$ does not depend on $k$, equals
+the Iwahori-level structure constant, and is $1$ exactly when the
+lengths add. These observations are not proved in general.
+\item Proposition~\ref{P-prop:monoid} is the requested statement. On
+such a monoid, $A_M$ and $\overline{A}_M$ are subalgebras and $\Phi$ is
+a linear isomorphism. It is an algebra isomorphism when the lifts can
+be chosen to form a monoid homomorphism. No constants work if two
+commuting elements of $M$ have non-commuting lifts.
+\item Example~\ref{P-ex:monoid} applies this to
+$M_+=\bigcup_{m\geq0}Bt_0^mB$. For $n=2$ and $p$ odd, $\Phi$ is an
+algebra isomorphism on $A_{M_+}$. For $n\geq3$ it is not, for any
+constants, although every product in $M_+$ has $N=1$. For every $n$,
+the span of the $f_{t_0^m}$ is a polynomial algebra and transfers.
+\item Conversely, the part of $\mathcal{H}(G/\!/B_k)$ supported on $K$ transfers when
+$p\nmid n$ (Proposition~\ref{P-prop:Ksub}), although it contains
+products with $N=q$. So $N=1$ is neither necessary nor sufficient. The
+right condition is that the lifts can be chosen multiplicatively.
+\item Item (7) of the main results now mentions both facts.
+\item The numerical check uses the new script
+\texttt{scripts/Ncheck.py}.
+\item No theorem, proposition or lemma was renumbered. The verification
+remarks after the new one move up by one: Remarks 2026.4--2026.8 of
+Draft 13 are Remarks 2026.5--2026.9 of Draft 14.
 \end{enumerate}
 
 \section{Response to David Joyner's question on Draft 12}
