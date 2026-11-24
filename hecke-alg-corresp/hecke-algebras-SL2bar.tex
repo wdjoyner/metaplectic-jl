@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 11 (November 2026). Corrected and expanded version of
+%% Draft 12 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -70,7 +70,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 11. Corrected and expanded version}}
+{\normalsize Draft 12. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -218,8 +218,11 @@ conjugation by all of $\Gbar$ (Lemma~\ref{lemma:canonical}).
 \item Every double coset $B_kgB_k$ supports a genuine
 bi-$B_k^*$-invariant function $\fbar_{\tilde g}$, normalized by a
 choice of lift $\tilde g$ of $g$. Hence $f_g\mapsto\fbar_{\tilde g}$ is
-a support-preserving linear isomorphism from $\Hlin$ onto $\Hgen$
-(Proposition~\ref{prop:admissible}).
+a linear isomorphism $\Phi$ from $\Hlin$ onto $\Hgen$
+(Proposition~\ref{prop:admissible}). It is support-preserving in the
+sense of Definition~\ref{def:supportpreserving}: it maps a function
+supported on a double coset to a function supported over the same
+double coset.
 \item If the volumes of $B_kg_1B_k$ and $B_kg_2B_k$ multiply to the
 volume of $B_kg_1g_2B_k$, then
 $\fbar_{\tilde g_1}*\fbar_{\tilde g_2}=\fbar_{\tilde g_1\tilde g_2}$
@@ -1810,6 +1813,39 @@ Condition (\ref{eq:admissible}) for $K_0=B_k$ and $s=\sigma|_{B_k}$ is
 Lemma~\ref{lemma:canonical}(b) with $P=P'=B_k$. The rest follows from
 Lemma~\ref{lemma:support}.
 \end{proof}
+
+The isomorphism $\Phi$ is natural up to roots of unity. Changing the
+lift $\tilde g$ multiplies $\fbar_{\tilde g}$ by an element of
+$\mu_n$, so $\Phi$ depends on the choice of lifts only through one root
+of unity for each double coset. It is not an algebra homomorphism in
+general. The rest of the paper asks whether some modification of
+$\Phi$ is one, and the following notion describes the modifications we
+consider.
+
+\begin{definition}
+\label{def:supportpreserving}
+Let $K_0$ be an open compact subgroup of $G$ with a splitting $s$, and
+put $K_0^*=s(K_0)$. A linear map
+$\Psi:\cH(G/\!/K_0)\to\cH(\Gbar/\!/K_0^*)_{\gen}$ is
+\textbf{support-preserving} if, for every double coset $K_0gK_0$, the
+function $\Psi(f_g)$ vanishes outside $\pr^{-1}(K_0gK_0)$.
+\end{definition}
+
+By Lemma~\ref{lemma:support}(a), $\Psi$ is support-preserving if and
+only if $\Psi(f_g)=c_g\fbar_{\tilde g}$ for every $K_0^*$-admissible
+$g$, with complex constants $c_g$ that may be zero, and $\Psi(f_g)=0$
+for the other $g$. At deep level every $g$ is admissible, and these
+are exactly the maps $\Phi\circ D_c$, where $D_c(f_g)=c_gf_g$ rescales the basis, and
+such a map is bijective if and only if every $c_g$ is non-zero. So
+$\Phi$ is the support-preserving isomorphism with all constants equal to
+$1$, and every support-preserving map is $\Phi$ up to rescaling the
+basis. Theorem~\ref{thm:unimodular} and Corollary~\ref{corollary:main}
+show that no support-preserving map with all constants non-zero is an
+algebra homomorphism, for $n\geq 2$ when the constants have absolute
+value one, and for $n\geq 3$ in general. Savin's isomorphism
+(Theorem~\ref{thm:savinsl2}) is of a different kind: for odd $n$ its
+inverse sends $f_{t_0^k}$ to a multiple of $\fbar_{(t_0^{nk},1)}$, so
+it moves supports.
 
 \begin{remark}[No other choice of genuine functions]
 \label{rem:nochoice}
@@ -3788,11 +3824,11 @@ conductor $0$ and $1$, in the ramified and unramified cases. We took
 $q=3,5,7$ with $n=2$, $q=7$ with $n=3$, and $q=5$ with $n=4$. In every
 case:
 \begin{enumerate}[leftmargin=2em,label=(\roman*)]
-\item $\bar\tau(1)=E_\gamma$ and $\bar\tau(X)=S_0(\gamma)$;
+\item $\bar\tau(1)=E_\gamma$ and $\bar\tau(X)=S_0(\gamma)$.
 \item for odd $n$, $\bar\tau(Y)=q^{n-1}S_1(\gamma)$, so that all phases
-are $1$;
+are $1$.
 \item for even $n$ and $E/F$ unramified, $\bar\tau(Y)=0$, although the
-corresponding count $q^{n'-1}S_{\tau_r}(\gamma)$ can be non-zero;
+corresponding count $q^{n'-1}S_{\tau_r}(\gamma)$ can be non-zero.
 \item for even $n$ and $E/F$ ramified, $\bar\tau(Y)=\pm
 q^{n'-1}S_{\tau_r}(\gamma)$, with opposite signs for $\gamma$ and
 $\gamma^h$.
@@ -3894,9 +3930,13 @@ Let $G=SL(2,F)$ and let $\Gbar$ be its $n$-fold metaplectic cover.
 $\{s_1,s_2\}\cup B$, subject to the relations of
 Proposition~\ref{prop:main}. The element $f_{t_0}$ is not invertible
 up to a scalar (Example~\ref{ex:t0}).
-\item At deep level, $B_k$ has a canonical lift, every double coset
-carries a genuine function, and $\Hlin$ and $\Hgen$ have
-support-compatible bases (Proposition~\ref{prop:admissible}).
+\item At deep level, $B_k$ has a canonical lift, and every double coset
+$B_kgB_k$ carries a genuine function $\fbar_{\tilde g}$, unique up to a
+root of unity. Hence $\Phi:f_g\mapsto\fbar_{\tilde g}$ is an
+isomorphism of vector spaces from $\Hlin$ onto $\Hgen$, natural up to
+these roots of unity (Proposition~\ref{prop:admissible}). It is
+support-preserving (Definition~\ref{def:supportpreserving}), and every
+support-preserving map is $\Phi$ followed by a rescaling of the basis.
 \item Every relation of Proposition~\ref{prop:main} transfers to
 $\Hgen$ for suitable lifts (Proposition~\ref{prop:main2}). When
 $p\nmid n$, the part supported on $SL(2,\cO)$ transfers exactly
@@ -4133,6 +4173,11 @@ translations of the linear group, and multiplies each basis function by
 the square root of the ratio of the volumes of the two double cosets.
 Savin calls the resulting bijection of representations a local Shimura
 correspondence.
+\item[Support-preserving map] A linear map between Hecke algebras of
+$G$ and of $\Gbar$ that sends a function supported on a double coset to
+a function supported over the same double coset
+(Definition~\ref{def:supportpreserving}). At deep level these are the
+maps $f_g\mapsto c_g\fbar_{\tilde g}$.
 \item[Splitting] A homomorphism from a subgroup $H$ of $G$ into the
 cover that is a right inverse of the projection. It exists exactly when
 Kubota's cocycle restricted to $H$ is a coboundary, and two splittings

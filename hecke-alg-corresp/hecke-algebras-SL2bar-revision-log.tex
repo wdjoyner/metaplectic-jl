@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 11, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 12, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,22 +24,23 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 11}
+cover $\overline{SL_2}$'', Draft 12}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~11 of the paper (file
+This log accompanies Draft~12 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~11 of the paper. Draft~8 has
+``Theorem~\ref{P-thrm:main}'' refer to Draft~12 of the paper. Draft~8 has
 the same numbering as Draft~6, apart from the additions listed in
-Section~\ref{sec:d7d8}. Sections~\ref{sec:d8d9}, \ref{sec:d9d10} and~\ref{sec:d10d11}
-list the numbers that changed from Draft~8 onwards.
+Section~\ref{sec:d7d8}. Sections~\ref{sec:d8d9}, \ref{sec:d9d10}, \ref{sec:d10d11}
+and~\ref{sec:d11d12} list the numbers that changed from Draft~8
+onwards.
 Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
 with the numbering of Drafts~2 to~5.
 
@@ -99,12 +100,16 @@ them, and vanishing results and a sum rule at deep level.
 \item[Draft 11] (November 24, 2026). Same file. At David Joyner's
 request, elliptic orbital integrals at Iwahori level, in the new
 Section~\ref{P-subsec:elliptic}.
+\item[Draft 12] (November 24, 2026). Same file. At David Joyner's
+request, the vector space isomorphism $\Phi$ is stated first in the
+summary, and ``support-preserving'' is defined
+(Definition~\ref{P-def:supportpreserving}).
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--11 here were made from
+\texttt{metaplectic-jl}. Drafts~1--12 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -130,7 +135,7 @@ data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
 It produced Drafts~4 and~5 as well, including the new results of
 Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}, and
-Drafts~6 to~11, including the presentation and the proof of Savin's
+Drafts~6 to~12, including the presentation and the proof of Savin's
 theorem for $SL(2)$ in Section~\ref{P-section:savin}, and the orbital
 integrals of Sections~\ref{P-subsec:orbital} and~\ref{P-subsec:elliptic}. For Draft~9 it
 also checked the quadratic relations by computer
@@ -442,6 +447,46 @@ the style guide and is unchanged.
 whether it has since been published.
 \item \emph{Proof of Lemma~\ref{P-lemma:hilbert}.} The report approves
 it. No change.
+\end{enumerate}
+
+\section{Response to David Joyner's question on Draft 11}
+\label{sec:d11request}
+
+David Joyner pointed out that item (2) of the summary spoke of
+``support-compatible bases'' without first stating the natural vector
+space isomorphism, and asked what support-compatible means.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item He is right. The phrase occurred only there and was not defined.
+Item (2) of the summary now states the isomorphism
+$\Phi:f_g\mapsto\overline f_{\tilde g}$ of
+Proposition~\ref{P-prop:admissible} first. It explains that $\Phi$ is
+natural up to one root of unity for each double coset, and then says
+that $\Phi$ is support-preserving.
+\item The notion used throughout the paper is ``support-preserving'',
+which was also used without a formal definition. It is now
+Definition~\ref{P-def:supportpreserving}. A linear map is
+support-preserving if it sends the characteristic function of each
+double coset to a function supported over the same double coset. The
+paragraph after the definition shows that these maps are exactly
+$f_g\mapsto c_g\overline f_{\tilde g}$, that is, $\Phi$ followed by a
+rescaling of the basis. It also says which of them the paper rules out
+as homomorphisms, and that Savin's isomorphism is not of this kind.
+\item Item (2) of the introduction now refers to the definition, and
+the glossary has an entry ``Support-preserving map''.
+\end{enumerate}
+
+\section{Changes from Draft 11 to Draft 12}
+\label{sec:d11d12}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item New Definition~\ref{P-def:supportpreserving}, with a paragraph
+before it on the naturality of $\Phi$ and a paragraph after it
+characterizing support-preserving maps.
+\item Item (2) of the summary rewritten. Item (2) of the main results in
+the introduction and the glossary updated.
+\item Numbers that changed: Remark~4.13 of Draft~11 is now
+Remark~\ref{P-rem:nochoice}, and Example~4.14 is now Example~4.15.
 \end{enumerate}
 
 \section{Response to David Joyner's request on Draft 10}
