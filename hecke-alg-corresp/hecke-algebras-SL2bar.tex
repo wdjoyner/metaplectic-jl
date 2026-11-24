@@ -277,6 +277,7 @@ Homomorphism $f_g\mapsto c_g\fbar_{\tilde g}$ with $|c_g|=1$ & none &
 none \\
 Same, with arbitrary $c_g\neq 0$ & open & none \\
 Trace identities & open & fail \\
+Spherical part over $t_0^m$ & no vanishing forced & zero when $n\nmid 2m$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2030,6 +2031,113 @@ vanishing. This is consistent with $PGL(2)$, whose lattice of translations
 contains that of $SL(2)$.
 \end{remark}
 
+\medskip\noindent\textbf{Spherical parts.} The algebra $\Hlin$ is not commutative (already the span of the $f_x$
+with $x\in B$ is not, when $q>3$), so no Satake transform can be
+injective on it. What can be computed is the spherical part of each
+basis function, obtained by averaging over $K=SL(2,\cO)$ on both sides.
+The next proposition computes it on the linear side and shows that on
+the genuine side it vanishes for the same translations as in
+Proposition~\ref{prop:traceless}.
+
+Normalize Haar measure by $\vol(B_k)=1$, let $N=[K:B_k]$, and let
+$e_K=N^{-1}\chi_K$, the identity of the subalgebra of $\Hlin$ of
+bi-$K$-invariant functions. For the Satake transform we use the Haar
+measure with $\vol(K)=1$, and for a bi-$K$-invariant function $\phi$ we
+put
+\[
+\mathcal S(\phi)(X)=\sum_{j\in\Z}X^j\,q^{-j}\int_{U^+}\phi\bigl(h(\varpi^j)u\bigr)\,du,
+\]
+where $du$ gives $U^+\cap K$ volume one and $X$ is the value at $t_0$ of
+an unramified character of the diagonal torus. With this normalization
+$\mathcal S(\chi_K)=1$.
+
+\begin{proposition}
+\label{prop:spherical}
+Let $k\geq 1$. Let $g\in G$, write $g=b_1wb_2$ with $b_1,b_2\in B$ and
+$w\in\pm W_a$, and let $m\geq 0$ be the integer with $g\in Kt_0^mK$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item $e_K*f_g*e_K=q^{\ell(w)}\,\vol(Kt_0^mK)^{-1}\,\chi_{Kt_0^mK}$, and
+$\vol(Kt_0^mK)=N\,q^{2m}(1+q^{-1})$ for $m\geq 1$.
+\item For $m\geq 1$,
+\[
+\mathcal S(\chi_{Kt_0^mK})=q^m\Bigl(\sum_{j=-m}^{m}X^j
+-q^{-1}\sum_{j=-(m-1)}^{m-1}X^j\Bigr).
+\]
+Consequently the spherical part $N\,e_K*f_g*e_K$ of $f_g$, viewed with
+the measure $\vol(K)=1$, has Satake transform
+\[
+\frac{q^{\ell(w)-m}}{1+q^{-1}}\Bigl(\sum_{j=-m}^{m}X^j
+-q^{-1}\sum_{j=-(m-1)}^{m-1}X^j\Bigr)\quad(m\geq 1),
+\qquad\mbox{and}\qquad q^{\ell(w)}\quad(m=0).
+\]
+\item Assume $p\nmid n$, let $s$ be a splitting of $K$, and let
+$\overline e$ be $N^{-1}$ times the genuine function supported on
+$\overline K$ with value $\zeta$ at $\zeta s(x)$. If $n\nmid 2m$, then
+$\overline e*\fbar_{\tilde g}*\overline e=0$ for every lift $\tilde g$
+of $g$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) The function $e_K*f_g*e_K$ is bi-$K$-invariant and supported on
+$KgK$. Since $b_1,b_2\in K$, and $w$ is $\pm t_0^j$ or $\pm t_0^js_1$
+with $|j|=m$, we have $KgK=Kt_0^mK$. A bi-$K$-invariant function
+supported on one double coset is constant there. By
+Lemma~\ref{lemma:general}(c) its integral is
+$\int e_K\cdot\int f_g\cdot\int e_K=\vol(B_kgB_k)=q^{\ell(w)}$, by
+Lemma~\ref{lemma:length}. This gives the constant. Next,
+$\vol(Kt_0^mK)=N\,[K:K\cap t_0^{-m}Kt_0^m]$, and $K\cap t_0^{-m}Kt_0^m$
+is the subgroup of $K$ of matrices whose lower left entry lies in
+$\varpi^{2m}\cO$. Its index is the number of points of the projective
+line over $\cO/\varpi^{2m}\cO$, which is $q^{2m}+q^{2m-1}$.
+
+(b) An element of $G$ lies in $Kt_0^mK$ exactly when the least order of
+its entries is $-m$. For $u=u_+(x)$ the entries of $h(\varpi^j)u$ are
+$\varpi^j$, $\varpi^jx$, $0$ and $\varpi^{-j}$. Let $v$ be the order of
+$x$. If $j=m$ the condition is $v\geq -2m$, a set of volume $q^{2m}$. If
+$j=-m$ it is $v\geq 0$, of volume $1$. If $|j|<m$ it is $v=-m-j$, of
+volume $q^{m+j}(1-q^{-1})$. For $|j|>m$ the set is empty. Summing
+$X^jq^{-j}$ times these volumes gives
+$q^m\bigl(X^m+X^{-m}+(1-q^{-1})\sum_{|j|<m}X^j\bigr)$, which is the
+stated formula. The function $N\,e_K*f_g*e_K$ equals
+$q^{\ell(w)}[Kt_0^mK:K]^{-1}\chi_{Kt_0^mK}$, where $[Kt_0^mK:K]$ is the
+number of left cosets of $K$, which is $q^{2m}(1+q^{-1})$ by (a). This
+gives the last formula.
+
+(c) The function $\overline e*\fbar_{\tilde g}*\overline e$ is genuine,
+bi-$s(K)$-invariant and supported on $\overline{Kt_0^mK}$. By
+Lemma~\ref{lemma:support}(a), applied with $K_0=K$, such a function is
+zero unless $t_0^m$ is $s(K)$-admissible. For a unit $v$, the element
+$h(v)$ lies in $K\cap t_0^{-m}Kt_0^m$ and commutes with $t_0^m$, and by
+Lemma~\ref{lemma:cover}(a) the commutator of the lifts is
+$(v,\varpi)_n^{2m}$. By Lemma~\ref{lemma:hilbert} this is not $1$ for
+some $v$ when $n\nmid 2m$. So $t_0^m$ is not admissible.
+\end{proof}
+
+\begin{remark}
+\label{rem:spherical}
+The formula in (b) is the case of $SL(2)$ of Macdonald's formula
+\cite{Ma71}. At $X=q$ the transform in (b) equals $q^{\ell(w)}$, the
+trace of $f_g$ on the trivial representation, as it should. By (c), the
+spherical parts of the genuine basis functions vanish over exactly the
+translations that Savin's theorem removes. For $n=2$ no vanishing is
+forced. When $n\mid 2m$ the genuine spherical part is a multiple of the
+genuine spherical function on $Kt_0^mK$. The multiple is a sum of roots
+of unity that we have not computed. The genuine spherical Hecke algebra
+has a Satake isomorphism of its own. We expect, but have not checked,
+that its formula is Macdonald's formula for $G/Z_n$ after the rescaling
+of Remark~\ref{vrem:savinaction}.
+\end{remark}
+
+\begin{example}
+\label{ex:spherical}
+In the running example $F=\mathbb{Q}_7$ with $n=3$, take $g=t_0$, so
+$\ell(w)=2$ and $m=1$. The linear spherical part has Satake transform
+$\frac{49}{8}\bigl(X+1+X^{-1}-\frac17\bigr)$. The genuine spherical
+part of $\fbar_{\tilde t_0}$ is zero, and so is that of
+$\fbar_{\tilde t_0^2}$. With $n=2$ neither vanishing is forced.
+\end{example}
+
 %======================================================================
 \section{The Iwahori level}
 \label{section:savin}
@@ -2230,7 +2338,9 @@ carries a genuine function if and only if $n\mid 2m$
 (Proposition~\ref{prop:level0}), in line with Savin's theorem. At deep
 level the same translations carry genuine functions, but these have
 trace zero in every admissible genuine representation
-(Proposition~\ref{prop:traceless}).
+(Proposition~\ref{prop:traceless}), and their spherical parts vanish
+(Proposition~\ref{prop:spherical}). The spherical parts of the linear
+basis functions have explicit Satake transforms.
 \end{enumerate}
 
 \noindent
@@ -2505,6 +2615,9 @@ Math.} \textbf{247} (2010), 435--454.
 
 \bibitem[Lu18]{Lu18} C.~Luo, Spherical fundamental lemma for metaplectic
 groups, \emph{Canad. J. Math.} \textbf{70} (2018), 898--924.
+
+\bibitem[Ma71]{Ma71} I.~G.~Macdonald, \emph{Spherical functions on a group
+of $p$-adic type}, Ramanujan Institute, University of Madras, 1971.
 
 \bibitem[RS77]{RS77} S.~Rallis and G.~Schiffmann, Repr\'esentations
 supercuspidales du groupe m\'etaplectique, \emph{J. Math. Kyoto Univ.}
