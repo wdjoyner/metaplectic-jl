@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 5, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 6, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -23,21 +23,21 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 5}
+cover $\overline{SL_2}$'', Draft 6}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~5 of the paper (file
+This log accompanies Draft~6 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~5 of the paper.
-Section~\ref{sec:conc34} gives the correspondence with the numbering of
-Drafts~2 to~4.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~6 of the paper.
+Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
+with the numbering of Drafts~2 to~5.
 
 \section{Drafts}
 
@@ -68,12 +68,16 @@ request, the paper now states its motivation and explains why the
 comparison with $SL(2)$ fails and how far off it is. New:
 Table~\ref{P-tab:howfar}, Proposition~\ref{P-prop:traceless} and three
 remarks.
+\item[Draft 6] (November 24, 2026). Same file. The literature review
+and the notation table moved into Section~\ref{P-section:intro}, at
+David Joyner's request. The footnote now calls the paper a significant
+rewrite of [Jo98].
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--5 here were made from
+\texttt{metaplectic-jl}. Drafts~1--6 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -376,18 +380,50 @@ whether it has since been published.
 it. No change.
 \end{enumerate}
 
-\section{Concordance from Draft 3 to Draft 5}
+\section{Concordance from Draft 5 to Draft 6}
+\label{sec:conc56}
+
+Section~2 (literature review) of Draft~5 is now
+Section~\ref{P-section:lit}, and its subsections~2.1--2.3 are
+subsubsections of it. Section~4 (notation) is now
+Section~\ref{P-section:notation}. The other sections move up: Section~3
+of Draft~5 is Section~\ref{P-section:background}, and Section~$N$ of
+Draft~5 is Section~$N-2$ for $5\leq N\leq 12$. Statements and equations
+keep their number within a section, so for example Theorem~8.5 of
+Draft~5 is Theorem~\ref{P-thm:unimodular}. Table~\ref{P-tab:howfar} and
+the Remarks~2026.$m$ keep their numbers.
+
+\section{Changes from Draft 5 to Draft 6}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item At David Joyner's request, the literature review and the notation
+table are now Sections~\ref{P-section:lit} and \ref{P-section:notation},
+inside the introduction. Their opening sentences now say
+``subsection''. The parts of the literature review are now
+subsubsections.
+\item All headings in the introduction are now numbered subsections, so
+that they sit consistently with the two moved subsections. They appear
+in the table of contents. The organization paragraph is rewritten.
+\item At David Joyner's request, the footnote on the first page now
+calls the paper a significant rewrite, rather than a significant
+revision, of [Jo98].
+\item The vertical space before section entries in the table of
+contents is slightly reduced, to remove an overfull box on the first
+page.
+\end{enumerate}
+
+\section{Concordance from Draft 3 to Draft 6}
 \label{sec:conc34}
 
 Numbers not listed are unchanged. Draft~4 differs from Draft~5 only
 in Example~8.8 (now Example~\ref{P-ex:unimodular}), Theorem~11.3 (now
 Theorem~\ref{P-thm:savin}) and Remark~11.4 (now
-Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~5
+Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~6
 numbers.
 
 \begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
 \toprule
-{Draft 3} & Draft 5 \\
+{Draft 3} & Draft 6 \\
 \midrule
 \endhead
 Lemma 3.5 & Lemma~\ref{P-lemma:subgroups} \\

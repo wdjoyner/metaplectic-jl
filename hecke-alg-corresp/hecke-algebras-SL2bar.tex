@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 5 (November 2026). Corrected and expanded version of
+%% Draft 6 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -16,6 +16,7 @@
 \usepackage[hidelinks]{hyperref}
 
 \numberwithin{equation}{section}
+\setcounter{tocdepth}{2}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -40,7 +41,7 @@
 % Table of contents: sections flush left, subsections indented under the
 % section titles, numbers in fixed-width boxes so the titles line up.
 \makeatletter
-\def\l@section{\@tocline{1}{4pt}{0pt}{1.8em}{}}
+\def\l@section{\@tocline{1}{3pt plus 1pt}{0pt}{1.8em}{}}
 \def\l@subsection{\@tocline{2}{0pt}{1.8em}{2.4em}{}}
 \renewcommand{\tocsection}[3]{%
   \makebox[\@tempdima][l]{\@ifnotempty{#2}{#2.}}#3}
@@ -68,11 +69,11 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 5. Corrected and expanded version}}
+{\normalsize Draft 6. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
-\thanks{This paper is a significant revision of D.~Joyner, \emph{A
+\thanks{This paper is a significant rewrite of D.~Joyner, \emph{A
 correspondence for the generalized Hecke algebra of the metaplectic
 cover $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\
 \textbf{4} (1998), 223--235 \cite{Jo98}, correcting, changing and
@@ -126,7 +127,6 @@ genuine functions at Iwahori level, which matches Savin's theorem.
 %======================================================================
 \section{Introduction}
 \label{section:intro}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{1}}
 
 This section states the problem, explains why it is natural, and
 summarizes the results.
@@ -141,7 +141,7 @@ on which $\mu_n$ acts by a faithful character are called
 \emph{genuine}. They are the local objects behind modular forms of
 fractional weight.
 
-\subsection*{Motivation}
+\subsection{Motivation}
 For $n=2$ it has long been known that the genuine representation theory
 of $\Gbar$ resembles that of $PGL(2)$ rather than that of $SL(2)$.
 Weil's representation and Waldspurger's Shimura correspondence
@@ -165,7 +165,7 @@ $SL(2)$ fails at the level of Hecke algebras, and we measure how far
 it is from being correct. The answer is summarized in
 Table~\ref{tab:howfar} below.
 
-\subsection*{The problem}
+\subsection{The problem}
 For an open compact subgroup $K_0$ of $G$, the representations of $G$
 with non-zero $K_0$-fixed vectors are controlled by the
 \emph{generalized Hecke algebra} $\cH(G/\!/K_0)$ of bi-$K_0$-invariant
@@ -189,7 +189,7 @@ $\Gbar$ with fixed vectors, together with their traces on these
 algebras. We study the question for $K_0=B_k$, the $k$-th filtration
 subgroup of the standard Iwahori subgroup $B$ of $G$.
 
-\subsection*{Main results}
+\subsection{Main results}
 The level $k$ is called \emph{deep} if $k\geq 1$ and $p\nmid n$, or if
 $k$ exceeds an explicit bound $j_1$ in general
 (Definition~\ref{def:deep}). Throughout, $t_0=h(\varpi)$ is the
@@ -254,7 +254,7 @@ constants exists for $n=2$ is open (Question~\ref{q:n2}). For
 $n\geq 3$ the failure is local. It is already visible in a single
 commutation relation, and it holds for arbitrary constants.
 
-\subsection*{How far off is the comparison with \texorpdfstring{$SL(2)$}{SL(2)}?}
+\subsection{How far off is the comparison with \texorpdfstring{$SL(2)$}{SL(2)}?}
 The comparison can be tested at several levels, from the coarsest to
 the finest. Table~\ref{tab:howfar} summarizes what we prove.
 
@@ -305,47 +305,26 @@ $SL(2)$ is ``off''. At Iwahori level they disappear from the genuine
 algebra, and at deep level they remain but are invisible to traces
 (Remark~\ref{rem:samelattice}).
 
-\subsection*{Status of results}
+\subsection{Status of results}
 A statement with a proof in this paper is proved here. A statement
 quoted from the literature carries a citation in its heading.
 Statements that we could not verify against their sources are flagged
 in remarks numbered ``Remark~2026.$m$''. Questions are open.
 
-\subsection*{Running example}
+\subsection{Running example}
 Our running example is $F=\mathbb{Q}_7$, with $n=2$ in Part~I and $n=3$
 in Part~II. Since $6$ divides $7-1$, the field $\mathbb{Q}_7$ contains
 $\mu_6$, so both covers are defined. Since $p=7$ divides neither $n$,
 every level $k\geq 1$ is deep.
 
-\subsection*{Organization}
-Section~\ref{section:lit} reviews the literature.
-Section~\ref{section:background} collects background on the Hilbert
-symbol, the cover, the relevant subgroups and Hecke algebras.
-Section~\ref{section:notation} lists the notation. Part~I consists of
-Sections~\ref{section:sl2}--\ref{section:n2}.
-Section~\ref{section:sl2} treats $\Hlin$. Section~\ref{section:genuine}
-constructs the genuine basis, and Section~\ref{section:metaplectic}
-transfers the relations. These three sections hold for every $n$.
-Section~\ref{section:n2} specializes to $n=2$ and proves the
-non-existence result for constants of absolute value one, which holds
-for every $n\geq 2$. Part~II consists of
-Sections~\ref{section:torus}--\ref{section:savin}.
-Section~\ref{section:torus} gives the torus obstruction for $n\geq 3$.
-Section~\ref{section:reps} relates the algebras to representations.
-Section~\ref{section:savin} treats Iwahori level.
-Section~\ref{section:summary} summarizes the results and lists open
-questions. A glossary follows.
-
-%======================================================================
-\section{Literature review}
+\subsection{Literature review}
 \label{section:lit}
-\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
 
-This section summarizes the work most closely related to ours. The
+This subsection summarizes the work most closely related to ours. The
 first part covers work up to 1998, the year of the original version
 \cite{Jo98}. The second part covers later work.
 
-\subsection{Work up to 1998}
+\subsubsection{Work up to 1998}
 Kubota \cite{Ku67} constructed the topological $n$-fold covering of
 $SL(2)$ over a local field by an explicit cocycle built from the
 $n$-th power Hilbert symbol. We use his cocycle throughout.
@@ -387,7 +366,7 @@ representation of it, whose Hecke algebra governs one block of the
 category of smooth representations. Schultz \cite{Sc98} studied a
 lifting of characters between $\overline{SL_2(F)}$ and $SO_{2,1}(F)$.
 
-\subsection{Work after 1998}
+\subsubsection{Work after 1998}
 Savin \cite{Sa04} studied the unramified representations of covering
 groups of split groups more generally. Loke and Savin \cite{LS10}
 treated the two-fold cover of $SL_2(\mathbb{Q}_2)$, where the residual
@@ -411,7 +390,7 @@ part with a Hecke algebra of the principal endoscopic group, and he
 gave a counterexample showing that the two algebras are not isomorphic
 in general.
 
-\subsection{How the present results fit}
+\subsubsection{How the present results fit}
 The cited works on Hecke algebra correspondences match a genuine
 Hecke algebra with the Hecke algebra of a \emph{different} linear
 group, such as $G/Z_n$, an odd orthogonal group, or an endoscopic
@@ -421,6 +400,79 @@ fails for maps with constants of absolute value one, because the cover
 does not split. For $n\geq 3$ it fails for all constants, because the
 inverse image of the diagonal torus in $\Gbar$ is not commutative. This is consistent with the rescaling of translations in
 Savin's theorem and with Wang's counterexample.
+
+\subsection{Notation}
+\label{section:notation}
+
+This subsection lists the notation used from here on. Each symbol is also
+defined at its first use.
+
+\medskip
+\begin{center}
+\begin{tabular}{@{}p{0.27\textwidth}p{0.67\textwidth}@{}}
+\toprule
+Symbol & Meaning \\
+\midrule
+$F$, $\cO$, $\varpi$, $q$ & $p$-adic field, its integers, a uniformizer,
+the residue field size \\
+$\mu_n$, $(\ ,\ )_n$ & $n$-th roots of unity in $F$, $n$-th power
+Hilbert symbol \\
+$G$, $\Gbar$, $\pr$ & $SL(2,F)$, its $n$-fold metaplectic cover, the
+projection $\Gbar\to G$ \\
+$\beta$, $x(g)$ & Kubota's cocycle and the function used to define it \\
+$\overline{H}$ & the inverse image $\pr^{-1}(H)$ of $H\subset G$ \\
+$\tilde g$ & a lift of $g\in G$ to $\Gbar$ \\
+$u_\pm(x)$, $h(a)$, $T$ & unipotent and diagonal elements, the diagonal
+torus \\
+$s_1$, $s_2$, $t$, $t_0$ & the elements of
+\S\ref{subsec:subgroups}, with $t_0=h(\varpi)$ \\
+$K$, $B$, $B_k$ & $SL(2,\cO)$, the Iwahori subgroup, its $k$-th
+filtration subgroup \\
+$\Gamma_k$, $U^\pm_k$, $T_k$ & principal congruence subgroup and its
+unipotent and diagonal parts \\
+$W_a$, $\ell$ & representatives of the affine Weyl group, the length \\
+$f_g$ & characteristic function of $B_kgB_k$ \\
+$\cH(G/\!/B_k)$ & generalized Hecke algebra of $G$ with respect to
+$B_k$ \\
+$\cP$, $\sigma$ & small subgroups with canonical lifts, the canonical
+lift (Lemma~\ref{lemma:canonical}) \\
+$s$ & a splitting of an open compact subgroup, for example of $K$ when
+$p\nmid n$ \\
+$w(x)$ & the element $u_+(x)u_-(-x^{-1})u_+(x)$ of $G$ \\
+$B_k^*$, $K_0^*$ & lifts of $B_k$, $K_0$ to subgroups of $\Gbar$ \\
+$\cH(\Gbar/\!/K_0^*)_{\gen}$ & genuine generalized Hecke algebra \\
+$\fbar_{\tilde g}$ & genuine bi-$K_0^*$-invariant function with value
+$1$ at $\tilde g$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{example}
+In the running example $F=\mathbb{Q}_7$, $n=3$, we may take
+$\varpi=7$, so $t_0=h(7)$, $q=7$, $\cO=\mathbb{Z}_7$, and
+$\mu_3=\{1,\omega,\omega^2\}$ with $\omega\in\mathbb{Z}_7$ a primitive
+cube root of unity congruent to $2$ modulo $7$.
+\end{example}
+
+\subsection{Organization}
+Section~\ref{section:intro} also contains a review of the literature
+(Section~\ref{section:lit}) and a table of notation
+(Section~\ref{section:notation}).
+Section~\ref{section:background} collects background on the Hilbert
+symbol, the cover, the relevant subgroups and Hecke algebras. Part~I
+consists of Sections~\ref{section:sl2}--\ref{section:n2}.
+Section~\ref{section:sl2} treats $\Hlin$. Section~\ref{section:genuine}
+constructs the genuine basis, and Section~\ref{section:metaplectic}
+transfers the relations. These three sections hold for every $n$.
+Section~\ref{section:n2} specializes to $n=2$ and proves the
+non-existence result for constants of absolute value one, which holds
+for every $n\geq 2$. Part~II consists of
+Sections~\ref{section:torus}--\ref{section:savin}.
+Section~\ref{section:torus} gives the torus obstruction for $n\geq 3$.
+Section~\ref{section:reps} relates the algebras to representations.
+Section~\ref{section:savin} treats Iwahori level.
+Section~\ref{section:summary} summarizes the results and lists open
+questions. A glossary follows.
 
 %======================================================================
 \section{Background}
@@ -824,60 +876,6 @@ $h_1K_0$ and is a union of left cosets of $K_0$, which gives
 (\ref{eq:unique}). Part (d) is \cite[Chapter~3,
 Proposition~2.2]{HM85}.
 \end{proof}
-
-%======================================================================
-\section{Notation}
-\label{section:notation}
-
-This section lists the notation used from here on. Each symbol is also
-defined at its first use.
-
-\medskip
-\begin{center}
-\begin{tabular}{@{}p{0.27\textwidth}p{0.67\textwidth}@{}}
-\toprule
-Symbol & Meaning \\
-\midrule
-$F$, $\cO$, $\varpi$, $q$ & $p$-adic field, its integers, a uniformizer,
-the residue field size \\
-$\mu_n$, $(\ ,\ )_n$ & $n$-th roots of unity in $F$, $n$-th power
-Hilbert symbol \\
-$G$, $\Gbar$, $\pr$ & $SL(2,F)$, its $n$-fold metaplectic cover, the
-projection $\Gbar\to G$ \\
-$\beta$, $x(g)$ & Kubota's cocycle and the function used to define it \\
-$\overline{H}$ & the inverse image $\pr^{-1}(H)$ of $H\subset G$ \\
-$\tilde g$ & a lift of $g\in G$ to $\Gbar$ \\
-$u_\pm(x)$, $h(a)$, $T$ & unipotent and diagonal elements, the diagonal
-torus \\
-$s_1$, $s_2$, $t$, $t_0$ & the elements of
-\S\ref{subsec:subgroups}, with $t_0=h(\varpi)$ \\
-$K$, $B$, $B_k$ & $SL(2,\cO)$, the Iwahori subgroup, its $k$-th
-filtration subgroup \\
-$\Gamma_k$, $U^\pm_k$, $T_k$ & principal congruence subgroup and its
-unipotent and diagonal parts \\
-$W_a$, $\ell$ & representatives of the affine Weyl group, the length \\
-$f_g$ & characteristic function of $B_kgB_k$ \\
-$\cH(G/\!/B_k)$ & generalized Hecke algebra of $G$ with respect to
-$B_k$ \\
-$\cP$, $\sigma$ & small subgroups with canonical lifts, the canonical
-lift (Lemma~\ref{lemma:canonical}) \\
-$s$ & a splitting of an open compact subgroup, for example of $K$ when
-$p\nmid n$ \\
-$w(x)$ & the element $u_+(x)u_-(-x^{-1})u_+(x)$ of $G$ \\
-$B_k^*$, $K_0^*$ & lifts of $B_k$, $K_0$ to subgroups of $\Gbar$ \\
-$\cH(\Gbar/\!/K_0^*)_{\gen}$ & genuine generalized Hecke algebra \\
-$\fbar_{\tilde g}$ & genuine bi-$K_0^*$-invariant function with value
-$1$ at $\tilde g$ \\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\begin{example}
-In the running example $F=\mathbb{Q}_7$, $n=3$, we may take
-$\varpi=7$, so $t_0=h(7)$, $q=7$, $\cO=\mathbb{Z}_7$, and
-$\mu_3=\{1,\omega,\omega^2\}$ with $\omega\in\mathbb{Z}_7$ a primitive
-cube root of unity congruent to $2$ modulo $7$.
-\end{example}
 
 %======================================================================
 \part{The case \texorpdfstring{$n=2$}{n=2}}
