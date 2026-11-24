@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 7 (November 2026). Corrected and expanded version of
+%% Draft 8 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -7,6 +7,7 @@
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
+\renewcommand{\ttdefault}{pcr}
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb,amsthm}
@@ -69,7 +70,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 7. Corrected and expanded version}}
+{\normalsize Draft 8. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -276,6 +277,7 @@ Homomorphism $f_g\mapsto c_g\fbar_{\tilde g}$ with $|c_g|=1$ & none &
 none \\
 Same, with arbitrary $c_g\neq 0$ & open & none \\
 Trace identities & open & fail \\
+Spherical part over $t_0^m$ & no vanishing forced & zero when $n\nmid 2m$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -304,6 +306,14 @@ by $G/Z_n$. So the translations $t_0^m$ with $n\nmid 2m$ are where
 $SL(2)$ is ``off''. At Iwahori level they disappear from the genuine
 algebra, and at deep level they remain but are invisible to traces
 (Remark~\ref{rem:samelattice}).
+
+Savin's isomorphism at Iwahori level is of a different kind from the
+maps considered above. It moves functions to other double cosets and
+rescales them by powers of $\sqrt q$. These powers are exactly the
+ratios of Weyl discriminant factors that a transfer of orbital
+integrals would require (Remark~\ref{vrem:savinaction}). Whether
+Savin's isomorphism is in fact such a transfer is
+Question~\ref{q:transfer}.
 
 \subsection{Status of results}
 A statement with a proof in this paper is proved here. A statement
@@ -371,6 +381,14 @@ Savin \cite{Sa04} studied the unramified representations of covering
 groups of split groups more generally. Loke and Savin \cite{LS10}
 treated the two-fold cover of $SL_2(\mathbb{Q}_2)$, where the residual
 characteristic divides $n$.
+
+W.-W.~Li \cite{Li11} developed endoscopy for the metaplectic groups
+$Mp(2n)$. He proved the transfer of orbital integrals, and the
+fundamental lemma for the unit element of the spherical Hecke algebra
+when the residual characteristic is large. Luo \cite{Lu18} proved the
+fundamental lemma for the whole spherical Hecke algebra of $Mp(2n)$.
+For $n=1$ these results concern our cover with $n=2$, whose elliptic
+endoscopic groups include $PGL(2)=SO(3)$.
 
 Gan and Savin \cite{GS12} used types for the even and odd Weil
 representations to define two Hecke algebras governing the
@@ -1372,6 +1390,20 @@ Lemma~\ref{lemma:canonical}(b) with $P=P'=B_k$. The rest follows from
 Lemma~\ref{lemma:support}.
 \end{proof}
 
+\begin{remark}[No other choice of genuine functions]
+\label{rem:nochoice}
+By Lemma~\ref{lemma:support}(a), every genuine bi-$B_k^*$-invariant
+function supported over a single double coset $B_kgB_k$ is a multiple
+of $\fbar_{\tilde g}$. A different lift of $g$ only changes the multiple
+by a root of unity. So the only freedom in a map that keeps each basis
+function on its own double coset is a choice of constants $c_g$.
+Theorem~\ref{thm:unimodular} and Corollary~\ref{corollary:main} treat
+all such choices, except constants of varying absolute value when
+$n=2$. Maps that spread $f_g$ over several double cosets are not of
+this form. Savin's isomorphism at Iwahori level is of that kind
+(Remark~\ref{vrem:savinaction}).
+\end{remark}
+
 \begin{example}
 In the running example, take $k=1$. The double cosets $B_1gB_1$ are
 indexed by $B/B_1\times(\pm W_a)\times B/B_1$ modulo the obvious
@@ -1999,6 +2031,113 @@ vanishing. This is consistent with $PGL(2)$, whose lattice of translations
 contains that of $SL(2)$.
 \end{remark}
 
+\medskip\noindent\textbf{Spherical parts.} The algebra $\Hlin$ is not commutative (already the span of the $f_x$
+with $x\in B$ is not, when $q>3$), so no Satake transform can be
+injective on it. What can be computed is the spherical part of each
+basis function, obtained by averaging over $K=SL(2,\cO)$ on both sides.
+The next proposition computes it on the linear side and shows that on
+the genuine side it vanishes for the same translations as in
+Proposition~\ref{prop:traceless}.
+
+Normalize Haar measure by $\vol(B_k)=1$, let $N=[K:B_k]$, and let
+$e_K=N^{-1}\chi_K$, the identity of the subalgebra of $\Hlin$ of
+bi-$K$-invariant functions. For the Satake transform we use the Haar
+measure with $\vol(K)=1$, and for a bi-$K$-invariant function $\phi$ we
+put
+\[
+\mathcal S(\phi)(X)=\sum_{j\in\Z}X^j\,q^{-j}\int_{U^+}\phi\bigl(h(\varpi^j)u\bigr)\,du,
+\]
+where $du$ gives $U^+\cap K$ volume one and $X$ is the value at $t_0$ of
+an unramified character of the diagonal torus. With this normalization
+$\mathcal S(\chi_K)=1$.
+
+\begin{proposition}
+\label{prop:spherical}
+Let $k\geq 1$. Let $g\in G$, write $g=b_1wb_2$ with $b_1,b_2\in B$ and
+$w\in\pm W_a$, and let $m\geq 0$ be the integer with $g\in Kt_0^mK$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item $e_K*f_g*e_K=q^{\ell(w)}\,\vol(Kt_0^mK)^{-1}\,\chi_{Kt_0^mK}$, and
+$\vol(Kt_0^mK)=N\,q^{2m}(1+q^{-1})$ for $m\geq 1$.
+\item For $m\geq 1$,
+\[
+\mathcal S(\chi_{Kt_0^mK})=q^m\Bigl(\sum_{j=-m}^{m}X^j
+-q^{-1}\sum_{j=-(m-1)}^{m-1}X^j\Bigr).
+\]
+Consequently the spherical part $N\,e_K*f_g*e_K$ of $f_g$, viewed with
+the measure $\vol(K)=1$, has Satake transform
+\[
+\frac{q^{\ell(w)-m}}{1+q^{-1}}\Bigl(\sum_{j=-m}^{m}X^j
+-q^{-1}\sum_{j=-(m-1)}^{m-1}X^j\Bigr)\quad(m\geq 1),
+\qquad\mbox{and}\qquad q^{\ell(w)}\quad(m=0).
+\]
+\item Assume $p\nmid n$, let $s$ be a splitting of $K$, and let
+$\overline e$ be $N^{-1}$ times the genuine function supported on
+$\overline K$ with value $\zeta$ at $\zeta s(x)$. If $n\nmid 2m$, then
+$\overline e*\fbar_{\tilde g}*\overline e=0$ for every lift $\tilde g$
+of $g$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) The function $e_K*f_g*e_K$ is bi-$K$-invariant and supported on
+$KgK$. Since $b_1,b_2\in K$, and $w$ is $\pm t_0^j$ or $\pm t_0^js_1$
+with $|j|=m$, we have $KgK=Kt_0^mK$. A bi-$K$-invariant function
+supported on one double coset is constant there. By
+Lemma~\ref{lemma:general}(c) its integral is
+$\int e_K\cdot\int f_g\cdot\int e_K=\vol(B_kgB_k)=q^{\ell(w)}$, by
+Lemma~\ref{lemma:length}. This gives the constant. Next,
+$\vol(Kt_0^mK)=N\,[K:K\cap t_0^{-m}Kt_0^m]$, and $K\cap t_0^{-m}Kt_0^m$
+is the subgroup of $K$ of matrices whose lower left entry lies in
+$\varpi^{2m}\cO$. Its index is the number of points of the projective
+line over $\cO/\varpi^{2m}\cO$, which is $q^{2m}+q^{2m-1}$.
+
+(b) An element of $G$ lies in $Kt_0^mK$ exactly when the least order of
+its entries is $-m$. For $u=u_+(x)$ the entries of $h(\varpi^j)u$ are
+$\varpi^j$, $\varpi^jx$, $0$ and $\varpi^{-j}$. Let $v$ be the order of
+$x$. If $j=m$ the condition is $v\geq -2m$, a set of volume $q^{2m}$. If
+$j=-m$ it is $v\geq 0$, of volume $1$. If $|j|<m$ it is $v=-m-j$, of
+volume $q^{m+j}(1-q^{-1})$. For $|j|>m$ the set is empty. Summing
+$X^jq^{-j}$ times these volumes gives
+$q^m\bigl(X^m+X^{-m}+(1-q^{-1})\sum_{|j|<m}X^j\bigr)$, which is the
+stated formula. The function $N\,e_K*f_g*e_K$ equals
+$q^{\ell(w)}[Kt_0^mK:K]^{-1}\chi_{Kt_0^mK}$, where $[Kt_0^mK:K]$ is the
+number of left cosets of $K$, which is $q^{2m}(1+q^{-1})$ by (a). This
+gives the last formula.
+
+(c) The function $\overline e*\fbar_{\tilde g}*\overline e$ is genuine,
+bi-$s(K)$-invariant and supported on $\overline{Kt_0^mK}$. By
+Lemma~\ref{lemma:support}(a), applied with $K_0=K$, such a function is
+zero unless $t_0^m$ is $s(K)$-admissible. For a unit $v$, the element
+$h(v)$ lies in $K\cap t_0^{-m}Kt_0^m$ and commutes with $t_0^m$, and by
+Lemma~\ref{lemma:cover}(a) the commutator of the lifts is
+$(v,\varpi)_n^{2m}$. By Lemma~\ref{lemma:hilbert} this is not $1$ for
+some $v$ when $n\nmid 2m$. So $t_0^m$ is not admissible.
+\end{proof}
+
+\begin{remark}
+\label{rem:spherical}
+The formula in (b) is the case of $SL(2)$ of Macdonald's formula
+\cite{Ma71}. At $X=q$ the transform in (b) equals $q^{\ell(w)}$, the
+trace of $f_g$ on the trivial representation, as it should. By (c), the
+spherical parts of the genuine basis functions vanish over exactly the
+translations that Savin's theorem removes. For $n=2$ no vanishing is
+forced. When $n\mid 2m$ the genuine spherical part is a multiple of the
+genuine spherical function on $Kt_0^mK$. The multiple is a sum of roots
+of unity that we have not computed. The genuine spherical Hecke algebra
+has a Satake isomorphism of its own. We expect, but have not checked,
+that its formula is Macdonald's formula for $G/Z_n$ after the rescaling
+of Remark~\ref{vrem:savinaction}.
+\end{remark}
+
+\begin{example}
+\label{ex:spherical}
+In the running example $F=\mathbb{Q}_7$ with $n=3$, take $g=t_0$, so
+$\ell(w)=2$ and $m=1$. The linear spherical part has Satake transform
+$\frac{49}{8}\bigl(X+1+X^{-1}-\frac17\bigr)$. The genuine spherical
+part of $\fbar_{\tilde t_0}$ is zero, and so is that of
+$\fbar_{\tilde t_0^2}$. With $n=2$ neither vanishing is forced.
+\end{example}
+
 %======================================================================
 \section{The Iwahori level}
 \label{section:savin}
@@ -2120,6 +2259,47 @@ bijection between the irreducible genuine representations of $\Gbar$
 with non-zero $B^*$-fixed vectors and the irreducible representations
 of $(G/Z_n)(F)$ with non-zero Iwahori-fixed vectors.
 
+\begin{vremark}[How Savin's isomorphism acts, and a check on orbital integrals]
+\label{vrem:savinaction}
+\emph{Heuristic. This remark relies on the descriptions of \cite{Sa88}
+in \cite{Ka21} and in an AI-written summary, not on \cite{Sa88}
+itself.} Savin's isomorphism is built from Bernstein's presentation,
+not from the basis of characteristic functions of double cosets. For a
+dominant translation $\mu$, Bernstein's element is
+$\Theta_\mu=q^{-\ell(\mu)/2}T_\mu$, where $T_\mu$ is the characteristic
+function of the double coset of $\mu$, normalized by a choice of lift,
+and $\ell$ is the length. The isomorphism sends $\Theta_\mu$ to
+$\Theta'_{\mu'}$, where $\mu'$ is the corresponding translation of
+$G/Z_n$. Hence
+\[
+T_\mu\longmapsto q^{(\ell(\mu)-\ell'(\mu'))/2}\,T'_{\mu'} .
+\]
+For $n$ odd the genuine translation $t_0^{nj}$, of length $2nj$,
+corresponds to $t_0^j$, of length $2j$, so the factor is $q^{(n-1)j}$.
+For $n=2$ the genuine $t_0$, of length $2$, corresponds to the element
+$\lambda=\mathrm{diag}(\varpi,1)$ of $PGL(2,F)$, of length $1$, so
+$T_{t_0^j}\mapsto q^{j/2}T'_{\lambda^j}$. For odd $j$ the element
+$\lambda^j$ does not come from $SL(2,F)$. Thus the isomorphism moves
+functions to other double cosets and multiplies them by powers of
+$\sqrt q$. Both features lie outside Theorem~\ref{thm:unimodular}.
+
+These factors are what a transfer of orbital integrals would predict.
+The orbital integral of a genuine function is defined only at
+elements whose lift commutes with the lifts of its centralizer, since
+otherwise the integrand is not invariant under the centralizer. For
+$\gamma=h(a)$ the commutator with $h(b)$ is $(b,a)_n^2$ by
+Lemma~\ref{lemma:cover}(a), so only those $a$ with
+$a^2\in(F^\times)^n$ occur. As in the orbit map of \cite{FK86}, such
+elements should be matched with elements of $G/Z_n$ by a power map.
+Normalized orbital integrals carry the factor $|D(\gamma)|^{1/2}$, where
+$D$ is the Weyl discriminant, and $|D(h(\varpi^m))|^{1/2}=q^{|m|}$. For
+$n$ odd the ratio of these factors at $t_0^n$ and at $t_0$ is
+$q^{n-1}$. For $n=2$ the factor at $\lambda$ is $q^{1/2}$, so the ratio
+at $t_0$ and at $\lambda$ is $q^{1/2}$. In both cases the ratio is the
+factor in Savin's isomorphism. For $n=2$ one expects in addition roots
+of unity coming from the transfer factors of \cite{Li11}.
+\end{vremark}
+
 %======================================================================
 \section{Summary of results and open questions}
 \label{section:summary}
@@ -2158,7 +2338,9 @@ carries a genuine function if and only if $n\mid 2m$
 (Proposition~\ref{prop:level0}), in line with Savin's theorem. At deep
 level the same translations carry genuine functions, but these have
 trace zero in every admissible genuine representation
-(Proposition~\ref{prop:traceless}).
+(Proposition~\ref{prop:traceless}), and their spherical parts vanish
+(Proposition~\ref{prop:spherical}). The spherical parts of the linear
+basis functions have explicit Satake transforms.
 \end{enumerate}
 
 \noindent
@@ -2203,6 +2385,21 @@ vectors and irreducible representations of a linear group? Does it
 preserve supercuspidality and square-integrability?
 \end{question}
 
+\begin{question}[Orbital integrals]
+\label{q:transfer}
+Is Savin's isomorphism of Theorem~\ref{thm:savin} a transfer of
+orbital integrals? That is, for a function $\fbar$ in the genuine
+Iwahori--Hecke algebra, do the normalized orbital integrals of $\fbar$
+at the elements whose lifts commute with their centralizers match, up
+to transfer factors and through a power map, the normalized orbital
+integrals of its image in the Iwahori--Hecke algebra of $G/Z_n$? For
+$n=2$ this would be an Iwahori-level analog of the spherical
+fundamental lemma for $Mp(2)$ \cite{Li11,Lu18}. For $n\geq 3$ we do not
+know of a spherical fundamental lemma for these covers. Is there an
+analog at deep level? Remark~\ref{vrem:savinaction} gives some
+evidence.
+\end{question}
+
 %======================================================================
 \section*{Glossary}
 
@@ -2222,6 +2419,12 @@ up to the sign $\pm 1$. It is the semidirect product of the finite Weyl
 group of order $2$ with the group of translations generated by
 $t_0=h(\varpi)$. Its elements index the double cosets of the Iwahori
 subgroup in $SL(2,F)$.
+\item[Bernstein presentation] A description of an Iwahori--Hecke algebra
+as generated by a finite Hecke algebra and a commutative algebra of
+normalized translations, with an explicit commutation rule between
+them. The translation elements are characteristic functions of double
+cosets scaled by $q^{-\ell/2}$, where $\ell$ is the length. Savin's
+isomorphism is defined on these generators.
 \item[Canonical lift] A distinguished splitting of a sufficiently small
 open subgroup of $G$ into the cover, compatible with restriction to
 smaller subgroups and with conjugation by every element of the cover.
@@ -2304,6 +2507,13 @@ defined by Kubota's cocycle. As a set it is the product of $SL(2,F)$ and
 $\mu_n$, but the multiplication is twisted by the cocycle. It splits over
 sufficiently small open subgroups but not over the whole group, and for
 $n\geq 3$ the inverse image of the diagonal torus is non-abelian.
+\item[Orbital integral] The integral of a function over a conjugacy
+class, taken with respect to an invariant measure on the class. For a
+genuine function on the cover it is defined only at elements whose
+lift commutes with the lifts of its centralizer. Matching of orbital
+integrals between a cover and a linear group, up to transfer factors,
+is the geometric form of a correspondence, and the fundamental lemma
+asserts it for spherical functions.
 \item[Principal congruence subgroup] For $j\geq 1$, the normal subgroup
 $\Gamma_j$ of $SL(2,\cO)$ of matrices congruent to the identity modulo
 $\varpi^j$ in every entry. It factors as a product of lower unipotent,
@@ -2342,7 +2552,7 @@ orientation. Claude
 point, drafted the corrected statements and the new proofs, revised the
 paper to the authors' house style, checked bibliographic data, and
 prepared the revision log. Two Claude models were used, Claude Fable
-5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~5. AI review is not an
+5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~8. AI review is not an
 independent certification of the results, and the new arguments have
 not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.
@@ -2395,9 +2605,19 @@ forms, \emph{Publ. Math. IH\'ES} \textbf{59} (1984), 35--142.
 \bibitem[Ku67]{Ku67} T.~Kubota, Topological covering of $SL(2)$ over a
 local field, \emph{J. Math. Soc. Japan} \textbf{19} (1967), 114--121.
 
+\bibitem[Li11]{Li11} W.-W.~Li, Transfert d'int\'egrales orbitales pour le
+groupe m\'etaplectique, \emph{Compos. Math.} \textbf{147} (2011),
+524--590.
+
 \bibitem[LS10]{LS10} H.~Y.~Loke and G.~Savin, Representations of the
 two-fold central extension of $SL_2(\mathbb{Q}_2)$, \emph{Pacific J.
 Math.} \textbf{247} (2010), 435--454.
+
+\bibitem[Lu18]{Lu18} C.~Luo, Spherical fundamental lemma for metaplectic
+groups, \emph{Canad. J. Math.} \textbf{70} (2018), 898--924.
+
+\bibitem[Ma71]{Ma71} I.~G.~Macdonald, \emph{Spherical functions on a group
+of $p$-adic type}, Ramanujan Institute, University of Madras, 1971.
 
 \bibitem[RS77]{RS77} S.~Rallis and G.~Schiffmann, Repr\'esentations
 supercuspidales du groupe m\'etaplectique, \emph{J. Math. Kyoto Univ.}
