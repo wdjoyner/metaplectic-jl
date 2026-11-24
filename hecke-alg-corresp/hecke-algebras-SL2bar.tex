@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 4 (November 2026). Corrected and expanded version of
+%% Draft 5 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -68,7 +68,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 4. Corrected and expanded version}}
+{\normalsize Draft 5. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -91,6 +91,11 @@ representation theory, $p$-adic groups, $SL(2)$}
 \begin{abstract}
 This corrected and expanded version was prepared with substantial help
 from AI systems, as described in the Acknowledgments.
+It is known that the genuine representation theory of the metaplectic
+cover of $SL(2)$ resembles that of $PGL(2)$, or more generally of a
+quotient of $SL(2)$ by part of its center, rather than that of $SL(2)$
+itself. This paper asks why a comparison with $SL(2)$ fails at the level
+of Hecke algebras, and how far it is from being correct.
 Let $G=SL(2,F)$, where $F$ is a $p$-adic field containing the $n$-th
 roots of unity. Let $\Gbar$ be the $n$-fold metaplectic cover of $G$,
 and let $B_k$ be the $k$-th filtration subgroup of an Iwahori subgroup.
@@ -108,8 +113,10 @@ constant of absolute value one. The proof rests on the fact that the
 cover does not split. Part~II treats $n\geq 3$, where the obstruction
 is local. Lifts of $t_0=h(\varpi)$ and of $h(u)$ commute only up to
 $(u,\varpi)_n^{2}$, so no support-preserving homomorphism exists for
-any choice of constants, and the expected trace identities fail. We
-also compare with Savin's theorem at Iwahori level.
+any choice of constants. The Hecke operators attached to the
+translations $t_0^m$ with $n\nmid 2m$ have trace zero in every
+admissible genuine representation. The same translations carry no
+genuine functions at Iwahori level, which matches Savin's theorem.
 \end{abstract}
 
 \maketitle
@@ -133,6 +140,30 @@ $\mu_n$ constructed by Kubota \cite{Ku67}. Representations of $\Gbar$
 on which $\mu_n$ acts by a faithful character are called
 \emph{genuine}. They are the local objects behind modular forms of
 fractional weight.
+
+\subsection*{Motivation}
+For $n=2$ it has long been known that the genuine representation theory
+of $\Gbar$ resembles that of $PGL(2)$ rather than that of $SL(2)$.
+Weil's representation and Waldspurger's Shimura correspondence
+\cite{Wa80} relate genuine representations of the double cover of
+$SL(2)$ to representations of $PGL(2)$. Flicker and Kazhdan
+\cite{Fl80,FK86} compared covers of $GL(r)$ with $GL(r)$ by the trace
+formula. At the level of Iwahori--Hecke algebras, Savin \cite{Sa88}
+proved that the genuine Iwahori--Hecke algebra of the $n$-fold cover is
+isomorphic to the Iwahori--Hecke algebra of $G/Z_n$, where $Z_n$ is the
+$n$-torsion of the center (Theorem~\ref{thm:savin}). This is $PGL(2)$
+when $n$ is even. So the natural linear partner of the cover is a
+quotient of $SL(2)$ by part of its center, and its Hecke algebra sees
+the translations of $SL(2)$ only after a rescaling.
+
+The original version of this paper \cite{Jo98} asserted that at
+positive level the comparison works with $SL(2)$ itself, that is, that
+$f_g\mapsto\fbar_g$ is an algebra isomorphism from $\cH(G/\!/B_k)$ onto
+the genuine Hecke algebra. That assertion is false. The aim of this
+version is to repair it honestly. We explain why the comparison with
+$SL(2)$ fails at the level of Hecke algebras, and we measure how far
+it is from being correct. The answer is summarized in
+Table~\ref{tab:howfar} below.
 
 \subsection*{The problem}
 For an open compact subgroup $K_0$ of $G$, the representations of $G$
@@ -222,6 +253,57 @@ $f_g\mapsto\fbar_{\tilde g}$. Whether a homomorphism with other
 constants exists for $n=2$ is open (Question~\ref{q:n2}). For
 $n\geq 3$ the failure is local. It is already visible in a single
 commutation relation, and it holds for arbitrary constants.
+
+\subsection*{How far off is the comparison with \texorpdfstring{$SL(2)$}{SL(2)}?}
+The comparison can be tested at several levels, from the coarsest to
+the finest. Table~\ref{tab:howfar} summarizes what we prove.
+
+\begin{table}[ht]
+\caption{How the genuine Hecke algebra compares with $\Hlin$, at deep
+level $k$ unless stated otherwise.}
+\label{tab:howfar}
+\begin{tabular}{@{}p{0.42\textwidth}p{0.25\textwidth}p{0.25\textwidth}@{}}
+\toprule
+Test & $n=2$, $p$ odd & $n\geq 3$, $p\nmid n$ \\
+\midrule
+Supports and volumes of double cosets & agree & agree \\
+Supports at Iwahori level ($k=0$) & no translation excluded & only $t_0^m$ with $n\mid 2m$ \\
+Each relation of Prop.~\ref{prop:main}, on its own & holds up to a sign &
+holds up to a root of unity \\
+Subalgebra supported on $SL(2,\cO)$ & identical & identical \\
+Commutation of $f_{t_0}$ and $f_{h(u)}$ & holds & fails \\
+Homomorphism $f_g\mapsto c_g\fbar_{\tilde g}$ with $|c_g|=1$ & none &
+none \\
+Same, with arbitrary $c_g\neq 0$ & open & none \\
+Trace identities & not tested & fail \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+At deep level the two algebras have the same supports and the same
+volumes, and each relation of $\Hlin$ holds in the genuine algebra up to
+a root of unity. The discrepancy is a twist by Kubota's cocycle, seen
+through the double cosets of $B_k$ (Remark~\ref{rem:twist}). A choice of
+lifts removes the twist from any one relation, but not from all of them
+at once.
+
+For $n=2$ the twist is invisible on the torus and on $SL(2,\cO)$. It is
+detected only by products of double cosets whose volumes do not
+multiply, and its non-triviality is the same phenomenon as the
+non-splitting of the cover (Theorem~\ref{thm:unimodular} and
+Remark~\ref{rem:n2where}).
+
+For $n\geq 3$ the twist is already visible on the torus. Lifts of
+$t_0^m$ and $h(u)$ commute only up to $(u,\varpi)_n^{2m}$, and in every
+admissible genuine representation the Hecke operators attached to
+$t_0^m$ with $n\nmid 2m$ have trace zero
+(Proposition~\ref{prop:traceless}). These are the translations that
+carry no genuine functions at Iwahori level
+(Proposition~\ref{prop:level0}), where Savin's theorem replaces $SL(2)$
+by $G/Z_n$. So the translations $t_0^m$ with $n\nmid 2m$ are where
+$SL(2)$ is ``off''. At Iwahori level they disappear from the genuine
+algebra, and at deep level they remain but are invisible to traces
+(Remark~\ref{rem:samelattice}).
 
 \subsection*{Status of results}
 A statement with a proof in this paper is proved here. A statement
@@ -1440,6 +1522,30 @@ root of unity depends on the lifts and can be computed from $\beta$.
 We do not need it.
 \end{remark}
 
+\begin{remark}[The twist]
+\label{rem:twist}
+Proposition~\ref{prop:main2} says that the genuine algebra differs from
+$\Hlin$ only by roots of unity. These roots of unity can be organized
+as follows. Fix a lift $\tilde g$ of each representative $g$ of a double
+coset. For a pair $g_1,g_2$ whose volumes multiply,
+Lemma~\ref{lemma:genuine} gives
+\[
+\fbar_{\tilde g_1}*\fbar_{\tilde g_2}
+=\gamma(g_1,g_2)\,\fbar_{\widetilde{g_1g_2}},
+\qquad\mbox{where}\quad
+\tilde g_1\tilde g_2=\gamma(g_1,g_2)^{-1}\,\widetilde{g_1g_2}.
+\]
+For the lifts $(g,1)$ we get $\gamma=\beta^{-1}$, and another choice of
+lifts changes $\gamma$ by a coboundary. So the genuine algebra is
+$\Hlin$ twisted by the class of Kubota's cocycle, seen through the
+double cosets of $B_k$. A map $f_g\mapsto c_g\fbar_{\tilde g}$ is
+compatible with these products exactly when the constants $c_g$
+trivialize $\gamma$ on the pairs that occur. For $n\geq 3$ this already
+fails on the torus (Theorem~\ref{thrm:main}). For $n=2$ we do not know
+whether it fails on the pairs whose volumes multiply. The obstruction
+of Theorem~\ref{thm:unimodular} comes from the other products.
+\end{remark}
+
 
 
 %======================================================================
@@ -1636,6 +1742,25 @@ have absolute value one. The proof uses this hypothesis only to force
 the terms of a sum of roots of unity to be equal. For $n\geq 3$,
 Corollary~\ref{corollary:main} below removes the hypothesis. For $n=2$
 we do not know whether it can be removed (Question~\ref{q:n2}).
+\end{remark}
+
+\begin{remark}[Where the obstruction lives for $n=2$]
+\label{rem:n2where}
+For $n=2$ and $p$ odd, the constraints that we have computed from
+products whose volumes multiply can all be met. On $SL(2,\cO)$ they are
+met exactly (Proposition~\ref{prop:Ksub}). The torus gives no
+constraint (Lemma~\ref{lemma:signs}(b)), and the sign in the relation
+between $t_0$ and $s_1$ is absorbed by the lift of $t_0^{-1}$
+(Lemma~\ref{lemma:signs}(c)). The proof of Theorem~\ref{thm:unimodular}
+uses instead products whose volumes do not multiply. An example is the
+product of $f_{w(\varpi)}$ and $f_{s_1}$. Here $w(\varpi)=-t_0s_1$, whose
+double coset has volume $q^3$, while $w(\varpi)s_1=t_0$, whose double
+coset has volume $q^2$. In such a product
+$(f_x*f_z)(xz)$ is a sum of several terms. Constants of absolute value
+one force these terms to agree, and the identity $w(a)w(-1)=h(a)$ of
+Lemma~\ref{lemma:nonsplit} then carries the Hilbert symbol $(b,a)_2$
+into the algebra. Constants of other absolute values might allow the
+terms to cancel instead, which is why Question~\ref{q:n2} remains open.
 \end{remark}
 
 \begin{example}
@@ -1840,6 +1965,40 @@ choice of lifts. In the running example this applies with $u=3$ and
 every $k\geq 1$.
 \end{example}
 
+The argument of Example~\ref{ex:trace} applies to every translation that
+fails to commute with the diagonal units.
+
+\begin{proposition}
+\label{prop:traceless}
+Let $k$ be deep and let $(\pi,V)$ be an admissible genuine
+representation of $\Gbar$. Let $m\in\Z$ with $n\nmid 2m$, and let
+$\tilde t$ be a lift of $t_0^m$. Then $\tr\pi(\fbar_{\tilde t})=0$ on
+$V^{B_k^*}$.
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lemma:hilbert} there is a unit $u$ with $(u,\varpi)_n$ a
+primitive $n$-th root of unity. Then $\zeta=(u,\varpi)_n^{2m}\neq 1$,
+because $n\nmid 2m$. By Lemma~\ref{lemma:cover}(a) with $a=\varpi^m$ and
+$b=u$, we have $\tilde t\,\tilde h(u)=\zeta\,\tilde h(u)\,\tilde t$.
+Since $h(u)\in B$, relation ($\overline{\mbox{C}}$)(i) of
+Proposition~\ref{prop:main2} and Lemma~\ref{lemma:support}(b) give
+$\fbar_{\tilde t}*\fbar_{\tilde h(u)}
+=\zeta^{-1}\fbar_{\tilde h(u)}*\fbar_{\tilde t}$. Put
+$A=\pi(\fbar_{\tilde t})$ and $C=\pi(\fbar_{\tilde h(u)})$. Then $C$ is
+invertible, $A=\zeta^{-1}CAC^{-1}$, and so $\tr A=\zeta^{-1}\tr A$.
+Hence $\tr A=0$.
+\end{proof}
+
+\begin{remark}
+For the linear group the corresponding traces need not vanish. For the
+trivial representation of $G$, $\tr\pi(f_{t_0^m})=\vol(B_kt_0^mB_k)
+=q^{2|m|}$ by Lemma~\ref{lemma:length}. For $n=2$ the condition
+$n\nmid 2m$ never holds, so Proposition~\ref{prop:traceless} gives no
+vanishing. This is consistent with $PGL(2)$, whose lattice of translations
+contains that of $SL(2)$.
+\end{remark}
+
 %======================================================================
 \section{The Iwahori level}
 \label{section:savin}
@@ -1885,6 +2044,22 @@ only when $3\mid m$. So $Bt_0B$ and $Bt_0^2B$ carry none, while
 $Bt_0^3B$ may. The translations that survive form the lattice
 $3\Z$, a rescaling of the lattice $\Z$ of the linear group.
 \end{example}
+
+\begin{remark}[The same lattice at every level]
+\label{rem:samelattice}
+Compare Proposition~\ref{prop:level0} with
+Proposition~\ref{prop:traceless}. At Iwahori level the translations
+$t_0^m$ with $n\nmid 2m$ carry no genuine functions. At deep level they
+carry genuine functions, but these act with trace zero in every
+admissible genuine representation. In both cases the translations that
+the genuine theory can see through traces are among the $t_0^m$ with
+$n\mid 2m$. They are exactly the translations whose lifts commute with
+the lifts of all diagonal units. In the description of \cite{Ka21},
+this is the lattice that Savin's theorem matches, after rescaling, with
+the translations of $G/Z_n$. This is the precise sense in which $SL(2)$
+is the wrong partner and $G/Z_n$ the right one, at least at Iwahori
+level and as far as traces of translations are concerned.
+\end{remark}
 
 At Iwahori level, therefore, the linear and genuine Hecke algebras do
 not even have the same supports when $n\geq 3$. This is in contrast
@@ -1961,8 +2136,20 @@ Example~\ref{ex:trace}). In the running example with $n=3$ this
 happens at every level $k\geq 1$.
 \item At Iwahori level with $p\nmid n$, the double coset $Bt_0^mB$
 carries a genuine function only if $n\mid 2m$
-(Proposition~\ref{prop:level0}), in line with Savin's theorem.
+(Proposition~\ref{prop:level0}), in line with Savin's theorem. At deep
+level the same translations carry genuine functions, but these have
+trace zero in every admissible genuine representation
+(Proposition~\ref{prop:traceless}).
 \end{enumerate}
+
+\noindent
+In short, the comparison with $SL(2)$ is correct for supports, for
+volumes, for each relation separately and for everything supported on
+$SL(2,\cO)$. It fails when the relations are combined. For $n=2$ the
+failure is global and is the non-splitting of the cover. For $n\geq 3$
+it is local, and it is concentrated on the translations $t_0^m$ with
+$n\nmid 2m$, which are the ones that Savin's theorem removes
+(Table~\ref{tab:howfar}).
 
 \subsection*{Open questions}
 Question~\ref{q:defining} asks whether the relations of
@@ -2135,7 +2322,7 @@ orientation. Claude
 point, drafted the corrected statements and the new proofs, revised the
 paper to the authors' house style, checked bibliographic data, and
 prepared the revision log. Two Claude models were used, Claude Fable
-5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~4. AI review is not an
+5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~5. AI review is not an
 independent certification of the results, and the new arguments have
 not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.

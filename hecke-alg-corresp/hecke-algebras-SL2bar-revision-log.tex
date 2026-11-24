@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 4, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 5, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -23,21 +23,21 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 4}
+cover $\overline{SL_2}$'', Draft 5}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~4 of the paper (file
+This log accompanies Draft~5 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~4 of the paper. Draft~4
-is renumbered. Section~\ref{sec:conc34} gives the correspondence with
-Draft~3, whose numbering is the same as that of Draft~2.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~5 of the paper.
+Section~\ref{sec:conc34} gives the correspondence with the numbering of
+Drafts~2 to~4.
 
 \section{Drafts}
 
@@ -63,12 +63,17 @@ parts at David Joyner's request: Part~I for $n=2$ along the lines of
 [Jo98], Part~II for $n\geq 3$. New results for $n=2$ and a new
 non-existence theorem for every $n\geq 2$. Changes requested by David
 Joyner to Sections~6.3, 8 and~9 of Draft~3.
+\item[Draft 5] (November 24, 2026). Same file. At David Joyner's
+request, the paper now states its motivation and explains why the
+comparison with $SL(2)$ fails and how far off it is. New:
+Table~\ref{P-tab:howfar}, Proposition~\ref{P-prop:traceless} and three
+remarks.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--4 here were made from
+\texttt{metaplectic-jl}. Drafts~1--5 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -92,8 +97,8 @@ Section~\ref{sec:d1d2}), wrote the literature review, background
 examples, notation table, summary and glossary, checked bibliographic
 data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
-It produced Draft~4 as well, including the new results of
-Section~\ref{P-section:n2}.
+It produced Drafts~4 and~5 as well, including the new results of
+Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}.
 \item \textbf{Carbon} also supplied a written summary of [Sa88] for
 Draft~4. It was used only for orientation (Section~\ref{sec:sources}).
 \item \textbf{David Joyner} chose the route of an honest corrected
@@ -138,6 +143,7 @@ Questions~\ref{P-q:defining}, \ref{P-q:n2}, \ref{P-q:savin},
 \ref{P-q:reps}. New in Draft~4: Lemma~\ref{P-lemma:nonsplit},
 Proposition~\ref{P-prop:Ksub}, Lemma~\ref{P-lemma:signs},
 Theorem~\ref{P-thm:unimodular} and Corollary~\ref{P-cor:unimodular}.
+New in Draft~5: Proposition~\ref{P-prop:traceless}.
 
 \section{Changes of status}
 
@@ -370,14 +376,18 @@ whether it has since been published.
 it. No change.
 \end{enumerate}
 
-\section{Concordance from Draft 3 to Draft 4}
+\section{Concordance from Draft 3 to Draft 5}
 \label{sec:conc34}
 
-Numbers not listed are unchanged.
+Numbers not listed are unchanged. Draft~4 differs from Draft~5 only
+in Example~8.8 (now Example~\ref{P-ex:unimodular}), Theorem~11.3 (now
+Theorem~\ref{P-thm:savin}) and Remark~11.4 (now
+Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~5
+numbers.
 
 \begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
 \toprule
-{Draft 3} & Draft 4 \\
+{Draft 3} & Draft 5 \\
 \midrule
 \endhead
 Lemma 3.5 & Lemma~\ref{P-lemma:subgroups} \\
@@ -402,6 +412,56 @@ Questions 10.1--10.3 & Questions~\ref{P-q:n2}, \ref{P-q:savin},
 \ref{P-q:reps} \\
 \bottomrule
 \end{longtable}
+
+\section{Response to David Joyner's comments on Draft 4}
+
+David Joyner asked that the paper state its motivation. The genuine
+theory of the cover was known to resemble that of $PGL(2)$, or more
+generally of $G/Z_n$, rather than that of $SL(2)$. The 1998 paper
+asserted a correspondence with $SL(2)$ at the level of Hecke algebras,
+and the question is why that fails and how far off it is. He asked for
+this to be explained in the introduction and in other places.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item The introduction has a new subsection ``Motivation'', which
+states the 1998 assertion and that it is false, and a new subsection
+``How far off is the comparison with $SL(2)$?'' with
+Table~\ref{P-tab:howfar}.
+\item Remark~\ref{P-rem:twist} describes the genuine algebra as the
+linear one twisted by Kubota's cocycle, seen through double cosets.
+\item Remark~\ref{P-rem:n2where} explains where the obstruction lives
+for $n=2$.
+\item Proposition~\ref{P-prop:traceless} is new. For $n\nmid 2m$ the
+Hecke operators attached to $t_0^m$ have trace zero in every admissible
+genuine representation. It generalizes Example~\ref{P-ex:trace}
+(level~1).
+\item Remark~\ref{P-rem:samelattice} relates this to the supports at
+Iwahori level and to Savin's theorem. The translations $t_0^m$ with
+$n\nmid 2m$ are missing at Iwahori level and traceless at deep level.
+\item The abstract and the summary are updated accordingly.
+\end{enumerate}
+
+\noindent
+Three statements were checked and weakened before release. The table
+entry for Iwahori-level supports when $n=2$ says only that no
+translation is excluded, because the paper proves a necessary condition
+for support, not a sufficient one. For the same reason the abstract and
+Remark~\ref{P-rem:samelattice} do not claim that every $t_0^m$ with
+$n\mid 2m$ is seen by traces. In Remark~\ref{P-rem:n2where}, the element
+$w(\varpi)$ is $-t_0s_1$, not $t_0s_1$.
+
+\section{Changes from Draft 4 to Draft 5}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item New subsections ``Motivation'' and ``How far off is the
+comparison with $SL(2)$?'' in the introduction, with
+Table~\ref{P-tab:howfar}.
+\item New Remarks~\ref{P-rem:twist}, \ref{P-rem:n2where} and
+\ref{P-rem:samelattice}, new Proposition~\ref{P-prop:traceless} with a
+following remark.
+\item The abstract and the summary of results are extended.
+\item Numbering changes are listed in Section~\ref{sec:conc34}.
+\end{enumerate}
 
 \section{Response to David Joyner's comments on Draft 3}
 
@@ -573,6 +633,11 @@ original title (guide 6.2).
 6.1), because it is false for $n\geq 3$. This was David Joyner's
 decision.
 \item The paper is divided into two parts, at David Joyner's request.
+\item The introduction states that the main assertion of [Jo98] is
+false. The style guide asks for revision history to stay in the log
+(guide 6.4). This sentence is kept in the body at David Joyner's
+request, because explaining that failure is the purpose of the
+revision.
 \item One harmless underfull vertical box remains. There are no
 overfull boxes and no undefined references.
 \end{itemize}
