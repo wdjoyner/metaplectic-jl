@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 3 (November 2026). Corrected and expanded version of
+%% Draft 4 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -68,7 +68,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 3. Corrected and expanded version}}
+{\normalsize Draft 4. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -93,21 +93,23 @@ This corrected and expanded version was prepared with substantial help
 from AI systems, as described in the Acknowledgments.
 Let $G=SL(2,F)$, where $F$ is a $p$-adic field containing the $n$-th
 roots of unity. Let $\Gbar$ be the $n$-fold metaplectic cover of $G$,
-and let $B_k$ be the $k$-th filtration subgroup of an Iwahori subgroup
-$B$. For $k$ sufficiently large (for every $k\geq 1$ when $p\nmid n$)
-we show that $B_k$ has a canonical lift $B_k^*$ to $\Gbar$. Every
-double coset $B_kgB_k$ then carries a genuine bi-$B_k^*$-invariant
-function $\fbar_{\tilde g}$. These functions multiply exactly as the
-characteristic functions $f_g$ in $\Hlin$ do whenever the volumes of
-the double cosets multiply. Each basic relation among the $f_g$ has an
-analog for the $\fbar_{\tilde g}$, with group elements replaced by
-suitable lifts. For $n\geq 3$, however, the lifts cannot be chosen
-consistently. The functions $\fbar_{\tilde t_0}$ and
-$\fbar_{\tilde h(u)}$ commute only up to the factor
-$(u,\varpi)_n^{2}$. Consequently no algebra homomorphism from $\Hlin$
-to the genuine Hecke algebra sends each $f_g$ to a non-zero function
-supported over $B_kgB_k$. We also describe the relations in $\Hlin$
-and compare with Savin's theorem at Iwahori level.
+and let $B_k$ be the $k$-th filtration subgroup of an Iwahori subgroup.
+For $k$ sufficiently large (for every $k\geq 1$ when $p\nmid n$), $B_k$
+has a canonical lift $B_k^*$ to $\Gbar$, and every double coset
+$B_kgB_k$ carries a genuine bi-$B_k^*$-invariant function
+$\fbar_{\tilde g}$. Part~I follows the approach of the original paper.
+The relations among the characteristic functions $f_g$ in $\Hlin$
+transfer to the $\fbar_{\tilde g}$ with suitably chosen lifts, and when
+$p\nmid n$ the part of the algebra supported on $SL(2,\cO)$ transfers
+exactly. For the classical case $n=2$ we compute the remaining signs
+explicitly. We then show, for every $n\geq 2$, that no algebra
+homomorphism sends each $f_g$ to a multiple of $\fbar_{\tilde g}$ by a
+constant of absolute value one. The proof rests on the fact that the
+cover does not split. Part~II treats $n\geq 3$, where the obstruction
+is local. Lifts of $t_0=h(\varpi)$ and of $h(u)$ commute only up to
+$(u,\varpi)_n^{2}$, so no support-preserving homomorphism exists for
+any choice of constants, and the expected trace identities fail. We
+also compare with Savin's theorem at Iwahori level.
 \end{abstract}
 
 \maketitle
@@ -161,8 +163,10 @@ The level $k$ is called \emph{deep} if $k\geq 1$ and $p\nmid n$, or if
 $k$ exceeds an explicit bound $j_1$ in general
 (Definition~\ref{def:deep}). Throughout, $t_0=h(\varpi)$ is the
 diagonal matrix with entries $\varpi,\varpi^{-1}$, and $h(u)$ is the
-diagonal matrix with entries $u,u^{-1}$. For deep $k$ we prove the
-following.
+diagonal matrix with entries $u,u^{-1}$.
+
+Part~I (Sections~\ref{section:sl2}--\ref{section:n2}) follows the
+approach of the original paper. For deep $k$ we prove the following.
 \begin{enumerate}[leftmargin=2em]
 \item $B_k$ has a canonical lift $B_k^*$ to $\Gbar$, compatible with
 conjugation by all of $\Gbar$ (Lemma~\ref{lemma:canonical}).
@@ -180,25 +184,44 @@ $\{s_1,s_2\}\cup B$, which satisfy the relations of
 Proposition~\ref{prop:main}. Each of these relations holds in $\Hgen$
 for the $\fbar_{\tilde g}$, with lifts chosen to suit that relation
 (Proposition~\ref{prop:main2}).
-\item For every unit $u$ and every choice of lifts,
-$\fbar_{\tilde t_0}*\fbar_{\tilde h(u)}=(u,\varpi)_n^{-2}\,
-\fbar_{\tilde h(u)}*\fbar_{\tilde t_0}$, while $f_{t_0}$ and
-$f_{h(u)}$ commute (Theorem~\ref{thrm:main}).
+\item If $p\nmid n$, the part of $\Hlin$ supported on $K=SL(2,\cO)$
+transfers to $\Hgen$ exactly (Proposition~\ref{prop:Ksub}).
+\item For $n=2$ and $p$ odd, lifts of $t_0$ commute with lifts of the
+diagonal units, every lift of $-1$ has order~$2$, and the relation
+between $t_0$ and $s_1$ acquires the explicit sign $(-1,\varpi)_2$
+(Lemma~\ref{lemma:signs}).
+\item For every $n\geq 2$, no algebra homomorphism $\Hlin\to\Hgen$
+sends each $f_g$ to $c_g\fbar_{\tilde g}$ with $|c_g|=1$
+(Theorem~\ref{thm:unimodular}). The reason is that the cover does not
+split (Lemma~\ref{lemma:nonsplit}).
 \end{enumerate}
 
 \noindent
-\textbf{The restriction $n\geq 3$.} The factor $(u,\varpi)_n^{2}$ is
-trivial for all units $u$ exactly when $n\leq 2$. Hence, for
-$n\geq 3$, the answer to the question above is negative at every deep
-level (Corollary~\ref{corollary:main}). For $n=2$ the obstruction
-vanishes and the question remains open (Question~\ref{q:n2}).
-
-At Iwahori level ($k=0$, $p\nmid n$) the double coset $Bt_0^mB$
+Part~II (Sections~\ref{section:torus}--\ref{section:savin}) treats
+$n\geq 3$.
+\begin{enumerate}[leftmargin=2em,resume]
+\item For every unit $u$ and every choice of lifts,
+$\fbar_{\tilde t_0}*\fbar_{\tilde h(u)}=(u,\varpi)_n^{-2}\,
+\fbar_{\tilde h(u)}*\fbar_{\tilde t_0}$, while $f_{t_0}$ and
+$f_{h(u)}$ commute (Theorem~\ref{thrm:main}). So no support-preserving
+homomorphism exists, whatever the constants
+(Corollary~\ref{corollary:main}), and the expected trace identities
+fail (Example~\ref{ex:trace}).
+\item At Iwahori level ($k=0$, $p\nmid n$) the double coset $Bt_0^mB$
 supports a non-zero genuine function only if $n$ divides $2m$
-(Proposition~\ref{prop:level0}). This agrees with Savin's theorem
-\cite{Sa88}, by which the genuine Iwahori--Hecke algebra of $\Gbar$ is
-isomorphic to the Iwahori--Hecke algebra of $SL(2,F)$ for odd $n$ and
-of $PGL(2,F)$ for even $n$.
+(Proposition~\ref{prop:level0}). This is consistent with Savin's
+theorem \cite{Sa88}.
+\end{enumerate}
+
+\noindent
+\textbf{The cases $n=2$ and $n\geq 3$.} For $n=2$ the failure is
+global. Each relation that we compute can be matched on its own, and
+the contradiction comes from the fact that the cover does not split.
+The argument needs constants of absolute value one, as in the map
+$f_g\mapsto\fbar_{\tilde g}$. Whether a homomorphism with other
+constants exists for $n=2$ is open (Question~\ref{q:n2}). For
+$n\geq 3$ the failure is local. It is already visible in a single
+commutation relation, and it holds for arbitrary constants.
 
 \subsection*{Status of results}
 A statement with a proof in this paper is proved here. A statement
@@ -207,18 +230,25 @@ Statements that we could not verify against their sources are flagged
 in remarks numbered ``Remark~2026.$m$''. Questions are open.
 
 \subsection*{Running example}
-Our running example is $F=\mathbb{Q}_7$ and $n=3$. Here $\mu_3\subset
-\mathbb{Q}_7$ because $3$ divides $7-1$, and $p=7$ does not divide
-$n$, so every level $k\geq 1$ is deep.
+Our running example is $F=\mathbb{Q}_7$, with $n=2$ in Part~I and $n=3$
+in Part~II. Since $6$ divides $7-1$, the field $\mathbb{Q}_7$ contains
+$\mu_6$, so both covers are defined. Since $p=7$ divides neither $n$,
+every level $k\geq 1$ is deep.
 
 \subsection*{Organization}
 Section~\ref{section:lit} reviews the literature.
 Section~\ref{section:background} collects background on the Hilbert
 symbol, the cover, the relevant subgroups and Hecke algebras.
-Section~\ref{section:notation} lists the notation.
+Section~\ref{section:notation} lists the notation. Part~I consists of
+Sections~\ref{section:sl2}--\ref{section:n2}.
 Section~\ref{section:sl2} treats $\Hlin$. Section~\ref{section:genuine}
-constructs the genuine basis. Section~\ref{section:metaplectic} gives
-the genuine relations and the obstruction.
+constructs the genuine basis, and Section~\ref{section:metaplectic}
+transfers the relations. These three sections hold for every $n$.
+Section~\ref{section:n2} specializes to $n=2$ and proves the
+non-existence result for constants of absolute value one, which holds
+for every $n\geq 2$. Part~II consists of
+Sections~\ref{section:torus}--\ref{section:savin}.
+Section~\ref{section:torus} gives the torus obstruction for $n\geq 3$.
 Section~\ref{section:reps} relates the algebras to representations.
 Section~\ref{section:savin} treats Iwahori level.
 Section~\ref{section:summary} summarizes the results and lists open
@@ -261,7 +291,8 @@ filtration subgroups of an Iwahori subgroup of $GL(n)$ by generators
 and relations. Our Section~\ref{section:sl2} adapts their method to
 $SL(2)$.
 
-Savin \cite{Sa88} proved that for the $n$-fold cover of a
+As described in \cite{Ka21}, Savin \cite{Sa88} proved that for the
+$n$-fold cover of a
 simply-laced, simply connected split group with $\gcd(n,p)=1$, the
 genuine Iwahori--Hecke algebra is isomorphic to the Iwahori--Hecke
 algebra of the linear group $G/Z_n$, where $Z_n$ is the $n$-torsion of
@@ -303,9 +334,10 @@ The cited works on Hecke algebra correspondences match a genuine
 Hecke algebra with the Hecke algebra of a \emph{different} linear
 group, such as $G/Z_n$, an odd orthogonal group, or an endoscopic
 group. Our results show that at positive level the comparison with $G$
-itself, by a support-preserving map, fails for $n\geq 3$. The cause is
-the non-commutativity of the inverse image of the diagonal torus in
-$\Gbar$. This is consistent with the rescaling of translations in
+itself, by a support-preserving map, fails. For every $n\geq 2$ it
+fails for maps with constants of absolute value one, because the cover
+does not split. For $n\geq 3$ it fails for all constants, because the
+inverse image of the diagonal torus in $\Gbar$ is not commutative. This is consistent with the rescaling of translations in
 Savin's theorem and with Wang's counterexample.
 
 %======================================================================
@@ -318,6 +350,10 @@ algebras. Each subsection ends with an example from the running
 example $F=\mathbb{Q}_7$, $n=3$.
 
 \subsection{The Hilbert symbol}
+This subsection recalls the Hilbert symbol, the arithmetic input to the
+cover. The fact we use most is that its values on pairs consisting of a
+unit and the uniformizer fill out $\mu_n$ (Lemma~\ref{lemma:hilbert}).
+
 The $n$-th power Hilbert symbol is a pairing
 $(\ ,\ )_n:F^\times\times F^\times\to\mu_n$ from local class field
 theory. We use the following standard properties.
@@ -359,11 +395,17 @@ odd this is the Legendre symbol of $\bar u$. In the running example
 $F=\mathbb{Q}_7$, $n=3$, the cube roots of unity modulo $7$ are
 $1,2,4$, and $(u,7)_3$ corresponds to $\bar u^{\pm 2}$. For $u=3$ we get
 $3^2=9\equiv 2$, so $(3,7)_3$ and $(3,7)_3^2$ are primitive cube roots
-of unity.
+of unity. For $n=2$ the squares modulo $7$ are $1,2,4$. So $3$ and $-1$
+are not squares modulo $7$, and $(3,7)_2=(-1,7)_2=-1$.
 \end{example}
 
 \subsection{The metaplectic cover}
 \label{subsec:cover}
+This subsection defines Kubota's cover and computes it on the diagonal
+torus and on the unipotent subgroups. The main facts are that the
+inverse image of the torus is not commutative when $n\geq 3$, and that
+the cover does not split over $G$ for any $n\geq 2$.
+
 For $g=\mat abcd\in G$ put $x(g)=c$ if $c\neq 0$ and $x(g)=d$
 otherwise. Kubota's cocycle is
 \[
@@ -388,7 +430,9 @@ $\pr\circ s=\mathrm{id}_H$.
 $\beta$ is a $2$-cocycle, and its restriction to some open subgroup of
 $G$ is a coboundary. So $\Gbar$ is a locally compact totally
 disconnected group, and $\pr$ is a covering that splits over some open
-subgroup of $G$. We rely on this throughout. The formula for $\beta$
+subgroup of $G$. We rely on this throughout. Kubota also shows that when
+$p\nmid n$ the cover splits over $K=SL(2,\cO)$. We use this only in
+Proposition~\ref{prop:Ksub}. The formula for $\beta$
 can be rewritten with (H1)--(H3) as
 $(x(g_1),x(g_2))_n\,(-x(g_1)^{-1}x(g_2),x(g_1g_2))_n$.
 \end{vremark}
@@ -455,8 +499,59 @@ $\overline{T}$ is not abelian. This elementary fact is the source of
 Theorem~\ref{thrm:main}.
 \end{example}
 
+For $n=2$ the torus gives no obstruction. The next lemma shows that the
+cover is nevertheless not split. For $x\in F^\times$ put
+\[
+w(x)=u_+(x)\,u_-(-x^{-1})\,u_+(x)=\mat 0x{-x^{-1}}0 .
+\]
+Then $w(-1)=s_1$ and $w(a)w(-1)=h(a)$ for $a\in F^\times$.
+
+\begin{lemma}
+\label{lemma:nonsplit}
+Let $n\geq 2$. The cover $\Gbar\to G$ does not split, even as a
+homomorphism of abstract groups. More precisely, if $s:G\to\Gbar$ were
+a splitting, then $s(h(a))\,s(h(b))=(b,a)_n\,s(h(ab))$ for all
+$a,b\in F^\times$.
+\end{lemma}
+
+\begin{proof}
+Suppose that $s$ is a splitting. By Lemma~\ref{lemma:cover}(b), $s$
+agrees with $u\mapsto(u,1)$ on $U^+$ and on $U^-$. We compute two
+values of $\beta$. First, $u_+(x)u_-(y)=\mat{1+xy}xy1$, so
+$\beta(u_+(x),u_-(y))=(y,1)_n=1$ for $y\neq 0$. Second, put
+$g=u_+(x)u_-(-x^{-1})=\mat 0x{-x^{-1}}1$. Then $x(g)=-x^{-1}$,
+$x(u_+(x))=1$ and $x(gu_+(x))=x(w(x))=-x^{-1}$, so
+$\beta(g,u_+(x))=(1,-x^{-1})_n=1$. Hence $s(w(x))=(w(x),1)$. Next,
+$x(w(a))=-a^{-1}$, $x(w(-1))=1$ and $x(h(a))=a^{-1}$, so
+\[
+s(h(a))=(w(a),1)(w(-1),1)=\bigl(h(a),(-1,a^{-1})_n\bigr).
+\]
+By Lemma~\ref{lemma:cover}(a), $\beta(h(a),h(b))=(b,a)_n$, so
+\[
+s(h(a))\,s(h(b))=\bigl(h(ab),(b,a)_n(-1,a^{-1})_n(-1,b^{-1})_n\bigr)
+=(b,a)_n\,s(h(ab)).
+\]
+Since $s$ is a homomorphism, $(b,a)_n=1$ for all $a,b$. This
+contradicts Lemma~\ref{lemma:hilbert}, which gives a unit $u$ with
+$(u,\varpi)_n\neq 1$.
+\end{proof}
+
+\begin{example}
+\label{ex:nonsplit}
+In the running example with $n=2$, take $a=7$ and $b=3$. A splitting
+would satisfy $s(h(7))s(h(3))=(3,7)_2\,s(h(21))=-s(h(21))$, by
+Example~\ref{ex:hilbert}. So the cover of $SL(2,\mathbb{Q}_7)$ of
+degree~$2$ does not split, although its torus $\overline{T}$ is
+abelian.
+\end{example}
+
 \subsection{Subgroups}
 \label{subsec:subgroups}
+This subsection introduces the Iwahori subgroup $B$, its filtration
+subgroups $B_k$ and the principal congruence subgroups $\Gamma_k$, and
+it computes the volumes of the double cosets $B_kwB_k$. These volumes
+decide when Hecke functions multiply without extra terms.
+
 Let
 \[
 s_1=\mat 0{-1}10,\quad
@@ -588,6 +683,9 @@ $B_1t_0s_1B_1$ has volume $343$ times $\vol(B_1)$.
 \end{example}
 
 \subsection{Generalized Hecke algebras}
+This subsection recalls generalized Hecke algebras and the basic rule
+for multiplying characteristic functions of double cosets. Everything
+here holds for any locally profinite unimodular group.
 
 \begin{definition}
 \label{def:1}
@@ -681,6 +779,9 @@ $\cH(G/\!/B_k)$ & generalized Hecke algebra of $G$ with respect to
 $B_k$ \\
 $\cP$, $\sigma$ & small subgroups with canonical lifts, the canonical
 lift (Lemma~\ref{lemma:canonical}) \\
+$s$ & a splitting of an open compact subgroup, for example of $K$ when
+$p\nmid n$ \\
+$w(x)$ & the element $u_+(x)u_-(-x^{-1})u_+(x)$ of $G$ \\
 $B_k^*$, $K_0^*$ & lifts of $B_k$, $K_0$ to subgroups of $\Gbar$ \\
 $\cH(\Gbar/\!/K_0^*)_{\gen}$ & genuine generalized Hecke algebra \\
 $\fbar_{\tilde g}$ & genuine bi-$K_0^*$-invariant function with value
@@ -697,6 +798,12 @@ cube root of unity congruent to $2$ modulo $7$.
 \end{example}
 
 %======================================================================
+\part{The case \texorpdfstring{$n=2$}{n=2}}
+
+Part~I follows the approach of the original paper. Its first three
+sections hold for every $n$, and Part~II uses them.
+Section~\ref{section:n2} then specializes to $n=2$.
+
 \section{The structure of \texorpdfstring{$\cH(G/\!/B_k)$}{H(G//Bk)}}
 \label{section:sl2}
 
@@ -883,6 +990,11 @@ function only if a commutation condition holds. At deep level both
 issues are resolved.
 
 \subsection{Canonical splittings}
+This subsection shows that sufficiently small open subgroups of $G$
+have a distinguished lift to $\Gbar$, compatible with conjugation by
+every element of $\Gbar$. These lifts make all later constructions
+independent of the choice of cocycle.
+
 Let $e$ be the ramification index of $F$ over $\mathbb{Q}_p$, and
 $\ord$ the normalized valuation of $F$. For $j>e/(p-1)$ the
 exponential series converges on $\varpi^jM_2(\cO)$ and defines a
@@ -995,6 +1107,10 @@ statement holds. In the running example $u=3$ is such a unit.
 \end{example}
 
 \subsection{Genuine Hecke algebras}
+This subsection defines the genuine Hecke algebra of a lifted open
+compact subgroup. It identifies the double cosets that carry genuine
+functions and proves the genuine analog of the multiplication rule of
+Lemma~\ref{lemma:general}(d).
 
 A function $f$ on $\Gbar$ is called \textbf{genuine} if
 $f(\zeta\tilde x)=\zeta f(\tilde x)$ for all $\tilde x\in\Gbar$ and
@@ -1148,6 +1264,14 @@ lifts $\tilde g$ and not with the elements $(g,1)$.
 \end{remark}
 
 \subsection{Deep level}
+This subsection specializes to $K_0=B_k$ at deep level. There the
+canonical lift makes every element of $G$ admissible, so every double
+coset of $B_k$ carries a genuine function, unique up to a root of
+unity. The result is a basis of the genuine Hecke algebra indexed in
+the same way as the basis of $\Hlin$, and a linear isomorphism between
+the two algebras that preserves supports.
+Sections~\ref{section:n2} and \ref{section:torus} ask whether this map
+can be made multiplicative.
 
 \begin{proposition}
 \label{prop:admissible}
@@ -1182,8 +1306,10 @@ with values in $\{0\}\cup\mu_3$.
 \label{section:metaplectic}
 
 This section transfers the relations of Proposition~\ref{prop:main} to
-the genuine algebra and shows that the transfer cannot be made
-consistent when $n\geq 3$. Throughout, $k$ is deep,
+the genuine algebra, for every $n$. Each relation holds after the
+elements of $G$ are replaced by suitable lifts.
+Sections~\ref{section:n2} and \ref{section:torus} ask whether one
+choice of lifts works for all relations at once. Throughout, $k$ is deep,
 $B_k^*=\sigma(B_k)$ and $\vol(B_k)=1$. For $x$ in $\Gamma_k$ or in
 $t\Gamma_kt^{-1}$ we use the canonical lift $\sigma(x)$. Other elements
 receive arbitrary lifts, denoted by a tilde. Recall that $\tilde
@@ -1314,10 +1440,233 @@ root of unity depends on the lifts and can be computed from $\beta$.
 We do not need it.
 \end{remark}
 
-Every relation of Proposition~\ref{prop:main} thus holds in $\Hgen$
-after the elements of $G$ are replaced by lifts adapted to that
-relation. The next theorem shows that the lifts cannot be chosen once
-and for all.
+
+
+%======================================================================
+\section{The classical case \texorpdfstring{$n=2$}{n=2}}
+\label{section:n2}
+
+This section treats the classical metaplectic group, $n=2$, with $p$
+odd. It first shows that everything supported on the maximal compact
+subgroup $K=SL(2,\cO)$ transfers to the cover without change. It then
+computes, from Kubota's cocycle, the signs that appear in the remaining
+relations. Finally it shows that no support-preserving map with
+constants of absolute value one is an algebra homomorphism. The first
+and last results hold more generally, and we state them in their
+natural generality.
+
+\subsection{The subalgebra supported on \texorpdfstring{$K$}{K}}
+This subsection shows that the part of the Hecke algebra supported on
+$K$ behaves exactly as in the linear case. The reason is that the cover
+splits over $K$ when $p\nmid n$.
+
+\begin{proposition}
+\label{prop:Ksub}
+Assume $p\nmid n$ and $k\geq 1$, and let $s$ be a splitting of $K$
+(Remark~\ref{vrem:kubota}). Then $s$ agrees with the canonical lift
+$\sigma$ on $B_k$. For a function $f$ on $G$ supported on $K$, let
+$\fbar$ be the genuine function supported on $\overline{K}$ with
+$\fbar(\zeta s(x))=\zeta f(x)$ for $x\in K$ and $\zeta\in\mu_n$. Then
+$f\mapsto\fbar$ is an isomorphism of algebras from the subalgebra of
+$\Hlin$ of functions supported on $K$ onto the subalgebra of $\Hgen$ of
+functions supported on $\overline{K}$. It sends $f_g$ to
+$\fbar_{s(g)}$ for $g\in K$.
+\end{proposition}
+
+\begin{proof}
+The restriction of $s$ to the pro-$p$ group $B_k$ is a splitting, so it
+equals $\sigma$ by Lemma~\ref{lemma:canonical}(d). The group
+$\overline{K}$ is the direct product of $\mu_n$ and $s(K)$. So a
+genuine function supported on $\overline{K}$ is determined by its
+composite with $s$, which is a function on $K$. It is
+bi-$B_k^*$-invariant exactly when the composite is
+bi-$B_k$-invariant, because $B_k^*=s(B_k)$. Let $\phi_1$ and $\phi_2$
+be genuine functions supported on $\overline{K}$. Their convolution is
+supported on $\overline{K}$. For $y\in K$ the integrand
+$\phi_1(\tilde x)\phi_2(\tilde x^{-1}s(y))$ vanishes unless $x\in K$,
+and for $x\in K$ we may take $\tilde x=s(x)$. Since
+$s(x)^{-1}s(y)=s(x^{-1}y)$, we get
+\[
+(\phi_1*\phi_2)(s(y))=\int_K(\phi_1\circ s)(x)\,(\phi_2\circ
+s)(x^{-1}y)\,dx=\bigl((\phi_1\circ s)*(\phi_2\circ s)\bigr)(y).
+\]
+So $\phi\mapsto\phi\circ s$ is an algebra isomorphism, and its inverse
+is $f\mapsto\fbar$. The image of $f_g$ takes the value $1$ at $s(g)$,
+so it equals $\fbar_{s(g)}$.
+\end{proof}
+
+\begin{example}
+\label{ex:Ksub}
+Proposition~\ref{prop:Ksub} applies to the running example for both
+$n=2$ and $n=3$, because $7$ divides neither. All relations of
+Proposition~\ref{prop:main} among elements of $K$ hold for the
+$\fbar_{s(g)}$ without any sign. For instance relation A(i) becomes
+$\fbar_{s(s_1)}*\fbar_{s(s_1)}=q\sum_x\fbar_{s(-u_-(x))}$, and relation
+C(ii) becomes $\fbar_{s(s_1)}*\fbar_{s(u_+(x))}*\fbar_{s(s_1)}
+=q\,\fbar_{s(-u_-(-x))}$ for $x\in\cO^\times$.
+\end{example}
+
+\subsection{Explicit signs for \texorpdfstring{$n=2$}{n=2}}
+This subsection computes, for $n=2$, the signs that appear when the
+relations involving $t_0$ are transferred. These relations leave $K$,
+so Proposition~\ref{prop:Ksub} does not apply to them.
+
+\begin{lemma}
+\label{lemma:signs}
+Let $n=2$ and $p$ odd. Let $\tilde t_0$ be a lift of $t_0$, and let
+$\tilde t_0^{-1}$ denote its inverse in $\Gbar$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item Every lift of $-1$ has square $(-1,-1)_2=1$.
+\item $\tilde t_0$ commutes with every lift of $h(u)$, for
+$u\in\cO^\times$.
+\item For every lift $\tilde s_1$ of $s_1$,
+$\tilde s_1\tilde t_0^{-1}\tilde s_1^{-1}=(-1,\varpi)_2\,\tilde t_0$,
+and $(-1,\varpi)_2=(-1)^{(q-1)/2}$.
+\end{enumerate}
+None of these signs depends on the choice of lifts.
+\end{lemma}
+
+\begin{proof}
+(a) We have $x(-1)=-1$ and $x(1)=1$, so
+$(-1,\zeta)^2=(1,\beta(-1,-1)\zeta^2)=(1,(-1,-1)_2)$. Since $p$ is odd,
+$-1$ is a unit, and $(-1,-1)_2=1$ by (H5).
+
+(b) By Lemma~\ref{lemma:cover}(a), the commutator is
+$(u,\varpi)_2^2=1$.
+
+(c) Changing $\tilde s_1$ by an element of $\mu_2$ does not change the
+conjugation. Changing $\tilde t_0$ to $\zeta\tilde t_0$ multiplies the
+left side by $\zeta^{-1}$ and the right side by $\zeta$, and
+$\zeta^{-2}=1$. So we may take $\tilde s_1=(s_1,1)$ and
+$\tilde t_0=(t_0,1)$. We compute the values of $\beta$ that occur.
+First, $\beta(s_1,s_1^{-1})=(1,-1)_2=1$, so $(s_1,1)^{-1}=(s_1^{-1},1)$.
+Next, for $v=\varpi^{-1}$ we have $s_1h(v)=\mat 0{-v^{-1}}v0$, so
+$\beta(s_1,h(v))=(v,v^2)_2=1$. Then $x(s_1h(v))=\varpi^{-1}$,
+$x(s_1^{-1})=-1$ and $x(t_0)=\varpi^{-1}$, so
+$\beta(s_1h(v),s_1^{-1})=(1,-\varpi^{-1})_2=1$. Hence
+$(s_1,1)(t_0^{-1},1)(s_1,1)^{-1}=(t_0,1)$. Finally
+$\beta(t_0,t_0^{-1})=(\varpi^{-1},\varpi)_2=(-1,\varpi)_2$, so
+$(t_0,1)^{-1}=(t_0^{-1},(-1,\varpi)_2)$. Combining these,
+$\tilde s_1\tilde t_0^{-1}\tilde s_1^{-1}=(-1,\varpi)_2\,(t_0,1)$. The
+symbol $(-1,\varpi)_2$ is the Legendre symbol of $-1$ modulo $\varpi$,
+which is $(-1)^{(q-1)/2}$.
+\end{proof}
+
+By Lemma~\ref{lemma:signs}(c), the constant $\varepsilon$ in relation
+($\overline{\mbox{A}}$)(ii) of Proposition~\ref{prop:main2} equals
+$(-1,\varpi)_2$ when the lift of $t_0^{-1}$ is the inverse of the lift
+of $t_0$. Thus
+\[
+\fbar_{\tilde t_0}*\fbar_{\tilde s_1}
+=(-1,\varpi)_2\ \fbar_{\tilde s_1}*\fbar_{\tilde t_0^{-1}} .
+\]
+This sign is not an obstruction by itself. Replacing the lift of
+$t_0^{-1}$ by its negative removes it.
+
+\begin{example}
+\label{ex:signs}
+In the running example $F=\mathbb{Q}_7$, $n=2$, we have $q=7\equiv 3$
+modulo $4$, so $(-1,7)_2=-1$ and
+$\fbar_{\tilde t_0}*\fbar_{\tilde s_1}
+=-\fbar_{\tilde s_1}*\fbar_{\tilde t_0^{-1}}$. On the other hand
+$\tilde t_0$ commutes with $\tilde h(3)$, in contrast with the case
+$n=3$ (Example~\ref{ex:q7}). Over $F=\mathbb{Q}_5$ the sign is $+1$.
+\end{example}
+
+\subsection{No homomorphism with constants of absolute value one}
+This subsection shows that, although no relation computed above is an
+obstruction for $n=2$, the support-preserving maps of
+Proposition~\ref{prop:admissible} are never algebra homomorphisms. The
+argument is global. It rests on Lemma~\ref{lemma:nonsplit}, and it
+works for every $n\geq 2$.
+
+\begin{theorem}
+\label{thm:unimodular}
+Let $n\geq 2$. Let $K_0$ be an open compact subgroup of $G$ with a
+splitting $s$, put $K_0^*=s(K_0)$, and assume that every element of $G$
+is $K_0^*$-admissible. Then there is no algebra homomorphism
+$\Psi:\cH(G/\!/K_0)\to\cH(\Gbar/\!/K_0^*)_{\gen}$ such that, for every
+$g\in G$, $\Psi(f_g)=c_g\fbar_{\tilde g}$ for some lift $\tilde g$ of
+$g$ and some complex number $c_g$ with $|c_g|=1$.
+\end{theorem}
+
+\begin{proof}
+Suppose that $\Psi$ exists. Define $\psi$ on $\Gbar$ by
+$\psi(\tilde y)=\Psi(f_y)(\tilde y)$. Then $\psi$ is genuine, $|\psi|=1$
+everywhere, and $\Psi(f_g)=\psi\cdot(f_g\circ\pr)$ for every $g$. Let
+$x,z\in G$ and $y=xz$. Let $S$ be the set of left cosets $x'K_0$ in
+$K_0xK_0$ with $x'^{-1}y\in K_0zK_0$. Then $|S|=(f_x*f_z)(y)$, and
+$S$ contains $xK_0$. Since $\vol(K_0)=1$,
+\[
+\bigl(\Psi(f_x)*\Psi(f_z)\bigr)(\tilde y)
+=\sum_{x'K_0\in S}\psi(\tilde x')\,\psi(\tilde x'^{-1}\tilde y).
+\]
+On the other hand $f_x*f_z$ is a combination of the $f_h$, and its
+coefficient at the double coset of $y$ is $|S|$, so
+$\Psi(f_x*f_z)(\tilde y)=|S|\,\psi(\tilde y)$. Every term of the sum
+has absolute value $1$, and the sum has absolute value $|S|$. So all
+terms are equal, and each equals $\psi(\tilde y)$. The term for
+$x'=x$ gives $\psi(\tilde x)\psi(\tilde z)=\psi(\tilde x\tilde z)$ for
+all lifts $\tilde x$ and $\tilde z=\tilde x^{-1}\tilde y$. Hence $\psi$
+is a homomorphism $\Gbar\to\C^\times$ with $\psi(\zeta)=\zeta$ for
+$\zeta\in\mu_n$. Let $N$ be its kernel. Then $N\cap\mu_n=1$. The
+quotient $\Gbar/\mu_nN$ is abelian and is a quotient of $G$, which is
+perfect, so $\mu_nN=\Gbar$ and $\pr$ maps $N$ isomorphically onto $G$.
+Its inverse is a splitting of $\Gbar\to G$, which contradicts
+Lemma~\ref{lemma:nonsplit}.
+\end{proof}
+
+\begin{corollary}
+\label{cor:unimodular}
+Let $n\geq 2$ and let $k$ be deep. For no choice of lifts $\tilde g$ and
+of constants $c_g$ of absolute value one is $f_g\mapsto
+c_g\fbar_{\tilde g}$ an algebra homomorphism from $\Hlin$ to $\Hgen$.
+In particular the map $\Phi$ of Proposition~\ref{prop:admissible} is
+never an algebra homomorphism, for any choice of lifts.
+\end{corollary}
+
+\begin{proof}
+By Proposition~\ref{prop:admissible} every element of $G$ is
+$B_k^*$-admissible. Apply Theorem~\ref{thm:unimodular} with $K_0=B_k$.
+\end{proof}
+
+\begin{remark}
+The constants that come from a choice of lifts lie in $\mu_n$, so they
+have absolute value one. The proof uses this hypothesis only to force
+the terms of a sum of roots of unity to be equal. For $n\geq 3$,
+Corollary~\ref{corollary:main} below removes the hypothesis. For $n=2$
+we do not know whether it can be removed (Question~\ref{q:n2}).
+\end{remark}
+
+\begin{example}
+\label{ex:unimodular}
+In the running example $F=\mathbb{Q}_7$, $n=2$, the contradiction in
+the proof of Theorem~\ref{thm:unimodular} comes from
+Example~\ref{ex:nonsplit}. A homomorphism $\psi$ as in the proof would
+give a splitting $s$ with $s(h(7))s(h(3))=-s(h(21))$.
+\end{example}
+
+%======================================================================
+\part{The case \texorpdfstring{$n\geq 3$}{n>=3}}
+
+Part~II shows that for $n\geq 3$ the comparison fails for a local
+reason, which no choice of constants can repair. It then relates the
+algebras to representations and treats Iwahori level.
+
+\section{The torus obstruction}
+\label{section:torus}
+
+This section shows that for $n\geq 3$ the commutator of lifts of $t_0$
+and of a diagonal unit is a non-trivial root of unity. This single
+relation already rules out every support-preserving homomorphism, with
+arbitrary non-zero constants. Throughout, $k$ is deep and the notation
+is that of Section~\ref{section:metaplectic}.
+
+By Proposition~\ref{prop:main2}, every relation of
+Proposition~\ref{prop:main} holds in $\Hgen$ after the elements of $G$
+are replaced by lifts adapted to that relation. For $n\geq 3$ the next
+theorem shows that the lifts cannot be chosen once and for all, whatever
+constants are allowed.
 
 \begin{theorem}
 \label{thrm:main}
@@ -1386,11 +1735,15 @@ expected to respect traces of representations.
 \section{Representation theory}
 \label{section:reps}
 
-This section records the general link between genuine Hecke algebras
-and genuine representations, and uses it to show that the trace
-identities one would hope for fail when $n\geq 3$. The link holds for
-any open compact subgroup $K_0$ of $G$ with a splitting $s$, and
-$K_0^*=s(K_0)$.
+This section explains how genuine Hecke algebras control genuine
+representations. A genuine representation with a non-zero
+$K_0^*$-fixed vector gives a module over the genuine Hecke algebra,
+and every simple module arises in this way from exactly one irreducible
+representation (Proposition~\ref{prop:borel}). We then show that for
+$n\geq 3$ the traces of the genuine Hecke functions cannot match the
+traces of the corresponding linear ones (Example~\ref{ex:trace}).
+Throughout, $K_0$ is an open compact subgroup of $G$ with a splitting
+$s$, and $K_0^*=s(K_0)$.
 
 A smooth representation $(\pi,V)$ of $\Gbar$ on which $\mu_n$ acts by
 the inverse of the fixed character $\mu_n\to\C^\times$ is called
@@ -1538,28 +1891,35 @@ not even have the same supports when $n\geq 3$. This is in contrast
 with Proposition~\ref{prop:admissible}, and it is consistent with the
 following theorem.
 
-\begin{theorem}[Savin {\cite{Sa88}}]
+\begin{theorem}[Savin {\cite{Sa88}}, as described in {\cite{Ka21}}]
 \label{thm:savin}
 Assume $\gcd(p,n)=1$. The genuine Iwahori--Hecke algebra of the
 $n$-fold cover $\Gbar$ of $G=SL(2,F)$ is isomorphic to the
-Iwahori--Hecke algebra of $G/Z_n$, where $Z_n$ is the $n$-torsion of the
-center of $SL_2$ and the quotient is taken as algebraic groups. The
-group of $F$-points of $G/Z_n$ is $SL(2,F)$ if $n$ is odd and
-$PGL(2,F)$ if $n$ is even.
+Iwahori--Hecke algebra of the split group $G/Z_n$, where $Z_n$ is the
+$n$-torsion of the center of $SL_2$.
 \end{theorem}
+
+\begin{remark}
+\label{rem:savin}
+The quotient $G/Z_n$ is taken as algebraic groups. Its group of
+$F$-points is $SL(2,F)$ if $n$ is odd and $PGL(2,F)$ if $n$ is even.
+\end{remark}
 
 \begin{vremark}
 \label{vrem:savin}
-\emph{Cited from secondary sources.} The statement of
-Theorem~\ref{thm:savin} follows the description of \cite{Sa88} in
-\cite{Ka21} and in the abstract of the arXiv version of \cite{Ka21}. We
-did not consult \cite{Sa88} itself. In particular, the precise
-hypotheses on $p$ and the normalization of the isomorphism should be
-checked there.
+\emph{Cited from secondary sources.} We have not consulted \cite{Sa88}.
+The statement of Theorem~\ref{thm:savin} follows \cite{Ka21}. An
+AI-written summary of \cite{Sa88} was also available to us. It agrees
+with \cite{Ka21} on the target group, and for $SL(2)$ it describes the
+translations that support genuine functions as the $t_0^m$ with
+$n\mid 2m$, as in Proposition~\ref{prop:level0}. Neither is a
+substitute for the source. The precise hypotheses and the
+normalization of the isomorphism should be checked in \cite{Sa88}.
 \end{vremark}
 
-Under Savin's isomorphism the translation part of the algebra is
-rescaled. By Proposition~\ref{prop:level0}, the isomorphism is
+In the description of \cite{Ka21}, Savin's isomorphism rescales the
+translation part of the algebra. By Proposition~\ref{prop:level0}, the
+isomorphism is
 therefore not of the form $f_g\mapsto\fbar_{\tilde g}$ when $n\geq 3$,
 even if $n$ is odd. By Proposition~\ref{prop:borel}(d) it induces a
 bijection between the irreducible genuine representations of $\Gbar$
@@ -1585,12 +1945,20 @@ up to a scalar (Example~\ref{ex:t0}).
 carries a genuine function, and $\Hlin$ and $\Hgen$ have
 support-compatible bases (Proposition~\ref{prop:admissible}).
 \item Every relation of Proposition~\ref{prop:main} transfers to
-$\Hgen$ for suitable lifts (Proposition~\ref{prop:main2}).
-\item For $n\geq 3$ the lifts cannot be chosen consistently, and no
-support-preserving algebra homomorphism exists
-(Theorem~\ref{thrm:main} and Corollary~\ref{corollary:main}). The trace
-identities fail accordingly (Example~\ref{ex:trace}). In the running
-example $F=\mathbb{Q}_7$, $n=3$, this happens at every level $k\geq 1$.
+$\Hgen$ for suitable lifts (Proposition~\ref{prop:main2}). When
+$p\nmid n$, the part supported on $SL(2,\cO)$ transfers exactly
+(Proposition~\ref{prop:Ksub}).
+\item For $n=2$ and $p$ odd the torus gives no obstruction, and the
+only sign in the relations involving $t_0$ and $s_1$ is $(-1,\varpi)_2$
+(Lemma~\ref{lemma:signs}). In the running example it is $-1$.
+\item For every $n\geq 2$, no support-preserving homomorphism with
+constants of absolute value one exists, because the cover does not
+split (Theorem~\ref{thm:unimodular} and Lemma~\ref{lemma:nonsplit}).
+\item For $n\geq 3$, no support-preserving homomorphism exists for any
+non-zero constants, and the trace identities fail
+(Theorem~\ref{thrm:main}, Corollary~\ref{corollary:main} and
+Example~\ref{ex:trace}). In the running example with $n=3$ this
+happens at every level $k\geq 1$.
 \item At Iwahori level with $p\nmid n$, the double coset $Bt_0^mB$
 carries a genuine function only if $n\mid 2m$
 (Proposition~\ref{prop:level0}), in line with Savin's theorem.
@@ -1603,17 +1971,13 @@ concern the genuine algebra.
 
 \begin{question}
 \label{q:n2}
-Let $n=2$, so that $\overline{T}$ is abelian and the obstruction of
-Theorem~\ref{thrm:main} vanishes. For deep $k$, is there an algebra
-isomorphism $\Psi:\Hlin\to\Hgen$ with $\Psi(f_g)=c_g\fbar_{\tilde g}$
-for every $g$ and some non-zero complex numbers $c_g$? A choice of lifts
-gives maps of this form with every $c_g$ in $\mu_2$. Arbitrary non-zero
-scalars give more room. For example, over $F=\mathbb{Q}_2$ every lift
-of $-1$ squares to $(-1,-1)_2=-1$, so
-$\fbar_{\widetilde{-1}}*\fbar_{\widetilde{-1}}=-\fbar_{(1,1)}$. The
-scalar $c_{-1}=i$ absorbs this sign, which no choice of lift can do. The
-situation at Iwahori level, where the genuine algebra is of $PGL(2)$
-type, suggests that the answer is negative. We have not proved this.
+Let $n=2$, $p$ odd and $k$ deep. Is there an algebra homomorphism
+$\Psi:\Hlin\to\Hgen$ with $\Psi(f_g)=c_g\fbar_{\tilde g}$ for every
+$g$, with non-zero constants $c_g$? By Theorem~\ref{thm:unimodular}
+such constants could not all have absolute value one. Is $\Hlin$
+isomorphic to $\Hgen$ as an abstract algebra? The situation at Iwahori
+level, where the genuine algebra is of $PGL(2)$ type, suggests that the
+answer to both questions is negative. We have not proved this.
 \end{question}
 
 \begin{question}
@@ -1764,13 +2128,14 @@ suggestions.
 
 AI systems contributed substantially to this version. Gemini (Google),
 referred to as ``Carbon'', acted as referee of \cite{Jo98}, identified
-that its main theorem could not hold as stated, and refereed Draft~2 of
-this revision. Claude
+that its main theorem could not hold as stated, refereed Draft~2 of this
+revision, and provided a summary of \cite{Sa88}, which we used only for
+orientation. Claude
 (Anthropic) is a co-author. Claude checked the referee report point by
 point, drafted the corrected statements and the new proofs, revised the
 paper to the authors' house style, checked bibliographic data, and
 prepared the revision log. Two Claude models were used, Claude Fable
-5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 and~3. AI review is not an
+5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~4. AI review is not an
 independent certification of the results, and the new arguments have
 not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.
