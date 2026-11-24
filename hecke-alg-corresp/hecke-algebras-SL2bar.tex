@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 12 (November 2026). Corrected and expanded version of
+%% Draft 13 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -70,7 +70,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 12. Corrected and expanded version}}
+{\normalsize Draft 13. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -240,8 +240,27 @@ between $t_0$ and $s_1$ acquires the explicit sign $(-1,\varpi)_2$
 (Lemma~\ref{lemma:signs}).
 \item For every $n\geq 2$, no algebra homomorphism $\Hlin\to\Hgen$
 sends each $f_g$ to $c_g\fbar_{\tilde g}$ with $|c_g|=1$
-(Theorem~\ref{thm:unimodular}). The reason is that the cover does not
-split (Lemma~\ref{lemma:nonsplit}).
+(Theorem~\ref{thm:unimodular}). Suppose $\Psi$ were such a
+homomorphism. What fails is the multiplication table. In $\Hlin$ the coefficient of the double coset of $xz$ in
+$f_x*f_z$ is a positive integer $N$, the number of cosets $x'B_k$ in
+$B_kxB_k$ with $x'^{-1}xz\in B_kzB_k$. Evaluate both sides of
+$\Psi(f_x*f_z)=\Psi(f_x)*\Psi(f_z)$ at a lift of $xz$. The left side is
+$N$ times a number of absolute value one, and the right side is a sum of
+$N$ numbers of absolute value one, one for each coset. They agree only
+if all $N$ terms are equal. Requiring this for every pair $x,z$ makes
+the function $\psi(\tilde y)=\Psi(f_y)(\tilde y)$, where $f_y$ is the
+basis function of the double coset of $y$, a homomorphism from $\Gbar$
+to $\C^\times$ that is the identity on $\mu_n$. Its kernel would then
+map isomorphically onto $G$, which would give a splitting of the
+cover. No splitting exists, because a
+splitting $s$ would satisfy $s(h(a))\,s(h(b))=(b,a)_n\,s(h(ab))$
+(Lemma~\ref{lemma:nonsplit}). Products with $N=1$, those whose volumes
+multiply, cause no trouble (Lemma~\ref{lemma:genuine}). The failure is
+in products with $N\geq 2$ (Remark~\ref{rem:n2where}). Choosing other
+lifts does not help, since it only changes the constants by roots of
+unity. Constants of other absolute values are ruled out for $n\geq 3$
+(Corollary~\ref{corollary:main}), and for $n=2$ the question is open
+(Question~\ref{q:n2}).
 \end{enumerate}
 
 \noindent
@@ -288,8 +307,9 @@ endoscopic form for even $n$ (Theorem~\ref{thm:ellcond}).
 
 \noindent
 \textbf{The cases $n=2$ and $n\geq 3$.} For $n=2$ the failure is
-global. Each relation that we compute can be matched on its own, and
-the contradiction comes from the fact that the cover does not split.
+global. Each relation that we compute can be matched on its own. The
+contradiction appears only when all structure constants are matched at
+once, which would produce a splitting of the cover.
 The argument needs constants of absolute value one, as in the map
 $f_g\mapsto\fbar_{\tilde g}$. Whether a homomorphism with other
 constants exists for $n=2$ is open (Question~\ref{q:n2}). For
@@ -2185,6 +2205,11 @@ some complex number $c_g$ with $|c_g|=1$.
 \end{theorem}
 
 \begin{proof}
+The idea is to compare the structure constants of the two algebras.
+Under $\Psi$ each structure constant of $\cH(G/\!/K_0)$, a positive
+integer, becomes a sum of that many numbers of absolute value one. This
+forces a splitting of the cover.
+
 Suppose that $\Psi$ exists. Define $\psi$ on $\Gbar$ by
 $\psi(\tilde y)=\Psi(f_y)(\tilde y)$. Then $\psi$ is genuine, $|\psi|=1$
 everywhere, and $\Psi(f_g)=\psi\cdot(f_g\circ\pr)$ for every $g$. Let

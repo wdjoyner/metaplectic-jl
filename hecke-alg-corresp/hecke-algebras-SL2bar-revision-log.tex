@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 12, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 13, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,19 +24,19 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 12}
+cover $\overline{SL_2}$'', Draft 13}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~12 of the paper (file
+This log accompanies Draft~13 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~12 of the paper. Draft~8 has
+``Theorem~\ref{P-thrm:main}'' refer to Draft~13 of the paper. Draft~8 has
 the same numbering as Draft~6, apart from the additions listed in
 Section~\ref{sec:d7d8}. Sections~\ref{sec:d8d9}, \ref{sec:d9d10}, \ref{sec:d10d11}
 and~\ref{sec:d11d12} list the numbers that changed from Draft~8
@@ -104,12 +104,15 @@ Section~\ref{P-subsec:elliptic}.
 request, the vector space isomorphism $\Phi$ is stated first in the
 summary, and ``support-preserving'' is defined
 (Definition~\ref{P-def:supportpreserving}).
+\item[Draft 13] (November 24, 2026). Same file. At David Joyner's
+request, a clearer explanation of why no support-preserving map with
+constants of absolute value one is a homomorphism.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--12 here were made from
+\texttt{metaplectic-jl}. Drafts~1--13 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -135,7 +138,7 @@ data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
 It produced Drafts~4 and~5 as well, including the new results of
 Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}, and
-Drafts~6 to~12, including the presentation and the proof of Savin's
+Drafts~6 to~13, including the presentation and the proof of Savin's
 theorem for $SL(2)$ in Section~\ref{P-section:savin}, and the orbital
 integrals of Sections~\ref{P-subsec:orbital} and~\ref{P-subsec:elliptic}. For Draft~9 it
 also checked the quadratic relations by computer
@@ -447,6 +450,38 @@ the style guide and is unchanged.
 whether it has since been published.
 \item \emph{Proof of Lemma~\ref{P-lemma:hilbert}.} The report approves
 it. No change.
+\end{enumerate}
+
+\section{Response to David Joyner's question on Draft 12}
+\label{sec:d12request}
+
+David Joyner found the sentence ``The reason is that the cover does not
+split (Lemma~\ref{P-lemma:nonsplit})'' in item (7) of the main results
+unsatisfying. He asked for a rephrasing that says which algebra relation
+fails, and why neither the vector space isomorphism nor any obvious
+modification of it can satisfy that relation.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item Item (7) now explains the argument of
+Theorem~\ref{P-thm:unimodular}. What fails is the multiplication table.
+The coefficient of the double coset of $xz$ in $f_x*f_z$ is a positive
+integer $N$. Under a map with unit constants, the corresponding genuine
+coefficient is a sum of $N$ numbers of absolute value one, so all
+terms must be equal. Imposing this for all pairs makes
+$\tilde y\mapsto\Psi(f_y)(\tilde y)$ a character of $\overline G$ that
+is the identity on $\mu_n$, which would split the cover. That is
+impossible by Lemma~\ref{P-lemma:nonsplit}.
+\item The item now also says where the failure is. Products with $N=1$
+are fine (Lemma~\ref{P-lemma:genuine}), so the failure is in products
+with $N\geq2$ (Remark~\ref{P-rem:n2where}). It also says which
+modifications are covered. Other lifts only change the constants by
+roots of unity. Non-unit constants are ruled out for $n\geq3$
+(Corollary~\ref{P-corollary:main}) and open for $n=2$
+(Question~\ref{P-q:n2}).
+\item The paragraph ``The cases $n=2$ and $n\geq3$'' in the
+introduction and the first lines of the proof of
+Theorem~\ref{P-thm:unimodular} now say the same in one or two sentences.
+\item No numbers changed.
 \end{enumerate}
 
 \section{Response to David Joyner's question on Draft 11}
