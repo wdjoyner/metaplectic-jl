@@ -225,9 +225,9 @@ approach of the original paper. For deep $k$ we prove the following.
 conjugation by all of $\Gbar$ (Lemma~\ref{lemma:canonical}).
 \item Every double coset $B_kgB_k$ supports a genuine
 bi-$B_k^*$-invariant function $\fbar_{\tilde g}$, normalized by a
-choice of lift $\tilde g$ of $g$. Hence $f_g\mapsto\fbar_{\tilde g}$ is
-a linear isomorphism $\Phi$ from $\Hlin$ onto $\Hgen$
-(Proposition~\ref{prop:admissible}). It is support-preserving in the
+choice of lift $\tilde g$ of $g$. Hence $f_g\mapsto\fbar_{\tilde g}$
+extends by linearity to a vector space isomorphism $\Phi$ from $\Hlin$
+onto $\Hgen$ (Proposition~\ref{prop:admissible}). It is support-preserving in the
 sense of Definition~\ref{def:supportpreserving}: it maps a function
 supported on a double coset to a function supported over the same
 double coset.
@@ -1833,8 +1833,9 @@ This subsection specializes to $K_0=B_k$ at deep level. There the
 canonical lift makes every element of $G$ admissible, so every double
 coset of $B_k$ carries a genuine function, unique up to a root of
 unity. The result is a basis of the genuine Hecke algebra indexed in
-the same way as the basis of $\Hlin$, and a linear isomorphism between
-the two algebras that preserves supports.
+the same way as the basis of $\Hlin$. Extending the matching of the
+two bases by linearity gives a vector space isomorphism between the two
+algebras that preserves supports.
 Sections~\ref{section:n2} and \ref{section:torus} ask whether this map
 can be made multiplicative.
 
@@ -1844,11 +1845,12 @@ Let $k$ be deep, and let $B_k^*=\sigma(B_k)$ be the canonical lift of
 $B_k$. Then every $g\in G$ is $B_k^*$-admissible. Consequently, for any
 choice of lifts $\tilde g$ of representatives of the double cosets
 $B_kgB_k$, the functions $\fbar_{\tilde g}$ form a basis of $\Hgen$,
-and
+and the assignment $f_g\mapsto\fbar_{\tilde g}$ extends by linearity to a
+vector space isomorphism
 \[
-\Phi:\Hlin\to\Hgen,\qquad f_g\mapsto\fbar_{\tilde g},
+\Phi:\Hlin\to\Hgen
 \]
-is an isomorphism of vector spaces with $|\Phi(f)|=|f|\circ\pr$.
+with $|\Phi(f)|=|f|\circ\pr$.
 \end{proposition}
 
 \begin{proof}
@@ -4169,8 +4171,8 @@ Proposition~\ref{prop:main}. The element $f_{t_0}$ is not invertible
 up to a scalar (Example~\ref{ex:t0}).
 \item At deep level, $B_k$ has a canonical lift, and every double coset
 $B_kgB_k$ carries a genuine function $\fbar_{\tilde g}$, unique up to a
-root of unity. Hence $\Phi:f_g\mapsto\fbar_{\tilde g}$ is an
-isomorphism of vector spaces from $\Hlin$ onto $\Hgen$, natural up to
+root of unity. Hence $f_g\mapsto\fbar_{\tilde g}$ extends by linearity
+to a vector space isomorphism $\Phi$ from $\Hlin$ onto $\Hgen$, natural up to
 these roots of unity (Proposition~\ref{prop:admissible}). It is
 support-preserving (Definition~\ref{def:supportpreserving}), and every
 support-preserving map is $\Phi$ followed by a rescaling of the basis.
