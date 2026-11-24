@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 7, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 8, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,20 +24,20 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 7}
+cover $\overline{SL_2}$'', Draft 8}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~7 of the paper (file
+This log accompanies Draft~8 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~7 of the paper. Draft~7 has the same numbering as
-Draft~6.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~8 of the paper. Draft~8 has the same numbering as
+Draft~6, apart from the additions listed in Section~\ref{sec:d7d8}.
 Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
 with the numbering of Drafts~2 to~5.
 
@@ -77,12 +77,17 @@ rewrite of [Jo98].
 \item[Draft 7] (November 24, 2026). Same file. Response to Carbon's
 third referee report, which reviewed Draft~6. Proposition~\ref{P-prop:level0}
 is now an equivalence.
+\item[Draft 8] (November 24, 2026). Same file. At David Joyner's
+request, a remark on how Savin's isomorphism acts and on orbital
+integrals, and a question on whether it is a transfer of orbital
+integrals. Also a remark on why no other choice of genuine functions
+exists.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--7 here were made from
+\texttt{metaplectic-jl}. Drafts~1--8 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -153,7 +158,8 @@ Questions~\ref{P-q:defining}, \ref{P-q:n2}, \ref{P-q:savin},
 \ref{P-q:reps}. New in Draft~4: Lemma~\ref{P-lemma:nonsplit},
 Proposition~\ref{P-prop:Ksub}, Lemma~\ref{P-lemma:signs},
 Theorem~\ref{P-thm:unimodular} and Corollary~\ref{P-cor:unimodular}.
-New in Draft~5: Proposition~\ref{P-prop:traceless}.
+New in Draft~5: Proposition~\ref{P-prop:traceless}. New in Draft~7:
+the converse in Proposition~\ref{P-prop:level0}.
 
 \section{Changes of status}
 
@@ -386,6 +392,56 @@ whether it has since been published.
 it. No change.
 \end{enumerate}
 
+\section{Response to David Joyner's questions on Draft 7}
+
+David Joyner asked three questions. Whether a better choice of genuine
+functions could make the map of Proposition~\ref{P-prop:admissible}
+multiplicative. Whether Savin's isomorphism sends $\overline f_{\tilde
+g}$ to $f_g$, and how it works. How orbital integrals match under
+Savin's correspondence. He asked for the answers to the last two to be
+added to the paper.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item Remark~\ref{P-rem:nochoice} records that no other choice exists.
+Every genuine bi-$B_k^*$-invariant function on one double coset is a
+multiple of $\overline f_{\tilde g}$, by Lemma~\ref{P-lemma:support}(a)
+(level~1).
+\item Remark~\ref{P-vrem:savinaction} describes how Savin's isomorphism
+acts on the basis of characteristic functions. It moves functions to
+other double cosets and rescales them by powers of $\sqrt q$. The
+formula $T_\mu\mapsto q^{(\ell(\mu)-\ell'(\mu'))/2}T'_{\mu'}$ is our own
+derivation from the descriptions of [Sa88] in [Ka21] and in Carbon's
+summary, using Bernstein's normalization (level~3 for the inputs). The
+remark is marked as a Remark~2026 for that reason.
+\item The same remark checks that these powers of $\sqrt q$ equal the
+ratios of the factors $|D(\gamma)|^{1/2}$ at corresponding elements, as
+a transfer of orbital integrals would require. The arithmetic is
+level~1. The matching itself is not proved.
+\item Question~\ref{P-q:transfer} asks whether Savin's isomorphism is a
+transfer of orbital integrals. The literature review now mentions
+[Li11] and [Lu18], which prove the spherical fundamental lemma for
+$Mp(2n)$. We found no corresponding result at Iwahori level, and none
+for Kubota's covers of $SL(2)$ with $n\geq 3$.
+\end{enumerate}
+
+\section{Changes from Draft 7 to Draft 8}
+\label{sec:d7d8}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item New Remark~\ref{P-rem:nochoice}, Remark~\ref{P-vrem:savinaction}
+and Question~\ref{P-q:transfer}. These are additions, so earlier
+numbers are unchanged.
+\item A paragraph in Section~\ref{P-section:intro} on how Savin's
+isomorphism differs from the maps of the paper.
+\item A paragraph in the literature review on [Li11] and [Lu18], which
+are added to the references. Their bibliographic data was checked
+online.
+\item Glossary entries for ``Bernstein presentation'' and ``Orbital
+integral''.
+\item Typewriter text in the paper (the email address) now uses
+Courier, so that the PDF contains no bitmap fonts.
+\end{enumerate}
+
 \section{Response to Carbon's third referee report (on Draft 6)}
 \label{sec:referee3}
 
@@ -484,18 +540,18 @@ contents is slightly reduced, to remove an overfull box on the first
 page.
 \end{enumerate}
 
-\section{Concordance from Draft 3 to Draft 7}
+\section{Concordance from Draft 3 to Draft 8}
 \label{sec:conc34}
 
 Numbers not listed are unchanged. Draft~4 differs from Draft~5 only
 in Example~8.8 (now Example~\ref{P-ex:unimodular}), Theorem~11.3 (now
 Theorem~\ref{P-thm:savin}) and Remark~11.4 (now
-Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~7
+Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~8
 numbers, which are those of Draft~6.
 
 \begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
 \toprule
-{Draft 3} & Draft 7 \\
+{Draft 3} & Draft 8 \\
 \midrule
 \endhead
 Lemma 3.5 & Lemma~\ref{P-lemma:subgroups} \\
@@ -746,7 +802,7 @@ false. The style guide asks for revision history to stay in the log
 (guide 6.4). This sentence is kept in the body at David Joyner's
 request, because explaining that failure is the purpose of the
 revision.
-\item One harmless underfull vertical box remains. There are no
+\item Two harmless underfull vertical boxes remain. There are no
 overfull boxes and no undefined references.
 \end{itemize}
 
