@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 6 (November 2026). Corrected and expanded version of
+%% Draft 7 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -69,7 +69,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 6. Corrected and expanded version}}
+{\normalsize Draft 7. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -239,7 +239,7 @@ homomorphism exists, whatever the constants
 (Corollary~\ref{corollary:main}), and the expected trace identities
 fail (Example~\ref{ex:trace}).
 \item At Iwahori level ($k=0$, $p\nmid n$) the double coset $Bt_0^mB$
-supports a non-zero genuine function only if $n$ divides $2m$
+supports a non-zero genuine function if and only if $n$ divides $2m$
 (Proposition~\ref{prop:level0}). This is consistent with Savin's
 theorem \cite{Sa88}.
 \end{enumerate}
@@ -267,7 +267,7 @@ level $k$ unless stated otherwise.}
 Test & $n=2$, $p$ odd & $n\geq 3$, $p\nmid n$ \\
 \midrule
 Supports and volumes of double cosets & agree & agree \\
-Supports at Iwahori level ($k=0$) & no translation excluded & only $t_0^m$ with $n\mid 2m$ \\
+Supports at Iwahori level ($k=0$) & all $t_0^m$ & exactly $t_0^m$ with $n\mid 2m$ \\
 Each relation of Prop.~\ref{prop:main}, on its own & holds up to a sign &
 holds up to a root of unity \\
 Subalgebra supported on $SL(2,\cO)$ & identical & identical \\
@@ -275,7 +275,7 @@ Commutation of $f_{t_0}$ and $f_{h(u)}$ & holds & fails \\
 Homomorphism $f_g\mapsto c_g\fbar_{\tilde g}$ with $|c_g|=1$ & none &
 none \\
 Same, with arbitrary $c_g\neq 0$ & open & none \\
-Trace identities & not tested & fail \\
+Trace identities & open & fail \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -878,7 +878,7 @@ Proposition~2.2]{HM85}.
 \end{proof}
 
 %======================================================================
-\part{The case \texorpdfstring{$n=2$}{n=2}}
+\part{General structure and the case \texorpdfstring{$n=2$}{n=2}}
 
 Part~I follows the approach of the original paper. Its first three
 sections hold for every $n$, and Part~II uses them.
@@ -1076,7 +1076,7 @@ every element of $\Gbar$. These lifts make all later constructions
 independent of the choice of cocycle.
 
 Let $e$ be the ramification index of $F$ over $\mathbb{Q}_p$, and
-$\ord$ the normalized valuation of $F$. For $j>e/(p-1)$ the
+$\ord$ the normalized valuation of $F$. For an integer $j>e/(p-1)$ the
 exponential series converges on $\varpi^jM_2(\cO)$ and defines a
 bijection onto $1+\varpi^jM_2(\cO)$ whose inverse is the logarithm
 series. Let $g\in GL(2,F)$. Conjugation by $g$ is continuous on
@@ -1690,8 +1690,9 @@ Let $n\geq 2$. Let $K_0$ be an open compact subgroup of $G$ with a
 splitting $s$, put $K_0^*=s(K_0)$, and assume that every element of $G$
 is $K_0^*$-admissible. Then there is no algebra homomorphism
 $\Psi:\cH(G/\!/K_0)\to\cH(\Gbar/\!/K_0^*)_{\gen}$ such that, for every
-$g\in G$, $\Psi(f_g)=c_g\fbar_{\tilde g}$ for some lift $\tilde g$ of
-$g$ and some complex number $c_g$ with $|c_g|=1$.
+representative $g$ of a double coset $K_0gK_0$,
+$\Psi(f_g)=c_g\fbar_{\tilde g}$ for some lift $\tilde g$ of $g$ and
+some complex number $c_g$ with $|c_g|=1$.
 \end{theorem}
 
 \begin{proof}
@@ -1722,9 +1723,10 @@ Lemma~\ref{lemma:nonsplit}.
 
 \begin{corollary}
 \label{cor:unimodular}
-Let $n\geq 2$ and let $k$ be deep. For no choice of lifts $\tilde g$ and
-of constants $c_g$ of absolute value one is $f_g\mapsto
-c_g\fbar_{\tilde g}$ an algebra homomorphism from $\Hlin$ to $\Hgen$.
+Let $n\geq 2$ and let $k$ be deep. For no choice of representatives $g$ of
+the double cosets $B_kgB_k$, of lifts $\tilde g$, and of constants $c_g$
+of absolute value one is $f_g\mapsto c_g\fbar_{\tilde g}$ an algebra
+homomorphism from $\Hlin$ to $\Hgen$.
 In particular the map $\Phi$ of Proposition~\ref{prop:admissible} is
 never an algebra homomorphism, for any choice of lifts.
 \end{corollary}
@@ -2018,9 +2020,9 @@ splitting of $B$ differs from $s$ by a homomorphism $B\to\mu_n$.
 \begin{proposition}
 \label{prop:level0}
 Let $p\nmid n$, let $s$ be any splitting of $B$, and put $B^*=s(B)$.
-If the double coset $Bt_0^mB$ supports a non-zero genuine
-bi-$B^*$-invariant function, then $n$ divides $2m$. In particular, if
-$n\geq 3$, then $\cH(\Gbar/\!/B^*)_{\gen}$ contains no non-zero
+The double coset $Bt_0^mB$ supports a non-zero genuine
+bi-$B^*$-invariant function if and only if $n$ divides $2m$. In
+particular, if $n\geq 3$, then $\cH(\Gbar/\!/B^*)_{\gen}$ contains no non-zero
 function supported on $\overline{Bt_0B}$.
 \end{proposition}
 
@@ -2032,6 +2034,24 @@ Lemma~\ref{lemma:support}(a) the hypothesis implies
 Lemma~\ref{lemma:cover}(a), the commutator of lifts of $h(\varpi^m)$
 and $h(v)$ is $(v,\varpi)_n^{2m}$. By Lemma~\ref{lemma:hilbert}, this
 is trivial for all units $v$ only if $n$ divides $2m$.
+
+Conversely, assume that $n$ divides $2m$. By
+Lemma~\ref{lemma:support}(a) we must check (\ref{eq:admissible}) for
+every $x\in B\cap g^{-1}Bg$. Write $x=h(v)b'$ with $v\in\cO^\times$
+and $b'\in B^+$. Since $g$ is diagonal, $gxg^{-1}=h(v)\,gb'g^{-1}$, and
+$gb'g^{-1}$ lies in $B$ and has the same diagonal entries as $b'$, so it
+lies in $B^+$. The restriction of $s$ to the pro-$p$ group $B^+$ is
+$\sigma$, by Lemma~\ref{lemma:canonical}(d). By
+Lemma~\ref{lemma:canonical}(b),
+$\tilde g\,\sigma(b')\,\tilde g^{-1}=\sigma(gb'g^{-1})$. By
+Lemma~\ref{lemma:cover}(a),
+$\tilde g\,s(h(v))\,\tilde g^{-1}=(v,\varpi)_n^{2m}s(h(v))=s(h(v))$.
+Hence
+\[
+\tilde g\,s(x)\,\tilde g^{-1}=s(h(v))\,\sigma(gb'g^{-1})
+=s(gxg^{-1}),
+\]
+which is (\ref{eq:admissible}).
 \end{proof}
 
 \begin{example}
@@ -2039,7 +2059,7 @@ is trivial for all units $v$ only if $n$ divides $2m$.
 For $n=2$ the condition $n\mid 2m$ holds for every $m$. In the running
 example $n=3$, the double coset $Bt_0^mB$ can carry a genuine function
 only when $3\mid m$. So $Bt_0B$ and $Bt_0^2B$ carry none, while
-$Bt_0^3B$ may. The translations that survive form the lattice
+$Bt_0^3B$ does. The translations that survive form the lattice
 $3\Z$, a rescaling of the lattice $\Z$ of the linear group.
 \end{example}
 
@@ -2047,11 +2067,12 @@ $3\Z$, a rescaling of the lattice $\Z$ of the linear group.
 \label{rem:samelattice}
 Compare Proposition~\ref{prop:level0} with
 Proposition~\ref{prop:traceless}. At Iwahori level the translations
-$t_0^m$ with $n\nmid 2m$ carry no genuine functions. At deep level they
-carry genuine functions, but these act with trace zero in every
-admissible genuine representation. In both cases the translations that
-the genuine theory can see through traces are among the $t_0^m$ with
-$n\mid 2m$. They are exactly the translations whose lifts commute with
+$t_0^m$ that carry genuine functions are exactly those with $n\mid 2m$.
+At deep level the others also carry genuine functions, but these act
+with trace zero in every admissible genuine representation. So at
+Iwahori level the genuine algebra has exactly the translations $t_0^m$
+with $n\mid 2m$, and at deep level the translations that the genuine
+theory can see through traces are among these. They are exactly the translations whose lifts commute with
 the lifts of all diagonal units. In the description of \cite{Ka21},
 this is the lattice that Savin's theorem matches, after rescaling, with
 the translations of $G/Z_n$. This is the precise sense in which $SL(2)$
@@ -2133,7 +2154,7 @@ non-zero constants, and the trace identities fail
 Example~\ref{ex:trace}). In the running example with $n=3$ this
 happens at every level $k\geq 1$.
 \item At Iwahori level with $p\nmid n$, the double coset $Bt_0^mB$
-carries a genuine function only if $n\mid 2m$
+carries a genuine function if and only if $n\mid 2m$
 (Proposition~\ref{prop:level0}), in line with Savin's theorem. At deep
 level the same translations carry genuine functions, but these have
 trace zero in every admissible genuine representation
@@ -2158,7 +2179,8 @@ concern the genuine algebra.
 \label{q:n2}
 Let $n=2$, $p$ odd and $k$ deep. Is there an algebra homomorphism
 $\Psi:\Hlin\to\Hgen$ with $\Psi(f_g)=c_g\fbar_{\tilde g}$ for every
-$g$, with non-zero constants $c_g$? By Theorem~\ref{thm:unimodular}
+representative $g$ of a double coset $B_kgB_k$, with non-zero constants
+$c_g$? By Theorem~\ref{thm:unimodular}
 such constants could not all have absolute value one. Is $\Hlin$
 isomorphic to $\Hgen$ as an abstract algebra? The situation at Iwahori
 level, where the genuine algebra is of $PGL(2)$ type, suggests that the
@@ -2326,7 +2348,7 @@ not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.
 
 %======================================================================
-\begin{thebibliography}{GS12}
+\begin{thebibliography}{HM85}
 
 \bibitem[Bo76]{Bo76} A.~Borel, Admissible representations of a
 semi-simple group over a local field with vectors fixed under an
