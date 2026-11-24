@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 9 (November 2026). Corrected and expanded version of
+%% Draft 10 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -70,7 +70,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 9. Corrected and expanded version}}
+{\normalsize Draft 10. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -123,7 +123,10 @@ genuine Iwahori--Hecke algebra and a direct proof of Savin's theorem
 for $SL(2)$. The genuine algebra is isomorphic to the Iwahori--Hecke
 algebra of $SL(2)$ for odd $n$ and of $PGL(2)$ for even $n$, by an
 explicit map that rescales the translations and multiplies each basis
-function by the square root of a ratio of volumes.
+function by the square root of a ratio of volumes. We compute the
+orbital integrals of all basis functions at split elements at Iwahori
+level, and show that Savin's isomorphism transfers them, with an
+explicit transfer factor.
 \end{abstract}
 
 \maketitle
@@ -259,6 +262,14 @@ function by $q^{e}$, where $q^{2e}$ is the ratio of the volumes of the
 two double cosets involved (Theorem~\ref{thm:savinsl2}). For even $n$
 no isomorphism with the Iwahori--Hecke algebra of $SL(2)$ maps $Y$ to a
 multiple of $f_{s_1}$ or $f_{s_2}$ (Corollary~\ref{cor:wronggroup}).
+\item The orbital integrals at split elements of all basis functions of
+the Iwahori--Hecke algebras of $SL(2)$, $PGL(2)$ and $\Gbar$ are
+computed explicitly (Propositions~\ref{prop:orbsl2} and
+\ref{prop:orbpgl}, Corollary~\ref{cor:orbgen}). Savin's isomorphism
+transfers them, with an explicit transfer factor of absolute value one
+(Theorem~\ref{thm:orbtransfer}). At deep level, every orbital integral
+of $\fbar_{\tilde t_0^m}$ vanishes when $n\nmid 2m$
+(Proposition~\ref{prop:orbdeep}).
 \end{enumerate}
 
 \noindent
@@ -296,6 +307,8 @@ Trace identities & open & fail \\
 Spherical part over $t_0^m$ & no vanishing forced & zero when $n\nmid 2m$ \\
 Iwahori--Hecke algebra ($k=0$) & of $PGL(2)$ type & of $SL(2)$ type if
 $n$ is odd, of $PGL(2)$ type if $n$ is even \\
+Split orbital integrals ($k=0$) & transferred to $PGL(2)$ & transferred
+to $G/Z_n$ \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -330,17 +343,18 @@ maps considered above. It moves functions to other double cosets and
 rescales them by powers of $\sqrt q$ (Theorem~\ref{thm:savinsl2}).
 These powers are the square roots of the ratios of the volumes of the
 double cosets, so the isomorphism carries an orthonormal basis to an
-orthonormal basis. They are also the ratios of Weyl discriminant
-factors that a transfer of orbital integrals would require
-(Remark~\ref{vrem:savinaction}). For odd $n$ the target is the
+orthonormal basis. Savin's isomorphism transfers the orbital integrals
+at split elements, and these powers are exactly what the Weyl
+discriminant factors require (Theorem~\ref{thm:orbtransfer}). For odd $n$ the target is the
 Iwahori--Hecke algebra of $SL(2)$ itself, but the translation $t_0^{nk}$
 goes to $t_0^k$. For even $n$ the target is that of $PGL(2)$, and the
 affine generator has the eigenvalues $\pm\sqrt{c_0}$ instead of $q$
-and $-1$ (Section~\ref{subsec:savinbg}). Whether
-Savin's isomorphism is in fact such a transfer is
-Question~\ref{q:transfer}.
+and $-1$ (Section~\ref{subsec:savinbg}). Whether the
+same holds at elliptic elements, and whether there is an analog at
+deep level, is Question~\ref{q:transfer}.
 
 \subsection{Status of results}
+\label{subsec:status}
 A statement with a proof in this paper is proved here. A statement
 quoted from the literature carries a citation in its heading.
 Statements that we could not verify against their sources are flagged
@@ -529,8 +543,9 @@ Sections~\ref{section:torus}--\ref{section:savin}.
 Section~\ref{section:torus} gives the torus obstruction for $n\geq 3$.
 Section~\ref{section:reps} relates the algebras to representations.
 Section~\ref{section:savin} treats Iwahori level for every $n$. It
-gives a presentation of the genuine Iwahori--Hecke algebra and a direct
-proof of Savin's theorem for $SL(2)$.
+gives a presentation of the genuine Iwahori--Hecke algebra, a direct
+proof of Savin's theorem for $SL(2)$, and explicit orbital integrals at
+split elements.
 Section~\ref{section:summary} summarizes the results and lists open
 questions. A glossary follows.
 
@@ -3063,39 +3078,455 @@ its linear analog.
 \end{proof}
 
 \subsection{Orbital integrals}
-This subsection compares the factors in Savin's isomorphism with Weyl
-discriminants. The comparison is heuristic.
+\label{subsec:orbital}
+This subsection computes orbital integrals of basis functions
+explicitly in some cases. At Iwahori level we compute the orbital
+integrals at split regular elements of every basis function, on $G$,
+on $PGL(2,F)$ and on $\Gbar$. Savin's isomorphism matches them, up to
+an explicit constant of absolute value one
+(Theorem~\ref{thm:orbtransfer}). This answers
+Question~\ref{q:transfer} for split elements at Iwahori level. For the
+basis of Proposition~\ref{prop:admissible} at deep level we obtain
+vanishing results and a sum rule (Proposition~\ref{prop:orbdeep}).
+Orbital integrals at elliptic elements are not treated.
 
-\begin{vremark}[A check on orbital integrals]
+\medskip\noindent\textbf{Definitions.} Normalize Haar measure on $T$
+by $\vol(T(\cO))=1$. For $a\in F^\times$ with $a^2\neq 1$, the element
+$\gamma=h(a)$ is regular, with centralizer $T$, and
+\[
+O_\gamma(f)=\int_{T\backslash G}f(x^{-1}\gamma x)\,d\dot x,\qquad
+F_f(\gamma)=|D(\gamma)|^{1/2}O_\gamma(f),
+\]
+where $D(h(a))=(1-a^2)(1-a^{-2})$ and $d\dot x$ is the quotient of the
+Haar measure of $G$ by that of $T$. Thus
+$|D(h(a))|^{1/2}=q^{|\ord(a)|}$ when $\ord(a)\neq 0$. A lift
+$\tilde\gamma$ of $h(a)$ is called \textbf{good} if it commutes with
+every lift of every element of $T$. By Lemma~\ref{lemma:cover}(a)
+this holds if and only if $(b,a)_n^2=1$ for all $b\in F^\times$. For
+example, $(t_0^m,1)$ is good if and only if $n\mid 2m$, by
+Lemma~\ref{lemma:hilbert}. For a good $\tilde\gamma$ and a genuine
+compactly supported locally constant $\phi$ on $\Gbar$, the function
+$x\mapsto\phi(\tilde x^{-1}\tilde\gamma\tilde x)$ does not depend on
+the lift $\tilde x$ of $x$ and is invariant under $T$. So
+$O_{\tilde\gamma}(\phi)=\int_{T\backslash G}\phi(\tilde
+x^{-1}\tilde\gamma\tilde x)\,d\dot x$ and
+$F_\phi(\tilde\gamma)=|D(\gamma)|^{1/2}O_{\tilde\gamma}(\phi)$ are
+defined. At other lifts the integrand is not invariant under $T$,
+which is why genuine orbital integrals are taken only at good
+elements. On $G'=PGL(2,F)$ we use the image $T'$ of the diagonal
+torus, with $\vol(T'(\cO))=1$, the element
+$\gamma'=[\mathrm{diag}(b,1)]$, and $D'(\gamma')=(1-b)(1-b^{-1})$, so
+that $|D'(\gamma')|^{1/2}=q^{|\ord(b)|/2}$. At Iwahori level Haar
+measure is normalized by $\vol(B)=1$, respectively $\vol(I')=1$.
+
+\begin{lemma}
+\label{lemma:orbtrace}
+Let $\tilde\gamma$ be good, and let $\phi$, $\psi$ be genuine,
+compactly supported and locally constant on $\Gbar$. Then
+$O_{\tilde\gamma}(\phi*\psi)=O_{\tilde\gamma}(\psi*\phi)$. The same
+holds on $G$ and on $G'$.
+\end{lemma}
+
+\begin{proof}
+For $\tilde y\in\Gbar$ put $\psi_y(\tilde x)=\psi(\tilde y^{-1}\tilde
+x)$. Then $\psi(\tilde x\tilde y^{-1})=\psi_y(\tilde y\tilde x\tilde
+y^{-1})$. Hence
+\[
+(\phi*\psi)(\tilde x)=\int_G\phi(\tilde y)\psi_y(\tilde x)\,dy,\qquad
+(\psi*\phi)(\tilde x)=\int_G\phi(\tilde y)\psi_y(\tilde y\tilde
+x\tilde y^{-1})\,dy .
+\]
+The orbital integral is invariant under conjugation of its argument by
+$\Gbar$, by the change of variables $x\mapsto yx$ in
+$T\backslash G$. Integrating over $\tilde y$ gives the claim.
+\end{proof}
+
+\begin{lemma}
+\label{lemma:orbred}
+Let $f$ be a bi-$B$-invariant compactly supported function on $G$, and
+let $\gamma=h(a)$ with $a^2\neq1$. Let $R$ consist of the elements
+$u_-(y)$, for $y$ in a set of representatives of $\cO/\varpi\cO$,
+together with $s_1$. Then
+\[
+O_\gamma(f)=|1-a^{-2}|^{-1}\sum_{\kappa\in R}\int_F
+f\bigl(\kappa^{-1}\gamma u_+(z)\kappa\bigr)\,dz,
+\]
+where $\vol(\cO)=1$. The same formula holds for a genuine
+bi-$B^*$-invariant $\phi$ and a good lift $\tilde\gamma$ of $\gamma$,
+with $\phi(\tilde\kappa^{-1}\tilde\gamma\tilde u_+(z)\tilde\kappa)$
+in the integrand, for any lifts $\tilde\kappa$.
+\end{lemma}
+
+\begin{proof}
+By the Iwasawa decomposition $G=TU^+K$, and since
+$\vol(K)=[K:B]=q+1$, we have $dg=(q+1)\,dt\,du\,dk$, where $du$ gives
+$U^+(\cO)$ volume $1$ and $dk$ gives $K$ volume $1$. This can be
+checked on the characteristic function of $K$. Hence
+$O_\gamma(f)=(q+1)\int_{U^+}\int_Kf(k^{-1}u^{-1}\gamma uk)\,dk\,du$.
+Since $f$ is invariant under conjugation by $B$, the integral over $K$
+is $(q+1)^{-1}$ times the sum over a set of representatives of $K/B$,
+and $R$ is such a set. Finally
+$u_+(-x)\gamma u_+(x)=\gamma u_+((1-a^{-2})x)$. In the genuine case
+the integrand does not depend on the lifts, it is invariant under
+$B^*$-conjugation, and
+$\tilde u_+(-x)\tilde\gamma\tilde u_+(x)=\tilde\gamma\tilde
+u_+((1-a^{-2})x)$ by the uniqueness in Lemma~\ref{lemma:cover}(b).
+\end{proof}
+
+To locate the double coset of a matrix $g=\mat ABCD\in G$, put
+$\nu(A)=\ord A$, $\nu(D)=\ord D$, $\nu(B)=\ord B+\frac12$ and
+$\nu(C)=\ord C-\frac12$, with $\ord 0=\infty$. Row and column
+operations by elements of $B$ show the following. If the minimum of
+the four values is attained only at $A$, then $g\in Bt_0^{\ord A}B$.
+If it is attained only at $D$, then $g\in Bt_0^{-\ord D}B$. If it is
+attained only at $B$, then $g\in Bt_0^{\ord B}s_1B$. If it is attained
+only at $C$, then $g\in Bt_0^{-\ord C}s_1B$. For example, if the
+minimum is attained only at $C$, then $g=u_+(A/C)\,w(-C^{-1})\,u_+(D/C)$
+with $A/C$ and $D/C$ in $\cO$, and $w(-C^{-1})\in Bt_0^{-\ord
+C}s_1B$ by (\ref{eq:uplus}). For $GL(2,F)$ the same operations, by
+elements of the Iwahori subgroup of $GL(2,\cO)$, reduce $g$ to a
+diagonal or antidiagonal matrix. Its image in $PGL(2,F)$ lies in
+$I'\lambda^jI'$, respectively in $I'\lambda^j[s_1]I'$, where $j$ is
+the valuation of the upper entry minus that of the lower entry.
+
+\begin{proposition}
+\label{prop:orbsl2}
+Let $\gamma=h(a)$ with $m=|\ord(a)|\geq1$. For $w\in W_a$,
+\[
+F_{f_w}(\gamma)=
+\begin{cases}
+q^m & \mbox{if } w=t_0^{\pm m},\\
+(q-1)\,q^{(\ell(w)-1)/2} & \mbox{if } w=t_0^is_1 \mbox{ and }
+\ell(w)\geq 2m+1,\\
+0 & \mbox{otherwise.}
+\end{cases}
+\]
+\end{proposition}
+
+\begin{proof}
+Since $s_1h(a)s_1^{-1}=h(a^{-1})$, we may assume $\ord(a)=m$. We apply
+Lemma~\ref{lemma:orbred}. For $\kappa=1$, $\kappa=s_1$ and
+$\kappa=u_-(y)$ with $y$ a unit, the matrix
+$\kappa^{-1}\gamma u_+(z)\kappa$ is
+\[
+\mat a{az}0{a^{-1}},\qquad \mat{a^{-1}}0{-az}a,\qquad
+\mat{a(1+v)}{av/y}{y(a^{-1}-a(1+v))}{a^{-1}-av},
+\]
+where $v=yz$. The rule above gives the following, where $j$ denotes
+$\ord z$, respectively $\ord v$, and where the last column is the
+measure of the set of $z$.
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+$\kappa$ & condition & double coset & measure \\
+\midrule
+$1$ & $j\geq -2m$ & $Bt_0^mB$ & $q^{2m}$ \\
+$1$ & $j\leq -2m-1$ & $Bt_0^{m+j}s_1B$ & $(1-q^{-1})q^{-j}$ \\
+$s_1$ & $j\geq 1-2m$ & $Bt_0^{-m}B$ & $q^{2m-1}$ \\
+$s_1$ & $j\leq -2m$ & $Bt_0^{-m-j}s_1B$ & $(1-q^{-1})q^{-j}$ \\
+$u_-(y)$ & $j>-2m$ & $Bt_0^ms_1B$ & $q^{2m-1}$ \\
+$u_-(y)$ & $v\in a^{-2}(1+\varpi\cO)$ & $Bt_0^{-m}B$ & $q^{2m-1}$ \\
+$u_-(y)$ & $j=-2m$, $v\notin a^{-2}(1+\varpi\cO)$ & $Bt_0^ms_1B$ &
+$q^{2m}-2q^{2m-1}$ \\
+$u_-(y)$ & $j<-2m$ & $Bt_0^{-m-j}s_1B$ & $(1-q^{-1})q^{-j}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+For instance, in the second row the minimum of $\nu$ is attained only
+at the upper right entry $az$, of valuation $m+j$. In the sixth row
+write $v=a^{-2}(1+\epsilon)$ with $\ord\epsilon\geq1$. Then the upper
+left entry $a^{-1}(1+\epsilon+a^2)$ has valuation $-m$, while the
+other entries have $\nu>-m$. The other rows are similar. Summing,
+with $q-1$ units $y$, the total measure is $q^{2m}$ for $t_0^m$ and
+for $t_0^{-m}$. For $t_0^is_1$ it is $(q-1)q^{m+i}$ if $i\geq m$,
+$(1-q^{-1})q^{m-i}$ if $i\leq-m-1$, and $0$ otherwise. Multiplying by
+$|1-a^{-2}|^{-1}=q^{-2m}$ and by $|D(\gamma)|^{1/2}=q^m$, and using
+$\ell(t_0^is_1)=|2i+1|$, gives the stated values.
+\end{proof}
+
+\begin{proposition}
+\label{prop:orbpgl}
+Let $\gamma'=[\mathrm{diag}(b,1)]$ with $k=|\ord(b)|\geq1$. For $w$ in
+the extended affine Weyl group of $G'$,
+\[
+F'_{f'_w}(\gamma')=
+\begin{cases}
+q^{k/2} & \mbox{if } w=\lambda^{\pm k},\\
+(q-1)\,q^{(\ell'(w)-1)/2} & \mbox{if } w=\lambda^i[s_1],\ \ell'(w)\geq
+k+1\mbox{ and } i\equiv k\pmod 2,\\
+0 & \mbox{otherwise.}
+\end{cases}
+\]
+\end{proposition}
+
+\begin{proof}
+The proof is that of Proposition~\ref{prop:orbsl2}, with
+$|1-b^{-1}|^{-1}=q^{-k}$ in place of $|1-a^{-2}|^{-1}$ and with
+$\ord(b)=k$. The three matrices are $\mat b{bz}01$, $\mat 10{-bz}b$
+and $\mat{b(1+v)}{bv/y}{y(1-b(1+v))}{1-bv}$, and the table becomes the
+following.
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+$\kappa$ & condition & double coset & measure \\
+\midrule
+$1$ & $j\geq -k$ & $I'\lambda^kI'$ & $q^{k}$ \\
+$1$ & $j\leq -k-1$ & $I'\lambda^{k+2j}[s_1]I'$ & $(1-q^{-1})q^{-j}$ \\
+$s_1$ & $j\geq 1-k$ & $I'\lambda^{-k}I'$ & $q^{k-1}$ \\
+$s_1$ & $j\leq -k$ & $I'\lambda^{-k-2j}[s_1]I'$ & $(1-q^{-1})q^{-j}$ \\
+$u_-(y)$ & $j>-k$ & $I'\lambda^k[s_1]I'$ & $q^{k-1}$ \\
+$u_-(y)$ & $v\in b^{-1}(1+\varpi\cO)$ & $I'\lambda^{-k}I'$ & $q^{k-1}$ \\
+$u_-(y)$ & $j=-k$, $v\notin b^{-1}(1+\varpi\cO)$ & $I'\lambda^k[s_1]I'$
+& $q^{k}-2q^{k-1}$ \\
+$u_-(y)$ & $j<-k$ & $I'\lambda^{-k-2j}[s_1]I'$ & $(1-q^{-1})q^{-j}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+Only reflections $\lambda^i[s_1]$ with $i\equiv k\pmod 2$ occur, as
+they must, since $\det$ modulo squares is a conjugation invariant.
+Summing as before gives the stated values.
+\end{proof}
+
+\begin{example}
+\label{ex:orbsl2}
+Proposition~\ref{prop:orbsl2} is consistent with
+Proposition~\ref{prop:spherical}. The function $\chi_{Kt_0K}$ is the
+sum of $f_w$ over $w=t_0^{\pm1}$, $t_0s_1$ and $t_0^{-1}s_1$, and at
+$\gamma=t_0$ the proposition gives $q+q+(q-1)q+0=q^2+q$. With Haar
+measure normalized by $\vol(K)=1$ instead, this becomes $q$, the
+coefficient of $X$ in the Satake transform
+$q(X+1+X^{-1}-q^{-1})$ of Proposition~\ref{prop:spherical}(b). In the
+running example $q=7$, $m=1$, the value of $F_{f_{t_0s_1}}(t_0)$ is
+$42$.
+\end{example}
+
+The genuine orbital integrals are determined by these, through Savin's
+isomorphism. We need two facts about the generators.
+
+\begin{lemma}
+\label{lemma:cocenter}
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item Let $A$ be an algebra generated by two elements $\xi$ and $\eta$
+that satisfy quadratic relations. Then $A$ is spanned by $1$, $\xi$,
+$\eta$, the elements $(\xi\eta)^j$ with $j\geq1$, and the commutators
+$\alpha\beta-\beta\alpha$ with $\alpha,\beta\in A$.
+\item Let $p\nmid n$ and $k\geq1$, and put $m=n'k$. Then
+$(XY)^k=\zeta'_k\,\fbar_{(t_0^m,1)}$, where $\zeta'_k=1$ if $n$ is odd
+and $\zeta'_k=\epsilon^{k(k-1)/2}$ if $n$ is even, with
+$\epsilon=(-1)^{(q-1)/2}$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(a) Using the relations, $A$ is spanned by alternating products of
+$\xi$ and $\eta$. Modulo commutators, a product may be rotated
+cyclically. So $(\eta\xi)^j\equiv(\xi\eta)^j$. An alternating product
+of odd length at least $3$, say $\xi(\eta\xi)^j$, is congruent to
+$(\eta\xi)^j\xi=(\eta\xi)^{j-1}\eta\xi^2$, which is a combination of
+shorter alternating products by the relation for $\xi$. The same holds
+with $\xi$ and $\eta$ exchanged. Induction on the length gives (a).
+
+(b) By Lemma~\ref{lemma:genuine}, $(XY)^k=\fbar_L$, where $L$ is the
+$k$-th power of $(s_1,1)(r,1)$. We have $s_1r=h(c)$ with
+$c=-\varpi^{n'}$, and $x(\cdot)$ takes the values $1$, $\varpi^{n'}$
+and $c^{-1}$ on $s_1$, $r$ and $h(c)$. So
+$(s_1,1)(r,1)=(h(c),(c^{-1},c^{-1}\varpi^{-n'})_n)$. By (H1)--(H3) and
+(H5),
+\[
+(c^{-1},c^{-1}\varpi^{-n'})_n=(c^{-1},-c^{-2})_n=(-1,c)_n^{-1}
+=(-1,\varpi)_n^{-n'} .
+\] By Lemma~\ref{lemma:cover}(a),
+$(h(c),1)^k=(h(c^k),(c,c)_n^{k(k-1)/2})$, and
+$(c,c)_n=(-1,c)_n=(-1,\varpi)_n^{n'}$. Finally
+$(h(c^k),1)=(\varpi^m,(-1)^k)_n^{-1}\,(h((-1)^k),1)\,(t_0^m,1)$, and
+$(h((-1)^k),1)=s(h((-1)^k))\in B^*$. Hence $(XY)^k=\zeta\,
+\fbar_{(t_0^m,1)}$ with
+\[
+\zeta=(-1,\varpi)_n^{\,n'k-n'k(k-1)/2-mk},
+\]
+by Lemma~\ref{lemma:support}(b). The value $(-1,\varpi)_n$ is $\pm1$.
+It is $1$ if $n$ is odd, and $(-1,\varpi)_n^{n'}=\epsilon$ if $n$ is
+even, by Example~\ref{ex:hilbert}. Since $m=n'k$, the exponent is
+congruent to $n'k(k-1)/2$ modulo $2n'$, which gives $\zeta=\zeta'_k$.
+\end{proof}
+
+\begin{theorem}[Savin's isomorphism transfers split orbital integrals]
+\label{thm:orbtransfer}
+Let $p\nmid n$, $k\geq1$ and $m=n'k$, and let $\Theta$, $G'$, $\mu$
+and $a_n$ be as in Theorem~\ref{thm:savinsl2}. Put
+$\tilde\gamma=(t_0^m,1)$, a good element. For every $\phi$ in
+$\cH(\Gbar/\!/B^*)_{\gen}$,
+\[
+F_\phi(\tilde\gamma)=\Delta_k\,F'_{\Theta(\phi)}(\mu^k),\qquad
+\Delta_k=\zeta'_k\Bigl(\frac{|a_n|}{a_n}\Bigr)^{k}.
+\]
+Thus $\Delta_k=1$ for odd $n$, and
+$\Delta_k=\epsilon^{k(k-1)/2}\,\overline{\epsilon^{1/2}}^{\,k}$ for
+even $n$. Here $F'=F$ when $n$ is odd.
+\end{theorem}
+
+\begin{proof}
+Consider the functionals $\tau_1(\phi)=F_\phi(\tilde\gamma)$ and
+$\tau_2(\phi)=F'_{\Theta(\phi)}(\mu^k)$. They vanish on commutators, by
+Lemma~\ref{lemma:orbtrace} and since $\Theta$ is an algebra
+isomorphism. By Lemma~\ref{lemma:cocenter}(a) and
+Theorem~\ref{thm:presentation}(c), it suffices to compare them on
+$1$, $X$, $Y$ and $(XY)^j$ for $j\geq1$.
+
+Since $|\fbar_{(w,1)}|=f_w\circ\pr$, we have $|O_{\tilde\gamma}(\fbar_{(w,1)})|\leq
+O_{t_0^m}(f_w)$. By Proposition~\ref{prop:orbsl2} this vanishes for
+$w=1$, for $w=s_1$, for $w=r$, whose length $2n'-1$ is less than
+$2m+1$, and for $w=t_0^{n'j}$ with $j\neq k$. By
+Lemma~\ref{lemma:words}(a), $(XY)^j$ is a multiple of
+$\fbar_{(t_0^{n'j},1)}$. So $\tau_1$ vanishes on $1$, $X$, $Y$ and
+$(XY)^j$ for $j\neq k$. By the proof of
+Proposition~\ref{prop:orbsl2}, the double coset $Bt_0^mB$ is reached
+only from $\kappa=1$ and $\ord z\geq-2m$. There
+$\tilde\gamma\tilde u_+(z)=\tilde u_+(\varpi^{2m}z)\tilde\gamma$, and
+$\tilde u_+(\varpi^{2m}z)\in B^*$, so the integrand equals $1$. Hence
+$F_{\fbar_{(t_0^m,1)}}(\tilde\gamma)=q^m\cdot q^{-2m}\cdot q^{2m}=q^m$,
+and $\tau_1((XY)^k)=\zeta'_kq^m$ by Lemma~\ref{lemma:cocenter}(b).
+
+On the other side, $\Theta(1)=1$, $\Theta(X)=f'_{s_1}$ and
+$\Theta(Y)=a_nf'_{r'}$, and Propositions~\ref{prop:orbsl2} and
+\ref{prop:orbpgl} show that $F'$ vanishes at $\mu^k$ on $f'_1$,
+$f'_{s_1}$ and $f'_{r'}$. Also $\Theta((XY)^j)=a_n^j(f'_{s_1}*f'_{r'})^j
+=a_n^jf'_{\mu^j}$, because $s_1r'=\pm\mu$ and lengths add. So
+$\tau_2((XY)^j)$ vanishes for $j\neq k$, and
+$\tau_2((XY)^k)=a_n^k|D'(\mu^k)|^{1/2}$. Since
+$|a_n|^k|D'(\mu^k)|^{1/2}=q^m$ in both cases, $\tau_1=\Delta_k\tau_2$.
+\end{proof}
+
+\begin{corollary}
+\label{cor:orbgen}
+In the situation of Theorem~\ref{thm:orbtransfer}, let $w=t_0^{n'j}$
+or $w=t_0^{n'j}s_1$. Then $F_{\fbar_{(w,1)}}(\tilde\gamma)$ has
+absolute value
+\[
+\begin{cases}
+q^m & \mbox{if } w=t_0^{\pm m},\\
+(q-1)\,q^{(\ell(w)-1)/2} & \mbox{if } w=t_0^{n'j}s_1,\ \ell(w)\geq
+2m+1 \mbox{ and } n\mid m+n'j,\\
+0 & \mbox{otherwise.}
+\end{cases}
+\]
+In particular these are the values of Proposition~\ref{prop:orbsl2},
+except that for even $n$ the reflections $t_0^{n'j}s_1$ with $j\not\equiv
+k\pmod 2$ give $0$.
+\end{corollary}
+
+\begin{proof}
+By Theorem~\ref{thm:savinsl2}(b),
+$\Theta(\fbar_{(w,1)})=c_wq^{e(w)}f'_{\Psi(w)}$ with $|c_w|=1$. By
+Theorem~\ref{thm:orbtransfer},
+\[
+|F_{\fbar_{(w,1)}}(\tilde\gamma)|=q^{e(w)}\,|F'_{f'_{\Psi(w)}}(\mu^k)| .
+\]
+Apply Propositions~\ref{prop:orbsl2} and \ref{prop:orbpgl}, and use
+$e(w)=\frac12(\ell(w)-\ell'(\Psi(w)))$. For $w=t_0^{n'j}s_1$, the
+condition on $\ell'(\Psi(w))$ is equivalent to $\ell(w)\geq 2m+1$,
+and for even $n$ the parity condition $j\equiv k\pmod 2$ is equivalent
+to $n\mid m+n'j$. For odd $n$ the divisibility always holds.
+\end{proof}
+
+\begin{vremark}
+\label{vrem:orbphases}
+\emph{Computer check, and phases.} We computed the genuine orbital
+integrals of Corollary~\ref{cor:orbgen} directly from
+Lemma~\ref{lemma:orbred}, with exact Hilbert symbols. For $n=2$ we
+took $q=3$ with $k=1,2$ and $q=5$ with $k=1$, and for $n=4$ we took
+$q=5$ with $k=1$. In these cases we computed the translations and between
+four and six reflections $t_0^{n'j}s_1$ with $|j|\leq 4$, on both sides
+of the vanishing range. For $n=3$ and $q=7$ we
+computed only the two translations $t_0^{\pm3}$, since the reflections
+need too many points. The results agree with
+Corollary~\ref{cor:orbgen} and with Theorem~\ref{thm:orbtransfer},
+including the constant $\Delta_k$, which is $-i$ for $q=3$ and $k=1$. In every computed case the non-zero values
+are positive, so the integrand has constant phase $1$ on each
+contributing region, and the vanishing for even $n$ comes from a
+non-trivial character sum over the units. We have checked the phases by
+hand along the lines of the proof of
+Proposition~\ref{prop:quadratic}, but we have not written out that
+computation here.
+\end{vremark}
+
+\begin{remark}
+\label{rem:orbmeaning}
+Theorem~\ref{thm:orbtransfer} is a transfer of orbital integrals at
+split elements, with the bijection $t_0^{n'k}\mapsto\mu^k$ and the
+transfer factor $\Delta_k$. It explains the factors $q^{e(w)}$ of
+Theorem~\ref{thm:savinsl2}(b). The normalized orbital integrals of
+$\fbar_{(t_0^m,1)}$ at $(t_0^m,1)$ and of $f'_{\mu^k}$ at $\mu^k$ are
+$|D(t_0^m)|^{1/2}=q^m$ and $|D'(\mu^k)|^{1/2}$, and their ratio is the
+factor $q^{e(w)}$. For $n=2$ and $q\equiv 3\pmod4$ the transfer factor
+$\Delta_1=-i$ is not $1$. This is consistent with the expectation that
+the transfer for $Mp(2)$ involves roots of unity \cite{Li11}. We have not
+compared $\Delta_k$ with the transfer factors of \cite{Li11}.
+\end{remark}
+
+\medskip\noindent\textbf{Deep level.} For the basis of
+Proposition~\ref{prop:admissible} we have the following.
+
+\begin{proposition}
+\label{prop:orbdeep}
+Let $k\geq1$ be deep, normalize Haar measure by $\vol(B_k)=1$, and let
+$\gamma=h(a)$ with $m=|\ord(a)|\geq1$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item Let $B_kgB_k\subset BwB$ with $w\in W_a$. If $w$ is neither
+$t_0^{\pm m}$ nor a reflection $t_0^is_1$ with $\ell(w)\geq 2m+1$, then
+$O_\gamma(f_g)=0$, and $O_{\tilde\gamma}(\fbar_{\tilde g})=0$ for
+every good lift $\tilde\gamma$ of $\gamma$.
+\item For every $w\in W_a$,
+\[
+\sum_gF_{f_g}(\gamma)=(q-1)q^{3k-1}\,F_{f_w}(\gamma),
+\]
+where $g$ runs over representatives of the double cosets $B_kgB_k$
+contained in $BwB$, and $F_{f_w}(\gamma)$ is the value in
+Proposition~\ref{prop:orbsl2}.
+\item If $n\nmid 2m'$ and $\tilde t$ is a lift of $t_0^{m'}$, then
+$D(\fbar_{\tilde t})=0$ for every distribution $D$ on $\Gbar$ that is
+invariant under conjugation. In particular every genuine orbital
+integral of $\fbar_{\tilde t}$, at every good element, vanishes.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(a) We have $0\leq f_g\leq\chi_{BwB}$ and
+$|\fbar_{\tilde g}|=f_g\circ\pr$, and orbital integrals are integrals
+of non-negative functions. So both orbital integrals are bounded by
+the orbital integral of $\chi_{BwB}$, which vanishes by
+Proposition~\ref{prop:orbsl2}. (b) The characteristic function of
+$BwB$ is the sum of the $f_g$. With $\vol(B_k)=1$ the Haar measure is
+$[B:B_k]=(q-1)q^{3k-1}$ times the measure with $\vol(B)=1$. Here
+$[B:B_1]=(q-1)q^2$, since $B/B_1$ is described by the residues of the
+diagonal entries, which are inverse units, and of the two off-diagonal
+entries, and $[B_1:B_k]=q^{3k-3}$ by Lemma~\ref{lemma:subgroups}(b).
+Orbital integrals scale in the same way. (c) Choose a unit $u$ with $\zeta=(u,\varpi)_n^{2m'}\neq1$, by
+Lemma~\ref{lemma:hilbert}, and a lift $\tilde h$ of $h(u)$. Conjugation
+by $\tilde h$ preserves $B_k^*$, by Lemma~\ref{lemma:canonical}(b),
+and $\tilde h^{-1}\tilde t\tilde h=\zeta^{\pm1}\tilde t$ by
+Lemma~\ref{lemma:cover}(a). So $\phi\mapsto\phi(\tilde
+h\,\cdot\,\tilde h^{-1})$ maps $\fbar_{\tilde t}$ to
+$\zeta^{\pm1}\fbar_{\tilde t}$, and $D(\fbar_{\tilde t})=\zeta^{\pm1}
+D(\fbar_{\tilde t})$.
+\end{proof}
+
+Part (c) strengthens Proposition~\ref{prop:traceless}, since traces of
+admissible representations are invariant distributions. The individual
+orbital integrals $O_\gamma(f_g)$ at deep level, and orbital integrals
+at elliptic elements at any level, we have not computed.
+
+\begin{vremark}[What remains heuristic]
 \label{vrem:savinaction}
-\emph{Heuristic.} By Theorem~\ref{thm:savinsl2}(b), Savin's isomorphism
-moves the genuine function on $\overline{Bt_0^{n'k}B}$ to a multiple of
-$f'_{\mu^k}$, and it multiplies it by $q^{e(w)}$ and a constant of
-absolute value one. For odd $n$ the genuine translation $t_0^{nk}$, of
-length $2n|k|$, corresponds to $t_0^k$, of length $2|k|$, so the
-factor is $q^{(n-1)|k|}$. For $n=2$ the genuine $t_0^k$, of length
-$2|k|$, corresponds to $\lambda^k$, of length $|k|$, so the factor is
-$q^{|k|/2}$. For odd $k$ the element $\lambda^k$ does not come from
-$SL(2,F)$. Both features lie outside Theorem~\ref{thm:unimodular},
-which concerns maps that keep each function on its own double coset.
-
-These factors are what a transfer of orbital integrals would predict.
-The orbital integral of a genuine function is defined only at
-elements whose lift commutes with the lifts of its centralizer, since
-otherwise the integrand is not invariant under the centralizer. For
-$\gamma=h(a)$ the commutator with $h(b)$ is $(b,a)_n^2$ by
-Lemma~\ref{lemma:cover}(a), so only those $a$ with
-$a^2\in(F^\times)^n$ occur. As in the orbit map of \cite{FK86}, such
-elements should be matched with elements of $G/Z_n$ by a power map.
-Normalized orbital integrals carry the factor $|D(\gamma)|^{1/2}$, where
-$D$ is the Weyl discriminant, and $|D(h(\varpi^m))|^{1/2}=q^{|m|}$. For
-$n$ odd the ratio of these factors at $t_0^n$ and at $t_0$ is
-$q^{n-1}$. For $n=2$ the factor at $\lambda$ is $q^{1/2}$, so the ratio
-at $t_0$ and at $\lambda$ is $q^{1/2}$. In both cases the ratio is the
-factor in Savin's isomorphism. For $n=2$ one expects in addition roots
-of unity coming from the transfer factors of \cite{Li11}. Such
-constants do occur: when $q\equiv 3$ modulo $4$, the constant $a_2$ of
-Theorem~\ref{thm:savinsl2} is $i\sqrt q$.
+\emph{Heuristic.} At deep level, or at elliptic elements, we expect
+the comparison of orbital integrals to involve the same power map
+$t_0^{n'k}\leftrightarrow\mu^k$ on split elements, as in the orbit map
+of \cite{FK86}. The genuine orbital integrals live only on good
+elements. For $\gamma=h(a)$ the commutator with $h(b)$ is $(b,a)_n^2$
+by Lemma~\ref{lemma:cover}(a), so only those $a$ with
+$a^2\in(F^\times)^n$ occur. For $n=2$ one expects the transfer factors
+to be those of \cite{Li11}, which Remark~\ref{rem:orbmeaning} does not
+check.
 \end{vremark}
 
 %======================================================================
@@ -3140,7 +3571,9 @@ Savin's theorem for $SL(2)$ (Theorem~\ref{thm:savinsl2}). For odd $n$
 the target is the Iwahori--Hecke algebra of $SL(2)$, with the
 translations rescaled by $n$. For even $n$ it is that of $PGL(2)$, and
 no isomorphism with that of $SL(2)$ respects the affine generator
-(Corollary~\ref{cor:wronggroup}). At deep
+(Corollary~\ref{cor:wronggroup}). The orbital integrals of all basis
+functions at split elements are explicit, and Savin's isomorphism
+transfers them (Theorem~\ref{thm:orbtransfer}). At deep
 level the translations $t_0^m$ with $n\nmid 2m$ carry genuine
 functions, but these have trace zero in every admissible genuine representation
 (Proposition~\ref{prop:traceless}), and their spherical parts vanish
@@ -3195,17 +3628,16 @@ preserve supercuspidality and square-integrability?
 
 \begin{question}[Orbital integrals]
 \label{q:transfer}
-Is Savin's isomorphism of Theorem~\ref{thm:savinsl2} a transfer of
-orbital integrals? That is, for a function $\fbar$ in the genuine
-Iwahori--Hecke algebra, do the normalized orbital integrals of $\fbar$
-at the elements whose lifts commute with their centralizers match, up
-to transfer factors and through a power map, the normalized orbital
-integrals of its image in the Iwahori--Hecke algebra of $G/Z_n$? For
+Theorem~\ref{thm:orbtransfer} shows that Savin's isomorphism of
+Theorem~\ref{thm:savinsl2} transfers orbital integrals at the split
+elements $(t_0^{n'k},1)$. Does it transfer them at all good regular
+elements, including the elliptic ones, up to transfer factors and
+through a power map? How is the constant $\Delta_k$ related to the
+transfer factors of \cite{Li11} for $n=2$? For
 $n=2$ this would be an Iwahori-level analog of the spherical
 fundamental lemma for $Mp(2)$ \cite{Li11,Lu18}. For $n\geq 3$ we do not
 know of a spherical fundamental lemma for these covers. Is there an
-analog at deep level? Remark~\ref{vrem:savinaction} gives some
-evidence.
+analog at deep level?
 \end{question}
 
 %======================================================================
@@ -3328,7 +3760,9 @@ genuine function on the cover it is defined only at elements whose
 lift commutes with the lifts of its centralizer. Matching of orbital
 integrals between a cover and a linear group, up to transfer factors,
 is the geometric form of a correspondence, and the fundamental lemma
-asserts it for spherical functions.
+asserts it for spherical functions. For the Iwahori--Hecke algebras of
+this paper the orbital integrals at split elements are computed in
+Section~\ref{subsec:orbital}.
 \item[Principal congruence subgroup] For $j\geq 1$, the normal subgroup
 $\Gamma_j$ of $SL(2,\cO)$ of matrices congruent to the identity modulo
 $\varpi^j$ in every entry. It factors as a product of lower unipotent,
@@ -3377,7 +3811,7 @@ those comments against \cite{Wi22} before using them. Claude
 point, drafted the corrected statements and the new proofs, revised the
 paper to the authors' house style, checked bibliographic data, and
 prepared the revision log. Two Claude models were used, Claude Fable
-5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~9. AI review is not an
+5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~10. AI review is not an
 independent certification of the results, and the new arguments have
 not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.
