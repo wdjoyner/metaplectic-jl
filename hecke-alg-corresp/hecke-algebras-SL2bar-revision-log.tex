@@ -1,8 +1,9 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 6, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 7, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
 \usepackage{mathptmx}
+\renewcommand{\ttdefault}{pcr}
 \DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}
 \usepackage[letterpaper,margin=1in]{geometry}
 \usepackage{amsmath,amssymb}
@@ -23,19 +24,20 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 6}
+cover $\overline{SL_2}$'', Draft 7}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~6 of the paper (file
+This log accompanies Draft~7 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~6 of the paper.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~7 of the paper. Draft~7 has the same numbering as
+Draft~6.
 Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
 with the numbering of Drafts~2 to~5.
 
@@ -72,12 +74,15 @@ remarks.
 and the notation table moved into Section~\ref{P-section:intro}, at
 David Joyner's request. The footnote now calls the paper a significant
 rewrite of [Jo98].
+\item[Draft 7] (November 24, 2026). Same file. Response to Carbon's
+third referee report, which reviewed Draft~6. Proposition~\ref{P-prop:level0}
+is now an equivalence.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--6 here were made from
+\texttt{metaplectic-jl}. Drafts~1--7 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -105,6 +110,7 @@ It produced Drafts~4 and~5 as well, including the new results of
 Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}.
 \item \textbf{Carbon} also supplied a written summary of [Sa88] for
 Draft~4. It was used only for orientation (Section~\ref{sec:sources}).
+Carbon refereed Draft~6 as well (Section~\ref{sec:referee3}).
 \item \textbf{David Joyner} chose the route of an honest corrected
 draft over local fixes, chose the new title, and asked that Claude be
 listed as an author.
@@ -380,6 +386,72 @@ whether it has since been published.
 it. No change.
 \end{enumerate}
 
+\section{Response to Carbon's third referee report (on Draft 6)}
+\label{sec:referee3}
+
+The report recommended acceptance subject to optional polish. It stated
+that every proof had been checked and that no mathematical errors were
+found. Each point is answered below.
+
+\subsection*{Mathematical points}
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{The bound $j>e/(p-1)$ for $\exp$ and $\log$.} The statement
+was correct for integers $j$. Adopted as a clarification: the text now
+says ``for an integer $j>e/(p-1)$''.
+\item \emph{The constants $c_g$ depend on double cosets.} Correct, and
+harmless for the proof, which only uses
+$\psi(\tilde y)=\Psi(f_y)(\tilde y)$. Adopted: Theorem~\ref{P-thm:unimodular},
+Corollary~\ref{P-cor:unimodular} and Question~\ref{P-q:n2} now speak of
+representatives of the double cosets.
+\item \emph{Converse of Proposition~\ref{P-prop:level0}.} Correct
+(level~1). Adopted. The proposition now says ``if and only if'', with a
+proof of the converse that works for every splitting of $B$. The point
+is that a splitting is unique on the pro-$p$ part $B^+$ and that the
+diagonal units are the only part of $B$ that $t_0^m$ fails to fix in
+the cover. Example~\ref{P-ex:level0}, Remark~\ref{P-rem:samelattice},
+Table~\ref{P-tab:howfar} and the summary are updated. This removes the
+weakening recorded in the response to David Joyner's comments on
+Draft~4.
+\item \emph{Section numbers in Remark~\ref{P-vrem:borel}.} The report
+now gives \S\S2--3 of [Bo76], with \S1 described as preliminaries. Its
+report on Draft~2 said that \S\S1--2 is exact. The two reports
+disagree, and neither says that the source was consulted. The citation
+and Remark~\ref{P-vrem:borel} are unchanged. For [BH06] the report
+gives \S\S4.2--4.3, pages 34--36. This is not checked either.
+\end{enumerate}
+
+\subsection*{Structural and stylistic points}
+\begin{enumerate}[leftmargin=1.5em,resume]
+\item \emph{Title of Part~I.} Adopted. Part~I is now ``General
+structure and the case $n=2$'', since its first three sections hold for
+every $n$ and use the running example with $n=3$.
+\item \emph{``not tested'' in Table~\ref{P-tab:howfar}.} Adopted. The
+entry now says ``open''.
+\item \emph{Remove the command that sets the depth of the table of
+contents after the summary heading.} Not adopted. In \texttt{amsart}, starred subsections are
+written to the table of contents. The command is what keeps the
+headings ``Results'' and ``Open questions'' out of it.
+\item \emph{Widest bibliography label.} Adopted. The label width is now
+set by \texttt{HM85}, the widest key in Times.
+\item \emph{Glossary.} No change requested.
+\end{enumerate}
+
+\section{Changes from Draft 6 to Draft 7}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item Proposition~\ref{P-prop:level0} is now an equivalence, with a new
+proof of the converse. Example~\ref{P-ex:level0},
+Remark~\ref{P-rem:samelattice}, Table~\ref{P-tab:howfar}, the list of
+main results and the summary are updated accordingly.
+\item Theorem~\ref{P-thm:unimodular}, Corollary~\ref{P-cor:unimodular}
+and Question~\ref{P-q:n2} refer to representatives of double cosets.
+\item ``For an integer $j>e/(p-1)$'' in Section~\ref{P-section:genuine}.
+\item Part~I retitled. The table entry ``not tested'' is now ``open''.
+The bibliography label width is set by \texttt{HM85}.
+\item In this log, typewriter text now uses Courier, so that the PDF
+contains no bitmap fonts.
+\end{enumerate}
+
 \section{Concordance from Draft 5 to Draft 6}
 \label{sec:conc56}
 
@@ -412,18 +484,18 @@ contents is slightly reduced, to remove an overfull box on the first
 page.
 \end{enumerate}
 
-\section{Concordance from Draft 3 to Draft 6}
+\section{Concordance from Draft 3 to Draft 7}
 \label{sec:conc34}
 
 Numbers not listed are unchanged. Draft~4 differs from Draft~5 only
 in Example~8.8 (now Example~\ref{P-ex:unimodular}), Theorem~11.3 (now
 Theorem~\ref{P-thm:savin}) and Remark~11.4 (now
-Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~6
-numbers.
+Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~7
+numbers, which are those of Draft~6.
 
 \begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
 \toprule
-{Draft 3} & Draft 6 \\
+{Draft 3} & Draft 7 \\
 \midrule
 \endhead
 Lemma 3.5 & Lemma~\ref{P-lemma:subgroups} \\
