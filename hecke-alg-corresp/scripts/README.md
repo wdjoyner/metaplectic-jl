@@ -25,3 +25,13 @@ Example: `python3 prod_check.py 7 3 "('ts',-3)"` prints the relation Y^2 = 294 Y
   with the orbital integral of its image under Savin's isomorphism at mu^k. The labels use j with w = t0^{n'j}
   or t0^{n'j} s1. It prints the ratio, which should be the constant Delta_k of Theorem 9.20.
   Example: `python3 transfer_check.py 3 2 1 "[('t',1),('ts',1),('ts',-3)]"` gives ratio -i each time.
+
+## Elliptic orbital integrals (Draft 11, Section 9.5)
+
+- `elliptic.py p n L t`: counts edges D within gallery distance L of the standard edge, sorted by the relative
+  position of D and gamma D, for gamma = [[0,-1],[1,t]]. Each count carries its root-of-unity phases. Use n=1 for
+  SL(2).
+- `elliptic2.py p n L t unit|t`: tau(1), tau(X), tau(Y) for gamma and for the other SL(2)-class gamma^h in its
+  stable class. Use `unit` for ramified tori, where h=diag(u,1) with u a non-square unit. Use `t` for unramified
+  tori, where h=[[0,-1],[p,0]].
+  Example: `python3 elliptic2.py 3 2 6 5 unit` gives (1,3,-3) and (1,3,3).

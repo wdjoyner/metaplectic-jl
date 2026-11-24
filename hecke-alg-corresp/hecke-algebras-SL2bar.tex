@@ -1,5 +1,5 @@
 %% On Hecke algebras of the p-adic metaplectic cover SL2bar
-%% Draft 10 (November 2026). Corrected and expanded version of
+%% Draft 11 (November 2026). Corrected and expanded version of
 %%   D. Joyner, "A correspondence for the generalized Hecke algebra of the
 %%   metaplectic cover SL(2,F)-bar, F p-adic", New York J. Math. 4 (1998).
 %% Companion file: hecke-algebras-SL2bar-revision-log.tex
@@ -70,7 +70,7 @@
 \title[On Hecke algebras of \texorpdfstring{$\overline{SL_2}$}{SL2bar}]{On
 Hecke algebras of the \texorpdfstring{\lowp}{p}-adic metaplectic cover
 \texorpdfstring{$\overline{SL_2}$}{SL2bar}\\[6pt]
-{\normalsize Draft 10. Corrected and expanded version}}
+{\normalsize Draft 11. Corrected and expanded version}}
 
 \author{David Joyner}
 \email{wdjoyner@gmail.com}
@@ -126,7 +126,10 @@ explicit map that rescales the translations and multiplies each basis
 function by the square root of a ratio of volumes. We compute the
 orbital integrals of all basis functions at split elements at Iwahori
 level, and show that Savin's isomorphism transfers them, with an
-explicit transfer factor.
+explicit transfer factor. We also compute the elliptic orbital integrals
+on the linear side, reduce the genuine ones to three values, and show
+that the values found numerically imply an elliptic transfer, of
+endoscopic shape for even $n$.
 \end{abstract}
 
 \maketitle
@@ -270,6 +273,14 @@ transfers them, with an explicit transfer factor of absolute value one
 (Theorem~\ref{thm:orbtransfer}). At deep level, every orbital integral
 of $\fbar_{\tilde t_0^m}$ vanishes when $n\nmid 2m$
 (Proposition~\ref{prop:orbdeep}).
+\item At Iwahori level the elliptic orbital integrals of all basis
+functions of the Iwahori--Hecke algebras of $SL(2)$ and $PGL(2)$ are
+counts of edges of the Bruhat--Tits tree, computed explicitly
+(Propositions~\ref{prop:ellsl2} and \ref{prop:ellpgl}). The genuine ones
+are determined by three values (Proposition~\ref{prop:ellgen}). The
+values computed numerically imply that Savin's isomorphism transfers
+elliptic orbital integrals too, class by class for odd $n$, and in
+endoscopic form for even $n$ (Theorem~\ref{thm:ellcond}).
 \end{enumerate}
 
 \noindent
@@ -309,6 +320,9 @@ Iwahori--Hecke algebra ($k=0$) & of $PGL(2)$ type & of $SL(2)$ type if
 $n$ is odd, of $PGL(2)$ type if $n$ is even \\
 Split orbital integrals ($k=0$) & transferred to $PGL(2)$ & transferred
 to $G/Z_n$ \\
+Elliptic orbital integrals ($k=0$), if Remark~\ref{vrem:ellcomputed}
+holds & stable part to $PGL(2)$ & to $SL(2)$ ($n$ odd), as for $n=2$
+($n$ even) \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -545,7 +559,7 @@ Section~\ref{section:reps} relates the algebras to representations.
 Section~\ref{section:savin} treats Iwahori level for every $n$. It
 gives a presentation of the genuine Iwahori--Hecke algebra, a direct
 proof of Savin's theorem for $SL(2)$, and explicit orbital integrals at
-split elements.
+split and elliptic elements.
 Section~\ref{section:summary} summarizes the results and lists open
 questions. A glossary follows.
 
@@ -3088,7 +3102,8 @@ an explicit constant of absolute value one
 Question~\ref{q:transfer} for split elements at Iwahori level. For the
 basis of Proposition~\ref{prop:admissible} at deep level we obtain
 vanishing results and a sum rule (Proposition~\ref{prop:orbdeep}).
-Orbital integrals at elliptic elements are not treated.
+Orbital integrals at elliptic elements are treated in
+Section~\ref{subsec:elliptic}.
 
 \medskip\noindent\textbf{Definitions.} Normalize Haar measure on $T$
 by $\vol(T(\cO))=1$. For $a\in F^\times$ with $a^2\neq 1$, the element
@@ -3513,12 +3528,11 @@ D(\fbar_{\tilde t})$.
 
 Part (c) strengthens Proposition~\ref{prop:traceless}, since traces of
 admissible representations are invariant distributions. The individual
-orbital integrals $O_\gamma(f_g)$ at deep level, and orbital integrals
-at elliptic elements at any level, we have not computed.
+orbital integrals $O_\gamma(f_g)$ at deep level we have not computed.
 
 \begin{vremark}[What remains heuristic]
 \label{vrem:savinaction}
-\emph{Heuristic.} At deep level, or at elliptic elements, we expect
+\emph{Heuristic.} At deep level we expect
 the comparison of orbital integrals to involve the same power map
 $t_0^{n'k}\leftrightarrow\mu^k$ on split elements, as in the orbit map
 of \cite{FK86}. The genuine orbital integrals live only on good
@@ -3528,6 +3542,342 @@ $a^2\in(F^\times)^n$ occur. For $n=2$ one expects the transfer factors
 to be those of \cite{Li11}, which Remark~\ref{rem:orbmeaning} does not
 check.
 \end{vremark}
+
+\subsection{Elliptic orbital integrals}
+\label{subsec:elliptic}
+This subsection treats regular elliptic elements at Iwahori level. On
+the linear side the orbital integrals become counts of edges of the
+Bruhat--Tits tree. We compute them for every basis function of
+$\cH(G/\!/B)$ and of $\cH(G'/\!/I')$
+(Propositions~\ref{prop:ellsl2} and \ref{prop:ellpgl}). They vanish on
+translations, and they are determined by three numbers attached to the
+subtree fixed by the element. On the genuine side the same reductions
+hold (Proposition~\ref{prop:ellgen}), but the counts carry roots of
+unity, and we have computed the remaining three values only
+numerically. If the computed values hold in general, Savin's
+isomorphism transfers elliptic orbital integrals as well
+(Theorem~\ref{thm:ellcond}). For odd $n$ it matches each elliptic
+class with itself. For even $n$ the statement has the shape of an
+endoscopic transfer: sums over the two classes in a stable class match
+$PGL(2)$, and differences match elements of $PGL(2)$ that flip an
+edge.
+
+\medskip\noindent\textbf{The tree.} Let $\mathcal T$ be the
+Bruhat--Tits tree of $SL(2,F)$. Its vertices are the homothety classes
+of $\cO$-lattices in $F^2$, and two vertices are adjacent if they have
+representatives $L\supset L'\supset\varpi L$ with $L/L'$ of order $q$.
+The group $G$ has two orbits on vertices. Vertices of type $0$ are
+those in the orbit of $[\cO^2]$, with stabilizers conjugate to $K$, and
+vertices of type $1$ are those in the orbit of $[\cO\oplus\varpi\cO]$.
+The group $G$ acts transitively on edges, and the stabilizer of the
+standard edge $C=\{[\cO^2],[\cO\oplus\varpi\cO]\}$ is $B$. So $x\mapsto
+xC$ identifies $G/B$ with the set of edges. For edges $D=xC$ and
+$D'=yC$, the \textbf{relative position} $\delta(D,D')$ is the $w\in
+W_a$, up to sign, with $x^{-1}y\in BwB$. A reflection $t_0^is_1$ fixes
+a vertex of type $0$ if $i$ is even and of type $1$ if $i$ is odd, and
+its length is $2d+1$ with $d=i$ for $i\geq0$ and $d=-i-1$ for $i<0$.
+Distances are measured in edges. On $G'=PGL(2,F)$ the set $G'/I'$ is
+the set of directed edges, and the relative position $\delta'$ of two
+directed edges lies in the extended affine Weyl group. Here $f'_{[s_1]}$
+corresponds to directed edges with the same tail and different heads,
+and $f'_{[t]}$ to an edge and its reverse.
+
+An element $\gamma\in G$ is \textbf{elliptic regular} if its
+characteristic polynomial is irreducible over $F$. Then $E=F[\gamma]$ is
+a quadratic extension, the centralizer $T_\gamma\cong E^1$ is compact,
+and we normalize $\vol(T_\gamma)=1$. The eigenvalues are units, so
+$\gamma\in\cO_E$, and $\cO[\gamma]=\cO+\varpi^r\cO_E$ for a unique
+$r\geq0$, the \textbf{conductor} of $\gamma$. Also
+$|D(\gamma)|^{1/2}=|\gamma-\bar\gamma|$, which is $q^{-r}$ if $E/F$ is
+unramified and $q^{-r-1/2}$ if $E/F$ is ramified. On $G'$ we use the
+centralizer $E^\times/F^\times$, also with volume $1$.
+
+\begin{lemma}
+\label{lemma:ellcount}
+Let $\gamma\in G$ be elliptic regular.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item For every bi-$B$-invariant $f$,
+$O_\gamma(f)=\sum_Df(x_D^{-1}\gamma x_D)$, where $D=x_DC$ runs over the
+edges of $\mathcal T$. In particular
+$O_\gamma(f_w)=\#\{D\ |\ \delta(D,\gamma D)=w\}$.
+\item If $p\nmid n$, every lift $\tilde\gamma$ of $\gamma$ is good, and
+$O_{\tilde\gamma}(\phi)=\sum_D\phi(\tilde x_D^{-1}\tilde\gamma\tilde
+x_D)$ for genuine bi-$B^*$-invariant $\phi$.
+\end{enumerate}
+The same holds on $G'$, with directed edges.
+\end{lemma}
+
+\begin{proof}
+(a) The set $T_\gamma\backslash G/B$ is the set of $T_\gamma$-orbits
+of edges. The set $T_\gamma\backslash T_\gamma xB$ has measure
+\[
+\vol(xB)/\vol(T_\gamma\cap xBx^{-1}),
+\]
+which is the size of the $T_\gamma$-orbit of $xC$, since $\vol(T_\gamma)=1$ and $xBx^{-1}$ is the
+stabilizer of $xC$. Summing over orbits gives a sum over edges. It is
+finite, by Lemma~\ref{lemma:fixedtree} and the proof of
+Proposition~\ref{prop:ellsl2}. (b) The commutator of lifts is a
+bimultiplicative pairing on $T_\gamma$ with values in $\mu_n$, and it is
+trivial on the diagonal. The group $E^1$ is the product of a finite
+cyclic group, of order $q+1$ or $2$, and a pro-$p$ group. A
+bimultiplicative pairing into $\mu_n$ is trivial on a pro-$p$ factor,
+since $p\nmid n$, and an alternating pairing on a cyclic group is
+trivial. So every lift is good, and the proof of (a) applies.
+\end{proof}
+
+\begin{lemma}
+\label{lemma:fixedtree}
+Let $\gamma\in G$ be elliptic regular with conductor $r$. The vertices
+fixed by $\gamma$ are the vertices at distance at most $r$ from a
+vertex $c$ if $E/F$ is unramified, and from an edge $c$ if $E/F$ is
+ramified.
+\end{lemma}
+
+\begin{proof}
+Since $\det\gamma=1$, a vertex $[L]$ is fixed if and only if $\gamma
+L=L$, that is, if $L$ is a module over $R_r=\cO[\gamma]$. Choose
+$v\neq0$ in $F^2$ and identify $F^2$ with $E$ by $\xi\mapsto\xi v$, with
+$\gamma$ acting by multiplication. For a lattice $L\subset E$, the ring
+$\{\xi\in E\ |\ \xi L\subset L\}$ is an order, hence equal to
+$R_c=\cO+\varpi^c\cO_E$ for some $c\geq0$. Since $R_c=\cO[\varpi^c\delta]$
+for a generator $\delta$ of $\cO_E$ over $\cO$, it is a Gorenstein local
+ring, so $L$ is an invertible, hence principal, $R_c$-module:
+$L=yR_c$ with $y\in E^\times$. So the fixed vertices are the classes
+$[yR_c]$ with $c\leq r$. Let $c_0$ be the vertex $[\cO_E]$ if $E/F$ is
+unramified, and the edge $\{[\cO_E],[\varpi_E\cO_E]\}$ if it is
+ramified. The vertex $[R_c]$ lies at distance $c$ from $c_0$, since
+$\cO_E/R_c\cong\cO/\varpi^c\cO$. The group $E^\times$ fixes $c_0$, so
+all $[yR_c]$ lie at distance $c$. Their number is
+$[E^\times:F^\times R_c^\times]$, which is $(q+1)q^{c-1}$ for $c\geq1$
+in the unramified case and $2q^c$ in the ramified case. These are the
+numbers of vertices at distance exactly $c$ from $c_0$. Hence the fixed
+vertices are exactly the vertices at distance at most $r$ from $c_0$.
+\end{proof}
+
+Let $\mathcal F_\gamma$ be this fixed subtree. Put $E_\gamma$ for its
+number of edges, and $S_\tau(\gamma)$ for the number of edges of
+$\mathcal T$ that have one endpoint in $\mathcal F_\gamma$, of type
+$\tau$, and the other endpoint outside. By
+Lemma~\ref{lemma:fixedtree}, if $E/F$ is unramified and $c$ has type
+$\tau_c$, then
+\[
+E_\gamma=\frac{(q+1)(q^r-1)}{q-1},\qquad S_{\tau_c+r}(\gamma)=(q+1)q^r,
+\qquad S_{\tau_c+r+1}(\gamma)=0,
+\]
+with types taken modulo $2$. If $E/F$ is ramified, then
+$E_\gamma=1+2(q+q^2+\cdots+q^r)$ and $S_0(\gamma)=S_1(\gamma)=q^{r+1}$.
+
+\begin{proposition}
+\label{prop:ellsl2}
+Let $\gamma\in G$ be elliptic regular, and $w\in W_a$. Then
+$O_\gamma(f_w)$ is $E_\gamma$ if $w=1$, and $0$ if $w=t_0^j$ with
+$j\neq0$. If $w$ is a reflection of length $2d+1$ fixing a vertex of
+type $\tau$, then $O_\gamma(f_w)=q^dS_\tau(\gamma)$.
+\end{proposition}
+
+\begin{proof}
+We use Lemma~\ref{lemma:ellcount}(a). An edge $D$ with
+$\delta(D,\gamma D)=1$ is an edge fixed by $\gamma$, that is, an edge
+of $\mathcal F_\gamma$. Let $D$ be an edge not in $\mathcal
+F_\gamma$. Let $v$ be the vertex of $\mathcal F_\gamma$ nearest to
+$D$, and let $d$ be the distance from $v$ to the nearer endpoint of
+$D$. The first edge of the path from $v$ to $D$ is not fixed, so the
+geodesic from $D$ to $\gamma D$ passes through $v$. In an apartment
+containing this geodesic, $\gamma D$ is the mirror image of $D$ in $v$,
+because $\gamma$ preserves types and fixes $v$. Hence $\delta(D,\gamma
+D)$ is the reflection of length $2d+1$ fixing a vertex of the type of
+$v$. In particular it is never a translation. The vertex $v$ has
+$q+1$ neighbors, and the edges from $v$ to vertices outside $\mathcal
+F_\gamma$ are counted in $S_\tau(\gamma)$. Each such edge starts a
+branch with $q^d$ edges whose nearer endpoint is at distance $d$ from
+$v$. This gives $q^dS_\tau(\gamma)$.
+\end{proof}
+
+\begin{proposition}
+\label{prop:ellpgl}
+Let $\gamma'\in G'$ be elliptic regular.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item If $\gamma'$ fixes a vertex, its fixed vertices again form a
+subtree $\mathcal F_{\gamma'}$, and $O'_{\gamma'}(f'_1)=2E_{\gamma'}$,
+$O'_{\gamma'}(f'_{[s_1]})=S_0(\gamma')+S_1(\gamma')$,
+$O'_{\gamma'}(f'_{[t]})=0$. For $\gamma'$ the image of an elliptic
+regular $\gamma\in G$, the subtree $\mathcal F_{\gamma'}$ equals
+$\mathcal F_\gamma$.
+\item If $\gamma'$ interchanges the endpoints of exactly one edge, then
+$O'_{\gamma'}(f'_1)=O'_{\gamma'}(f'_{[s_1]})=0$ and
+$O'_{\gamma'}(f'_{[t]})=2$.
+\item In both cases $O'_{\gamma'}(f'_{\lambda^k})=0$ for $k\neq0$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+An elliptic $\gamma'$ fixes a point of the geometric realization of
+$\mathcal T$, either a vertex or the midpoint of an edge. As in the
+proof of Proposition~\ref{prop:ellsl2}, a directed edge $D$ and
+$\gamma'D$ are mirror images in the fixed point nearest to $D$, so
+$\delta'(D,\gamma'D)$ is never a translation. This gives (c). In (a),
+a directed edge is fixed if and only if its edge lies in $\mathcal
+F_{\gamma'}$, which gives $2E_{\gamma'}$. The relative position is
+$[s_1]$ exactly when the tail is fixed and the head is not, which gives
+the edges counted in $S_0+S_1$. No edge is reversed, since a reversal
+does not fix a vertex. If $\gamma'$ is the image of $\gamma$, it fixes
+the same vertices. In (b), reversing an edge forces $\ord\det\gamma'$
+to be odd, so $\gamma'$ moves every vertex to a vertex at odd distance
+and fixes no vertex. A directed edge $D$ has
+$\delta'(D,\gamma'D)=[t]$ exactly when $\gamma'D$ is $D$ reversed, which
+happens for the two orientations of the one reversed edge.
+\end{proof}
+
+All these functionals are traces on algebras with two quadratic
+generators that vanish on the translations. Such traces are determined
+by three values.
+
+\begin{lemma}
+\label{lemma:ellrec}
+Let $A$ be generated by $\xi$ and $\eta$ with $\xi^2=\alpha\xi+\beta$
+and $\eta^2=\gamma_0\eta+\delta_0$, and let $\tau$ be a linear form on
+$A$ that vanishes on commutators and on $(\xi\eta)^j$ for $j\geq1$. Put
+$A_j=\tau(\xi(\eta\xi)^j)$ and $B_j=\tau(\eta(\xi\eta)^j)$. Then
+$A_j=\beta B_{j-1}$ and $B_j=\delta_0A_{j-1}$ for $j\geq1$. So $\tau$ is
+determined by $\tau(1)$, $\tau(\xi)$ and $\tau(\eta)$.
+\end{lemma}
+
+\begin{proof}
+Rotating, $\tau(\xi(\eta\xi)^j)=\tau((\eta\xi)^{j-1}\eta\xi^2)
+=\alpha\tau((\eta\xi)^j)+\beta\tau(\eta(\xi\eta)^{j-1})$, and
+$\tau((\eta\xi)^j)=\tau((\xi\eta)^j)=0$. The other formula is the same
+with $\xi$ and $\eta$ exchanged. The last statement follows from
+Lemma~\ref{lemma:cocenter}(a).
+\end{proof}
+
+For $\cH(G/\!/B)$, with $\beta=\delta_0=q$, this recovers the factor
+$q^d$ of Proposition~\ref{prop:ellsl2}. For the genuine algebra
+$\beta=q$ and $\delta_0=c_0$, by Proposition~\ref{prop:quadratic}.
+
+\begin{proposition}
+\label{prop:ellgen}
+Let $p\nmid n$, let $\gamma\in G$ be elliptic regular, and put
+$\tilde\gamma=(\gamma,1)$ and $\bar\tau(\phi)=O_{\tilde\gamma}(\phi)$.
+Let $\tau_r\in\{0,1\}$ be the type of the vertex fixed by $r$, so that
+$\tau_r\equiv n'\pmod2$.
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item $\bar\tau(\fbar_{(w,1)})=0$ for every translation $w\neq\pm1$, and
+$\bar\tau$ is determined by $\bar\tau(1)$, $\bar\tau(X)$ and
+$\bar\tau(Y)$ through Lemma~\ref{lemma:ellrec}.
+\item $|\bar\tau(1)|\leq E_\gamma$, $|\bar\tau(X)|\leq S_0(\gamma)$ and
+$|\bar\tau(Y)|\leq q^{n'-1}S_{\tau_r}(\gamma)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Since $|\fbar_{(w,1)}|=f_w\circ\pr$, we have
+$|\bar\tau(\fbar_{(w,1)})|\leq O_\gamma(f_w)$. Apply
+Proposition~\ref{prop:ellsl2}, with $\ell(r)=2(n'-1)+1$. The trace
+property is Lemma~\ref{lemma:orbtrace}, and Lemma~\ref{lemma:ellrec}
+applies by Theorem~\ref{thm:presentation}(c).
+\end{proof}
+
+\begin{vremark}
+\label{vrem:ellcomputed}
+\emph{Computed, not proved.} Let $h\in GL(2,F)$ with $\det h\notin
+N_{E/F}(E^\times)$, so that $\gamma$ and $\gamma^h=h^{-1}\gamma h$ are
+the two $SL(2,F)$-classes in the stable class of $\gamma$. We computed
+$\bar\tau(1)$, $\bar\tau(X)$ and $\bar\tau(Y)$ for both classes,
+directly from Kubota's cocycle, for $\gamma=\mat 0{-1}1t$ with
+conductor $0$ and $1$, in the ramified and unramified cases. We took
+$q=3,5,7$ with $n=2$, $q=7$ with $n=3$, and $q=5$ with $n=4$. In every
+case:
+\begin{enumerate}[leftmargin=2em,label=(\roman*)]
+\item $\bar\tau(1)=E_\gamma$ and $\bar\tau(X)=S_0(\gamma)$;
+\item for odd $n$, $\bar\tau(Y)=q^{n-1}S_1(\gamma)$, so that all phases
+are $1$;
+\item for even $n$ and $E/F$ unramified, $\bar\tau(Y)=0$, although the
+corresponding count $q^{n'-1}S_{\tau_r}(\gamma)$ can be non-zero;
+\item for even $n$ and $E/F$ ramified, $\bar\tau(Y)=\pm
+q^{n'-1}S_{\tau_r}(\gamma)$, with opposite signs for $\gamma$ and
+$\gamma^h$.
+\end{enumerate}
+For example, for $q=3$, $n=2$ and $t=5$ (ramified, conductor $0$), the
+three values are $(1,3,-3)$ for $\gamma$ and $(1,3,3)$ for
+$\gamma^h$. For $q=7$, $n=3$ and $t=296$ (unramified, conductor $1$),
+they are $(8,56,0)$ and $(8,0,2744)$.
+\end{vremark}
+
+\begin{theorem}[Elliptic transfer, conditional on the computed values]
+\label{thm:ellcond}
+Let $p\nmid n$, let $\gamma\in G$ be elliptic regular, and suppose that
+(i)--(iv) of Remark~\ref{vrem:ellcomputed} hold for $\gamma$ and
+$\gamma^h$. Let $\Theta$ and $a_n$ be as in
+Theorem~\ref{thm:savinsl2}. Then for every $\phi$ in the genuine
+Iwahori--Hecke algebra:
+\begin{enumerate}[leftmargin=2em,label=(\alph*)]
+\item If $n$ is odd, $O_{(\gamma,1)}(\phi)=O_\gamma(\Theta(\phi))$.
+\item If $n$ is even,
+$O_{(\gamma,1)}(\phi)+O_{(\gamma^h,1)}(\phi)=O'_{[\gamma]}(\Theta(\phi))$,
+where $[\gamma]$ is the image of $\gamma$ in $PGL(2,F)$.
+\item If $n$ is even and $E/F$ is ramified, and if $\gamma''\in G'$ is
+elliptic regular and interchanges the endpoints of exactly one edge,
+then
+\[
+F_{(\gamma,1)}(\phi)-F_{(\gamma^h,1)}(\phi)=
+\pm\,\overline{\epsilon^{1/2}}\;F'_{\Theta(\phi)}(\gamma''),
+\]
+with $F=|D|^{1/2}O$ and $\epsilon^{1/2}$ as in
+Theorem~\ref{thm:savinsl2}. The sign depends on which class is called
+$\gamma$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Both sides of each identity are traces that vanish on translations, by
+Lemma~\ref{lemma:orbtrace} and Propositions~\ref{prop:ellsl2},
+\ref{prop:ellpgl} and \ref{prop:ellgen}. By Lemma~\ref{lemma:ellrec} it
+suffices to compare them on $1$, $X$ and $Y$, where
+$\Theta(1)=1$, $\Theta(X)=f'_{s_1}$ and $\Theta(Y)=a_nf'_{r'}$.
+
+(a) By Proposition~\ref{prop:ellsl2}, $O_\gamma$ takes the values
+$E_\gamma$, $S_0(\gamma)$ and $q^{n-1}S_1(\gamma)$ on $1$, $f_{s_1}$ and
+$q^{n-1}f_{s_2}$, which are the values in (i) and (ii).
+
+(b) By (i), (iii) and (iv), the left side takes the values
+$2E_\gamma$, $S_0(\gamma)+S_0(\gamma^h)$ and $0$ on $1$, $X$ and $Y$.
+Conjugation by $h$ maps $\mathcal F_\gamma$ onto $\mathcal
+F_{\gamma^h}$. If $E/F$ is unramified, $\ord\det h$ is odd, so $h$
+exchanges the two types, and $S_0(\gamma^h)=S_1(\gamma)$. If $E/F$ is
+ramified, $S_0=S_1$ for both. In both cases the values are $2E_\gamma$,
+$S_0(\gamma)+S_1(\gamma)$ and $0$. These are the values of
+$O'_{[\gamma]}\circ\Theta$, by Proposition~\ref{prop:ellpgl}(a), since
+$\mathcal F_{[\gamma]}=\mathcal F_\gamma$ and $\Theta(Y)$ is a multiple
+of $f'_{[t]}$.
+
+(c) By (i) and (iv), the left side vanishes on $1$ and $X$, and on $Y$
+it equals $\pm2|D(\gamma)|^{1/2}q^{n'-1}q^{r+1}=\pm2q^{n'-1/2}$. By
+Proposition~\ref{prop:ellpgl}(b), the right side vanishes on $1$ and
+$X$. On $Y$ it is
+\[
+\pm\overline{\epsilon^{1/2}}\,|D'(\gamma'')|^{1/2}a_n\cdot2 .
+\]
+Here $|D'(\gamma'')|=|(1-\alpha)(1-\alpha^{-1})|=1$, where
+$\alpha$ is the ratio of the eigenvalues, because $\alpha$ is close to
+$-1$ and $p$ is odd. Since $\overline{\epsilon^{1/2}}a_n=q^{n'-1/2}$,
+the two sides agree.
+\end{proof}
+
+\begin{remark}
+\label{rem:ellmeaning}
+For odd $n$, Theorem~\ref{thm:ellcond} matches each elliptic class with
+itself, and together with Theorem~\ref{thm:orbtransfer} it would make
+Savin's isomorphism a transfer of all regular orbital integrals at
+Iwahori level. For even $n$ it matches the stable orbital integral, the
+sum over the two classes, with $PGL(2)$. For ramified tori it matches
+the difference with elements that reverse an edge. For unramified tori
+the difference is not seen by $PGL(2)$, which has no such elements
+there, and it should correspond to an endoscopic group. This is the
+shape of the transfer for $Mp(2)$ in \cite{Li11}. The constant
+$\pm\overline{\epsilon^{1/2}}$ is, up to sign, the constant $\Delta_1$
+of Theorem~\ref{thm:orbtransfer}. We have not proved (i)--(iv) in
+general, and we have not compared the constants with \cite{Li11}.
+\end{remark}
 
 %======================================================================
 \section{Summary of results and open questions}
@@ -3573,7 +3923,10 @@ translations rescaled by $n$. For even $n$ it is that of $PGL(2)$, and
 no isomorphism with that of $SL(2)$ respects the affine generator
 (Corollary~\ref{cor:wronggroup}). The orbital integrals of all basis
 functions at split elements are explicit, and Savin's isomorphism
-transfers them (Theorem~\ref{thm:orbtransfer}). At deep
+transfers them (Theorem~\ref{thm:orbtransfer}). The linear elliptic
+orbital integrals are explicit too, and the genuine ones are reduced to
+three values, whose computed values imply an elliptic transfer
+(Theorem~\ref{thm:ellcond}). At deep
 level the translations $t_0^m$ with $n\nmid 2m$ carry genuine
 functions, but these have trace zero in every admissible genuine representation
 (Proposition~\ref{prop:traceless}), and their spherical parts vanish
@@ -3630,10 +3983,12 @@ preserve supercuspidality and square-integrability?
 \label{q:transfer}
 Theorem~\ref{thm:orbtransfer} shows that Savin's isomorphism of
 Theorem~\ref{thm:savinsl2} transfers orbital integrals at the split
-elements $(t_0^{n'k},1)$. Does it transfer them at all good regular
-elements, including the elliptic ones, up to transfer factors and
-through a power map? How is the constant $\Delta_k$ related to the
-transfer factors of \cite{Li11} for $n=2$? For
+elements $(t_0^{n'k},1)$. Do the values (i)--(iv) of
+Remark~\ref{vrem:ellcomputed} hold for all elliptic regular elements, so
+that the elliptic transfer of Theorem~\ref{thm:ellcond} holds
+unconditionally? How are the constants $\Delta_k$ and
+$\pm\overline{\epsilon^{1/2}}$ related to the transfer factors of
+\cite{Li11} for $n=2$? For
 $n=2$ this would be an Iwahori-level analog of the spherical
 fundamental lemma for $Mp(2)$ \cite{Li11,Lu18}. For $n\geq 3$ we do not
 know of a spherical fundamental lemma for these covers. Is there an
@@ -3762,7 +4117,7 @@ integrals between a cover and a linear group, up to transfer factors,
 is the geometric form of a correspondence, and the fundamental lemma
 asserts it for spherical functions. For the Iwahori--Hecke algebras of
 this paper the orbital integrals at split elements are computed in
-Section~\ref{subsec:orbital}.
+Sections~\ref{subsec:orbital} and~\ref{subsec:elliptic}.
 \item[Principal congruence subgroup] For $j\geq 1$, the normal subgroup
 $\Gamma_j$ of $SL(2,\cO)$ of matrices congruent to the identity modulo
 $\varpi^j$ in every entry. It factors as a product of lower unipotent,
@@ -3811,7 +4166,7 @@ those comments against \cite{Wi22} before using them. Claude
 point, drafted the corrected statements and the new proofs, revised the
 paper to the authors' house style, checked bibliographic data, and
 prepared the revision log. Two Claude models were used, Claude Fable
-5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~10. AI review is not an
+5.2 for Draft~1 and Claude Opus 5.5 for Drafts~2 to~11. AI review is not an
 independent certification of the results, and the new arguments have
 not yet been checked by an independent human reader. Further details on
 the AI usage can be found in the revision log.

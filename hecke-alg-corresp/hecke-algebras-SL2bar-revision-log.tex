@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 10, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 11, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,23 +24,22 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 10}
+cover $\overline{SL_2}$'', Draft 11}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~10 of the paper (file
+This log accompanies Draft~11 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~10 of the paper. Draft~8 has
+``Theorem~\ref{P-thrm:main}'' refer to Draft~11 of the paper. Draft~8 has
 the same numbering as Draft~6, apart from the additions listed in
-Section~\ref{sec:d7d8}. Sections~\ref{sec:d8d9} and~\ref{sec:d9d10} list the
-numbers that changed from Draft~8 to Draft~9 and from Draft~9 to
-Draft~10.
+Section~\ref{sec:d7d8}. Sections~\ref{sec:d8d9}, \ref{sec:d9d10} and~\ref{sec:d10d11}
+list the numbers that changed from Draft~8 onwards.
 Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
 with the numbering of Drafts~2 to~5.
 
@@ -97,12 +96,15 @@ request, explicit orbital integrals in Section~\ref{P-subsec:orbital}:
 split orbital integrals of all Iwahori-level basis functions on $G$,
 $PGL(2,F)$ and $\Gbar$, a proof that Savin's isomorphism transfers
 them, and vanishing results and a sum rule at deep level.
+\item[Draft 11] (November 24, 2026). Same file. At David Joyner's
+request, elliptic orbital integrals at Iwahori level, in the new
+Section~\ref{P-subsec:elliptic}.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--10 here were made from
+\texttt{metaplectic-jl}. Drafts~1--11 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -128,9 +130,9 @@ data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
 It produced Drafts~4 and~5 as well, including the new results of
 Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}, and
-Drafts~6 to~10, including the presentation and the proof of Savin's
+Drafts~6 to~11, including the presentation and the proof of Savin's
 theorem for $SL(2)$ in Section~\ref{P-section:savin}, and the orbital
-integrals of Section~\ref{P-subsec:orbital}. For Draft~9 it
+integrals of Sections~\ref{P-subsec:orbital} and~\ref{P-subsec:elliptic}. For Draft~9 it
 also checked the quadratic relations by computer
 (Remark~\ref{P-vrem:computer}).
 \item \textbf{Carbon} also supplied a written summary of [Sa88] for
@@ -192,7 +194,12 @@ covers $k=0$. New in Draft~10: Lemmas~\ref{P-lemma:orbtrace},
 \ref{P-lemma:orbred} and~\ref{P-lemma:cocenter},
 Propositions~\ref{P-prop:orbsl2}, \ref{P-prop:orbpgl} and
 \ref{P-prop:orbdeep}, Theorem~\ref{P-thm:orbtransfer} and
-Corollary~\ref{P-cor:orbgen}. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
+Corollary~\ref{P-cor:orbgen}. New in Draft~11:
+Lemmas~\ref{P-lemma:ellcount}, \ref{P-lemma:fixedtree} (a classical
+fact, with a proof) and~\ref{P-lemma:ellrec},
+Propositions~\ref{P-prop:ellsl2}, \ref{P-prop:ellpgl} and
+\ref{P-prop:ellgen}, and the conditional
+Theorem~\ref{P-thm:ellcond}. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
 classical [IM65].
 
 \section{Changes of status}
@@ -225,7 +232,9 @@ general statement remains cited.
 transfer of orbital integrals). Answered positively in Draft~10 for the
 split elements $(t_0^{n'k},1)$ at Iwahori level
 (Theorem~\ref{P-thm:orbtransfer}). Elliptic elements and deep level
-remain open.
+remain open. In Draft~11 the elliptic case is reduced to the values
+(i)--(iv) of Remark~\ref{P-vrem:ellcomputed}, which were checked
+numerically (Theorem~\ref{P-thm:ellcond}).
 \item \emph{Draft~3, Question~10.1} ($n=2$). Partly answered in
 Draft~4. For constants of absolute value one the answer is negative,
 for every $n\geq 2$ (Theorem~\ref{P-thm:unimodular}). In particular
@@ -433,6 +442,58 @@ the style guide and is unchanged.
 whether it has since been published.
 \item \emph{Proof of Lemma~\ref{P-lemma:hilbert}.} The report approves
 it. No change.
+\end{enumerate}
+
+\section{Response to David Joyner's request on Draft 10}
+\label{sec:d10request}
+
+David Joyner asked for the elliptic orbital integrals at Iwahori level.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{Linear side} (level~1). With $\mathrm{vol}(T_\gamma)=1$, an elliptic
+orbital integral of $f_w$ is the number of edges $D$ of the
+Bruhat--Tits tree with $\delta(D,\gamma D)=w$
+(Lemma~\ref{P-lemma:ellcount}). The fixed vertices form a ball of
+radius equal to the conductor (Lemma~\ref{P-lemma:fixedtree}). So the
+orbital integrals vanish on translations and are given by three
+numbers $E_\gamma$, $S_0(\gamma)$ and $S_1(\gamma)$, which are
+explicit (Proposition~\ref{P-prop:ellsl2}). The same holds on
+$PGL(2,F)$, where elements that reverse an edge also occur
+(Proposition~\ref{P-prop:ellpgl}).
+\item \emph{Genuine side.} The same reduction holds
+(Proposition~\ref{P-prop:ellgen}, level~1), and a trace that vanishes on
+translations is determined by its values on $1$, $X$ and $Y$
+(Lemma~\ref{P-lemma:ellrec}, level~1). The three genuine values were
+computed numerically for both $SL(2)$-classes in a stable class, for
+conductor $0$ and $1$, ramified and unramified, and for $n=2,3,4$
+(Remark~\ref{P-vrem:ellcomputed}). We did not prove them in general.
+\item \emph{Transfer.} Theorem~\ref{P-thm:ellcond} proves that the
+computed values imply an elliptic transfer (level~1 for the
+implication). For odd $n$, Savin's isomorphism matches each elliptic
+class with itself. For even $n$, the sum over the two classes of a
+stable class matches the orbital integral on $PGL(2)$ at the image of
+$\gamma$. For ramified tori the difference matches the orbital integral
+at an element that reverses one edge, with the constant
+$\pm\overline{\epsilon^{1/2}}$. This is the shape of an endoscopic
+transfer, as for $Mp(2)$ in [Li11]. For unramified tori the difference is
+not seen by $PGL(2)$.
+\item The checks are in the scripts \texttt{elliptic.py} and
+\texttt{elliptic2.py} in the folder \texttt{scripts}.
+\end{enumerate}
+
+\section{Changes from Draft 10 to Draft 11}
+\label{sec:d10d11}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item New Section~\ref{P-subsec:elliptic}, described in
+Section~\ref{sec:d10request}.
+\item The abstract, the main results, Table~\ref{P-tab:howfar} (one new
+row), the organization paragraph, the summary,
+Question~\ref{P-q:transfer}, the introduction and the end of
+Section~\ref{P-subsec:orbital}, Remark~\ref{P-vrem:savinaction}, the
+glossary entry ``Orbital integral'' and the acknowledgments are updated.
+\item No earlier numbers changed. The new statements follow all
+earlier ones.
 \end{enumerate}
 
 \section{Response to David Joyner's question on Draft 9}
