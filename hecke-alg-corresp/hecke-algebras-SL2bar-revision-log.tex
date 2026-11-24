@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 9, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 10, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,22 +24,23 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 9}
+cover $\overline{SL_2}$'', Draft 10}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~9 of the paper (file
+This log accompanies Draft~10 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~9 of the paper. Draft~8 has
+``Theorem~\ref{P-thrm:main}'' refer to Draft~10 of the paper. Draft~8 has
 the same numbering as Draft~6, apart from the additions listed in
-Section~\ref{sec:d7d8}. Section~\ref{sec:d8d9} lists the numbers that
-changed from Draft~8 to Draft~9.
+Section~\ref{sec:d7d8}. Sections~\ref{sec:d8d9} and~\ref{sec:d9d10} list the
+numbers that changed from Draft~8 to Draft~9 and from Draft~9 to
+Draft~10.
 Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
 with the numbering of Drafts~2 to~5.
 
@@ -91,12 +92,17 @@ Savin's isomorphism for $SL(2)$. Section~\ref{P-section:savin} now
 gives a presentation of the genuine Iwahori--Hecke algebra and a
 direct proof of Savin's theorem for $SL(2)$. Carbon's remarks on
 Witthaus's paper [Wi22] were checked and partly used.
+\item[Draft 10] (November 24, 2026). Same file. At David Joyner's
+request, explicit orbital integrals in Section~\ref{P-subsec:orbital}:
+split orbital integrals of all Iwahori-level basis functions on $G$,
+$PGL(2,F)$ and $\Gbar$, a proof that Savin's isomorphism transfers
+them, and vanishing results and a sum rule at deep level.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--9 here were made from
+\texttt{metaplectic-jl}. Drafts~1--10 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -122,8 +128,9 @@ data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
 It produced Drafts~4 and~5 as well, including the new results of
 Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}, and
-Drafts~6 to~9, including the presentation and the proof of Savin's
-theorem for $SL(2)$ in Section~\ref{P-section:savin}. For Draft~9 it
+Drafts~6 to~10, including the presentation and the proof of Savin's
+theorem for $SL(2)$ in Section~\ref{P-section:savin}, and the orbital
+integrals of Section~\ref{P-subsec:orbital}. For Draft~9 it
 also checked the quadratic relations by computer
 (Remark~\ref{P-vrem:computer}).
 \item \textbf{Carbon} also supplied a written summary of [Sa88] for
@@ -181,7 +188,11 @@ Theorem~\ref{P-thm:presentation}, Theorem~\ref{P-thm:savinsl2} (a new
 proof of Savin's theorem for $SL(2)$, with an explicit isomorphism),
 Corollaries~\ref{P-cor:wronggroup} and \ref{P-cor:spherical0}, and
 Remark~\ref{P-rem:abstract}. Lemma~\ref{P-lemma:length} now also
-covers $k=0$. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
+covers $k=0$. New in Draft~10: Lemmas~\ref{P-lemma:orbtrace},
+\ref{P-lemma:orbred} and~\ref{P-lemma:cocenter},
+Propositions~\ref{P-prop:orbsl2}, \ref{P-prop:orbpgl} and
+\ref{P-prop:orbdeep}, Theorem~\ref{P-thm:orbtransfer} and
+Corollary~\ref{P-cor:orbgen}. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
 classical [IM65].
 
 \section{Changes of status}
@@ -210,6 +221,11 @@ quotient.
 secondary sources up to Draft~8. For $SL(2)$ it is proved in Draft~9
 (Theorem~\ref{P-thm:savinsl2}), with an explicit isomorphism. The
 general statement remains cited.
+\item \emph{Question~\ref{P-q:transfer}} (Savin's isomorphism as a
+transfer of orbital integrals). Answered positively in Draft~10 for the
+split elements $(t_0^{n'k},1)$ at Iwahori level
+(Theorem~\ref{P-thm:orbtransfer}). Elliptic elements and deep level
+remain open.
 \item \emph{Draft~3, Question~10.1} ($n=2$). Partly answered in
 Draft~4. For constants of absolute value one the answer is negative,
 for every $n\geq 2$ (Theorem~\ref{P-thm:unimodular}). In particular
@@ -417,6 +433,71 @@ the style guide and is unchanged.
 whether it has since been published.
 \item \emph{Proof of Lemma~\ref{P-lemma:hilbert}.} The report approves
 it. No change.
+\end{enumerate}
+
+\section{Response to David Joyner's question on Draft 9}
+\label{sec:d9request}
+
+David Joyner asked whether the orbital integrals of the basis elements
+of Proposition~\ref{P-prop:admissible}, on $G$ and on $\Gbar$, can be
+computed explicitly in some cases, and if so asked for them to be
+added to Section~\ref{P-subsec:orbital}.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{Iwahori level, split elements.} The answer is yes, for every
+basis function. Proposition~\ref{P-prop:orbsl2} gives
+$|D(\gamma)|^{1/2}O_\gamma(f_w)$ for every $w$ and every split regular
+$\gamma=h(a)$ with $\mathrm{ord}(a)\neq0$. Proposition~\ref{P-prop:orbpgl} does
+the same for $PGL(2,F)$. Both are proved by an explicit count, through
+the reduction formula of Lemma~\ref{P-lemma:orbred} (level~1). As a
+check, Example~\ref{P-ex:orbsl2} recovers a coefficient of the Satake
+transform of Proposition~\ref{P-prop:spherical}. Before writing the
+proofs we verified Proposition~\ref{P-prop:orbsl2} by computer for
+$q=3$, $m=1,2$.
+\item \emph{Transfer.} Theorem~\ref{P-thm:orbtransfer} shows that
+Savin's isomorphism transfers these orbital integrals at the split
+elements $(t_0^{n'k},1)$, with an explicit constant $\Delta_k$ of
+absolute value one. The proof is short. Orbital integrals are traces
+(Lemma~\ref{P-lemma:orbtrace}), and the space of traces on the
+presentation of Theorem~\ref{P-thm:presentation} is spanned by the
+values on $1$, $X$, $Y$ and $(XY)^j$ (Lemma~\ref{P-lemma:cocenter}).
+These values are computed from translations alone. This answers
+Question~\ref{P-q:transfer} for split elements at Iwahori level.
+\item \emph{Genuine values.} Corollary~\ref{P-cor:orbgen} gives the
+absolute values of the genuine split orbital integrals of every basis
+function. Their phases were checked by computer
+(Remark~\ref{P-vrem:orbphases}) and by a hand computation that is not
+written out in the paper.
+\item \emph{Deep level.} For the basis of
+Proposition~\ref{P-prop:admissible} we proved three things in
+Proposition~\ref{P-prop:orbdeep}: vanishing outside the Iwahori double
+cosets of Proposition~\ref{P-prop:orbsl2}, a sum rule over each Iwahori
+double coset, and the vanishing of every invariant distribution on
+$\fbar_{\tilde t_0^m}$ when $n\nmid 2m$. The individual orbital
+integrals of the deep-level basis functions were not computed. Nor were
+elliptic orbital integrals at any level. The paper says so.
+\item The computer checks are in the folder \texttt{scripts}, in the
+files \texttt{orbital.py}, \texttt{orbital2.py} and
+\texttt{transfer\_check.py}.
+\end{enumerate}
+
+\section{Changes from Draft 9 to Draft 10}
+\label{sec:d9d10}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item Section~\ref{P-subsec:orbital} rewritten, as described in
+Section~\ref{sec:d9request}. Remark~\ref{P-vrem:savinaction} now records
+only what remains heuristic. Its first part is superseded by
+Theorem~\ref{P-thm:orbtransfer}. New Remarks~\ref{P-vrem:orbphases}
+and~\ref{P-rem:orbmeaning}.
+\item The abstract, the main results, Table~\ref{P-tab:howfar} (one new
+row), the paragraph on Savin's isomorphism in
+Section~\ref{P-section:intro}, the organization paragraph, the summary,
+Question~\ref{P-q:transfer}, the glossary entry ``Orbital integral'' and
+the acknowledgments are updated.
+\item Numbers that changed: Remark~2026.6 of Draft~9 is now
+Remark~\ref{P-vrem:savinaction}. All other numbers of Draft~9 are
+unchanged, since the new statements come after them.
 \end{enumerate}
 
 \section{Response to David Joyner's request on Draft 8}
