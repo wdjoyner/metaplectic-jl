@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 8, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 9, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -24,20 +24,22 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 8}
+cover $\overline{SL_2}$'', Draft 9}
 \author{David Joyner and Claude}
 \date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~8 of the paper (file
+This log accompanies Draft~9 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~8 of the paper. Draft~8 has the same numbering as
-Draft~6, apart from the additions listed in Section~\ref{sec:d7d8}.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~9 of the paper. Draft~8 has
+the same numbering as Draft~6, apart from the additions listed in
+Section~\ref{sec:d7d8}. Section~\ref{sec:d8d9} lists the numbers that
+changed from Draft~8 to Draft~9.
 Sections~\ref{sec:conc56} and~\ref{sec:conc34} give the correspondence
 with the numbering of Drafts~2 to~5.
 
@@ -83,12 +85,18 @@ integrals, and a question on whether it is a transfer of orbital
 integrals. Also a remark on why no other choice of genuine functions
 exists, and Proposition~\ref{P-prop:spherical} on the spherical parts
 of the basis functions.
+\item[Draft 9] (November 24, 2026). Same file. At David Joyner's
+request, a new Section~\ref{P-subsec:savinbg} with background on
+Savin's isomorphism for $SL(2)$. Section~\ref{P-section:savin} now
+gives a presentation of the genuine Iwahori--Hecke algebra and a
+direct proof of Savin's theorem for $SL(2)$. Carbon's remarks on
+Witthaus's paper [Wi22] were checked and partly used.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--8 here were made from
+\texttt{metaplectic-jl}. Drafts~1--9 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -113,10 +121,16 @@ examples, notation table, summary and glossary, checked bibliographic
 data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
 It produced Drafts~4 and~5 as well, including the new results of
-Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}.
+Section~\ref{P-section:n2} and Proposition~\ref{P-prop:traceless}, and
+Drafts~6 to~9, including the presentation and the proof of Savin's
+theorem for $SL(2)$ in Section~\ref{P-section:savin}. For Draft~9 it
+also checked the quadratic relations by computer
+(Remark~\ref{P-vrem:computer}).
 \item \textbf{Carbon} also supplied a written summary of [Sa88] for
 Draft~4. It was used only for orientation (Section~\ref{sec:sources}).
-Carbon refereed Draft~6 as well (Section~\ref{sec:referee3}).
+Carbon refereed Draft~6 as well (Section~\ref{sec:referee3}). For
+Draft~9 it commented on the relevance of [Wi22] to the paper. Those
+comments are answered in Section~\ref{sec:witthaus}.
 \item \textbf{David Joyner} chose the route of an honest corrected
 draft over local fixes, chose the new title, and asked that Claude be
 listed as an author.
@@ -160,7 +174,15 @@ Questions~\ref{P-q:defining}, \ref{P-q:n2}, \ref{P-q:savin},
 Proposition~\ref{P-prop:Ksub}, Lemma~\ref{P-lemma:signs},
 Theorem~\ref{P-thm:unimodular} and Corollary~\ref{P-cor:unimodular}.
 New in Draft~5: Proposition~\ref{P-prop:traceless}. New in Draft~7:
-the converse in Proposition~\ref{P-prop:level0}.
+the converse in Proposition~\ref{P-prop:level0}. New in Draft~9:
+Lemma~\ref{P-lemma:level0s1}, Lemma~\ref{P-lemma:wformulas},
+Lemma~\ref{P-lemma:words}, Proposition~\ref{P-prop:quadratic},
+Theorem~\ref{P-thm:presentation}, Theorem~\ref{P-thm:savinsl2} (a new
+proof of Savin's theorem for $SL(2)$, with an explicit isomorphism),
+Corollaries~\ref{P-cor:wronggroup} and \ref{P-cor:spherical0}, and
+Remark~\ref{P-rem:abstract}. Lemma~\ref{P-lemma:length} now also
+covers $k=0$. Propositions~\ref{P-prop:IM} and \ref{P-prop:IMpgl} are
+classical [IM65].
 
 \section{Changes of status}
 
@@ -184,6 +206,10 @@ form a defining set. Downgraded to an open question
 module. Replaced by the statement about its unique irreducible
 quotient.
 \item \emph{[Jo98, Corollary~3]} (traces at Iwahori level). Removed.
+\item \emph{Savin's theorem} (Theorem~\ref{P-thm:savin}). Cited from
+secondary sources up to Draft~8. For $SL(2)$ it is proved in Draft~9
+(Theorem~\ref{P-thm:savinsl2}), with an explicit isomorphism. The
+general statement remains cited.
 \item \emph{Draft~3, Question~10.1} ($n=2$). Partly answered in
 Draft~4. For constants of absolute value one the answer is negative,
 for every $n\geq 2$ (Theorem~\ref{P-thm:unimodular}). In particular
@@ -393,6 +419,169 @@ whether it has since been published.
 it. No change.
 \end{enumerate}
 
+\section{Response to David Joyner's request on Draft 8}
+\label{sec:d8request}
+
+David Joyner asked for much more background on Savin's map in the case
+of $SL(2)$, as a subsection of Section~\ref{P-section:background}, and
+asked whether Witthaus's paper [Wi22] could help. He attached [Wi22]
+and Carbon's remarks on it.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item The new Section~\ref{P-subsec:savinbg} is that subsection. It
+covers the Iwahori--Hecke algebras of $SL(2)$ and $PGL(2)$
+(Propositions~\ref{P-prop:IM} and~\ref{P-prop:IMpgl}, from [IM65]),
+Bernstein's form of the relations (Remark~\ref{P-rem:bernstein}), the
+lattice of translations seen by the genuine algebra and its root-datum
+explanation, Savin's theorem (Theorem~\ref{P-thm:savin}, moved here
+from Section~\ref{P-section:savin}), the explicit form of the
+isomorphism for $SL(2)$ and its action on the basis, a comparison with
+[Wi22, Lemma~6.1], the consequences for representations, reduction
+modulo~$p$, and what all this says about the comparison with $SL(2)$.
+Table~\ref{P-tab:lattice} is a dictionary.
+\item To make the background reliable rather than cited, we proved the
+$SL(2)$ case of Savin's theorem directly. The new subsections of
+Section~\ref{P-section:savin} contain the proofs (level~1). The key
+computation is Proposition~\ref{P-prop:quadratic}. It gives the
+quadratic relation of $Y=\overline f_{(r,1)}$, where $r=t_0^{-n'}s_1$,
+from a short support argument and one character sum. With
+Lemma~\ref{P-lemma:words} it yields the presentation of
+Theorem~\ref{P-thm:presentation}, and comparison with [IM65] gives
+Theorem~\ref{P-thm:savinsl2}.
+\item The answer to ``how far off'' at Iwahori level is now precise.
+For odd $n$ the partner is $SL(2)$, but the translation $t_0^{nk}$ goes
+to $t_0^k$. For even $n$ the partner is $PGL(2)$, and no isomorphism
+with the algebra of $SL(2)$ respects the affine generator
+(Corollary~\ref{P-cor:wronggroup}). As abstract algebras all of these
+are isomorphic (Remark~\ref{P-rem:abstract}). The factors $q^{e(w)}$
+are square roots of ratios of volumes, so Savin's isomorphism carries
+an orthonormal basis to an orthonormal basis.
+\item Remark~\ref{P-vrem:savinaction}, which in Draft~8 derived the
+action of Savin's isomorphism from secondary descriptions, now refers
+to Theorem~\ref{P-thm:savinsl2}(b). Its part on orbital integrals is
+unchanged and still heuristic.
+\item Remark~\ref{P-rem:spherical} is updated. The genuine spherical
+Hecke algebra at level zero is identified with that of $G/Z_n$
+(Corollary~\ref{P-cor:spherical0}).
+\item \emph{Computer check} (Remark~\ref{P-vrem:computer}). Before
+writing the proofs we computed the quadratic relations numerically
+from Kubota's cocycle, with exact Hilbert symbols, for $\mathbb{Q}_7$
+with $n=2,3,6$ and $\mathbb{Q}_5$ with $n=4$. The results agreed with
+the formulas later proved. For $n=3$, $q=7$, the computed relation is
+$Y^2=294\,Y+16807$. The scripts \texttt{savin\_check.py} and
+\texttt{prod\_check.py} are in the folder \texttt{scripts} next to the
+paper. They also confirm that Kubota's formula for the splitting of
+$SL(2,\mathbb{Z}_p)$ satisfies the cocycle identity on random
+elements, and that the double cosets $Bt_0^mB$ and $Bt_0^ms_1B$ are
+admissible exactly when $n\mid 2m$.
+\item We tried to obtain [Sa88] itself, through EuDML and the
+publisher, and could not reach a full text. Remark~\ref{P-vrem:savin}
+says so.
+\end{enumerate}
+
+\section{Response to Carbon's remarks on [Wi22]}
+\label{sec:witthaus}
+
+Carbon's remarks describe [Wi22] and suggest five uses. We checked each
+claim against the text of [Wi22] (arXiv:2208.12478v1), which we read in
+the relevant sections (\S\S1--2, 3.1--3.2, the statement of
+Proposition~3.33, and \S6). Carbon's section numbers for our paper
+refer to Draft~8.
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{Setup.} Correct: [Wi22, Example~2.3] gives the
+multiplication on the torus of the double cover of $GL(2,\mathbb{Q}_p)$,
+which is not abelian, and [Wi22, Lemma~2.6] gives its center. The
+cocycle [Wi22, (3)] restricts on $SL(2)$ to Kubota's cocycle with
+$n=2$. Carbon's suggestion that $n=2$ on $GL(2)$ models $n\geq 3$ on
+$SL(2)$ is a heuristic, which we did not adopt as a statement. The
+indices $[B:B^+]=q-1$ and $[B^+:B_1]=q^2$ are correct. That [Wi22,
+\S\S3--5] work in characteristic $p$ and \S6 in characteristic $0$ is
+correct.
+\item \emph{(A) Block decomposition.} The formula
+$T_\Pi e_\chi=e_{\chi^s[1,0]}T_\Pi$ is [Wi22, Lemma~3.9(v)], and the
+decomposition into orbit blocks is [Wi22, Proposition~3.16]. The
+analogous formula that Carbon states for our Theorem~\ref{P-thrm:main}
+was not checked and is not used. Not adopted. The paper works with
+$B_k$ and $B$, not with the pro-$p$ Iwahori subgroup, and the
+literature review now describes the method of [Wi22] in one sentence.
+\item \emph{(B) Trace vanishing through off-diagonal corners.} The
+general fact is correct: an element of $e'\cH e$ with orthogonal
+idempotents $e$ and $e'$ has trace zero on every finite-dimensional
+module. Whether this explains Proposition~\ref{P-prop:traceless}
+requires an idempotent decomposition at level $B_k$ that we have not
+carried out. Not adopted.
+\item \emph{(C) Abstract non-isomorphism by counting blocks.} The
+orbits of size $4$ and of size $8$ are those of [Wi22, Lemma~3.13]. The conclusion that the
+linear and genuine pro-$p$ Iwahori--Hecke algebras of $GL(2)$ are not
+isomorphic as abstract algebras is Carbon's, not Witthaus's. It would
+need the blocks to be indecomposable. The extension to the cover of
+$SL(2)$ at level $B^+$ is unproved. Not adopted. In the opposite
+direction, Remark~\ref{P-rem:abstract} shows that at Iwahori level the
+abstract algebras are isomorphic for every $n$, so counting arguments
+must be applied with care. Carbon's caveat that $f_{t_0}$ is not
+invertible at positive level is correct (Example~\ref{P-ex:t0}).
+\item \emph{(D) Normalization of Savin's isomorphism.} Correct: [Wi22,
+Lemma~6.1] states $\widetilde T_s\mapsto T_s$ and $\widetilde
+1_{2n,2m}\mapsto p^{(n-m)/2}1_{n,m}$ for $n\geq m$, citing [Sa88,
+Proposition~3.1.2]. Adopted in Section~\ref{P-subsec:savinbg} as a
+comparison. Our Theorem~\ref{P-thm:savinsl2} proves the analog for
+$SL(2)$. Carbon's remark that the isomorphism has no analog modulo $p$
+is consistent with [Wi22, Proposition~3.33], which gives
+$S_{0,0}^2=-S_{0,0}$ and $S_{0,2}^2=0$. Adopted in
+Section~\ref{P-subsec:savinbg}, where we also derive the analog for
+$SL(2)$ from Proposition~\ref{P-prop:quadratic}.
+\item \emph{(E) Peskin.} Correct: [Wi22] cites L.~Peskin's 2014
+preprint as reference [24]. Added as [Pe14], with ``as cited in
+[Wi22]'', since we have not seen it.
+\end{enumerate}
+
+\section{Changes from Draft 8 to Draft 9}
+\label{sec:d8d9}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item New Section~\ref{P-subsec:savinbg}, described in
+Section~\ref{sec:d8request}. Theorem~\ref{P-thm:savin},
+Remark~\ref{P-rem:savin} and Remark~\ref{P-vrem:savin} moved there from
+Section~\ref{P-section:savin}. Remark~\ref{P-vrem:savin} now records
+that [Sa88] could not be reached and that the $SL(2)$ case is proved in
+the paper.
+\item Section~\ref{P-section:savin} has four subsections: supports
+(with the new Lemma~\ref{P-lemma:level0s1}), generators and relations,
+Savin's isomorphism for $SL(2)$, and orbital integrals.
+\item Lemma~\ref{P-lemma:length} is stated for $k\geq 0$.
+\item The abstract, the main results, Table~\ref{P-tab:howfar} (one new
+row), the paragraph on Savin's isomorphism in
+Section~\ref{P-section:intro}, the literature review ([IM65], [We18],
+[Wi22], [Pe14]), the organization paragraph, the summary, Question~\ref{P-q:n2},
+Question~\ref{P-q:transfer}, Remark~\ref{P-rem:nochoice},
+Remark~\ref{P-rem:samelattice}, Remark~\ref{P-rem:spherical}, the
+glossary (entries ``Iwahori--Hecke algebra'' and ``Savin's
+isomorphism'') and the acknowledgments are updated.
+\item New references [IM65], [Pe14], [We18], [Wi22]. The data of [IM65]
+and [We18] were checked online. The data of [Wi22] are from the arXiv
+PDF, and those of [Pe14] from [Wi22].
+\end{enumerate}
+
+\noindent
+Numbers that changed:
+
+\begin{center}
+\begin{tabular}{@{}ll@{}}
+\toprule
+Draft 8 & Draft 9 \\
+\midrule
+Remark 2026.2 & Remark~\ref{P-vrem:borel} \\
+Remark 2026.3 & Remark~\ref{P-vrem:savin} \\
+Remark 2026.4 & Remark~\ref{P-vrem:savinaction} \\
+Example 9.2 & Example~\ref{P-ex:level0} \\
+Remark 9.3 & Remark~\ref{P-rem:samelattice} \\
+Theorem 9.4 & Theorem~\ref{P-thm:savin} \\
+Remark 9.5 & Remark~\ref{P-rem:savin} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
 \section{Response to David Joyner's questions on Draft 7}
 
 David Joyner asked three questions. Whether a better choice of genuine
@@ -556,18 +745,18 @@ contents is slightly reduced, to remove an overfull box on the first
 page.
 \end{enumerate}
 
-\section{Concordance from Draft 3 to Draft 8}
+\section{Concordance from Draft 3 to Draft 9}
 \label{sec:conc34}
 
 Numbers not listed are unchanged. Draft~4 differs from Draft~5 only
 in Example~8.8 (now Example~\ref{P-ex:unimodular}), Theorem~11.3 (now
 Theorem~\ref{P-thm:savin}) and Remark~11.4 (now
-Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~8
-numbers, which are those of Draft~6.
+Remark~\ref{P-rem:savin}). The right-hand column gives the Draft~9
+numbers.
 
 \begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
 \toprule
-{Draft 3} & Draft 8 \\
+{Draft 3} & Draft 9 \\
 \midrule
 \endhead
 Lemma 3.5 & Lemma~\ref{P-lemma:subgroups} \\
@@ -775,9 +964,14 @@ particular the following statements rest on the 1998 text or on memory
 (Remark~\ref{P-vrem:kubota}), the Howe--Moy references in
 Lemma~\ref{P-lemma:general} and in the remark after
 Example~\ref{P-ex:t0}, and the section numbers of Borel and of
-Bushnell--Henniart in Proposition~\ref{P-prop:borel}. The statement of
+Bushnell--Henniart in Proposition~\ref{P-prop:borel}. The general statement of
 Savin's theorem rests on secondary sources
-(Remark~\ref{P-vrem:savin}). The summaries in the literature review of
+(Remark~\ref{P-vrem:savin}). Its $SL(2)$ case is proved in the paper
+(Theorem~\ref{P-thm:savinsl2}). For Draft~9 we read the relevant
+sections of [Wi22] (Section~\ref{sec:witthaus}). We also consulted
+[Ka21] and [Wa24] through AI-generated summaries of their arXiv
+versions, for the definitions of $Y_{Q,n}$ and $n_\alpha$ and for the
+general setting. Nothing proved in the paper depends on them. The summaries in the literature review of
 [Ge76], [RS77], [Wa80], [Fl80], [KP84], [FK86] and [Sc98] are level~3.
 The summaries of [GS12], [TW18], [Ka21], [LS10] and [Wa24] rest on
 their abstracts or introductions (level~2 for what is stated).
@@ -797,7 +991,8 @@ with the summary.
 
 \subsection*{Bibliographic data checked online}
 Volume and page data were checked for [Bo76], [Sa88], [Sa04], [Wa80],
-[BK98], [GS12], [TW18], [Ka21], [LS10]. For [Bo76] the article itself
+[BK98], [GS12], [TW18], [Ka21], [LS10], and for Draft~9 also [IM65]
+(Numdam) and [We18] (SMF). For [Bo76] the article itself
 gives pages 233--259, while some indexes give 233--260. We use the
 article. Whether Schultz's thesis was completed in 1998 was not checked.
 
@@ -818,8 +1013,10 @@ false. The style guide asks for revision history to stay in the log
 (guide 6.4). This sentence is kept in the body at David Joyner's
 request, because explaining that failure is the purpose of the
 revision.
-\item One harmless underfull vertical box remains. There are no
-overfull boxes and no undefined references.
+\item Two harmless underfull vertical boxes remain, at page breaks in
+the glossary. There are no overfull boxes and no undefined references.
+\item Section~\ref{P-subsec:savinbg} uses subsubsections, as the
+literature review does, because it is long.
 \end{itemize}
 
 \end{document}
