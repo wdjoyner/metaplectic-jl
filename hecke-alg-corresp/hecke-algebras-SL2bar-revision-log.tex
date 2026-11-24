@@ -1,4 +1,4 @@
-%% Revision log for hecke-algebras-SL2bar.tex (Draft 3, November 2026).
+%% Revision log for hecke-algebras-SL2bar.tex (Draft 4, November 2026).
 %% Cross-references to the paper use xr. Compile the paper first.
 \documentclass[12pt,letterpaper]{amsart}
 \usepackage[T1]{fontenc}
@@ -23,20 +23,21 @@
 \begin{document}
 
 \title{Revision log for ``On Hecke algebras of the $p$-adic metaplectic
-cover $\overline{SL_2}$'', Draft 3}
+cover $\overline{SL_2}$'', Draft 4}
 \author{David Joyner and Claude}
-\date{November 23, 2026}
+\date{November 24, 2026}
 \maketitle
 
-This log accompanies Draft~3 of the paper (file
+This log accompanies Draft~4 of the paper (file
 \texttt{hecke-algebras-SL2bar.tex}). The paper is a corrected and
 expanded version of D.~Joyner, \emph{A correspondence for the
 generalized Hecke algebra of the metaplectic cover
 $\overline{SL(2,F)}$, $F$ $p$-adic}, New York J. Math.\ \textbf{4}
 (1998), 223--235, cited below as [Jo98]. The working source of [Jo98]
 was the file \texttt{howe6.tex}. Numbers such as
-``Theorem~\ref{P-thrm:main}'' refer to Draft~3 of the paper. The
-numbering of Draft~3 is the same as that of Draft~2.
+``Theorem~\ref{P-thrm:main}'' refer to Draft~4 of the paper. Draft~4
+is renumbered. Section~\ref{sec:conc34} gives the correspondence with
+Draft~3, whose numbering is the same as that of Draft~2.
 
 \section{Drafts}
 
@@ -57,12 +58,17 @@ second referee report, which reviewed Draft~2. Glossary rewritten,
 Question~\ref{P-q:n2} sharpened, several proofs clarified. The
 footnote and table of contents changes made after Draft~2 was first
 posted are also counted here.
+\item[Draft 4] (November 24, 2026). Same file. Restructured into two
+parts at David Joyner's request: Part~I for $n=2$ along the lines of
+[Jo98], Part~II for $n\geq 3$. New results for $n=2$ and a new
+non-existence theorem for every $n\geq 2$. Changes requested by David
+Joyner to Sections~6.3, 8 and~9 of Draft~3.
 \end{description}
 
 \noindent
 A different revision of [Jo98], made earlier in 2026 with Argon and
 ChatGPT, is in the folder \texttt{hecke-alg-corresp} of the repository
-\texttt{metaplectic-jl}. Drafts~1--3 here were made from
+\texttt{metaplectic-jl}. Drafts~1--4 here were made from
 \texttt{howe6.tex} and do not incorporate that revision.
 
 \section{AI usage}
@@ -86,6 +92,10 @@ Section~\ref{sec:d1d2}), wrote the literature review, background
 examples, notation table, summary and glossary, checked bibliographic
 data by web search, and wrote this log. It also produced Draft~3,
 checking each point of Carbon's second report before acting on it.
+It produced Draft~4 as well, including the new results of
+Section~\ref{P-section:n2}.
+\item \textbf{Carbon} also supplied a written summary of [Sa88] for
+Draft~4. It was used only for orientation (Section~\ref{sec:sources}).
 \item \textbf{David Joyner} chose the route of an honest corrected
 draft over local fixes, chose the new title, and asked that Claude be
 listed as an author.
@@ -125,7 +135,9 @@ replaces [Jo98, Proposition~2]), Theorem~\ref{P-thrm:main},
 Corollary~\ref{P-corollary:main}, Example~\ref{P-ex:trace},
 Proposition~\ref{P-prop:level0}, and
 Questions~\ref{P-q:defining}, \ref{P-q:n2}, \ref{P-q:savin},
-\ref{P-q:reps}.
+\ref{P-q:reps}. New in Draft~4: Lemma~\ref{P-lemma:nonsplit},
+Proposition~\ref{P-prop:Ksub}, Lemma~\ref{P-lemma:signs},
+Theorem~\ref{P-thm:unimodular} and Corollary~\ref{P-cor:unimodular}.
 
 \section{Changes of status}
 
@@ -149,6 +161,12 @@ form a defining set. Downgraded to an open question
 module. Replaced by the statement about its unique irreducible
 quotient.
 \item \emph{[Jo98, Corollary~3]} (traces at Iwahori level). Removed.
+\item \emph{Draft~3, Question~10.1} ($n=2$). Partly answered in
+Draft~4. For constants of absolute value one the answer is negative,
+for every $n\geq 2$ (Theorem~\ref{P-thm:unimodular}). In particular
+the main theorem of [Jo98] also fails for $n=2$. The case of other
+constants, and abstract isomorphism, remain open
+(Question~\ref{P-q:n2}).
 \end{enumerate}
 
 \section{Concordance}
@@ -352,6 +370,98 @@ whether it has since been published.
 it. No change.
 \end{enumerate}
 
+\section{Concordance from Draft 3 to Draft 4}
+\label{sec:conc34}
+
+Numbers not listed are unchanged.
+
+\begin{longtable}{@{}p{0.3\textwidth}p{0.62\textwidth}@{}}
+\toprule
+{Draft 3} & Draft 4 \\
+\midrule
+\endhead
+Lemma 3.5 & Lemma~\ref{P-lemma:subgroups} \\
+Lemma 3.6 & Lemma~\ref{P-lemma:length} \\
+Example 3.7 & Example~\ref{P-ex:subgroups} \\
+Definition 3.8 & Definition~\ref{P-def:1} \\
+Example 3.9 & Example~\ref{P-ex:hecke} \\
+Lemma 3.10 & Lemma~\ref{P-lemma:general} \\
+Theorem 7.3 & Theorem~\ref{P-thrm:main} \\
+Corollary 7.4 & Corollary~\ref{P-corollary:main} \\
+Example 7.5 & Example~\ref{P-ex:q7} \\
+Section 8, Proposition 8.1 & Section~\ref{P-section:reps},
+Proposition~\ref{P-prop:borel} \\
+Example 8.3 & Example~\ref{P-ex:trace} \\
+Section 9, Proposition 9.1 & Section~\ref{P-section:savin},
+Proposition~\ref{P-prop:level0} \\
+Example 9.2 & Example~\ref{P-ex:level0} \\
+Theorem 9.3 & Theorem~\ref{P-thm:savin}, with its last sentence moved
+to Remark~\ref{P-rem:savin} \\
+Section 10 & Section~\ref{P-section:summary} \\
+Questions 10.1--10.3 & Questions~\ref{P-q:n2}, \ref{P-q:savin},
+\ref{P-q:reps} \\
+\bottomrule
+\end{longtable}
+
+\section{Response to David Joyner's comments on Draft 3}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item \emph{Restrict first to $n=2$ and prove what can be proven along
+the lines of the original paper.} Done as Part~I. The general
+constructions of Sections~\ref{P-section:sl2}--\ref{P-section:metaplectic}
+hold for every $n$ at no extra cost, so they are stated in that
+generality. Section~\ref{P-section:n2} is new. It proves that the part
+of the algebra supported on $SL(2,\cO)$ transfers exactly when
+$p\nmid n$ (Proposition~\ref{P-prop:Ksub}), and computes the signs for
+$n=2$ (Lemma~\ref{P-lemma:signs}). The attempt to prove the main
+theorem of [Jo98] for $n=2$ led instead to a proof that it fails there
+too, for constants of absolute value one
+(Theorem~\ref{P-thm:unimodular}). That proof uses the new
+Lemma~\ref{P-lemma:nonsplit}, that the cover does not split.
+\item \emph{Extend to $n>2$ and show by explicit computations and a
+counterexample which analogs fail.} Done as Part~II. The torus
+commutator, the trace identity and the Iwahori-level supports are the
+analogs that fail. The running example $\mathbb{Q}_7$ now serves both
+parts, with $n=2$ and $n=3$.
+\item \emph{First sentence of Section~8 unclear.} Rewritten as the
+opening paragraph of Section~\ref{P-section:reps}.
+\item \emph{Missing introductory paragraph in Section~6.3.} Added. The
+same check found subsections 3.1--3.4, 6.1 and 6.2 without an
+orienting paragraph. These were added too, as were the openings of the
+new sections and parts.
+\item \emph{Is Theorem~9.3 stated as in [Sa88]?} No. It follows the
+description of [Sa88] in [Ka21], and [Sa88] itself was not consulted.
+The heading now says so. The sentence on the groups of $F$-points is
+our own gloss and is now Remark~\ref{P-rem:savin}.
+\end{enumerate}
+
+\section{Changes from Draft 3 to Draft 4}
+\label{sec:d3d4}
+
+\begin{enumerate}[leftmargin=1.5em]
+\item The paper is divided into Part~I ($n=2$) and Part~II ($n\geq 3$).
+The abstract, introduction, organization paragraph, literature review
+and summary are rewritten accordingly.
+\item New results: Lemma~\ref{P-lemma:nonsplit} with
+Example~\ref{P-ex:nonsplit}, Section~\ref{P-section:n2}
+(Proposition~\ref{P-prop:Ksub}, Lemma~\ref{P-lemma:signs},
+Theorem~\ref{P-thm:unimodular}, Corollary~\ref{P-cor:unimodular} and
+three examples). Remark~\ref{P-vrem:kubota} now also cites Kubota for
+the splitting over $SL(2,\cO)$.
+\item Theorem~\ref{P-thrm:main}, Corollary~\ref{P-corollary:main},
+Example~\ref{P-ex:q7} and the remark after it moved from Section~7 to
+the new Section~\ref{P-section:torus}.
+\item Question~\ref{P-q:n2} rewritten in light of
+Theorem~\ref{P-thm:unimodular}. The example over $\mathbb{Q}_2$ was
+removed, since Part~I assumes $p$ odd.
+\item The running example is $\mathbb{Q}_7$ with $n=2$ and $n=3$.
+Example~\ref{P-ex:hilbert} gains the values for $n=2$.
+\item Items 3--5 of the previous section. Remark~\ref{P-vrem:savin}
+updated.
+\item The notation table gains rows for $s$ and $w(x)$. The
+acknowledgments are updated.
+\end{enumerate}
+
 \section{Changes from Draft 2 to Draft 3}
 \label{sec:d2d3}
 
@@ -416,6 +526,7 @@ removed from the prose.
 \end{enumerate}
 
 \section{Sources}
+\label{sec:sources}
 
 \subsection*{Not consulted in full text}
 None of the cited works was read in full during this revision. In
@@ -430,6 +541,19 @@ Savin's theorem rests on secondary sources
 [Ge76], [RS77], [Wa80], [Fl80], [KP84], [FK86] and [Sc98] are level~3.
 The summaries of [GS12], [TW18], [Ka21], [LS10] and [Wa24] rest on
 their abstracts or introductions (level~2 for what is stated).
+
+\subsection*{The summary of [Sa88] supplied by Carbon}
+For Draft~4 Carbon supplied a written summary of [Sa88]. It is an AI
+summary, not the source, and it was used only for orientation. Two of
+its claims were checked. It agrees with [Ka21] that the target group
+is $G/Z_n$. Its description of the support for $SL(2)$, the translations
+$t_0^m$ with $n\mid 2m$, agrees with Proposition~\ref{P-prop:level0},
+which is proved in the paper (level~1). Its other claims, including the
+proof strategy through Bernstein's presentation, the Gauss sum
+computation and the remarks on later refinements, were not checked and
+are not used. The EuDML record of [Sa88] lists keywords that refer to
+split reductive groups and to generators and relations, consistent
+with the summary.
 
 \subsection*{Bibliographic data checked online}
 Volume and page data were checked for [Bo76], [Sa88], [Sa04], [Wa80],
@@ -448,6 +572,7 @@ original title (guide 6.2).
 \item The central result of [Jo98] is replaced, not preserved (guide
 6.1), because it is false for $n\geq 3$. This was David Joyner's
 decision.
+\item The paper is divided into two parts, at David Joyner's request.
 \item One harmless underfull vertical box remains. There are no
 overfull boxes and no undefined references.
 \end{itemize}
