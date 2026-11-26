@@ -121,6 +121,8 @@ book/       The book: mjl_book_draft.tex / .pdf, chapters/, scripts/,
 glossary.tex  Shared glossary of notation, conventions and status
             labels, input by each frozen Part below
 notes/      Supporting notes, including the running example
+hecke-alg-corresp/  Two revisions of the 1998 paper on Hecke algebras of the
+            metaplectic cover of SL(2) (see its README)
 software/   Supporting code (MIT License)
 part-I/     Part I drafts (.tex, .pdf) and revision logs (frozen)
 part-II/    Part II drafts and revision logs (frozen)
